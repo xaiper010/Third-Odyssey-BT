@@ -1,0 +1,1127 @@
+# Triggered modifiers are here.
+# these are checked for each countries once/month and then applied.
+#
+# Effects are fully scriptable here.
+
+###########################################
+# Tech
+###########################################
+nhs_techgroup_modern = {
+	potential = {
+		technology_group = exiled_greek
+		NOT = { has_institution = manufactories }
+		NOT = { mission_completed = to_a_new_homeland_mission }
+		NOT = { mission_completed = to_heir_of_justinian_mission }
+		NOT = {
+			calc_true_if = {
+				amount = 2
+				mission_completed = to_across_the_eirenic_mission
+				mission_completed = to_east_asian_monopolies_mission
+				mission_completed = to_around_africa_mission
+				mission_completed = to_indian_ambition_mission
+			}
+		}
+	}
+	trigger = {
+		NOT = { has_institution = manufactories }
+		custom_trigger_tooltip = {
+			tooltip = nhs_not_completed_development_of_the_true_homeland_tt
+			NOT = { mission_completed = to_a_new_homeland_mission }
+		}
+		custom_trigger_tooltip = {
+			tooltip = nhs_not_completed_heir_of_justinian_tt
+			NOT = { mission_completed = to_heir_of_justinian_mission }
+		}
+		custom_trigger_tooltip = {
+			tooltip = to_has_not_completed_two_blue_path_missions_tt
+			NOT = {
+				calc_true_if = {
+					amount = 2
+					mission_completed = to_across_the_eirenic_mission
+					mission_completed = to_east_asian_monopolies_mission
+					mission_completed = to_around_africa_mission
+					mission_completed = to_indian_ambition_mission
+				}
+			}
+		}
+	}
+	embracement_cost = 0.1
+	global_institution_spread = -0.20
+	technology_cost = 0.25
+	cav_to_inf_ratio = -0.1
+	picture = "to_exiled"
+}
+
+###########################################
+# Invasion
+###########################################
+
+nhs2_invasion = {
+	potential = {
+		# nhs_check_all_elysian_tags = { CONDITION = tag }
+		has_country_flag = nhs_invasion_begins
+		has_country_flag = nhs_invasion_second_part_begins
+		NOT = { has_country_flag = nhs_invasion_over }
+	}
+
+	trigger = {
+		to_eligible_for_invasion_modifiers = yes
+		# NOT = { war_exhaustion = 5 }
+	}
+	land_morale = 0.10
+	naval_morale = 0.10
+	prestige_from_land = 1
+	# manpower_in_true_faith_provinces = 0.25
+	manpower_in_own_culture_provinces = 0.33
+	# land_forcelimit_modifier = 0.10
+	# land_maintenance_modifier = -0.15
+	war_taxes_cost_modifier = -0.5
+	# global_regiment_recruit_speed = -0.33
+	war_exhaustion = -0.05
+	global_unrest = -5
+	country_military_power = -1
+}
+
+nhs2_invasion_supply_lines = {
+	potential = {
+		# nhs_check_all_elysian_tags = { CONDITION = tag }
+		has_country_flag = nhs_invasion_begins
+		NOT = { has_country_flag = nhs_invasion_over }
+	}
+
+	trigger = {
+		any_province = {
+			has_province_modifier = nhs2_supply_lines_tm
+			country_or_subject_holds = ROOT
+		}
+		to_eligible_for_invasion_modifiers = yes
+	}
+	# manpower_recovery_speed = 0.15
+	# land_forcelimit_modifier = 0.10
+	land_maintenance_modifier = -0.25
+	# possible_mercenaries = 0.30
+	# mercenary_manpower = 0.1
+	# ship_durability = 0.10
+	# naval_maintenance_modifier = -0.1
+	reinforce_speed = 0.50
+	land_attrition = -0.20
+	naval_attrition = -0.20
+}
+
+nhs2_invasion_base_of_operations = {
+	potential = {
+		# nhs_check_all_elysian_tags = { CONDITION = tag }
+		has_country_flag = nhs_invasion_begins
+		has_country_flag = nhs_invasion_second_part_begins
+		NOT = { has_country_flag = nhs_invasion_over }
+	}
+
+	trigger = {
+		any_province = {
+			has_province_modifier = nhs2_base_of_operations_tm
+			country_or_subject_holds = ROOT
+		}
+		to_eligible_for_invasion_modifiers = yes
+		# any_country = {
+		# 	NOT = { culture_group = byzantine }
+		# 	war_with = ROOT
+		# 	any_owned_province = {
+		# 		culture = greek
+		# 	}
+		# }
+	}
+	land_morale = 0.10
+	fort_maintenance_modifier = -0.33
+	# discipline = 0.05
+	defensiveness = 0.20
+	siege_ability = 0.10
+	# global_unrest = -5
+}
+
+nhs2_invasion_naval_wonder = {
+	potential = {
+		# nhs_check_all_elysian_tags = { CONDITION = tag }
+		has_country_flag = nhs_invasion_begins
+		NOT = { has_country_flag = nhs_invasion_over }
+	}
+
+	trigger = {
+		950 = {
+			if = {
+				limit = {
+					OR = {
+						to_has_great_project_at_least_at_tier_1 = {
+							TYPE = nhs_elysian_arsenal
+						}
+						owner = {
+							has_country_flag = nhs_new_flight_taken_venetians
+						}
+					}
+				}
+				OR = {
+					# has_active_triggered_province_modifier = nhs_carthaginian_design_harbour_tm
+					to_has_great_project_at_least_at_tier_2 = {
+						TYPE = nhs_cothon
+					}
+					to_has_great_project_at_least_at_tier_2 = {
+						TYPE = nhs_elysian_arsenal
+					}
+				}
+			}
+			else = {
+				# has_active_triggered_province_modifier = nhs_carthaginian_design_harbour_tm
+				to_has_great_project_at_least_at_tier_2 = {
+					TYPE = nhs_cothon
+				}
+			}
+		}
+		any_province = {
+			has_province_modifier = nhs2_base_of_operations_tm
+			country_or_subject_holds = ROOT
+		}
+		to_eligible_for_invasion_modifiers = yes
+	}
+	# naval_morale = 0.05
+	ship_durability = 0.05
+	heavy_ship_power = 0.1
+	# heavy_ship_cost = -0.2
+	galley_power = 0.1
+	# galley_cost = -0.2
+	light_ship_power = 0.1
+	# light_ship_cost = -0.2
+	transport_power = 0.3
+	global_ship_recruit_speed = -0.2
+}
+
+nhs_invasion_colonial_range = {
+	potential = {
+		# has_country_flag = nhs_cant_think_of_a_name
+		has_country_flag = nhs_supply_lines
+		NOT = { has_country_flag = nhs_supply_lines_secured }
+		OR = {
+			has_country_flag = nhs_supply_lines_western_isles
+			has_country_flag = nhs_supply_lines_eastern_isles
+			has_country_flag = nhs_supply_lines_gibraltar
+			has_country_flag = nhs_supply_lines_atlantic_port
+		}
+		# OR = {
+		# 	has_country_flag = nhs_invasion_begins
+		# 	has_country_flag = nhs_invasion_over
+		# }
+
+		# NOT = {
+		# 	any_owned_province = {
+		# 		OR = {
+		# 			continent = europe
+		# 			region = anatolia_region
+		# 			region = mashriq_region
+		# 			region = egypt_region
+		# 			region = maghreb_region
+		# 		}
+		# 	}
+		# }
+	}
+	trigger = {
+		any_country = {
+			war_with = ROOT
+			custom_trigger_tooltip = {
+				tooltip = to_nhs_owns_supply_lines_target_province
+				nhs_THIS_owns_target_supply_lines_province = { FLAG_SCOPE = ROOT }
+			}
+		}
+		# any_country = {
+		# 	capital_scope = {
+		# 		OR = {
+		# 			continent = europe
+		# 			region = anatolia_region
+		# 			region = mashriq_region
+		# 			region = egypt_region
+		# 			region = maghreb_region
+		# 		}
+		# 	}
+		# 	war_with = ROOT
+		# }
+	}
+	range = 3
+	global_colonial_growth = -20
+}
+
+###########################################
+# Elysian orthodoxy
+###########################################
+
+nhs_holding_rome_exarch = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		OR = {
+			religion = elysian_orthodoxy
+			AND = {
+				mission_completed = to_the_old_gods_mission
+				OR = {
+					religion = pantheon_worship
+					religion = aztlan_worship
+				}
+			}
+		}
+		118 = {
+			has_discovered = ROOT
+		}
+	}
+	trigger = {
+		if = {
+			limit = {
+				religion = elysian_orthodoxy
+			}
+			religion = elysian_orthodoxy
+		}
+		else = {
+			OR = {
+				religion = pantheon_worship
+				religion = aztlan_worship
+			}
+		}
+		118 = {
+			owner = {
+				is_subject_of = ROOT
+				is_subject_of_type = elysian_subject
+			}
+		}
+	}
+	prestige = 0.5
+	missionaries = 1
+}
+
+nhs_holding_jerusalem_exarch = {
+	potential = {
+		NOT = { has_dlc = "Leviathan" }
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		religion = elysian_orthodoxy
+		379 = {
+			has_discovered = ROOT
+		}
+	}
+	trigger = {
+		religion = elysian_orthodoxy
+		379 = {
+			owner = {
+				is_subject_of = ROOT
+				is_subject_of_type = elysian_subject
+			}
+		}
+	}
+	prestige = 0.5
+	missionaries = 1
+	global_heretic_missionary_strength = 0.02
+}
+
+nhs_conquest_of_athens_exarch = {
+	potential = {
+		NOT = { has_dlc = "Leviathan" }
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		religion = pantheon_worship
+		146 = {
+			has_discovered = ROOT
+			has_province_modifier = nhs_conquest_of_athens
+		}
+	}
+	trigger = {
+		religion = pantheon_worship
+		146 = {
+			owner = {
+				is_subject_of = ROOT
+				is_subject_of_type = elysian_subject
+			}
+		}
+	}
+	tolerance_own = 1
+	missionaries = 1
+	missionary_maintenance_cost = -0.20
+	reverse_relation_with_same_religion = 15
+	church_loyalty_modifier = 0.1
+	church_influence_modifier = 0.1
+}
+
+nhs_conquest_of_athens_humanist_exarch = {
+	potential = {
+		NOT = { has_dlc = "Leviathan" }
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		religion = pantheon_worship
+		146 = {
+			has_discovered = ROOT
+			has_province_modifier = nhs_conquest_of_athens_humanist
+		}
+	}
+	trigger = {
+		religion = pantheon_worship
+		146 = {
+			owner = {
+				is_subject_of = ROOT
+				is_subject_of_type = elysian_subject
+			}
+		}
+	}
+	tolerance_of_heretics_capacity = 1
+	tolerance_of_heathens_capacity = 1
+	religious_unity = 0.15
+	advisor_cost = -0.1
+	church_loyalty_modifier = -0.1
+	church_influence_modifier = -0.1
+}
+
+nhs_conquest_of_athens_moderate_exarch = {
+	potential = {
+		NOT = { has_dlc = "Leviathan" }
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		religion = pantheon_worship
+		146 = {
+			has_discovered = ROOT
+			has_province_modifier = nhs_conquest_of_athens_moderate
+		}
+	}
+	trigger = {
+		religion = pantheon_worship
+		146 = {
+			owner = {
+				is_subject_of = ROOT
+				is_subject_of_type = elysian_subject
+			}
+		}
+	}
+	tolerance_heathen = 0.5
+	ae_impact = -0.1
+	diplomatic_reputation = 0.5
+}
+
+nhs_conquest_of_athens_militarist_exarch = {
+	potential = {
+		NOT = { has_dlc = "Leviathan" }
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		religion = pantheon_worship
+		146 = {
+			has_discovered = ROOT
+			has_province_modifier = nhs_conquest_of_athens_militarist
+		}
+	}
+	trigger = {
+		religion = pantheon_worship
+		146 = {
+			owner = {
+				is_subject_of = ROOT
+				is_subject_of_type = elysian_subject
+			}
+		}
+	}
+	missionaries = 1
+	army_tradition = 0.25
+	stability_cost_modifier = -0.20
+}
+
+nhs_holding_mecca_exarch = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		religion = elysian_orthodoxy
+		385 = {
+			has_discovered = ROOT
+		}
+	}
+	trigger = {
+		religion = elysian_orthodoxy
+		385 = {
+			owner = {
+				is_subject_of = ROOT
+				is_subject_of_type = elysian_subject
+			}
+		}
+	}
+	prestige = 0.5
+	missionaries = 1
+	tolerance_own = 1
+}
+
+
+nhs2_0_reform = {
+	potential = {
+		OR = {
+			religion = elysian_orthodoxy
+			to_pre_elysian_orthodox = yes
+		}
+		NOT = { has_global_flag = nhs_first_reform }
+	}
+	trigger = {
+		if = {
+			limit = {
+				religion = elysian_orthodoxy
+			}
+			religion = elysian_orthodoxy
+		}
+		else = {
+			religion = orthodox
+		}
+		custom_trigger_tooltip = {
+			tooltip = nhs2_0_reform_tc_tt
+			NOT = { has_global_flag = nhs_first_reform }
+		}
+	}
+	tolerance_own = -2
+	stability_cost_modifier = 0.10
+	global_missionary_strength = -0.02
+	global_heretic_missionary_strength = -0.03
+	yearly_patriarch_authority = -0.005
+	picture = "to_missionary_strength_penalty_square"
+}
+
+nhs2_1_reform = {
+	potential = {
+		OR = {
+			religion = elysian_orthodoxy
+			to_pre_elysian_orthodox = yes
+		}
+		has_global_flag = nhs_first_reform
+		NOT = { has_global_flag =  nhs_second_reform }
+		NOT = { has_global_flag =  nhs_third_reform }
+	}
+	trigger = {
+		if = {
+			limit = {
+				religion = elysian_orthodoxy
+			}
+			religion = elysian_orthodoxy
+			custom_trigger_tooltip = {
+				tooltip = nhs2_1_reform_tc_tt
+				NOT = { has_global_flag = nhs_second_reform }
+				NOT = { has_global_flag = nhs_third_reform }
+			}
+		}
+		else = {
+			religion = orthodox
+			custom_trigger_tooltip = {
+				tooltip = nhs2_1_reform_tc_orthodox_tt
+				NOT = { has_global_flag = nhs_second_reform }
+				NOT = { has_global_flag = nhs_third_reform }
+			}
+		}
+	}
+	tolerance_own = -1.5
+	stability_cost_modifier = 0.10
+	global_heretic_missionary_strength = -0.03
+	picture = "to_tolerance_own_penalty_square"
+}
+
+nhs2_2_reform = {
+	potential = {
+		religion = elysian_orthodoxy
+		has_global_flag = nhs_first_reform
+		has_global_flag = nhs_second_reform
+		NOT = { has_global_flag = nhs_third_reform }
+	}
+	trigger = {
+		religion = elysian_orthodoxy
+		custom_trigger_tooltip = {
+			tooltip = nhs2_2_reform_tc_tt
+			NOT = { has_global_flag = nhs_third_reform }
+		}
+	}
+	tolerance_own = -1
+	stability_cost_modifier = 0.10
+	global_heretic_missionary_strength = -0.005
+	picture = "to_tolerance_own_penalty_square"
+}
+
+nhs2_3_reform = {
+	potential = {
+		OR = {
+			religion = elysian_orthodoxy
+			to_pre_elysian_orthodox = yes
+		}
+		has_global_flag = nhs_first_reform
+		has_global_flag = nhs_third_reform
+		NOT = { has_global_flag = nhs_second_reform }
+	}
+	trigger = {
+		if = {
+			limit = {
+				religion = elysian_orthodoxy
+			}
+			religion = elysian_orthodoxy
+		}
+		else = {
+			religion = orthodox
+		}
+		custom_trigger_tooltip = {
+			tooltip = nhs2_3_reform_tc_tt
+			NOT = { has_global_flag = nhs_second_reform }
+		}
+	}
+	tolerance_own = -0.5
+	stability_cost_modifier = -0.05
+	global_heretic_missionary_strength = -0.03
+	picture = "to_missionary_strength_heretic_penalty_square"
+}
+
+nhs2_23_reform = {
+	potential = {
+		religion = elysian_orthodoxy
+		has_global_flag = nhs_first_reform
+		has_global_flag = nhs_second_reform
+		has_global_flag = nhs_third_reform
+		NOT = { has_global_flag = nhs_fourth_reform }
+	}
+	trigger = {
+		religion = elysian_orthodoxy
+		custom_trigger_tooltip = {
+			tooltip = nhs2_23_reform_tc_tt
+			NOT = { has_global_flag = nhs_fourth_reform }
+		}
+	}
+	tolerance_own = 0.5
+	global_heretic_missionary_strength = -0.005
+	stability_cost_modifier = -0.05
+	picture = "to_elysian_orthodoxy_halo"
+}
+
+nhs2_4_reform = {
+	potential = {
+		religion = elysian_orthodoxy
+		has_global_flag = nhs_first_reform
+		has_global_flag = nhs_second_reform
+		has_global_flag = nhs_third_reform
+		has_global_flag = nhs_fourth_reform
+	}
+	trigger = {
+		religion = elysian_orthodoxy
+		custom_trigger_tooltip = {
+			tooltip = nhs2_4_reform_tc_tt
+			always = yes
+		}
+	}
+	tolerance_own = 1
+	global_heretic_missionary_strength = 0.05
+	stability_cost_modifier = -0.1
+	enforce_religion_cost = -0.5
+	picture = "to_elysian_orthodoxy_halo"
+}
+
+nhs2_no_patriarch = {
+	potential = {
+		religion = elysian_orthodoxy
+		has_global_flag = nhs_first_reform
+		NOT = {
+			any_province = {
+				owner = {
+					OR = {
+						tag = ROOT
+						overlord_of = ROOT
+					 }
+				}
+				OR = {
+					has_province_modifier = nhs2_orthodox_patriarchate
+					has_province_modifier = patriarchate_of_the_west
+					has_province_modifier = patriarchate_of_the_south
+					has_province_modifier = patriarchate_of_the_far_west
+					has_province_modifier = patriarchate_of_the_north
+					has_province_modifier = ecumenical_patriarch_modifier
+					has_province_modifier = nhs2_orthodox_patriarchate_off
+					has_province_modifier = patriarchate_of_the_west_off
+					has_province_modifier = patriarchate_of_the_south_off
+					has_province_modifier = patriarchate_of_the_far_west_off
+					has_province_modifier = patriarchate_of_the_north_off
+					has_province_modifier = ecumenical_patriarch_modifier_off
+					has_province_modifier = nhs2_orthodox_patriarchate_cus
+					has_province_modifier = patriarchate_of_the_west_cus
+					has_province_modifier = patriarchate_of_the_south_cus
+					has_province_modifier = patriarchate_of_the_far_west_cus
+					has_province_modifier = patriarchate_of_the_north_cus
+					has_province_modifier = ecumenical_patriarch_modifier_cus
+					has_province_modifier = nhs2_orthodox_patriarchate_for
+					has_province_modifier = patriarchate_of_the_west_for
+					has_province_modifier = patriarchate_of_the_south_for
+					has_province_modifier = patriarchate_of_the_far_west_for
+					has_province_modifier = patriarchate_of_the_north_for
+					has_province_modifier = ecumenical_patriarch_modifier_for
+				}
+			}
+		}
+	}
+	trigger = {
+		NOT = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = nhs2_orthodox_patriarchate
+					has_province_modifier = patriarchate_of_the_west
+					has_province_modifier = patriarchate_of_the_south
+					has_province_modifier = patriarchate_of_the_far_west
+					has_province_modifier = patriarchate_of_the_north
+					has_province_modifier = ecumenical_patriarch_modifier
+				}
+			}
+		}
+	}
+	stability_cost_modifier = 0.05
+	global_missionary_strength = -0.005
+}
+
+nhs2_has_patriarch = {
+	potential = {
+		religion = elysian_orthodoxy
+		has_global_flag = nhs_first_reform
+		NOT = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier
+					has_province_modifier = ecumenical_patriarch_modifier_off
+					has_province_modifier = ecumenical_patriarch_modifier_cus
+					has_province_modifier = ecumenical_patriarch_modifier_for
+				}
+			}
+		}
+		any_province = {
+			owner = {
+				tag = ROOT
+			}
+			OR = {
+				has_province_modifier = nhs2_orthodox_patriarchate
+				has_province_modifier = patriarchate_of_the_west
+				has_province_modifier = patriarchate_of_the_south
+				has_province_modifier = patriarchate_of_the_far_west
+				has_province_modifier = patriarchate_of_the_north
+				has_province_modifier = ecumenical_patriarch_modifier
+				has_province_modifier = nhs2_orthodox_patriarchate_off
+				has_province_modifier = patriarchate_of_the_west_off
+				has_province_modifier = patriarchate_of_the_south_off
+				has_province_modifier = patriarchate_of_the_far_west_off
+				has_province_modifier = patriarchate_of_the_north_off
+				has_province_modifier = ecumenical_patriarch_modifier_off
+				has_province_modifier = nhs2_orthodox_patriarchate_cus
+				has_province_modifier = patriarchate_of_the_west_cus
+				has_province_modifier = patriarchate_of_the_south_cus
+				has_province_modifier = patriarchate_of_the_far_west_cus
+				has_province_modifier = patriarchate_of_the_north_cus
+				has_province_modifier = ecumenical_patriarch_modifier_cus
+				has_province_modifier = nhs2_orthodox_patriarchate_for
+				has_province_modifier = patriarchate_of_the_west_for
+				has_province_modifier = patriarchate_of_the_south_for
+				has_province_modifier = patriarchate_of_the_far_west_for
+				has_province_modifier = patriarchate_of_the_north_for
+				has_province_modifier = ecumenical_patriarch_modifier_for
+			}
+		}
+	}
+	trigger = {
+		any_owned_province = {
+			OR = {
+				has_province_modifier = nhs2_orthodox_patriarchate
+				has_province_modifier = patriarchate_of_the_west
+				has_province_modifier = patriarchate_of_the_south
+				has_province_modifier = patriarchate_of_the_far_west
+				has_province_modifier = patriarchate_of_the_north
+			}
+		}
+	}
+	stability_cost_modifier = -0.05
+	global_missionary_strength = 0.005
+}
+
+nhs2_low_patri_authority = {
+	potential = {
+		religion = elysian_orthodoxy
+	}
+	trigger = {
+		NOT = { patriarch_authority = 0.25 }
+	}
+	religious_unity = 0.10
+	tolerance_heathen = 1
+	tolerance_heretic = 1
+}
+
+to_hre_dominant_elysian_orthodox = {
+	potential = {
+		is_religion_enabled = elysian_orthodoxy
+		OR = {
+			religion = catholic
+			religion = protestant
+			religion = reformed
+			religion = elysian_orthodoxy
+		}
+	}
+
+	trigger = {
+		religion = elysian_orthodoxy
+		hre_religion = elysian_orthodoxy
+		hre_religion_locked = yes
+		OR = {
+			is_emperor = yes
+			capital_scope = {
+				continent = europe
+			}
+		}
+	}
+	legitimacy = 0.25
+	tolerance_own = 0.5
+	global_missionary_strength = 0.005
+	imperial_authority = 0.25
+}
+
+###########################################
+# SUBJECT MODIFIERS
+###########################################
+
+to_nhs_handicap_settlers_subject = {
+	potential = {
+		is_subject = yes
+		is_colonial_nation = yes
+		overlord = {
+			has_country_modifier = nhs_handicap_settlers
+		}
+	}
+
+	trigger = {
+		overlord = {
+			has_country_modifier = nhs_handicap_settlers
+		}
+		technology_group = exiled_greek
+	}
+	land_forcelimit_modifier = -0.10 #
+	naval_forcelimit_modifier = -0.10 #
+	global_manpower_modifier = -0.60 #
+	global_sailors_modifier = -0.60 #
+	mercenary_cost = 0.5 #
+	mercenary_manpower = -0.5 #
+	cavalry_cost = 0.50 #
+	global_ship_recruit_speed = 1.0 #
+	global_ship_cost = 1.0 #
+	naval_maintenance_modifier = 0.30 #
+	land_maintenance_modifier = 0.30 #
+	cav_to_inf_ratio = -0.3 #
+}
+
+never_again_falter_subject = {
+	potential = {
+		is_subject = yes
+		OR = {
+			is_colonial_nation = yes
+			is_subject_of_type = to_imperial_protectorate
+			is_subject_of_type = trade_protectorate
+		}
+		overlord = {
+			has_idea = never_again_falter
+		}
+	}
+
+	trigger = {
+		overlord = {
+			has_idea = never_again_falter
+		}
+	}
+	defensiveness = 0.20
+}
+
+###########################################
+# MISSIONS
+###########################################
+
+to_cahokia_controler_booming_trade_tm = {
+	potential = {
+		owns = 917
+		has_global_flag = to_control_andronika_mission_completed
+		NOT = { mission_completed = to_control_andronika_mission }
+		OR = {
+			any_ally = {
+				mission_completed = to_control_andronika_mission
+			}
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				overlord = {
+					any_ally = {
+						mission_completed = to_control_andronika_mission
+					}
+				}
+			}
+		}
+	}
+	trigger = {
+		owns = 917
+		if = {
+			limit = {
+				is_subject = no
+			}
+			any_ally = {
+				mission_completed = to_control_andronika_mission
+			}
+		}
+		else = {
+			OR = {
+				any_ally = {
+					mission_completed = to_control_andronika_mission
+				}
+				overlord = {
+					any_ally = {
+						mission_completed = to_control_andronika_mission
+					}
+				}
+			}
+		}
+	}
+
+	trade_efficiency = 0.1
+	global_trade_goods_size_modifier = 0.1
+}
+
+to_penal_colony_in_australia_tm = {
+	potential = {
+		has_country_flag = to_completed_penal_colony_in_australia
+	}
+
+	trigger = {
+		num_of_provinces_owned_or_owned_by_subjects_with = {
+			value = 15
+			colonial_region = colonial_australia
+		}
+		num_of_provinces_owned_or_owned_by_subjects_with = {
+			value = 5
+			colonial_region = colonial_australia
+			OR = {
+				has_building = fort_16th
+				has_building = fort_17th
+				has_building = fort_18th
+			}
+		}
+	}
+	global_unrest = -1
+	harsh_treatment_cost = -0.1
+}
+
+to_controls_colonial_colombia = {
+	potential = {
+		has_country_flag = to_direct_control_from_capital
+	}
+
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = to_has_enacted_direct_control_from_capital_decision_tt
+			has_country_flag = to_direct_control_from_capital
+		}
+		num_of_owned_provinces_with = {
+			value = 10
+			is_city = yes
+			colonial_region = colonial_colombia
+		}
+	}
+	merchants = 1
+	global_trade_power = 0.05
+}
+
+to_controls_colonial_brazil = {
+	potential = {
+		has_country_flag = to_direct_control_from_capital
+	}
+
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = to_has_enacted_direct_control_from_capital_decision_tt
+			has_country_flag = to_direct_control_from_capital
+		}
+		num_of_owned_provinces_with = {
+			value = 10
+			is_city = yes
+			colonial_region = colonial_brazil
+		}
+	}
+	merchants = 1
+	global_trade_power = 0.05
+}
+
+to_controls_colonial_peru = {
+	potential = {
+		has_country_flag = to_direct_control_from_capital
+	}
+
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = to_has_enacted_direct_control_from_capital_decision_tt
+			has_country_flag = to_direct_control_from_capital
+		}
+		num_of_owned_provinces_with = {
+			value = 10
+			is_city = yes
+			colonial_region = colonial_peru
+		}
+	}
+	merchants = 1
+	global_trade_power = 0.05
+}
+
+to_controls_colonial_la_plata = {
+	potential = {
+		has_country_flag = to_direct_control_from_capital
+	}
+
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = to_has_enacted_direct_control_from_capital_decision_tt
+			has_country_flag = to_direct_control_from_capital
+		}
+		num_of_owned_provinces_with = {
+			value = 10
+			is_city = yes
+			colonial_region = colonial_la_plata
+		}
+	}
+	merchants = 1
+	global_trade_power = 0.05
+}
+
+###########################################
+# HRE
+###########################################
+
+to_prince_bonus_1 = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		hre_size = 1
+		has_country_flag = to_kept_hre_bureaucracy
+		NOT = { hre_size = 70 }
+	}
+
+	trigger = {
+		hre_size = 60
+		NOT = { hre_size = 70 }
+	}
+	imperial_authority_value = 0.1
+	picture = "to_penal_colony"
+}
+
+to_prince_bonus_2 = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		hre_size = 1
+		has_country_flag = to_kept_hre_bureaucracy
+		hre_size = 70
+		NOT = { hre_size = 80 }
+	}
+
+	trigger = {
+		hre_size = 70
+		NOT = { hre_size = 80 }
+	}
+	imperial_authority_value = 0.2
+}
+
+to_prince_bonus_3 = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		hre_size = 1
+		has_country_flag = to_kept_hre_bureaucracy
+		hre_size = 80
+		NOT = { hre_size = 90 }
+	}
+
+	trigger = {
+		hre_size = 80
+		NOT = { hre_size = 90 }
+	}
+	imperial_authority_value = 0.3
+}
+
+to_prince_bonus_4 = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		hre_size = 1
+		has_country_flag = to_kept_hre_bureaucracy
+		hre_size = 90
+		NOT = { hre_size = 100 }
+	}
+
+	trigger = {
+		hre_size = 90
+		NOT = { hre_size = 100 }
+	}
+	imperial_authority_value = 0.4
+}
+
+to_prince_bonus_5 = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		hre_size = 1
+		has_country_flag = to_kept_hre_bureaucracy
+		hre_size = 100
+	}
+
+	trigger = {
+		hre_size = 100
+	}
+	imperial_authority_value = 0.5
+}
+
+###########################################
+# ARMY REFORMS
+###########################################
+
+to_professional_army_expensive_mercs = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		to_has_professional_army_reform = yes
+		any_hired_mercenary_company = {
+			to_is_non_free_mercenary_company = yes
+		}
+	}
+	trigger = {
+		if = {
+			limit = {
+				has_country_modifier = to_ad_professional_army
+			}
+			has_country_modifier = to_ad_professional_army
+		}
+		else = {
+			has_country_modifier = to_ad_professional_army_nodlc
+		}
+		custom_trigger_tooltip = {
+			tooltip = to_has_non_free_mercenary_company_tt
+			always = yes
+		}
+	}
+
+	merc_maintenance_modifier = 2
+	discipline = -0.05
+}
+
+to_over_forcelimit_penalty_volley_fire = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		to_has_volley_fire_army_reform = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				has_country_modifier = to_ad_volley_fire
+			}
+			has_country_modifier = to_ad_volley_fire
+		}
+		else = {
+			has_country_modifier = to_ad_volley_fire_nodlc
+		}
+		to_above_max_forcelimit = yes
+	}
+	discipline = -0.10
+}
+
+to_over_forcelimit_penalty_professional_army = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		to_has_professional_army_reform = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				has_country_modifier = to_ad_professional_army
+			}
+			has_country_modifier = to_ad_professional_army
+		}
+		else = {
+			has_country_modifier = to_ad_professional_army_nodlc
+		}
+		to_above_max_forcelimit = yes
+	}
+	discipline = -0.15
+}

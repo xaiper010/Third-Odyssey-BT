@@ -1,0 +1,395 @@
+to_fabricate_exarch_claim = {
+	category = covert
+	require_acceptance = no
+	is_visible = {
+		ROOT = {
+			nhs_check_all_elysian_tags = { CONDITION = tag }
+		}
+		FROM = {
+			NOT = { is_subject_of = ROOT }
+			OR = {
+				to_owns_potential_exarch_claim = { EXARCH_TAG = ELG }
+
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEA }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEB }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEC }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EED }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEE }
+
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEF }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEG }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEH }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEI }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEJ }
+
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEL }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEM }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEO }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EER }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EES }
+
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EET }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEU }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEV }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEP }
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEQ }
+
+				to_owns_potential_exarch_claim = { EXARCH_TAG = EEY }
+			}
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				FROM = {
+					is_subject = no
+				}
+			}
+			has_spy_network_in = {
+				who = FROM
+				value = 25
+			}
+		}
+		else = {
+			FROM = {
+				overlord = {
+					has_spy_network_from = {
+						who = ROOT
+						value = 25
+					}
+				}
+			}
+		}
+		
+		NOT = { war_with = FROM }
+		custom_trigger_tooltip = {
+			tooltip = to_fabricate_exarch_claim_tt
+			FROM = {
+				OR = {
+					to_owns_exarch_claim = { EXARCH_TAG = ELG }
+
+					to_owns_exarch_claim = { EXARCH_TAG = EEA }
+					to_owns_exarch_claim = { EXARCH_TAG = EEB }
+					to_owns_exarch_claim = { EXARCH_TAG = EEC }
+					to_owns_exarch_claim = { EXARCH_TAG = EED }
+					to_owns_exarch_claim = { EXARCH_TAG = EEE }
+
+					to_owns_exarch_claim = { EXARCH_TAG = EEF }
+					to_owns_exarch_claim = { EXARCH_TAG = EEG }
+					to_owns_exarch_claim = { EXARCH_TAG = EEH }
+					to_owns_exarch_claim = { EXARCH_TAG = EEI }
+					to_owns_exarch_claim = { EXARCH_TAG = EEJ }
+
+					to_owns_exarch_claim = { EXARCH_TAG = EEL }
+					to_owns_exarch_claim = { EXARCH_TAG = EEM }
+					to_owns_exarch_claim = { EXARCH_TAG = EEO }
+					to_owns_exarch_claim = { EXARCH_TAG = EER }
+					to_owns_exarch_claim = { EXARCH_TAG = EES }
+
+					to_owns_exarch_claim = { EXARCH_TAG = EET }
+					to_owns_exarch_claim = { EXARCH_TAG = EEU }
+					to_owns_exarch_claim = { EXARCH_TAG = EEV }
+					to_owns_exarch_claim = { EXARCH_TAG = EEP }
+					to_owns_exarch_claim = { EXARCH_TAG = EEQ }
+
+					to_owns_exarch_claim = { EXARCH_TAG = EEY }
+				}
+			}
+		}
+	}
+	on_accept = {
+		if = {
+			limit = {
+				FROM = {
+					is_subject = no
+				}
+			}
+			add_spy_network_in = {
+				who = FROM
+				value = -25
+			}
+		}
+		else = {
+			FROM = {
+				overlord = {
+					add_spy_network_from = {
+						who = ROOT
+						value = -25
+					}
+				}
+			}
+		}
+		FROM = {
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = ELG }
+
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEA }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEB }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEC }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EED }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEE }
+	
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEF }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEG }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEH }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEI }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEJ }
+	
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEL }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEM }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEO }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EER }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EES }
+	
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EET }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEU }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEV }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEP }
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEQ }
+
+			to_fabricate_exarch_claim_effect = { EXARCH_TAG = EEY }
+		}
+	}
+	ai_will_do = {
+		always = no
+	}
+}
+
+to_offer_exarch_to_vassal = {
+	category = influence
+	require_acceptance = yes
+	is_visible = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		FROM = {
+			NOT = { is_subject_of_type = elysian_subject }
+			capital_scope = {
+				to_potential_exarch_province = yes
+			}
+		}
+	}
+
+	is_allowed = {
+		dip_power = 100
+		is_at_war = no
+		FROM = {
+			is_at_war = no
+			is_subject_of = ROOT
+			OR = {
+				is_subject_of_type = vassal
+				is_subject_of_type = march
+				is_subject_of_type = client_vassal
+				is_subject_of_type = client_march
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = to_no_exarch_in_the_capital_region_tt
+			FROM = {
+				capital_scope = {
+					to_exarch_trigger_from_province = {
+						TRIGGER = "exists = no"
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					capital_scope = {
+						to_exarch_trigger_from_province = {
+							TRIGGER = "
+							OR = {
+								tag = EEW
+								tag = EEK
+								AND = {
+									has_global_flag = to_orhans_descendant_rules_anatolia
+									tag = EEN
+								}
+							}"
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = to_local_exarch_cannot_be_created_from_a_vassal_tt
+				always = no
+			}
+		}
+	}
+
+	on_accept = {
+		add_dip_power = -100
+		FROM = {
+			to_change_tag_to_local_exarch = yes
+			hidden_effect = {
+				save_event_target_as = to_new_exarch
+			}
+		}
+		tooltip = {
+			create_subject = {
+				subject_type = elysian_subject
+				subject = FROM
+				keep_liberty_desire = yes
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					owns = 151
+				}
+			}
+			custom_tooltip = nhs_new_line_tt
+			151 = {
+				to_cede_province_to_exarch_overlord = {
+					CURRENT_OWNER = owner
+					NEW_OWNER = ROOT
+				}
+			}
+		}
+		hidden_effect = {
+			create_subject = {
+				subject_type = elysian_subject
+				subject = event_target:to_new_exarch
+				keep_liberty_desire = yes
+			}
+			event_target:to_new_exarch = {
+				add_liberty_desire = -20
+				set_country_flag = to_50_year_cooldown_on_exarch_annex
+				every_owned_province = {
+					limit = {
+						to_exarch_land = { SCOPE = event_target:to_new_exarch }
+					}
+					to_make_exarch_province_reserved = yes
+				}
+				to_initialize_custom_exarch_peripheral_territories = { PROVINCE_TRIGGER = "NOT = { to_exarch_land = { SCOPE = event_target:to_new_exarch } }" }
+
+				every_core_province = {
+					limit = {
+						owner = {
+							NOT = { tag = event_target:to_new_exarch }
+						}
+					}
+					remove_core = event_target:to_new_exarch
+					add_permanent_claim = ROOT
+				}
+
+				if = {
+					limit = {
+						government = monarchy
+					}
+					add_government_reform = to_exarch_reform_monarchy
+				}
+				else = {
+					change_government = republic
+					add_government_reform = to_exarch_reform
+				}
+			}
+		}
+	}
+
+	ai_acceptance = {
+		add_entry = {
+			name = BASE_RELUCTANCE
+			export_to_variable = {
+				variable_name = ai_value
+				value = stability
+			}
+			set_variable = {
+				which = ai_value
+				value = -5
+			}
+		}
+		add_entry = {
+			name = liberty_desire
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:liberty_desire
+				who = FROM
+			}
+			multiply_variable = {
+				which = ai_value
+				value = -0.5
+			}
+		}
+		add_entry = {
+            name = DIPLO_OPPINION
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			multiply_variable = {
+				which = ai_value 
+				value = 0.25
+			}
+        }
+		add_entry = {
+			name = AI_DIPLOMATIC_REPUTATION
+			limit = {
+				diplomatic_reputation = 0
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:diplomatic_reputation
+			}
+			multiply_variable = {
+				which = ai_value
+				value = 3
+			}
+		}
+	}
+
+	ai_will_do = {
+		always = no
+	}
+}
+
+to_grant_independance_and_play_as = {
+	category = influence
+	require_acceptance = no
+
+	is_visible = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		FROM = {
+			is_subject_of_type = elysian_subject
+		}
+	}
+
+	is_allowed = {
+		is_at_war = no
+		FROM = {
+			is_at_war = no
+			is_subject_of_type = elysian_subject
+		}
+	}
+
+	on_accept = {
+		FROM = {
+			grant_independence = yes
+		}
+		hidden_effect = {
+			FROM = {
+				if = {
+					limit = {
+						government = republic
+					}
+					to_remove_republican_gov_reforms = yes
+				}
+				else_if = {
+					limit = {
+						government = monarchy
+					}
+					to_remove_monarchy_gov_reforms = yes
+				}
+			}
+			transfer_achievement_completion = {
+				ORIGIN = ROOT
+				TARGET = FROM
+			}
+		}
+		switch_tag = FROM
+	}
+
+	ai_will_do = {
+		always = no
+	}
+}

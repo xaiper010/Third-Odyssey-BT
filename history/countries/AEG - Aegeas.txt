@@ -1,0 +1,8 @@
+government = monarchy
+add_government_reform = feudalism_reform
+mercantilism = 20
+# primary_culture = elyshi
+religion = pantheon_worship
+technology_group = exiled_greek
+unit_type = exiled_greek
+capital = 950

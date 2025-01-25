@@ -1,0 +1,56 @@
+#MS1 debuff on certain things.
+msg_msg_debuff = {
+	potential = {
+		tag = MS1
+	}
+	trigger = {
+		custom_trigger_tooltip = { tooltip = msg_msg_debuff_tt always = yes }
+	}
+	naval_forcelimit_modifier = -1
+	diplomats = -2 # All nations always have at least 1 diplomat
+	global_missionary_strength = -0.1
+	missionaries = -1
+	build_time = 0.25
+	merchants = -2
+}
+
+#Debuff for if Sparta declares war during a reform
+#NOTE TO SCUREK: Changed AI actions so it won't declare war during reform
+msg_reform_debuff_with_dlc = {
+	potential = {
+		tag = MSN
+		ai = no
+		NOT = { has_global_flag = msg_reforms_done }
+	}
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = msg_at_war_during_reform
+			OR = {
+				has_reform = msg_court_reform_ref
+				has_reform = msg_diplomats_ref
+				has_reform = msg_naval_reform_ref
+				
+				has_reform = msg_reform_land_ref
+				has_reform = msg_reform_trade_ports_ref
+				has_reform = msg_reform_gold_mine_ref
+				
+				has_reform = msg_spartan_heralds_ref
+				has_reform = msg_native_deities_ref
+				has_reform = msg_deify_leonidas_ref
+				
+				has_reform = msg_aztlan_priesthood_ref
+				has_reform = msg_old_faith_ref
+				has_reform = msg_sacrifice_ref
+				
+				has_reform = msg_spartan_patriarch_ref
+				has_reform = msg_holy_army_ref
+				has_reform = msg_saint_leo_ref
+			}
+			is_in_war = {
+				attacker_leader = ROOT
+			}
+		}
+	}
+	discipline = -0.25
+	land_morale = -0.25
+}

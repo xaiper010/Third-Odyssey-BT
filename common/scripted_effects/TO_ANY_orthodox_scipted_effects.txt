@@ -1,0 +1,1107 @@
+nhs_patriarch_switch_off = {
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = nhs2_orthodox_patriarchate
+					has_province_modifier = nhs2_orthodox_patriarchate_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = nhs2_orthodox_patriarchate
+					has_province_modifier = nhs2_orthodox_patriarchate_for
+				}
+			}
+			remove_province_modifier = nhs2_orthodox_patriarchate
+			remove_province_modifier = nhs2_orthodox_patriarchate_for
+			add_permanent_province_modifier = {
+				name = nhs2_orthodox_patriarchate_off
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_west
+					has_province_modifier = patriarchate_of_the_west_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_west
+					has_province_modifier = patriarchate_of_the_west_for
+				}
+			}
+			remove_province_modifier = patriarchate_of_the_west
+			remove_province_modifier = patriarchate_of_the_west_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_west_off
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_south
+					has_province_modifier = patriarchate_of_the_south_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_south
+					has_province_modifier = patriarchate_of_the_south_for
+				}
+			}
+			remove_province_modifier = patriarchate_of_the_south
+			remove_province_modifier = patriarchate_of_the_south_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_south_off
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_far_west
+					has_province_modifier = patriarchate_of_the_far_west_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_far_west
+					has_province_modifier = patriarchate_of_the_far_west_for
+				}
+			}
+			remove_province_modifier = patriarchate_of_the_far_west
+			remove_province_modifier = patriarchate_of_the_far_west_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_far_west_off
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_north
+					has_province_modifier = patriarchate_of_the_north_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_north
+					has_province_modifier = patriarchate_of_the_north_for
+				}
+			}
+			remove_province_modifier = patriarchate_of_the_north
+			remove_province_modifier = patriarchate_of_the_north_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_north_off
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier
+					has_province_modifier = ecumenical_patriarch_modifier_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier
+					has_province_modifier = ecumenical_patriarch_modifier_for
+				}
+			}
+			remove_province_modifier = ecumenical_patriarch_modifier
+			remove_province_modifier = ecumenical_patriarch_modifier_for
+			add_permanent_province_modifier = {
+				name = ecumenical_patriarch_modifier_off
+				duration = -1
+			}
+		}
+	}
+}
+
+nhs_patriarch_switch_custody = {
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = nhs2_orthodox_patriarchate
+					has_province_modifier = nhs2_orthodox_patriarchate_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = nhs2_orthodox_patriarchate
+					has_province_modifier = nhs2_orthodox_patriarchate_for
+				}
+			}
+			remove_province_modifier = nhs2_orthodox_patriarchate
+			remove_province_modifier = nhs2_orthodox_patriarchate_for
+			add_permanent_province_modifier = {
+				name = nhs2_orthodox_patriarchate_cus
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_west
+					has_province_modifier = patriarchate_of_the_west_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_west
+					has_province_modifier = patriarchate_of_the_west_for
+				}
+			}
+			remove_province_modifier = patriarchate_of_the_west
+			remove_province_modifier = patriarchate_of_the_west_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_west_cus
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_south
+					has_province_modifier = patriarchate_of_the_south_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_south
+					has_province_modifier = patriarchate_of_the_south_for
+				}
+			}
+			remove_province_modifier = patriarchate_of_the_south
+			remove_province_modifier = patriarchate_of_the_south_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_south_cus
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_far_west
+					has_province_modifier = patriarchate_of_the_far_west_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_far_west
+					has_province_modifier = patriarchate_of_the_far_west_for
+				}
+			}
+			remove_province_modifier = patriarchate_of_the_far_west
+			remove_province_modifier = patriarchate_of_the_far_west_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_far_west_cus
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_north
+					has_province_modifier = patriarchate_of_the_north_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_north
+					has_province_modifier = patriarchate_of_the_north_for
+				}
+			}
+			remove_province_modifier = patriarchate_of_the_north
+			remove_province_modifier = patriarchate_of_the_north_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_north_cus
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier
+					has_province_modifier = ecumenical_patriarch_modifier_for
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier
+					has_province_modifier = ecumenical_patriarch_modifier_for
+				}
+			}
+			remove_province_modifier = ecumenical_patriarch_modifier
+			remove_province_modifier = ecumenical_patriarch_modifier_for
+			add_permanent_province_modifier = {
+				name = ecumenical_patriarch_modifier_cus
+				duration = -1
+			}
+		}
+	}
+}
+
+nhs_patriarch_switch_back = {
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = nhs2_orthodox_patriarchate_cus
+					has_province_modifier = nhs2_orthodox_patriarchate_off
+				}
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = nhs2_orthodox_patriarchate_cus
+					has_province_modifier = nhs2_orthodox_patriarchate_off
+				}
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = nhs2_orthodox_patriarchate_cus
+			remove_province_modifier = nhs2_orthodox_patriarchate_off
+			add_permanent_province_modifier = {
+				name = nhs2_orthodox_patriarchate
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_west_cus
+					has_province_modifier = patriarchate_of_the_west_off
+				}
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_west_cus
+					has_province_modifier = patriarchate_of_the_west_off
+				}
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = patriarchate_of_the_west_cus
+			remove_province_modifier = patriarchate_of_the_west_off
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_west
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_south_cus
+					has_province_modifier = patriarchate_of_the_south_off
+				}
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_south_cus
+					has_province_modifier = patriarchate_of_the_south_off
+				}
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = patriarchate_of_the_south_cus
+			remove_province_modifier = patriarchate_of_the_south_off
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_south
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_far_west_cus
+					has_province_modifier = patriarchate_of_the_far_west_off
+				}
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_far_west_cus
+					has_province_modifier = patriarchate_of_the_far_west_off
+				}
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = patriarchate_of_the_far_west_cus
+			remove_province_modifier = patriarchate_of_the_far_west_off
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_far_west
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_north_cus
+					has_province_modifier = patriarchate_of_the_north_off
+				}
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_north_cus
+					has_province_modifier = patriarchate_of_the_north_off
+				}
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = patriarchate_of_the_north_cus
+			remove_province_modifier = patriarchate_of_the_north_off
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_north
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier_cus
+					has_province_modifier = ecumenical_patriarch_modifier_off
+				}
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier_cus
+					has_province_modifier = ecumenical_patriarch_modifier_off
+				}
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = ecumenical_patriarch_modifier_cus
+			remove_province_modifier = ecumenical_patriarch_modifier_off
+			add_permanent_province_modifier = {
+				name = ecumenical_patriarch_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+nhs_patriarch_switch_for = {
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = nhs2_orthodox_patriarchate
+					has_province_modifier = nhs2_orthodox_patriarchate_cus
+					has_province_modifier = nhs2_orthodox_patriarchate_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = nhs2_orthodox_patriarchate
+					has_province_modifier = nhs2_orthodox_patriarchate_cus
+					has_province_modifier = nhs2_orthodox_patriarchate_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+			remove_province_modifier = nhs2_orthodox_patriarchate
+			remove_province_modifier = nhs2_orthodox_patriarchate_cus
+			remove_province_modifier = nhs2_orthodox_patriarchate_off
+			add_permanent_province_modifier = {
+				name = nhs2_orthodox_patriarchate_for
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_west
+					has_province_modifier = patriarchate_of_the_west_cus
+					has_province_modifier = patriarchate_of_the_west_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_west
+					has_province_modifier = patriarchate_of_the_west_cus
+					has_province_modifier = patriarchate_of_the_west_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+			remove_province_modifier = patriarchate_of_the_west
+			remove_province_modifier = patriarchate_of_the_west_cus
+			remove_province_modifier = patriarchate_of_the_west_off
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_west_for
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_south
+					has_province_modifier = patriarchate_of_the_south_cus
+					has_province_modifier = patriarchate_of_the_south_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_south
+					has_province_modifier = patriarchate_of_the_south_cus
+					has_province_modifier = patriarchate_of_the_south_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+			remove_province_modifier = patriarchate_of_the_south
+			remove_province_modifier = patriarchate_of_the_south_cus
+			remove_province_modifier = patriarchate_of_the_south_off
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_south_for
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_far_west
+					has_province_modifier = patriarchate_of_the_far_west_cus
+					has_province_modifier = patriarchate_of_the_far_west_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_far_west
+					has_province_modifier = patriarchate_of_the_far_west_cus
+					has_province_modifier = patriarchate_of_the_far_west_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+			remove_province_modifier = patriarchate_of_the_far_west
+			remove_province_modifier = patriarchate_of_the_far_west_cus
+			remove_province_modifier = patriarchate_of_the_far_west_off
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_far_west_for
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_north
+					has_province_modifier = patriarchate_of_the_north_cus
+					has_province_modifier = patriarchate_of_the_north_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = patriarchate_of_the_north
+					has_province_modifier = patriarchate_of_the_north_cus
+					has_province_modifier = patriarchate_of_the_north_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+			remove_province_modifier = patriarchate_of_the_north
+			remove_province_modifier = patriarchate_of_the_north_cus
+			remove_province_modifier = patriarchate_of_the_north_off
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_north_for
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier
+					has_province_modifier = ecumenical_patriarch_modifier_cus
+					has_province_modifier = ecumenical_patriarch_modifier_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier
+					has_province_modifier = ecumenical_patriarch_modifier_cus
+					has_province_modifier = ecumenical_patriarch_modifier_off
+				}
+				NOT = { religion = elysian_orthodoxy }
+			}
+			remove_province_modifier = ecumenical_patriarch_modifier
+			remove_province_modifier = ecumenical_patriarch_modifier_cus
+			remove_province_modifier = ecumenical_patriarch_modifier_off
+			add_permanent_province_modifier = {
+				name = ecumenical_patriarch_modifier_for
+				duration = -1
+			}
+		}
+	}
+}
+
+nhs_patriarch_switch_for_back = {
+	if = {
+		limit = {
+			any_owned_province = {
+				has_province_modifier = nhs2_orthodox_patriarchate_for
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = nhs2_orthodox_patriarchate_for
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = nhs2_orthodox_patriarchate_for
+			add_permanent_province_modifier = {
+				name = nhs2_orthodox_patriarchate
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				has_province_modifier = patriarchate_of_the_west_for
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = patriarchate_of_the_west_for
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = patriarchate_of_the_west_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_west
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				has_province_modifier = patriarchate_of_the_south_for
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = patriarchate_of_the_south_for
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = patriarchate_of_the_south_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_south
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				has_province_modifier = patriarchate_of_the_far_west_for
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = patriarchate_of_the_far_west_for
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = patriarchate_of_the_far_west_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_far_west
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				has_province_modifier = patriarchate_of_the_north_for
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = patriarchate_of_the_north_for
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = patriarchate_of_the_north_for
+			add_permanent_province_modifier = {
+				name = patriarchate_of_the_north
+				duration = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			any_owned_province = {
+				has_province_modifier = ecumenical_patriarch_modifier_for
+				religion = elysian_orthodoxy
+			}
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = ecumenical_patriarch_modifier_for
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = ecumenical_patriarch_modifier_for
+			add_permanent_province_modifier = {
+				name = ecumenical_patriarch_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+nhs_anti_patriarch = {
+	if = {
+		limit = {
+			patriarch_authority = 0.9
+		}
+		custom_tooltip = nhs_high_patriarch_authority_90
+		add_dip_power = -75
+	}
+	if = {
+		limit = {
+			patriarch_authority = 0.80
+			NOT = { patriarch_authority = 0.9 }
+		}
+		custom_tooltip = nhs_high_patriarch_authority_80
+		add_dip_power = -50
+	}
+	if = {
+		limit = {
+			patriarch_authority = 0.25
+			OR = {
+				patriarch_authority = 0.6
+				NOT = { patriarch_authority = 0.4 }
+			}
+		}
+		custom_tooltip = nhs_high_patriarch_authority_25
+		add_dip_power = -30
+	}
+	if = {
+		limit = {
+			patriarch_authority = 0.10
+			NOT = { patriarch_authority = 0.25 }
+		}
+		custom_tooltip = nhs_high_patriarch_authority_10
+		add_dip_power = -15
+	}
+	if = {
+		limit = {
+			NOT = { patriarch_authority = 0.75 }
+		}
+		custom_tooltip = nhs_high_patriarch_authority_75_below
+		add_prestige = 10
+	}
+	if = {
+		limit = {
+			NOT = { patriarch_authority = 0.06 }
+		}
+		custom_tooltip = nhs_high_patriarch_authority_5_below
+		add_dip_power = 50
+		add_legitimacy = -5
+	}
+}
+
+nhs_for_patriarch = {
+	if = {
+		limit = {
+			patriarch_authority = 0.95
+		}
+		custom_tooltip = nhs_high_patriarch_authority_95
+		add_adm_power = 25
+		add_corruption = 1
+	}
+	if = {
+		limit = {
+			patriarch_authority = 0.3
+		}
+		custom_tooltip = nhs_high_patriarch_authority_30
+		add_legitimacy = 5
+	}
+	if = {
+		limit = {
+			NOT = { patriarch_authority = 0.95 }
+			patriarch_authority = 0.80
+		}
+		custom_tooltip = nhs_high_patriarch_authority_95_below
+		add_adm_power = -15
+		add_prestige = -5
+	}
+	if = {
+		limit = {
+			NOT = { patriarch_authority = 0.80 }
+			OR = {
+				patriarch_authority = 0.6
+				NOT = { patriarch_authority = 0.4 }
+			}
+		}
+		custom_tooltip = nhs_high_patriarch_authority_80_below
+		add_adm_power = -30
+		add_prestige = -5
+	}
+	if = {
+		limit = {
+			NOT = { patriarch_authority = 0.2 }
+		}
+		custom_tooltip = nhs_high_patriarch_authority_20_below
+		add_adm_power = -50
+	}
+	if = {
+		limit = {
+			NOT = { patriarch_authority = 0.1 }
+		}
+		custom_tooltip = nhs_high_patriarch_authority_10_below
+		add_adm_power = -75
+	}
+}
+
+to_add_new_patriarch_modifier_all_provinces = {
+	every_owned_province = {
+		to_handle_new_patriarch_modifier = yes
+	}
+}
+
+to_handle_new_patriarch_modifier = {
+	if = {
+		limit = {
+			owner = {
+				religion = elysian_orthodoxy
+				has_global_flag = nhs_elysian_o_greece_new
+			}
+			OR = {
+				culture = greek
+				culture = pontic_greek
+				culture_group = south_slavic
+			}
+			OR = {
+				religion = orthodox
+				religion = elysian_orthodoxy
+			}
+		}
+		if = {
+			limit = {
+				religion = orthodox
+			}
+			remove_province_modifier = nhs2_converts
+			add_province_modifier = {
+				name = nhs2_new_patriarch_greek
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				religion = elysian_orthodoxy
+			}
+			remove_province_modifier = nhs2_new_patriarch_greek
+			add_province_modifier = {
+				name = nhs2_converts
+				duration = -1
+			}
+		}
+	}
+	else = {
+		remove_province_modifier = nhs2_converts
+		remove_province_modifier = nhs2_new_patriarch_greek
+	}
+}
+
+to_add_traditional_patriarch_modifier_all_provinces = {
+	every_owned_province = {
+		to_handle_traditional_patriarch_modifier = yes
+	}
+}
+
+to_handle_traditional_patriarch_modifier = {
+	if = {
+		limit = {
+			owner = {
+				religion = elysian_orthodoxy
+				has_global_flag = nhs_elysian_o_greece_trad
+			}
+			religion = orthodox
+			OR = {
+				culture = greek
+				culture = pontic_greek
+				culture_group = south_slavic
+			}
+		}
+		add_province_modifier = {
+			name = nhs2_allowed_patriarch_greek
+			duration = -1
+		}
+	}
+	else = {
+		remove_province_modifier = nhs2_allowed_patriarch_greek
+	}
+}
+
+to_add_correct_patriarchate_land_modifier = {
+	if = {
+		limit = {
+			owner = {
+				has_estate_privilege = to_estate_church_patriarchal_dominance
+			}
+		}
+		add_province_modifier = {
+			name = nhs2_patriarchate_land_reduced
+			duration = -1
+		}
+	}
+	else = {
+		add_province_modifier = {
+			name = nhs2_patriarchate_land
+			duration = -1
+		}
+	}
+}
+
+to_remove_all_patriarchate_land_and_trigger_revolt = {
+	custom_tooltip = to_remove_all_patriarchate_land_and_trigger_revolt_tt
+	hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+					to_has_patriarch_land = yes
+					to_has_patriarch_land_capital = yes
+				}
+			}
+			remove_province_modifier = nhs2_patriarchate_land
+			remove_province_modifier = nhs2_patriarchate_land_reduced
+			remove_province_modifier = nhs2_patriarchate_land_capital
+			remove_province_modifier = nhs2_patriarchate_land_capital_reduced
+			if = {
+				limit = {
+					nhs_is_patriarchate = yes
+				}
+				spawn_rebels = {
+					size = 2
+					type = elysian_orthodoxy_rebels
+				}
+			}
+			else = {
+				spawn_rebels = {
+					size = 1
+					type = elysian_orthodoxy_rebels
+				}
+			}
+		}
+	}
+}
+
+to_find_special_patriarch_province = {
+	every_owned_province = {
+		limit = {
+			is_city = yes
+			$PROVINCE_TRIGGERS$
+		}
+		set_variable = {
+			which = to_patriarch_value
+			value = 0
+		}
+		if = {
+			limit = {
+				OR = {
+					province_has_center_of_trade_of_level = 1
+					has_province_modifier = to_dynamic_cot
+				}
+			}
+			change_variable = {
+				which = to_patriarch_value
+				value = 10
+			}
+		}
+		if = {
+			limit = {
+				has_river_estuary_trigger = yes
+			}
+			change_variable = {
+				which = to_patriarch_value
+				value = 5
+			}
+		}
+		export_to_variable = {
+			which = to_local_development
+			value = trigger_value:development
+		}
+		change_variable = {
+			which = to_patriarch_value
+			which = to_local_development
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = $EVENT_TARGET$ }
+			}
+			save_event_target_as = $EVENT_TARGET$
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = to_patriarch_value
+					which = event_target:$EVENT_TARGET$
+				}
+			}
+			save_event_target_as = $EVENT_TARGET$
+		}
+	}
+}
+
+to_set_patriarchate_flag = {
+	trigger_switch = {
+		on_trigger = region
+		hudson_bay_region = { set_global_flag = nhs2_patriarchate_hudson_bay }
+		canada_region = { set_global_flag = nhs2_patriarchate_canada }
+		great_lakes_region = { set_global_flag = nhs2_patriarchate_great_lakes }
+
+		mexico_region = { set_global_flag = nhs2_patriarchate_mexico }
+		central_america_region = { set_global_flag = nhs2_patriarchate_central_america }
+		
+		mississippi_region = { set_global_flag = nhs2_patriarchate_mississippi }
+		rocky_mountains_region = { set_global_flag = nhs2_patriarchate_rocky_mountains }
+		cascadia_region = { set_global_flag = nhs2_patriarchate_cascadia }
+		rio_grande_region = { set_global_flag = nhs2_patriarchate_rio_grande }
+		carribeans_region = { set_global_flag = nhs2_patriarchate_carribeans }
+	}
+}
+
+to_add_religious_reformer_modifier = {
+	if = {
+		limit = {
+			has_ruler_flag = to_get_religious_reformer_modifier
+		}
+		clr_ruler_flag = to_get_religious_reformer_modifier
+		if = {
+			limit = {
+				has_dlc = "Rights of Man"
+				NOT = { num_of_ruler_traits = { amount = 3 } }
+			}
+			to_remove_and_save_personalities = { WHO = ruler }
+			add_ruler_personality = to_religious_reformer_personality
+			to_restore_personalities = { WHO = ruler }
+		}
+		else = {
+			add_ruler_modifier = {
+				name = to_religious_reformer_personality_mod
+				duration = -1
+			}
+		}
+	}
+}
+
+to_add_unifier_modifier = {
+	if = {
+		limit = {
+			has_ruler_flag = to_get_unifier_prodege_modifier
+		}
+		clr_ruler_flag = to_get_unifier_prodege_modifier
+		if = {
+			limit = {
+				has_dlc = "Rights of Man"
+				NOT = { num_of_ruler_traits = { amount = 3 } }
+			}
+			to_remove_and_save_personalities = { WHO = ruler }
+			add_ruler_personality = to_unifiers_prodege_personality
+			to_restore_personalities = { WHO = ruler }
+		}
+		else = {
+			add_ruler_modifier = {
+				name = to_unifiers_prodege_personality_mod
+				duration = -1
+			}
+		}
+	}
+}

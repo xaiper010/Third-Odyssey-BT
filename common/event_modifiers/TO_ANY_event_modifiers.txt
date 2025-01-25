@@ -1,0 +1,57 @@
+to_dynamic_cot = {
+	province_trade_power_value = 1
+	picture = "to_dynamic_cot"
+}
+
+to_abrahamic_conversion_penalty = {
+	local_missionary_strength = -0.02
+	religion = yes
+}
+
+##################################################
+# Missionary Strength from battles mechanic
+##################################################
+
+to_missionary_strength_from_battles_1 = {
+	local_missionary_strength = 0.01
+	religion = yes
+	picture = "local_missionary_strength_I"
+}
+
+to_missionary_strength_from_battles_2 = {
+	local_missionary_strength = 0.02
+	religion = yes
+	picture = "local_missionary_strength_II"
+}
+
+to_missionary_strength_from_battles_3 = {
+	local_missionary_strength = 0.03
+	religion = yes
+	picture = "local_missionary_strength_III"
+}
+
+to_missionary_strength_from_battles_4 = {
+	local_missionary_strength = 0.04
+	religion = yes
+	picture = "local_missionary_strength_IV"
+}
+
+to_missionary_strength_from_battles_inactive_1 = {
+	religion = yes
+	picture = "local_missionary_strength_inactive_I"
+}
+
+to_missionary_strength_from_battles_inactive_2 = {
+	religion = yes
+	picture = "local_missionary_strength_inactive_II"
+}
+
+to_missionary_strength_from_battles_inactive_3 = {
+	religion = yes
+	picture = "local_missionary_strength_inactive_III"
+}
+
+to_missionary_strength_from_battles_inactive_4 = {
+	religion = yes
+	picture = "local_missionary_strength_inactive_IV"
+}

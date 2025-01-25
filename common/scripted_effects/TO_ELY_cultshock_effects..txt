@@ -1,0 +1,609 @@
+# Start effect, level is indicated using LEVEL = replace
+# Example: to_cultureshock_start = { LEVEL = vbad }
+# Levels are vbad, bad, medium, light, vlight.
+to_cultureshock_check = {
+	if = {
+		limit = {
+			is_empty = no
+			to_eligible_for_cultureshock = yes
+		}
+		if = {
+			limit = {
+				owner = {
+					has_or_overlord_has = { TRIGGER = "to_has_cultureshock_country = yes" }
+				}
+			}
+			to_add_current_cultureshock = yes
+			to_start_culture_adaptation = yes
+		}
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_or_overlord_has = { TRIGGER = "to_has_cultureshock_country = yes" } }
+				}
+			}
+			if = {
+				limit = {
+					owner = {
+						is_subject = yes
+						overlord = {
+							nhs_check_all_elysian_tags = { CONDITION = tag }
+							NOT = { has_country_flag = to_has_cultureshock }
+						}
+					}
+				}
+				owner = {
+					overlord = {
+						set_country_flag = to_has_cultureshock
+						country_event = {
+							id = nhs2_shock_events.1
+							days = 30
+							random = 15
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					owner = {
+						is_subject = no
+						nhs_check_all_elysian_tags = { CONDITION = tag }
+						NOT = { has_country_flag = to_has_cultureshock }
+					}
+				}
+				owner = {
+					set_country_flag = to_has_cultureshock
+					country_event = {
+						id = nhs2_shock_events.1
+						days = 30
+						random = 15
+					}
+				}
+			}
+		}
+	}
+	else = {
+		to_remove_cultureshock_modifiers = yes
+	}
+}
+
+to_cultureshock_check_all_owned_provinces = {
+	every_owned_province = {
+		to_cultureshock_check = yes
+	}
+}
+
+to_cultureshock_on_primary_culture_change = {
+	if = {
+		limit = {
+			nhs_check_all_elysian_tags = { CONDITION = tag }
+			NOT = { has_country_flag = to_integrated_greeks }
+			to_has_cultureshock_country = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					primary_culture = greek
+					primary_culture = pontic_greek
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_has_cultureshock = yes
+				}
+				to_remove_cultureshock_modifiers = yes
+			}
+		}
+		else = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				to_add_current_cultureshock = yes
+			}
+		}
+	}
+}
+
+to_cultureshock_start = {
+	custom_tooltip = to_cultureshock_$LEVEL$_tt
+	custom_tooltip = nhs_new_line_tt
+	custom_tooltip = to_cultureshock_$LEVEL$_start_tt
+	custom_tooltip = to_cultureshock_desc_tt
+	custom_tooltip = nhs_new_line_tt
+	custom_tooltip = to_full_greek_integration_reward_tt
+	set_country_flag = has_cultureshock_$LEVEL$
+	hidden_effect = {
+		every_province = {
+			limit = {
+				country_or_subject_holds = ROOT
+				to_eligible_for_cultureshock = yes
+			}
+			add_province_modifier = {
+				name = to_cultureshock_$LEVEL$
+				duration = -1
+			}
+			to_start_culture_adaptation = yes
+		}
+	}
+}
+
+to_remove_cultureshock_modifiers = {
+	remove_province_modifier = to_cultureshock_vbad
+	remove_province_modifier = to_cultureshock_bad
+	remove_province_modifier = to_cultureshock_medium
+	remove_province_modifier = to_cultureshock_light
+	remove_province_modifier = to_cultureshock_vlight
+}
+
+to_add_current_cultureshock = {
+	if = {
+		limit = {
+			owner = {
+				has_or_overlord_has = { TRIGGER = "has_country_flag = has_cultureshock_vbad" }
+			}
+		}
+		add_province_modifier = {
+			name = to_cultureshock_vbad
+			duration = -1
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_or_overlord_has = { TRIGGER = "has_country_flag = has_cultureshock_bad" }
+			}
+		}
+		add_province_modifier = {
+			name = to_cultureshock_bad
+			duration = -1
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_or_overlord_has = { TRIGGER = "has_country_flag = has_cultureshock_medium" }
+			}
+		}
+		add_province_modifier = {
+			name = to_cultureshock_medium
+			duration = -1
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_or_overlord_has = { TRIGGER = "has_country_flag = has_cultureshock_light" }
+			}
+		}
+		add_province_modifier = {
+			name = to_cultureshock_light
+			duration = -1
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_or_overlord_has = { TRIGGER = "has_country_flag = has_cultureshock_vlight" }
+			}
+		}
+		add_province_modifier = {
+			name = to_cultureshock_vlight
+			duration = -1
+		}
+	}
+}
+
+to_cultureshock_decrease = {
+	if = {
+		limit = {
+			has_country_flag = has_cultureshock_vbad
+		}
+		custom_tooltip = nhs2_cultureshock_decrease.tt
+		custom_tooltip = nhs2_cultureshock_decrease_vbad_to_bad.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_vbad
+				add_province_modifier = {
+					name = to_cultureshock_bad
+					duration = -1
+				}
+			}
+		}
+		clr_country_flag = has_cultureshock_vbad
+		set_country_flag = has_cultureshock_bad
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_bad
+		}
+		custom_tooltip = nhs2_cultureshock_decrease.tt
+		custom_tooltip = nhs2_cultureshock_decrease_bad_to_medium.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_bad
+				add_province_modifier = {
+					name = to_cultureshock_medium
+					duration = -1
+				}
+			}
+		}
+		clr_country_flag = has_cultureshock_bad
+		set_country_flag = has_cultureshock_medium
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_medium
+		}
+		custom_tooltip = nhs2_cultureshock_decrease.tt
+		custom_tooltip = nhs2_cultureshock_decrease_medium_to_light.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_medium
+				add_province_modifier = {
+					name = to_cultureshock_light
+					duration = -1
+				}
+			}
+		}
+		clr_country_flag = has_cultureshock_medium
+		set_country_flag = has_cultureshock_light
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_light
+		}
+		custom_tooltip = nhs2_cultureshock_decrease.tt
+		custom_tooltip = nhs2_cultureshock_increase_light_to_vlight.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_light
+				add_province_modifier = {
+					name = to_cultureshock_vlight
+					duration = -1
+				}
+			}
+		}
+		clr_country_flag = has_cultureshock_light
+		set_country_flag = has_cultureshock_vlight
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_vlight
+		}
+		# custom_tooltip = nhs2_cultureshock_solved.tt
+		custom_tooltip = nhs2_cultureshock_decrease_unrest.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				add_named_unrest = {
+					name = to_greeks_placated
+					value = -5
+				}
+				add_nationalism = -5
+			}
+		}
+	}
+}
+
+to_cultureshock_increase = {
+	if = {
+		limit = {
+			has_country_flag = has_cultureshock_vbad
+			# REPLACE ME
+			# Should increase revolution disaster counter
+		}
+		custom_tooltip = nhs2_cultureshock_increase_unrest.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				add_named_unrest = {
+					name = to_greeks_revolting
+					value = 5
+				}
+				remove_province_modifier = recent_uprising
+			}
+		}
+		# add_disaster_progress = {
+		# 	disaster = to_greek_revolt_disaster
+		# 	value = 20
+		# }
+		# custom_tooltip = nhs2_cultureshock_critical.tt
+		# hidden_effect = {
+		# 	# REPLACE ME
+		# }
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_bad
+		}
+		custom_tooltip = nhs2_cultureshock_increase.tt
+		custom_tooltip = nhs2_cultureshock_increase_bad_to_vbad.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_bad
+				add_province_modifier = {
+					name = to_cultureshock_vbad
+					duration = -1
+				}
+			}
+		}
+		clr_country_flag = has_cultureshock_bad
+		set_country_flag = has_cultureshock_vbad
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_medium
+		}
+		custom_tooltip = nhs2_cultureshock_increase.tt
+		custom_tooltip = nhs2_cultureshock_increase_medium_to_bad.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_medium
+				add_province_modifier = {
+					name = to_cultureshock_bad
+					duration = -1
+				}
+			}
+		}
+		clr_country_flag = has_cultureshock_medium
+		set_country_flag = has_cultureshock_bad
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_light
+		}
+		custom_tooltip = nhs2_cultureshock_increase.tt
+		custom_tooltip = nhs2_cultureshock_increase_light_to_medium.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_light
+				add_province_modifier = {
+					name = to_cultureshock_medium
+					duration = -1
+				}
+			}
+		}
+		clr_country_flag = has_cultureshock_light
+		set_country_flag = has_cultureshock_medium
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_vlight
+		}
+		custom_tooltip = nhs2_cultureshock_increase.tt
+		custom_tooltip = nhs2_cultureshock_increase_vlight_to_light.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_vlight
+				add_province_modifier = {
+					name = to_cultureshock_light
+					duration = -1
+				}
+			}
+		}
+		clr_country_flag = has_cultureshock_vlight
+		set_country_flag = has_cultureshock_light
+	}
+}
+
+to_cultureshock_big_increase = {
+	if = {
+		limit = {
+			has_country_flag = has_cultureshock_vbad
+			# REPLACE ME
+			# Should increase revolution disaster counter
+		}
+		custom_tooltip = nhs2_cultureshock_big_increase_unrest.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				add_named_unrest = {
+					name = to_greeks_revolting
+					value = 10
+				}
+				remove_province_modifier = recent_uprising
+			}
+		}
+		# add_disaster_progress = {
+		# 	disaster = to_greek_revolt_disaster
+		# 	value = 40
+		# }
+		# custom_tooltip = nhs2_cultureshock_critical.tt
+		# hidden_effect = {
+		# 	# REPLACE ME
+		# }
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_bad
+		}
+		clr_country_flag = has_cultureshock_bad
+		set_country_flag = has_cultureshock_vbad
+		custom_tooltip = nhs2_cultureshock_big_increase.tt
+		custom_tooltip = nhs2_cultureshock_increase_bad_to_vbad.tt
+		custom_tooltip = nhs2_cultureshock_additional_increase_unrest.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_bad
+				add_province_modifier = {
+					name = to_cultureshock_vbad
+					duration = -1
+				}
+				add_named_unrest = {
+					name = to_greeks_revolting
+					value = 5
+				}
+				remove_province_modifier = recent_uprising
+			}
+		}
+		# add_disaster_progress = {
+		# 	disaster = to_greek_revolt_disaster
+		# 	value = 20
+		# }
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_medium
+		}
+		clr_country_flag = has_cultureshock_medium
+		set_country_flag = has_cultureshock_vbad
+		custom_tooltip = nhs2_cultureshock_big_increase.tt
+		custom_tooltip = nhs2_cultureshock_increase_medium_to_vbad.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_medium
+				add_province_modifier = {
+					name = to_cultureshock_vbad
+					duration = -1
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_light
+		}
+		clr_country_flag = has_cultureshock_light
+		set_country_flag = has_cultureshock_bad
+		custom_tooltip = nhs2_cultureshock_big_increase.tt
+		custom_tooltip = nhs2_cultureshock_increase_light_to_bad.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_light
+				add_province_modifier = {
+					name = to_cultureshock_bad
+					duration = -1
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = has_cultureshock_vlight
+		}
+		clr_country_flag = has_cultureshock_vlight
+		set_country_flag = has_cultureshock_medium
+		custom_tooltip = nhs2_cultureshock_big_increase.tt
+		custom_tooltip = nhs2_cultureshock_increase_vlight_to_medium.tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					to_eligible_for_cultureshock = yes
+				}
+				remove_province_modifier = to_cultureshock_vlight
+				add_province_modifier = {
+					name = to_cultureshock_medium
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+to_check_separatism_in_turkish_provinces = {
+	if = {
+		limit = {
+			culture = turkish
+			owner = {
+				has_or_overlord_has = { 
+					TRIGGER = "has_country_flag = to_get_separatism_in_sunni_levantine_provinces" 
+				}
+			}
+		}
+		add_nationalism = 15
+	}
+}
+
+to_check_separatism_in_christian_roman_and_sunni_levantine_provinces = {
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					culture_group = byzantine
+					religion_group = christian
+				}
+				culture = turkish
+			}
+			owner = {
+				has_or_overlord_has = { 
+					TRIGGER = "has_country_flag = to_get_separatism_in_christian_roman_and_sunni_levantine_provinces" 
+				}
+			}
+		}
+		add_nationalism = 20
+	}
+}
+
+to_check_dynatoi_garrisons = {
+	if = {
+		limit = {
+			nhs_dynatoi_garrison_areas = yes
+			NOT = { has_province_flag = to_had_dynatoi_garrison }
+			owner = {
+				has_or_overlord_has = { TRIGGER = "has_country_flag = to_has_dynatoi_garrisons" }
+			}
+		}
+		add_province_modifier = {
+			name = to_dynatoi_garrison
+			duration = 10950
+		}
+		set_province_flag = to_had_dynatoi_garrison
+	}
+}

@@ -1,0 +1,318 @@
+msg_elysian_debt = {
+	#custom_tooltip = msg_elysian_debt
+	add_prestige = -10
+	if = {
+		limit = {
+			#NOT = { nhs_check_all_elysian_tags_with_if = { CONDITION = has_matching_religion } }
+			NOT = { 
+				nhs_check_existing_elysian_tags_with_full_condition = {
+					CONDITION = "has_matching_religion = ROOT"
+				} 
+			}
+		}
+		custom_tooltip = msg_elysian_debt_tt
+		hidden_effect = {
+			add_legitimacy = -10
+		}
+	}
+}
+
+msg_handle_slaves = {
+	if = {
+		limit = {
+			has_province_modifier = msg_slave_province_tm
+			#NOT = { culture_group = spartakian_group }
+			owner = {
+				NOT = { tag = MSN }
+			}
+		}
+		remove_province_triggered_modifier = msg_slave_province_tm
+	}
+	if = {
+		limit = {
+			has_province_modifier = msg_liberated_slaves
+			#NOT = { culture_group = spartakian_group }
+			owner = {
+				NOT = { tag = MSN }
+			}
+		}
+		remove_province_modifier = msg_liberated_slaves
+	}
+	if = {
+		limit = {
+			culture = tlacotin
+			#NOT = { culture_group = spartakian_group }
+			owner = {
+				NOT = { tag = MSN }
+			}
+		}
+		if = {
+			limit = {
+				has_province_flag = msg_former_aztek_culture
+			}
+			change_culture = aztek
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_totonac_culture
+			}
+			change_culture = totonac
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_purepecha_culture
+			}
+			change_culture = purepecha
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_matlatzinca_culture
+			}
+			change_culture = matlatzinca
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_zapotek_culture
+			}
+			change_culture = zapotek
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_mixtec_culture
+			}
+			change_culture = mixtec
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_tlapanec_culture
+			}
+			change_culture = tlapanec
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_yucatec_culture
+			}
+			change_culture = yucatec
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_putun_culture
+			}
+			change_culture = putun
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_mayan_culture
+			}
+			change_culture = mayan
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_highland_mayan_culture
+			}
+			change_culture = highland_mayan
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_lacandon_culture
+			}
+			change_culture = lacandon
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_wastek_culture
+			}
+			change_culture = wastek
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_chontales_culture
+			}
+			change_culture = chontales
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_tecos_culture
+			}
+			change_culture = tecos	
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_tepic_culture
+			}
+			change_culture = tepic
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_chichimecan_culture
+			}
+			change_culture = chichimecan
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_guamares_culture
+			}
+			change_culture = guamares
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_otomi_culture
+			}
+			change_culture = otomi
+		}
+		else_if = {
+			limit = {
+				has_province_flag = msg_former_yaqui_culture
+			}
+			change_culture = yaqui
+		}
+		else_if = {
+			limit = {
+				OR = {
+					culture_group = central_american
+					culture_group = otomanguean
+					culture_group = maya
+					culture_group = aridoamerican
+				}
+			}
+			owner = {
+				ROOT = {
+					change_culture = PREV
+				}
+			}
+		}
+	}
+}
+
+msg_slaves_on_siege = {
+	if = {
+		limit = {
+			has_province_modifier = msg_slave_province_tm
+			NOT = { has_province_modifier = msg_liberated_slaves }
+			FROM = {
+				OR = {
+					tag = MSN
+					#culture_group = spartakian_group
+				}
+			}
+			NOT = { controlled_by = REB }
+			controller = {
+				NOT = { tag = MSN }
+				#NOT = { culture_group = spartakian_group }
+			}
+		}
+		controller = {
+			if = {
+				limit = {
+					MSN = {
+						ai = yes
+					}
+				}
+				if = {
+					limit = {
+						controller = {
+							OR = {
+								culture_group = central_american
+								culture_group = otomanguean
+								culture_group = maya
+								culture_group = aridoamerican
+							}
+						}
+					}
+					random = {
+						chance = 50
+						country_event = { id = msg_postconqevents.24 }
+					}
+				}
+				else = {
+					random = {
+						chance = 12
+						#chance = 100
+						country_event = { id = msg_postconqevents.24 }
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						controller = {
+							OR = {
+								culture_group = central_american
+								culture_group = otomanguean
+								culture_group = maya
+								culture_group = aridoamerican
+							}
+						}
+					}
+					country_event = { id = msg_postconqevents.24 }
+				}
+				else = {
+					random = {
+						chance = 25
+						#chance = 100
+						country_event = { id = msg_postconqevents.24 }
+					}
+				}
+			}
+			#country_event = { id = msg_postconqevents.24 }
+		}
+	}
+	else_if = {
+		limit = {
+			has_province_modifier = msg_slave_province_tm
+			NOT = { has_province_modifier = msg_liberated_slaves }
+			FROM = {
+				OR = {
+					tag = MSN
+					#culture_group = spartakian_group
+				}
+			}
+			controlled_by = REB
+			MSN = {
+				ai = no
+			}
+			controller = {
+				NOT = { tag = MSN }
+			}
+		}
+		controller = {
+			random = {
+				chance = 75
+				ROOT = {
+					add_province_modifier = {
+						name = msg_liberated_slaves
+						duration = 3650
+					}
+					infantry = PREV
+				}
+			}
+		}
+	}
+}
+
+msg_advance_major_reform_track = {
+	custom_tooltip = msg_advance_the_$TYPE$_reform_track_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				has_reform = msg_$TYPE$0_ref
+			}
+			#remove_government_reform = msg_$TYPE$0_ref
+			add_government_reform = msg_$TYPE$1_ref
+		}
+		else_if = {
+			limit = {
+				has_reform = msg_$TYPE$1_ref
+			}
+			#remove_government_reform = msg_$TYPE$1_ref
+			add_government_reform = msg_$TYPE$2_ref
+		}
+		else_if = {
+			limit = {
+				has_reform = msg_$TYPE$2_ref
+			}
+			#remove_government_reform = msg_$TYPE$2_ref
+			add_government_reform = msg_$TYPE$3_ref
+		}
+	}
+}

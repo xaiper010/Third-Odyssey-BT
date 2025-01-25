@@ -1,0 +1,141 @@
+to_elysian_sprite_pack = {
+	country_trigger = {
+		OR = {
+			nhs_check_all_elysian_tags_expanded = { CONDITION = tag }
+			tag = SHQ
+			tag = MS1
+
+			tag = BYZ
+			tag = ACH
+			tag = CEP
+			tag = CRT
+			tag = CYP
+			tag = EPI
+			tag = MOE
+			tag = NAX
+			tag = TRE
+			tag = ELG
+		}
+		NOT = { tag = VAE }
+	}
+
+	sprite_infantry = {
+		0 = greekgfx_INFANTRY_1
+		1 = greekgfx_INFANTRY_2
+		2 = greekgfx_INFANTRY_3
+		3 = greekgfx_INFANTRY_4
+	}
+
+	sprite_cavalry = {
+		0 = greekgfx_CAVALRY_1
+		1 = greekgfx_CAVALRY_2
+		2 = greekgfx_CAVALRY_3
+		3 = greekgfx_CAVALRY_4
+	}
+	
+	sprite_artillery = {
+		0 = greekgfx_ARTILLERY_1
+		1 = greekgfx_ARTILLERY_2
+		2 = greekgfx_ARTILLERY_3
+		3 = greekgfx_ARTILLERY_4
+	}
+}
+
+to_elysian_fire_pack = {
+	# Tests against every tag in game
+	country_trigger = {
+		OR = {
+			nhs_check_all_elysian_tags_expanded = { CONDITION = tag }
+			tag = SHQ
+			tag = MS1
+		}
+		NOT = { tag = VAE }
+		OR = {
+			has_country_modifier = to_ad_greek_fire
+			has_country_modifier = to_ad_greek_fire2
+			has_country_modifier = to_ad_greek_fire3
+		}
+	}
+
+	sprite_infantry = {
+		0 = greekgfx_fire_INFANTRY_1
+		1 = greekgfx_fire_INFANTRY_2
+		2 = greekgfx_fire_INFANTRY_3
+		3 = greekgfx_fire_INFANTRY_4
+		# 0 = greekgfx_INFANTRY_1
+		# 1 = greekgfx_INFANTRY_2
+		# 2 = greekgfx_INFANTRY_3
+		# 3 = greekgfx_INFANTRY_4
+	}
+
+	sprite_cavalry = {
+		0 = greekgfx_CAVALRY_1
+		1 = greekgfx_CAVALRY_2
+		2 = greekgfx_CAVALRY_3
+		3 = greekgfx_CAVALRY_4
+	}
+
+	sprite_artillery = {
+		0 = greekgfx_ARTILLERY_1
+		1 = greekgfx_ARTILLERY_2
+		2 = greekgfx_ARTILLERY_3
+		3 = greekgfx_ARTILLERY_4
+	}
+}
+
+to_norse_sprite_pack = {
+	country_trigger = {
+		OR = {
+			nhs_check_all_norse = { CONDITION = tag }
+			tag = VAE
+		}
+	}
+
+	sprite_infantry = {
+		0 = norsegfx_INFANTRY_1
+		1 = norsegfx_INFANTRY_2
+		2 = norsegfx_INFANTRY_3
+		3 = norsegfx_INFANTRY_4
+	}
+
+	sprite_cavalry = {
+		0 = norsegfx_CAVALRY_1
+		1 = norsegfx_CAVALRY_2
+		2 = norsegfx_CAVALRY_3
+		3 = norsegfx_CAVALRY_4
+	}
+	
+	sprite_artillery = {
+		0 = norsegfx_ARTILLERY_1
+		1 = norsegfx_ARTILLERY_2
+		2 = norsegfx_ARTILLERY_3
+		3 = norsegfx_ARTILLERY_4
+	}
+}
+
+to_spartan_sprite_pack = {
+	country_trigger = {
+		tag = MSN
+	}
+
+	sprite_infantry = {
+		0 = spartagfx_INFANTRY_1
+		1 = spartagfx_INFANTRY_2
+		2 = spartagfx_INFANTRY_3
+		3 = spartagfx_INFANTRY_4
+	}
+
+	sprite_cavalry = {
+		0 = spartagfx_CAVALRY_1
+		1 = spartagfx_CAVALRY_2
+		2 = spartagfx_CAVALRY_3
+		3 = spartagfx_CAVALRY_4
+	}
+	
+	sprite_artillery = {
+		0 = spartagfx_ARTILLERY_1
+		1 = spartagfx_ARTILLERY_2
+		2 = spartagfx_ARTILLERY_3
+		3 = spartagfx_ARTILLERY_4
+	}
+}

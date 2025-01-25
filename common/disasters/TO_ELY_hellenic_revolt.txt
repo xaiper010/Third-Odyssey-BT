@@ -1,0 +1,193 @@
+nhs_hcd_hellenic_crisis = {
+	potential = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		has_country_flag = hellenic_conversion_preacher
+		religion = orthodox
+	}
+
+	can_start = {
+		custom_trigger_tooltip = {
+			tooltip = nhs_hcd_hellenic_crisis_can_start_tt
+			NOT = { is_year = 1468 }
+		}
+	}
+
+	can_stop = {
+		OR = {
+			NOT = { religion = orthodox }
+			custom_trigger_tooltip = {
+				tooltip = nhs_hcd_hellenic_crisis_can_end_tt
+				is_year = 1468
+			}
+		}
+	}
+
+	down_progress = {
+		factor = 0
+	}
+
+	progress = {
+		modifier = {
+			factor = 1.0
+			always = yes
+		}
+		modifier = {
+			factor = 0.5
+			custom_trigger_tooltip = {
+				tooltip = nhs_has_pagan_assemblies_tt
+				has_country_flag = nhs_pagan_assemblies
+			}
+		}
+		modifier = {
+			factor = 0.5
+			has_estate_privilege = estate_church_nhs_inquisition_privilege
+		}
+		# modifier = {
+		# 	factor = 1.0
+		# 	NOT = { stability = 0 }
+		# }
+		# modifier = {
+		# 	factor = 1.0
+		# 	NOT = { religious_unity = 1 }
+		# 	religious_unity = 0.75
+		# }
+		# modifier = {
+		# 	factor = 2.0
+		# 	NOT = { religious_unity = 0.75 }
+		# 	religious_unity = 0.5
+		# }
+		# modifier = {
+		# 	factor = 4.0
+		# 	NOT = { religious_unity = 0.5 }
+		# }
+		# modifier = {
+		# 	factor = 2.0
+		# 	NOT = { stability = 1 }
+		# }
+	 }
+
+	can_end = {
+		if = {
+			limit = {
+				ai = no
+			}
+			if = {
+				limit = {
+					religion_group = christian
+				}
+				OR = {
+					NOT = {
+						any_owned_province = {
+							religion = pantheon_worship
+							NOT = { has_active_triggered_province_modifier = nhs_hcd_exempt_from_disaster_tm }
+						}
+					}
+					AND = {
+						religious_unity = 1.0
+						stability = 1
+					}
+					AND = {
+						religious_unity = 0.5
+						stability = 3
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					religion = pantheon_worship
+				}
+				OR = {
+					NOT = {
+						any_owned_province = {
+							religion_group = christian
+							NOT = { has_active_triggered_province_modifier = nhs_hcd_exempt_from_disaster_tm }
+						}
+					}
+					AND = {
+						religious_unity = 1.0
+						stability = 1
+					}
+					AND = {
+						religious_unity = 0.5
+						stability = 3
+					}
+				}
+			}
+			else = {
+				OR = {
+					AND = {
+						religious_unity = 1.0
+						stability = 1
+					}
+					AND = {
+						religious_unity = 0.5
+						stability = 3
+					}
+				}
+			}
+		}
+		NOT = {
+			has_spawned_rebels = particularist_rebels
+		}
+		custom_trigger_tooltip = {
+			tooltip = to_no_pantheon_worship_rebels_tt
+			NOT = { has_spawned_rebels = pantheon_worship_rebels }
+		}
+		custom_trigger_tooltip = {
+			tooltip = to_no_orthodox_rebels_tt
+			NOT = { has_spawned_rebels = orthodox_rebels }
+		}
+		if = {
+			limit = {
+				has_country_flag = to_elysian_religious_wars_flag
+			}
+			had_country_flag = {
+				flag = to_elysian_religious_wars_flag
+				days = 1095
+			}
+		}
+		else = {
+			custom_trigger_tooltip = {
+				tooltip = to_hcd_hellenic_revolt_min_duration_tt
+				NOT = { has_country_modifier = to_hcd_hellenic_revolt_min_duration }
+			}
+		}
+	}
+
+	modifier = {
+		global_missionary_strength = 0.04
+		missionary_maintenance_cost = -0.5
+		tolerance_own = -3
+		tolerance_heathen = -3
+		stability_cost_modifier = 0.20
+		war_exhaustion = 0.16
+		missionaries = 1
+	}
+
+
+	on_start = nhs_hcd_hellenicrevolt.1
+	on_end = nhs_hcd_hellenicrevolt.100
+
+	on_monthly = {
+		events = {
+		}
+		random_events = {
+			2400 = 0
+			# Note: 3 of these apply to all, another 3 per side => 6 in total can apply
+			# => 600/3000 = 20% chance of event each month
+			100 = nhs_hcd_hellenicrevolt.21
+			100 = nhs_hcd_hellenicrevolt.22
+			100 = nhs_hcd_hellenicrevolt.23
+			100 = nhs_hcd_hellenicrevolt.24
+			100 = nhs_hcd_hellenicrevolt.25
+			100 = nhs_hcd_hellenicrevolt.26
+			100 = nhs_hcd_hellenicrevolt.30
+			100 = nhs_hcd_hellenicrevolt.31
+			100 = nhs_hcd_hellenicrevolt.32
+			100 = nhs_hcd_hellenicrevolt.27
+			100 = nhs_hcd_hellenicrevolt.28
+			100 = nhs_hcd_hellenicrevolt.29
+		}
+	}
+}
+

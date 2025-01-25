@@ -1,0 +1,291 @@
+namespace = nhs_othersevents
+
+### Events for nations involved in Byzantine Flight
+
+# Event for Genoa, deal for passage
+country_event = {
+	id = nhs_othersevents.1
+	title = nhs_othersevents.1.t
+	desc = nhs_othersevents.1.d
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+
+    	trigger = {
+		tag = GEN
+	}
+
+	option = {	
+		name = "NHSOTHERSEVENTSNAME1"
+		add_treasury = -120
+		add_country_modifier = {
+				name = "nhs_free_bosphorus"
+				duration = 3650
+		}
+		
+	}
+}
+
+# Event for Venice, receives Morea
+country_event = {
+	id = nhs_othersevents.2
+	title = nhs_othersevents.2.t
+	desc = nhs_othersevents.2.d
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+
+    	trigger = {
+		tag = VEN
+	}
+
+	option = {	
+		name = "NHSOTHERSEVENTSNAME2"
+		add_treasury = -200
+		#add_stability = -1
+	}
+}
+
+# Event for Granada AND Morocco, from toll
+country_event = {
+	id = nhs_othersevents.3
+	title = nhs_othersevents.3.t
+	desc = nhs_othersevents.3.d
+	picture = NAVAL_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+
+    	trigger = {
+		OR = {
+			tag = GRA
+			tag = MOR
+		}
+	}
+
+	option = {	# No Toll, lost fleet
+		name = "NHSOTHERSEVENTSNAME3A"
+		trigger = {
+			NOT = { has_country_flag = nhs_ReceivedToll }
+		}
+		add_country_modifier = {
+			name = "nhs_granada_trouble"
+			duration = 3650
+		}
+		add_prestige = -5
+	}
+
+	option = {	# Received Toll
+		name = "NHSOTHERSEVENTSNAME3B"
+		trigger = {
+			has_country_flag = nhs_ReceivedToll
+		}
+		add_treasury = 100
+		add_prestige = 10
+	}
+}
+
+# Event for Portugal, if the Byzantines lie
+country_event = {
+	id = nhs_othersevents.4
+	title = nhs_othersevents.4.t
+	desc = nhs_othersevents.4.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {	
+		name = nhs_othersevents.4.a
+		add_treasury = -30
+		add_prestige = 10
+		custom_tooltip = nhs_new_line_tt
+		country_event = {
+			id = nhs_othersevents.11
+			days = 200
+		}
+	}
+}
+
+# Followup event for Portugal, if the Byzantines lie
+country_event = {
+	id = nhs_othersevents.11
+	title = nhs_othersevents.11.t
+	desc = nhs_othersevents.11.d
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = nhs_othersevents.11.a
+		add_navy_tradition = 15
+	}
+}
+
+# Events for Athens, First event: Granted Morea
+country_event = {
+	id = nhs_othersevents.5
+	title = nhs_othersevents.5.t
+	desc = nhs_othersevents.5.d
+	picture = ATHENS_eventPicture
+	
+	is_triggered_only = yes
+
+    	trigger = {
+		tag = ATH
+	}
+
+	option = {	
+		name = "NHSOTHERSEVENTSNAME5"
+		add_prestige = 10
+		add_mil_power = 150
+	}
+}
+
+# Events for Athens, Second event: NOT granted Morea
+country_event = {
+	id = nhs_othersevents.6
+	title = nhs_othersevents.6.t
+	desc = nhs_othersevents.6.d
+	picture = ATHENS_eventPicture
+	
+	is_triggered_only = yes
+
+    	trigger = {
+		tag = ATH
+	}
+
+	option = {	
+		name = "NHSOTHERSEVENTSNAME6"
+		add_treasury = 100
+		add_prestige = 10
+		add_adm_power = 150
+	}
+}
+
+### Events for release of Morea after 20 years of Venetian control
+
+# VEN event
+country_event = {
+	id = nhs_othersevents.7
+	title = nhs_othersevents.7.t
+	desc = nhs_othersevents.7.d
+	picture = ATHENS_eventPicture
+	
+	is_triggered_only = yes
+
+    trigger = {
+		tag = VEN
+		exists = MOE
+	}
+	
+	immediate = {
+		
+	}
+
+	option = {	
+		name = "NHSOTHERSEVENTSNAME7"
+		add_treasury = 150
+		MOE = {
+			grant_independence = yes
+			every_owned_province = {
+				add_claim = VEN
+			}
+		}
+		MOE = { country_event = { id = nhs_othersevents.8 days = 3 } }
+	}
+}
+
+# MOE event
+country_event = {
+	id = nhs_othersevents.8
+	title = nhs_othersevents.8.t
+	desc = nhs_othersevents.8.d
+	picture = ATHENS_eventPicture
+	
+	is_triggered_only = yes
+
+    trigger = {
+		tag = MOE
+	}
+
+	option = {	
+		name = "NHSOTHERSEVENTSNAME8"
+		add_stability_or_adm_power = yes
+		add_prestige = 10
+	}
+}
+
+# Event for Portugal, for information and reward for helping out BYZ
+country_event = {
+	id = nhs_othersevents.10
+	title = nhs_othersevents.10.t
+	desc = nhs_othersevents.10.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+
+    trigger = {
+		tag = POR
+	}
+
+	option = {	
+		name = "nhs_othersevents.10.a"
+		add_treasury = -20
+		add_prestige = 10
+	}
+}
+
+
+
+### Events regarding the shipwricked survivors of CM1
+
+# CM1 (Kauda) stranded event
+country_event = {
+	id = nhs_othersevents.51
+	title = nhs_othersevents.51.t
+	desc = nhs_othersevents.51.d
+	picture = ELYSHIP_eventPicture
+	
+	is_triggered_only = yes
+
+    trigger = {
+		tag = CM1
+	}
+
+	immediate = {
+		hidden_effect = {
+			481 = {
+				change_trade_goods = fish
+				change_culture = ROOT
+				change_religion = ROOT
+				# add_base_tax = 1
+				change_province_name = "Kauda" 
+				rename_capital = "Elpida"
+			}
+			light_ship = 481
+			1572 = { change_province_name = "Sea of the Lost" }
+			discover_province = 1572
+			add_country_modifier = {
+				name = nhs_handicap_settlers
+				duration = -1
+			}
+			add_country_modifier = {
+				name = nhs_constrained_resources
+				duration = -1
+			}
+		}
+	}
+
+	option = {	
+		name = "NHSOTHERSEVENTSNAME51"
+		add_treasury = 50
+		define_advisor = {
+			type = treasurer
+			name = "Anna Notaras"
+			skill = 1
+			discount = yes
+			female = yes
+			religion = orthodox
+			culture = greek
+		}
+	}
+}

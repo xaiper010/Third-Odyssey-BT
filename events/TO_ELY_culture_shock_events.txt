@@ -1,0 +1,895 @@
+namespace = nhs2_shock_events
+
+# Initial event, received upon first gaining a foothold.
+
+
+# Programming and setup events 1 - 50
+country_event = {
+	id = nhs2_shock_events.1
+	title = nhs2_shock_events.1.t
+	desc = nhs2_shock_events.1.d
+	picture = ATHENS_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = to_has_cultureshock
+	}
+
+	# First option: Orthodox Roman Empire, we're finally home
+	option = {
+		name = nhs2_shock_events.1.a
+		trigger = {
+			NOT = { religion_group = pagan }
+			NOT = { has_country_flag = nhs_abandoned_greece }
+		}
+		to_cultureshock_start = {
+			LEVEL = vlight
+		}
+		if = {
+			limit = {
+				has_country_flag = to_used_greek_fire_on_greeks
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_used_greek_fire_on_greeks_tt
+
+			clr_country_flag = has_cultureshock_vlight
+			set_country_flag = has_cultureshock_medium
+			custom_tooltip = nhs2_cultureshock_increase_vlight_to_medium.tt
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_subject_holds = ROOT
+						to_eligible_for_cultureshock = yes
+					}
+					remove_province_modifier = to_cultureshock_vlight
+					add_province_modifier = {
+						name = to_cultureshock_medium
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+
+	# Orthodox Elysian Empire, we're not who we once were.
+	option = {
+		name = nhs2_shock_events.1.b
+		trigger = {
+			NOT = { religion_group = pagan }
+			has_country_flag = nhs_abandoned_greece
+		}
+		to_cultureshock_start = {
+			LEVEL = light
+		}
+		if = {
+			limit = {
+				has_country_flag = to_used_greek_fire_on_greeks
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_used_greek_fire_on_greeks_tt
+			
+			clr_country_flag = has_cultureshock_light
+			set_country_flag = has_cultureshock_bad
+			custom_tooltip = nhs2_cultureshock_increase_light_to_bad.tt
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_subject_holds = ROOT
+						to_eligible_for_cultureshock = yes
+					}
+					remove_province_modifier = to_cultureshock_light
+					add_province_modifier = {
+						name = to_cultureshock_bad
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+
+	# Hellenic Roman Empire, our brethen are astray.
+	option = {
+		name = nhs2_shock_events.1.c
+		trigger = {
+			religion_group = pagan
+			NOT = { has_country_flag = nhs_abandoned_greece }
+		}
+		to_cultureshock_start = {
+			LEVEL = medium
+		}
+
+		if = {
+			limit = {
+				has_country_flag = to_used_greek_fire_on_greeks
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_used_greek_fire_on_greeks_tt
+			
+			clr_country_flag = has_cultureshock_medium
+			set_country_flag = has_cultureshock_vbad
+			custom_tooltip = nhs2_cultureshock_increase_medium_to_vbad.tt
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_subject_holds = ROOT
+						to_eligible_for_cultureshock = yes
+					}
+					remove_province_modifier = to_cultureshock_medium
+					add_province_modifier = {
+						name = to_cultureshock_vbad
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+
+	# Hellenic Elysian Empire, conquerors, not liberators.
+	option = {
+		name = nhs2_shock_events.1.e
+		trigger = {
+			religion_group = pagan
+			has_country_flag = nhs_abandoned_greece
+		}
+		to_cultureshock_start = {
+			LEVEL = bad
+		}
+
+		if = {
+			limit = {
+				has_country_flag = to_used_greek_fire_on_greeks
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_used_greek_fire_on_greeks_tt
+			
+			clr_country_flag = has_cultureshock_bad
+			set_country_flag = has_cultureshock_vbad
+			custom_tooltip = nhs2_cultureshock_increase_bad_to_vbad.tt
+			custom_tooltip = nhs2_cultureshock_additional_increase_unrest.tt
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_subject_holds = ROOT
+						to_eligible_for_cultureshock = yes
+					}
+					remove_province_modifier = to_cultureshock_bad
+					add_province_modifier = {
+						name = to_cultureshock_vbad
+						duration = -1
+					}
+					add_named_unrest = {
+						name = to_greeks_revolting
+						value = 5
+					}
+					remove_province_modifier = recent_uprising
+				}
+			}
+		}
+	}
+}
+
+# Greek Revolt (triggered by the disaster)
+# country_event = {
+# 	id = nhs2_shock_events.2
+# 	title = nhs2_shock_events.2.t
+# 	desc = nhs2_shock_events.2.d
+# 	picture = CONQUEST_eventPicture
+
+# 	is_triggered_only = yes
+
+# 	# First option: Orthodox Roman Empire, we're finally home
+# 	option = {
+# 		name = nhs2_shock_events.2.a
+# 		if = {
+# 			limit = {
+# 				any_province = {
+# 					country_or_subject_holds = ROOT
+# 					OR = {
+# 						culture = greek
+# 						culture = pontic_greek
+# 					}
+# 					to_has_cultureshock = yes
+# 				}
+# 			}
+# 			hidden_effect = {
+# 				every_owned_province = {
+# 					limit = {
+# 						OR = {
+# 							culture = greek
+# 							culture = pontic_greek
+# 						}
+# 						to_has_cultureshock = yes
+# 					}
+# 					add_core = RR0
+# 				}
+# 			}
+# 			release = RR0
+# 			custom_tooltip = to_greek_revolt_provinces_tt
+# 			hidden_effect = {
+# 				every_province = {
+# 					limit = {
+# 						country_or_subject_holds = ROOT
+# 						OR = {
+# 							culture = greek
+# 							culture = pontic_greek
+# 						}
+# 						to_has_cultureshock = yes
+# 					}
+# 					add_core = RR0
+# 					cede_province = RR0
+# 					add_nationalism = -100
+# 				}
+# 			}
+# 			custom_tooltip = nhs_new_line_tt
+# 			if = {
+# 				limit = {
+# 					any_country = {
+# 						to_country_might_support_greeks = yes
+# 					}
+# 				}
+# 				custom_tooltip = to_countries_might_support_uprising_tt
+# 				every_country = {
+# 					limit = {
+# 						to_country_might_support_greeks = yes
+# 					}
+# 					country_event = { id = nhs2_shock_events.3 }
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# # Greek Revolt, greeks ask for support
+# country_event = {
+# 	id = nhs2_shock_events.3
+# 	title = nhs2_shock_events.3.t
+# 	desc = nhs2_shock_events.3.d
+# 	picture = CONQUEST_eventPicture
+
+# 	is_triggered_only = yes
+	
+# 	option = {
+# 		name = nhs2_shock_events.3.a
+# 		# add_power_projection = {
+# 		# 	type = to_supported_greeks_power_projection
+# 		# 	amount = 20
+# 		# }
+# 		create_alliance = RR0
+# 		join_all_defensive_wars_of = RR0
+# 	}
+
+# 	# 
+# 	option = {
+# 		name = nhs2_shock_events.3.a
+# 		add_prestige = -20
+# 	}
+# }
+
+## ENDING(s)
+country_event = {
+	id = nhs2_shock_events.10
+	title = nhs2_shock_events.10.t
+	desc = {
+		trigger = {
+			NOT = { religion_group = pagan }
+			NOT = { has_country_flag = nhs_abandoned_greece }
+		}
+		desc = nhs2_shock_events.10.da
+	}
+	desc = {
+		trigger = {
+			NOT = { religion_group = pagan }
+			has_country_flag = nhs_abandoned_greece
+		}
+		desc = nhs2_shock_events.10.db
+	}
+	desc = {
+		trigger = {
+			religion_group = pagan
+			NOT = { has_country_flag = nhs_abandoned_greece }
+		}
+		desc = nhs2_shock_events.10.dc
+	}
+	desc = {
+		trigger = {
+			religion_group = pagan
+			has_country_flag = nhs_abandoned_greece
+		}
+		desc = nhs2_shock_events.10.dd
+	}
+	picture = AWESOMECITY_eventPicture
+
+	trigger = {
+		to_has_cultureshock_country = yes
+		NOT = {
+			any_province = {
+				OR = {
+					region = anatolia_region
+					region = balkan_region
+				}
+				OR = {
+					culture = greek
+					culture = pontic_greek
+				}
+				NOT = { has_province_flag = to_greeks_integrated_flag }
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = to_integrated_greeks
+	}
+
+	# Orthodox Roman Empire
+	option = {
+		name = nhs2_shock_events.10.a
+		trigger = {
+			NOT = { religion_group = pagan }
+			NOT = { has_country_flag = nhs_abandoned_greece }
+		}
+		add_stability_or_adm_power = yes
+		custom_tooltip = to_end_the_cultshock_tt
+		if = {
+			limit = {
+				has_country_flag = nhs_invasion_over
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_buff_invasion_successful_modifier_tt
+			hidden_effect = {
+				remove_country_modifier = nhs2_invasion_succeseful
+				add_country_modifier = {
+					name = nhs2_invasion_succeseful_2
+					duration = -1
+				}
+			}
+		}
+	}
+
+	# Orthodox Elysian Empire
+	option = {
+		name = nhs2_shock_events.10.b
+		trigger = {
+			NOT = { religion_group = pagan }
+			has_country_flag = nhs_abandoned_greece
+		}
+		add_stability_or_adm_power = yes
+		custom_tooltip = to_end_the_cultshock_tt
+		if = {
+			limit = {
+				has_country_flag = nhs_invasion_over
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_buff_invasion_successful_modifier_tt
+			hidden_effect = {
+				remove_country_modifier = nhs2_invasion_succeseful
+				add_country_modifier = {
+					name = nhs2_invasion_succeseful_2
+					duration = -1
+				}
+			}
+		}
+	}
+
+	# Hellenic Roman Empire
+	option = {
+		name = nhs2_shock_events.10.c
+		trigger = {
+			religion_group = pagan
+			NOT = { has_country_flag = nhs_abandoned_greece }
+		}
+		add_stability_or_adm_power = yes
+		custom_tooltip = to_end_the_cultshock_tt
+		if = {
+			limit = {
+				has_country_flag = nhs_invasion_over
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_buff_invasion_successful_modifier_tt
+			hidden_effect = {
+				remove_country_modifier = nhs2_invasion_succeseful
+				add_country_modifier = {
+					name = nhs2_invasion_succeseful_2
+					duration = -1
+				}
+			}
+		}
+	}
+
+	# Hellenic Elysian Empire
+	option = {
+		name = nhs2_shock_events.10.e
+		trigger = {
+			religion_group = pagan
+			has_country_flag = nhs_abandoned_greece
+		}
+		add_stability_or_adm_power = yes
+		custom_tooltip = to_end_the_cultshock_tt
+		if = {
+			limit = {
+				has_country_flag = nhs_invasion_over
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_buff_invasion_successful_modifier_tt
+			hidden_effect = {
+				remove_country_modifier = nhs2_invasion_succeseful
+				add_country_modifier = {
+					name = nhs2_invasion_succeseful_2
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+########## National Events 51 - 350 ##############
+
+# Our Nobles demand their ancestral lands!
+country_event = {
+	id = nhs2_shock_events.60
+	title = nhs2_shock_events.60.t
+	desc = nhs2_shock_events.60.d
+	picture = NOBLE_ESTATE_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		to_has_cultureshock_country = yes
+		NOT = { has_country_modifier = to_had_culture_shock_event }
+		num_of_provinces_owned_or_owned_by_subjects_with = {
+			value = 6
+			nhs_greek_areas = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = to_had_culture_shock_event
+				duration = 120
+				hidden = yes
+			}
+		}
+	}
+
+	# Take the Greek lands and give them to their rightful owners.
+	option = {
+		name = nhs2_shock_events.60.a
+		to_add_nhs_noble_loyalty_with_equilibrium = {
+			loyalty = 20
+			desc = TO_RECEIVED_GREEK_LANDS
+			duration = 7300
+		}
+		to_add_noble_estate_influence_modifier = {
+			influence = 10
+			duration = 7300
+			desc = TO_RECEIVED_GREEK_LANDS
+		}
+		custom_tooltip = nhs_new_line_tt
+		custom_tooltip = to_establish_dynatoi_garrisons_tt
+		hidden_effect = {
+			set_country_flag = to_has_dynatoi_garrisons
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					nhs_greek_areas_no_culture = yes
+					NOT = { has_province_flag = to_had_dynatoi_garrison }
+				}
+				add_province_modifier = {
+					name = to_dynatoi_garrison
+					duration = 10950
+				}
+				set_province_flag = to_had_dynatoi_garrison
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		to_cultureshock_increase = yes
+	}
+
+	# Compensate them with lands from the Crownlands.
+	option = {
+		name = nhs2_shock_events.60.b
+		to_give_noble_estate_land_share_gigantic = yes
+		to_add_nhs_noble_loyalty_with_equilibrium = {
+			loyalty = 10
+			desc = TO_PLACATED
+			duration = 7300
+		}
+		to_add_noble_estate_influence_modifier = {
+			influence = 5
+			duration = 7300
+			desc = TO_PLACATED
+		}
+	}
+
+	# They have enough already, give them nothing.
+	option = {
+		name = nhs2_shock_events.60.e
+		add_legitimacy = -10
+		to_add_nhs_noble_loyalty_with_equilibrium = {
+			loyalty = -10
+			desc = TO_NOT_RECEIVED_GREEK_LANDS
+			duration = 7300
+		}
+		to_add_noble_estate_influence_modifier = {
+			influence = -5
+			duration = 7300
+			desc = TO_NOT_RECEIVED_GREEK_LANDS
+		}
+	}
+
+	# Theirs shall be future conquests as well
+	option = {
+		name = nhs2_shock_events.60.f
+		add_legitimacy = -10
+		to_add_nhs_noble_loyalty_with_equilibrium = {
+			desc = TO_NOT_RECEIVED_GREEK_LANDS
+			loyalty = -20
+			duration = 7300
+		}
+		to_add_noble_estate_influence_modifier = {
+			influence = -10
+			duration = 7300
+			desc = TO_NOT_RECEIVED_GREEK_LANDS
+		}
+		custom_tooltip = nhs_new_line_tt
+		to_cultureshock_decrease = yes
+	}
+}
+
+# Burghers want tarriffs maintained in Greece!    
+country_event = {
+	id = nhs2_shock_events.65
+	title = nhs2_shock_events.65.t
+	desc = nhs2_shock_events.65.d
+	picture = BURGHER_ESTATE_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		to_has_cultureshock_country = yes
+		NOT = { has_country_modifier = to_had_culture_shock_event }
+		num_of_provinces_owned_or_owned_by_subjects_with = {
+			value = 12
+			nhs_greek_areas = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = to_had_culture_shock_event
+				duration = 120
+				hidden = yes
+			}
+		}
+	}
+
+	# They are part of us, of course our merchants should have an advantage. (Enforce mercantilism, increase revolt risk)
+	option = {
+		name = nhs2_shock_events.65.a
+		add_mercantilism = 10
+		custom_tooltip = nhs_new_line_tt
+		to_cultureshock_increase = yes
+	}
+
+	# Au contraire! THEIR merchants should have first-rights to OUR goods! (Trade debuff, lower revolt risk)
+	option = {
+		name = nhs2_shock_events.65.b
+		add_country_modifier = {
+			name = to_empowered_greek_merchants
+			duration = 9125
+		}
+		to_cultureshock_decrease = yes
+	}
+
+	# Our goods are superior, they require no artificial advantage. Laiszes-faire... (Enforce free trade)
+	option = {
+		name = nhs2_shock_events.65.c
+		add_mercantilism = -5
+	}
+}
+
+# The Hagia Sophia (Hellenic Event)
+# Maybe an alternate version if it is christian when recaptured?
+country_event = {
+	id = nhs2_shock_events.105
+	title = nhs2_shock_events.105.t
+	desc = nhs2_shock_events.105.d
+	picture = muslim_MOSQUE_HAGA_SOPHIA_eventPicture
+
+	fire_only_once = yes
+
+	goto = 151
+
+	trigger = {
+		to_has_cultureshock_country = yes
+		NOT = { has_country_modifier = to_had_culture_shock_event }
+		owns_or_subject_of = 151
+		religion = pantheon_worship
+		num_of_provinces_owned_or_owned_by_subjects_with = {
+			value = 8
+			nhs_greek_areas = yes
+		}
+		# any_owned_province = {
+		# 	OR = {
+		# 		culture = greek
+		# 		culture = pontic_greek
+		# 	}
+		# 	religion_group = christian
+		# }
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = to_had_culture_shock_event
+				duration = 120
+				hidden = yes
+			}
+		}
+	}
+
+	# Force the Christians and Muhammedans to share.
+	option = {
+		name = nhs2_shock_events.105.a
+		custom_tooltip = to_unrest_in_christian_roman_and_sunni_levantine_provinces_tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					OR = {
+						AND = {
+							culture_group = byzantine
+							religion_group = christian
+						}
+						AND = {
+							culture_group = turko_semitic
+							religion = sunni
+						}
+					}
+				}
+				add_named_unrest = {
+					name = to_forced_to_share_hagia_sophia
+					value = 5
+				}
+			}
+		}
+	}
+
+	# Give it back to our Greek subjects.
+	option = {
+		name = nhs2_shock_events.105.b
+		custom_tooltip = to_get_separatism_in_turkish_provinces_tt
+		hidden_effect = {
+			set_country_flag = to_get_separatism_in_sunni_levantine_provinces
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					culture = turkish
+				}
+				add_nationalism = 15
+			}
+		}
+		# custom_tooltip = nhs_new_line_tt
+		custom_tooltip = to_decrease_sunni_opinion_tt
+		hidden_effect = {
+			every_country = {
+				limit = {
+					religion = sunni
+				}
+				if = {
+					limit = {
+						primary_culture = turkish
+					}
+					add_opinion = {
+						who = ROOT
+						modifier = to_gave_hagia_sophia_to_greeks_severe
+					}
+					add_aggressive_expansion = {
+						who = ROOT
+						value = 20
+						apply_calc = no
+					}
+				}
+				else = {
+					add_opinion = {
+						who = ROOT
+						modifier = to_gave_hagia_sophia_to_greeks
+					}
+					add_aggressive_expansion = {
+						who = ROOT
+						value = 10
+						apply_calc = no
+					}
+				}
+			}
+		}
+
+		custom_tooltip = nhs_new_line_tt	
+		to_cultureshock_decrease = yes
+
+		hidden_effect = {
+			if = {
+				limit = { has_global_flag = hagia_sophia_now_mosque }
+				clr_global_flag = hagia_sophia_now_mosque
+				151 = {
+					show_ambient_object = hagia_sophia
+					hide_ambient_object = hagia_sophia_minarets
+				}
+			}
+		}
+	}
+
+	# # Refurnish it.
+	# option = {
+	# 	name = nhs2_shock_events.105.c
+	# }
+
+	# Burn it.
+	option = {
+		name = nhs2_shock_events.105.e
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 20
+		}
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+				151 = {
+					has_great_project = {
+						type = hagia_sophia
+					}
+				}
+			}
+			if = {
+				limit = {
+					151 = {
+						has_great_project = {
+							type = hagia_sophia
+							tier = 3
+						}
+					}
+				}
+				custom_tooltip = to_sack_hagia_sophia_3_tt
+				hidden_effect = {
+					add_treasury = 9000
+				}
+			}
+			else_if = {
+				limit = {
+					151 = {
+						has_great_project = {
+							type = hagia_sophia
+							tier = 2
+						}
+					}
+				}
+				custom_tooltip = to_sack_hagia_sophia_2_tt
+				hidden_effect = {
+					add_treasury = 4000
+				}
+			}
+			else_if = {
+				limit = {
+					151 = {
+						has_great_project = {
+							type = hagia_sophia
+							tier = 1
+						}
+					}
+				}
+				custom_tooltip = to_sack_hagia_sophia_1_tt
+				hidden_effect = {
+					add_treasury = 1500
+				}
+			}
+			else = {
+				custom_tooltip = to_sack_hagia_sophia_0_tt
+				hidden_effect = {
+					add_treasury = 500
+				}
+			}
+			hidden_effect = {
+				151 = {
+					destroy_great_project = {
+						type = hagia_sophia
+					}
+					hide_ambient_object = hagia_sophia_minarets
+					hide_ambient_object = hagia_sophia
+				}
+			}
+		}
+		else = {
+			add_treasury = 5000
+			if = {
+				limit = {
+					151 = { has_building = cathedral }
+				}
+				151 = { remove_building = cathedral }
+			}
+			if = {
+				limit = {
+					151 = { has_building = temple }
+				}
+				151 = { remove_building = temple }
+			}
+		}
+		151 = {
+			add_devastation = 20
+		}
+		custom_tooltip = nhs_dotted_line_tt
+		custom_tooltip = to_get_separatism_in_christian_roman_and_turkish_provinces_tt
+		hidden_effect = {
+			set_country_flag = to_get_separatism_in_christian_roman_and_sunni_levantine_provinces
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					OR = {
+						AND = {
+							culture_group = byzantine
+							religion_group = christian
+						}
+						culture = turkish
+					}
+				}
+				add_nationalism = 20
+			}
+		}
+		# custom_tooltip = nhs_new_line_tt
+		custom_tooltip = to_decrease_sunni_and_christian_opinion_tt
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						religion = christian
+						religion = sunni
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							religion = orthodox
+							primary_culture = turkish
+						}
+					}
+					add_opinion = {
+						who = ROOT
+						modifier = to_burned_hagia_sophia_severe
+					}
+					add_aggressive_expansion = {
+						who = ROOT
+						value = 30
+						apply_calc = no
+					}
+				}
+				else = {
+					add_opinion = {
+						who = ROOT
+						modifier = to_burned_hagia_sophia
+					}
+					add_aggressive_expansion = {
+						who = ROOT
+						value = 15
+						apply_calc = no
+					}
+				}
+			}
+		}
+
+		custom_tooltip = nhs_new_line_tt
+		to_cultureshock_big_increase = yes
+	}
+}

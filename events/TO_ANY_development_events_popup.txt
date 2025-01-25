@@ -1,0 +1,1530 @@
+namespace = to_any_development_events
+
+# The Fertile Valleys of (X Province)
+country_event = {
+	id = to_any_development_events.1
+	title = to_any_development_events.1.t
+	desc = to_any_development_events.1.d
+	picture = RIVER_THROUGH_VALLEY_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_colony = yes
+			NOT = { has_province_flag = nhs_development_province_valleys }
+			to_development_events_base_conditions = yes
+			NOT = { has_terrain = desert }
+			NOT = { has_terrain = glacier }
+			NOT = { has_terrain = coastal_desert }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_colony = yes
+					NOT = { has_province_flag = nhs_development_province_valleys }
+					to_development_events_base_conditions = yes
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_valleys
+				to_development_events_add_next_flag = yes
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "to_any_development_events.1.a"
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+}
+
+# The Settlers of (X) Develop a Military primary_culture
+country_event = {
+	id = to_any_development_events.2
+	title = to_any_development_events.2.t
+	desc = to_any_development_events.2.d
+	picture = CATAPHRACT_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_culture_mil }
+			to_development_events_base_conditions = yes
+			any_neighbor_province = {
+				NOT = { owned_by = ROOT }
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_culture_mil }
+					to_development_events_base_conditions = yes
+					any_neighbor_province = {
+						NOT = { owned_by = ROOT }
+					}
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_culture_mil
+				to_development_events_add_next_flag = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		# modifier = {
+		# 	factor = 1.1
+		# 	army_tradition = 25
+		# }
+		# modifier = {
+		# 	factor = 1.2
+		# 	army_tradition = 50
+		# }
+		# modifier = {
+		# 	factor = 1.2
+		# 	army_tradition = 75
+		# }
+		# modifier = {
+		# 	factor = 1.5
+		# 	army_tradition = 90
+		# }
+		# modifier = {
+		# 	factor = 1.5
+		# 	OR = {
+		# 		is_at_war = yes
+		# 		had_recent_war = 2
+		# 	}
+		# }
+	}
+
+	option = {
+		name = "to_any_development_events.2.a"
+		event_target:to_development_event_target = {
+			add_base_manpower = 1
+		}
+	}
+}
+
+# Marytime primary_culture and trade development in (X)
+country_event = {
+	id = to_any_development_events.3
+	title = to_any_development_events.3.t
+	desc = to_any_development_events.3.d
+	picture = COLONIZATION_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_culture_mar }
+			to_development_events_base_conditions = yes
+			has_port = yes
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					any_owned_province = {
+						is_city = yes
+						is_state = yes
+						province_has_center_of_trade_of_level = 1
+						NOT = { has_province_flag = nhs_development_province_culture_mar }
+						to_development_events_base_conditions = yes
+						has_port = yes
+					}
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						province_has_center_of_trade_of_level = 1
+						NOT = { has_province_flag = nhs_development_province_culture_mar }
+						to_development_events_base_conditions = yes
+						has_port = yes
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_culture_mar
+					to_development_events_add_next_flag = yes
+				}
+			}
+			else = {
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						NOT = { has_province_flag = nhs_development_province_culture_mar }
+						to_development_events_base_conditions = yes
+						has_port = yes
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_culture_mar
+					to_development_events_add_next_flag = yes
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		# modifier = {
+		# 	factor = 1.1
+		# 	navy_tradition = 25
+		# }
+		# modifier = {
+		# 	factor = 1.2
+		# 	navy_tradition = 50
+		# }
+		# modifier = {
+		# 	factor = 1.2
+		# 	navy_tradition = 75
+		# }
+		# modifier = {
+		# 	factor = 1.5
+		# 	army_tradition = 90
+		# }
+		# modifier = {
+		# 	factor = 1.5
+		# 	any_owned_province = {
+		# 		is_city = yes
+		# 		is_state = yes
+		# 		province_has_center_of_trade_of_level = 1
+		# 		NOT = { has_province_flag = nhs_development_province_valleys }
+		# 		to_development_events_base_conditions = yes
+		# 		any_neighbor_province = {
+		# 			NOT = { owned_by = ROOT }
+		# 		}
+		# 	}
+		# }
+	}
+
+	option = {
+		name = "to_any_development_events.3.a"
+		event_target:to_development_event_target = {
+			add_base_production = 1
+		}
+	}
+}
+
+# Farms
+country_event = {
+	id = to_any_development_events.4
+	title = to_any_development_events.4.t
+	desc = to_any_development_events.4.d
+	picture = FARMING_eventPicture
+	
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_farms }
+			to_development_events_base_conditions = yes
+			OR = {
+				has_terrain = grasslands
+				has_terrain = farmlands
+				has_terrain = savannah
+				has_terrain = coastline
+				has_terrain = steppe
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		# modifier = {
+		# 	factor = 1.2
+		# 	any_owned_province = {
+		# 		is_city = yes
+		# 		is_state = yes
+		# 		NOT = { has_province_flag = nhs_development_province_farms }
+		# 		to_development_events_base_conditions = yes
+		# 		trade_goods = grain
+		# 		OR = {
+		# 			has_terrain = grasslands
+		# 			has_terrain = farmlands
+		# 		}
+		# 	}
+		# }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_farms }
+					to_development_events_base_conditions = yes
+					trade_goods = grain
+					OR = {
+						has_terrain = grasslands
+						has_terrain = farmlands
+					}
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_farms
+				to_development_events_add_next_flag = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = to_development_event_target }
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						NOT = { has_province_flag = nhs_development_province_farms }
+						to_development_events_base_conditions = yes
+						trade_goods = grain
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_farms
+					to_development_events_add_next_flag = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = to_development_event_target }
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						NOT = { has_province_flag = nhs_development_province_farms }
+						to_development_events_base_conditions = yes
+						OR = {
+							has_terrain = grasslands
+							has_terrain = farmlands
+						}
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_farms
+					to_development_events_add_next_flag = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = to_development_event_target }
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						NOT = { has_province_flag = nhs_development_province_farms }
+						to_development_events_base_conditions = yes
+						OR = {
+							has_terrain = grasslands
+							has_terrain = farmlands
+							has_terrain = savannah
+							has_terrain = coastline
+							has_terrain = steppe
+						}
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_farms
+					to_development_events_add_next_flag = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.4.a"
+		trigger = {
+			event_target:to_development_event_target = {
+				NOT = { trade_goods = grain }
+			}
+		}
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.4.a"
+		highlight = yes
+		trigger = {
+			event_target:to_development_event_target = {
+				trade_goods = grain
+			}
+		}
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+			add_base_production = 1
+			# if = {
+			# 	limit = {
+			# 		OR = {
+			# 			has_terrain = grasslands
+			# 			has_terrain = farmlands
+			# 		}
+			# 	}
+			# 	add_base_tax = 1
+			# 	add_base_production = 1
+			# 	add_base_manpower = 1
+			# }
+			# if = {
+			# 	limit = {
+			# 		OR = {
+			# 			has_terrain = savannah
+			# 			has_terrain = steppe
+			# 		}
+			# 	}
+			# 	add_base_tax = 1
+			# 	add_base_manpower = 1
+			# }
+			# if = {
+			# 	limit = {
+			# 		has_terrain = coastline	
+			# 	}
+			# 	add_base_tax = 1
+			# 	add_base_production = 1
+			# }
+		}
+	}
+}
+
+# Farms rich
+country_event = {
+	id = to_any_development_events.5
+	title = to_any_development_events.5.t
+	desc = to_any_development_events.5.d
+	picture = FARMING_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_farms }
+			to_development_events_base_conditions = yes
+			OR = {
+				has_terrain = grasslands
+				has_terrain = farmlands
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_farms }
+					to_development_events_base_conditions = yes
+					trade_goods = grain
+					OR = {
+						has_terrain = grasslands
+						has_terrain = farmlands
+					}
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_farms
+				to_development_events_add_next_flag = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = to_development_event_target }
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						NOT = { has_province_flag = nhs_development_province_farms }
+						to_development_events_base_conditions = yes
+						OR = {
+							has_terrain = grasslands
+							has_terrain = farmlands
+						}
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_farms
+					to_development_events_add_next_flag = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.5.a"
+		trigger = {
+			event_target:to_development_event_target = {
+				NOT = { trade_goods = grain }
+			}
+		}
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+			add_base_manpower = 1
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.5.a"
+		trigger = {
+			event_target:to_development_event_target = {
+				trade_goods = grain
+			}
+		}
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+
+	# option = {
+	# 	name = "to_any_development_events.5.a"
+	# 	event_target:to_development_event_target = {
+	# 		if = {
+	# 			limit = {
+	# 				OR = {
+	# 					has_terrain = grasslands
+	# 					has_terrain = farmlands
+	# 				}		
+	# 			}
+	# 			add_base_tax = 2
+	# 			add_base_production = 1
+	# 			add_base_manpower = 1
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				OR = {
+	# 					has_terrain = savannah
+	# 					has_terrain = steppe
+	# 					has_terrain = coastline
+	# 				}		
+	# 			}
+	# 			add_base_tax = 1
+	# 			add_base_production = 1
+	# 			add_base_manpower = 1
+	# 		}
+	# 	}
+	# }
+}
+
+# Wood Clearence
+country_event = {
+	id = to_any_development_events.6
+	title = to_any_development_events.6.t
+	desc = to_any_development_events.6.d
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_wood }
+			to_development_events_base_conditions = yes
+			OR = {
+				has_terrain = woods
+				has_terrain = forest
+				has_terrain = jungle
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_wood }
+					to_development_events_base_conditions = yes
+					OR = {
+						has_terrain = woods
+						has_terrain = forest
+					}
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_wood
+				to_development_events_add_next_flag = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = to_development_event_target }
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						NOT = { has_province_flag = nhs_development_province_wood }
+						to_development_events_base_conditions = yes
+						has_terrain = jungle
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_wood
+					to_development_events_add_next_flag = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.6.a"
+		trigger = {
+			event_target:to_development_event_target = {
+				OR = {
+					trade_goods = grain
+					trade_goods = coffee
+					trade_goods = cotton
+					trade_goods = sugar
+					trade_goods = tobacco
+				}
+			}
+		}
+		highlight = yes
+		event_target:to_development_event_target = {
+			add_base_production = 1
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.6.a"
+		trigger = {
+			event_target:to_development_event_target = {
+				NOT = {
+					OR = {
+						trade_goods = grain
+						trade_goods = coffee
+						trade_goods = cotton
+						trade_goods = sugar
+						trade_goods = tobacco
+					}
+				}
+			}
+		}
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+		}	
+	}
+
+	# option = {
+	# 	name = "to_any_development_events.6.a"
+	# 	event_target:to_development_event_target = {
+	# 		if = {
+	# 			limit = {
+	# 				OR = {
+	# 					has_terrain = woods
+	# 				}		
+	# 			}
+	# 			add_base_tax = 1
+	# 			add_base_production = 1
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				OR = {
+	# 					has_terrain = forest
+	# 				}		
+	# 			}
+	# 			add_base_production = 2
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				OR = {
+	# 					has_terrain = jungle
+	# 				}		
+	# 			}
+	# 			add_base_tax = 1
+	# 		}	
+	# 	}	
+	# }
+}
+
+# Marsh Clearence
+country_event = {
+	id = to_any_development_events.7
+	title = to_any_development_events.7.t
+	desc = to_any_development_events.7.d
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_marsh }
+			to_development_events_base_conditions = yes
+			has_terrain = marsh
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_marsh }
+					to_development_events_base_conditions = yes
+					has_terrain = marsh
+					OR = {
+						trade_goods = grain
+						trade_goods = coffee
+						trade_goods = cotton
+						trade_goods = sugar
+						trade_goods = tobacco
+					}
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_marsh
+				to_development_events_add_next_flag = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = to_development_event_target }
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						NOT = { has_province_flag = nhs_development_province_marsh }
+						to_development_events_base_conditions = yes
+						has_terrain = marsh
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_marsh
+					to_development_events_add_next_flag = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.7.a"
+		trigger = {
+			event_target:to_development_event_target = {
+				OR = {
+					trade_goods = grain
+					trade_goods = coffee
+					trade_goods = cotton
+					trade_goods = sugar
+					trade_goods = tobacco
+				}
+			}
+		}
+		highlight = yes
+		event_target:to_development_event_target = {
+			add_base_production = 1
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.7.a"
+		trigger = {
+			event_target:to_development_event_target = {
+				NOT = {
+					OR = {
+						trade_goods = grain
+						trade_goods = coffee
+						trade_goods = cotton
+						trade_goods = sugar
+						trade_goods = tobacco
+					}
+				}
+			}
+		}
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+		}	
+	}
+
+	# option = {
+	# 	name = "to_any_development_events.7.a"
+	# 	event_target:to_development_event_target = {
+	# 		add_base_tax = 1
+	# 		add_base_manpower = 1
+	# 	}
+	# }
+}
+
+# Mining
+country_event = {
+	id = to_any_development_events.8
+	title = to_any_development_events.8.t
+	desc = to_any_development_events.8.d
+	picture = MINE_1_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_mining }
+			to_development_events_base_conditions = yes
+			OR = {
+				has_terrain = hills
+				has_terrain = mountain
+			}
+			OR = {
+				trade_goods = copper
+				trade_goods = gold
+				trade_goods = iron
+				trade_goods = gems
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_mining }
+					to_development_events_base_conditions = yes
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+					OR = {
+						trade_goods = copper
+						trade_goods = gold
+						trade_goods = iron
+						trade_goods = gems
+					}
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_mining
+				to_development_events_add_next_flag = yes
+			}
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.8.a"
+		add_treasury = 50
+		event_target:to_development_event_target = {
+			add_base_production = 1
+		}
+	}
+}
+
+# Mining large -iron
+country_event = {
+	id = to_any_development_events.9
+	title = to_any_development_events.9.t
+	desc = to_any_development_events.9.d
+	picture = MINE_1_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_mining }
+			to_development_events_base_conditions = yes
+			OR = {
+				has_terrain = hills
+				has_terrain = mountain
+			}
+			NOT = { trade_goods = iron }
+			NOT = { area = newfoundland_area }
+			province_without_special_goods_produced_trigger = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = {
+				any_owned_province = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_mining }
+					to_development_events_base_conditions = yes
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+					NOT = {
+						OR = {
+							trade_goods = copper
+							trade_goods = gold
+							trade_goods = iron
+							trade_goods = gems
+						}
+					}
+					NOT = { area = newfoundland_area }
+					province_without_special_goods_produced_trigger = yes
+				}
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_mining }
+					to_development_events_base_conditions = yes
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+					NOT = {
+						OR = {
+							trade_goods = copper
+							trade_goods = gold
+							trade_goods = iron
+							trade_goods = gems
+						}
+					}
+					NOT = { area = newfoundland_area }
+					province_without_special_goods_produced_trigger = yes
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_mining
+				to_development_events_add_next_flag = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = to_development_event_target }
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						NOT = { has_province_flag = nhs_development_province_mining }
+						to_development_events_base_conditions = yes
+						OR = {
+							has_terrain = hills
+							has_terrain = mountain
+						}
+						NOT = { trade_goods = iron }
+						NOT = { area = newfoundland_area }
+						province_without_special_goods_produced_trigger = yes
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_mining
+					to_development_events_add_next_flag = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.9.b"
+		event_target:to_development_event_target = {
+			change_trade_goods = iron
+			add_base_production = 2
+		}
+	}
+	option = {
+		name = "to_any_development_events.9.a"
+		add_mil_power = 25
+		event_target:to_development_event_target = {
+			add_base_production = 2
+		}
+	}
+}
+
+# Mining large -copper
+country_event = {
+	id = to_any_development_events.10
+	title = to_any_development_events.10.t
+	desc = to_any_development_events.10.d
+	picture = MINE_1_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_mining }
+			to_development_events_base_conditions = yes
+			OR = {
+				has_terrain = hills
+				has_terrain = mountain
+			}
+			NOT = { trade_goods = copper }
+			NOT = { area = newfoundland_area }
+			province_without_special_goods_produced_trigger = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			NOT = {
+				any_owned_province = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_mining }
+					to_development_events_base_conditions = yes
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+					NOT = {
+						OR = {
+							trade_goods = copper
+							trade_goods = gold
+							trade_goods = iron
+							trade_goods = gems
+						}
+					}
+					NOT = { area = newfoundland_area }
+					province_without_special_goods_produced_trigger = yes
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_mining }
+					to_development_events_base_conditions = yes
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+					NOT = {
+						OR = {
+							trade_goods = copper
+							trade_goods = gold
+							trade_goods = iron
+							trade_goods = gems
+						}
+					}
+					NOT = { area = newfoundland_area }
+					province_without_special_goods_produced_trigger = yes
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_mining
+				to_development_events_add_next_flag = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = to_development_event_target }
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						NOT = { has_province_flag = nhs_development_province_mining }
+						to_development_events_base_conditions = yes
+						OR = {
+							has_terrain = hills
+							has_terrain = mountain
+						}
+						NOT = { trade_goods = copper }
+						NOT = { area = newfoundland_area }
+						province_without_special_goods_produced_trigger = yes
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_mining
+					to_development_events_add_next_flag = yes
+				}
+			}
+		}
+	}
+
+
+	
+	option = {
+		name = "to_any_development_events.10.b"
+		event_target:to_development_event_target = {
+			change_trade_goods = copper
+			add_base_production = 2
+		}
+	}
+	option = {
+		name = "to_any_development_events.10.a"
+		add_mil_power = 25
+		event_target:to_development_event_target = {
+			add_base_production = 2
+		}
+	}
+}
+
+# Mining large -gold
+country_event = {
+	id = to_any_development_events.11
+	title = to_any_development_events.11.t
+	desc = to_any_development_events.11.d
+	picture = MINE_1_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_mining }
+			to_development_events_base_conditions = yes
+			OR = {
+				has_terrain = hills
+				has_terrain = mountain
+			}
+			NOT = { trade_goods = gold }
+			NOT = { area = newfoundland_area }
+			province_without_special_goods_produced_trigger = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_mining }
+					to_development_events_base_conditions = yes
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+					NOT = {
+						OR = {
+							trade_goods = copper
+							trade_goods = gold
+							trade_goods = iron
+							trade_goods = gems
+						}
+					}
+					NOT = { area = newfoundland_area }
+					province_without_special_goods_produced_trigger = yes
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_mining
+				to_development_events_add_next_flag = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = to_development_event_target }
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						is_state = yes
+						NOT = { has_province_flag = nhs_development_province_mining }
+						to_development_events_base_conditions = yes
+						OR = {
+							has_terrain = hills
+							has_terrain = mountain
+						}
+						NOT = { trade_goods = gold }
+						NOT = { area = newfoundland_area }
+						province_without_special_goods_produced_trigger = yes
+					}
+					save_event_target_as = to_development_event_target
+					set_province_flag = nhs_development_province_mining
+					to_development_events_add_next_flag = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "to_any_development_events.11.b"
+		event_target:to_development_event_target = {
+			change_trade_goods = gold
+			add_base_production = 2
+		}
+	}
+	option = {
+		name = "to_any_development_events.11.a"
+		add_treasury = 250
+		event_target:to_development_event_target = {
+			add_base_production = 2
+		}
+	}
+}
+
+# Local Irrigation networks
+country_event = {
+	id = to_any_development_events.12
+	title = to_any_development_events.12.t
+	desc = to_any_development_events.12.d
+	picture = FARMING_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_irrigation }
+			to_development_events_base_conditions = yes
+			OR = {
+				has_terrain = savannah
+				has_terrain = drylands
+			}
+			NOT = { has_province_modifier = nhs2_aqueducts }
+			NOT = { has_province_flag = nhs_local_aqueducts }
+		}	
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_irrigation }
+					to_development_events_base_conditions = yes
+					OR = {
+						has_terrain = savannah
+						has_terrain = drylands
+					}
+					NOT = { has_province_modifier = nhs2_aqueducts }
+					NOT = { has_province_flag = nhs_local_aqueducts }
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_mining
+				to_development_events_add_next_flag = yes
+			}
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.12.a"
+		trigger = {
+			event_target:to_development_event_target = {
+				OR = {
+					trade_goods = grain
+					trade_goods = coffee
+					trade_goods = cotton
+					trade_goods = sugar
+					trade_goods = tobacco
+				}
+			}
+		}
+		highlight = yes
+		event_target:to_development_event_target = {
+			add_base_production = 1
+		}
+	}
+
+	option = {
+		name = "to_any_development_events.12.a"
+		trigger = {
+			event_target:to_development_event_target = {
+				NOT = {
+					OR = {
+						trade_goods = grain
+						trade_goods = coffee
+						trade_goods = cotton
+						trade_goods = sugar
+						trade_goods = tobacco
+					}
+				}
+			}
+		}
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+		}
+	}
+}
+
+# Natives assimilated
+country_event = {	
+	id = to_any_development_events.13
+	title = to_any_development_events.13.t
+	desc = to_any_development_events.13.d
+	picture = NATIVES_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+	
+	trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		any_owned_province = {
+			is_colony = yes
+			NOT = { has_province_flag = nhs_development_province_natives }
+			to_development_events_base_conditions = yes
+			native_size = 5
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_colony = yes
+					NOT = { has_province_flag = nhs_development_province_natives }
+					to_development_events_base_conditions = yes
+					native_size = 5
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_natives
+				to_development_events_add_next_flag = yes
+			}
+		}
+	}
+	
+	option = {
+		name = to_any_development_events.13.a
+		trigger = {
+			religion_group = pagan
+		}
+		custom_tooltip = to_any_to_any_development_events_13_pagan_tt
+		event_target:to_development_event_target = {
+			add_colonysize = 200
+			change_native_size = -4
+		}
+		event_target:to_development_event_target = {
+			add_base_manpower = 2
+		}
+	}
+
+	option = {
+		name = to_any_development_events.13.a
+		trigger = {
+			NOT = { religion_group = pagan }
+		}
+		event_target:to_development_event_target = {
+			add_colonysize = 100
+			change_native_size = -2
+		}
+		event_target:to_development_event_target = {
+			add_base_manpower = 1
+		}
+	}
+}
+
+# Local Aqueduct network
+country_event = {
+	id = to_any_development_events.20
+	title = to_any_development_events.20.t
+	desc = to_any_development_events.20.d
+	picture = AQUEDUCT_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		mission_completed = to_apaleisian_aqueducts_mission
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_local_aqueducts }
+			to_development_events_base_conditions = yes
+			NOT = {	has_province_modifier = nhs2_aqueducts }
+			NOT = { has_province_flag = nhs_development_province_irrigation }
+			NOT = { has_terrain = desert }
+			NOT = { has_terrain = glacier }
+			NOT = { has_terrain = coastal_desert }
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_local_aqueducts }
+					to_development_events_base_conditions = yes
+					NOT = {	has_province_modifier = nhs2_aqueducts }
+					NOT = { has_province_flag = nhs_development_province_irrigation }
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_local_aqueducts
+				to_development_events_add_next_flag = yes
+			}
+		}
+	}
+
+	option = {
+		name = to_any_development_events.20.a
+		trigger = {
+			event_target:to_development_event_target = {
+				OR = {
+					trade_goods = grain
+					trade_goods = coffee
+					trade_goods = cotton
+					trade_goods = sugar
+					trade_goods = tobacco
+				}
+			}
+		}
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+			add_base_production = 1
+		}
+	}
+
+	option = {
+		name = to_any_development_events.20.a
+		trigger = {
+			NOT = {
+				event_target:to_development_event_target = {
+					OR = {
+						trade_goods = grain
+						trade_goods = coffee
+						trade_goods = cotton
+						trade_goods = sugar
+						trade_goods = tobacco
+					}
+				}
+			}
+		}
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+			add_base_manpower = 1
+		}
+	}
+}
+
+# Noble family moves in
+country_event = {
+	id = to_any_development_events.21
+	title = to_any_development_events.21.t
+	desc = to_any_development_events.21.d
+	picture = LIBERUM_VETO_eventPicture
+
+	goto = to_development_event_target
+	is_triggered_only = yes
+
+    trigger = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		OR = {
+			government = monarchy
+			to_has_nobles_estate = yes
+		}
+		any_owned_province = {
+			is_city = yes
+    		is_state = yes
+			NOT = { has_province_flag = nhs_development_province_nobles }
+			to_development_events_base_conditions = yes
+			NOT = { has_terrain = desert }
+			NOT = { has_terrain = glacier }
+			NOT = { has_terrain = coastal_desert }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					is_state = yes
+					NOT = { has_province_flag = nhs_development_province_nobles }
+					to_development_events_base_conditions = yes
+				}
+				save_event_target_as = to_development_event_target
+				set_province_flag = nhs_development_province_nobles
+				to_development_events_add_next_flag = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "to_any_development_events.21.a"
+		event_target:to_development_event_target = {
+			add_local_autonomy = 50
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+	option = {
+		name = "to_any_development_events.21.b"
+		event_target:to_development_event_target = {
+			add_base_tax = 1
+			add_base_manpower = 1
+		}
+	}
+}

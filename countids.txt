@@ -1,0 +1,7 @@
+#D00 = { give_all_provids = yes }
+log = "=== [This.GetName] Provinces:"
+log = "[This.GetName] = {"
+every_owned_province = {
+    log = "[This.provID.GetValue]"
+}
+log = ""

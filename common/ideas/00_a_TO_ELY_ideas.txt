@@ -1,0 +1,538 @@
+new_hellas_ideas = {
+	start = {
+		# auto_explore_adjacent_to_colony = yes
+		# auto explore doesn't work as tradition - hidden event discovers nearby provinces
+		auto_explore_adjacent_to_colony = yes
+		naval_maintenance_modifier = -0.20
+	}
+	
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	
+	trigger = {
+		OR = {
+			nhs_check_all_elysian_tags = { CONDITION = tag }
+			tag = ELF
+		}
+		NOT = { tag = ELY }
+		NOT = { tag = ER1 }
+		NOT = { tag = HBN }
+		NOT = { has_country_flag = to_enable_first_set_of_roman_ideas }
+		NOT = { has_country_flag = to_enable_second_set_of_roman_ideas }
+		NOT = { has_country_flag = to_enable_third_set_of_roman_ideas }
+		NOT = { has_country_flag = to_enable_fourth_set_of_roman_ideas }
+	}
+	free = yes
+	
+	# understandings_with_natives = {
+	# 	native_uprising_chance = -0.5
+	# 	native_assimilation = 0.5
+	# 	# Leads to events -> province development, integrating natives
+	# 	# Require less opinion for "friends with..." triggers
+	# }
+	never_again_falter = {
+		# This should apply to subjects as well
+		defensiveness = 0.20
+	}
+	philosophic_traditions = {
+		advisor_pool = 1
+		idea_cost = -0.05
+	}
+	inspired_recruits = {
+		recover_army_morale_speed = 0.05
+		land_morale = 0.10
+	}
+	legacy_of_the_flight = {
+		leader_naval_manuever = 1
+		colonists = 1
+		effect = { remove_temporary_colonist = yes }
+	}
+	nhs_embassies_idea = {
+		diplomats = 1
+		envoy_travel_time = -0.50
+	}
+	defend_our_newfound_wealth = {
+		# global_prov_trade_power_modifier = 0.10
+		heavy_ship_power = 0.1
+		merchants = 1
+	}
+	reworked_codex_justinianus = {
+		global_unrest = -2
+		effect = {
+			to_check_exarch_modifier_all_subjects = { MODIFIER_NAME = admin_efficiency MODIFIER = administrative_efficiency MODIFY = -0.05 }
+			to_check_exarch_modifier = { MODIFIER_NAME = admin_efficiency MODIFIER = administrative_efficiency MODIFY = 0.05 }	
+		}
+		removed_effect = {
+			to_check_exarch_modifier_all_subjects = { MODIFIER_NAME = admin_efficiency MODIFIER = administrative_efficiency MODIFY = 0.05 }
+			to_check_exarch_modifier = { MODIFIER_NAME = admin_efficiency MODIFIER = administrative_efficiency MODIFY = -0.05 }	
+		}
+	}
+}
+
+new_hellas_ideas_ely = {
+	start = {
+		# auto_explore_adjacent_to_colony = yes
+		# auto explore doesn't work as tradition - hidden event discovers nearby provinces
+		auto_explore_adjacent_to_colony = yes
+		naval_maintenance_modifier = -0.20
+	}
+	
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	
+	trigger = {
+		OR = {
+			tag = ELY
+			tag = ER1
+			tag = HBN
+		}
+		NOT = { has_country_flag = to_enable_first_set_of_roman_ideas }
+		NOT = { has_country_flag = to_enable_second_set_of_roman_ideas }
+		NOT = { has_country_flag = to_enable_third_set_of_roman_ideas }
+		NOT = { has_country_flag = to_enable_fourth_set_of_roman_ideas }
+	}
+	free = yes
+	
+	# understandings_with_natives = {
+	# 	native_uprising_chance = -0.5
+	# 	native_assimilation = 0.5
+	# 	# Leads to events -> province development, integrating natives
+	# 	# Require less opinion for "friends with..." triggers
+	# }
+	never_again_falter = {
+		# See new_hellas_ideas
+	}
+	philosophic_traditions = {
+		# See new_hellas_ideas
+	}
+	inspired_recruits = {
+		# See new_hellas_ideas
+	}
+	legacy_of_the_flight = {
+		# See new_hellas_ideas
+	}
+	nhs_embassies_idea = {
+		# See new_hellas_ideas
+	}
+	defend_our_newfound_wealth = {
+		# See new_hellas_ideas
+	}
+	reworked_codex_justinianus = {
+		# See new_hellas_ideas
+	}
+}
+
+new_hellas_ideas_intoROM1 = {
+	trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		NOT = { tag = ELY }
+		NOT = { tag = ER1 }
+		has_country_flag = to_enable_first_set_of_roman_ideas
+	}
+	free = yes
+
+	start = {
+		auto_explore_adjacent_to_colony = yes
+		naval_maintenance_modifier = -0.20
+	}
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	
+	never_again_falter = {
+		# See new_hellas_ideas
+	}
+	philosophic_traditions = {
+		# See new_hellas_ideas
+	}
+	to_idea_army_reform = {
+		land_forcelimit_modifier = 0.25
+		land_morale = 0.10
+	}
+	roman_citizenship = {
+		years_of_nationalism = -5
+		global_manpower_modifier = 0.33
+		effect = {
+			to_check_exarch_nationalism_all_subjects = { MODIFY = 5 }
+		}
+		removed_effect = {
+			to_check_exarch_nationalism_all_subjects = { MODIFY = -5 }
+		}
+	}
+	nhs_embassies_idea = {
+		# See new_hellas_ideas
+	}
+	defend_our_newfound_wealth = {
+		# See new_hellas_ideas
+	}
+	reworked_codex_justinianus = {
+		# See new_hellas_ideas
+	}
+}
+
+new_hellas_ideas_intoROM1_ely = {
+	trigger = {
+		OR = {
+			tag = ELY
+			tag = ER1
+		}
+		has_country_flag = to_enable_first_set_of_roman_ideas
+	}
+	free = yes
+
+	start = {
+		auto_explore_adjacent_to_colony = yes
+		naval_maintenance_modifier = -0.20
+	}
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	
+	never_again_falter = {
+		# See new_hellas_ideas
+	}
+	philosophic_traditions = {
+		# See new_hellas_ideas
+	}
+	to_idea_army_reform_ely = {
+		land_forcelimit_modifier = 0.25
+		land_morale = 0.10
+	}
+	roman_citizenship_ely = {
+		years_of_nationalism = -5
+		global_manpower_modifier = 0.33
+		effect = {
+			to_check_exarch_nationalism_all_subjects = { MODIFY = 5 }
+		}
+		removed_effect = {
+			to_check_exarch_nationalism_all_subjects = { MODIFY = -5 }
+		}
+	}
+	nhs_embassies_idea = {
+		# See new_hellas_ideas
+	}
+	defend_our_newfound_wealth = {
+		# See new_hellas_ideas
+	}
+	reworked_codex_justinianus = {
+		# See new_hellas_ideas
+	}
+}
+
+new_hellas_ideas_intoROM2 = {
+	trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		NOT = { tag = ELY }
+		NOT = { tag = ER1 }
+		has_country_flag = to_enable_second_set_of_roman_ideas
+	}
+	free = yes
+
+	start = {
+		core_creation = -0.15
+		naval_maintenance_modifier = -0.20
+	}
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	
+	never_again_falter = {
+		# See new_hellas_ideas
+	}
+	philosophic_traditions = {
+		# See new_hellas_ideas
+	}
+	to_idea_army_reform = {
+		# See new_hellas_ideas_intoROM1
+	}
+	roman_citizenship = {
+		# See new_hellas_ideas_intoROM1
+	}
+	nhs_embassies_idea = {
+		# See new_hellas_ideas
+	}
+	defend_our_newfound_wealth = {
+		# See new_hellas_ideas
+	}
+	to_idea_imperial_bureacracy = {
+		global_unrest = -2
+		governing_cost = -0.10
+		effect = {
+			to_check_exarch_modifier_all_subjects = { MODIFIER_NAME = admin_efficiency MODIFIER = administrative_efficiency MODIFY = -0.05 }
+			to_check_exarch_modifier = { MODIFIER_NAME = admin_efficiency MODIFIER = administrative_efficiency MODIFY = 0.05 }	
+		}
+		removed_effect = {
+			to_check_exarch_modifier_all_subjects = { MODIFIER_NAME = admin_efficiency MODIFIER = administrative_efficiency MODIFY = 0.05 }
+			to_check_exarch_modifier = { MODIFIER_NAME = admin_efficiency MODIFIER = administrative_efficiency MODIFY = -0.05 }	
+		}
+	}
+}
+
+new_hellas_ideas_intoROM2_ely = {
+	trigger = {
+		OR = {
+			tag = ELY
+			tag = ER1
+		}
+		has_country_flag = to_enable_second_set_of_roman_ideas
+	}
+	free = yes
+
+	start = {
+		core_creation = -0.15
+		naval_maintenance_modifier = -0.20
+	}
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	
+	never_again_falter = {
+		# See new_hellas_ideas
+	}
+	philosophic_traditions = {
+		# See new_hellas_ideas
+	}
+	to_idea_army_reform_ely = {
+		# See new_hellas_ideas_intoROM1_ely
+	}
+	roman_citizenship_ely = {
+		# See new_hellas_ideas_intoROM1_ely
+	}
+	nhs_embassies_idea = {
+		# See new_hellas_ideas
+	}
+	defend_our_newfound_wealth = {
+		# See new_hellas_ideas
+	}
+	to_idea_imperial_bureacracy = {
+		# See new_hellas_ideas_intoROM2
+	}
+}
+
+new_hellas_ideas_intoROM3 = {
+	trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		NOT = { tag = ELY }
+		NOT = { tag = ER1 }
+		has_country_flag = to_enable_third_set_of_roman_ideas
+		NOT = {
+			OR = {
+				mission_completed = to_rome_restored_mission
+				mission_completed = to_elysia_ascendant_mission
+			}
+		}
+	}
+	free = yes
+	
+	start = {
+		core_creation = -0.15
+		naval_maintenance_modifier = -0.20
+	}
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	
+	to_idea_cannon_foundries = {
+		siege_ability = 0.15
+		artillery_cost = -0.15
+	}
+	philosophic_traditions = {
+		# See new_hellas_ideas
+	}
+	to_idea_army_reform = {
+		# See new_hellas_ideas_intoROM1
+	}
+	roman_citizenship = {
+		# See new_hellas_ideas_intoROM1
+	}
+	to_bureau_of_foreign_affairs = {
+		diplomats = 2
+		envoy_travel_time = -0.50
+		ae_impact = -0.1
+	}
+	defend_our_newfound_wealth = {
+		# See new_hellas_ideas
+	}
+	to_idea_imperial_bureacracy = {
+		# See new_hellas_ideas_intoROM2
+	}
+}
+
+new_hellas_ideas_intoROM3_ely = {
+	trigger = {
+		OR = {
+			tag = ELY
+			tag = ER1
+		}
+		has_country_flag = to_enable_third_set_of_roman_ideas
+		NOT = {
+			OR = {
+				mission_completed = to_rome_restored_mission
+				mission_completed = to_elysia_ascendant_mission
+			}
+		}
+	}
+	free = yes
+	
+	start = {
+		core_creation = -0.15
+		naval_maintenance_modifier = -0.20
+	}
+	bonus = {
+		administrative_efficiency = 0.05
+	}
+	
+	to_idea_cannon_foundries = {
+		# See new_hellas_ideas_intoROM3
+	}
+	philosophic_traditions = {
+		# See new_hellas_ideas
+	}
+	to_idea_army_reform_ely = {
+		# See new_hellas_ideas_intoROM1_ely
+	}
+	roman_citizenship_ely = {
+		# See new_hellas_ideas_intoROM1_ely
+	}
+	to_bureau_of_foreign_affairs = {
+		# See new_hellas_ideas_intoROM3
+	}
+	defend_our_newfound_wealth = {
+		# See new_hellas_ideas
+	}
+	to_idea_imperial_bureacracy = {
+		# See new_hellas_ideas_intoROM2
+	}
+}
+
+new_hellas_ideas_intoROM4 = {
+	trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		NOT = { tag = ELY }
+		NOT = { tag = ER1 }
+		has_country_flag = to_enable_fourth_set_of_roman_ideas
+	}
+	free = yes
+	
+	start = {
+		core_creation = -0.15
+		naval_maintenance_modifier = -0.20
+	}
+	bonus = {
+		administrative_efficiency = 0.10
+	}
+	
+	to_idea_cannon_foundries = {
+		# See new_hellas_ideas_intoROM3
+	}
+	to_european_universities = {
+		# great_project_upgrade_cost = -0.25
+		build_time = -0.20
+		global_institution_spread = 1
+		advisor_pool = 2
+		idea_cost = -0.05
+	}
+	to_idea_army_reform = {
+		# See new_hellas_ideas_intoROM1
+	}
+	roman_citizenship = {
+		# See new_hellas_ideas_intoROM1
+	}
+	to_bureau_of_foreign_affairs = {
+		# See new_hellas_ideas_intoROM3
+	}
+	to_idea_pax_romana = {
+		# global_prov_trade_power_modifier = 0.10
+		heavy_ship_power = 0.1
+		merchants = 1
+		global_tax_modifier = 0.5
+		caravan_power = 0.5
+	}
+	to_idea_imperial_bureacracy = {
+		# See new_hellas_ideas_intoROM2
+	}
+}
+
+new_hellas_ideas_intoROM4_ely = {
+	trigger = {
+		OR = {
+			tag = ELY
+			tag = ER1
+		}
+		has_country_flag = to_enable_fourth_set_of_roman_ideas
+	}
+	free = yes
+	
+	start = {
+		core_creation = -0.15
+		naval_maintenance_modifier = -0.20
+	}
+	bonus = {
+		administrative_efficiency = 0.10
+	}
+	
+	to_idea_cannon_foundries = {
+		# See new_hellas_ideas_intoROM3
+	}
+	to_european_universities = {
+		# See new_hellas_ideas_intoROM4
+	}
+	to_idea_army_reform_ely = {
+		# See new_hellas_ideas_intoROM1_ely
+	}
+	roman_citizenship_ely = {
+		# See new_hellas_ideas_intoROM1_ely
+	}
+	to_bureau_of_foreign_affairs = {
+		# See new_hellas_ideas_intoROM3
+	}
+	to_idea_pax_elysiana = {
+		# global_prov_trade_power_modifier = 0.10
+		heavy_ship_power = 0.1
+		merchants = 1
+		global_tax_modifier = 0.5
+		caravan_power = 0.5
+	}
+	to_idea_imperial_bureacracy = {
+		# See new_hellas_ideas_intoROM2
+	}
+}
+
+ELG_ideas = {
+	start = {
+		defensiveness = 0.2
+		core_creation = -0.1
+	}
+	bonus = {
+		stability_cost_modifier = -0.2
+	}
+	trigger = {
+		tag = ELG
+	}
+	free = yes		#will be added at load
+
+	athenian_openeness = {
+		num_accepted_cultures = 1
+	}
+	greek_maritime_heritage = {
+		navy_tradition = 1
+	}
+	greek_klephtic_irregulars = {
+		infantry_power = 0.1
+	}
+	greek_phanariotes = {
+		advisor_cost = -0.1
+	}
+	greek_strengthen_control_over_the_trade_routes = {
+		trade_efficiency = 0.1
+	}
+	greek_philhellenism = {
+		diplomatic_reputation = 1
+		diplomatic_upkeep = 1
+	}
+	greek_enlightenment = {
+		idea_cost = -0.1
+	}
+}

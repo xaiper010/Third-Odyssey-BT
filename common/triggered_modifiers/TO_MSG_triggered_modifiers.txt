@@ -1,0 +1,122 @@
+# Triggered modifiers are here.
+# these are checked for each countries once/month and then applied.
+#
+# Effects are fully scriptable here.
+
+###########################################
+# Natives
+###########################################
+
+nhs_outside_threat = {
+	potential = {
+		technology_group = mesoamerican
+	}
+
+	trigger = {
+		technology_group = mesoamerican
+		any_country = {
+			offensive_war_with = ROOT
+			NOT = { technology_group = mesoamerican }
+			NOT = { technology_group = south_american }
+			NOT = { technology_group = andean }
+			NOT = { technology_group = north_american }
+		}
+	}
+	land_morale = 0.1
+}
+
+
+
+
+
+
+###########################################
+# Spartans
+###########################################
+
+
+###########################################
+# Tech
+###########################################
+nhs_msg_techgroup_modern = {
+	potential = {
+		technology_group = exiled_spartan
+		NOT = { has_institution = manufactories }
+	}
+	trigger = {
+		NOT = { has_institution = manufactories }
+		NOT = { owns = 953 }
+		NOT = { owns = 151 }
+	}
+	embracement_cost = 0.1
+	global_institution_spread = -0.20
+	technology_cost = 0.25
+	mil_tech_cost_modifier = -0.05
+	cav_to_inf_ratio = -0.2
+	picture = "to_exiled"
+}
+
+###########################################
+# Tribute
+###########################################
+#msg_great_advisor = {
+#	potential = {
+#		OR = {
+#			tag = MS1
+#			tag = MSN
+#		}
+#		has_country_flag = msg_great_advisor
+#		NOT = { had_country_flag = { flag = msg_great_advisor days = 27375 } }
+#	}
+#	trigger = {
+#		advisor = kointos_akhilleus
+#	}
+#	mil_tech_cost_modifier = -0.1
+#	global_manpower_modifier = 0.10
+#	land_morale = 0.10
+#}
+
+###########################################
+# Missions
+###########################################
+msg_pact_sparta = {
+	potential = {
+		tag = MSN
+		any_ally = {
+			OR = {
+				has_country_flag = msg_in_barbaroi_pact_with_MSN
+				has_country_flag = msg_in_viking_pact_with_MSN
+			}
+		}
+	}
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = msg_pact_sparta_tt
+			always = yes
+		}
+	}
+	mercenary_cost = -0.1
+	#possible_mercenaries = 0.5
+	mercenary_manpower = 0.3
+}
+msg_pact_other = {
+	potential = {
+		OR = {
+			has_country_flag = msg_in_barbaroi_pact_with_MSN
+			has_country_flag = msg_in_viking_pact_with_MSN
+		}
+		any_ally = {
+			tag = MSN
+		}
+	}
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = msg_pact_other_tt
+			always = yes
+		}
+	}
+
+	mercenary_discipline = 0.1
+	#possible_mercenaries = 0.5
+	mercenary_manpower = 0.3
+}

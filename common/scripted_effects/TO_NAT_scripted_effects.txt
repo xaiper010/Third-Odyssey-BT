@@ -1,0 +1,5512 @@
+to_check_native_size = {
+	if = {
+		limit = {
+			native_size = 49.5
+			NOT = { has_province_flag = to_local_natives_num_50 }
+		}
+		set_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 49.5 }
+			native_size = 44.5
+			NOT = { has_province_flag = to_local_natives_num_45 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		set_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 44.5 }
+			native_size = 39.5
+			NOT = { has_province_flag = to_local_natives_num_40 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		set_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 39.5 }
+			native_size = 34.5
+			NOT = { has_province_flag = to_local_natives_num_35 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		set_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 34.5 }
+			native_size = 29.5
+			NOT = { has_province_flag = to_local_natives_num_30 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		set_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 29.5 }
+			native_size = 24.5
+			NOT = { has_province_flag = to_local_natives_num_25 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		set_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 24.5 }
+			native_size = 19.5
+			NOT = { has_province_flag = to_local_natives_num_20 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		set_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 19.5 }
+			native_size = 14.5
+			NOT = { has_province_flag = to_local_natives_num_15 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		set_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 14.5 }
+			native_size = 9.5
+			NOT = { has_province_flag = to_local_natives_num_10 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		set_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 9.5 }
+			native_size = 4.5
+			NOT = { has_province_flag = to_local_natives_num_5 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		set_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+		
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 4.5 }
+			native_size = 0.5
+			NOT = { has_province_flag = to_local_natives_num_1 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		set_province_flag = to_local_natives_num_1
+		clr_province_flag = to_local_natives_num_0
+	}
+	else_if = {
+		limit = {
+			NOT = { native_size = 0.5 }
+			NOT = { has_province_flag = to_local_natives_num_0 }
+		}
+		clr_province_flag = to_local_natives_num_50
+		clr_province_flag = to_local_natives_num_45
+		clr_province_flag = to_local_natives_num_40
+		clr_province_flag = to_local_natives_num_35
+		clr_province_flag = to_local_natives_num_30
+		clr_province_flag = to_local_natives_num_25
+		clr_province_flag = to_local_natives_num_20
+		clr_province_flag = to_local_natives_num_15
+		clr_province_flag = to_local_natives_num_10
+		clr_province_flag = to_local_natives_num_5
+		clr_province_flag = to_local_natives_num_1
+		set_province_flag = to_local_natives_num_0
+	}
+}
+
+to_remove_tribal_land = {
+	# every_country = {
+	# 	every_tribal_land_province = {
+	# 		change_tribal_land = ---
+	# 	}
+	# }
+	every_province = {
+		change_tribal_land = ---
+	}
+	every_province = {
+		limit = {
+			is_empty = yes
+		}
+		change_trade_goods = unknown
+	}
+}
+
+to_save_native_reforms = {
+    if = { limit = { has_reform = to_native_reform_egalitarian }
+        set_country_flag = to_had_native_reform_to_native_reform_egalitarian
+    }
+    if = { limit = { has_reform = to_native_reform_stratified }
+        set_country_flag = to_had_native_reform_to_native_reform_stratified
+    }
+    if = { limit = { has_reform = native_martial_tradition_reform }
+        set_country_flag = to_had_native_reform_native_martial_tradition_reform
+    }
+    if = { limit = { has_reform = native_oral_tradition_reform }
+        set_country_flag = to_had_native_reform_native_oral_tradition_reform
+    }
+    if = { limit = { has_reform = native_land_tradition_reform }
+        set_country_flag = to_had_native_reform_native_land_tradition_reform
+    }
+    if = { limit = { has_reform = native_settle_down_reform }
+        set_country_flag = to_had_native_reform_native_settle_down_reform
+    }
+    if = { limit = { has_reform = to_native_reform_semipermanent_settlements }
+        set_country_flag = to_had_native_reform_to_native_reform_semipermanent_settlements
+    }
+    if = { limit = { has_reform = native_war_band_reform }
+        set_country_flag = to_had_native_reform_native_war_band_reform
+    }
+    if = { limit = { has_reform = to_native_reform_nomadic_raiders }
+        set_country_flag = to_had_native_reform_to_native_reform_nomadic_raiders
+    }
+    if = { limit = { has_reform = to_native_reform_consensus_government }
+        set_country_flag = to_had_native_reform_to_native_reform_consensus_government
+    }
+    if = { limit = { has_reform = to_native_reform_law_of_peace }
+        set_country_flag = to_had_native_reform_to_native_reform_law_of_peace
+    }
+    if = { limit = { has_reform = to_native_reform_grand_chiefdom }
+        set_country_flag = to_had_native_reform_to_native_reform_grand_chiefdom
+    }
+    if = { limit = { has_reform = to_native_reform_kingdom }
+        set_country_flag = to_had_native_reform_to_native_reform_kingdom
+    }
+    if = { limit = { has_reform = to_native_reform_cahokian_dynasties }
+        set_country_flag = to_had_native_reform_to_native_reform_cahokian_dynasties
+    }
+    if = { limit = { has_reform = to_native_reform_codified_power }
+        set_country_flag = to_had_native_reform_to_native_reform_codified_power
+    }
+    if = { limit = { has_reform = to_native_reform_government_power }
+        set_country_flag = to_had_native_reform_to_native_reform_government_power
+    }
+    if = { limit = { has_reform = to_native_reform_higher_powers }
+        set_country_flag = to_had_native_reform_to_native_reform_higher_powers
+    }
+}
+
+to_load_native_reforms = {
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_egalitarian } 
+        add_government_reform = to_native_reform_egalitarian
+        clr_country_flag = to_had_native_reform_to_native_reform_egalitarian
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_stratified } 
+        add_government_reform = to_native_reform_stratified
+        clr_country_flag = to_had_native_reform_to_native_reform_stratified
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_native_martial_tradition_reform } 
+        add_government_reform = native_martial_tradition_reform
+        clr_country_flag = to_had_native_reform_native_martial_tradition_reform
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_native_oral_tradition_reform } 
+        add_government_reform = native_oral_tradition_reform
+        clr_country_flag = to_had_native_reform_native_oral_tradition_reform
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_native_land_tradition_reform } 
+        add_government_reform = native_land_tradition_reform
+        clr_country_flag = to_had_native_reform_native_land_tradition_reform
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_native_settle_down_reform } 
+        add_government_reform = to_native_reform_settle_down_reformed
+        clr_country_flag = to_had_native_reform_native_settle_down_reform
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_semipermanent_settlements } 
+        add_government_reform = to_native_reform_semipermanent_settlements_reformed
+        clr_country_flag = to_had_native_reform_to_native_reform_semipermanent_settlements
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_native_war_band_reform } 
+        add_government_reform = native_war_band_reform
+        clr_country_flag = to_had_native_reform_native_war_band_reform
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_nomadic_raiders } 
+        add_government_reform = to_native_reform_nomadic_raiders
+        clr_country_flag = to_had_native_reform_to_native_reform_nomadic_raiders
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_consensus_government } 
+        add_government_reform = to_native_reform_consensus_government
+        clr_country_flag = to_had_native_reform_to_native_reform_consensus_government
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_law_of_peace } 
+        add_government_reform = to_native_reform_law_of_peace
+        clr_country_flag = to_had_native_reform_to_native_reform_law_of_peace
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_grand_chiefdom } 
+        add_government_reform = to_native_reform_grand_chiefdom
+        clr_country_flag = to_had_native_reform_to_native_reform_grand_chiefdom
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_kingdom } 
+        add_government_reform = to_native_reform_kingdom
+        clr_country_flag = to_had_native_reform_to_native_reform_kingdom
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_cahokian_dynasties } 
+        add_government_reform = to_native_reform_cahokian_dynasties
+        clr_country_flag = to_had_native_reform_to_native_reform_cahokian_dynasties
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_codified_power } 
+        add_government_reform = to_native_reform_codified_power
+        clr_country_flag = to_had_native_reform_to_native_reform_codified_power
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_government_power } 
+        add_government_reform = to_native_reform_government_power
+        clr_country_flag = to_had_native_reform_to_native_reform_government_power
+    }
+    if = { limit = { has_country_flag = to_had_native_reform_to_native_reform_higher_powers } 
+        add_government_reform = to_native_reform_higher_powers
+        clr_country_flag = to_had_native_reform_to_native_reform_higher_powers
+    }
+}
+
+to_nat_set_development = {
+	every_country = {
+		limit = {
+			has_native_government = yes
+			has_reform = native_settle_down_reform
+			# OR = {
+			# 	has_reform = native_settle_down_reform
+			# 	NOT = { has_dlc = "Conquest of Paradise" }
+			# }
+		}
+		capital_scope = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+	}
+}
+
+to_nat_determine_new_confederation_leader = {
+	if = {
+		limit = {
+			has_subject_of_type = to_confederation_subject
+		}
+		random_subject_country = {
+			set_country_flag = to_nat_new_confederate_leader_@FROM
+		}
+		every_subject_country  = {
+			if = {
+				limit = {
+					any_country = {
+						has_country_flag = to_nat_new_confederate_leader_@FROM
+						NOT = { total_development = PREV }
+					}
+				}
+				FROM = {
+					random_subject_country = {
+						limit = {
+							has_country_flag = to_nat_new_confederate_leader_@FROM
+						}
+						clr_country_flag = to_nat_new_confederate_leader_@FROM
+					}
+				}
+				set_country_flag = to_nat_new_confederate_leader_@FROM
+			}
+		}
+		random_subject_country = {
+			limit = {
+				has_country_flag = to_nat_new_confederate_leader_@FROM
+			}
+			grant_independence = yes
+		}
+		every_subject_country = {
+			grant_independence = yes
+			if = {
+				limit = {
+					NOT = { has_country_flag = to_nat_new_confederate_leader_@FROM }
+				}
+				random_country = {
+					limit = {
+						has_country_flag = to_nat_new_confederate_leader_@FROM
+					}
+					create_subject = {
+						subject_type = to_confederation_subject
+						subject = PREV
+					}
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				has_country_flag = to_nat_new_confederate_leader_@FROM
+			}
+			clr_country_flag = to_nat_new_confederate_leader_@FROM
+		}
+	}
+}
+
+to_nat_tribal_development_setup = {
+	every_province = {
+		limit = {
+			to_nat_can_have_tribal_development_province = yes
+		}
+		to_nat_set_local_tribal_development = yes
+		to_nat_set_original_culture_flag = yes
+	}
+}
+
+to_nat_restore_local_tribal_development = {
+	if = {
+		limit = {
+			to_nat_can_have_tribal_development_province = yes
+			NOT = {
+				check_variable = {
+					which = to_nat_local_tribal_development
+					value = 1
+				}
+			}
+		}
+		to_nat_set_local_tribal_development = yes
+		to_nat_clr_original_culture_flag = yes
+		to_nat_set_original_culture_flag = yes
+	}
+}
+
+to_nat_set_local_tribal_development = {
+	## Export local development
+	export_to_variable = {
+		which = to_nat_local_tribal_tax
+		value = base_tax
+	}
+	export_to_variable = {
+		which = to_nat_local_tribal_production
+		value = base_production
+	}
+	export_to_variable = {
+		which = to_nat_local_tribal_manpower
+		value = base_manpower
+	}
+	## Subtract migratory development
+	if = {
+		limit = {
+			check_variable = { which = to_nat_migratory_tax value = 1 }
+		}
+		subtract_variable = { which = to_nat_local_tribal_tax which = to_nat_migratory_tax }
+	}
+	if = {
+		limit = {
+			check_variable = { which = to_nat_migratory_production value = 1 }
+		}
+		subtract_variable = { which = to_nat_local_tribal_production which = to_nat_migratory_production }
+	}
+	if = {
+		limit = {
+			check_variable = { which = to_nat_migratory_manpower value = 1 }
+		}
+		subtract_variable = { which = to_nat_local_tribal_manpower which = to_nat_migratory_manpower }
+	}
+	## Subtract "True" base development
+	# if = {
+	# 	limit = {
+	# 		is_empty = yes
+	# 	}
+		if = {
+			limit = {
+				check_variable = { which = to_nat_local_tribal_tax value = 1 }
+			}
+			change_variable = { which = to_nat_local_tribal_tax value = -1 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = to_nat_local_tribal_production value = 1 }
+			}
+			change_variable = { which = to_nat_local_tribal_production value = -1 }
+		}
+		# if = {
+		# 	limit = {
+		# 		check_variable = { which = to_nat_local_tribal_manpower value = 1 }
+		# 	}
+		# 	change_variable = { which = to_nat_local_tribal_manpower value = -1 }
+		# }
+	# }
+	## Sum to get total tribal development (useful for triggers)
+	set_variable = {
+		which = to_nat_local_tribal_development
+		value = 0
+	}
+	change_variable = {
+		which = to_nat_local_tribal_development
+		which = to_nat_local_tribal_tax
+	}
+	change_variable = {
+		which = to_nat_local_tribal_development
+		which = to_nat_local_tribal_production
+	}
+	change_variable = {
+		which = to_nat_local_tribal_development
+		which = to_nat_local_tribal_manpower
+	}
+	## Set appropriate native population
+	to_nat_calculate_local_native_size = yes
+	## Add province modifier
+	if = {
+		limit = {
+			NOT = { has_province_modifier = to_nat_tribal_development }
+			development = 3
+		}
+		add_permanent_province_modifier = {
+			name = to_nat_tribal_development
+			duration = -1
+		}
+	}
+}
+
+to_nat_calculate_local_native_size = {
+	change_native_size = -100
+	# if = {
+	# 	limit = {
+	# 		development = 3
+	# 		NOT = { has_province_flag = to_local_natives_num_0 }
+	# 	}
+	# 	change_native_size = 5
+	# }
+	set_variable = {
+		which = local_tribal_development
+		which = to_nat_local_tribal_development
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = local_tribal_development
+				value = 1
+			}
+		}
+		change_variable = {
+			which = local_tribal_development
+			value = -1
+		}
+		change_native_size = 5
+	}
+}
+
+to_nat_integrate_all_tribal_development = {
+	custom_tooltip = to_nat_remove_tribal_development_tt
+	hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				is_colony = no
+				has_province_modifier = to_nat_tribal_development
+			}
+			to_nat_clear_local_tribal_development = yes
+		}
+	}
+}
+
+
+to_nat_tier_5_integrate_tribal_development = {
+	custom_tooltip = to_nat_will_remove_tribal_development_tier_5_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				# to_nat_has_any_tier_5_native_government_reform = yes
+				OR = {
+					has_reform = native_settle_down_reform
+					has_reform = to_native_reform_settle_down_reformed
+				}
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						continent = north_america
+						continent = south_america
+					}
+					is_colony = no
+					has_province_modifier = to_nat_tribal_development
+				}
+				to_nat_clear_local_tribal_development = yes
+			}
+		}
+	}
+}
+
+to_nat_remove_tribal_development = {
+	if = {
+		limit = {
+			OR = {
+				continent = north_america
+				continent = south_america
+			}
+			is_city = yes
+			has_province_modifier = to_nat_tribal_development
+			owner = {
+				to_nat_can_instantly_assimilate_development_country = yes
+			}
+		}
+		to_nat_clear_local_tribal_development = yes
+	}
+}
+
+to_nat_add_to_local_tribal_development = {
+	if = {
+		limit = {
+			to_nat_can_have_tribal_development_province = yes
+		}
+		change_variable = { which = to_nat_local_tribal_tax value = $TAX$ }
+		change_variable = { which = to_nat_local_tribal_production value = $PRODUCTION$ }
+		change_variable = { which = to_nat_local_tribal_manpower value = $MANPOWER$ }
+		set_variable = { which = to_nat_local_tribal_development value = 0 }
+		change_variable = { which = to_nat_local_tribal_development which = to_nat_local_tribal_tax }
+		change_variable = { which = to_nat_local_tribal_development which = to_nat_local_tribal_production }
+		change_variable = { which = to_nat_local_tribal_development which = to_nat_local_tribal_manpower }
+		remove_province_modifier = to_nat_had_tribal_development
+		if = {
+			limit = {
+				NOT = { has_province_modifier = to_nat_tribal_development }
+			}
+			add_permanent_province_modifier = {
+				name = to_nat_tribal_development
+				duration = -1
+			}
+		}
+	}
+}
+
+to_nat_assimilate_local_tribal_development = {
+	if = {
+		limit = {
+			has_province_modifier = to_nat_tribal_development
+		}
+		custom_tooltip = to_nat_tribal_development_assimilated_tt
+		hidden_effect = {
+			to_nat_clear_local_tribal_development = yes
+		}
+	}
+}
+
+to_nat_move_local_tribal_development = {
+	$ORIGIN$ = {
+		set_variable = { which = to_nat_moved_tribal_tax which = to_nat_local_tribal_tax }
+		set_variable = { which = to_nat_moved_tribal_production which = to_nat_local_tribal_production }
+		set_variable = { which = to_nat_moved_tribal_manpower which = to_nat_local_tribal_manpower }
+		to_nat_reduce_base_development = {
+			TYPE = tax
+			AMOUNT_VARIABLE = to_nat_moved_tribal_tax
+		}
+		to_nat_reduce_base_development = {
+			TYPE = production
+			AMOUNT_VARIABLE = to_nat_moved_tribal_production
+		}
+		to_nat_reduce_base_development = {
+			TYPE = manpower
+			AMOUNT_VARIABLE = to_nat_moved_tribal_manpower
+		}
+		$DESTINATION$ = {
+			set_variable = { which = to_nat_moved_tribal_tax which = PREV }
+			set_variable = { which = to_nat_moved_tribal_production which = PREV }
+			set_variable = { which = to_nat_moved_tribal_manpower which = PREV }
+			to_nat_increase_base_development = {
+				TYPE = tax
+				AMOUNT_VARIABLE = to_nat_moved_tribal_tax
+			}
+			to_nat_increase_base_development = {
+				TYPE = production
+				AMOUNT_VARIABLE = to_nat_moved_tribal_production
+			}
+			to_nat_increase_base_development = {
+				TYPE = manpower
+				AMOUNT_VARIABLE = to_nat_moved_tribal_manpower
+			}
+			if = {
+				limit = {
+					to_nat_can_have_tribal_development_province = yes
+				}
+				change_variable = { which = to_nat_local_tribal_tax which = to_nat_moved_tribal_tax }
+				change_variable = { which = to_nat_local_tribal_production which = to_nat_moved_tribal_production }
+				change_variable = { which = to_nat_local_tribal_manpower which = to_nat_moved_tribal_manpower }
+				set_variable = { which = to_nat_local_tribal_development value = 0 }
+				change_variable = { which = to_nat_local_tribal_development which = to_nat_local_tribal_tax }
+				change_variable = { which = to_nat_local_tribal_development which = to_nat_local_tribal_production }
+				change_variable = { which = to_nat_local_tribal_development which = to_nat_local_tribal_manpower }
+				remove_province_modifier = to_nat_had_tribal_development
+				if = {
+					limit = {
+						NOT = { has_province_modifier = to_nat_tribal_development }
+					}
+					add_permanent_province_modifier = {
+						name = to_nat_tribal_development
+						duration = -1
+					}
+				}
+			}
+		}
+		to_nat_clear_local_tribal_development = yes
+	}	
+}
+
+to_nat_clear_local_tribal_development = {
+	set_variable = {
+		which = to_nat_local_tribal_tax
+		value = 0
+	}
+	set_variable = {
+		which = to_nat_local_tribal_production
+		value = 0
+	}
+	set_variable = {
+		which = to_nat_local_tribal_manpower
+		value = 0
+	}
+	set_variable = {
+		which = to_nat_local_tribal_development
+		value = 0
+	}
+	remove_province_modifier = to_nat_tribal_development
+	add_permanent_province_modifier = {
+		name = to_nat_had_tribal_development
+		duration = -1
+	}
+	if = {
+		limit = {
+			has_province_modifier = nhs_native_priv_inclusive_citizenship_mod
+		}
+		remove_province_modifier = nhs_native_priv_inclusive_citizenship_mod
+	}
+	if = {
+		limit = {
+			has_province_modifier = to_vov_native_priv_benevolent_conquerors_mod
+		}
+		remove_province_modifier = to_vov_native_priv_benevolent_conquerors_mod
+	}
+	if = {
+		limit = {
+			has_province_flag = to_assimilation_progressing_tribal
+		}
+		to_remove_culture_adaptation_variables = yes
+	}
+}
+
+to_nat_tribal_development_on_province_culture_converted = {
+	if = {
+		limit = {
+			owner = {
+				# NOT = { culture_group = ROOT }
+				NOT = { has_native_government = yes }
+				culture_group = ROOT
+			}
+		}
+		to_nat_assimilate_local_tribal_development = yes
+	}
+}
+
+to_nat_migratory_development_setup = {
+	every_country = {
+		limit = {
+			capital_scope = {
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+			}
+			has_native_government = yes
+			to_nat_can_have_migratory_development = yes
+		}
+		set_variable = {
+			which = to_nat_migratory_tax
+			value = 1
+		}
+		set_variable = {
+			which = to_nat_migratory_production
+			value = 1
+		}
+		set_variable = {
+			which = to_nat_migratory_manpower
+			value = 1
+		}
+		capital_scope = {
+			to_nat_set_local_migratory_development = yes
+		}
+	}
+}
+
+to_nat_on_migrate_province = {
+	to_nat_set_local_migratory_development = yes
+	to_nat_clr_original_culture_flag = yes
+	to_nat_set_original_culture_flag = yes
+	# if = {
+	# 	limit = {
+	# 		to_nat_can_have_tribal_development_province = yes
+	# 	}
+		# change_variable = { which = to_nat_local_tribal_tax value = 1 }
+		# change_variable = { which = to_nat_local_tribal_production value = 1 }
+		# change_variable = { which = to_nat_local_tribal_development value = 2 }
+		# change_variable = { which = to_nat_local_tribal_manpower value = 1 }
+	# }
+}
+to_nat_set_global_migratory_development = {
+	custom_tooltip = to_nat_gain_migratory_development_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				capital_scope = {
+					base_tax = 2
+				}
+			}
+			capital_scope = {
+				add_base_tax = -1
+			}
+			set_variable = {
+				which = to_nat_migratory_tax
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+				capital_scope = {
+					base_production = 2
+				}
+			}
+			capital_scope = {
+				add_base_production = -1
+			}
+			set_variable = {
+				which = to_nat_migratory_production
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+				capital_scope = {
+					base_manpower = 1
+				}
+			}
+			capital_scope = {
+				add_base_manpower = -1
+			}
+			set_variable = {
+				which = to_nat_migratory_manpower
+				value = 1
+			}
+		}
+		capital_scope = {
+			to_nat_set_local_migratory_development = yes
+		}
+	}
+}
+
+to_nat_set_local_migratory_development = {
+	owner = {
+		PREV = {
+			set_variable = {
+				which = to_nat_migratory_tax
+				value = 0
+			}
+			set_variable = {
+				which = to_nat_migratory_production
+				value = 0
+			}
+			set_variable = {
+				which = to_nat_migratory_manpower
+				value = 0
+			}
+			to_nat_set_local_migratory_development_type = { TYPE = tax }
+			to_nat_set_local_migratory_development_type = { TYPE = production }
+			to_nat_set_local_migratory_development_type = { TYPE = manpower }
+		}
+	}
+	## Add province modifier
+	if = {
+		limit = {
+			NOT = { has_province_modifier = to_nat_migratory_development }
+		}
+		add_permanent_province_modifier = {
+			name = to_nat_migratory_development
+			duration = -1
+		}
+	}
+}
+
+to_nat_set_local_migratory_development_type = {
+	while = {
+		limit = {
+			NOT = {
+				check_variable = {
+					which = to_nat_migratory_$TYPE$
+					which = PREV
+				}
+			}
+		}
+		change_variable = {
+			which = to_nat_migratory_$TYPE$
+			value = 1
+		}
+		add_base_$TYPE$ = 1
+	}
+}
+
+# Requires FROM to be the previous owner
+to_nat_remove_local_migratory_development = {
+	if = {
+		limit = {
+			has_province_modifier = to_nat_migratory_development
+		}
+		FROM = {
+			PREV = {
+				set_variable = {
+					which = to_nat_migratory_tax
+					which = PREV
+				}
+				set_variable = {
+					which = to_nat_migratory_production
+					which = PREV
+				}
+				set_variable = {
+					which = to_nat_migratory_manpower
+					which = PREV
+				}
+				to_nat_remove_local_migratory_development_type = { TYPE = tax }
+				to_nat_remove_local_migratory_development_type = { TYPE = production }
+				to_nat_remove_local_migratory_development_type = { TYPE = manpower }
+			}
+		}
+		set_variable = {
+			which = to_nat_migratory_tax
+			value = 0
+		}
+		set_variable = {
+			which = to_nat_migratory_production
+			value = 0
+		}
+		set_variable = {
+			which = to_nat_migratory_manpower
+			value = 0
+		}
+		remove_province_modifier = to_nat_migratory_development
+	}
+}
+
+to_nat_remove_local_migratory_development_type = {
+	while = {
+		limit = {
+			check_variable = {
+				which = to_nat_migratory_$TYPE$
+				value = 1
+			}
+		}
+		change_variable = {
+			which = to_nat_migratory_$TYPE$
+			value = -1
+		}
+		add_base_$TYPE$ = -1
+	}
+}
+
+to_nat_on_conquered_migratory_development = {
+	if = {
+		limit = {
+			has_province_modifier = to_nat_migratory_development
+			is_empty = no
+		}
+		if = {
+			limit = {
+				FROM = {
+					exists = yes
+				}
+			}
+			FROM = {
+				country_event = {
+					id = to_nat_tribal_development.100
+					days = 1
+				}
+				# capital_scope = {
+				# 	to_nat_set_local_migratory_development = yes
+				# }
+			}
+			to_nat_remove_local_migratory_development = yes
+		}
+		else = {
+			to_nat_merge_local_migratory_development = yes
+		}
+	}
+}
+
+to_nat_merge_all_migratory_development = {
+	if = {
+		limit = {
+			# Lazy trigger
+			any_owned_province = {
+				has_province_modifier = to_nat_migratory_development
+			}
+		}
+		[[REFORM_EFFECT_TOOLTIP]
+		custom_tooltip = to_nat_remove_migratory_development_tt
+		]
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = to_nat_migratory_development
+				}
+				to_nat_merge_local_migratory_development = yes
+			}
+		}
+	}
+}
+
+to_nat_merge_local_migratory_development = {
+	if = {
+		limit = {
+			has_province_modifier = to_nat_migratory_development
+		}
+		remove_province_modifier = to_nat_migratory_development
+		if = {
+			limit = {
+				to_nat_can_have_tribal_development_province = yes
+			}
+			change_variable = { which = to_nat_local_tribal_tax which = to_nat_migratory_tax }
+			change_variable = { which = to_nat_local_tribal_production which = to_nat_migratory_production }
+			change_variable = { which = to_nat_local_tribal_manpower which = to_nat_migratory_manpower }
+			change_variable = { which = to_nat_local_tribal_development which = to_nat_migratory_tax }
+			change_variable = { which = to_nat_local_tribal_development which = to_nat_migratory_production }
+			change_variable = { which = to_nat_local_tribal_development which = to_nat_migratory_manpower }
+		}
+		set_variable = {
+			which = to_nat_migratory_tax
+			value = 0
+		}
+		set_variable = {
+			which = to_nat_migratory_production
+			value = 0
+		}
+		set_variable = {
+			which = to_nat_migratory_manpower
+			value = 0
+		}
+	}
+}
+
+# Prov, $FRACTION$ - Fraction of tribal dev to remove
+# TODO add potential culture change
+# 
+to_nat_displace_tribal_development = {
+	$PROVINCE_SCOPE$ = {
+		$COUNTRY_SCOPE$ = {
+			save_event_target_as = owner_of_the_province
+		}
+		
+		# Round up the dev removed
+		set_variable = { which = tribal_development_keep value = 1 }
+		subtract_variable = { which = tribal_development_keep value = $FRACTION$ }
+		multiply_variable = { which = tribal_development_keep which = to_nat_local_tribal_development }
+		
+		# [[ROUND_UP]
+			set_variable = { which = tribal_development_moved which = to_nat_local_tribal_development }
+			while = {
+				limit = {
+					check_variable = {
+						which = tribal_development_keep
+						value = 1
+					}
+				}
+				change_variable = {
+					which = tribal_development_keep
+					value = -1
+				}
+				change_variable = {
+					which = tribal_development_moved
+					value = -1
+				}
+			}
+		# ]
+		# [[ROUND_DOWN]
+		# 	set_variable = { which = tribal_development_moved value = 0 }
+		# 	while = {
+		# 		limit = {
+		# 			check_variable = {
+		# 				which = tribal_development_keep
+		# 				value = 1
+		# 			}
+		# 		}
+		# 		change_variable = {
+		# 			which = tribal_development_moved
+		# 			value = 1
+		# 		}
+		# 	}
+		# ]
+		set_variable = {
+			which = tribal_development_keep
+			value = 0
+		}
+		set_variable = {
+			which = tribal_tax_moved
+			value = 0
+		}
+		set_variable = {
+			which = tribal_production_moved
+			value = 0
+		}
+		set_variable = {
+			which = tribal_manpower_moved
+			value = 0
+		}
+		to_nat_tribal_development_remove_fraction = {
+			DEVELOPMENT_VARIABLE = tribal_development_moved
+			FRACTION = 1
+			VARIABLE_TAX_INCREASE = tribal_tax_moved
+			VARIABLE_PRODUCTION_INCREASE = tribal_production_moved
+			VARIABLE_MANPOWER_INCREASE = tribal_manpower_moved
+			VARIABLE_TAX_DECREASE = to_nat_local_tribal_tax
+			VARIABLE_PRODUCTION_DECREASE = to_nat_local_tribal_production
+			VARIABLE_MANPOWER_DECREASE = to_nat_local_tribal_manpower
+		}
+
+		set_variable = { which = tribal_tax_loss which = tribal_tax_moved }
+		set_variable = { which = tribal_production_loss which = tribal_production_moved }
+		set_variable = { which = tribal_manpower_loss which = tribal_manpower_moved }
+
+		# subtract_variable = { which = to_nat_local_tribal_tax which = tribal_tax_loss }
+		# subtract_variable = { which = to_nat_local_tribal_production which = tribal_production_loss }
+		# subtract_variable = { which = to_nat_local_tribal_manpower which = tribal_manpower_loss }
+		subtract_variable = { which = to_nat_local_tribal_development which = tribal_development_moved }
+		
+		to_nat_reduce_base_development = {
+			TYPE = tax
+			AMOUNT_VARIABLE = tribal_tax_loss
+		}
+		to_nat_reduce_base_development = {
+			TYPE = production
+			AMOUNT_VARIABLE = tribal_production_loss
+		}
+		to_nat_reduce_base_development = {
+			TYPE = manpower
+			AMOUNT_VARIABLE = tribal_manpower_loss
+		}
+		# Subtract a quarter of development
+		to_nat_tribal_development_remove_fraction = {
+			DEVELOPMENT_VARIABLE = tribal_development_moved
+			FRACTION = $LOST_FRACTION$
+			VARIABLE_TAX_DECREASE = tribal_tax_moved
+			VARIABLE_PRODUCTION_DECREASE = tribal_production_moved
+			VARIABLE_MANPOWER_DECREASE = tribal_manpower_moved
+			DECREASE_DEVELOPMENT_VARIABLE = yes
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = tribal_development_moved
+					value = 1
+				}
+			}
+			to_nat_pick_suitable_tribal_development_displacement_province = { 
+				EVENT_TARGET = displace_tribal_development_target_alternative_1
+				PROVINCE_SCOPE = $PROVINCE_SCOPE$
+			}
+			# if = {
+			# 	limit = {
+			# 		has_saved_event_target = displace_tribal_development_target_alternative_1
+			# 	}
+			# 	to_nat_pick_suitable_tribal_development_displacement_province = { 
+			# 		EVENT_TARGET = displace_tribal_development_target_alternative_2
+			# 		ALTERNATIVE_TARGET_1 = displace_tribal_development_target_alternative_1
+			# 		PROVINCE_SCOPE = $PROVINCE_SCOPE$
+			# 	}
+			# }
+			# if = {
+			# 	limit = {
+			# 		has_saved_event_target = displace_tribal_development_target_alternative_2
+			# 	}
+			# 	to_nat_pick_suitable_tribal_development_displacement_province = { 
+			# 		EVENT_TARGET = displace_tribal_development_target_alternative_3
+			# 		ALTERNATIVE_TARGET_1 = displace_tribal_development_target_alternative_1
+			# 		ALTERNATIVE_TARGET_2 = displace_tribal_development_target_alternative_2
+			# 		PROVINCE_SCOPE = $PROVINCE_SCOPE$
+			# 	}
+			# }
+			if = {
+				limit = {
+					has_saved_event_target = displace_tribal_development_target_alternative_1
+				}
+				event_target:displace_tribal_development_target_alternative_1 = {
+					save_event_target_as = displace_tribal_development_target
+				}
+				# random_list = {
+				# 	60 = {
+				# 		event_target:displace_tribal_development_target_alternative_1 = {
+				# 			save_event_target_as = displace_tribal_development_target
+				# 		}
+				# 	}
+				# 	20 = {
+				# 		trigger = {
+				# 			has_saved_event_target = displace_tribal_development_target_alternative_2
+				# 		}
+				# 		event_target:displace_tribal_development_target_alternative_2 = {
+				# 			save_event_target_as = displace_tribal_development_target
+				# 		}
+				# 	}
+				# 	20 = {
+				# 		trigger = {
+				# 			has_saved_event_target = displace_tribal_development_target_alternative_3
+				# 		}
+				# 		event_target:displace_tribal_development_target_alternative_3 = {
+				# 			save_event_target_as = displace_tribal_development_target
+				# 		}
+				# 	}
+				# }
+				event_target:displace_tribal_development_target = {
+					owner = {
+						save_event_target_as = displace_tribal_development_target_owner
+					}
+					set_variable = {
+						which = tribal_tax_moved
+						which = $PROVINCE_SCOPE$
+					}
+					set_variable = {
+						which = tribal_production_moved
+						which = $PROVINCE_SCOPE$
+					}
+					set_variable = {
+						which = tribal_manpower_moved
+						which = $PROVINCE_SCOPE$
+					}
+					####
+					to_nat_increase_base_development = {
+						TYPE = tax
+						AMOUNT_VARIABLE = tribal_tax_moved
+					}
+					to_nat_increase_base_development = {
+						TYPE = production
+						AMOUNT_VARIABLE = tribal_production_moved
+					}
+					to_nat_increase_base_development = {
+						TYPE = manpower
+						AMOUNT_VARIABLE = tribal_manpower_moved
+					}
+					if = {
+						limit = {
+							to_nat_can_have_tribal_development_province = yes
+						}
+						###
+						change_variable = { which = to_nat_local_tribal_tax which = tribal_tax_moved }
+						change_variable = { which = to_nat_local_tribal_production which = tribal_production_moved }
+						change_variable = { which = to_nat_local_tribal_manpower which = tribal_manpower_moved }
+						change_variable = { which = to_nat_local_tribal_development which = tribal_tax_moved }
+						change_variable = { which = to_nat_local_tribal_development which = tribal_production_moved }
+						change_variable = { which = to_nat_local_tribal_development which = tribal_manpower_moved }
+						remove_province_modifier = to_nat_had_tribal_development
+						if = {
+							limit = {
+								NOT = { has_province_modifier = to_nat_tribal_development }
+							}
+							add_permanent_province_modifier = {
+								name = to_nat_tribal_development
+								duration = -1
+							}
+						}
+					}
+				}
+			}
+		}
+		set_variable = { which = total_dev_loss which = tribal_tax_loss }
+		change_variable = { which = total_dev_loss which = tribal_production_loss }
+		change_variable = { which = total_dev_loss which = tribal_manpower_loss }
+		while = {
+			limit = {
+				check_variable = {
+					which = total_dev_loss
+					value = 1
+				}
+			}
+			change_variable = {
+				which = tribal_development_plunder
+				value = 10
+			}
+			change_variable = {
+				which = total_dev_loss
+				value = -1
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = tribal_development_plunder
+					value = 1
+				}
+			}
+			add_permanent_province_modifier = {
+				name = to_nat_tribal_development_plunder_mod
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = to_nat_local_tribal_development
+						value = 1
+					}
+				}
+			}
+			to_nat_clear_local_tribal_development = yes
+			# if = {
+			# 	limit = {
+			# 		OR = {
+			# 			is_empty = yes
+			# 			has_province_flag = nhs_is_colony
+			# 		}
+			# 	}
+			# 	add_permanent_province_modifier = {
+			# 		name = to_nat_province_depopulated
+			# 		duration = -1
+			# 	}
+			# }
+			# else = {
+			# 	add_permanent_province_modifier = {
+			# 		name = to_nat_province_depopulated
+			# 		duration = 5475
+			# 	}
+			# }
+		}
+	}
+}
+
+
+to_nat_add_temporary_depopulation = {
+	if = {
+		limit = {
+			has_province_modifier = to_nat_province_depopulated
+		}
+		remove_province_modifier = to_nat_province_depopulated
+		add_permanent_province_modifier = {
+			name = to_nat_province_depopulated
+			duration = 5475
+		}
+	}
+}
+
+
+to_nat_increase_base_development = {
+	set_variable = {
+		which = to_nat_increase_development_counter
+		which = $AMOUNT_VARIABLE$
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = to_nat_increase_development_counter
+				value = 1
+			}
+		}
+		change_variable = {
+			which = to_nat_increase_development_counter
+			value = -1
+		}
+		add_base_$TYPE$ = 1
+	}
+}
+
+to_nat_reduce_base_development = {
+	set_variable = {
+		which = to_nat_reduced_development_counter
+		which = $AMOUNT_VARIABLE$
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = to_nat_reduced_development_counter
+				value = 1
+			}
+		}
+		change_variable = {
+			which = to_nat_reduced_development_counter
+			value = -1
+		}
+		add_base_$TYPE$ = -1
+	}
+}
+
+to_nat_tribal_development_remove_fraction = {
+	set_variable = {
+		which = tribal_development_loss
+		which = $DEVELOPMENT_VARIABLE$
+	}
+	multiply_variable = {
+		which = tribal_development_loss
+		value = $FRACTION$
+	}
+
+	change_variable = {
+		which = tribal_development_loss
+		value = 0.999
+	}
+	multiply_variable = { 
+		which = tribal_development_loss
+		value = 0.001 
+	}
+	multiply_variable = { 
+		which = tribal_development_loss
+		value = 1000 
+	}
+
+	[[DECREASE_DEVELOPMENT_VARIABLE]
+		subtract_variable = {
+			which = $DEVELOPMENT_VARIABLE$
+			which = tribal_development_loss
+		}
+	]
+
+	# Since they are floats I would rather Subtract with while
+	while = {
+		limit = {
+			check_variable = {
+				which = tribal_development_loss
+				value = 1
+			}
+			OR = {
+				check_variable = {
+					which = $VARIABLE_TAX_DECREASE$
+					value = 1
+				}
+				check_variable = {
+					which = $VARIABLE_PRODUCTION_DECREASE$
+					value = 1
+				}
+				check_variable = {
+					which = $VARIABLE_MANPOWER_DECREASE$
+					value = 1
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = tribal_development_loss
+					value = 1
+				}
+				check_variable = {
+					which = $VARIABLE_MANPOWER_DECREASE$
+					value = 1
+				}
+			}
+			change_variable = {
+				which = tribal_development_loss
+				value = -1
+			}
+			[[VARIABLE_MANPOWER_INCREASE]
+				change_variable = {
+					which = $VARIABLE_MANPOWER_INCREASE$
+					value = 1
+				}
+			]	
+			change_variable = {
+				which = $VARIABLE_MANPOWER_DECREASE$
+				value = -1
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = tribal_development_loss
+					value = 1
+				}
+				check_variable = {
+					which = $VARIABLE_PRODUCTION_DECREASE$
+					value = 1
+				}
+			}
+			change_variable = {
+				which = tribal_development_loss
+				value = -1
+			}
+			[[VARIABLE_PRODUCTION_INCREASE]
+				change_variable = {
+					which = $VARIABLE_PRODUCTION_INCREASE$
+					value = 1
+				}
+			]
+			change_variable = {
+				which = $VARIABLE_PRODUCTION_DECREASE$
+				value = -1
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = tribal_development_loss
+					value = 1
+				}
+				check_variable = {
+					which = $VARIABLE_TAX_DECREASE$
+					value = 1
+				}
+			}
+			change_variable = {
+				which = tribal_development_loss
+				value = -1
+			}
+			[[VARIABLE_TAX_INCREASE]
+				change_variable = {
+					which = $VARIABLE_TAX_INCREASE$
+					value = 1
+				}
+			]
+			change_variable = {
+				which = $VARIABLE_TAX_DECREASE$
+				value = -1
+			}
+		}
+	}
+	set_variable = {
+		which = tribal_development_loss
+		value = 0
+	}
+}
+
+to_nat_pick_suitable_tribal_development_displacement_province = {
+	## Reform, country same culture, province same culture
+	random_country = {
+		limit = {
+			event_target:owner_of_the_province = {
+				NOT = { tag = PREV }
+			}
+			to_nat_has_any_cultural_unification_government_reform = yes
+			to_nat_displacement_same_culture_primary = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+			any_owned_province = {
+				to_nat_displacement_same_culture = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+				to_nat_province_displacement_target_check = { 
+					PROVINCE_SCOPE = $PROVINCE_SCOPE$
+					[[ALTERNATIVE_TARGET_1]
+						ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+					]
+					[[ALTERNATIVE_TARGET_2]
+						ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+					]
+				}
+			}
+		}
+		## TODO pick lowest dev province
+		random_owned_province = {
+			limit = {
+				to_nat_displacement_same_culture = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+				to_nat_province_displacement_target_check = { 
+					PROVINCE_SCOPE = $PROVINCE_SCOPE$
+					[[ALTERNATIVE_TARGET_1]
+						ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+					]
+					[[ALTERNATIVE_TARGET_2]
+						ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+					]
+				}
+			}
+			save_event_target_as = $EVENT_TARGET$
+		}
+	}
+	## No reform, country same culture, province same culture
+	if = {
+		limit = {
+			NOT = { has_saved_event_target = $EVENT_TARGET$ }
+		}
+		random_country = {
+			limit = {
+				event_target:owner_of_the_province = {
+					NOT = { tag = PREV }
+				}
+				to_nat_displacement_same_culture_primary = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+				any_owned_province = {
+					to_nat_displacement_same_culture = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+					to_nat_province_displacement_target_check = { 
+						PROVINCE_SCOPE = $PROVINCE_SCOPE$
+						[[ALTERNATIVE_TARGET_1]
+							ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+						]
+						[[ALTERNATIVE_TARGET_2]
+							ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+						]
+					}
+				}
+			}
+			## TODO pick lowest dev province
+			random_owned_province = {
+				limit = {
+					to_nat_displacement_same_culture = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+					to_nat_province_displacement_target_check = { 
+						PROVINCE_SCOPE = $PROVINCE_SCOPE$
+						[[ALTERNATIVE_TARGET_1]
+							ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+						]
+						[[ALTERNATIVE_TARGET_2]
+							ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+						]
+					}
+				}
+				save_event_target_as = $EVENT_TARGET$
+			}
+		}
+	}
+	## Reform, country same culture, province same culture group
+	if = {
+		limit = {
+			NOT = { has_saved_event_target = $EVENT_TARGET$ }
+		}
+		random_country = {
+			limit = {
+				event_target:owner_of_the_province = {
+					NOT = { tag = PREV }
+				}
+				to_nat_has_any_cultural_unification_government_reform = yes
+				to_nat_displacement_same_culture_primary = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+				any_owned_province = {
+					to_nat_displacement_same_culture_group = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+					to_nat_province_displacement_target_check = { 
+						PROVINCE_SCOPE = $PROVINCE_SCOPE$
+						[[ALTERNATIVE_TARGET_1]
+							ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+						]
+						[[ALTERNATIVE_TARGET_2]
+							ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+						]
+					}
+				}
+			}
+			## TODO pick lowest dev province
+			random_owned_province = {
+				limit = {
+					to_nat_displacement_same_culture_group = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+					to_nat_province_displacement_target_check = { 
+						PROVINCE_SCOPE = $PROVINCE_SCOPE$
+						[[ALTERNATIVE_TARGET_1]
+							ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+						]
+						[[ALTERNATIVE_TARGET_2]
+							ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+						]
+					}
+				}
+				save_event_target_as = $EVENT_TARGET$
+			}
+		}
+	}
+	## No reform, country same culture, province same culture group
+	if = {
+		limit = {
+			NOT = { has_saved_event_target = $EVENT_TARGET$ }
+		}
+		random_country = {
+			limit = {
+				event_target:owner_of_the_province = {
+					NOT = { tag = PREV }
+				}
+				to_nat_displacement_same_culture_primary = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+				any_owned_province = {
+					to_nat_displacement_same_culture_group = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+					to_nat_province_displacement_target_check = { 
+						PROVINCE_SCOPE = $PROVINCE_SCOPE$
+						[[ALTERNATIVE_TARGET_1]
+							ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+						]
+						[[ALTERNATIVE_TARGET_2]
+							ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+						]
+					}
+				}
+			}
+			## TODO pick lowest dev province
+			random_owned_province = {
+				limit = {
+					to_nat_displacement_same_culture_group = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+					to_nat_province_displacement_target_check = { 
+						PROVINCE_SCOPE = $PROVINCE_SCOPE$
+						[[ALTERNATIVE_TARGET_1]
+							ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+						]
+						[[ALTERNATIVE_TARGET_2]
+							ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+						]
+					}
+				}
+				save_event_target_as = $EVENT_TARGET$
+			}
+		}
+	}
+	## Reform, country same culture group, province same culture
+	if = {
+		limit = {
+			NOT = { has_saved_event_target = $EVENT_TARGET$ }
+		}
+		random_country = {
+			limit = {
+				event_target:owner_of_the_province = {
+					NOT = { tag = PREV }
+				}
+				to_nat_has_any_cultural_unification_government_reform = yes
+				to_nat_displacement_same_culture_group = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+				any_owned_province = {
+					to_nat_displacement_same_culture = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+					to_nat_province_displacement_target_check = { 
+						PROVINCE_SCOPE = $PROVINCE_SCOPE$
+						[[ALTERNATIVE_TARGET_1]
+							ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+						]
+						[[ALTERNATIVE_TARGET_2]
+							ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+						]
+					}
+				}
+			}
+			## TODO pick lowest dev province
+			random_owned_province = {
+				limit = {
+					to_nat_displacement_same_culture = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+					to_nat_province_displacement_target_check = { 
+						PROVINCE_SCOPE = $PROVINCE_SCOPE$
+						[[ALTERNATIVE_TARGET_1]
+							ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+						]
+						[[ALTERNATIVE_TARGET_2]
+							ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+						]
+					}
+				}
+				save_event_target_as = $EVENT_TARGET$
+			}
+		}
+	}
+	## Reform, country same culture group, province same culture group
+	if = {
+		limit = {
+			NOT = { has_saved_event_target = $EVENT_TARGET$ }
+		}
+		random_country = {
+			limit = {
+				event_target:owner_of_the_province = {
+					NOT = { tag = PREV }
+				}
+				to_nat_has_any_cultural_unification_government_reform = yes
+				to_nat_displacement_same_culture_group = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+				any_owned_province = {
+					to_nat_displacement_same_culture_group = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+					to_nat_province_displacement_target_check = { 
+						PROVINCE_SCOPE = $PROVINCE_SCOPE$
+						[[ALTERNATIVE_TARGET_1]
+							ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+						]
+						[[ALTERNATIVE_TARGET_2]
+							ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+						]
+					}
+				}
+			}
+			## TODO pick lowest dev province
+			random_owned_province = {
+				limit = {
+					to_nat_displacement_same_culture_group = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+					to_nat_province_displacement_target_check = { 
+						PROVINCE_SCOPE = $PROVINCE_SCOPE$
+						[[ALTERNATIVE_TARGET_1]
+							ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+						]
+						[[ALTERNATIVE_TARGET_2]
+							ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+						]
+					}
+				}
+				save_event_target_as = $EVENT_TARGET$
+			}
+		}
+	}
+	## Province same culture
+	if = {
+		limit = {
+			NOT = { has_saved_event_target = $EVENT_TARGET$ }
+		}
+		random_province = {
+			limit = {
+				is_empty = yes
+				to_nat_displacement_same_culture = { PROVINCE_SCOPE = $PROVINCE_SCOPE$ }
+				to_nat_province_displacement_target_check = { 
+					PROVINCE_SCOPE = $PROVINCE_SCOPE$
+					[[ALTERNATIVE_TARGET_1]
+						ALTERNATIVE_TARGET_1 = $ALTERNATIVE_TARGET_1$
+					]
+					[[ALTERNATIVE_TARGET_2]
+						ALTERNATIVE_TARGET_2 = $ALTERNATIVE_TARGET_2$
+					]
+				}
+			}
+			save_event_target_as = $EVENT_TARGET$
+		}
+	}
+}
+
+to_nat_tribal_displacement_show_effect = {
+	if = {
+		limit = {
+			check_variable = {
+				which = tribal_tax_loss
+				value = 1
+			}
+		}
+		custom_tooltip = to_nat_native_displacement_tax_loss_display_tt
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = tribal_production_loss
+				value = 1
+			}
+		}
+		custom_tooltip = to_nat_native_displacement_production_loss_display_tt
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = tribal_manpower_loss
+				value = 1
+			}
+		}
+		custom_tooltip = to_nat_native_displacement_manpower_loss_display_tt
+	}
+	
+	if = {
+		limit = {
+			is_empty = no
+			nhs_culturally_native = yes
+			NOT = {
+				check_variable = {
+					which = to_nat_local_tribal_development
+					value = 1
+				}
+			}
+			owner = {
+				event_target:owner_of_the_province = {
+					tag = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				event_target:owner_of_the_province = {
+					culture_group = byzantine
+					to_nhs_has_dynamic_elysian_primary_culture = yes
+				}
+			}
+			hidden_effect = {
+				random_neighbor_province = {
+					limit = {
+						culture_group = byzantine
+						to_nhs_has_dynamic_elysian_culture = yes
+					}
+					save_event_target_as = nhs_countryevents25_neighbor_province_target
+				}
+			}
+			if = {
+				limit = {
+					event_target:owner_of_the_province = {
+						has_country_flag = nhs_borealians_appeared_country
+					}
+					nhs_borealian_province = yes
+				}
+				change_culture = borealian
+			}
+			else_if = {
+				limit = {
+					event_target:owner_of_the_province = {
+						has_country_flag = nhs_hyperborealians_appeared_country
+					}
+					nhs_hyperborealian_province = yes
+				}
+				change_culture = hyperborealian
+			}
+			else_if = {
+				limit = {
+					event_target:owner_of_the_province = {
+						has_country_flag = nhs_hesperidians_appeared_country
+					}
+					nhs_hesperidian_province = yes
+				}
+				change_culture = hesperidian
+			}
+			else_if = {
+				limit = {
+					event_target:owner_of_the_province = {
+						has_country_flag = nhs_kykladian_appeared_country
+					}
+					nhs_kykladian_province = yes
+				}
+				change_culture = kykladian
+			}
+			else_if = {
+				limit = {
+					event_target:owner_of_the_province = {
+						has_country_flag = nhs_elyric_appeared_country
+					}
+					nhs_elyric_province = yes
+				}
+				change_culture = elyric
+			}
+			else_if = {
+				limit = {
+					event_target:owner_of_the_province = {
+						has_country_flag = nhs_arkadians_appeared_country
+					}
+					nhs_arkadian_province = yes
+				}
+				change_culture = arkadian
+			}
+			else_if = {
+				limit = {
+					event_target:owner_of_the_province = {
+						has_country_flag = nhs_eleutheroi_appeared_country
+					}
+					nhs_eleutheroi_province = yes
+				}
+				change_culture = eleutheroi
+			}
+			else_if = {
+				limit = {
+					OR = {
+						region = northeast_america_region
+						region = southeast_america_region
+					}
+				}
+				to_nhs_change_culture_to_romaic_or_elysian = yes
+			}
+			else_if = {
+				limit = {
+					has_saved_event_target = nhs_countryevents25_neighbor_province_target
+					event_target:nhs_countryevents25_neighbor_province_target = {
+						culture_group = byzantine
+						NOT = { culture = elysameric }
+						NOT = { culture = shqipproi }
+					}
+				}
+				change_culture = event_target:nhs_countryevents25_neighbor_province_target
+			}
+			else = {
+				change_culture = event_target:owner_of_the_province
+			}
+		}
+		else = {
+			change_culture = event_target:owner_of_the_province
+		}
+		change_religion = event_target:owner_of_the_province
+		hidden_effect = {
+			add_nationalism = -100
+		}
+	}
+}
+
+to_nat_tribal_displacement_show_effect_destination = {
+	if = {
+		limit = {
+			has_saved_event_target = displace_tribal_development_target
+			event_target:owner_of_the_province = {
+				event_target:displace_tribal_development_target = {
+					has_discovered = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_saved_event_target = displace_tribal_development_target_owner
+			}
+			event_target:displace_tribal_development_target_owner = {
+				if = {
+					limit = {
+						$PROVINCE_SCOPE$ = {
+							check_variable = {
+								which = tribal_tax_moved
+								value = 1
+							}
+						}
+					}
+					custom_tooltip = to_nat_native_displacement_tax_gain_display_tt
+				}
+				if = {
+					limit = {
+						$PROVINCE_SCOPE$ = {
+							check_variable = {
+								which = tribal_production_moved
+								value = 1
+							}
+						}
+					}
+					custom_tooltip = to_nat_native_displacement_production_gain_display_tt
+				}
+				if = {
+					limit = {
+						$PROVINCE_SCOPE$ = {
+							check_variable = {
+								which = tribal_manpower_moved
+								value = 1
+							}
+						}
+					}
+					custom_tooltip = to_nat_native_displacement_manpower_gain_display_tt
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					$PROVINCE_SCOPE$ = {
+						check_variable = {
+							which = tribal_tax_moved
+							value = 1
+						}
+					}
+				}
+				custom_tooltip = to_nat_native_displacement_tax_gain_display_empty_tt
+			}
+			if = {
+				limit = {
+					$PROVINCE_SCOPE$ = {
+						check_variable = {
+							which = tribal_production_moved
+							value = 1
+						}
+					}
+				}
+				custom_tooltip = to_nat_native_displacement_production_gain_display_empty_tt
+			}
+			if = {
+				limit = {
+					$PROVINCE_SCOPE$ = {
+						check_variable = {
+							which = tribal_manpower_moved
+							value = 1
+						}
+					}
+				}
+				custom_tooltip = to_nat_native_displacement_manpower_gain_display_empty_tt
+			}
+		}
+	}
+}
+
+to_nat_check_for_tribal_displacement_on_attack_natives = {
+	if = {
+		limit = {
+			is_city = no
+			FROM = {
+				tag = NAT
+			}
+		}
+		to_check_native_size = yes
+		random_country = {
+			limit = {
+				has_country_flag = to_natives_won_battle
+			}
+			clr_country_flag = to_natives_won_battle
+			if = {
+				limit = {
+					PREV = { has_province_flag = to_local_natives_num_0 }
+				}
+				country_event = { id = to_nat_tribal_development.2 }
+			}
+		}
+	}
+}
+
+to_nat_tribal_displacement_obtain_local_plunder = {
+	if = {
+		limit = {
+			$PROVINCE_SCOPE$ = {
+				has_province_modifier = to_nat_tribal_development_plunder_mod
+			}
+		}
+		if = {
+			limit = {
+				$PROVINCE_SCOPE$ = {
+					is_city = yes
+				}
+			}
+			custom_tooltip = to_nat_tribal_development_plunder_gain_money_tt
+			custom_tooltip = nhs_new_line_tt
+			hidden_effect = {
+				$PROVINCE_SCOPE$ = {
+					while = {
+						limit = {
+							check_variable = {
+								which = tribal_development_plunder
+								value = 10
+							}
+						}
+						change_variable = {
+							which = tribal_development_plunder
+							value = -10
+						}
+						$COUNTRY_SCOPE$ = {
+							add_treasury = 10
+						}
+					}
+					while = {
+						limit = {
+							check_variable = {
+								which = tribal_development_plunder
+								value = 1
+							}
+						}
+						change_variable = {
+							which = tribal_development_plunder
+							value = -1
+						}
+						$COUNTRY_SCOPE$ = {
+							add_treasury = 1
+						}
+					}
+					remove_province_modifier = to_nat_tribal_development_plunder_mod
+				}
+			}
+		}
+		else = {
+			custom_tooltip = to_nat_tribal_development_plunder_money_remains_tt
+			custom_tooltip = nhs_new_line_tt
+		}
+	}
+}
+
+to_nat_reform_native_government = {
+	if = {
+		limit = {
+			has_reform = native_basic_reform
+		}
+		custom_tooltip = to_remove_excess_gov_reforms_points_tt
+		custom_tooltip = nhs_new_line_tt
+		custom_tooltip = to_remove_native_modifiers_tt
+		custom_tooltip = nhs_new_line_tt
+		custom_tooltip = to_start_spreading_legalism_tt
+		hidden_effect = {
+			to_save_native_reforms = yes
+			change_government = native_reformed
+			to_load_native_reforms = yes
+			change_government_reform_progress = -10000
+		}
+	}
+}
+
+
+to_assign_native_council = {
+	# custom_tooltip = to_nat_to_assign_native_council_tt
+	# hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = to_has_exiled_council_ruler_@ROOT
+				NOT = {
+					had_country_flag = {
+						flag = to_has_exiled_council_ruler_@ROOT
+						days = 3650
+					}
+				}
+			}
+			custom_tooltip = to_restore_exiled_council_ruler_tt
+			clr_country_flag = to_has_exiled_council_ruler_@ROOT
+			hidden_effect = {
+				set_ruler = to_exiled_council_ruler_@ROOT
+			}
+		}
+		else = {
+			generate_council_ruler = yes
+		}
+		set_ruler_flag = to_nat_has_native_council
+		# if = {
+		# 	limit = {
+		# 		culture_group = muskogean
+		# 	}
+		# 	define_ruler = {
+		# 		name = "Council of Cities"
+		# 		regency = yes
+		# 		adm = 3
+		# 		dip = 3
+		# 		mil = 3
+		# 	}
+		# }
+		# else_if = {
+		# 	limit = {
+		# 		OR = {
+		# 			has_reform = to_native_reform_stratified
+		# 			has_reform = to_native_reform_law_of_peace
+		# 		}	
+		# 	}
+		# 	define_ruler = {
+		# 		name = "Council of Chiefs"
+		# 		regency = yes
+		# 		adm = 3
+		# 		dip = 3
+		# 		mil = 3
+		# 	}
+		# }
+		# else = {
+		# 	define_ruler = {
+		# 		name = "Council of Elders"
+		# 		regency = yes
+		# 		adm = 3
+		# 		dip = 3
+		# 		mil = 3
+		# 	}
+		# }
+		# to_native_promote_load_mana = { MANA = adm }
+		# to_native_promote_load_mana = { MANA = dip }
+		# to_native_promote_load_mana = { MANA = mil }
+	# }
+}
+
+generate_council_ruler_with_skills = {
+	hidden_effect = {
+		random_owned_province = {
+			limit = {
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
+				}
+			}
+			save_event_target_as = to_nat_council_ruler_province
+		}
+	}
+	if = {
+		limit = {
+			has_saved_event_target = to_nat_council_ruler_province
+		}
+		custom_tooltip = to_nat_council_returns_to_power_tt
+		hidden_effect = {
+			define_ruler = {
+				religion = event_target:to_nat_council_ruler_province
+				culture = event_target:to_nat_council_ruler_province
+				adm = $ADM$
+				dip = $DIP$
+				mil = $MIL$
+			}
+		}
+	}
+	else = {
+		custom_tooltip = to_nat_council_returns_to_power_tt
+		hidden_effect = {
+			define_ruler = {
+				religion = ROOT
+				culture = ROOT
+				adm = $ADM$
+				dip = $DIP$
+				mil = $MIL$
+			}
+		}
+	}
+}
+
+to_native_promote_load_mana = {
+	if = {
+		limit = {
+			check_variable = {
+				which = to_native_council_$MANA$
+				value = 6
+			}
+		}
+		change_$MANA$ = 3
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = to_native_council_$MANA$
+				value = 5
+			}
+		}
+		change_$MANA$ = 2
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = to_native_council_$MANA$
+				value = 4
+			}
+		}
+		change_$MANA$ = 1
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = to_native_council_$MANA$
+				value = 3
+			}
+		}
+		change_$MANA$ = 0
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = to_native_council_$MANA$
+				value = 2
+			}
+		}
+		change_$MANA$ = -1
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = to_native_council_$MANA$
+				value = 1
+			}
+		}
+		change_$MANA$ = -2
+	}
+	else_if = {
+		limit = {
+			check_variable = {
+				which = to_native_council_$MANA$
+				value = 0
+			}
+		}
+		change_$MANA$ = -3
+	}
+	else = {
+		set_variable = {
+			which = to_native_council_$MANA$
+			value = 3
+		}
+	}
+}
+
+to_assign_native_council_fixed_stats = {
+	# if = {
+	# 	limit = {
+	# 		culture_group = muskogean
+	# 	}
+	# 	define_ruler = {
+	# 		name = "Council of Cities"
+	# 		regency = yes
+	# 		adm = $ADM$
+	# 		dip = $DIP$
+	# 		mil = $MIL$
+	# 		force_republican_names = yes
+	# 	}
+	# }
+	# else_if = {
+	# 	limit = {
+	# 		OR = {
+	# 			has_reform = to_native_reform_stratified
+	# 			has_reform = to_native_reform_law_of_peace
+	# 		}	
+	# 	}
+	# 	define_ruler = {
+	# 		name = "Council of Chiefs"
+	# 		regency = yes
+	# 		adm = $ADM$
+	# 		dip = $DIP$
+	# 		mil = $MIL$
+	# 		force_republican_names = yes
+	# 	}
+	# }
+	# else = {
+	# 	define_ruler = {
+	# 		name = "Council of Elders"
+	# 		regency = yes
+	# 		adm = $ADM$
+	# 		dip = $DIP$
+	# 		mil = $MIL$
+	# 		force_republican_names = yes
+	# 	}
+	# }
+	# custom_tooltip = nhs_nat_set_council_$ADM$_$DIP$_$MIL$
+	set_ruler_flag = to_nat_has_native_council
+	custom_tooltip = to_nat_skills_reflect_council_tt
+	custom_tooltip = to_nat_set_ruler_adm_to_$ADM$_tt
+	custom_tooltip = to_nat_set_ruler_dip_to_$DIP$_tt
+	custom_tooltip = to_nat_set_ruler_mil_to_$MIL$_tt
+	hidden_effect = {
+		change_adm = -6
+		change_adm = 3
+		change_dip = -6
+		change_dip = 3
+		change_mil = -6
+		change_mil = 3
+		set_variable = {
+			which = to_native_council_adm
+			value = $ADM$
+		}
+		set_variable = {
+			which = to_native_council_dip
+			value = $DIP$
+		}
+		set_variable = {
+			which = to_native_council_mil
+			value = $MIL$
+		}
+		to_native_promote_load_mana = { MANA = adm }
+		to_native_promote_load_mana = { MANA = dip }
+		to_native_promote_load_mana = { MANA = mil }
+	}
+}
+
+to_native_council_election_assign_mana = {
+	if = {
+		limit = {
+			$PRIMARY$ = 6
+		}
+		add_$PRIMARY$_power = 100
+	}
+	else_if = {
+		limit = {
+			$PRIMARY$ = 5
+		}
+		change_$PRIMARY$ = 1
+		add_$PRIMARY$_power = 50
+	}
+	else_if = {
+		limit = {
+			$PRIMARY$ = 4
+		}
+		change_$PRIMARY$ = 2
+	}
+	else = {
+		change_$PRIMARY$ = 2
+	}
+
+	if = {
+		limit = {
+			$SECONDARY$ = 4
+		}
+		change_$SECONDARY$ = -1
+	}
+
+	if = {
+		limit = {
+			$TERTIARY$ = 4
+		}
+		change_$TERTIARY$ = -1
+	}
+
+	hidden_effect = {
+		to_native_council_election_save_stats = yes
+	}
+}
+
+to_native_council_election_save_stats = {
+	to_native_council_election_save_mana = { MANA = adm }
+	to_native_council_election_save_mana = { MANA = dip }
+	to_native_council_election_save_mana = { MANA = mil }
+}
+
+to_native_council_election_save_mana = {
+	if = {
+		limit = {
+			$MANA$ = 6
+		}
+		set_variable = {
+			which = to_native_council_$MANA$
+			value = 6
+		}
+	}
+	else_if = {
+		limit = {
+			$MANA$ = 5
+		}
+		set_variable = {
+			which = to_native_council_$MANA$
+			value = 5
+		}
+	}
+	else_if = {
+		limit = {
+			$MANA$ = 4
+		}
+		set_variable = {
+			which = to_native_council_$MANA$
+			value = 4
+		}
+	}
+	else_if = {
+		limit = {
+			$MANA$ = 3
+		}
+		set_variable = {
+			which = to_native_council_$MANA$
+			value = 3
+		}
+	}
+	else_if = {
+		limit = {
+			$MANA$ = 2
+		}
+		set_variable = {
+			which = to_native_council_$MANA$
+			value = 2
+		}
+	}
+	else_if = {
+		limit = {
+			$MANA$ = 1
+		}
+		set_variable = {
+			which = to_native_council_$MANA$
+			value = 1
+		}
+	}
+	else_if = {
+		limit = {
+			$MANA$ = 0
+		}
+		set_variable = {
+			which = to_native_council_$MANA$
+			value = 0
+		}
+	}
+}
+
+to_assign_war_chief = {
+	if = {
+		limit = {
+			has_dlc = "Rights of Man"
+		}
+		# This produces ~10 mana on average. I think.
+		define_ruler = {
+			change_adm = -1
+			max_random_adm = 4
+			change_dip = -1
+			max_random_dip = 3
+			change_mil = 5
+			min_age = 20
+			max_age = 40
+		}
+		random_list = {
+			1 = {
+				add_ruler_personality = tactical_genius_personality
+			}
+			1 = {
+				add_ruler_personality = bold_fighter_personality
+			}
+			1 = {
+				add_ruler_personality = strict_personality
+			}
+			1 = {
+				add_ruler_personality = inspiring_leader_personality
+			}
+		}
+	}
+	else = {
+		define_ruler = {
+			max_random_adm = 4
+			max_random_dip = 3
+			change_mil = 5
+			min_age = 20
+			max_age = 40
+		}
+	}
+}
+
+to_define_monarchy_chieftain = {
+	if = {
+		limit = {
+			republic_with_female_rulers_trigger = yes
+		}
+		define_ruler = {
+			random_gender = yes
+			dynasty = ROOT
+			name = "lastname"
+			culture = variable:old_ruler_culture
+			religion = variable:old_ruler_religion
+			min_age = 25
+			max_age = 40
+			claim = $LEGITIMACY$
+		}
+	}
+	else = {
+		define_ruler = {
+			dynasty = ROOT
+			name = "lastname"
+			culture = variable:old_ruler_culture
+			religion = variable:old_ruler_religion
+			claim = $LEGITIMACY$
+			min_age = 25
+			max_age = 40
+		}
+	}
+}
+
+to_nat_estate_save_territory = {
+	set_variable = {
+		which = to_nat_estate_clans_land_share
+		value = 0
+	}
+	while = {
+		limit = {
+			estate_territory = {
+				estate = $ESTATE$
+				territory = 1
+			}
+		}
+		change_estate_land_share = {
+			estate = $ESTATE$
+			share = -1
+		}
+		change_variable = {
+			which = to_nat_estate_clans_land_share
+			value = 1
+		}
+	}
+}
+
+to_nat_estate_load_territory = {
+	if = {
+		limit = {
+			check_variable = {
+				which = to_nat_estate_clans_land_share
+				value = 1
+			}
+		}
+		change_estate_land_share = {
+			estate = $ESTATE$
+			share = -100
+		}
+		while = {
+			limit = {
+				check_variable = {
+					which = to_nat_estate_clans_land_share
+					value = 1
+				}
+			}
+			change_estate_land_share = {
+				estate = $ESTATE$
+				share = 1
+			}
+			change_variable = {
+				which = to_nat_estate_clans_land_share
+				value = -1
+			}
+		}
+		set_variable = {
+			which = to_nat_estate_clans_land_share
+			value = 0
+		}
+	}
+}
+
+# $ESTATE$ Military Estate being enabled
+to_enables_native_estates = {
+	custom_tooltip = to_nat_enables_estates_with_$ESTATE$
+	set_country_flag = to_nat_estate_enabled_$ESTATE$
+}
+
+# $FROM_ESTATE$ estate being removed
+# $TO_ESTATE$ estate being added
+to_nat_switch_mal_estate = {
+	custom_tooltip = to_nat_switch_estate_from_$FROM_ESTATE$_to_$TO_ESTATE$
+	hidden_effect = {
+		to_nat_estate_save_territory = { ESTATE = $FROM_ESTATE$ }
+		to_nat_estate_load_territory = { ESTATE = $TO_ESTATE$ }
+	}
+	clr_country_flag = to_nat_estate_enabled_$FROM_ESTATE$
+	set_country_flag = to_nat_estate_enabled_$TO_ESTATE$
+}
+
+# $FROM_ESTATE$ estate being removed
+# $TO_ESTATE$ estate being added
+to_enables_or_switches_native_estates = {
+	if = {
+		limit = {
+			has_estate = $FROM_ESTATE$
+		}
+		to_nat_switch_mal_estate = {
+			FROM_ESTATE = $FROM_ESTATE$
+			TO_ESTATE = $TO_ESTATE$
+		}
+	}
+	else = {
+		to_enables_native_estates = { ESTATE = $TO_ESTATE$ }
+	}
+}
+
+to_nat_handle_colonise_own_culture_modifier = {
+	if = {
+		limit = {
+			owner = { has_reform = to_native_reform_unite_culture }
+			to_nat_colonise_own_culture_province_trigger = yes
+		}
+		add_province_modifier = { 
+			name = to_nat_colonise_own_modifier
+			duration = -1
+		}
+	}
+	else = {
+		remove_province_modifier = to_nat_colonise_own_modifier
+	}
+}
+
+to_nat_handle_colonise_foreign_culture_modifier = {
+	if = {
+		limit = {
+			owner = { has_reform = to_native_reform_unite_culture }
+			to_nat_colonise_foreign_culture_province_trigger = yes
+		}
+		add_province_modifier = { 
+			name = to_nat_colonise_foreign_modifier
+			duration = -1
+		}
+	}
+	else = {
+		remove_province_modifier = to_nat_colonise_foreign_modifier
+	}
+}
+
+to_nat_handle_colonise_own_culture_modifier_on_culture_change = {
+	if = {
+		limit = {
+			has_reform = to_native_reform_unite_culture
+		}
+		every_owned_province = {
+			to_nat_handle_colonise_own_culture_modifier = yes
+			to_nat_handle_colonise_foreign_culture_modifier = yes
+		}
+	}
+}
+
+to_nat_handle_native_expansion_modifier = {
+	if = {
+		limit = {
+			owner = { has_reform = to_native_reform_expansion }
+			to_nat_native_expansion_province_trigger = yes
+		}
+		add_province_modifier = { 
+			name = to_nat_native_expansion_modifier
+			duration = -1
+		}
+	}
+	else = {
+		remove_province_modifier = to_nat_native_expansion_modifier
+	}
+}
+
+to_nat_handle_expand_overseas_modifier = {
+	if = {
+		limit = {
+			owner = { has_reform = to_native_reform_expand_overseas }
+			to_overseas_colony_trigger = yes
+		}
+		add_province_modifier = { 
+			name = to_nat_expand_overseas_modifier
+			duration = -1
+		}
+	}
+	else = {
+		remove_province_modifier = to_nat_expand_overseas_modifier
+	}
+}
+
+to_nat_handle_grand_confederation_modifier = {
+	if = {
+		limit = {
+			owner = { has_reform = to_native_reform_grand_confederation }
+			to_nat_grand_confederation_province_trigger = yes
+		}
+		add_province_modifier = { 
+			name = to_nat_grand_confederation_modifier
+			duration = -1
+		}
+	}
+	else = {
+		remove_province_modifier = to_nat_grand_confederation_modifier
+	}
+}
+
+to_nat_handle_envoy_to_the_world = {
+	every_country = {
+		if = {
+			limit = {
+				has_reform = to_native_reform_envoy_to_the_world
+				NOT = { same_continent = ROOT }
+				NOT = {	
+					reverse_has_opinion_modifier = {
+						who = ROOT
+						modifier = to_nat_envoy_to_the_world_opinion
+					}
+				}
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = to_nat_envoy_to_the_world_opinion
+			}
+		}
+		else_if = {
+			limit = {
+				reverse_has_opinion_modifier = {
+					who = ROOT
+					modifier = to_nat_envoy_to_the_world_opinion
+				}
+				OR = {
+					NOT = { has_reform = to_native_reform_envoy_to_the_world }
+					same_continent = ROOT
+				}
+			}
+			reverse_remove_opinion = {
+				who = ROOT
+				modifier = to_nat_envoy_to_the_world_opinion
+			}
+		}
+	}
+}
+
+centralize_confederation = {
+	if = {
+		limit = {
+			has_subject_of_type = to_confederation_subject
+		}
+		tooltip = {
+			to_nat_form_confederation_tag = yes
+		}
+		to_nat_integrate_confederation = yes
+		hidden_effect = {
+			to_nat_form_confederation_tag = yes
+		}
+	}
+	custom_tooltip = to_nat_enable_centralize_federation_tt
+}
+
+to_nat_integrate_confederation = {
+	custom_tooltip = to_nat_integrate_confederation_tt
+	hidden_effect = {
+		while = {
+			limit = {
+				any_neighbor_country = {
+					is_subject_of = ROOT
+					is_subject_of_type = to_confederation_subject
+				}
+			}
+			every_neighbor_country = {
+				limit = {
+					is_subject_of = ROOT
+					is_subject_of_type = to_confederation_subject
+				}
+				ROOT = {
+					set_country_flag = to_nat_inherited_confederation_member
+					inherit = PREV
+				}
+			}
+		}
+	}
+}
+
+to_inherit_confederation_tag = {
+	hidden_effect = {
+		if = {
+			limit = {
+				$TAG$ = {
+					to_nat_in_same_confederation = yes
+					primary_culture = ROOT
+					is_neighbor_of = ROOT
+				}
+			}
+			inherit = $TAG$
+		}
+	}
+}
+
+to_nat_form_confederation_tag = {
+	tooltip = {
+		if = {
+			limit = {
+				NOT = { has_country_flag = to_nat_formed_confederation_tag }
+			}
+			if = { 
+				limit = {
+					to_will_become_federation_tag = { TAG = CRE }
+				}
+				# to_inherit_confederation_tag = { TAG = CRE }
+				to_change_tag = { TAG = CRE }
+				set_country_flag = to_nat_formed_confederation_tag
+			}
+			else_if = { 
+				limit = { 
+					to_will_become_federation_tag = { TAG = SIO }
+				}
+				# to_inherit_confederation_tag = { TAG = SIO }
+				to_change_tag = { TAG = SIO }
+				set_country_flag = to_nat_formed_confederation_tag
+			}
+			else_if = { 
+				limit = { 
+					to_will_become_federation_tag = { TAG = TF0 }
+				}
+				# to_inherit_confederation_tag = { TAG = TF0 }
+				to_change_tag = { TAG = TF0 }
+				set_country_flag = to_nat_formed_confederation_tag
+			}
+			else_if = { 
+				limit = { 
+					to_will_become_federation_tag = { TAG = HUR }
+				}
+				# to_inherit_confederation_tag = { TAG = HUR }
+				to_change_tag = { TAG = HUR }
+				set_country_flag = to_nat_formed_confederation_tag
+			}
+			else_if = { 
+				limit = { 
+					to_will_become_federation_tag = { TAG = ILL }
+				}
+				# to_inherit_confederation_tag = { TAG = ILL }
+				to_change_tag = { TAG = ILL }
+				set_country_flag = to_nat_formed_confederation_tag
+			}
+			else_if = { 
+				limit = { 
+					to_will_become_federation_tag = { TAG = IRO }
+				}
+				# to_inherit_confederation_tag = { TAG = IRO }
+				to_change_tag = { TAG = IRO }
+				set_country_flag = to_nat_formed_confederation_tag
+			}
+			else_if = { 
+				limit = { 
+					to_will_become_federation_tag = { TAG = SHA }
+				}
+				# to_inherit_confederation_tag = { TAG = SHA }
+				to_change_tag = { TAG = SHA }
+				set_country_flag = to_nat_formed_confederation_tag
+			}
+			else_if = { 
+				limit = {
+					to_will_become_federation_tag = { TAG = WB0 }
+				}
+				# to_inherit_confederation_tag = { TAG = WB0 }
+				to_change_tag = { TAG = WB0 }
+				set_country_flag = to_nat_formed_confederation_tag
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank_force = 2
+			}
+		}
+	}
+	hidden_effect = {
+		country_event = { id = to_nat_miscellaneous_events.1 }
+	}
+}
+
+to_nat_integrate_neighbor_culture_in_confederation = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = to_nat_has_integrated_neighbor_culture_in_confederation }
+		}
+		custom_tooltip = to_nat_unite_own_culture_confederation_tt
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						is_subject = no
+						is_subject_of_type = to_confederation_subject
+					}
+				}
+				set_country_flag = to_nat_has_integrated_neighbor_culture_in_confederation
+				while = {
+					limit = {
+						any_neighbor_country = {
+							primary_culture = ROOT
+							to_nat_in_same_confederation = yes
+						}
+					}
+					every_neighbor_country = {
+						limit = {
+							primary_culture = ROOT
+							to_nat_in_same_confederation = yes
+						}
+						if = {
+							limit = {
+								overlord_of = ROOT
+							}
+							ROOT = {
+								grant_independence = yes
+							}
+							every_subject_country = {
+								grant_independence = yes
+								ROOT = {
+									create_subject = {
+										subject_type = to_confederation_subject
+										subject = PREV
+									}
+								}
+							}
+						}
+						every_core_province = { 
+							remove_core = PREV
+							add_core = ROOT
+						}
+						ROOT = {
+							set_country_flag = to_nat_inherited_confederation_member
+							inherit = PREV
+						}
+					}
+				}
+			}
+		}
+	}
+	else = {
+		custom_tooltip = to_nat_unite_own_culture_confederation_done_tt
+	}
+}
+
+to_nat_start_legalism_spread = {
+	custom_tooltip = to_start_spreading_legalism_tt
+	set_country_flag = to_nat_legalism_spread
+}
+
+to_nat_set_original_culture_flag = {
+	if = { limit = { culture = pueblo } set_province_flag = nat_original_culture_pueblo }
+	else_if = { limit = { culture = piman } set_province_flag = nat_original_culture_piman }
+	else_if = { limit = { culture = shoshone } set_province_flag = nat_original_culture_shoshone }
+	else_if = { limit = { culture = kiowa } set_province_flag = nat_original_culture_kiowa }
+	else_if = { limit = { culture = creek } set_province_flag = nat_original_culture_creek }
+	else_if = { limit = { culture = choctaw } set_province_flag = nat_original_culture_choctaw }
+	else_if = { limit = { culture = chickasaw } set_province_flag = nat_original_culture_chickasaw }
+	else_if = { limit = { culture = yoron } set_province_flag = nat_original_culture_yoron }
+	else_if = { limit = { culture = natchez } set_province_flag = nat_original_culture_natchez }
+	else_if = { limit = { culture = yamasee } set_province_flag = nat_original_culture_yamasee }
+	else_if = { limit = { culture = shawnee } set_province_flag = nat_original_culture_shawnee }
+	else_if = { limit = { culture = illini } set_province_flag = nat_original_culture_illini }
+	else_if = { limit = { culture = miami } set_province_flag = nat_original_culture_miami }
+	else_if = { limit = { culture = anishinabe } set_province_flag = nat_original_culture_anishinabe }
+	else_if = { limit = { culture = algonquin } set_province_flag = nat_original_culture_algonquin }
+	else_if = { limit = { culture = cree } set_province_flag = nat_original_culture_cree }
+	else_if = { limit = { culture = innu } set_province_flag = nat_original_culture_innu }
+	else_if = { limit = { culture = mesquakie } set_province_flag = nat_original_culture_mesquakie }
+	else_if = { limit = { culture = delaware } set_province_flag = nat_original_culture_delaware }
+	else_if = { limit = { culture = abenaki } set_province_flag = nat_original_culture_abenaki }
+	else_if = { limit = { culture = mikmaq } set_province_flag = nat_original_culture_mikmaq }
+	else_if = { limit = { culture = maliseet } set_province_flag = nat_original_culture_maliseet }
+	else_if = { limit = { culture = mahican } set_province_flag = nat_original_culture_mahican }
+	else_if = { limit = { culture = powhatan } set_province_flag = nat_original_culture_powhatan }
+	else_if = { limit = { culture = pequot } set_province_flag = nat_original_culture_pequot }
+	else_if = { limit = { culture = massachusset } set_province_flag = nat_original_culture_massachusset }
+	else_if = { limit = { culture = iroquois } set_province_flag = nat_original_culture_iroquois }
+	else_if = { limit = { culture = tuscarora } set_province_flag = nat_original_culture_tuscarora }
+	else_if = { limit = { culture = cherokee } set_province_flag = nat_original_culture_cherokee }
+	else_if = { limit = { culture = huron } set_province_flag = nat_original_culture_huron }
+	else_if = { limit = { culture = laurentian } set_province_flag = nat_original_culture_laurentian }
+	else_if = { limit = { culture = tionontate } set_province_flag = nat_original_culture_tionontate }
+	else_if = { limit = { culture = susquehannock } set_province_flag = nat_original_culture_susquehannock }
+	else_if = { limit = { culture = dakota } set_province_flag = nat_original_culture_dakota }
+	else_if = { limit = { culture = nakota } set_province_flag = nat_original_culture_nakota }
+	else_if = { limit = { culture = chiwere } set_province_flag = nat_original_culture_chiwere }
+	else_if = { limit = { culture = osage } set_province_flag = nat_original_culture_osage }
+	else_if = { limit = { culture = yuchi } set_province_flag = nat_original_culture_yuchi }
+	else_if = { limit = { culture = catawba } set_province_flag = nat_original_culture_catawba }
+	else_if = { limit = { culture = cheyenne } set_province_flag = nat_original_culture_cheyenne }
+	else_if = { limit = { culture = blackfoot } set_province_flag = nat_original_culture_blackfoot }
+	else_if = { limit = { culture = arapaho } set_province_flag = nat_original_culture_arapaho }
+	else_if = { limit = { culture = plains_cree } set_province_flag = nat_original_culture_plains_cree }
+	else_if = { limit = { culture = bungi } set_province_flag = nat_original_culture_bungi }
+	else_if = { limit = { culture = wichita } set_province_flag = nat_original_culture_wichita }
+	else_if = { limit = { culture = caddo } set_province_flag = nat_original_culture_caddo }
+	else_if = { limit = { culture = pawnee } set_province_flag = nat_original_culture_pawnee }
+	else_if = { limit = { culture = chipewyan } set_province_flag = nat_original_culture_chipewyan }
+	else_if = { limit = { culture = haida } set_province_flag = nat_original_culture_haida }
+	else_if = { limit = { culture = athabascan } set_province_flag = nat_original_culture_athabascan }
+	else_if = { limit = { culture = salish } set_province_flag = nat_original_culture_salish }
+	else_if = { limit = { culture = chinook } set_province_flag = nat_original_culture_chinook }
+	else_if = { limit = { culture = yokuts } set_province_flag = nat_original_culture_yokuts }
+	else_if = { limit = { culture = aleutian } set_province_flag = nat_original_culture_aleutian }
+	else_if = { limit = { culture = inuit } set_province_flag = nat_original_culture_inuit }
+	else_if = { limit = { culture = arawak } set_province_flag = nat_original_culture_arawak }
+	else_if = { limit = { culture = maipurean } set_province_flag = nat_original_culture_maipurean }
+	else_if = { limit = { culture = carib } set_province_flag = nat_original_culture_carib }
+	else_if = { limit = { culture = guajiro } set_province_flag = nat_original_culture_guajiro }
+	else_if = { limit = { culture = apache } set_province_flag = nat_original_culture_apache }
+	else_if = { limit = { culture = mescalero } set_province_flag = nat_original_culture_mescalero }
+	else_if = { limit = { culture = lipan } set_province_flag = nat_original_culture_lipan }
+	else_if = { limit = { culture = navajo } set_province_flag = nat_original_culture_navajo }
+	else_if = { limit = { culture = aztek } set_province_flag = nat_original_culture_aztek }
+	else_if = { limit = { culture = totonac } set_province_flag = nat_original_culture_totonac }
+	else_if = { limit = { culture = purepecha } set_province_flag = nat_original_culture_purepecha }
+	else_if = { limit = { culture = matlatzinca } set_province_flag = nat_original_culture_matlatzinca }
+	else_if = { limit = { culture = tecos } set_province_flag = nat_original_culture_tecos }
+	else_if = { limit = { culture = tepic } set_province_flag = nat_original_culture_tepic }
+	else_if = { limit = { culture = chichimecan } set_province_flag = nat_original_culture_chichimecan }
+	else_if = { limit = { culture = guamares } set_province_flag = nat_original_culture_guamares }
+	else_if = { limit = { culture = otomi } set_province_flag = nat_original_culture_otomi }
+	else_if = { limit = { culture = yaqui } set_province_flag = nat_original_culture_yaqui }
+	else_if = { limit = { culture = yucatec } set_province_flag = nat_original_culture_yucatec }
+	else_if = { limit = { culture = putun } set_province_flag = nat_original_culture_putun }
+	else_if = { limit = { culture = mayan } set_province_flag = nat_original_culture_mayan }
+	else_if = { limit = { culture = highland_mayan } set_province_flag = nat_original_culture_highland_mayan }
+	else_if = { limit = { culture = lacandon } set_province_flag = nat_original_culture_lacandon }
+	else_if = { limit = { culture = wastek } set_province_flag = nat_original_culture_wastek }
+	else_if = { limit = { culture = chontales } set_province_flag = nat_original_culture_chontales }
+	else_if = { limit = { culture = zapotek } set_province_flag = nat_original_culture_zapotek }
+	else_if = { limit = { culture = mixtec } set_province_flag = nat_original_culture_mixtec }
+	else_if = { limit = { culture = tlapanec } set_province_flag = nat_original_culture_tlapanec }
+	else_if = { limit = { culture = inca } set_province_flag = nat_original_culture_inca }
+	else_if = { limit = { culture = aimara } set_province_flag = nat_original_culture_aimara }
+	else_if = { limit = { culture = diaguita } set_province_flag = nat_original_culture_diaguita }
+	else_if = { limit = { culture = chimuan } set_province_flag = nat_original_culture_chimuan }
+	else_if = { limit = { culture = tupinamba } set_province_flag = nat_original_culture_tupinamba }
+	else_if = { limit = { culture = guarani } set_province_flag = nat_original_culture_guarani }
+	else_if = { limit = { culture = charruan } set_province_flag = nat_original_culture_charruan }
+	else_if = { limit = { culture = ge } set_province_flag = nat_original_culture_ge }
+	else_if = { limit = { culture = jivaro } set_province_flag = nat_original_culture_jivaro }
+	else_if = { limit = { culture = chachapoyan } set_province_flag = nat_original_culture_chachapoyan }
+	else_if = { limit = { culture = muisca } set_province_flag = nat_original_culture_muisca }
+	else_if = { limit = { culture = cara } set_province_flag = nat_original_culture_cara }
+	else_if = { limit = { culture = miskito } set_province_flag = nat_original_culture_miskito }
+	else_if = { limit = { culture = chacoan } set_province_flag = nat_original_culture_chacoan }
+	else_if = { limit = { culture = mapuche } set_province_flag = nat_original_culture_mapuche }
+	else_if = { limit = { culture = patagonian } set_province_flag = nat_original_culture_patagonian }
+	else_if = { limit = { culture = het } set_province_flag = nat_original_culture_het }
+	else_if = { limit = { culture = huarpe } set_province_flag = nat_original_culture_huarpe }
+}
+
+to_nat_clr_original_culture_flag = {
+	clr_province_flag = nat_original_culture_pueblo
+	clr_province_flag = nat_original_culture_piman
+	clr_province_flag = nat_original_culture_shoshone
+	clr_province_flag = nat_original_culture_kiowa
+	clr_province_flag = nat_original_culture_creek
+	clr_province_flag = nat_original_culture_choctaw
+	clr_province_flag = nat_original_culture_chickasaw
+	clr_province_flag = nat_original_culture_yoron
+	clr_province_flag = nat_original_culture_natchez
+	clr_province_flag = nat_original_culture_yamasee
+	clr_province_flag = nat_original_culture_shawnee
+	clr_province_flag = nat_original_culture_illini
+	clr_province_flag = nat_original_culture_miami
+	clr_province_flag = nat_original_culture_anishinabe
+	clr_province_flag = nat_original_culture_algonquin
+	clr_province_flag = nat_original_culture_cree
+	clr_province_flag = nat_original_culture_innu
+	clr_province_flag = nat_original_culture_mesquakie
+	clr_province_flag = nat_original_culture_delaware
+	clr_province_flag = nat_original_culture_abenaki
+	clr_province_flag = nat_original_culture_mikmaq
+	clr_province_flag = nat_original_culture_maliseet
+	clr_province_flag = nat_original_culture_mahican
+	clr_province_flag = nat_original_culture_powhatan
+	clr_province_flag = nat_original_culture_pequot
+	clr_province_flag = nat_original_culture_massachusset
+	clr_province_flag = nat_original_culture_iroquois
+	clr_province_flag = nat_original_culture_tuscarora
+	clr_province_flag = nat_original_culture_cherokee
+	clr_province_flag = nat_original_culture_huron
+	clr_province_flag = nat_original_culture_laurentian
+	clr_province_flag = nat_original_culture_tionontate
+	clr_province_flag = nat_original_culture_susquehannock
+	clr_province_flag = nat_original_culture_dakota
+	clr_province_flag = nat_original_culture_nakota
+	clr_province_flag = nat_original_culture_chiwere
+	clr_province_flag = nat_original_culture_osage
+	clr_province_flag = nat_original_culture_yuchi
+	clr_province_flag = nat_original_culture_catawba
+	clr_province_flag = nat_original_culture_cheyenne
+	clr_province_flag = nat_original_culture_blackfoot
+	clr_province_flag = nat_original_culture_arapaho
+	clr_province_flag = nat_original_culture_plains_cree
+	clr_province_flag = nat_original_culture_bungi
+	clr_province_flag = nat_original_culture_wichita
+	clr_province_flag = nat_original_culture_caddo
+	clr_province_flag = nat_original_culture_pawnee
+	clr_province_flag = nat_original_culture_chipewyan
+	clr_province_flag = nat_original_culture_haida
+	clr_province_flag = nat_original_culture_athabascan
+	clr_province_flag = nat_original_culture_salish
+	clr_province_flag = nat_original_culture_chinook
+	clr_province_flag = nat_original_culture_yokuts
+	clr_province_flag = nat_original_culture_aleutian
+	clr_province_flag = nat_original_culture_inuit
+	clr_province_flag = nat_original_culture_arawak
+	clr_province_flag = nat_original_culture_maipurean
+	clr_province_flag = nat_original_culture_carib
+	clr_province_flag = nat_original_culture_guajiro
+	clr_province_flag = nat_original_culture_apache
+	clr_province_flag = nat_original_culture_mescalero
+	clr_province_flag = nat_original_culture_lipan
+	clr_province_flag = nat_original_culture_navajo
+	clr_province_flag = nat_original_culture_aztek
+	clr_province_flag = nat_original_culture_totonac
+	clr_province_flag = nat_original_culture_purepecha
+	clr_province_flag = nat_original_culture_matlatzinca
+	clr_province_flag = nat_original_culture_tecos
+	clr_province_flag = nat_original_culture_tepic
+	clr_province_flag = nat_original_culture_chichimecan
+	clr_province_flag = nat_original_culture_guamares
+	clr_province_flag = nat_original_culture_otomi
+	clr_province_flag = nat_original_culture_yaqui
+	clr_province_flag = nat_original_culture_yucatec
+	clr_province_flag = nat_original_culture_putun
+	clr_province_flag = nat_original_culture_mayan
+	clr_province_flag = nat_original_culture_highland_mayan
+	clr_province_flag = nat_original_culture_lacandon
+	clr_province_flag = nat_original_culture_wastek
+	clr_province_flag = nat_original_culture_chontales
+	clr_province_flag = nat_original_culture_zapotek
+	clr_province_flag = nat_original_culture_mixtec
+	clr_province_flag = nat_original_culture_tlapanec
+	clr_province_flag = nat_original_culture_inca
+	clr_province_flag = nat_original_culture_aimara
+	clr_province_flag = nat_original_culture_diaguita
+	clr_province_flag = nat_original_culture_chimuan
+	clr_province_flag = nat_original_culture_tupinamba
+	clr_province_flag = nat_original_culture_guarani
+	clr_province_flag = nat_original_culture_charruan
+	clr_province_flag = nat_original_culture_ge
+	clr_province_flag = nat_original_culture_jivaro
+	clr_province_flag = nat_original_culture_chachapoyan
+	clr_province_flag = nat_original_culture_muisca
+	clr_province_flag = nat_original_culture_cara
+	clr_province_flag = nat_original_culture_miskito
+	clr_province_flag = nat_original_culture_chacoan
+	clr_province_flag = nat_original_culture_mapuche
+	clr_province_flag = nat_original_culture_patagonian
+	clr_province_flag = nat_original_culture_het
+	clr_province_flag = nat_original_culture_huarpe
+}
+
+to_nat_restore_original_culture_from_flag = {
+	if = {
+		limit = { has_province_flag = nat_original_culture_pueblo }
+		change_culture = pueblo
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = pueblo
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_piman }
+		change_culture = piman
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = piman
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_shoshone }
+		change_culture = shoshone
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = shoshone
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_kiowa }
+		change_culture = kiowa
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = kiowa
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_creek }
+		change_culture = creek
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = creek
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_choctaw }
+		change_culture = choctaw
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = choctaw
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_chickasaw }
+		change_culture = chickasaw
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = chickasaw
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_yoron }
+		change_culture = yoron
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = yoron
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_natchez }
+		change_culture = natchez
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = natchez
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_yamasee }
+		change_culture = yamasee
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = yamasee
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_shawnee }
+		change_culture = shawnee
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = shawnee
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_illini }
+		change_culture = illini
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = illini
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_miami }
+		change_culture = miami
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = miami
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_anishinabe }
+		change_culture = anishinabe
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = anishinabe
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_algonquin }
+		change_culture = algonquin
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = algonquin
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_cree }
+		change_culture = cree
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = cree
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_innu }
+		change_culture = innu
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = innu
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_mesquakie }
+		change_culture = mesquakie
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = mesquakie
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_delaware }
+		change_culture = delaware
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = delaware
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_abenaki }
+		change_culture = abenaki
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = abenaki
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_mikmaq }
+		change_culture = mikmaq
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = mikmaq
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_maliseet }
+		change_culture = maliseet
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = maliseet
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_mahican }
+		change_culture = mahican
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = mahican
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_powhatan }
+		change_culture = powhatan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = powhatan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_pequot }
+		change_culture = pequot
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = pequot
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_massachusset }
+		change_culture = massachusset
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = massachusset
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_iroquois }
+		change_culture = iroquois
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = iroquois
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_tuscarora }
+		change_culture = tuscarora
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = tuscarora
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_cherokee }
+		change_culture = cherokee
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = cherokee
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_huron }
+		change_culture = huron
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = huron
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_laurentian }
+		change_culture = laurentian
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = laurentian
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_tionontate }
+		change_culture = tionontate
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = tionontate
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_susquehannock }
+		change_culture = susquehannock
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = susquehannock
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_dakota }
+		change_culture = dakota
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = dakota
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_nakota }
+		change_culture = nakota
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = nakota
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_chiwere }
+		change_culture = chiwere
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = chiwere
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_osage }
+		change_culture = osage
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = osage
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_yuchi }
+		change_culture = yuchi
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = yuchi
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_catawba }
+		change_culture = catawba
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = catawba
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_cheyenne }
+		change_culture = cheyenne
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = cheyenne
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_blackfoot }
+		change_culture = blackfoot
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = blackfoot
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_arapaho }
+		change_culture = arapaho
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = arapaho
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_plains_cree }
+		change_culture = plains_cree
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = plains_cree
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_bungi }
+		change_culture = bungi
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = bungi
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_wichita }
+		change_culture = wichita
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = wichita
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_caddo }
+		change_culture = caddo
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = caddo
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_pawnee }
+		change_culture = pawnee
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = pawnee
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_chipewyan }
+		change_culture = chipewyan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = chipewyan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_haida }
+		change_culture = haida
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = haida
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_athabascan }
+		change_culture = athabascan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = athabascan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_salish }
+		change_culture = salish
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = salish
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_chinook }
+		change_culture = chinook
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = chinook
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_yokuts }
+		change_culture = yokuts
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = yokuts
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_aleutian }
+		change_culture = aleutian
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = aleutian
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_inuit }
+		change_culture = inuit
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = inuit
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_arawak }
+		change_culture = arawak
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = arawak
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_maipurean }
+		change_culture = maipurean
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = maipurean
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_carib }
+		change_culture = carib
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = carib
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_guajiro }
+		change_culture = guajiro
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = guajiro
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_apache }
+		change_culture = apache
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = apache
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_mescalero }
+		change_culture = mescalero
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = mescalero
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_lipan }
+		change_culture = lipan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = lipan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_navajo }
+		change_culture = navajo
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = navajo
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_aztek }
+		change_culture = aztek
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = aztek
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_totonac }
+		change_culture = totonac
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = totonac
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_purepecha }
+		change_culture = purepecha
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = purepecha
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_matlatzinca }
+		change_culture = matlatzinca
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = matlatzinca
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_tecos }
+		change_culture = tecos
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = tecos
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_tepic }
+		change_culture = tepic
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = tepic
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_chichimecan }
+		change_culture = chichimecan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = chichimecan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_guamares }
+		change_culture = guamares
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = guamares
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_otomi }
+		change_culture = otomi
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = otomi
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_yaqui }
+		change_culture = yaqui
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = yaqui
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_yucatec }
+		change_culture = yucatec
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = yucatec
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_putun }
+		change_culture = putun
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = putun
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_mayan }
+		change_culture = mayan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = mayan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_highland_mayan }
+		change_culture = highland_mayan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = highland_mayan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_lacandon }
+		change_culture = lacandon
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = lacandon
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_wastek }
+		change_culture = wastek
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = wastek
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_chontales }
+		change_culture = chontales
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = chontales
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_zapotek }
+		change_culture = zapotek
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = zapotek
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_mixtec }
+		change_culture = mixtec
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = mixtec
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_tlapanec }
+		change_culture = tlapanec
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = tlapanec
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_inca }
+		change_culture = inca
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = inca
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_aimara }
+		change_culture = aimara
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = aimara
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_diaguita }
+		change_culture = diaguita
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = diaguita
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_chimuan }
+		change_culture = chimuan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = chimuan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_tupinamba }
+		change_culture = tupinamba
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = tupinamba
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_guarani }
+		change_culture = guarani
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = guarani
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_charruan }
+		change_culture = charruan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = charruan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_ge }
+		change_culture = ge
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = ge
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_jivaro }
+		change_culture = jivaro
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = jivaro
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_chachapoyan }
+		change_culture = chachapoyan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = chachapoyan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_muisca }
+		change_culture = muisca
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = muisca
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_cara }
+		change_culture = cara
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = cara
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_miskito }
+		change_culture = miskito
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = miskito
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_chacoan }
+		change_culture = chacoan
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = chacoan
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_mapuche }
+		change_culture = mapuche
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = mapuche
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_patagonian }
+		change_culture = patagonian
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = patagonian
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_het }
+		change_culture = het
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = het
+		]
+	}
+	else_if = {
+		limit = { has_province_flag = nat_original_culture_huarpe }
+		change_culture = huarpe
+		[[CHANGE_ORIGINAL_CULTURE]
+			change_original_culture = huarpe
+		]
+	}
+}
+
+generate_council_ruler = {
+	if = {
+		limit = { check_variable = { which = to_native_council_adm value = 6 } }
+		if = {
+			limit = { check_variable = { which = to_native_council_dip value = 6 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 6 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 6 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 6 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 6 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 6 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 6 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 6 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 5 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 5 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 5 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 5 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 5 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 5 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 5 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 5 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 4 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 4 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 4 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 4 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 4 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 4 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 4 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 4 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 3 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 3 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 3 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 3 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 3 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 3 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 3 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 3 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 2 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 2 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 2 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 2 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 2 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 2 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 2 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 2 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 1 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 1 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 1 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 1 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 1 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 1 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 1 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 1 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 0 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 0 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 0 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 0 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 0 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 0 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 0 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 6 DIP = 0 MIL = 0 }
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = to_native_council_adm value = 5 } }
+		if = {
+			limit = { check_variable = { which = to_native_council_dip value = 6 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 6 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 6 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 6 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 6 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 6 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 6 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 6 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 5 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 5 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 5 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 5 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 5 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 5 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 5 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 5 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 4 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 4 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 4 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 4 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 4 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 4 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 4 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 4 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 3 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 3 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 3 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 3 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 3 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 3 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 3 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 3 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 2 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 2 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 2 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 2 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 2 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 2 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 2 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 2 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 1 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 1 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 1 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 1 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 1 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 1 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 1 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 1 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 0 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 0 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 0 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 0 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 0 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 0 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 0 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 5 DIP = 0 MIL = 0 }
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = to_native_council_adm value = 4 } }
+		if = {
+			limit = { check_variable = { which = to_native_council_dip value = 6 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 6 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 6 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 6 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 6 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 6 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 6 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 6 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 5 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 5 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 5 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 5 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 5 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 5 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 5 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 5 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 4 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 4 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 4 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 4 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 4 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 4 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 4 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 4 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 3 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 3 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 3 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 3 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 3 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 3 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 3 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 3 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 2 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 2 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 2 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 2 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 2 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 2 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 2 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 2 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 1 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 1 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 1 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 1 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 1 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 1 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 1 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 1 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 0 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 0 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 0 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 0 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 0 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 0 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 0 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 4 DIP = 0 MIL = 0 }
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = to_native_council_adm value = 3 } }
+		if = {
+			limit = { check_variable = { which = to_native_council_dip value = 6 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 6 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 6 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 6 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 6 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 6 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 6 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 6 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 5 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 5 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 5 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 5 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 5 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 5 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 5 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 5 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 4 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 4 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 4 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 4 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 4 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 4 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 4 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 4 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 3 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 3 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 3 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 3 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 3 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 3 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 3 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 3 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 2 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 2 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 2 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 2 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 2 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 2 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 2 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 2 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 1 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 1 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 1 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 1 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 1 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 1 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 1 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 1 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 0 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 0 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 0 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 0 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 0 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 0 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 0 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 3 DIP = 0 MIL = 0 }
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = to_native_council_adm value = 2 } }
+		if = {
+			limit = { check_variable = { which = to_native_council_dip value = 6 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 6 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 6 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 6 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 6 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 6 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 6 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 6 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 5 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 5 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 5 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 5 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 5 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 5 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 5 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 5 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 4 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 4 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 4 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 4 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 4 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 4 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 4 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 4 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 3 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 3 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 3 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 3 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 3 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 3 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 3 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 3 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 2 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 2 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 2 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 2 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 2 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 2 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 2 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 2 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 1 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 1 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 1 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 1 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 1 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 1 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 1 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 1 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 0 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 0 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 0 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 0 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 0 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 0 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 0 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 2 DIP = 0 MIL = 0 }
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = to_native_council_adm value = 1 } }
+		if = {
+			limit = { check_variable = { which = to_native_council_dip value = 6 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 6 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 6 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 6 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 6 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 6 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 6 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 6 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 5 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 5 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 5 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 5 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 5 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 5 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 5 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 5 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 4 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 4 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 4 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 4 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 4 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 4 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 4 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 4 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 3 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 3 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 3 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 3 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 3 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 3 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 3 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 3 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 2 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 2 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 2 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 2 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 2 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 2 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 2 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 2 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 1 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 1 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 1 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 1 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 1 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 1 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 1 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 1 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 0 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 0 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 0 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 0 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 0 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 0 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 0 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 1 DIP = 0 MIL = 0 }
+			}
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = to_native_council_adm value = 0 } }
+		if = {
+			limit = { check_variable = { which = to_native_council_dip value = 6 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 6 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 6 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 6 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 6 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 6 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 6 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 6 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 5 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 5 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 5 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 5 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 5 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 5 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 5 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 5 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 4 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 4 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 4 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 4 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 4 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 4 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 4 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 4 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 3 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 3 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 3 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 3 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 3 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 3 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 3 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 3 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 2 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 2 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 2 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 2 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 2 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 2 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 2 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 2 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 1 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 1 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 1 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 1 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 1 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 1 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 1 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 1 MIL = 0 }
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = to_native_council_dip value = 0 } }
+			if = {
+				limit = { check_variable = { which = to_native_council_mil value = 6 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 0 MIL = 6 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 5 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 0 MIL = 5 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 4 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 0 MIL = 4 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 3 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 0 MIL = 3 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 2 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 0 MIL = 2 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 1 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 0 MIL = 1 }
+			}
+			else_if = {
+				limit = { check_variable = { which = to_native_council_mil value = 0 } }
+				generate_council_ruler_with_skills = { ADM = 0 DIP = 0 MIL = 0 }
+			}
+		}
+	}
+}

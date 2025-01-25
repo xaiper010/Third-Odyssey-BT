@@ -1,0 +1,15 @@
+# bookmark =
+# {
+	# name = "BOOKMARK_RISE_OF_ELYSIA"
+	# desc = "BOOKMARK_RISE_OF_ELYSIA_DESC"
+	# date = 1480.1.1
+	
+	# country = NHS
+	# country = MS1
+	# country = VLA
+	# country = CM1
+
+	# easy_country = MS1
+	# easy_country = NHS
+	# easy_country = VLA
+# }

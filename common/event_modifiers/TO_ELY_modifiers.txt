@@ -1,0 +1,2732 @@
+### Modifiers gained pre-flight
+
+byz_flight = {
+	diplomatic_upkeep = -3
+	global_unrest = 6
+	fort_maintenance_modifier = -1
+	stability_cost_modifier = 5
+	can_not_declare_war = yes
+	global_manpower = -20
+	global_sailors = -2500
+	mercenary_cost = 10
+}
+
+byz_flight_tooltip = {
+	diplomatic_upkeep = -3
+	global_unrest = 6
+	fort_maintenance_modifier = -1
+	stability_cost_modifier = 5
+	can_not_declare_war = yes
+	global_manpower = -20
+	global_sailors = -2500
+	mercenary_cost = 10
+}
+
+to_byz_dont_die = {
+	monarch_lifespan = 10
+}
+
+
+nhs_secrets_books = {
+	# technology_cost = -0.1
+	idea_cost = -0.1
+	picture = "to_books_of_knowledge"
+}
+
+nhs_secrets_silk = {
+	trade_efficiency = 0.10
+	picture = "to_elysian_silk"
+}
+
+
+
+### Modifiers occuring because of flight
+
+nhs_handicap_greekfire = {
+	idea_cost = 0.20
+	technology_cost = 0.10
+	trade_efficiency = -0.15
+	global_tax_modifier = -0.15
+	stability_cost_modifier = 0.10
+	land_forcelimit_modifier = -0.10
+	naval_forcelimit_modifier = -0.10
+	global_manpower_modifier = -0.05
+	improve_relation_modifier = -0.15
+	defensiveness = -0.10
+	diplomatic_upkeep = -1
+}
+
+nhs_handicap_books = {
+	idea_cost = 0.20
+	technology_cost = 0.10
+	trade_efficiency = -0.15
+	global_tax_modifier = -0.15
+	stability_cost_modifier = 0.10
+	land_forcelimit_modifier = -0.10
+	naval_forcelimit_modifier = -0.10
+	global_manpower_modifier = -0.05
+	improve_relation_modifier = -0.15
+	defensiveness = -0.10
+	diplomatic_upkeep = -1
+}
+
+nhs_handicap_silk = {
+	idea_cost = 0.20
+	technology_cost = 0.10
+	trade_efficiency = -0.15
+	global_tax_modifier = -0.15
+	stability_cost_modifier = 0.10
+	land_forcelimit_modifier = -0.10
+	naval_forcelimit_modifier = -0.10
+	global_manpower_modifier = -0.05
+	improve_relation_modifier = -0.15
+	defensiveness = -0.10
+	diplomatic_upkeep = -1
+}
+
+nhs_no_merchant_class = {
+	# global_prov_trade_power_modifier = -0.75
+	global_trade_power = -0.75
+}
+
+nhs_no_merchant_class_t = {
+	global_prov_trade_power_modifier = -0.75
+	global_trade_power = -0.75
+}
+
+nhs_new_world = {
+	colonists = 1
+	may_explore = yes
+}
+
+nhs_constrained_resources = {
+	range = -1.00
+}
+
+nhs_original_heartland = {
+	prestige = 0.01
+}
+
+### Modifiers adding to the later game
+
+nhs_organised_expansion = {
+	range = -0.75
+	global_colonial_growth = 15
+}
+
+nhs_drafted_militia = {
+	production_efficiency = -0.25
+}
+
+nhs_drafted_militia_harsh = {
+	defensiveness = -0.20
+	global_tax_modifier = -0.10
+	production_efficiency = -0.25
+}
+
+nhs_drafted_militia_severe = {
+	defensiveness = -0.50
+	global_tax_modifier = -0.25
+	production_efficiency = -0.25
+}
+
+nhs_noble_cataphracts = {
+	cavalry_power = 0.10
+	stability_cost_modifier = 0.10
+	cav_to_inf_ratio = 0.1
+	estate_nhs_nobles_influence_modifier = 0.05
+}
+
+nhs_extended_city_senate = {
+	core_creation = -0.10
+	stability_cost_modifier = 0.20
+	diplomatic_upkeep = -1
+}
+
+nhs_census_system = {
+	global_tax_modifier = 0.10
+	global_manpower_modifier = 0.05
+	stability_cost_modifier = 0.05
+	global_unrest = 0.5
+}
+
+nhs_new_patriarchate = {
+	global_missionary_strength = 0.02
+	tolerance_own = 2
+	tolerance_heathen = -2
+	tolerance_heretic = -2
+	religion = yes
+}
+
+to_varangian_quarter = {
+	local_defensiveness = 0.25
+	local_garrison_size = 0.25
+	# global_manpower = 3
+	# local_manpower_modifier = 0.1
+	global_tax_income = -6
+	picture = "varangian_guard_icon"
+}
+
+to_varangian_stronghold = {
+	local_unrest = -5
+	local_defensiveness = 0.25
+	local_fort_maintenance_modifier = -0.5
+	local_manpower_modifier = 0.50
+	min_local_autonomy = 15
+	picture = "varangian_stronghold"
+}
+
+to_varangian_stronghold_independent = {
+	local_unrest = -5
+	local_defensiveness = 0.25
+	local_fort_maintenance_modifier = -0.5
+	min_local_autonomy = 25
+	picture = "varangian_stronghold"
+}
+
+to_varangian_headquarters = {
+	local_unrest = -5
+	local_defensiveness = 0.50
+	local_fort_maintenance_modifier = -0.75
+	local_manpower_modifier = 0.75
+	min_local_autonomy = 25
+	picture = "varangian_headquarters"
+}
+
+to_block_varangian_guard_recruitment = {
+}
+
+nhs_allowed_varangian_rampage = {
+	local_production_efficiency = -0.25
+}
+
+nhs_send_in_city_guard = {
+	local_manpower_modifier = -0.25
+	local_defensiveness = -0.4
+	global_manpower = -4
+}
+
+nhs2_varangian_influence = {
+	stability_cost_modifier = 0.15
+	estate_nhs_nobles_influence_modifier = -0.10
+	estate_nhs_nobles_loyalty_modifier = -0.10
+	picture = "varangian_guard_icon"
+}
+
+nhs_favors_epilektoi = {
+	army_tradition = -0.5
+}
+
+nhs_favors_varangians = {
+	tolerance_own = -1
+}
+
+nhs_favors_both = {
+	monarch_lifespan = 0.25
+}
+
+nhs_varangians_defend_emperor = {
+	local_unrest = -10
+}
+
+nhs_varangians_defend_emperor_global = {
+	global_unrest = -2
+}
+
+to_epilektoi_garrison = {
+	local_garrison_size = 0.25
+	local_defensiveness = 0.25
+	local_fort_maintenance_modifier = -0.5
+	picture = "epilektoi_garrison"
+}
+
+nhs_early_uprising_reduction = {
+	native_uprising_chance = -1
+}
+
+nhs_early_uprising_reduction_tooltip = {
+	native_uprising_chance = -1
+}
+
+nhs2_depleting_fire_fuel = {
+	naval_maintenance_modifier = 0.05
+	fort_maintenance_modifier = 0.05
+	galley_power = -0.05
+	light_ship_power = -0.05
+	defensiveness = -0.10
+}
+
+nhs2_depleting_fire_fuel_update = {
+	naval_maintenance_modifier = 0.05
+	fort_maintenance_modifier = 0.05
+	infantry_cost = 0.1
+	light_ship_power = -0.05
+	defensiveness = -0.10
+}
+
+nhs2_depleting_fire_fuel_reform = {
+	infantry_power = -0.10
+	fire_damage = -0.10
+	artillery_power = -0.05
+	land_maintenance_modifier = 0.25
+	naval_maintenance_modifier = 0.05
+	fort_maintenance_modifier = 0.05
+	galley_power = -0.05
+	light_ship_power = -0.05
+	defensiveness = -0.10
+}
+
+nhs2_depleting_fire_fuel_reform_update = {
+	infantry_power = -0.10
+	fire_damage = -0.10
+	artillery_power = -0.05
+	land_maintenance_modifier = 0.25
+	naval_maintenance_modifier = 0.05
+	fort_maintenance_modifier = 0.05
+	infantry_cost = 0.1
+	light_ship_power = -0.05
+	defensiveness = -0.10
+}
+
+### Province modifiers
+
+# ELY PROV MOD
+
+nhs_toll_modifier = {
+	province_trade_power_value = 20
+	naval_forcelimit = 2
+	picture = "nhs_toll_modifier"
+}
+
+nhs_gilded_keep = {
+	local_defensiveness = 0.10
+	legitimacy = 0.25
+	prestige = 0.1
+	picture = "gilded_keep"
+}
+
+nhs_carthaginian_design_harbour = {
+	province_trade_power_value = 10
+	local_sailors = 500
+	global_trade_power = 0.1
+	#trade_efficiency = 0.05
+	naval_forcelimit = 5
+	prestige = 0.01
+	picture = "carthagian_harbor"
+}
+
+nhs_seagate_guardians = {
+	naval_morale = 0.05
+	placed_merchant_power = 20
+	prestige = 0.25
+	picture = "seagate_guardians"
+}
+
+nhs_alexandrian_library = {
+	idea_cost = -0.15
+	technology_cost = -0.15
+	prestige = 0.01
+	picture = "alexandrian_library"
+}
+
+nhs_alexandrian_library_no_books = {
+	idea_cost = -0.10
+	technology_cost = -0.10
+	prestige = 0.01
+	picture = "alexandrian_library"
+}
+
+
+nhs_hippodrome = {
+	cavalry_cost = -0.05
+	cavalry_power = 0.05
+	global_unrest = -1
+	prestige = 0.01
+	picture = "hippodrome"
+}
+
+to_silk_quarter_early = {
+	trade_goods_size_modifier = 0.1
+	picture = "to_silk_quarter_skoros_silk"
+}
+
+to_silk_quarter_0 = {
+	trade_goods_size = 1
+	trade_goods_size_modifier = 0.1
+	picture = "to_silk_quarter_elysian_silk"
+}
+
+nhs_elysian_arsenal = {
+	ship_recruit_speed = -0.75
+	local_ship_repair = 0.75
+	local_ship_cost = -0.2
+	ship_durability = 0.05
+	global_ship_cost = -0.2
+	artillery_cost = -0.15
+	naval_forcelimit = 10
+	prestige = 0.01
+	picture = "nhs_venetian_arsenal"
+}
+
+# DECAYED ELY PROV MOD
+
+nhs_toll_modifier_decay = {
+	province_trade_power_value = 5
+	local_unrest = 0.5
+	picture = "nhs_toll_modifier_decay"
+}
+
+nhs_gilded_keep_decay = {
+	local_defensiveness = 0.10
+	local_manpower = 0.03
+	local_unrest = 0.5
+	picture = "gilded_keep"
+}
+
+nhs_carthaginian_design_harbour_decay = {
+	local_unrest = 0.5
+	naval_forcelimit = 2
+	picture = "carthagian_harbor"
+}
+
+nhs_seagate_guardians_decay = {
+	local_build_cost = -0.05
+	local_unrest = 0.5
+	picture = "seagate_guardians"
+}
+
+nhs_alexandrian_library_decay = {
+	idea_cost = -0.01
+	technology_cost = -0.01
+	local_unrest = 0.5
+	picture = "alexandrian_library"
+}
+
+nhs_alexandrian_library_no_books_decay = {
+	idea_cost = -0.01
+	technology_cost = -0.01
+	local_unrest = 0.5
+	picture = "alexandrian_library"
+}
+
+nhs_hippodrome_decay = {
+	local_build_cost = -0.05
+	local_unrest = 0.5
+	picture = "hippodrome"
+}
+
+nhs_elysian_arsenal_decay = {
+	ship_recruit_speed = -0.5
+	local_ship_repair = 0.5
+	naval_forcelimit = 4
+	local_unrest = 0.5
+	picture = "nhs_venetian_arsenal"
+}
+
+# OTHER PROV MOD
+
+nhs_persecuted_christians = {
+	province_trade_power_modifier = -0.5
+ 	local_manpower_modifier = -0.5
+	local_tax_modifier = -0.5
+	trade_goods_size = -0.5
+}
+
+nhs_elysian_fort_1 = {
+	local_defensiveness = 0.10
+	local_manpower_modifier = 0.10
+}
+
+nhs_elysian_fort_2 = {
+	local_defensiveness = 0.20
+	local_manpower_modifier = 0.15
+}
+
+nhs_elysian_fort_3 = {
+	local_defensiveness = 0.25
+	local_manpower_modifier = 0.20
+	land_forcelimit = 1
+}
+
+nhs_elysian_fort_weakened = {
+	local_defensiveness = -0.75
+}
+
+
+### Ruler modifiers
+
+nhs_proper_sacrifices = {
+	global_unrest = -1
+}
+
+### Modifiers for non-Elysian (not ELY or NHS)
+
+nhs_alienated_higher_circles = {
+	global_unrest = 3
+}
+
+nhs_free_bosphorus = {
+	trade_efficiency = 0.10
+}
+
+nhs_granada_trouble = {
+	global_ship_cost = 0.25
+}
+
+nhs_independant_spirit = {
+	land_forcelimit = 4
+	land_forcelimit_modifier = 0.50
+	land_maintenance_modifier = -0.33
+	global_regiment_recruit_speed = -0.2
+}
+
+nhs_adopting_gunpowder = { #ELY gains a similar modifier for 5/10 years through parliament
+	discipline = -0.10
+	global_regiment_cost = 0.10
+	land_morale = -0.05
+}
+
+nhs_nodlc_gunpowder_modifier = {
+	discipline = -0.05
+	global_regiment_cost = 0.05
+}
+
+nhs_nodlc_albanians_modifier = {
+	legitimacy = -0.5
+}
+
+
+nhs2_ivos_naval_supplies_boost = {
+	trade_goods_size = 2
+}
+
+nhs2_drain_ivos_swamps = {
+	local_development_cost = -0.15
+	supply_limit = 2
+	local_friendly_movement_speed = 0.2
+	local_hostile_movement_speed = 0.2
+	picture = "nhs_grassland"
+}
+
+nhs2_drain_ivos_swamps2 = {
+	local_development_cost = -0.25
+	supply_limit = 4
+	allowed_num_of_buildings = 1
+	local_friendly_movement_speed = 0.2
+	local_hostile_movement_speed = 0.2
+	picture = "nhs_farmlands"
+}
+
+nhs2_eiros_land_improvements = {
+	local_development_cost = -0.05
+	supply_limit = 1
+	local_friendly_movement_speed = 0.1
+	local_hostile_movement_speed = 0.1
+	picture = "nhs_grassland"
+}
+
+nhs2_eiros_land_improvements2 = {
+	local_development_cost = -0.15
+	supply_limit = 2
+	allowed_num_of_buildings = 1
+	local_friendly_movement_speed = 0.2
+	local_hostile_movement_speed = 0.2
+	picture = "nhs_grassland"
+}
+
+nhs2_improve_grassland = {
+	local_development_cost = -0.05
+	supply_limit = 2
+	local_hostile_movement_speed = -0.1
+	picture = "nhs_farmlands"
+}
+
+nhs2_improve_coastline = {
+	local_development_cost = -0.3
+	supply_limit = 4
+	allowed_num_of_buildings = 1
+	local_hostile_movement_speed = -0.1
+	picture = "nhs_farmlands"
+}
+
+nhs2_steam_engine = {
+	trade_goods_size = 5
+	global_trade_goods_size_modifier = 0.05
+	local_development_cost = -0.2
+	technology_cost = -0.1
+	idea_cost = -0.1
+	picture = "nhs_steam_engine"
+}
+
+nhs2_great_mine = {
+	trade_goods_size = 5
+	local_unrest = 5
+	global_trade_goods_size_modifier = -0.05
+	picture = "nhs_coal_wagon"
+}
+
+nhs2_lantent_coal = {
+	trade_goods_size = 0.05
+	picture = "nhs_coal_icon"
+}
+
+newnhs_chose_supplies = {
+	land_forcelimit_modifier = 0.40
+	naval_forcelimit_modifier = 0.30
+	global_manpower_modifier = 0.30
+	cavalry_cost = -0.25
+	global_ship_recruit_speed = -0.5
+	global_ship_cost = -0.5
+	global_colonial_growth = 10
+}
+
+newnhs_no_overseas = {
+	local_manpower_modifier = 0.75
+	local_tax_modifier = 0.75
+	local_production_efficiency = 0.75
+	province_trade_power_modifier = 0.375
+	regiment_recruit_speed = -0.75
+	ship_recruit_speed = -0.75
+	local_unrest = -10
+}
+
+nhs2_aqueducts = {
+	local_tax_modifier = 0.15
+	local_production_efficiency = 0.15
+	local_manpower_modifier = 0.15
+	local_development_cost = -0.10
+	local_colonial_growth = 40
+	province_trade_power_value = 1
+	picture = "aquaduct_icon"
+}
+
+# nhs2_aqueducts5 = {
+# 	local_production_efficiency = 0.125
+# 	local_manpower_modifier = 0.125
+# 	local_tax_modifier = 0.125
+# 	local_unrest = -1
+# 	local_development_cost = -0.10
+# 	picture = "aquaduct_icon"
+# }
+# nhs2_aqueducts4 = {
+# 	local_production_efficiency = 0.15
+# 	local_manpower_modifier = 0.15
+# 	local_tax_modifier = 0.15
+# 	local_unrest = -1
+# 	local_development_cost = -0.10
+# 	picture = "aquaduct_icon"
+# }
+# nhs2_aqueducts2 = {
+# 	local_production_efficiency = 0.2
+# 	local_manpower_modifier = 0.2
+# 	local_tax_modifier = 0.2
+# 	local_unrest = -2
+# 	local_development_cost = -0.1
+# 	picture = "aquaduct_icon"
+# }
+# nhs2_aqueducts_capital2 = {
+# 	#land_forcelimit_modifier = 0.1
+# 	#land_maintenance_modifier = -0.05
+# 	local_production_efficiency = 0.2
+# 	local_manpower_modifier = 0.2
+# 	local_tax_modifier = 0.2
+# 	local_unrest = -2
+# 	local_development_cost = -0.1
+# 	picture = "aquaduct_icon"
+# }
+# nhs2_aqueducts_capital4 = {
+# 	#land_forcelimit_modifier = 0.1
+# 	#land_maintenance_modifier = -0.05
+# 	local_production_efficiency = 0.15
+# 	local_manpower_modifier = 0.15
+# 	local_tax_modifier = 0.15
+# 	local_unrest = -1
+# 	local_development_cost = -0.1
+# 	picture = "aquaduct_icon"
+# }
+# nhs2_aqueducts_capital5 = {
+# 	#land_forcelimit_modifier = 0.1
+# 	#land_maintenance_modifier = -0.05
+# 	local_production_efficiency = 0.125
+# 	local_manpower_modifier = 0.125
+# 	local_tax_modifier = 0.125
+# 	local_unrest = -1
+# 	local_development_cost = -0.1
+# 	picture = "aquaduct_icon"
+# }
+
+nhs_appalachian_pathways = {
+	# province_trade_power_modifier = 0.25
+	province_trade_power_value = 1
+	local_friendly_movement_speed = 0.2
+	local_hostile_movement_speed = 0.15
+	local_development_cost = -0.1
+	picture = "appalachian_path_icon"
+}
+
+nhs_appalachian_pathways_2 = {
+	# province_trade_power_modifier = 0.25
+	province_trade_power_value = 2
+	local_friendly_movement_speed = 0.30
+	local_hostile_movement_speed = 0.15
+	local_development_cost = -0.20
+	local_institution_spread = 0.10
+	picture = "appalachian_path_icon"
+}
+
+nhs2_colonial_boom = {
+	global_colonial_growth = 20
+	colonist_placement_chance = 0.1
+}
+
+nhs2_supply_lines = {
+	local_unrest = -10
+	local_ship_repair = 0.50
+	province_trade_power_value = 10
+	ship_recruit_speed = -0.25
+	regiment_recruit_speed = -0.25
+	supply_limit_modifier = 3
+	picture = "supply_limit_modifier"
+}
+
+nhs2_bo_athens = {
+	mil_tech_cost_modifier = -0.1
+	#idea_cost = -0.1
+	mil_advisor_cost = -0.33
+}
+
+nhs2_bo_macedonia = {
+	core_creation = -0.20
+	land_maintenance_modifier = -0.10
+}
+
+nhs2_bo_sparta = {
+	infantry_power = 0.10
+	war_exhaustion = -0.05
+}
+
+nhs2_bo_rhodes = {
+	#land_morale = 0.1
+	#naval_morale = 0.1
+	hostile_attrition = 2
+	defensiveness = 0.33
+}
+
+nhs2_base_of_operations = {
+	local_defensiveness = 0.5
+	local_unrest = -10
+	supply_limit = 3
+	local_ship_repair = 0.50
+	picture = "defense_fort"
+}
+
+nhs2_greek_deny_religion = {
+	local_missionary_strength = -0.02
+	local_tax_modifier = -0.25
+	local_manpower_modifier = -0.25
+}
+
+nhs2_greek_accept_religion = {
+	local_missionary_strength = 0.05
+	local_unrest = -5
+	local_manpower_modifier = 0.1
+}
+
+nhs2_invasion_succeseful = {
+	army_tradition = 0.5
+	prestige = 0.5
+	legitimacy = 0.25
+	global_unrest = -1
+}
+
+nhs2_invasion_succeseful_2 = {
+	army_tradition = 0.5
+	prestige = 0.5
+	legitimacy = 0.25
+	global_unrest = -1
+	colonists = 1
+}
+
+to_greek_immigration = {
+	local_culture_conversion_cost = -0.25
+	local_unrest = 5
+	picture = "local_culture_conversion_cost"
+}
+
+to_reduced_separatism = {
+	years_of_nationalism = -5
+}
+
+to_turkish_province_boost = {
+	local_manpower_modifier = 0.1
+	local_missionary_strength = 0.1
+	local_unrest = -2
+	picture = "local_manpower_modifier"
+}
+
+nhs2_capital_emigration = {
+	local_tax_modifier = -0.2
+	local_production_efficiency = -0.1
+	local_manpower_modifier = -0.2
+	picture = "colonist_time"
+}
+
+nhs2_actual_elysian_minority = {
+	local_autonomy = 0.15
+	province_trade_power_modifier = 0.15
+	local_tax_modifier = -0.1
+	local_production_efficiency = -0.1
+	local_unrest = -1
+	local_hostile_attrition = 1
+	picture = "global_colonial_growth"
+}
+
+nhs2_elysian_minority = {
+	local_autonomy = 0.25
+	local_tax_modifier = -0.1
+	local_production_efficiency = -0.1
+	local_hostile_attrition = 2
+	picture = "nhs_steppes"
+}
+
+nhs2_horselords = {
+	cavalry_cost = -0.20
+	cavalry_power = 0.10
+	production_efficiency = -0.1
+	picture = "cavalry_power"
+}
+
+nhs2_elysian_horselords = {
+	local_autonomy = 0.20
+	province_trade_power_modifier = 0.10
+	local_tax_modifier = -0.1
+	local_manpower_modifier = 0.2
+	local_hostile_attrition = 1
+	picture = "cavalry_power"
+}
+
+nhs2_spartan_independence = {
+	local_autonomy = 0.15
+	local_unrest = 2
+	local_tax_modifier = -0.15
+	local_manpower_modifier = -0.1
+	picture = "local_autonomy"
+}
+
+nhs_migration_cooldown_reduction = {
+	migration_cost = -1
+}
+
+nhs2_kept_the_ships = {
+	naval_maintenance_modifier = -0.10
+	ship_durability = 0.20
+	navy_tradition = 1
+	global_sailors_modifier = 0.5
+	sailors_recovery_speed = 0.25
+	naval_forcelimit_modifier = 0.5
+}
+
+nhs2_sold_the_ships_1 = {
+	trade_efficiency = 0.05
+	trade_steering = 0.1
+	sailors_recovery_speed = 0.1
+}
+
+nhs2_sold_the_ships_2 = {
+	trade_efficiency = 0.10
+	trade_steering = 0.15
+	sailors_recovery_speed = 0.15
+}
+
+nhs2_sold_the_ships_3 = {
+	trade_efficiency = 0.15
+	trade_steering = 0.20
+	sailors_recovery_speed = 0.20
+}
+
+nhs2_sold_the_ships_4 = {
+	trade_efficiency = 0.20
+	trade_steering = 0.25
+	navy_tradition = 0.5
+	sailors_recovery_speed = 0.25
+}
+
+nhs_brave_the_elements_modifier1 = {
+	local_colonial_growth = 10
+	local_development_cost = -0.10
+}
+
+nhs_brave_the_elements_modifier2 = {
+	local_colonial_growth = 10
+	local_development_cost = -0.50
+}
+
+nhs_changed_trade_good = {
+	local_production_efficiency = -0.25
+}
+
+nhs_organised_expansion_2 = {
+	global_colonial_growth = 30
+	colonists = 1
+}
+
+nhs2_settling = {
+	local_production_efficiency = -0.30
+	local_tax_modifier = -0.30
+	local_manpower = -0.25
+	picture = "colonist_time"
+}
+
+nhs_assemble_in_invasion_force = {
+	movement_speed_in_fleet_modifier = 1
+	transport_attrition = -0.25
+}
+
+nhs_assemble_in_invasion_force_2 = {
+	movement_speed_in_fleet_modifier = 1
+	transport_attrition = -0.50
+}
+
+nhs_organised_expansion_inwars_1 = {
+	global_colonial_growth = 30
+	colonists = 1
+	range = -0.33
+}
+
+nhs_organised_expansion_inwars_2 = {
+	global_colonial_growth = 30
+	colonists = 2
+	range = -0.33
+}
+
+nhs_organised_expansion_inwars_3 = {
+	global_colonial_growth = 30
+	colonists = 2
+}
+
+to_looking_inwards_mission_province_mod_1 = {
+	local_development_cost = -0.1
+	local_core_creation = -0.1
+	local_colonial_growth = 20
+	picture = "development_cost"
+}
+
+to_looking_inwards_mission_province_mod_2 = {
+	local_development_cost = -0.1
+	local_core_creation = -0.1
+
+	local_build_cost = -0.15
+	local_build_time = -0.15
+	local_colonial_growth = 40
+	picture = "build_cost"
+}
+
+to_looking_inwards_mission_province_mod_3 = {
+	local_development_cost = -0.1
+	local_core_creation = -0.1
+
+	local_build_cost = -0.15
+	local_build_time = -0.15
+
+	allowed_num_of_buildings = 1
+	local_missionary_strength = 0.05
+	local_culture_conversion_cost = -0.33
+	local_governing_cost = -0.05
+	local_colonial_growth = 60
+	picture = "allowed_num_of_buildings"
+}
+
+nhs_gibraltar_mod_t = {
+	province_trade_power_value = 10
+	local_sailors = 500
+	local_ship_repair = 0.5
+	ship_recruit_speed = -0.25
+	fort_level = 1
+	local_defensiveness = 0.5
+	local_hostile_attrition = 2
+}
+
+nhs_maritime_empire_1 = {
+	naval_forcelimit_modifier = 0.20
+	global_manpower_modifier = -0.10
+	land_maintenance_modifier = 0.10
+	transport_attrition = -0.25
+	global_sailors_modifier = 0.20
+	range = 0.5
+	merchants = 1
+	envoy_travel_time = -0.33
+	#picture = "to_maritime_empire"
+}
+
+nhs_maritime_empire_2 = {
+	naval_forcelimit_modifier = 0.20
+	global_manpower_modifier = -0.10
+	land_maintenance_modifier = 0.10
+	global_sailors_modifier = 0.20
+	allowed_marine_fraction = 0.25
+	range = 0.5
+	merchants = 1
+	envoy_travel_time = -0.33
+
+	navy_tradition = 1
+	movement_speed_in_fleet_modifier = 1
+	max_flagships = 1
+	#picture = "to_maritime_empire"
+}
+
+nhs_maritime_empire_3 = {
+	naval_forcelimit_modifier = 0.20
+	global_manpower_modifier = -0.10
+	land_maintenance_modifier = 0.10
+	global_sailors_modifier = 0.20
+	allowed_marine_fraction = 0.25
+	range = 0.5
+	envoy_travel_time = -0.33
+
+	navy_tradition = 1
+	movement_speed_in_fleet_modifier = 1
+	max_flagships = 1
+
+	merchants = 2
+	colonists = 1
+	#picture = "to_maritime_empire"
+}
+
+nhs_maritime_empire_4 = {
+	naval_forcelimit_modifier = 0.25
+	global_manpower_modifier = -0.10
+	land_maintenance_modifier = 0.10
+	global_sailors_modifier = 0.20
+	allowed_marine_fraction = 0.25
+	range = 0.5
+	envoy_travel_time = -0.33
+
+	navy_tradition = 1
+	movement_speed_in_fleet_modifier = 1
+	max_flagships = 1
+
+	merchants = 2
+	colonists = 1
+
+	naval_tradition_from_trade = 1.0
+	trade_efficiency = 0.1
+	#picture = "to_maritime_empire"
+}
+
+nhs_maritime_empire_5 = {
+	naval_forcelimit_modifier = 0.25
+	allowed_marine_fraction = 0.25
+	global_sailors_modifier = 0.20
+	range = 0.5
+	envoy_travel_time = -0.33
+
+	navy_tradition = 1
+	movement_speed_in_fleet_modifier = 1
+	max_flagships = 1
+
+	merchants = 2
+	colonists = 1
+
+	naval_tradition_from_trade = 1.0
+	trade_efficiency = 0.1
+
+	trade_company_governing_cost = -0.1
+	min_autonomy_in_territories = -0.1
+	#picture = "to_maritime_empire"
+}
+
+nhs_maritime_empire_6 = {
+	naval_forcelimit_modifier = 0.25
+	allowed_marine_fraction = 0.25
+	global_sailors_modifier = 0.20
+	range = 0.5
+	envoy_travel_time = -0.33
+
+	navy_tradition = 1
+	movement_speed_in_fleet_modifier = 1
+	max_flagships = 1
+	# leader_naval_manuever = 1
+
+	merchants = 2
+	colonists = 1
+
+	naval_tradition_from_trade = 1.0
+	trade_efficiency = 0.1
+
+	trade_company_governing_cost = -0.1
+	min_autonomy_in_territories = -0.1
+
+	improve_relation_modifier = 0.1
+	accept_vassalization_reasons = 20
+	culture_conversion_cost = -0.25
+	promote_culture_cost = -0.75
+	num_accepted_cultures = 5
+	relation_with_accepted_culture = 50
+	relation_with_other_culture = 25
+	reduced_liberty_desire = 25
+	embargo_efficiency = 2.5
+	#picture = "to_koine_glossa"
+}
+
+to_elysian_penal_colony = {
+	local_colonial_growth = 50
+	local_unrest = 5
+	local_fort_maintenance_modifier = -0.75
+	picture = "to_penal_colony"
+}
+
+to_japanese_production_boost = {
+	trade_goods_size = 0.25
+}
+
+to_japanese_production_boost_improved = {
+	trade_goods_size = 0.50
+}
+
+nhs2_state_bonus = {
+	#max_states = 5
+	governing_capacity = 200
+	state_maintenance_modifier = -0.10
+}
+
+nhs2_state_bonus2 = {
+	#max_states = 10
+	governing_capacity = 400
+	state_maintenance_modifier = -0.20
+}
+
+to_destroyed_hre = {
+	picture = "imperial_authority"
+	prestige = 1
+	diplomatic_upkeep = 1
+	diplomatic_reputation = 2
+	core_creation = -0.1
+	legitimacy = 0.5
+	devotion = 1
+	republican_tradition = 0.25
+	fabricate_claims_cost = -0.5
+	unjustified_demands = -0.5
+	# accept_vassalization_reasons = 10
+	max_absolutism = 10
+}
+
+to_inherited_hre = {
+	picture = "imperial_authority"
+	prestige = 1
+	diplomatic_reputation = 2
+	diplomatic_upkeep = 1
+	core_creation = -0.1
+	legitimacy = 0.5
+	devotion = 1
+	republican_tradition = 0.25
+	# accept_vassalization_reasons = 10
+	advisor_pool = 1
+	free_leader_pool = 1
+	technology_cost = -0.05
+	land_forcelimit = 50
+	global_manpower = 50
+	tax_income = 50
+}
+
+to_imperial_integration = {
+	imperial_authority_value = 0.1
+}
+
+to_imperial_integration_1 = {
+	imperial_authority_value = 0.15
+}
+
+to_imperial_integration_2 = {
+	imperial_authority_value = 0.20
+}
+
+to_imperial_integration_3 = {
+	imperial_authority_value = 0.25
+}
+
+to_imperial_integration_4 = {
+	imperial_authority_value = 0.30
+}
+
+to_imperial_integration_5 = {
+	imperial_authority_value = 0.35
+}
+
+to_imperial_integration_6 = {
+	imperial_authority_value = 0.40
+}
+
+to_imperial_integration_7 = {
+	imperial_authority_value = 0.45
+}
+
+to_imperial_integration_8 = {
+	imperial_authority_value = 0.50
+}
+
+to_imperial_integration_9 = {
+	imperial_authority_value = 0.55
+}
+
+to_imperial_integration_10 = {
+	imperial_authority_value = 0.60
+}
+
+to_imperial_integration_11 = {
+	imperial_authority_value = 0.65
+}
+
+to_improved_elysian_orthodox_defender_of_faith = {
+	global_heretic_missionary_strength = 0.02
+	reverse_relation_with_same_religion = 20
+	missionary_maintenance_cost = -0.25
+	religion = yes
+}
+
+to_golden_age = {
+	land_morale = 0.10
+	naval_morale = 0.10
+	global_trade_goods_size_modifier = 0.1
+	all_power_cost = -0.10
+	max_absolutism = 5
+	max_revolutionary_zeal = 10
+}
+
+to_triumph_warscore_cost_red = {
+	local_warscore_cost_modifier = -0.20
+}
+
+to_executed_pope = {
+	tolerance_own = 2
+	yearly_patriarch_authority = 0.01
+	tolerance_heretic = -1
+	tolerance_of_heretics_capacity = -1
+	relation_with_heretics = -50
+	unrest_catholic_provinces = 10
+	church_loyalty_modifier = 0.10
+	religion = yes
+}
+
+to_increased_tolerance = {
+	tolerance_heathen = 1
+	tolerance_of_heathens_capacity = 1
+	unrest_catholic_provinces = -2
+	religion = yes
+}
+
+to_inspired_missionaries = {
+	global_missionary_strength = 0.02
+	religion = yes
+}
+
+to_religious_fanaticism = {
+	global_missionary_strength = 0.01
+	missionary_maintenance_cost = -1
+	church_loyalty_modifier = 0.10
+	tolerance_own = 2
+	relation_with_heathens = -25
+	unrest_catholic_provinces = 10
+	religion = yes
+}
+
+nhs2_venetian_benign_neglect = {
+	trade_goods_size_modifier = 0.10
+}
+
+nhs2_colonial_needs_1 = {
+	idea_cost = 0.10
+	technology_cost = 0.10
+	trade_efficiency = -0.15
+	land_forcelimit_modifier = -0.10
+	naval_forcelimit_modifier = -0.50
+	improve_relation_modifier = -0.15
+	defensiveness = -0.10
+	diplomatic_upkeep = -1
+}
+
+nhs2_colonial_needs_2 = {
+	idea_cost = 0.20
+	technology_cost = 0.40
+	trade_efficiency = -0.30
+	global_tax_modifier = -0.1
+	production_efficiency = -0.15
+	stability_cost_modifier = 0.10
+	land_forcelimit_modifier = -0.10
+	naval_forcelimit_modifier = -0.50
+	global_manpower_modifier = -0.10
+	global_sailors_modifier = -0.10
+	improve_relation_modifier = -0.15
+	defensiveness = -0.10
+	diplomatic_upkeep = -1
+	land_morale = -0.1
+	infantry_shock = -0.2
+}
+
+nhs2_breakdown_of_society = {
+	idea_cost = 0.50
+	technology_cost = 0.50
+	all_power_cost = 0.1
+	trade_efficiency = -0.80
+	global_tax_modifier = -0.30
+	production_efficiency = -0.30
+	stability_cost_modifier = 0.5
+	land_forcelimit_modifier = -0.10
+	naval_forcelimit_modifier = -0.70
+	global_manpower_modifier = -0.20
+	global_sailors_modifier = -0.20
+	improve_relation_modifier = -0.15
+	defensiveness = -0.30
+	diplomatic_upkeep = -1
+	land_morale = -0.3
+	infantry_shock = -0.2
+	discipline = -0.05
+	monthly_to_administrative_burden = 0.05
+}
+
+nhs2_colony_colapse = {
+	stability_cost_modifier = 3
+	all_power_cost = 1
+}
+
+nhs_cheaper_fortifications = {
+	fort_maintenance_modifier = -0.50
+	# rival_border_fort_maintenance = -0.33
+}
+
+nhs_fort_manpower_2 = {
+	local_manpower = 0.25
+}
+
+nhs_fort_manpower_4 = {
+	local_manpower = 0.50
+}
+
+nhs_fort_manpower_6 = {
+	local_manpower = 0.75
+}
+
+nhs_fort_manpower_8 = {
+	local_manpower = 1
+}
+
+to_assemble_an_invasion_force_mission_barracks_modifier = {
+	local_sailors_modifier = 0.25
+}
+
+to_assemble_an_invasion_force_mission_training_fields_modifier = {
+	local_sailors_modifier = 0.50
+}
+
+to_assemble_an_invasion_force_mission_dock_modifier = {
+	local_manpower_modifier = 0.25
+}
+
+to_assemble_an_invasion_force_mission_drydock_modifier = {
+	local_manpower_modifier = 0.50
+}
+
+nhs_expert_architects = {
+	build_time = -0.2
+}
+
+to_wooden_fortifications = {
+	local_fort_maintenance_modifier = -0.9
+}
+
+to_devastated_by_greek_fire = {
+	local_monthly_devastation = 0.5
+	fort_level = -1
+	garrison_growth = -0.50
+	picture = "to_devastated_by_greek_fire"
+}
+
+to_discouraged_recruits = {
+	local_manpower_modifier = -0.9
+}
+
+to_hesperidian_wineries = {
+	trade_goods_size = 0.5
+	trade_goods_size_modifier = 0.1
+	picture = "to_hesperidian_wineries"
+}
+to_hesperidian_wineries_disabled = {
+	#trade_goods_size = 0.5
+	#trade_goods_size_modifier = 0.1
+	picture = "to_hesperidian_wineries_disabled"
+}
+
+to_ignore_separatism = {
+	local_years_of_nationalism = -1000
+}
+
+##################################################
+# Army Reforms
+##################################################
+
+to_reforming_army = {
+	discipline = -0.05
+	reinforce_speed = -0.33
+	global_regiment_cost = 0.10
+}
+to_professional_army_expensive_mercs = {
+	merc_maintenance_modifier = 2
+	mercenary_discipline = -0.1
+}
+# Tier I
+to_ad_conscript_natives = {
+	mercenary_cost = -0.20
+	manpower_recovery_speed = 0.20
+	global_manpower_modifier = 0.1
+	merc_leader_army_tradition = 0.5
+	picture = "to_ad_conscript_natives"
+}
+to_ad_expand_militia = {
+	army_tradition = 1
+	land_morale = 0.05
+	production_efficiency = -0.1
+	cav_to_inf_ratio = 0.10
+	prestige_from_land = 0.5
+	picture = "to_ad_expand_militia"
+}
+to_ad_janissaries = {
+	discipline = 0.05
+	manpower_recovery_speed = 0.20
+	siege_ability = 0.10
+	years_of_nationalism = 4
+	picture = "to_ad_janissaries"
+}
+
+to_ad_encourage_janissaries = {
+	manpower_recovery_speed = 0.10
+	siege_ability = 0.10
+	years_of_nationalism = 2
+	picture = "to_ad_janissaries_benefit"
+}
+
+to_ad_janissary_core = {
+	regiment_manpower_usage = -0.10
+	reinforce_cost_modifier = -0.90
+	movement_speed = 0.10
+
+	is_janissary_modifier = yes
+
+	picture = "to_ad_janissaries_star"
+}
+
+# Tier II
+to_ad_lessons_from_the_frontier = {
+	cavalry_power = 0.1
+	cavalry_cost = -0.45
+	own_territory_dice_roll_bonus = 1
+	defensiveness = 0.10
+	recover_army_morale_speed = 0.05
+	land_forcelimit_modifier = -0.1
+	cav_to_inf_ratio = 0.2
+	picture = "to_ad_lessons_from_the_frontier"
+}
+to_ad_reformed_theme_system = {
+	global_colonial_growth = 20
+	colony_cost_modifier = 0.20
+	global_manpower_modifier = 0.10
+	culture_conversion_cost = -0.15
+	estate_nhs_nobles_loyalty_modifier = -0.10
+	estate_nhs_nobles_influence_modifier = -0.10
+	picture = "to_ad_reformed_theme_system"
+}
+to_ad_foreign_advisors = {
+	fire_damage = 0.10
+	shock_damage_received = -0.10
+	land_forcelimit_modifier = 0.1
+	land_maintenance_modifier = 0.1
+	mil_advisor_cost = 0.1
+	siege_ability = 0.1
+	picture = "to_ad_foreign_advisors"
+}
+to_ad_greek_fire = {
+	infantry_fire = 0.8
+	infantry_cost = 0.40
+	land_forcelimit_modifier = -0.20
+	global_regiment_recruit_speed = 0.75
+	leader_land_fire = 1
+	movement_speed = -0.1
+	siege_ability = 0.10
+	picture = "to_ad_greek_fire"
+}
+
+# Tier III
+to_ad_pike_and_shot = {
+	army_tradition = 0.5
+	shock_damage_received = -0.20
+	land_forcelimit_modifier = 0.10
+	land_maintenance_modifier = -0.10
+	picture = "to_ad_pike_and_shot"
+}
+to_ad_volley_fire = {
+	discipline = 0.05
+	land_forcelimit_modifier = -0.1
+
+	yearly_army_professionalism = 0.005
+	drill_gain_modifier = 0.50
+	drill_decay_modifier = -0.33
+	picture = "to_ad_volley_fire"
+}
+to_ad_volley_fire_nodlc = {
+	discipline = 0.05
+	land_forcelimit_modifier = -0.1
+
+	infantry_power = 0.10
+	army_tradition_from_battle = 0.50
+	picture = "to_ad_volley_fire"
+}
+
+to_ad_cataphract_army_core = {
+	cavalry_power = 0.25
+	cavalry_flanking = 1
+	recover_army_morale_speed = 0.05
+	max_general_shock = 1
+	cav_to_inf_ratio = 0.5
+	movement_speed = 0.1
+	picture = "to_ad_cataphract_army_core"
+}
+
+to_ad_greek_fire2 = {
+	infantry_fire = 1
+	infantry_cost = 0.40
+	land_forcelimit_modifier = -0.15
+	global_regiment_recruit_speed = 0.50
+	leader_land_fire = 1
+	movement_speed = -0.05
+	siege_ability = 0.05
+	picture = "to_ad_greek_fire"
+}
+
+# Tier IV
+to_ad_administration_reform = {
+	global_manpower_modifier = 0.25
+	land_forcelimit_modifier = 0.25
+	reinforce_speed = 0.50
+	infantry_cost = -0.33
+	war_exhaustion = -0.10
+	may_build_supply_depot = yes
+	may_refill_garrison = yes
+	may_return_manpower_on_disband = yes
+	picture = "to_ad_administration_reform"
+}
+to_ad_professional_army = {
+	discipline = 0.10
+	yearly_army_professionalism = 0.01
+	land_maintenance_modifier = 0.2
+	land_forcelimit_modifier = -0.2
+	drill_gain_modifier = 0.50
+	drill_decay_modifier = -0.33
+	max_general_fire = 1
+	# Disables Mercenaries Companies that inherently reduce Professionalism
+	# Penalties when above
+	picture = "to_ad_professional_army"
+}
+to_ad_professional_army_nodlc = {
+	discipline = 0.10
+	land_maintenance_modifier = 0.2
+	land_forcelimit_modifier = -0.2
+	max_general_fire = 1
+
+	infantry_power = 0.15
+	# Disables Mercenaries Companies that inherently reduce Professionalism
+	picture = "to_ad_professional_army_nodlc"
+}
+to_ad_expeditionary_forces = {
+	discipline = -0.05
+	mercenary_discipline = 0.05
+	merc_maintenance_modifier = -0.33
+	mercenary_manpower = 1
+	leader_land_manuever = 2
+	movement_speed = 0.20
+	movement_speed_in_fleet_modifier = 1
+	transport_cost = -0.5
+	transport_power = 1
+	allowed_marine_fraction = 0.50
+	merc_leader_army_tradition = 0.50
+	# Merc companies no longer reduce professionalism
+	picture = "to_ad_expeditionary_forces"
+}
+to_ad_hussars_and_cataphracts = {
+	cavalry_power = 0.25
+	cavalry_cost = 0.10
+	cavalry_flanking = 2
+	recover_army_morale_speed = 0.05
+	cav_to_inf_ratio = 0.5
+	army_tradition = 1
+	max_general_shock = 1
+	movement_speed = 0.10
+	picture = "to_ad_hussars_and_cataphracts"
+}
+to_ad_greek_fire3 = {
+	infantry_fire = 1.2
+	infantry_cost = 0.40
+	artillery_power = 0.10
+	land_forcelimit_modifier = -0.15
+	global_regiment_recruit_speed = 0.50
+	leader_land_fire = 1
+	siege_ability = 0.05
+	assault_fort_ability = 0.50
+	max_general_siege = 1
+	picture = "to_ad_greek_fire"
+}
+
+## Greek Fire
+nhs_secrets_greekfire = {
+	naval_maintenance_modifier = 0.10
+	heavy_ship_power = 0.10
+	light_ship_power = 0.10
+	galley_power = 0.25
+
+	defensiveness = 0.30
+	picture = "to_greek_fire"
+}
+
+nhs_greekfire_update = {
+	naval_maintenance_modifier = 0.10
+	heavy_ship_power = 0.10
+	light_ship_power = 0.10
+	galley_power = 0.20
+
+	infantry_power = 0.10
+	defensiveness = 0.20
+	picture = "to_greek_fire"
+}
+
+nhs_greekfire_later = {
+	naval_maintenance_modifier = 0.10
+	heavy_ship_power = 0.10
+	light_ship_power = 0.10
+	galley_power = 0.20
+
+	infantry_power = 0.10
+	defensiveness = 0.20
+	picture = "to_greek_fire"
+}
+
+nhs2_depleting_fire_ships_and_forts = {
+	galley_power = 0.25
+	defensiveness = 0.30
+	heavy_ship_power = 0.10
+	light_ship_power = 0.10
+	naval_maintenance_modifier = 0.10
+	picture = "to_greek_fire"
+}
+
+nhs2_depleting_fire_sieges = {
+	artillery_levels_available_vs_fort = -2
+	picture = "to_greek_fire"
+}
+
+nhs2_depleted_fire_sieges = {
+	artillery_power = -1
+	artillery_level_modifier = -1
+	picture = "artillery_level_modifier"
+}
+
+nhs_secrets_greekfire_w = {
+	naval_maintenance_modifier = 0.10
+	heavy_ship_power = -0.05
+	light_ship_power = -0.05
+	galley_power = -0.05
+	defensiveness = -0.10
+}
+
+nhs_greekfire_update_w = {
+	naval_maintenance_modifier = 0.10
+	heavy_ship_power = -0.05
+	light_ship_power = -0.05
+	galley_power = -0.05
+	infantry_power = -0.05
+}
+
+nhs_greekfire_later_w = {
+	naval_maintenance_modifier = 0.10
+	heavy_ship_power = -0.05
+	light_ship_power = -0.05
+	galley_power = -0.05
+	infantry_power = -0.05
+}
+
+nhs_fire_reform_w = {
+	naval_maintenance_modifier = 0.10
+	light_ship_power = -0.05
+	galley_power = -0.05
+	defensiveness = -0.10
+	infantry_power = -0.1
+	cavalry_power = -0.05
+	infantry_cost = 0.1
+	land_maintenance_modifier = 0.1
+	shock_damage_received = 0.05
+	land_forcelimit_modifier = -0.05
+	leader_land_shock = -1
+}
+
+nhs_fire_reform_w_update = {
+	global_ship_cost = 0.05
+	light_ship_power = -0.05
+	infantry_power = -0.15
+	cavalry_power = -0.05
+	infantry_cost = 0.1
+	land_maintenance_modifier = 0.1
+	shock_damage_received = 0.05
+	land_forcelimit_modifier = -0.05
+	leader_land_shock = -1
+}
+
+nhs_fire_reform_w_later = {
+	naval_maintenance_modifier = 0.10
+	light_ship_power = -0.05
+	galley_power = -0.05
+	defensiveness = -0.10
+	infantry_power = -0.1
+	cavalry_power = -0.05
+	infantry_cost = 0.1
+	land_maintenance_modifier = 0.1
+	shock_damage_received = 0.05
+	land_forcelimit_modifier = -0.05
+	leader_land_shock = -1
+}
+
+nhs2_source_of_naphta_e = {
+	trade_goods_size_modifier = -0.5
+	picture = "naphtha"
+}
+
+nhs2_source_of_naphta = {
+	picture = "naphtha"
+}
+
+nhs_greek_fire_deal = {
+	global_tax_income = 12
+	global_institution_spread = 0.1
+	picture = "naphtha"
+}
+
+### European Trade
+
+nhs2_elysian_restricted_trade = {
+	production_efficiency = 0.15
+	embargo_efficiency = 0.25
+	picture = "production_efficiency_blue"
+}
+
+nhs2_elysian_free_trade = {
+	global_institution_spread = 0.25
+	global_foreign_trade_power = 0.50
+	trade_efficiency = 0.15
+	dip_tech_cost_modifier = -0.15
+	global_trade_goods_size_modifier = -0.1
+	mercantilism_cost = 0.5
+	embargo_efficiency = -1
+	#picture = "trade_efficiency"
+	picture = "trade_efficiency_blue"
+}
+
+nhs2_elysian_isolationism = {
+	trade_efficiency = -0.10
+	idea_cost = 0.10
+	stability_cost_modifier = -0.33
+	global_own_trade_power = 0.25
+	global_foreign_trade_power = -0.75
+	global_unrest = -2
+	embargo_efficiency = 0.75
+	#picture = "global_own_trade_power"
+	picture = "stability_cost_modifier_blue"
+}
+
+nhs2_ely_por_trade = {
+	trade_range_modifier = 0.50
+	dip_tech_cost_modifier = -0.10
+	center_of_trade_upgrade_cost = -0.10
+	production_efficiency = 0.10
+	embargo_efficiency = 0.25
+	picture = "trade_range_modifier_blue"
+}
+
+nhs2_por_ely_trade = {
+	global_tax_income = 36
+	trade_efficiency = 0.10
+	production_efficiency = 0.1
+	trade_range_modifier = 0.25
+	global_unrest = -3
+}
+
+to_por_gateway_to_elysia = {
+	province_trade_power_value = 20
+	province_trade_power_modifier = 0.5
+}
+
+nhs2_treaty_of_lantanopolis_por = {
+	global_colonial_growth = 20
+	global_tariffs = 0.10
+}
+
+nhs2_treaty_of_lantanopolis_colonial_growth_reduction = {
+	local_colonial_growth = -1000
+}
+
+to_broken_port_trade_deal_major = {
+	diplomatic_reputation = -2
+	trade_efficiency = -0.1
+	global_foreign_trade_power = -0.1
+}
+
+to_broken_port_trade_deal_minor = {
+	trade_efficiency = -0.1
+}
+
+nhs2_european_enclave = {
+	local_institution_spread = 0.35
+	province_trade_power_value = 20
+	local_sailors_modifier = 0.6
+	local_state_maintenance_modifier = 0.20
+	local_unrest = 5
+	min_local_autonomy = 30
+	picture = "european_enclave"
+}
+
+nhs2_small_por_enclave = {
+	local_institution_spread = 0.20
+	province_trade_power_value = 10
+	local_sailors_modifier = 0.25
+	local_state_maintenance_modifier = 0.20
+	min_local_autonomy = 10
+	picture = "portugese_enclave"
+}
+
+nhs2_por_enclave = {
+	local_institution_spread = 0.30
+	province_trade_power_value = 20
+	local_sailors_modifier = 0.5
+	local_state_maintenance_modifier = 0.25
+	local_unrest = 1
+	min_local_autonomy = 15
+	picture = "portugese_enclave"
+}
+
+nhs2_large_por_enclave = {
+	local_institution_spread = 0.40
+	province_trade_power_value = 30
+	local_sailors_modifier = 0.75
+	local_state_maintenance_modifier = 0.30
+	local_unrest = 2
+	min_local_autonomy = 20
+	picture = "portugese_enclave"
+}
+
+nhs_lots_of_ppl1 = {
+	global_colonial_growth = 500
+}
+
+nhs_lots_of_ppl2 = {
+	global_colonial_growth = 250
+}
+
+nhs_lots_of_ppl3 = {
+	global_colonial_growth = 50
+}
+
+nhs_lots_of_ppl1_halved = {
+	global_colonial_growth = 250
+}
+
+nhs_lots_of_ppl2_halved = {
+	global_colonial_growth = 125
+}
+
+nhs_lots_of_ppl3_halved = {
+	global_colonial_growth = 25
+}
+
+nhs_lots_of_ppl1_winter = {
+	global_colonial_growth = 125
+}
+
+nhs_lots_of_ppl2_winter = {
+	global_colonial_growth = 60
+}
+
+nhs_lots_of_ppl3_winter = {
+	global_colonial_growth = 15
+}
+
+nhs_handicap_settlers = {
+	land_forcelimit_modifier = -0.10 #
+	naval_forcelimit_modifier = -0.10 #
+	global_manpower_modifier = -0.60 #
+	global_sailors_modifier = -0.60 #
+	mercenary_cost = 0.5 #
+	mercenary_manpower = -0.5 #
+	cavalry_cost = 0.50 #
+	global_ship_recruit_speed = 1.0 #
+	global_ship_cost = 1.0 #
+	naval_maintenance_modifier = 0.30 #
+	land_maintenance_modifier = 0.30 #
+	cav_to_inf_ratio = -0.3 #
+	picture = "to_manpower_shortage"
+}
+
+nhs_settler_heritage = {
+	land_forcelimit_modifier = -0.10 #
+	global_manpower_modifier = -0.50 #
+	global_sailors_modifier = -0.40 #
+	cavalry_cost = 0.30
+	#possible_mercenaries = -0.40
+	mercenary_cost = 0.35
+	mercenary_manpower = -0.35
+	global_ship_recruit_speed = 0.5
+	global_ship_cost = 0.5
+	land_maintenance_modifier = 0.15 #
+	cav_to_inf_ratio = -0.2
+	picture = "to_manpower_shortage"
+}
+
+nhs_settler_heritage_two = {
+	land_forcelimit_modifier = -0.05
+	global_manpower_modifier = -0.40
+	global_sailors_modifier = -0.20
+	cavalry_cost = 0.15
+	mercenary_cost = 0.20
+	mercenary_manpower = -0.20
+	land_maintenance_modifier = 0.10
+	naval_maintenance_modifier = -0.10
+	cav_to_inf_ratio = -0.1
+	picture = "to_manpower_shortage"
+}
+
+nhs_settler_heritage_three = {
+	global_manpower_modifier = -0.20
+	global_sailors_modifier = 0.10
+	mercenary_manpower = -0.10
+	naval_maintenance_modifier = -0.10
+	cav_to_inf_ratio = -0.1
+	picture = "to_manpower_shortage"
+}
+
+nhs2_restored_senate_of_cities = {
+	stability_cost_modifier = 0.20
+	global_unrest = -2
+	max_absolutism = -5
+}
+
+nhs_assisting_the_expedition = {
+	global_manpower = -5
+	leader_cost = -0.20
+	army_tradition = 0.5
+}
+
+to_nhs_gateway_to_elysium = {
+	trade_steering = 0.15
+}
+
+to_gateway_to_elysium_trade_value = {
+	trade_value_modifier = 0.1
+}
+
+to_gateway_to_elysium_trade_value_inactive = {
+	picture = "trade_value_modifier_inactive"
+}
+
+to_holy_hand_granaded = {
+	recover_army_morale_speed = -0.025
+}
+
+to_economic_hegemon = {
+	war_exhaustion = -0.1
+	development_cost_modifier = -0.05
+	mercenary_manpower = 1.0
+	mercenary_discipline = 0.10
+	global_trade_goods_size_modifier = 0.25
+	min_autonomy_in_territories = -0.20
+	governing_capacity_modifier = 0.20
+}
+
+to_naval_hegemon = {
+	global_ship_trade_power = 0.2
+	war_exhaustion = -0.1
+	global_naval_engagement_modifier = 0.10
+	reduced_liberty_desire = 20
+	global_sailors_modifier = 2.0
+	blockade_efficiency = 2.0
+	backrow_artillery_damage = 0.20
+}
+
+to_military_hegemon = {
+	country_military_power = 1
+	war_exhaustion = -0.1
+	province_warscore_cost = -0.1
+	movement_speed = 0.1
+	land_attrition = -0.2
+	global_unrest = -3
+	siege_ability = 0.2
+}
+
+to_global_hegemon = {
+	war_exhaustion = -0.3
+	development_cost_modifier = -0.05
+	mercenary_manpower = 1.0
+	mercenary_discipline = 0.10
+	global_trade_goods_size_modifier = 0.25
+	min_autonomy_in_territories = -0.20
+	governing_capacity_modifier = 0.20
+
+	global_ship_trade_power = 0.2
+	global_naval_engagement_modifier = 0.10
+	reduced_liberty_desire = 20
+	global_sailors_modifier = 2.0
+	blockade_efficiency = 2.0
+	backrow_artillery_damage = 0.20
+
+	country_military_power = 1
+	war_exhaustion = -0.1
+	province_warscore_cost = -0.1
+	movement_speed = 0.1
+	land_attrition = -0.2
+	global_unrest = -3
+	siege_ability = 0.2
+}
+
+to_recent_immigration = {
+	local_missionary_strength = -1
+	local_culture_conversion_cost = 0.50
+
+	picture = "local_culture_conversion_cost"
+}
+
+to_embrace_mercantilism_colonial_modifier = {
+	local_colonial_growth = 20
+}
+
+to_war_economy_province_modifier = {
+	local_production_efficiency = 0.25
+}
+
+to_cash_crops_good_province_modifier = {
+	local_development_cost = -0.10
+	trade_goods_size_modifier = 0.10
+}
+
+to_cash_crops_bad_province_modifier = {
+	local_development_cost = 0.10
+}
+
+to_autarky_province_modifier = {
+	local_development_cost = -0.10
+	local_production_efficiency = 0.25
+}
+
+to_mercantile_nation_cot_boost = {
+	local_development_cost = -0.10
+}
+
+to_coastal_defence_defensivness_modifier = {
+	local_defensiveness = 0.30
+	local_fort_maintenance_modifier = -0.50
+}
+
+to_remove_expand_infrastructure_penalty = {
+	expand_infrastructure_cost_modifier = -2
+}
+
+to_religion_unrest_after_kauda_conversion = {
+	stability_cost_modifier = 0.20
+	tolerance_heathen = -1
+	global_unrest = 1
+	legitimacy = -0.5
+}
+
+to_gold_rush_hills = {
+	local_development_cost = -0.15
+}
+
+to_gold_rush_mountains = {
+	local_development_cost = -0.25
+}
+
+to_trade_expedition_province_modifier = {
+	trade_value_modifier = 0.1
+}
+
+to_triumph_peace = {
+	war_exhaustion = -0.05
+	stability_cost_modifier = -0.10
+	manpower_recovery_speed = 0.10
+	land_maintenance_modifier = -0.05
+}
+
+to_triumph_war = {
+	movement_speed = 0.20
+	shock_damage = 0.20
+}
+
+to_control_of_venice = {
+	province_trade_power_value = 10
+	province_trade_power_modifier = 0.10
+	local_sailors_modifier = 0.33
+	trade_value_modifier = 0.10
+}
+
+to_control_of_venice_upgraded = {
+	province_trade_power_value = 20
+	province_trade_power_modifier = 0.25
+	local_governing_cost = -0.15
+	local_sailors_modifier = 1
+	trade_value_modifier = 0.25
+	has_galleass = yes
+	allowed_galleass_fraction = 0.25
+	local_has_galleass = yes
+}
+
+to_control_of_venice_upgraded_nodlc = {
+	province_trade_power_value = 20
+	province_trade_power_modifier = 0.25
+	local_ship_repair = 0.25
+	ship_recruit_speed = -0.25
+	local_governing_cost = -0.15
+	local_sailors_modifier = 1
+	trade_value_modifier = 0.25
+	galley_power = 0.10
+}
+
+to_exarch_autonomy_penalty = {
+	min_local_autonomy = 33
+}
+
+to_knowledge_exchange_adm = {
+	adm_tech_cost_modifier = -0.2
+}
+
+to_knowledge_exchange_dip = {
+	dip_tech_cost_modifier = -0.2
+}
+
+to_knowledge_exchange_mil = {
+	mil_tech_cost_modifier = -0.2
+}
+
+to_kastrioti_dominion = {
+	local_manpower_modifier = 0.15
+	local_unrest = -2
+	local_missionary_strength = 0.02
+
+	picture = "kastrioti_dominion"
+}
+
+to_kastrioti_dominion_boosted = {
+	local_manpower_modifier = 0.3
+	local_unrest = -4
+	local_missionary_strength = 0.04
+
+	picture = "kastrioti_dominion_boosted"
+}
+
+to_kastrioti_dominion_penalty = {
+	local_years_of_nationalism = 10
+	local_unrest = 2
+
+	picture = "kastrioti_dominion_penalty"
+}
+
+to_familiar_administration_in_albania = {
+	local_manpower_modifier = 0.1
+	local_unrest = -2
+	local_missionary_strength = 0.02
+	local_autonomy = -0.1
+
+	picture = "kastrioti_dominion"
+}
+
+to_exarch_aid = {
+	global_unrest = -2
+	war_exhaustion = -0.1
+	liberty_desire = -5
+}
+
+to_crack_down_on_heresy = {
+	religious_unity = -0.25
+	global_unrest = 2
+	missionaries = 1
+	global_missionary_strength = 0.02
+	missionary_maintenance_cost = -0.50
+	tolerance_own = 1
+	tolerance_heathen = -6
+	tolerance_heretic = -6
+	liberty_desire = 10
+}
+
+##################################################
+# Hellenic Disaster
+##################################################
+
+nhs_hcd_hellenic_struggles = {
+	# global_missionary_strength = -0.01
+	stability_cost_modifier = 0.2
+	yearly_patriarch_authority = -0.01
+	religious_unity = -0.10
+	country_admin_power = 1
+}
+
+nhs_hcd_hellenic_struggles_legacy = {
+	# global_missionary_strength = -0.01
+	yearly_patriarch_authority = -0.005
+	stability_cost_modifier = 0.1
+	religious_unity = -0.10
+}
+
+nhs_hcd_hellenic_struggles_legacy_1 = {
+	yearly_patriarch_authority = -0.005
+	stability_cost_modifier = 0.1
+}
+
+nhs_hcd_hellenic_struggles_legacy_2 = {
+	adm_advisor_cost = -0.1
+	yearly_patriarch_authority = -0.005
+	stability_cost_modifier = 0.1
+	religious_unity = -0.10
+}
+
+nhs_hcd_hellenic_struggles_legacy_3 = {
+	tolerance_own = 1
+	stability_cost_modifier = 0.1
+	religious_unity = -0.10
+}
+
+nhs_hcd_hellenic_coup = {
+	tolerance_own = 1
+	global_unrest = 2
+	church_influence_modifier = 0.1
+	church_loyalty_modifier = 0.1
+	# tolerance_heathen = -2
+}
+
+nhs_hcd_hellenic_representation = {
+	all_power_cost = 0.05
+   	church_loyalty_modifier = -0.05
+   	tolerance_heathen = 1
+}
+
+nhs_hcd_pagan_concessions = {
+	all_power_cost = 0.1
+	church_influence_modifier = 0.1
+	tolerance_heathen = 1
+}
+
+nhs_hcd_state_inquisition = {
+	tolerance_heathen = -4
+}
+
+to_hcd_monarch_stabbed = {
+	can_not_declare_war = yes
+}
+
+to_religious_unity_from_hellenic_advisors = {
+}
+
+nhs_hcd_inquisition_headquarters = {
+	fort_level = 1
+	local_defensiveness = 1
+	local_manpower_modifier = -1
+	local_unrest = 20
+}
+
+to_hcd_people_turn_to_fanaticism = {
+	religious_unity = -0.1
+	tolerance_heathen = -1
+}
+
+#Province modifiers
+
+nhs_hcd_Pagan_taxes = {
+	# local_tax_modifier = 0.1
+	local_unrest = 5
+}
+
+nhs_hcd_hellenic_conversion_strife = {
+	local_unrest = 5
+	local_tax_modifier = -0.15
+}
+
+nhs_hcd_land_dispute = {
+	local_unrest = 5
+	local_production_efficiency = -0.80
+	# local_colonial_growth = -10
+}
+
+nhs_hcd_colonial_tensions = {
+	local_colonist_placement_chance  = -0.05
+}
+
+nhs_hcd_Pagan_minority = {
+	local_manpower_modifier = -0.1
+	local_missionary_strength = -0.01
+}
+
+nhs_hcd_Pagan_persecution = {
+    local_unrest = 10
+}
+
+nhs_hcd_famine_aid = {
+	local_tax_modifier = -0.9
+	local_missionary_strength = -0.02
+	local_unrest = -3
+}
+
+nhs_hcd_famine_exempt = {
+	local_tax_modifier = -0.75
+	local_missionary_strength = -0.02
+	local_unrest = -2
+}
+
+#Disaster modifiers
+
+nhs_hcd_conversion_zeal = {
+	local_missionary_strength = -0.05
+	local_unrest = 3
+}
+
+nhs_hcd_pagan_loyalty = {
+	global_missionary_strength = 0.02
+	stability_cost_modifier = 0.15
+	church_influence_modifier = 0.10
+	religion = yes
+}
+
+nhs_hcd_promised_peace = {
+	stability_cost_to_declare_war = 1
+	ae_impact = 0.2
+}
+
+nhs_hcd_church_loyalty = {
+	missionaries = 1
+	tolerance_heathen = -2
+	stability_cost_modifier = 0.15
+	church_influence_modifier = 0.10
+	religion = yes
+}
+
+nhs_hcd_tolerant_approach = {
+	tolerance_heathen = 2
+	stability_cost_modifier = -0.10
+	church_influence_modifier = -0.10
+}
+
+nhs_hrv_merchant_death = {
+	province_trade_power_modifier = -0.5
+}
+
+nhs_hrv_soldier_death = {
+	local_manpower_modifier = -0.5
+}
+
+nhs_hrv_farmer_death = {
+	trade_goods_size_modifier = -0.5
+}
+
+nhs_hrv_painter_death = {
+	# local_build_time = 0.5
+	# prestige = -0.5
+	local_prosperity_growth = -0.5
+}
+
+nhs_hrv_poet_death = {
+	# local_institution_spread = -0.25
+	prestige = -0.5
+}
+
+nhs_hrv_beggar_death = {
+	local_unrest = 5
+}
+
+nhs_hrv_rampaging_zealots = {
+	local_manpower = -0.5
+	local_tax_modifier = -0.5
+	local_missionary_strength = 0.03
+	local_unrest = 3
+}
+
+nhs_hrv_religious_persecution = {
+	local_manpower = -0.5
+	local_tax_modifier = -0.5
+	local_missionary_strength = 0.03
+	local_unrest = 3
+}
+
+nhs_hrv_orthodox_communities = {
+	local_religious_unity_contribution = -1
+	local_missionary_strength = -1
+	local_tax_modifier = -0.25
+	local_manpower = -0.5
+	local_unrest = -5
+}
+
+nhs_hrv_no_missionary = {
+	local_missionary_strength = -0.02
+}
+
+to_hcd_hellenic_revolt_min_duration = {
+}
+
+nhs_hcd_pagans_feel_neglected = {
+	global_missionary_strength = -0.01
+	religion = yes
+}
+
+nhs_hcd_exempt_from_disaster = {
+	local_religious_unity_contribution = -1
+	religion = yes
+}
+
+to_reanounced_beliefs = {
+	monarch_lifespan = -0.25
+}
+
+#Disaster resolution modifer
+
+nhs_hrv_loyal_orthodox = {
+	global_heathen_missionary_strength = 0.015
+	missionary_maintenance_cost = -0.25
+	church_influence_modifier = 0.10
+	religion = yes
+}
+
+nhs_hrv_shaky_faith = {
+	tolerance_own = -1
+	church_influence_modifier = -0.10
+}
+
+nhs_hrv_tolerance = {
+	tolerance_heathen = 2
+	church_influence_modifier = -0.10
+}
+
+nhs_hrv_loyal_hellenic = {
+	global_missionary_strength = 0.02
+	church_influence_modifier = 0.10
+	religion = yes
+}
+
+nhs_hrv_peaceful_resolution = {
+	tolerance_heathen = 2
+	tolerance_heretic = 1
+	global_unrest = -1
+	global_missionary_strength = -0.01
+}
+
+#Hellenic conversion modifiers
+
+nhs_tolerated_minority = {
+	local_religious_unity_contribution = -1
+	local_missionary_strength = -0.05
+	local_tolerance_of_heathens = 3
+	# local_unrest = -5
+	religion = yes
+	picture = "local_religious_unity_contribution"
+}
+
+nhs_semi_tolerated_minority = {
+	local_religious_unity_contribution = -0.75
+	local_missionary_strength = -0.03
+	local_tolerance_of_heathens = 1
+	religion = yes
+	picture = "local_religious_unity_contribution"
+}
+
+to_heliopolis_renamed = {
+}
+
+to_thysdrus_renamed = {
+}
+
+# Cooldowns
+nhs_hcd_had_colony_event = {
+}
+
+nhs_hdc_witch_trials_cd = {
+}
+
+# Timers
+
+nhs_got_p_m = {
+}
+nhs_p1_m = {
+}
+nhs_p2_m = {
+}
+nhs_p3_m = {
+}
+nhs_p4_m = {
+}
+nhs_p5_m = {
+}
+
+nhs2_timer_aqeuducts = {
+}
+
+nhs_timer_pathways = {
+}
+
+nhs_deification_of_refused = {
+}
+
+nhs2_timer_constantinople = {
+}
+
+nhs2_timer_formed_greek = {
+}
+
+nhs2_ai_colonising_timer = {
+}
+
+nhs2_scythian_spawning_country = {
+}
+
+province_development_hide_cooldown = {
+}
+
+nhs2_development_cooldown = {
+}
+
+nhs_idea_swap_cooldown_cd = {
+}
+
+nhs2_n_r_c = {
+}
+nhs2_depleting_fire_fuel_timer = {
+}
+
+nhs_cake = {
+	global_unrest = -100
+}
+nhs_autonomy_attempt = {
+}
+nhs2_missionaries_cooldown_target = {
+}
+
+
+### hidden timers
+
+nhs_timer_heroes = {}
+
+nhs_timer_races = {}
+
+nhs_natives_disaster_timer = {}
+
+to_recent_european_emigration = {}
+
+to_trade_policy_switch_protectionism_cd = {}
+
+to_trade_policy_switch_free_trade_cd = {}
+
+to_trade_policy_switch_isolationism_cd = {}
+
+### Administrative Burden
+
+to_empowered_estate_ab = {
+	monthly_to_administrative_burden = -0.15
+	# all_estate_influence_modifier = 0.2
+	estate_nhs_nobles_influence_modifier = 0.20
+	church_influence_modifier = 0.20
+	burghers_influence_modifier = 0.20
+	estate_all_natives_influence_modifier = 0.20
+	all_estate_loyalty_equilibrium = 0.05
+	picture = "monthly_to_administrative_burden"
+}
+
+to_grant_autonomy_ab = {
+	global_autonomy = 0.10
+	culture_conversion_cost = 0.10
+	min_autonomy = 25
+	monthly_to_administrative_burden = -0.10
+	picture = "monthly_to_administrative_burden"
+}
+
+to_seasoned_administrators = {
+	colony_cost_modifier = -0.1
+	global_autonomy = -0.1
+	autonomy_change_time = -0.25
+}
+
+to_colonial_offices_ab = {
+	global_colonial_growth = 25
+}
+
+# Code generated by administrative burden/administrative_burden.py
+to_ab_subject_penalty_mod_1 = {
+	monthly_to_administrative_burden = 0.15
+}
+to_ab_subject_penalty_mod_2 = {
+	monthly_to_administrative_burden = 0.30
+}
+to_ab_subject_penalty_mod_3 = {
+	monthly_to_administrative_burden = 0.45
+}
+to_ab_subject_penalty_mod_4 = {
+	monthly_to_administrative_burden = 0.60
+}
+to_ab_subject_penalty_mod_5 = {
+	monthly_to_administrative_burden = 0.75
+}
+to_ab_subject_penalty_mod_6 = {
+	monthly_to_administrative_burden = 0.90
+}
+to_ab_subject_penalty_mod_7 = {
+	monthly_to_administrative_burden = 1.05
+}
+to_ab_subject_penalty_mod_8 = {
+	monthly_to_administrative_burden = 1.20
+}
+to_ab_subject_penalty_mod_9 = {
+	monthly_to_administrative_burden = 1.35
+}
+to_ab_subject_penalty_mod_10 = {
+	monthly_to_administrative_burden = 1.50
+}
+to_ab_colony_penalty_mod_1 = {
+	monthly_to_administrative_burden = 0.05
+}
+to_ab_colony_penalty_mod_2 = {
+	monthly_to_administrative_burden = 0.10
+}
+to_ab_colony_penalty_mod_3 = {
+	monthly_to_administrative_burden = 0.15
+}
+to_ab_colony_penalty_mod_4 = {
+	monthly_to_administrative_burden = 0.20
+}
+to_ab_colony_penalty_mod_5 = {
+	monthly_to_administrative_burden = 0.25
+}
+to_ab_colony_penalty_mod_6 = {
+	monthly_to_administrative_burden = 0.30
+}
+to_ab_colony_penalty_mod_7 = {
+	monthly_to_administrative_burden = 0.35
+}
+to_ab_colony_penalty_mod_8 = {
+	monthly_to_administrative_burden = 0.40
+}
+to_ab_colony_penalty_mod_9 = {
+	monthly_to_administrative_burden = 0.45
+}
+to_ab_colony_penalty_mod_10 = {
+	monthly_to_administrative_burden = 0.50
+}
+
+### Roman Janissaries
+
+to_prinkipe_recruitment = {
+	years_of_nationalism = 2
+	land_maintenance_modifier = 0.05
+	picture = "to_janissaries"
+}
+
+to_orhan_janissaries = {
+	# years_of_nationalism = 2
+	land_maintenance_modifier = 0.05
+	picture = "to_janissaries"
+}
+
+to_janissary_child_levy = {
+	years_of_nationalism = 2
+}
+
+to_janissaries_from_true_faith = {
+	tolerance_own = -2
+	church_loyalty_modifier = -0.1
+	global_missionary_strength = -0.01
+}
+
+to_janissary_recruitment_quotas = {
+	years_of_nationalism = 2
+	tolerance_heathen = -2
+}
+
+to_janissary_open_recruitment = {
+	fire_damage_received = 0.10
+	fire_damage_received = 0.10
+
+	is_janissary_modifier = yes
+}
+
+to_janissary_increase_compensation = {
+	estate_nhs_nobles_loyalty_modifier = -0.1
+	nobles_loyalty_modifier = -0.1
+}
+
+to_janissary_increase_compensation_regiments = {
+	land_morale = 0.10
+	land_maintenance_modifier = 0.5
+}
+
+to_janissary_low_reserve = {
+	reinforce_speed = -0.75
+	is_janissary_modifier = yes
+}
+
+to_recent_janissary_law = {
+	picture = "janissaries_privilege_slots"
+}
+
+to_blood_tax = {
+	liberty_desire = 33
+	years_of_nationalism = 2
+	picture = "janissaries_privilege_slots"
+}
+
+to_blood_tax_true_faith = {
+	liberty_desire = 33
+	years_of_nationalism = 2
+	tolerance_own = -2
+	church_loyalty_modifier = -0.1
+	global_missionary_strength = -0.01
+	picture = "janissaries_privilege_slots"
+}
+
+# Code generated by great project power/arsenal.py
+to_arsenal_efficiency_0 = {
+}
+to_arsenal_efficiency_10 = {
+	global_ship_cost = -0.03
+	artillery_cost = -0.01
+}
+to_arsenal_efficiency_20 = {
+	global_ship_cost = -0.06
+	artillery_cost = -0.02
+}
+to_arsenal_efficiency_30 = {
+	global_ship_cost = -0.09
+	artillery_cost = -0.03
+}
+to_arsenal_efficiency_40 = {
+	global_ship_cost = -0.12
+	artillery_cost = -0.04
+}
+to_arsenal_efficiency_50 = {
+	global_ship_cost = -0.15
+	artillery_cost = -0.05
+}
+to_arsenal_efficiency_60 = {
+	global_ship_cost = -0.18
+	artillery_cost = -0.06
+}
+to_arsenal_efficiency_70 = {
+	global_ship_cost = -0.21
+	artillery_cost = -0.07
+}
+to_arsenal_efficiency_80 = {
+	global_ship_cost = -0.24
+	artillery_cost = -0.08
+}
+to_arsenal_efficiency_90 = {
+	global_ship_cost = -0.27
+	artillery_cost = -0.09
+}
+to_arsenal_efficiency_100 = {
+	global_ship_cost = -0.3
+	artillery_cost = -0.1
+	number_of_cannons_modifier = 0.1
+	max_flagships = 1
+}

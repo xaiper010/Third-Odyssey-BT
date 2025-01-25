@@ -1,0 +1,255 @@
+# Do not change tags in here without changing every other reference to them.
+# If adding new dieties, make sure they are uniquely named.
+Leonidas = 
+{
+
+	global_manpower_modifier = 0.2
+	global_colonial_growth = 20
+	
+	potential = { religion = aztlan_worship }
+	trigger = {}
+	sprite = 24
+	
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_colonialist
+		}
+		modifier = {
+			factor = 2
+			personality = ai_militarist
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}		
+	}
+}
+
+
+Texcatlipoca =
+{
+	technology_cost = -0.05
+	spy_offence = 0.33
+	
+	potential = { religion = aztlan_worship }
+	trigger = {}
+	sprite = 27
+	
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_capitalist
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_militarist
+		}	
+		modifier = {
+			factor = 2
+			personality = ai_diplomat
+		}		
+	}
+}
+
+Quetzacoatl =
+{
+	global_missionary_strength = 0.02
+	tolerance_own = 1
+	
+	potential = { religion = aztlan_worship }
+	trigger = {}
+	sprite = 23
+	
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_balanced
+		}	
+		modifier = {
+			factor = 2
+			personality = ai_colonialist
+		}		
+	}
+}
+
+Tlaloc =
+{
+	production_efficiency = 0.15
+	reinforce_speed = 0.15
+	
+	potential = { religion = aztlan_worship }
+	trigger = {}
+	sprite = 25
+	
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 2
+			personality = ai_balanced
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_colonialist
+		}		
+	}
+}
+
+Chalchiuhtlicue =
+{
+	naval_morale = 0.20
+	heir_chance = 1
+	
+	potential = { religion = aztlan_worship }
+	trigger = {}
+	sprite = 28
+	
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}
+		modifier = {
+			factor = 2
+			personality = ai_balanced
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}		
+	}
+
+}
+
+Ares_2 =
+{
+	ae_impact = -0.25
+	discipline = 0.05
+	
+	potential = { religion = aztlan_worship }
+	trigger = {}
+	sprite = 18
+	
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}
+		modifier = {
+			factor = 2
+			personality = ai_balanced
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}		
+	}
+}
+Mictlantlencuhtli =
+{
+	global_manpower_modifier = 0.2
+	legitimacy = 1
+
+	potential = { religion = aztlan_worship }
+	trigger = {}
+	sprite = 26
+	
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 2
+			personality = ai_capitalist
+		}	
+		modifier = {
+			factor = 3
+			personality = ai_militarist
+		}		
+	}
+}
+
+
+Poseidon_2 =
+{
+	trade_efficiency = 0.10
+	trade_steering = 0.10
+	
+	potential = { religion = aztlan_worship	}
+	trigger = {}
+	sprite = 16
+	
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_capitalist
+		}
+		modifier = {
+			factor = 2
+			personality = ai_balanced
+		}	
+		modifier = {
+			factor = 0.5
+			personality = ai_diplomat
+		}		
+	}
+}
+
+Zeus_2 = 
+{
+	tolerance_heretic = 2
+	religious_unity = 0.10
+	
+	potential = {
+		religion = aztlan_worship
+		has_global_flag = msg_aztlan_zeus_deity
+	}
+	trigger = {}
+	sprite = 15
+	
+	effect = {}
+	removed_effect = {}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 3
+			personality = ai_diplomat
+		}
+		modifier = {
+			factor = 0.5
+			personality = ai_balanced
+		}	
+	}
+}

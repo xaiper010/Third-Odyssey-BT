@@ -1,0 +1,165 @@
+custom_window = {
+    name = to_trade_expeditions_window
+    potential = {
+        FROM = {
+            to_unlocked_trade_expeditions = yes
+        }
+    }
+}
+
+custom_icon = {
+    name = to_trade_expeditions_bg
+    potential = {
+    }
+}
+
+custom_text_box = {
+    name = to_trade_expeditions_title
+    potential = {
+    }
+}
+
+custom_button = {
+    name = to_trade_expeditions_button_send
+    tooltip = to_trade_expeditions_button_send_tt
+    potential = {
+    }
+    trigger = {
+        custom_trigger_tooltip = {
+            tooltip = to_is_not_in_chesapeake_bay_tn_tt
+            NOT = { same_trade_node_as = 953 }
+        }
+        is_not_inland_trade_node_province = yes
+        trade_range = FROM
+        custom_trigger_tooltip = {
+            tooltip = to_no_trade_expedition_tt
+            FROM = {
+                OR = {
+                    NOT = { has_country_flag = to_send_trade_expedition }
+                    had_country_flag = {
+                        flag = to_send_trade_expedition
+                        days = 7300
+                    }
+                }
+            }
+        }
+        if = {
+            limit = {
+                FROM = {
+                    has_country_flag = to_has_trade_expedition_finished_event
+                }
+            }
+            custom_trigger_tooltip = {
+                tooltip = to_expedition_destination_event_not_active_tt
+                always = no
+            }
+        }
+    }
+    effect = {
+        save_global_event_target_as = to_trade_expedition_target
+        to_trade_expedition_effect = {
+            COUNTRY_SCOPE = FROM
+            NODE_SCOPE = ROOT
+        }
+    }
+}
+
+custom_text_box = {
+    name = to_trade_expeditions_button_send_text
+    potential = {
+    }
+}
+
+custom_button = {
+    name = to_trade_expeditions_button_cancel
+    tooltip = to_trade_expeditions_button_cancel_tt
+    potential = {
+    }
+    trigger = {
+        FROM = {
+            dip_power = 50
+        }
+        custom_trigger_tooltip = {
+            tooltip = to_trade_expedition_tt
+            FROM = {
+                has_country_flag = to_send_trade_expedition
+                NOT = {
+                    had_country_flag = {
+                        flag = to_send_trade_expedition
+                        days = 7300
+                    }
+                }
+            }
+        }
+    }
+    effect = {
+        FROM = {
+            add_dip_power = -50
+        }
+        custom_tooltip = nhs_new_line_tt
+        if = {
+            limit = {
+                has_saved_global_event_target = to_trade_expedition_target
+            }
+            custom_tooltip = to_remove_trade_expedition_trade_power_tt
+            hidden_effect = {
+                event_target:to_trade_expedition_target = {
+                    remove_trade_modifier = {
+                        who = FROM
+                        key = TO_TRADE_EXPEDITION_TRADE_MOD
+                    }
+                }
+            }
+        }
+        #custom_tooltip = nhs_new_line_tt
+        every_country = {
+            limit = {
+                has_opinion_modifier = {
+                    who = FROM
+                    modifier = to_trade_expedition_opinion
+                }
+            }
+            custom_tooltip = to_remove_trade_expedition_opinion_tt
+            hidden_effect = {
+                remove_opinion = {
+                    who = FROM
+                    modifier = to_trade_expedition_opinion
+                }
+                reverse_remove_opinion = {
+                    who = FROM
+                    modifier = to_trade_expedition_opinion
+                }
+            }
+        }
+        custom_tooltip = to_remove_trade_expedition_modifiers_tt
+
+        hidden_effect = {
+            every_province = {
+                remove_province_modifier = to_trade_expedition_province_modifier
+            }
+        }
+
+        FROM = {
+            clr_country_flag = to_send_trade_expedition
+        }
+        clear_global_event_target = to_trade_expedition_target
+    }
+}
+
+custom_text_box = {
+    name = to_trade_expeditions_button_cancel_text
+    potential = {
+    }
+}
+
+custom_text_box = {
+    name = to_trade_expeditions_current_target
+    potential = {
+    }
+}
+
+custom_text_box = {
+    name = to_trade_expeditions_duration
+    potential = {
+    }
+}

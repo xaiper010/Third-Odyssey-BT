@@ -1,0 +1,66 @@
+to_nat_colonise_own_modifier = {
+	picture = "local_colonial_growth"
+	local_colonial_growth = 50
+	native_uprising_chance = -0.50
+}
+
+to_nat_colonise_foreign_modifier = {
+	picture = "local_colonial_growth_negative"
+	local_colonial_growth = -20
+}
+
+to_nat_native_expansion_modifier = {
+	picture = "local_colonial_growth"
+	local_colonial_growth = 25
+	# native_uprising_chance = -0.50
+}
+
+to_nat_expand_overseas_modifier = {
+	picture = "local_colonial_growth"
+	local_colonial_growth = 40
+	native_uprising_chance = -0.50
+}
+
+to_nat_grand_confederation_modifier = {
+	picture = "local_years_of_nationalism"
+	local_years_of_nationalism = -15
+	local_unrest = -2
+	local_religious_unity_contribution = -1
+	local_manpower = 0.1
+	native_uprising_chance = -1
+	native_assimilation = 0.5
+	local_colonial_growth = 40
+}
+
+to_nat_tribal_development = {
+	picture = "local_tribal_development"
+}
+
+to_nat_had_tribal_development = {
+	picture = "had_local_tribal_development"
+}
+
+to_nat_migratory_development = {
+	picture = "local_migratory_development"
+}
+
+to_nat_tribal_development_plunder_mod = {
+	picture = "gold_icon"
+}
+
+to_nat_great_peacemaker = {
+	monarch_lifespan = 1
+}
+
+to_nat_province_depopulated = {
+	local_manpower = -0.25
+}
+
+to_nat_deceitful = {
+	diplomatic_reputation = -2
+	spy_offence = 0.1
+	global_spy_defence = 0.2
+}
+
+to_nat_tribal_displacement_cd = {
+}

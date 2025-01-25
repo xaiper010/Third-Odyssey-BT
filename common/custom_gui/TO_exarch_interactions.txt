@@ -1,0 +1,1296 @@
+#########################
+#### COUNTRY
+#########################
+
+custom_window = {
+    name = to_eic_window
+    potential = {
+        is_subject_of_type = elysian_subject
+        FROM = {
+            overlord_of = ROOT
+        }
+    }
+}
+
+
+custom_icon = {
+    name = to_eic_background
+    potential = {
+        NOT = { to_has_extended_eic_background = yes }
+    }
+}
+
+custom_icon = {
+    name = to_eic_overlord_penalties_icon
+    tooltip = to_eic_overlord_penalties_icon_tooltip
+}
+
+custom_text_box = {
+    name = to_eic_overlord_penalties
+}
+
+custom_button = {
+    name = to_eic_give_all_land
+    tooltip = to_eic_give_all_land_tooltip
+    potential = {
+    }
+    trigger = {
+        custom_trigger_tooltip = {
+            tooltip = to_owns_exarch_province_tt
+            FROM = {
+                any_owned_province = {
+                    to_exarch_land = { SCOPE = ROOT }
+                    to_exarch_can_get_province_active = yes
+                }
+            }
+        }
+    }
+    effect = {
+        custom_tooltip = to_eic_give_all_land_effect_tt
+        hidden_effect = {
+            FROM = {
+                every_province = {
+                    limit = {
+                        owned_by = PREV
+                        to_exarch_land = { SCOPE = ROOT }
+                        to_exarch_can_get_province_active = yes
+                    }
+                    to_cede_province_to_exarch = {
+                        CURRENT_OWNER = FROM
+                        NEW_OWNER = ROOT
+                    }
+                }
+            }
+		}
+    }
+}
+
+custom_button = {
+    name = to_eic_annex_exarch
+    tooltip = to_eic_annex_exarch_tooltip
+    potential = {
+    }
+    trigger = {
+        is_at_war = no
+		FROM = {
+			is_at_war = no
+		}
+        FROM = {
+            OR = {
+                AND = {
+                    adm_power = 150
+                    dip_power = 150
+                }
+                custom_trigger_tooltip = {
+                    tooltip = to_has_moved_capital_back_to_europe_tt
+                    mission_completed = to_basileus_basileon_mission
+                    capital = 151
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_country_flag = to_50_year_cooldown_on_exarch_annex
+            }
+            custom_trigger_tooltip = {
+                tooltip = to_was_exarch_for_50_years_tt
+                had_country_flag = {
+                    flag = to_50_year_cooldown_on_exarch_annex
+                    days = 18250
+                }
+            }
+        }
+    }
+    effect = {
+        tooltip = {
+            FROM = {
+                inherit = ROOT
+            }
+        }
+        FROM = {
+            if = {
+                limit = {
+                    NOT = {
+                        AND = {
+                            mission_completed = to_basileus_basileon_mission
+                            capital = 151
+                        }
+                    }
+                }
+                add_adm_power = -150
+                add_dip_power = -150
+            }
+        }
+        hidden_effect = {
+            ROOT = {
+                set_country_flag = to_block_exarch_province_transfer
+            }
+            FROM = {
+                inherit = ROOT
+                set_country_flag = to_annexed_exarch@ROOT
+            }
+            ROOT = {
+                clr_country_flag = to_block_exarch_province_transfer
+            }
+            every_province = {
+                limit = {
+                    is_core = ROOT
+                }
+                remove_core = ROOT
+            }
+        }
+    }
+}
+
+# custom_text_box = {
+#     name = to_eic_merchant_provinces
+# }
+
+custom_icon = {
+    name = to_eic_merchant
+    tooltip = to_eic_merchant_tooltip
+
+    potential = {
+        NOT = { to_exarch_has_two_merchants = yes }
+    }
+
+    frame = {
+        number = 1
+        trigger = {
+            check_variable = {
+                which = to_exarch_owned_provinces_for_merchant
+                which = to_exarch_needed_provinces_for_merchant
+            }
+        }
+    }
+    frame = {
+        number = 2
+        trigger = {}
+    }
+}
+
+custom_icon = {
+    name = to_eic_merchant_double_1
+    tooltip = to_eic_merchant_tooltip
+
+    potential = {
+        to_exarch_has_two_merchants = yes
+    }
+
+    frame = {
+        number = 1
+        trigger = {
+            check_variable = {
+                which = to_exarch_owned_provinces_for_merchant
+                which = to_exarch_needed_provinces_for_merchant
+            }
+        }
+    }
+    frame = {
+        number = 2
+        trigger = {}
+    }
+}
+
+custom_icon = {
+    name = to_eic_merchant_double_2
+    tooltip = to_eic_merchant_2_tooltip
+
+    potential = {
+        to_exarch_has_two_merchants = yes
+    }
+
+    frame = {
+        number = 1
+        trigger = {
+            check_variable = {
+                which = to_exarch_owned_provinces_for_merchant_2
+                which = to_exarch_needed_provinces_for_merchant_2
+            }
+        }
+    }
+    frame = {
+        number = 2
+        trigger = {}
+    }
+}
+
+custom_icon = {
+    name = to_eic_liberty_desire_from_absolutism_and_stability_icon
+    tooltip = to_eic_liberty_desire_from_absolutism_and_stability_icon_tooltip
+}
+
+custom_text_box = {
+    name = to_eic_liberty_desire_from_absolutism_and_stability
+}
+
+custom_button = {
+    name = to_eic_bolster_administration
+    tooltip = to_eic_bolster_administration_tooltip
+    potential = {
+    }
+    trigger = {
+        FROM = {
+            dip_power = 100
+        }
+        any_owned_province = {
+            NOT = { is_core = ROOT }
+            controlled_by = ROOT
+            has_siege = no
+            NOT = { has_any_ongoing_construction = yes }
+            OR = {
+                is_in_capital_area = yes
+                has_port = yes
+                any_neighbor_province = {
+                    is_core = ROOT
+                }
+            }
+        }
+    }
+    effect = {
+        FROM = {
+            add_dip_power = -100
+        }
+        ROOT = {
+            custom_tooltip = to_gain_100_adm_power
+            custom_tooltip = to_from_attempts_to_core_all_provinces_tt    
+        }
+        hidden_effect = {
+            add_adm_power = 100
+            every_owned_province = {
+                limit = {
+                    ROOT = {
+                        adm_power = 1
+                    }
+                    NOT = { is_core = ROOT }
+                    controlled_by = ROOT
+                    has_siege = no
+                    NOT = { has_any_ongoing_construction = yes }
+                    OR = {
+                        has_port = yes
+                        custom_trigger_tooltip = {
+                            tooltip = to_is_in_capital_area_from_tt
+                            is_in_capital_area = yes
+                        }
+                        any_neighbor_province = {
+                            is_core = ROOT
+                        }
+                    }
+                }
+                ROOT = {
+                    export_to_variable = {
+                        which = to_current_admin
+                        value = trigger_value:adm_power
+                    }
+                }
+                add_core_construction = {
+                    speed = 1
+                    cost = 1
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            NOT = { adm_power = 0 }
+                        }
+                    }
+                    cancel_construction = yes
+                    ROOT = {
+                        export_to_variable = {
+                            which = to_new_admin
+                            value = trigger_value:adm_power
+                        }
+                        subtract_variable = {
+                            which = to_current_admin
+                            which = to_new_admin
+                        }
+                        while = {
+                            limit = {
+                                check_variable = {
+                                    which = to_current_admin
+                                    value = 100
+                                }
+                            }
+                            add_adm_power = 100
+                            subtract_variable = {
+                                which = to_current_admin
+                                value = 100
+                            }
+                        }
+                        while = {
+                            limit = {
+                                check_variable = {
+                                    which = to_current_admin
+                                    value = 10
+                                }
+                            }
+                            add_adm_power = 10
+                            subtract_variable = {
+                                which = to_current_admin
+                                value = 10
+                            }
+                        }
+                        while = {
+                            limit = {
+                                check_variable = {
+                                    which = to_current_admin
+                                    value = 1
+                                }
+                            }
+                            add_adm_power = 1
+                            subtract_variable = {
+                                which = to_current_admin
+                                value = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+custom_button = {
+    name = to_eic_offer_military_assistance
+    tooltip = to_eic_offer_military_assistance_tooltip
+    potential = {
+    }
+    trigger = {
+        NOT = { stability = 3 }
+        if = {
+            limit = {
+                stability = 2
+            }
+            FROM = {
+                mil_power = 200
+            }
+        }
+        else_if = {
+            limit = {
+                stability = 1
+            }
+            FROM = {
+                mil_power = 150
+            }
+        }
+        else = {
+            FROM = {
+                mil_power = 100
+            }
+        }
+    }
+    effect = {
+        if = {
+            limit = {
+                stability = 2
+            }
+            FROM = {
+                add_mil_power = -200
+            }
+        }
+        else_if = {
+            limit = {
+                stability = 1
+            }
+            FROM = {
+                add_mil_power = -150
+            }
+        }
+        else = {
+            FROM = {
+                add_mil_power = -100
+            }
+        }
+        add_stability = 1
+    }
+}
+
+custom_icon = {
+    name = to_eic_send_aid_highlight
+    potential = {
+        has_country_modifier = to_exarch_aid
+    }
+}
+
+custom_button = {
+    name = to_eic_send_aid
+    tooltip = to_eic_send_aid_tooltip
+    potential = {
+    }
+    trigger = {
+        if = {
+            limit = {
+                has_country_flag = to_recently_removed_exarch_aid
+            }
+            custom_trigger_tooltip = {
+                tooltip = to_exarch_intraction_cooldown_tt
+                had_country_flag = {
+                    flag = to_recently_removed_exarch_aid
+                    days = 365
+                }
+            }
+        }
+    }
+    effect = {
+        custom_tooltip = to_for_as_long_as_the_edict_is_in_effect_tt
+        custom_tooltip = to_exarch_send_aid_penalties_tt
+        custom_tooltip = to_exarch_send_aid_benefits_tt
+        if = {
+            limit = {
+                has_country_modifier = to_exarch_aid
+            }
+            hidden_effect = {
+                remove_country_modifier = to_exarch_aid
+                set_country_flag = to_recently_removed_exarch_aid
+            }
+            custom_tooltip = nhs_new_line_tt
+            custom_tooltip = to_exarch_interaction_removed_warning_tt
+        }
+        else = {
+            hidden_effect = {
+                add_country_modifier = {
+                    name = to_exarch_aid
+                    duration = -1
+                }
+            }
+        }
+    }
+}
+
+custom_icon = {
+    name = to_eic_crack_down_on_heresy_highlight
+    potential = {
+        has_country_modifier = to_crack_down_on_heresy
+    }
+}
+
+custom_button = {
+    name = to_eic_crack_down_on_heresy
+    tooltip = to_eic_crack_down_on_heresy_tooltip
+    potential = {
+        religion = FROM
+    }
+    trigger = {
+        religion = FROM
+        stability = 0
+        NOT = { overextension_percentage = 0.5 }
+        any_owned_province = {
+            custom_trigger_tooltip = {
+                tooltip = to_religion_in_province_not_from_tt
+                NOT = { religion = FROM }
+            }
+        }
+        FROM = {
+            NOT = { has_reform = to_beacon_of_liberty }
+            if = {
+                limit = {
+                    ROOT = {
+                        tag = ELG
+                    }
+                    has_country_flag = to_greek_religion_humanist
+                }
+                custom_trigger_tooltip = {
+                    tooltip = to_has_not_chosen_to_work_with_humanists_tt
+                    always = no
+                }
+            }
+        }
+        if = {
+            limit = {
+                has_country_flag = to_recently_removed_crack_down_on_heresy
+            }
+            custom_trigger_tooltip = {
+                tooltip = to_exarch_intraction_cooldown_tt
+                had_country_flag = {
+                    flag = to_recently_removed_crack_down_on_heresy
+                    days = 365
+                }
+            }
+        }
+    }
+    effect = {
+        custom_tooltip = to_for_as_long_as_the_edict_is_in_effect_tt
+        custom_tooltip = to_crack_down_on_heresy_penalties_tt
+        custom_tooltip = to_crack_down_on_heresy_benefits_tt
+        if = {
+            limit = {
+                has_country_modifier = to_crack_down_on_heresy
+            }
+            hidden_effect = {
+                remove_country_modifier = to_crack_down_on_heresy
+                set_country_flag = to_recently_removed_crack_down_on_heresy
+            }
+            custom_tooltip = nhs_new_line_tt
+            custom_tooltip = to_exarch_interaction_removed_warning_tt
+        }
+        else = {
+            hidden_effect = {
+                add_country_modifier = {
+                    name = to_crack_down_on_heresy
+                    duration = -1
+                }
+            }
+        }
+    }
+}
+
+custom_button = {
+    name = to_eic_enforce_religion
+    tooltip = to_eic_enforce_religion_tooltip
+    potential = {
+        NOT = { religion = FROM }
+    }
+    trigger = {
+        NOT = { religion = FROM }
+        NOT = { liberty_desire = 50 }
+    }
+    effect = {
+        add_liberty_desire = 50
+        change_religion = FROM
+    }
+}
+
+custom_window = {
+    name = to_eic_window_extended
+
+    potential = {
+        to_has_extended_eic_background = yes
+    }
+}
+
+custom_icon = {
+    name = to_eic_background_extended
+}
+
+custom_button = {
+    name = to_eic_seize_peripheral_territories
+    tooltip = to_eic_seize_peripheral_territories_tooltip
+    potential = {        
+    }
+    trigger = {
+        custom_trigger_tooltip = {
+            tooltip = to_exarch_has_permanently_owned_land_tt
+            any_owned_province = {
+                has_province_flag = to_exarch_permanently_owned_land_@ROOT
+            }
+        }
+        is_at_war = no
+        NOT = { liberty_desire = 30 }
+        custom_trigger_tooltip = {
+            tooltip = to_has_been_subject_for_20_years_tt
+            had_country_flag = { flag = to_became_a_subject days = 7300 }
+        }
+        FROM = {
+            is_at_war = no
+            custom_trigger_tooltip = {
+                tooltip = to_has_custom_exarch_province_cost_dip_tt
+                ROOT = {
+                    variable_arithmetic_trigger = {
+                        custom_tooltip = to_has_custom_exarch_province_cost_dip_tt
+                        export_to_variable = {
+                            which = to_from_dip_power
+                            value = trigger_value:dip_power
+                            who = FROM
+                        }
+                        check_variable = {
+                            which = to_from_dip_power
+                            which = to_custom_exarch_province_cost
+                        }
+                    }
+                }
+            }
+        }
+    }
+    effect = {
+        add_liberty_desire = 20
+        custom_tooltip = to_from_effect_tt
+        custom_tooltip = to_lose_custom_exarch_province_cost_dip_tt
+        hidden_effect = {
+            for_variable_amount = {
+                variable = to_custom_exarch_province_cost
+				effect = "FROM = { add_dip_power = -1 }"
+            }
+        }
+        custom_tooltip = to_seize_custom_exarch_land_tt
+        hidden_effect = {
+            every_province = {
+                limit = {
+                    owned_by = PREV
+                    has_province_flag = to_exarch_permanently_owned_land_@ROOT
+                }
+                clr_province_flag = to_exarch_permanently_owned_land_@ROOT
+                FROM = {
+                    save_event_target_as = to_exarch_province_receiver
+                }
+                if = {
+                    limit = {
+                        to_potential_exarch_province = yes
+                        NOT = { has_province_flag = nhs_exarch_province_exemption }
+                    }
+                    to_exarch_effect_from_province = {
+                        EFFECT = "
+                        save_event_target_as = to_exarch_province_receiver
+                        "
+                    }
+                    to_exarch_merchant_effect_from_province = {
+                        EFFECT = "
+                        change_variable = {
+                            which = to_exarch_needed_provinces_for_merchant
+                            value = 1
+                        }
+                        "
+                    }
+                    to_exarch_merchant_2_effect_from_province = {
+                        EFFECT = "
+                        change_variable = {
+                            which = to_exarch_needed_provinces_for_merchant_2
+                            value = 1
+                        }
+                        "
+                    }
+                }
+
+                if = {
+                    limit = {
+                        has_saved_event_target = to_exarch_province_receiver
+                        event_target:to_exarch_province_receiver = {
+                            is_subject_of = FROM
+                            is_subject_of_type = elysian_subject
+                        }
+                    }
+                    to_cede_province_to_exarch = {
+                        CURRENT_OWNER = owner
+						NEW_OWNER = event_target:to_exarch_province_receiver
+                    }
+                }
+                else = {
+                    to_cede_province_to_exarch_overlord = {
+                        CURRENT_OWNER = owner
+                        NEW_OWNER = FROM
+                    }
+                }
+            }
+            # every_core_province = {
+            #     limit = {
+            #         owner = {
+            #             NOT = { tag = ROOT }
+            #             NOT = { tag = FROM }
+            #         }
+            #     }
+            #     remove_core = ROOT
+            #     add_permanent_claim = FROM
+            # }
+        }
+    }
+}
+
+#########################
+#### PROVINCE
+#########################
+
+custom_icon = {
+    name = to_eip_tutorial_background
+    potential = {
+        to_can_see_exarch_province_ui_baseline = yes
+        FROM = {
+            has_country_flag = to_enable_exarch_click_here_box
+        }
+    }
+}
+custom_text_box = {
+    name = to_eip_tutorial_text
+    potential = {
+        to_can_see_exarch_province_ui_baseline = yes
+        FROM = {
+            has_country_flag = to_enable_exarch_click_here_box
+        }
+    }
+}
+
+custom_window = {
+    name = to_eip_window_baseline
+    potential = {
+        to_can_see_exarch_province_ui_baseline = yes
+    }
+}
+
+custom_icon = {
+    name = to_eip_top_decor
+}
+custom_button = {
+    name = to_exarch_button
+    tooltip = to_exarch_button_tooltip
+    trigger = {
+    }
+    effect = {
+        hidden_effect = {
+            FROM = {
+                if = {
+                    limit = {
+                        has_country_flag = to_show_exarch_menu
+                    }
+                    clr_country_flag = to_show_exarch_menu
+                }
+                else = {
+                    set_country_flag = to_show_exarch_menu
+                }
+                clr_country_flag = to_enable_exarch_click_here_box
+                set_country_flag = to_has_seen_exarch_ui
+            }
+        }
+    }
+}
+
+custom_window = {
+    name = to_eip_window
+    potential = {
+        to_can_see_exarch_province_ui = yes
+    }
+}
+
+custom_icon = {
+    name = to_eip_background
+    potential = {
+        to_can_see_exarch_province_ui = yes
+    }
+}
+
+custom_text_box = {
+    name = to_eip_exarch_name
+}
+
+custom_button = {
+    name = to_eip_give_land
+    tooltip = to_eip_give_land_tooltip
+    potential = {
+    }
+    trigger = {
+        owned_by = FROM
+        to_exarch_can_get_province_active_with_if = yes
+        if = {
+            limit = {
+                to_exarch_trigger_from_province = {
+                    TRIGGER = "
+                    exists = yes
+                    "
+                }
+            }
+            to_exarch_trigger_from_province = {
+                TRIGGER = "
+                is_subject_of = FROM
+                is_subject_of_type = elysian_subject
+                "
+            }
+        }
+        if = {
+            limit = {
+                nhs_EEN_province_no_flag_check = yes
+                FROM = {
+                    has_country_flag = to_of_romans_and_rumites_event_active
+                }
+            }
+            FROM = {
+                custom_trigger_tooltip = {
+                    tooltip = to_of_romans_and_rumites_event_not_active_tt
+                    always = no
+                }
+            }
+        }
+        if = {
+            limit = {
+                EEN = {
+                    exists = no
+                }
+                nhs_EEN_province = yes
+            }
+            OR = {
+                culture = turkish
+                province_id = 317
+            }
+            if = {
+                limit = {
+                    FROM = {
+                        has_country_flag = to_of_romans_and_rumites_event_active
+                    }
+                }
+                FROM = {
+                    custom_trigger_tooltip = {
+                        tooltip = to_of_romans_and_rumites_event_not_active_tt
+                        always = no
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                ELG = {
+                    exists = no
+                }
+                nhs_ELG_province = yes
+            }
+            OR = {
+                culture = greek
+                province_id = 146
+            }
+        }
+        else_if = {
+            limit = {
+                has_global_flag = to_kastrioti_rule_albania
+                EEW = {
+                    exists = no
+                }
+                nhs_EEW_province = yes
+            }
+            OR = {
+                culture = albanian
+                culture = shqipproi
+                province_id = 4175
+            }
+        }
+        if = {
+            limit = {
+                has_province_flag = to_separatism_restore_pending
+            }
+            custom_trigger_tooltip = {
+                tooltip = to_wait_a_day_before_transfering_exarch_province_tt
+                always = no
+            }
+        }
+    }
+    effect = {
+        clr_province_flag = nhs_exarch_province_exemption
+		# Code generated by exarchs/exarch_formation_decisions.py
+		if = {
+			limit = { NOT = { owned_by = FROM } }
+			custom_tooltip = to_cede_province_to_exarch_tt
+		}
+		else_if = {
+			limit = { nhs_EEA_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEA
+				EXARCH_SCOPE = EEA
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEB_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEB
+				EXARCH_SCOPE = EEB
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEC_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEC
+				EXARCH_SCOPE = EEC
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EED_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EED
+				EXARCH_SCOPE = EED
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEE_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEE
+				EXARCH_SCOPE = EEE
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEF_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEF
+				EXARCH_SCOPE = EEF
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEG_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEG
+				EXARCH_SCOPE = EEG
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEH_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEH
+				EXARCH_SCOPE = event_target:to_EEH_target
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEI_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEI
+				EXARCH_SCOPE = EEI
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEJ_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEJ
+				EXARCH_SCOPE = EEJ
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEL_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEL
+				EXARCH_SCOPE = EEL
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEM_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEM
+				EXARCH_SCOPE = EEM
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEO_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEO
+				EXARCH_SCOPE = EEO
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EER_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EER
+				EXARCH_SCOPE = EER
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EES_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EES
+				EXARCH_SCOPE = EES
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EET_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EET
+				EXARCH_SCOPE = EET
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEU_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEU
+				EXARCH_SCOPE = EEU
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEV_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEV
+				EXARCH_SCOPE = EEV
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEQ_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEQ
+				EXARCH_SCOPE = EEQ
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEP_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEP
+				EXARCH_SCOPE = EEP
+				ON_CREATED_EFFECT = "\"to_setup_exarch = {}\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEY_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEY
+				EXARCH_SCOPE = event_target:to_EEY_target
+				ON_CREATED_EFFECT = "\"to_setup_illyris_exarch = yes\""
+				ON_CREATED_TOOLTIP = "\"to_setup_illyris_exarch_tooltip = yes\""
+			}
+		}
+		else_if = {
+			limit = { nhs_EEN_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = EEN
+				EXARCH_SCOPE = EEN
+				ON_CREATED_EFFECT = "\"to_setup_anatolia_exarch = yes\""
+				ON_CREATED_TOOLTIP = "\"to_setup_anatolia_exarch_tooltip = yes\""
+			}
+		}
+		else_if = {
+			limit = { nhs_ELG_province = yes }
+			to_transfer_province_or_create_exarch = {
+				CURRENT_OWNER = FROM
+				EXARCH_TAG = ELG
+				EXARCH_SCOPE = ELG
+				ON_CREATED_EFFECT = "\"to_setup_greek_exarch = yes\""
+				ON_CREATED_TOOLTIP = "\"custom_tooltip = to_set_exarch_reform_republic_tt\""
+			}
+		}
+    }
+}
+
+custom_button = {
+    name = to_eip_seize_land
+    tooltip = to_eip_seize_land_tooltip
+    potential = {
+    }
+    trigger = {
+        has_siege = no
+        owner = {
+            num_of_cities = 5
+            is_subject_of_type = elysian_subject
+        }
+        if = {
+            limit = {
+                owner = {
+                    has_country_flag = to_exarch_has_peripheral_territories
+                    PREV = {
+                        has_province_flag = to_exarch_permanently_owned_land_@PREV
+                    }
+                }
+            }
+            custom_trigger_tooltip = {
+                tooltip = to_exarch_permanently_owned_land_tt
+                always = no
+            }
+        }
+        if = {
+            limit = {
+                has_province_flag = to_exarch_province_reserved
+            }
+            custom_trigger_tooltip = {
+                tooltip = to_exarch_province_not_reserved_tt
+                always = no
+            }
+        }
+        if = {
+            limit = {
+                has_province_flag = to_separatism_restore_pending
+            }
+            custom_trigger_tooltip = {
+                tooltip = to_wait_a_day_before_transfering_exarch_province_tt
+                always = no
+            }
+        }
+    }
+    effect = {
+        set_province_flag = nhs_exarch_province_exemption
+        if = {
+            limit = {
+                owner = {
+                    is_subject_of = FROM
+                    is_subject_of_type = elysian_subject
+                }
+            }
+            to_cede_province_to_exarch_overlord = {
+                CURRENT_OWNER = owner
+                NEW_OWNER = FROM
+            }
+        }
+        else = {
+            custom_tooltip = to_cede_root_to_from_tt
+        }
+    }
+}
+
+custom_button = {
+    name = to_eip_add_province_exemption
+    tooltip = to_eip_add_province_exemption_tooltip
+    potential = {
+    }
+    trigger = {
+        NOT = {
+            owner = {
+                to_is_an_SCOPE_exarchate = { SCOPE = FROM }
+            }
+        }
+        if = {
+            limit = {
+                has_province_flag = to_exarch_province_reserved
+            }
+            custom_trigger_tooltip = {
+                tooltip = to_exarch_province_not_reserved_tt
+                always = no
+            }
+        }
+    }
+    effect = {
+        if = {
+            limit = {
+                has_province_flag = nhs_exarch_province_exemption
+            }
+            clr_province_flag = nhs_exarch_province_exemption
+            custom_tooltip = to_add_exarch_province_no_transfer_remove_tt
+        }
+        else = {
+            set_province_flag = nhs_exarch_province_exemption
+            custom_tooltip = to_add_exarch_province_no_transfer_tt
+        }
+    }
+    frame = {
+        number = 2
+        trigger = {
+            has_province_flag = nhs_exarch_province_exemption
+        }
+    }
+    frame = {
+        number = 1
+        trigger = {}
+    }
+}
+
+custom_button = {
+    name = to_eip_accept_culture
+    tooltip = to_eip_accept_culture_tooltip
+    potential = {
+    }
+    trigger = {
+        FROM = {
+            #NOT = { primary_culture = PREV }
+            #NOT = { culture_group = PREV }
+            NOT = { accepted_culture = PREV }
+        }
+        FROM = {
+            variable_arithmetic_trigger = {
+                custom_tooltip = to_has_free_accept_culture_slots_tt
+                export_to_variable = {
+                    value = modifier:num_accepted_cultures
+                    which = to_possible_accepted_cultures
+                }
+                export_to_variable = {
+                    value = trigger_value:num_accepted_cultures
+                    which = to_accepted_cultures
+                }
+    
+                NOT = {
+                    check_variable = {
+                        which = to_accepted_cultures
+                        which = to_possible_accepted_cultures
+                    }
+                }
+            }
+        }
+        if = {
+            limit = {
+                NOT = {
+                    OR = {
+                        owned_by = FROM
+                        owner = {
+                            is_subject_of = FROM
+                            is_subject_of_type = elysian_subject
+                        }
+                    }
+                }
+            }
+            OR = {
+                owned_by = FROM
+                owner = {
+                    to_is_an_SCOPE_exarchate = { SCOPE = FROM }
+                }
+            }
+        }
+    }
+    effect = {
+        FROM = {
+            add_dip_power = -100
+            add_accepted_culture = PREV
+        }
+    }
+}
+
+custom_button = {
+    name = to_eip_auto_transfer_province
+    tooltip = to_eip_auto_transfer_province_tooltip
+    potential = {
+    }
+    trigger = {
+        owned_by = FROM
+        to_exarch_can_get_province_passive_with_if = yes
+    }
+    effect = {
+    }
+}
+
+custom_icon = {
+    name = to_eip_count_for_merchant
+    tooltip = to_eip_count_for_merchant_tooltip
+    potential = {
+    }
+    frame = {
+        number = 2
+        trigger = {
+            to_province_always_counts_for_exarch_merchant = yes
+        }
+    }
+    frame = {
+        number = 1
+        trigger = {}
+    }
+}

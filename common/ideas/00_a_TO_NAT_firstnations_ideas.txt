@@ -1,0 +1,120 @@
+#plains_ideas = {
+#	start = {
+#		infantry_power = 0.1
+#		hostile_attrition = 3
+#	}
+#	bonus = {
+#		cavalry_power = 0.10
+#	}
+#	trigger = {
+#		OR = {
+#			tag =
+#			tag = 
+#			tag =
+#			tag =
+#		}
+#	}
+#	free = yes
+#	warrior_culture = {
+#		discipline = 0.030
+#	}
+#	organised_nomadic_society = {
+#	}
+#	great_bison_hunt = {
+#		production_efficiency = 0.1
+#	}
+#	sundance_tradition = {
+#		stability_cost_modifier = -0.1
+#	}
+#	four_great_leaders = {
+#		army_tradition = 1
+#		mil_tech_cost_modifier = -0.1
+#	}
+#	seven_great_fires = {
+#		land_forcelimit_modifier = 0.1
+#	}
+#	tradition_of_resistance = {
+#		enemy_core_creation = 0.2
+#	}
+#}
+
+cahokian_ideas = {
+	start = {
+		diplomatic_reputation = 2
+		hostile_attrition = 1
+	}
+	bonus = {
+		global_colonial_growth = 30
+	}
+	trigger = {
+		tag = CAO
+	}
+	free = yes
+	last_of_the_mississipians = {
+		prestige_decay = -0.02
+	}
+	mound_cities = {
+		defensiveness = 0.15
+		fort_maintenance_modifier = -0.20
+	}
+	hearth_of_the_mississipi = {
+		global_trade_power = 0.2
+	}
+	exile_influence = {
+		technology_cost = -0.10
+	}
+	metal_craftsmanship = {
+		infantry_power = 0.1
+		artillery_power = 0.1
+	}
+	ancestral_spirit = {
+		land_morale = 0.2
+	}
+	expanding_metropoles = {
+		development_cost = -0.2
+	}
+}
+
+# great_clans_confederacy_ideas = {
+# 	start = {
+# 		global_regiment_cost = -0.2
+# 		land_forcelimit_modifier = 0.5
+# 	}
+	
+# 	bonus = {
+# 		colonist_placement_chance = 0.10
+# 	}
+	
+# 	trigger = {
+# 		tag = GCC
+# 	}
+# 	free = yes
+	
+# 	gcc_native_brethren = {
+# 		native_uprising_chance = -1.0
+# 		native_assimilation = 1.0
+# 		# Should give 'diplomatic complications' events, reducing colonisation speed for a short while
+# 	}
+# 	gcc_land_reclaimation = {
+# 		colonists = 1
+# 		global_manpower_modifier = 0.5
+# 	}
+# 	gcc_the_young_cities = {
+# 		development_cost = -0.25
+# 		global_colonial_growth = 15
+# 		# Should give free development events
+# 	}
+# 	gcc_hatches_unburried = {
+# 		land_morale = 0.20
+# 	}
+# 	gcc_riches_of_the_americas = {
+# 		global_prov_trade_power_modifier = 0.40
+# 	}
+# 	gcc_cult_of_the_bear = {
+# 		infantry_power = 0.20
+# 	}
+# 	gcc_initiation_rites = {
+# 		manpower_recovery_speed = 0.20
+# 	}
+	
+# }

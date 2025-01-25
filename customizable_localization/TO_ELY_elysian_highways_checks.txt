@@ -1,0 +1,2003 @@
+defined_text = {
+	name = LakonianHighwayDesc
+	random = no
+
+	text = {
+		trigger = {
+			nhs_check_all_spartan = { CONDITION = exists }
+			OR = {
+				nhs_check_all_spartan = { CONDITION = alliance_with }
+				nhs_check_existing_spartan_tags_with_full_condition = {
+					CONDITION = "
+					OR = {
+						is_subject_of = ROOT
+						AND = {
+							historical_friend_with = ROOT
+							has_opinion = {
+								who = ROOT
+								value = 0
+							}
+						}
+					}
+					"
+				}
+			}
+		}
+		localisation_key = to_construct_lakonia_elysian_highway_desc_sparta_friendly
+	}
+	text = {
+		trigger = {
+			NOT = { nhs_check_all_spartan = { CONDITION = exists } }
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 50
+				province_group = mesoamerica_pgroup
+			}
+		}
+		localisation_key = to_construct_lakonia_elysian_highway_desc_sparta_control
+	}
+	text = {
+		localisation_key = to_construct_lakonia_elysian_highway_desc_sparta_default
+	}
+}
+
+defined_text = {
+	name = GetElysianHighwaysSegmentProvinces
+	random = no
+
+	text = {
+		trigger = {
+			to_elysian_highway_north_apaleisian_province_trigger = { TRIGGER = province_id }
+		}
+		localisation_key = to_elysian_highway_north_apaleisian_provinces_tt
+	}
+
+	text = {
+		trigger = {
+			to_elysian_highway_south_apaleisian_province_trigger = { TRIGGER = province_id }
+		}
+		localisation_key = to_elysian_highway_south_apaleisian_provinces_tt
+	}
+}
+
+defined_text = {
+	name = GetHighwayContructionCondition
+	random = no
+
+	text = {
+		trigger = {
+			is_empty = no
+			owner = {
+				OR = {
+					nhs_check_all_elysian_tags = { CONDITION = tag }
+					nhs_check_all_elysian_tags = { CONDITION = is_subject_of }
+					nhs_check_all_elysian_tags = { CONDITION = alliance_with }
+					AND = {
+						is_subject = yes
+						overlord = {
+							OR = {
+								nhs_check_all_elysian_tags = { CONDITION = is_subject_of }
+								nhs_check_all_elysian_tags = { CONDITION = alliance_with }
+							}
+						}
+					}
+				}
+			}
+		}
+		localisation_key = to_y_icon_tt
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetOwnedByElysia
+	random = no
+
+	text = {
+		trigger = {
+			is_empty = no
+			nhs_check_all_elysian_tags = { CONDITION = owned_by }
+		}
+		localisation_key = to_y_icon_tt
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetOwnedByElysiaSubjectAlly
+	random = no
+
+	text = {
+		trigger = {
+			is_empty = no
+			owner = {
+				OR = {
+					nhs_check_all_elysian_tags = { CONDITION = is_subject_of }
+					nhs_check_all_elysian_tags = { CONDITION = alliance_with }
+				}
+			}
+		}
+		localisation_key = to_y_icon_tt
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetOwnedByElysiaSubjectAllyOfOverlord
+	random = no
+	
+	text = {
+		trigger = {
+			is_empty = no
+			owner = {
+				is_subject = yes
+				overlord = {
+					OR = {
+						nhs_check_all_elysian_tags = { CONDITION = is_subject_of }
+						nhs_check_all_elysian_tags = { CONDITION = alliance_with }
+					}
+				}
+			}
+		}
+		localisation_key = to_y_icon_tt
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = HighwayConstructionNotBusy
+	random = no
+
+	text = {
+		trigger = {
+			has_province_flag = to_local_elysian_highway_busy
+		}
+		localisation_key = to_elysian_highway_ongoing_construction_tt
+	}
+
+	text = {
+		localisation_key = to_elysian_highway_no_ongoing_construction_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianHighwaysInactiveCheck
+	random = no
+
+	text = {
+		trigger = {
+			to_elysian_highways_increasing = yes
+		}
+		localisation_key = nhs_elysian_highways_inactive_next_month_tt
+	}
+
+	text = {
+		localisation_key = nhs_elysian_highways_inactive_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianHighwaysInProgressDesc
+	random = no
+
+	text = {
+		localisation_key = to_elysian_highways_inprogress_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianHighwaysInProgressCheckActiveDesc
+	random = no
+
+	text = {
+		trigger = {
+			to_elysian_highways_increasing = yes
+		}
+		localisation_key = to_elysian_highways_inprogress_progress_desc_tt
+	}
+
+	text = {
+		localisation_key = nhs_elysian_highways_inactive_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianHighwaysProgressLastMonth
+	random = no
+
+	text = {
+		trigger = {
+			has_province_flag = to_elysian_highways_progressing
+			to_elysian_highway_standalone_province = yes
+		}
+		localisation_key = to_elysian_highways_progress_standalone_tooltip_tt
+	}
+	text = {
+		trigger = {
+			has_province_flag = to_elysian_highways_progressing
+		}
+		localisation_key = to_elysian_highways_progress_tooltip_tt
+	}
+
+	text = {
+		localisation_key = to_elysian_highways_inprogress_no_progress_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianHighwaysProgressBuildTime
+	random = no
+
+	text = {
+		localisation_key = to_yellow_plus_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_elysian_highways_build_time
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_elysian_highways_bt_positive_tt
+		trigger = {
+			check_variable = {
+				which = to_elysian_highways_build_time
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_elysian_highways_bt_negative_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianHighwaysProgressModifier
+	random = no
+
+	text = {
+		localisation_key = to_yellow_plus_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_elysian_highways_modifier
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_elysian_highways_t_positive_tt
+		trigger = {
+			check_variable = {
+				which = to_elysian_highways_modifier
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_elysian_highways_t_negative_max_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_elysian_highways_modifier
+				value = -0.90
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_elysian_highways_t_negative_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianHighwaysRemainingTime
+	random = no
+
+	text = {
+		localisation_key = to_elysian_highways_remaining_years_tt
+		trigger = {
+			check_variable = {
+				which = to_elysian_highways_remaining_months
+				value = 24
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_elysian_highways_remaining_months_tt
+	}
+}
+
+# Code generated by elysian highways/elysian_highways_road_check.py
+defined_text = {
+	name = GetHighwayConstructionTarget
+	random = no
+	text = {
+		trigger = {
+		    has_province_flag = to_local_elysian_highway_busy_south
+		}
+		localisation_key = to_elysian_highway_construction_target_south_tt
+	}
+	text = {
+		trigger = {
+		    has_province_flag = to_local_elysian_highway_busy_south_alt
+		}
+		localisation_key = to_elysian_highway_construction_target_south_alt_tt
+	}
+	text = {
+		trigger = {
+		    has_province_flag = to_local_elysian_highway_busy_coastal
+		}
+		localisation_key = to_elysian_highway_construction_target_coastal_tt
+	}
+	text = {
+		trigger = {
+		    has_province_flag = to_local_elysian_highway_busy_vinlandic
+		}
+		localisation_key = to_elysian_highway_construction_target_vinlandic_tt
+	}
+	text = {
+		trigger = {
+		    has_province_flag = to_local_elysian_highway_busy_north
+		}
+		localisation_key = to_elysian_highway_construction_target_north_tt
+	}
+	text = {
+		trigger = {
+		    has_province_flag = to_local_elysian_highway_busy_west
+		}
+		localisation_key = to_elysian_highway_construction_target_west_tt
+	}
+	text = {
+		trigger = {
+		    has_province_flag = to_local_elysian_highway_busy_atlas
+		}
+		localisation_key = to_elysian_highway_construction_target_atlas_tt
+	}
+	text = {
+		trigger = {
+		    has_province_flag = to_local_elysian_highway_busy_lakonia
+		}
+		localisation_key = to_elysian_highway_construction_target_lakonia_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2551
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2551 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_948
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			948 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2525
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2525 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2526
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2526 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_940
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			940 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4921
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4921 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2520
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2520 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4904
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4904 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2531
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2531 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4883
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4883 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_918
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			918 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_939
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			939 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4887
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4887 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+
+
+defined_text = {
+	name = OwnsOrAllyOwns_2528
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2528 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2529
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2529 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4884
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4884 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_921
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			921 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_893
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			893 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2514
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2514 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4923
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4923 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+
+defined_text = {
+	name = OwnsOrAllyOwns_4885
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4885 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2014
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2014 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+
+defined_text = {
+	name = OwnsOrAllyOwns_2530
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2530 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_922
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			922 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_923
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			923 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2533
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2533 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4881
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4881 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2539
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2539 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_929
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			929 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2542
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2542 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_932
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			932 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2543
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2543 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2546
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2546 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_938
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			938 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2547
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2547 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_950
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			950 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_952
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			952 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2550
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2550 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+defined_text = {
+	name = OwnsOrAllyOwns_2554
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2554 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_956
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			956 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2639
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2639 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_965
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			965 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_963
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			963 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2559
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2559 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2584
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2584 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_993
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			993 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_990
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			990 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_994
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			994 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_915
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			915 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4903
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4903 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_913
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			913 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2518
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2518 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2517
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2517 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_908
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			908 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2016
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2016 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_1008
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			1008 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_895
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			895 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_894
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			894 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4911
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4911 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_886
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			886 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4909
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4909 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2500
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2500 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2497
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2497 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4628
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4628 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_881
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			881 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2492
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2492 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_879
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			879 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4633
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4633 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_877
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			877 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_876
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			876 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_867
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			867 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5368
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5368 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5394
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5394 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_868
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			868 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5387
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5387 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2478
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2478 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_870
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			870 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5364
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5364 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2021
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2021 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+defined_text = {
+	name = OwnsOrAllyOwns_4906
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4906 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_902
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			902 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_898
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			898 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_903
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			903 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4916
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4916 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2009
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2009 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_1809
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			1809 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2506
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2506 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5402
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5402 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2490
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2490 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5374
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5374 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5404
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5404 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5383
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5383 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5380
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5380 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5386
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5386 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5371
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5371 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2480
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2480 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5365
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5365 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_5363
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			5363 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+
+defined_text = {
+	name = OwnsOrAllyOwns_2516
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2516 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2665
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2665 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_888
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			888 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_884
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			884 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2499
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2499 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2668
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2668 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2614
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2614 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4642
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4642 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2615
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2615 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4641
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4641 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_852
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			852 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_4570
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			4570 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2644
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2644 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2628
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2628 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = OwnsOrAllyOwns_2647
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			2647 = { is_city = yes country_or_subject_or_ally_or_ally_subject_holds = { TAG = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}

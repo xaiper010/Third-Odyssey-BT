@@ -1,0 +1,82 @@
+# ###########################################
+# # Tech malus
+# ###########################################
+nhs_native_tech = {
+	potential = {
+		technology_group = north_american
+	}
+	trigger = {
+		NOT = { has_institution = manufactories }
+		NOT = { num_of_cities = 10 }
+	}
+	embracement_cost = 0.2
+	technology_cost = 0.25
+	cav_to_inf_ratio = -0.1
+}
+
+to_nat_native_malus_without_legalism = {
+	potential = {
+		technology_group = north_american
+		# NOT = { has_government_attribute = to_nat_reduce_no_legalism_penalty }
+		NOT = { has_institution = feudalism }
+	}
+	trigger = {
+		NOT = { has_institution = feudalism }
+	}
+	monthly_reform_progress_modifier = -0.5
+}
+
+# to_nat_native_malus_without_legalism_cahokia = {
+# 	potential = {
+# 		technology_group = north_american
+# 		has_government_attribute = to_nat_reduce_no_legalism_penalty
+# 		NOT = { has_institution = feudalism }
+# 	}
+# 	trigger = {
+# 		has_government_attribute = to_nat_reduce_no_legalism_penalty
+# 		NOT = { has_institution = feudalism }
+# 	}
+# 	monthly_reform_progress_modifier = -0.25
+# }
+
+###########################################
+# Tech bonus for natives befriending NHS
+###########################################
+to_nat_friend_with_colonisers = {
+	potential = {
+		OR = {
+			technology_group = north_american
+			# technology_group = hellenised_american
+		}
+		NOT = { has_institution = manufactories }
+		nhs_check_all_elysian_tags = { CONDITION = exists }
+	}
+	trigger = {
+		any_neighbor_country = {
+			technology_group = exiled_greek
+			has_opinion = { who = ROOT value = 100 }
+		}
+	}
+	global_institution_spread = 0.10
+	embracement_cost = -0.05
+	technology_cost = -0.05
+}
+
+
+
+###########################################
+# Native Colonist & Tolerance
+###########################################
+
+nhs2_ai_cash_native = {
+	potential = {
+		technology_group = north_american
+		num_of_colonists = 1
+		NOT = { num_of_cities = 20 }
+		ai = yes
+	}
+	trigger = {
+		
+	}
+	global_tax_income = 48
+}

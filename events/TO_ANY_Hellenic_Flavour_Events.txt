@@ -1,0 +1,3682 @@
+#Written by TheWerelizard and Scurek =)
+
+namespace = to_hellenic_events
+
+###################################
+#Reformation of the Hellenic Faith#
+###################################
+# 1
+
+#Reformation of the Hellenic Faith
+country_event = {
+	id = to_hellenic_events.1
+	title = to_hellenic_events.1.t
+	desc = to_hellenic_events.1.d
+	picture = BYZANTINE_EAGLE_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		religion = pantheon_worship
+		# NOT = {
+		# 	has_any_disaster = yes
+		# }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = to_reforming_hellenic_faith
+			remove_country_modifier = nhs_hcf_zeus_worship
+			remove_country_modifier = nhs_hcf_poseidon_worship
+			remove_country_modifier = nhs_hcf_apollo_worship
+			remove_country_modifier = nhs_hcf_traditional_worship
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			clr_country_flag = to_reforming_hellenic_faith
+			clr_country_flag = to_meets_reform_hellenic_faith_req
+		}
+	}
+
+	option = { #Adopt primarily Zeus
+		name = to_hellenic_events.1.a
+		trigger = {
+			OR = {
+				is_subject = no
+				has_country_flag = to_meets_reform_hellenic_faith_req
+				overlord = {
+					to_hellenic_zeus_pantheon = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_subject = yes
+				NOT = { has_country_flag = to_meets_reform_hellenic_faith_req }
+			}
+			custom_tooltip = to_only_overlord_pantheon_consequence_tt
+			custom_tooltip = nhs_new_line_tt
+		}
+
+		add_country_modifier = {
+			name = nhs_hcf_zeus_worship
+			duration = -1
+		}
+
+		custom_tooltip = zeus_worship.tt
+
+		custom_tooltip = nhs_zeus_tooltip
+		custom_tooltip = nhs_reformed_zeus_tooltip
+		custom_tooltip = nhs_hera_tooltip
+		custom_tooltip = nhs_reformed_hera_tooltip
+		custom_tooltip = nhs_demeter_tooltip
+		custom_tooltip = nhs_reformed_demeter_tooltip
+		custom_tooltip = nhs_hermes_tooltip
+		custom_tooltip = nhs_reformed_hermes_tooltip
+		custom_tooltip = nhs_athena_tooltip
+		custom_tooltip = nhs_reformed_athena_tooltip
+		custom_tooltip = nhs_heracles_tooltip
+		custom_tooltip = nhs_reformed_heracles_tooltip
+		custom_tooltip = nhs_hephasteus_tooltip
+		custom_tooltip = nhs_reformed_hephasteus_tooltip
+
+		if = {
+			limit = {
+				to_has_hellenic_personal_deity = yes
+			}
+			custom_tooltip = nhs_new_line_tt
+			set_country_flag = to_allow_deity_reselection
+			country_event = { id = to_hellenic_events.31 }
+		}
+	}
+
+	option = { #Worship Poseidon
+		name = to_hellenic_events.1.b
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {
+			OR = {
+				is_subject = no
+				has_country_flag = to_meets_reform_hellenic_faith_req
+				overlord = {
+					to_hellenic_poseidon_pantheon = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_subject = yes
+				NOT = { has_country_flag = to_meets_reform_hellenic_faith_req }
+			}
+			custom_tooltip = to_only_overlord_pantheon_consequence_tt
+			custom_tooltip = nhs_new_line_tt
+		}
+
+		add_country_modifier = {
+			name = nhs_hcf_poseidon_worship
+			duration = -1
+		}
+
+		custom_tooltip = poseidon_worship.tt
+
+		custom_tooltip = nhs_poseidon_tooltip
+		custom_tooltip = nhs_reformed_poseidon_tooltip
+		custom_tooltip = nhs_amphitrite_tooltip
+		custom_tooltip = nhs_reformed_amphitrite_tooltip
+		custom_tooltip = nhs_oceanus_tooltip
+		custom_tooltip = nhs_reformed_oceanus_tooltip
+		custom_tooltip = nhs_atlas_tooltip
+		custom_tooltip = nhs_reformed_atlas_tooltip
+		custom_tooltip = nhs_aphrodite_tooltip
+		custom_tooltip = nhs_reformed_aphrodite_tooltip
+		custom_tooltip = nhs_orion_tooltip
+		custom_tooltip = nhs_reformed_orion_tooltip
+		custom_tooltip = nhs_triton_tooltip
+		custom_tooltip = nhs_reformed_triton_tooltip
+
+		if = {
+			limit = {
+				to_has_hellenic_personal_deity = yes
+			}
+			custom_tooltip = nhs_new_line_tt
+			set_country_flag = to_allow_deity_reselection
+			country_event = { id = to_hellenic_events.31 }
+		}
+	}
+
+	option = { #Worship Apollo
+		name = to_hellenic_events.1.c
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {
+			OR = {
+				is_subject = no
+				has_country_flag = to_meets_reform_hellenic_faith_req
+				overlord = {
+					to_hellenic_apollo_pantheon = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_subject = yes
+				NOT = { has_country_flag = to_meets_reform_hellenic_faith_req }
+			}
+			custom_tooltip = to_only_overlord_pantheon_consequence_tt
+			custom_tooltip = nhs_new_line_tt
+		}
+
+		add_country_modifier = {
+			name = nhs_hcf_apollo_worship
+			duration = -1
+		}
+
+		custom_tooltip = apollo_worship.tt
+
+		custom_tooltip = nhs_apollo_tooltip
+		custom_tooltip = nhs_reformed_apollo_tooltip
+		custom_tooltip = nhs_artemis_tooltip
+		custom_tooltip = nhs_reformed_artemis_tooltip
+		custom_tooltip = nhs_dionysus_tooltip
+		custom_tooltip = nhs_reformed_dionysus_tooltip
+		custom_tooltip = nhs_leto_tooltip
+		custom_tooltip = nhs_reformed_leto_tooltip
+		custom_tooltip = nhs_orpheus_tooltip
+		custom_tooltip = nhs_reformed_orpheus_tooltip
+		custom_tooltip = nhs_chiron_tooltip
+		custom_tooltip = nhs_reformed_chiron_tooltip
+		custom_tooltip = nhs_perseus_tooltip
+		custom_tooltip = nhs_reformed_perseus_tooltip
+
+		if = {
+			limit = {
+				to_has_hellenic_personal_deity = yes
+			}
+			custom_tooltip = nhs_new_line_tt
+			set_country_flag = to_allow_deity_reselection
+			country_event = { id = to_hellenic_events.31 }
+		}
+	}
+
+	option = { #Keep to our traditions
+		name = to_hellenic_events.1.e
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {
+			OR = {
+				is_subject = no
+				has_country_flag = to_meets_reform_hellenic_faith_req
+				overlord = {
+					has_country_modifier = nhs_hcf_traditional_worship
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_subject = yes
+				NOT = { has_country_flag = to_meets_reform_hellenic_faith_req }
+			}
+			custom_tooltip = to_only_overlord_pantheon_consequence_tt
+			custom_tooltip = nhs_new_line_tt
+		}
+
+		add_country_modifier = {
+			name = nhs_hcf_traditional_worship
+			duration = -1
+		}
+
+		add_stability_or_adm_power = yes
+		custom_tooltip = traditional_worship.tt
+
+		custom_tooltip = nhs_zeus_old_title_tooltip
+		custom_tooltip = nhs_zeus_old_tooltip
+		custom_tooltip = nhs_hera_old_title_tooltip
+		custom_tooltip = nhs_hera_old_tooltip
+		custom_tooltip = nhs_poseidon_old_title_tooltip
+		custom_tooltip = nhs_poseidon_old_tooltip
+		custom_tooltip = nhs_athena_old_title_tooltip
+		custom_tooltip = nhs_athena_old_tooltip
+		custom_tooltip = nhs_ares_old_title_tooltip
+		custom_tooltip = nhs_ares_old_tooltip
+		custom_tooltip = nhs_hermes_old_title_tooltip
+		custom_tooltip = nhs_hermes_old_tooltip
+		custom_tooltip = nhs_aphrodite_old_title_tooltip
+		custom_tooltip = nhs_aphrodite_old_tooltip
+	}
+
+	option = { #Keep to our traditions
+		name = to_hellenic_events.1.f
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+########################
+#One Time Flavor Events#
+########################
+# 2-7, 12
+
+# Ares/Poseidon Temple
+country_event = {
+	id = to_hellenic_events.2
+	title = to_hellenic_events.2.t
+	desc = to_hellenic_events.2.d
+	picture = AWESOMECITY_eventPicture
+
+    trigger = {
+		is_year = 1501
+		religion = pantheon_worship
+		has_country_modifier = nhs_high_priests
+		owns = 953
+		NOT = { has_country_flag = nhs_enable_hellenic_temple_decision }
+		953 = {
+			religion = pantheon_worship
+			NOT = {
+				OR = {
+					has_province_modifier = nhs_ares_temple_tm
+					has_province_modifier = nhs_poseidon_temple_tm
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
+		# modifier = {
+		# 	factor = 0.25
+		# 	OR = {
+		# 		ruler_has_personality = architectural_visionary_personality
+		# 		treasury = 300
+		# 	}
+		# }
+	}
+
+	option = {	# Ares
+		name = to_hellenic_events.2.a
+		ai_chance = {
+			factor = 50
+		}
+		if = {
+			limit = {
+				953 = {
+					NOT = { has_building = cathedral }
+				}
+			}
+			if = {
+				limit = {
+					953 = {
+						has_building = temple
+					}
+				}
+				add_treasury = -150
+			}
+			else = {
+				add_treasury = -250
+			}
+		}
+		add_army_tradition = 5
+		953 = {
+			if = {
+				limit = {
+					NOT = { has_building = cathedral }
+				}
+				if = {
+					limit = {
+						has_building = temple
+					}
+					remove_building = temple
+				}
+				add_building = cathedral
+			}
+			tooltip = {
+				add_province_modifier = {
+					name = nhs_ares_temple
+					duration = -1
+				}
+			}
+			hidden_effect = {
+				add_province_triggered_modifier = nhs_ares_temple_tm
+			}
+		}
+	}
+	option = {	# Poseidon
+		name = to_hellenic_events.2.b
+		ai_chance = {
+			factor = 50
+		}
+		if = {
+			limit = {
+				953 = {
+					NOT = { has_building = cathedral }
+				}
+			}
+			if = {
+				limit = {
+					953 = {
+						has_building = temple
+					}
+				}
+				add_treasury = -150
+			}
+			else = {
+				add_treasury = -250
+			}
+		}
+		add_stability_or_adm_power = yes
+		add_navy_tradition = 5
+		953 = {
+			if = {
+				limit = {
+					NOT = { has_building = cathedral }
+				}
+				if = {
+					limit = {
+						has_building = temple
+					}
+					remove_building = temple
+				}
+				add_building = cathedral
+			}
+			tooltip = {
+				add_province_modifier = {
+					name = nhs_poseidon_temple
+					duration = -1
+				}
+			}
+			hidden_effect = {
+				add_province_triggered_modifier = nhs_poseidon_temple_tm
+			}
+		}
+	}
+	# # With Architect Trait:
+	# option = {	# Ares
+	# 	name = "to_hellenic_events.2.a"
+	# 	ai_chance = {
+	# 		factor = 50
+	# 	}
+	# 	trigger = {
+	# 		ruler_has_personality = architectural_visionary_personality
+	# 	}
+	# 	highlight = yes
+	# 	if = {
+	# 		limit = {
+	# 			953 = {
+	# 				NOT = { has_building = cathedral }
+	# 			}
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				953 = {
+	# 					has_building = temple
+	# 				}
+	# 			}
+	# 			add_treasury = -15
+	# 		}
+	# 		else = {
+	# 			add_treasury = -25
+	# 		}
+	# 	}
+	# 	add_army_tradition = 5
+	# 	add_prestige = 10
+	# 	953 = {
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { has_building = cathedral }
+	# 			}
+	# 			if = {
+	# 				limit = {
+	# 					has_building = temple
+	# 				}
+	# 				remove_building = temple
+	# 			}
+	# 			add_building = cathedral
+	# 		}
+	# 		tooltip = {
+	# 			add_province_modifier = {
+	# 				name = nhs_ares_temple
+	# 				duration = -1
+	# 			}
+	# 		}
+	# 		hidden_effect = {
+	# 			add_province_triggered_modifier = nhs_ares_temple_tm
+	# 		}
+	# 	}
+	# }
+	# option = {	# Poseidon
+	# 	name = "to_hellenic_events.2.b"
+	# 	ai_chance = {
+	# 		factor = 50
+	# 	}
+	# 	trigger = {
+	# 		ruler_has_personality = architectural_visionary_personality
+	# 	}
+	# 	highlight = yes
+	# 	if = {
+	# 		limit = {
+	# 			953 = {
+	# 				NOT = { has_building = cathedral }
+	# 			}
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				953 = {
+	# 					has_building = temple
+	# 				}
+	# 			}
+	# 			add_treasury = -15
+	# 		}
+	# 		else = {
+	# 			add_treasury = -25
+	# 		}
+	# 	}
+	# 	add_stability_or_adm_power = yes
+	# 	add_prestige = 10
+	# 	add_navy_tradition = 5
+	# 	953 = {
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { has_building = cathedral }
+	# 			}
+	# 			if = {
+	# 				limit = {
+	# 					has_building = temple
+	# 				}
+	# 				remove_building = temple
+	# 			}
+	# 			add_building = cathedral
+	# 		}
+	# 		tooltip = {
+	# 			add_province_modifier = {
+	# 				name = nhs_poseidon_temple
+	# 				duration = -1
+	# 			}
+	# 		}
+	# 		hidden_effect = {
+	# 			add_province_triggered_modifier = nhs_poseidon_temple_tm
+	# 		}
+	# 	}
+	# }
+
+	option = {	# Can't afford it right now
+		name = "NHSRELIGIONEVENTSNAME2C"
+		ai_chance = {
+			factor = 0
+		}
+		custom_tooltip = nhs_enable_hellenic_temple_decision_tt
+		set_country_flag = nhs_enable_hellenic_temple_decision
+	}
+}
+
+# Establish High Priests
+country_event = {
+	id = to_hellenic_events.3
+	title = to_hellenic_events.3.t
+	desc = {
+		trigger = {
+			NOT = { has_country_flag = nhs_enable_tolerated_minority }
+		}
+		desc = to_hellenic_events.3.da
+	}
+	desc = {
+		desc = to_hellenic_events.3.db
+	}
+	picture = OLYMPIANS_eventPicture
+
+    trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		OR = {
+			religion = pantheon_worship
+			religion = aztlan_worship
+		}
+		NOT = { has_country_modifier = nhs_high_priests }
+		NOT = { has_country_flag = to_enable_high_priesthood_decision }
+		NOT = { has_disaster = nhs_hcd_hellenic_crisis }
+		NOT = { has_country_flag = hellenic_conversion_preacher }
+		NOT = { has_country_flag = to_elysian_religious_wars_flag }
+	}
+
+	immediate = {
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = to_hellenic_events.3.a
+		goto = nhs_high_priesthood_target
+		trigger = {
+			nhs_check_all_elysian_tags = { CONDITION = tag }
+		}
+		set_country_flag = to_enable_high_priesthood_decision
+		custom_tooltip = to_enable_high_priesthood_decision_tt
+	}
+}
+
+# Expand the Pantheon of Gods
+country_event = {
+	id = to_hellenic_events.5
+	title = to_hellenic_events.5.t
+	desc = to_hellenic_events.5.d
+	picture = OLYMPIANS_eventPicture
+
+    trigger = {
+		is_year = 1480
+		religion = pantheon_worship
+		has_country_modifier = nhs_high_priests
+		# nhs_check_all_elysian_tags = { CONDITION = tag }
+		NOT = { nhs_check_all_spartan = { CONDITION = tag } }
+		NOT = { has_country_modifier = nhs_expanded_pantheon }
+		NOT = { has_country_modifier = nhs_consolidated_pantheon }
+		OR = {
+			any_neighbor_country = {
+				religion_group = pagan
+				NOT = { religion = pantheon_worship }
+			}
+			any_owned_province = {
+				religion_group = pagan
+				NOT = { religion = pantheon_worship }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.50
+			stability = 1
+		}
+		modifier = {
+			factor = 0.50
+			stability = 2
+		}
+		modifier = {
+			factor = 0.50
+			stability = 3
+		}
+		modifier = {
+			factor = 0.50
+			is_at_war = no
+		}
+	}
+
+	option = {	# Expand the Pantheon
+		name = to_hellenic_events.5.a
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 10
+				nhs_check_all_spartan = { CONDITION = tag }
+			}
+		}
+		add_dip_power = -25
+		add_country_modifier = {
+			name = nhs_expanded_pantheon
+			duration = -1
+		}
+	}
+	option = {	# Consolidate our own Pantheon
+		name = to_hellenic_events.5.b
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0.1
+				nhs_check_all_spartan = { CONDITION = tag }
+			}
+		}
+		add_dip_power = -25
+		add_country_modifier = {
+			name = nhs_consolidated_pantheon
+			duration = -1
+		}
+	}
+}
+
+# Hero event
+country_event = {
+	id = to_hellenic_events.6
+	title = to_hellenic_events.6.t
+	desc = to_hellenic_events.6.d
+	picture = ARMY_CHARGE_eventPicture
+
+    trigger = {
+		is_year = 1500
+		OR = {
+			religion = pantheon_worship
+			religion = aztlan_worship
+		}
+		is_at_war = yes
+		is_subject = no
+		NOT = { has_country_modifier = nhs_timer_heroes }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 5
+		}
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 7.5
+		}
+		modifier = {
+			factor = 2
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 2.0
+			has_wartaxes = yes
+		}
+		modifier = {
+			factor = 5
+			religion = aztlan_worship
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = nhs_timer_heroes
+				duration = 18250 # 50 years
+				hidden = yes
+			}
+			random_list = {
+				20 = { set_country_flag = hero_aeneas }
+				20 = { set_country_flag = hero_hercules }
+				20 = { set_country_flag = hero_achilles }
+				20 = { set_country_flag = hero_odysseus }
+				20 = { set_country_flag = hero_perseus }
+			}
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.6.a
+		add_war_exhaustion = -5
+		add_army_tradition = 5
+		if = {
+			limit = {
+				has_country_flag = hero_aeneas
+			}
+			define_general = {
+				name = "Aeneas"
+				fire = 4
+				shock = 4
+				manuever = 4
+				siege = 2
+			}
+			clr_country_flag = hero_aeneas
+		}
+		if = {
+			limit = {
+				has_country_flag = hero_hercules
+			}
+			define_general = {
+				name = "Hercules"
+				fire = 4
+				shock = 6
+				manuever = 2
+				siege = 2
+			}
+			clr_country_flag = hero_hercules
+		}
+		if = {
+			limit = {
+				has_country_flag = hero_achilles
+			}
+			define_general = {
+				name = "Achilles"
+				fire = 6
+				shock = 2
+				manuever = 4
+				siege = 2
+			}
+			clr_country_flag = hero_achilles
+		}
+		if = {
+			limit = {
+				has_country_flag = hero_odysseus
+			}
+			define_general = {
+				name = "Odysseus"
+				fire = 5
+				shock = 2
+				manuever = 3
+				siege = 4
+			}
+			clr_country_flag = hero_odysseus
+		}
+		if = {
+			limit = {
+				has_country_flag = hero_perseus
+			}
+			define_general = {
+				name = "Perseus"
+				fire = 2
+				shock = 6
+				manuever = 3
+				siege = 3
+			}
+			clr_country_flag = hero_perseus
+		}
+
+	}
+}
+
+# Deification of Emperors
+country_event = {
+	id = to_hellenic_events.7
+	title = to_hellenic_events.7.t
+	desc = to_hellenic_events.7.d
+	picture = OLYMPIANS_eventPicture
+
+    trigger = {
+		OR = {
+			religion = pantheon_worship
+			religion = aztlan_worship
+		}
+		NOT = { has_country_modifier = nhs_deification_of_emperors }
+		NOT = { has_country_modifier = nhs_nope_deification_of_emperors }
+		NOT = { has_ruler_modifier = nhs_deification_of_refused }
+		has_country_modifier = nhs_high_priests
+		government_rank = 3
+		government = monarchy
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.90
+			stability = 1
+		}
+		modifier = {
+			factor = 0.90
+			stability = 2
+		}
+		modifier = {
+			factor = 0.90
+			stability = 3
+		}
+		modifier = {
+			factor = 0.9
+			dip = 3
+		}
+		modifier = {
+			factor = 0.9
+			mil = 3
+		}
+		modifier = {
+			factor = 0.9
+			adm = 3
+		}
+		modifier = {
+			factor = 0.9
+			dip = 4
+		}
+		modifier = {
+			factor = 0.9
+			mil = 4
+		}
+		modifier = {
+			factor = 0.9
+			adm = 4
+		}
+		modifier = {
+			factor = 0.75
+			dip = 5
+		}
+		modifier = {
+			factor = 0.75
+			mil = 5
+		}
+		modifier = {
+			factor = 0.75
+			adm = 5
+		}
+		modifier = {
+			factor = 2
+			has_country_modifier = nhs_consolidated_pantheon
+		}
+		modifier = {
+			factor = 0.5
+			has_country_modifier = nhs_expanded_pantheon
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.7.a
+		add_years_of_income = -1
+		add_legitimacy = 10
+		add_dip_power = -50
+		add_country_modifier = {
+			name = nhs_deification_of_emperors
+			duration = -1
+		}
+	}
+	option = {
+		name = to_hellenic_events.7.b  #We are not the gods
+		add_legitimacy = 5
+		add_prestige = 20
+		add_country_modifier = {
+			name = nhs_nope_deification_of_emperors
+			duration = -1
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.7.c
+		add_prestige = 10
+		custom_tooltip = nhs2_deification
+		hidden_effect = {
+			add_ruler_modifier = {
+				name = nhs_deification_of_refused
+				hidden = yes
+			}
+		}
+	}
+}
+
+# Question of Greek Religion, starring Parthenon!
+country_event = {
+	id = to_hellenic_events.12
+	title = to_hellenic_events.12.t
+	desc = {
+		trigger = {
+			owns_or_subject_of = 146
+		}
+		desc = to_hellenic_events.12.da
+	}
+	desc = {
+		desc = to_hellenic_events.12.db
+	}
+	picture = {
+		trigger = {
+			owns_or_subject_of = 146
+		}
+		picture = ATHENS_eventPicture
+	}
+	picture = {
+		picture = RELIGIOUS_TURMOIL_eventPicture
+	}
+
+	fire_only_once = yes
+
+    trigger = {
+		if = {
+			limit = {
+				nhs_check_all_elysian_tags = { CONDITION = exists }
+			}
+			nhs_check_all_elysian_tags = { CONDITION = tag }
+		}
+		religion = pantheon_worship
+		OR = {
+			owns_or_subject_of = 146
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 8
+				nhs_greek_areas = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					to_has_cultureshock_country = yes
+				}
+				add_country_modifier = {
+					name = to_had_culture_shock_event
+					duration = 120
+					hidden = yes
+				}
+			}
+		}
+	}
+
+	# Favor the humanists.
+	option = {
+		name = to_hellenic_events.12.a
+		set_country_flag = to_greek_religion_humanist
+		custom_tooltip = to_humanist_approach_tt
+		custom_tooltip = nhs_new_line_tt
+		custom_tooltip = to_humanist_modifiers_tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					OR = {
+						culture = greek
+						culture = pontic_greek
+					}
+					NOT = { religion = pantheon_worship }
+					owner = {
+						religion = pantheon_worship
+					}
+				}
+				add_province_modifier = {
+					name = to_humanist_approach
+					duration = -1
+				}
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		custom_tooltip = to_no_crack_down_on_heresy_on_elg_tt
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+			}
+			custom_tooltip = to_humanist_parthenon_tt
+		}
+		else = {
+			custom_tooltip = to_humanist_conquest_of_athens_tt
+		}
+		hidden_effect = {
+			146 = {
+				remove_province_triggered_modifier = nhs_conquest_of_athens
+				add_province_triggered_modifier = nhs_conquest_of_athens_humanist
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+					}
+					set_province_flag = to_parthenon_humanist
+				}
+			}
+		}
+		if = {
+			limit = {
+				to_has_cultureshock_country = yes
+			}
+			custom_tooltip = nhs_dotted_line_tt
+			to_cultureshock_decrease = yes
+		}
+	}
+
+	# Favor the moderates.
+	option = {
+		name = to_hellenic_events.12.b
+		set_country_flag = to_greek_religion_moderate
+		custom_tooltip = to_moderate_approach_tt
+		custom_tooltip = nhs_new_line_tt
+		custom_tooltip = to_moderate_modifiers_tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					OR = {
+						culture = greek
+						culture = pontic_greek
+					}
+					NOT = { religion = pantheon_worship }
+					owner = {
+						religion = pantheon_worship
+					}
+				}
+				add_province_modifier = {
+					name = to_moderate_approach
+					duration = -1
+				}
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+			}
+			custom_tooltip = to_moderate_parthenon_tt
+		}
+		else = {
+			custom_tooltip = to_moderate_conquest_of_athens_tt
+		}
+		hidden_effect = {
+			146 = {
+				remove_province_triggered_modifier = nhs_conquest_of_athens
+				add_province_triggered_modifier = nhs_conquest_of_athens_moderate
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+					}
+					set_province_flag = to_parthenon_moderate
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					owns_or_subject_of = 146
+					has_global_flag = parthenon_now_mosque
+				}
+				clr_global_flag = parthenon_now_mosque
+				146 = {
+					show_ambient_object = parthenon
+					hide_ambient_object = parthenon_minaret
+				}
+			}
+		}
+	}
+
+	# Favor the militarists.
+	option = {
+		name = to_hellenic_events.12.c
+		set_country_flag = to_greek_religion_militarist
+		if = {
+			limit = {
+				owns_or_subject_of = 146
+			}
+			custom_tooltip = to_militarist_approach_parthenon_tt
+		}
+		else = {
+			custom_tooltip = to_militarist_approach_tt
+		}
+		if = {
+			limit = {
+				ELG = {
+					exists = yes
+					is_subject_of = ROOT
+					NOT = { religion = ROOT }
+				}
+			}
+			custom_tooltip = nhs_new_line_tt
+			ELG = {
+				add_liberty_desire = 50
+				change_religion = ROOT
+			}
+			custom_tooltip = nhs_new_line_tt
+		}
+		custom_tooltip = to_militarist_modifiers_tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					OR = {
+						culture = greek
+						culture = pontic_greek
+					}
+					NOT = { religion = pantheon_worship }
+					owner = {
+						religion = pantheon_worship
+					}
+				}
+				add_province_modifier = {
+					name = to_militarist_approach
+					duration = -1
+				}
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+			}
+			custom_tooltip = to_militarist_parthenon_tt
+		}
+		else = {
+			custom_tooltip = to_militarist_conquest_of_athens_tt
+		}
+		hidden_effect = {
+			146 = {
+				remove_province_triggered_modifier = nhs_conquest_of_athens
+				add_province_triggered_modifier = nhs_conquest_of_athens_militarist
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+					}
+					set_province_flag = to_parthenon_militarist
+				}
+			}
+		}
+		if = {
+			limit = {
+				to_has_cultureshock_country = yes
+			}
+			custom_tooltip = nhs_dotted_line_tt
+			to_cultureshock_increase = yes
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					owns_or_subject_of = 146
+					has_global_flag = parthenon_now_mosque
+				}
+				clr_global_flag = parthenon_now_mosque
+				146 = {
+					show_ambient_object = parthenon
+					hide_ambient_object = parthenon_minaret
+				}
+			}
+		}
+	}
+
+	# Favor the purists.
+	option = {
+		name = to_hellenic_events.12.e
+		set_country_flag = to_greek_religion_purist
+		custom_tooltip = to_purist_approach_tt
+		if = {
+			limit = {
+				ELG = {
+					exists = yes
+					is_subject_of = ROOT
+					NOT = { religion = ROOT }
+				}
+			}
+			custom_tooltip = nhs_new_line_tt
+			ELG = {
+				add_liberty_desire = 50
+				change_religion = ROOT
+			}
+			custom_tooltip = nhs_new_line_tt
+		}
+		custom_tooltip = to_purist_modifiers_tt
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_subject_holds = ROOT
+					OR = {
+						culture = greek
+						culture = pontic_greek
+					}
+					NOT = { religion = pantheon_worship }
+					owner = {
+						religion = pantheon_worship
+					}
+				}
+				add_province_modifier = {
+					name = to_purist_approach
+					duration = -1
+				}
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+			}
+			custom_tooltip = to_purist_parthenon_tt
+		}
+		else = {
+			custom_tooltip = to_purist_conquest_of_athens_tt
+		}
+		if = {
+			limit = {
+				to_has_cultureshock_country = yes
+			}
+			custom_tooltip = nhs_dotted_line_tt
+			to_cultureshock_big_increase = yes
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					owns_or_subject_of = 146
+					has_global_flag = parthenon_now_mosque
+				}
+				clr_global_flag = parthenon_now_mosque
+				146 = {
+					show_ambient_object = parthenon
+					hide_ambient_object = parthenon_minaret
+				}
+			}
+		}
+	}
+}
+
+########################
+#Religion Spread Events#
+########################
+# 8-11
+
+# Religion spread - Pantheon
+country_event = {
+	id = to_hellenic_events.8
+	title = to_hellenic_events.8.t
+	desc = to_hellenic_events.8.d
+	picture = OLYMPIANS_eventPicture
+
+    trigger = {
+		religion = totemism
+		NOT = { has_ruler_flag = to_declined_pantheon_worship }
+		num_of_religion = { religion = pantheon_worship value = 0.1 }
+		OR = {
+			NOT = { num_of_cities = 7 }
+			dominant_religion = pantheon_worship
+			num_of_religion = { religion = pantheon_worship value = 0.33 }
+		}
+		any_known_country = {
+			religion = pantheon_worship
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+		# modifier = {
+		# 	factor = 2
+		# 	any_known_country = {
+		# 		has_country_modifier = nhs_consolidated_pantheon
+		# 	}
+		# }
+		# modifier = {
+		# 	factor = 0.5
+		# 	any_known_country = {
+		# 		has_country_modifier = nhs_expanded_pantheon
+		# 	}
+		# }
+		# modifier = {
+		# 	factor = 10
+		# 	has_country_flag = nhs_religion_spread_pantheon
+		# }
+		modifier = {
+			factor = 2
+			has_idea_group = religious_ideas
+		}
+		modifier = {
+			factor = 0.3
+			dominant_religion = pantheon_worship
+		}
+		modifier = {
+			factor = 0.00001
+			all_owned_province = {
+				religion = pantheon_worship
+			}
+		}
+		modifier = {
+			factor = 0.00001
+			capital_scope = { religion = pantheon_worship }
+		}
+	}
+
+	immediate = {
+		set_country_flag = nhs_religion_spread_pantheon
+	}
+
+	option = {	 # Accept
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.35
+				NOT = {
+					num_of_religion = { religion = pantheon_worship value = 0.35 }
+				}
+			}
+			modifier = {
+				factor = 0.35
+				NOT = {
+					num_of_religion = { religion = pantheon_worship value = 0.20 }
+				}
+			}
+			modifier = {
+				factor = 0
+				ruler_has_personality = zealot_personality
+			}
+		}
+		name = to_hellenic_events.8.a
+		add_legitimacy = -10
+		change_religion = pantheon_worship
+		if = {
+			limit = {
+				capital_scope = {
+					religion = totemism
+				}
+			}
+			capital_scope = {
+				change_religion = pantheon_worship
+				add_permanent_province_modifier = {
+					name = "religious_zeal_at_conv"
+					duration = 7300
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_province = {
+					religion = totemism
+				}
+			}
+			random_owned_province = {
+				limit = {
+					religion = totemism
+				}
+				change_religion = pantheon_worship
+				add_permanent_province_modifier = {
+					name = "religious_zeal_at_conv"
+					duration = 7300
+				}
+			}
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.8.b  #Decline
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				NOT = { ruler_has_personality = zealot_personality }
+				OR = {
+					capital_scope = { religion = pantheon_worship }
+					all_owned_province = {
+						religion = pantheon_worship
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { ruler_has_personality = zealot_personality }
+				dominant_religion = pantheon_worship
+			}
+		}
+		add_legitimacy = 5
+		add_prestige = 10
+		if = {
+			limit = {
+				has_regency = no
+			}
+			set_ruler_flag = to_declined_pantheon_worship
+			custom_tooltip = to_totemism_declined_conversion_tt
+		}
+		else = {
+			set_heir_flag = to_declined_pantheon_worship
+			custom_tooltip = to_totemism_declined_conversion_heir_tt
+		}
+	}
+}
+
+# Missionaries native pantheon
+country_event = {
+	id = to_hellenic_events.9
+	title = to_hellenic_events.9.t
+	desc = to_hellenic_events.9.d
+	picture = OLYMPIANS_eventPicture
+
+    is_triggered_only = yes
+
+	trigger = {
+		religion = totemism
+		num_of_religion = { religion = totemism value = 1 }
+	}
+
+	option = {	 # Accept
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 1.25
+				alliance_with = FROM
+			}
+			modifier = {
+				factor = 1.1
+				stability = 1
+			}
+			modifier = {
+				factor = 1.1
+				stability = 2
+			}
+			modifier = {
+				factor = 1.1
+				stability = 3
+			}
+			modifier = {
+				factor = 1.25
+				FROM = {
+					has_opinion = { who = ROOT value = 150 }
+				}
+			}
+			modifier = {
+				factor = 1.25
+				FROM = {
+					has_opinion = { who = ROOT value = 100 }
+				}
+			}
+			modifier = {
+				factor = 0.2
+				FROM = {
+					NOT = {
+						has_opinion = { who = ROOT value = 0 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.3
+				FROM = {
+					NOT = {
+						has_opinion = { who = ROOT value = -100 }
+					}
+				}
+			}
+			# modifier = {
+			# 	factor = 2
+			# 	technology_group = hellenised_american
+			# }
+			modifier = {
+				factor = 0.5
+				FROM = {
+					has_country_modifier = nhs_consolidated_pantheon
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					has_country_modifier = nhs_expanded_pantheon
+				}
+			}
+		}
+		name = to_hellenic_events.9.a
+		reverse_add_opinion = { who = FROM modifier = nhs_o_embraced_new_religion }
+		add_opinion = { who = FROM modifier = nhs_o_embraced_new_religion }
+		if = {
+			limit = {
+				any_owned_province = {
+					religion = totemism
+					is_capital = no
+				}
+			}
+			random_owned_province = {
+				limit = {
+					religion = totemism
+					is_capital = no
+				}
+				change_religion = pantheon_worship
+				add_permanent_province_modifier = {
+					name = "religious_zeal_at_conv"
+					duration = 7300
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = {
+					religion = totemism
+				}
+			}
+			capital_scope = {
+				change_religion = pantheon_worship
+				add_permanent_province_modifier = {
+					name = "religious_zeal_at_conv"
+					duration = 7300
+				}
+			}
+			country_event = { id = to_hellenic_events.8 }
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { num_of_cities = 2 }
+					capital_scope = {
+						religion = pantheon_worship
+					}
+					AND = {
+						capital_scope = {
+							religion = totemism
+						}
+						NOT = {
+							any_owned_province = {
+								religion = totemism
+								is_capital = no
+							}
+						}
+					}
+				}
+			}
+			country_event = { id = to_hellenic_events.8 }
+		}
+		FROM = {
+			country_event = { id = to_hellenic_events.10 days = 30 }
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.9.b  #Decline
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.75
+				alliance_with = FROM
+			}
+			modifier = {
+				factor = 0.9
+				FROM = {
+					has_opinion = { who = ROOT value = 150 }
+				}
+			}
+			modifier = {
+				factor = 0.9
+				FROM = {
+					has_opinion = { who = ROOT value = 100 }
+				}
+			}
+			modifier = {
+				factor = 0.9
+				FROM = {
+					NOT = {
+						has_opinion = { who = ROOT value = 100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				FROM = {
+					NOT = {
+						has_opinion = { who = ROOT value = 0 }
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				FROM = {
+					NOT = {
+						has_opinion = { who = ROOT value = -100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = { stability = 0 }
+			}
+		}
+		add_legitimacy = 5
+		add_prestige = 10
+		FROM = {
+			country_event = { id = to_hellenic_events.11 days = 30 }
+		}
+	}
+}
+
+# Missionaries get back + pantheon
+country_event = {
+	id = to_hellenic_events.10
+	title = to_hellenic_events.10.t
+	desc = to_hellenic_events.10.d
+	picture = OLYMPIANS_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = "to_hellenic_events.10.a"
+		add_prestige = 10
+	}
+}
+
+# Missionaries get back - pantheon
+country_event = {
+	id = to_hellenic_events.11
+	title = to_hellenic_events.11.t
+	desc = to_hellenic_events.11.d
+	picture = PANTHEON_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = "to_hellenic_events.11.a"
+		add_prestige = -10
+	}
+}
+
+################
+#No-dlc Deities#
+################
+# 31
+
+country_event = { #Pick a new deity
+	id =  to_hellenic_events.31
+	title = to_hellenic_events.31.t
+	desc = {
+		desc = to_hellenic_events.31.db
+		trigger = {
+			has_country_flag = to_allow_deity_reselection
+			has_country_modifier = nhs_hcf_zeus_worship
+		}
+	}
+	desc = {
+		desc = to_hellenic_events.31.dc
+		trigger = {
+			has_country_flag = to_allow_deity_reselection
+			has_country_modifier = nhs_hcf_poseidon_worship
+		}
+	}
+	desc = {
+		desc = to_hellenic_events.31.dd
+		trigger = {
+			has_country_flag = to_allow_deity_reselection
+			has_country_modifier = nhs_hcf_apollo_worship
+		}
+	}
+	desc = {
+		desc = to_hellenic_events.31.de
+		trigger = {
+			has_country_flag = to_is_changing_deity
+		}
+	}
+	desc = {
+		desc = to_hellenic_events.31.da
+	}
+	picture = OLYMPIANS_eventPicture
+
+	trigger = {
+		religion = pantheon_worship
+		has_regency = no
+		OR = {
+			has_country_flag = to_is_changing_deity
+			has_country_flag = to_allow_deity_reselection
+			AND = {
+				NOT = { has_dlc = "Wealth of Nations" }
+				NOT = { to_has_hellenic_personal_deity = yes }
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = to_choosing_deity
+	}
+
+	after = {
+		clr_country_flag = to_choosing_deity
+		clr_country_flag = to_allow_deity_reselection
+		clr_country_flag = to_is_changing_deity
+	}
+
+	option = { #Zeus (unreformed)
+		name = nhs_hellenic_zeus
+
+		trigger = {
+			to_hellenic_standard_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_zeus
+	}
+
+	option = { #Hera (unreformed)
+		name = nhs_hellenic_hera
+
+		trigger = {
+			to_hellenic_standard_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_hera
+	}
+
+	option = { #Poseidon (unreformed)
+		name = nhs_hellenic_poseidon
+
+		trigger = {
+			to_hellenic_standard_pantheon = yes
+		}
+
+	    change_personal_deity = nhs_hellenic_poseidon
+    }
+
+	option = { #Athena (unreformed)
+		name = nhs_hellenic_athena
+
+		trigger = {
+			to_hellenic_standard_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_athena
+	}
+
+	option = { #Ares (unreformed)
+		name = nhs_hellenic_ares
+
+		trigger = {
+			to_hellenic_standard_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_ares
+
+	}
+
+	option = { #Hermes (unreformed)
+		name = nhs_hellenic_hermes
+
+		trigger = {
+			to_hellenic_standard_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_hermes
+
+	}
+
+	option = { #Aphrodite (unreformed)
+		name = nhs_hellenic_aphrodite
+
+		trigger = {
+			to_hellenic_standard_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_aphrodite
+
+	}
+
+	option = { #Poseidon
+		name = nhs_hellenic_reformed_poseidon
+
+		trigger = {
+			to_hellenic_poseidon_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_poseidon
+
+	}
+
+	option = { #Amphitrite
+		name = nhs_hellenic_reformed_amphitrite
+
+		trigger = {
+			to_hellenic_poseidon_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_amphitrite
+
+	}
+
+	option = { #Oceanus
+		name = nhs_hellenic_reformed_oceanus
+
+		trigger = {
+			to_hellenic_poseidon_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_oceanus
+
+	}
+
+	option = { #Atlas
+		name = nhs_hellenic_reformed_atlas
+
+		trigger = {
+			to_hellenic_poseidon_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_atlas
+
+	}
+
+	option = { #Aphrodite
+		name = nhs_hellenic_reformed_aphrodite
+
+		trigger = {
+			to_hellenic_poseidon_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_aphrodite
+
+	}
+
+	option = { #Orion
+		name = nhs_hellenic_reformed_orion
+
+		trigger = {
+			to_hellenic_poseidon_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_orion
+
+	}
+
+	option = { #Triton
+		name = nhs_hellenic_reformed_triton
+
+		trigger = {
+			to_hellenic_poseidon_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_triton
+
+	}
+
+	option = { #zeus
+		name = nhs_hellenic_reformed_zeus
+
+		trigger = {
+			to_hellenic_zeus_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_zeus
+
+	}
+
+	option = { #hera
+		name = nhs_hellenic_reformed_hera
+
+		trigger = {
+			to_hellenic_zeus_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_hera
+
+	}
+
+	option = { #demeter
+		name = nhs_hellenic_reformed_demeter
+
+		trigger = {
+			to_hellenic_zeus_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_demeter
+
+	}
+
+	option = { #hermes
+		name = nhs_hellenic_reformed_hermes
+
+		trigger = {
+			to_hellenic_zeus_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_hermes
+
+	}
+
+	option = { #athena
+		name = nhs_hellenic_reformed_athena
+
+		trigger = {
+			to_hellenic_zeus_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_athena
+
+	}
+
+	option = { #heracles
+		name = nhs_hellenic_reformed_heracles
+
+		trigger = {
+			to_hellenic_zeus_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_heracles
+
+	}
+
+	option = { #hephasteus
+		name = nhs_hellenic_reformed_hephasteus
+
+		trigger = {
+			to_hellenic_zeus_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_hephasteus
+
+	}
+
+	option = { #apollo
+		name = nhs_hellenic_reformed_apollo
+
+		trigger = {
+			to_hellenic_apollo_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_apollo
+
+	}
+
+	option = { #artemis
+		name = nhs_hellenic_reformed_artemis
+
+		trigger = {
+			to_hellenic_apollo_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_artemis
+
+	}
+
+	option = { #dionysus
+		name = nhs_hellenic_reformed_dionysus
+
+		trigger = {
+			to_hellenic_apollo_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_dionysus
+
+	}
+
+	option = { #leto
+		name = nhs_hellenic_reformed_leto
+
+		trigger = {
+			to_hellenic_apollo_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_leto
+
+	}
+
+	option = { #orpheus
+		name = nhs_hellenic_reformed_orpheus
+
+		trigger = {
+			to_hellenic_apollo_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_orpheus
+
+	}
+
+	option = { #chiron
+		name = nhs_hellenic_reformed_chiron
+
+		trigger = {
+			to_hellenic_apollo_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_chiron
+
+	}
+
+	option = { #perseus
+		name = nhs_hellenic_reformed_perseus
+
+		trigger = {
+			to_hellenic_apollo_pantheon = yes
+		}
+
+		change_personal_deity = nhs_hellenic_reformed_perseus
+
+	}
+
+	option = {  # Leonidas
+		name = to_hellenic_events.31.leonidas
+		trigger = {
+			OR = {
+				tag = MSN
+				has_country_flag = msg_spartan_hellenism
+			}
+			has_global_flag = msg_hellenic_leonidas_deity
+		}
+		change_personal_deity = Leonidas_2
+
+	}
+
+	option = {  # Ketsalon
+		name = to_hellenic_events.31.ketsalon
+		trigger = {
+			OR = {
+				tag = MSN
+				has_country_flag = msg_spartan_hellenism
+			}
+			has_global_flag = msg_hellenic_ketsalon_deity
+		}
+		change_personal_deity = Ketsalon_2
+	}
+}
+
+#################
+#Festival Events#
+#################
+# 1XX, 1000
+
+# Festival event tombola
+country_event = {
+	id = to_hellenic_events.1000
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = FEAST_eventPicture
+
+	hidden = yes
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+	}
+
+	immediate = {
+		to_trigger_hellenic_festival = yes
+	}
+
+	option = {
+		name = nhs2_hidden.a
+	}
+}
+
+# Hetairideia (Zeus)
+country_event = {
+	id = to_hellenic_events.100
+	title = to_hellenic_events.100.t
+	desc = to_hellenic_events.100.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		OR = {
+			to_hellenic_standard_pantheon = yes
+			to_hellenic_zeus_pantheon = yes
+		}
+
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.100.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = zeus
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.100.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_zeus }
+			NOT = { has_personal_deity = nhs_hellenic_reformed_zeus }
+		}
+		to_hellenic_festival_organize = {
+			GOD = zeus
+		}
+		if = {
+			limit = {
+				to_hellenic_zeus_pantheon = yes
+			}
+			change_personal_deity = nhs_hellenic_reformed_zeus
+		}
+		else = {
+			change_personal_deity = nhs_hellenic_zeus
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.100.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				AND = {
+					dip = 6
+					mil = 6
+				}
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = zeus
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.101
+	title = to_hellenic_events.101.t
+	desc = to_hellenic_events.101.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = zeus
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.101.a
+		to_increase_mana_or_add_power = { TYPE = dip }
+		to_hellenic_festival_option = yes
+	}
+
+	option = {
+		name = to_hellenic_events.101.b
+		to_increase_mana_or_add_power = { TYPE = mil }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Sacrifice to Ares
+country_event = {
+	id = to_hellenic_events.102
+	title = to_hellenic_events.102.t
+	desc = to_hellenic_events.102.d
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		to_hellenic_standard_pantheon = yes
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.102.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = ares
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.102.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_ares }
+		}
+		to_hellenic_festival_organize = {
+			GOD = ares
+		}
+		change_personal_deity = nhs_hellenic_ares
+	}
+
+	option = {
+		name = to_hellenic_events.102.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				mil = 6
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = ares
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.103
+	title = to_hellenic_events.103.t
+	desc = to_hellenic_events.103.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = ares
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.103.a
+		to_increase_mana_or_add_power = { TYPE = mil }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Plynteria (Athena)
+country_event = {
+	id = to_hellenic_events.104
+	title = to_hellenic_events.104.t
+	desc = to_hellenic_events.104.d
+	picture = CULTURE_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		OR = {
+			to_hellenic_standard_pantheon = yes
+			to_hellenic_zeus_pantheon = yes
+		}
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.104.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = athena
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.104.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_athena }
+			NOT = { has_personal_deity = nhs_hellenic_reformed_athena }
+		}
+		to_hellenic_festival_organize = {
+			GOD = athena
+		}
+		if = {
+			limit = {
+				to_hellenic_zeus_pantheon = yes
+			}
+			change_personal_deity = nhs_hellenic_reformed_athena
+		}
+		else = {
+			change_personal_deity = nhs_hellenic_athena
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.104.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				AND = {
+					adm = 6
+					mil = 6
+				}
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = athena
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.105
+	title = to_hellenic_events.105.t
+	desc = to_hellenic_events.105.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = athena
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.105.a
+		to_increase_mana_or_add_power = { TYPE = adm }
+		to_hellenic_festival_option = yes
+	}
+
+	option = {
+		name = to_hellenic_events.105.b
+		to_increase_mana_or_add_power = { TYPE = mil }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Hermaea (Hermes)
+country_event = {
+	id = to_hellenic_events.106
+	title = to_hellenic_events.106.t
+	desc = to_hellenic_events.106.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		OR = {
+			to_hellenic_standard_pantheon = yes
+			to_hellenic_zeus_pantheon = yes
+		}
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.106.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = hermes
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.106.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_hermes }
+			NOT = { has_personal_deity = nhs_hellenic_reformed_hermes }
+		}
+		to_hellenic_festival_organize = {
+			GOD = hermes
+		}
+		if = {
+			limit = {
+				to_hellenic_zeus_pantheon = yes
+			}
+			change_personal_deity = nhs_hellenic_reformed_hermes
+		}
+		else = {
+			change_personal_deity = nhs_hellenic_hermes
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.106.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				adm = 6
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = hermes
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.107
+	title = to_hellenic_events.107.t
+	desc = to_hellenic_events.107.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = hermes
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.107.a
+		to_increase_mana_or_add_power = { TYPE = adm }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Adonia (Aphrodite)
+country_event = {
+	id = to_hellenic_events.108
+	title = to_hellenic_events.108.t
+	desc = to_hellenic_events.108.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		OR = {
+			to_hellenic_standard_pantheon = yes
+			to_hellenic_poseidon_pantheon = yes
+		}
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.108.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = aphrodite
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.108.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_aphrodite }
+			NOT = { has_personal_deity = nhs_hellenic_reformed_aphrodite }
+		}
+		to_hellenic_festival_organize = {
+			GOD = aphrodite
+		}
+		if = {
+			limit = {
+				to_hellenic_poseidon_pantheon = yes
+			}
+			change_personal_deity = nhs_hellenic_reformed_aphrodite
+		}
+		else = {
+			change_personal_deity = nhs_hellenic_aphrodite
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.108.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				dip = 6
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = aphrodite
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.109
+	title = to_hellenic_events.109.t
+	desc = to_hellenic_events.109.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = aphrodite
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.109.a
+		to_increase_mana_or_add_power = { TYPE = dip }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Sounion Magno (Poseidon)
+country_event = {
+	id = to_hellenic_events.110
+	title = to_hellenic_events.110.t
+	desc = to_hellenic_events.110.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		OR = {
+			to_hellenic_standard_pantheon = yes
+			to_hellenic_poseidon_pantheon = yes
+		}
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.110.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = poseidon
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.110.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_poseidon }
+			NOT = { has_personal_deity = nhs_hellenic_reformed_poseidon }
+		}
+		to_hellenic_festival_organize = {
+			GOD = poseidon
+		}
+		if = {
+			limit = {
+				to_hellenic_poseidon_pantheon = yes
+			}
+			change_personal_deity = nhs_hellenic_reformed_poseidon
+		}
+		else = {
+			change_personal_deity = nhs_hellenic_poseidon
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.110.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				dip = 6
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = poseidon
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.111
+	title = to_hellenic_events.111.t
+	desc = to_hellenic_events.111.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = poseidon
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.111.a
+		to_increase_mana_or_add_power = { TYPE = dip }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Daedala (Hera)
+country_event = {
+	id = to_hellenic_events.112
+	title = to_hellenic_events.112.t
+	desc = to_hellenic_events.112.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		OR = {
+			to_hellenic_standard_pantheon = yes
+			to_hellenic_zeus_pantheon = yes
+		}
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.112.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = hera
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.112.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_hera }
+			NOT = { has_personal_deity = nhs_hellenic_reformed_hera }
+		}
+		to_hellenic_festival_organize = {
+			GOD = hera
+		}
+		if = {
+			limit = {
+				to_hellenic_zeus_pantheon = yes
+			}
+			change_personal_deity = nhs_hellenic_reformed_hera
+		}
+		else = {
+			change_personal_deity = nhs_hellenic_hera
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.112.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				AND = {
+					dip = 6
+					adm = 6
+				}
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = hera
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.113
+	title = to_hellenic_events.113.t
+	desc = to_hellenic_events.113.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = hera
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.113.a
+		to_increase_mana_or_add_power = { TYPE = dip }
+		to_hellenic_festival_option = yes
+	}
+
+	option = {
+		name = to_hellenic_events.113.b
+		to_increase_mana_or_add_power = { TYPE = adm }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Festivals on the Beaches (Amphitrite)
+country_event = {
+	id = to_hellenic_events.114
+	title = to_hellenic_events.114.t
+	desc = to_hellenic_events.114.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		to_hellenic_poseidon_pantheon = yes
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.114.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = amphitrite
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.114.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_reformed_amphitrite }
+		}
+		to_hellenic_festival_organize = {
+			GOD = amphitrite
+		}
+		change_personal_deity = nhs_hellenic_reformed_amphitrite
+	}
+
+	option = {
+		name = to_hellenic_events.114.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				AND = {
+					dip = 6
+					mil = 6
+				}
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = amphitrite
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.115
+	title = to_hellenic_events.115.t
+	desc = to_hellenic_events.115.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = amphitrite
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.115.a
+		to_increase_mana_or_add_power = { TYPE = dip }
+		to_hellenic_festival_option = yes
+	}
+
+	option = {
+		name = to_hellenic_events.115.b
+		to_increase_mana_or_add_power = { TYPE = mil }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Festival of the Father of Rivers (Oceanus)
+country_event = {
+	id = to_hellenic_events.116
+	title = to_hellenic_events.116.t
+	desc = to_hellenic_events.116.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		to_hellenic_poseidon_pantheon = yes
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.116.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = oceanus
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.116.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_reformed_oceanus }
+		}
+		to_hellenic_festival_organize = {
+			GOD = oceanus
+		}
+		change_personal_deity = nhs_hellenic_reformed_oceanus
+	}
+
+	option = {
+		name = to_hellenic_events.116.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				AND = {
+					dip = 6
+					adm = 6
+				}
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = oceanus
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.117
+	title = to_hellenic_events.117.t
+	desc = to_hellenic_events.117.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = oceanus
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.117.a
+		to_increase_mana_or_add_power = { TYPE = dip }
+		to_hellenic_festival_option = yes
+	}
+
+	option = {
+		name = to_hellenic_events.117.b
+		to_increase_mana_or_add_power = { TYPE = adm }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Sacrifice to The Sky Bearer (Atlas)
+country_event = {
+	id = to_hellenic_events.118
+	title = to_hellenic_events.118.t
+	desc = to_hellenic_events.118.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		to_hellenic_poseidon_pantheon = yes
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.118.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = atlas
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.118.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_reformed_atlas }
+		}
+		to_hellenic_festival_organize = {
+			GOD = atlas
+		}
+		change_personal_deity = nhs_hellenic_reformed_atlas
+	}
+
+	option = {
+		name = to_hellenic_events.118.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				adm = 6
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = atlas
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.119
+	title = to_hellenic_events.119.t
+	desc = to_hellenic_events.119.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = atlas
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.119.a
+		to_increase_mana_or_add_power = { TYPE = adm }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Thargelia (Apollo)
+country_event = {
+	id = to_hellenic_events.120
+	title = to_hellenic_events.120.t
+	desc = to_hellenic_events.120.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		to_hellenic_apollo_pantheon = yes
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.120.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = apollo
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.120.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_reformed_apollo }
+		}
+		to_hellenic_festival_organize = {
+			GOD = apollo
+		}
+		change_personal_deity = nhs_hellenic_reformed_apollo
+	}
+
+	option = {
+		name = to_hellenic_events.120.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				AND = {
+					adm = 6
+					mil = 6
+				}
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = apollo
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.121
+	title = to_hellenic_events.121.t
+	desc = to_hellenic_events.121.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = apollo
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.121.a
+		to_increase_mana_or_add_power = { TYPE = adm }
+		to_hellenic_festival_option = yes
+	}
+
+	option = {
+		name = to_hellenic_events.121.b
+		to_increase_mana_or_add_power = { TYPE = mil }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Laphria (Artemis)
+country_event = {
+	id = to_hellenic_events.122
+	title = to_hellenic_events.122.t
+	desc = to_hellenic_events.122.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		to_hellenic_apollo_pantheon = yes
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.122.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = artemis
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.122.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_reformed_artemis }
+		}
+		to_hellenic_festival_organize = {
+			GOD = artemis
+		}
+		change_personal_deity = nhs_hellenic_reformed_artemis
+	}
+
+	option = {
+		name = to_hellenic_events.122.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				AND = {
+					dip = 6
+					mil = 6
+				}
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = artemis
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.123
+	title = to_hellenic_events.123.t
+	desc = to_hellenic_events.123.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = artemis
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.123.a
+		to_increase_mana_or_add_power = { TYPE = mil }
+		to_hellenic_festival_option = yes
+	}
+
+	option = {
+		name = to_hellenic_events.123.b
+		to_increase_mana_or_add_power = { TYPE = dip }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Mentor of Heroes (Chiron)
+country_event = {
+	id = to_hellenic_events.124
+	title = to_hellenic_events.124.t
+	desc = to_hellenic_events.124.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		to_hellenic_apollo_pantheon = yes
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.124.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = chiron
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.124.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_reformed_chiron }
+		}
+		to_hellenic_festival_organize = {
+			GOD = chiron
+		}
+		change_personal_deity = nhs_hellenic_reformed_chiron
+	}
+
+	option = {
+		name = to_hellenic_events.124.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				AND = {
+					dip = 6
+					adm = 6
+					mil = 6
+				}
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = chiron
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.125
+	title = to_hellenic_events.125.t
+	desc = to_hellenic_events.125.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = chiron
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.125.a
+		to_increase_mana_or_add_power = { TYPE = adm }
+		to_hellenic_festival_option = yes
+	}
+
+	option = {
+		name = to_hellenic_events.125.b
+		to_increase_mana_or_add_power = { TYPE = dip }
+		to_hellenic_festival_option = yes
+	}
+
+	option = {
+		name = to_hellenic_events.125.c
+		to_increase_mana_or_add_power = { TYPE = mil }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Dionysia (Dionysia)
+country_event = {
+	id = to_hellenic_events.126
+	title = to_hellenic_events.126.t
+	desc = to_hellenic_events.126.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		to_hellenic_apollo_pantheon = yes
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.126.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = dionysus
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.126.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_reformed_dionysus }
+		}
+		to_hellenic_festival_organize = {
+			GOD = dionysus
+		}
+		change_personal_deity = nhs_hellenic_reformed_dionysus
+	}
+
+	option = {
+		name = to_hellenic_events.126.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				adm = 6
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = dionysus
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.127
+	title = to_hellenic_events.127.t
+	desc = to_hellenic_events.127.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = dionysus
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.127.a
+		to_increase_mana_or_add_power = { TYPE = adm }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Prayers to the Mother (Leto)
+country_event = {
+	id = to_hellenic_events.128
+	title = to_hellenic_events.128.t
+	desc = to_hellenic_events.128.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		to_hellenic_apollo_pantheon = yes
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.128.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = leto
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.128.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_reformed_leto }
+		}
+		to_hellenic_festival_organize = {
+			GOD = leto
+		}
+		change_personal_deity = nhs_hellenic_reformed_leto
+	}
+
+	option = {
+		name = to_hellenic_events.128.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				adm = 6
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = leto
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.129
+	title = to_hellenic_events.129.t
+	desc = to_hellenic_events.129.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = leto
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.129.a
+		to_increase_mana_or_add_power = { TYPE = adm }
+		to_hellenic_festival_option = yes
+	}
+}
+
+# Thesmophoria (Demeter)
+country_event = {
+	id = to_hellenic_events.130
+	title = to_hellenic_events.130.t
+	desc = to_hellenic_events.130.d
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		to_can_have_hellenic_festival = yes
+		to_hellenic_apollo_pantheon = yes
+	}
+
+	immediate = {
+		to_hellenic_festival_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.130.a
+		to_hellenic_festival_organize_cost = yes
+		to_hellenic_festival_organize = {
+			GOD = demeter
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.130.b
+		trigger = {
+			NOT = { has_personal_deity = nhs_hellenic_reformed_demeter }
+		}
+		to_hellenic_festival_organize = {
+			GOD = demeter
+		}
+		change_personal_deity = nhs_hellenic_reformed_demeter
+	}
+
+	option = {
+		name = to_hellenic_events.130.c
+		highlight = yes
+		trigger = {
+			to_hellenic_festival_can_study = yes
+			NOT = {
+				adm = 6
+			}
+		}
+		to_hellenic_festival_study = {
+			GOD = demeter
+		}
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.d
+		trigger = {
+			to_hellenic_festival_can_refuse_cynical = yes
+		}
+		to_hellenic_festival_cynical = yes
+	}
+
+	option = {
+		name = to_hellenic_events.1XX.e
+		trigger = {
+			to_hellenic_festival_can_refuse_impious = yes
+		}
+		to_hellenic_festival_impious = yes
+	}
+}
+
+country_event = {
+	id = to_hellenic_events.131
+	title = to_hellenic_events.131.t
+	desc = to_hellenic_events.131.d
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		to_hellenic_is_studying_god = {
+			GOD = demeter
+		}
+	}
+
+	mean_time_to_happen = { months = 12 }
+
+	immediate = {
+		to_hellenic_festival_study_immediate = yes
+	}
+
+	option = {
+		name = to_hellenic_events.131.a
+		to_increase_mana_or_add_power = { TYPE = adm }
+		to_hellenic_festival_option = yes
+	}
+}

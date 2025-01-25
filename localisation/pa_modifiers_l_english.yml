@@ -1,0 +1,49 @@
+﻿l_english:
+
+ #Generic
+ pa_slave_plantation:0 "Slave Plantations"
+ pa_slave_plantation_desc:0 "Local Landowners have imported a workforce of african slaves who work the fields on cash crop plantations."
+ pa_new_mixed_population:0 "New Mixed Demographic"
+ pa_local_traditions_reaffirmed:0 "Local Tradition Reaffirmed"
+ #Colony Rework
+ pa_new_colony_cooldown:0 "Newly Established Colony"
+ pa_new_colony_cooldown_desc:0 "This colony is still establishing itself and will reach maturity in 25 years.§YBuilding 3 Buildings§! or §YBuilding a Manufactory§! will finish the colony and make it a full province."
+ pa_new_colonial_nation:0 "Newly Established Colonial Nation"
+ pa_new_colonial_nation_colony:0 "New Established Colonial Nation Colony"
+ pa_new_colonial_nation_colony_desc:0 "§RThis colony is costing the overlord 2 ducats per month!§!" 
+ pa_new_colony_reduced_cost_1:0 "Reduced Colony Cost - §GExpansion Ideas§! "
+ pa_new_colony_reduced_cost_2:0 "Reduced Colony Cost"
+ pa_new_colony_reduced_cost_3:0 "Reduced Colony Cost - §GColonial Expansions§!"
+ pa_new_colony_increased_cost_1:0 "Increased Colony Cost - §R10 Colonies§! "
+ pa_new_colony_increased_cost_2:0 "Increased Colony Cost - §R25 Colonies§! "
+ pa_new_colony_increased_cost_3:0 "Increased Colony Cost - §R30 Colonies§! "
+ pa_new_colony_increased_cost_4:0 "Increased Colony Cost - §R35 Colonies§! "
+ pa_new_colony_increased_cost_native:0 "Increased Colony Cost - §RPrimitive Nation§! "
+ pa_new_colony_increased_cost_burgers_privilege:0 "Increased Colony Cost - §RNew World Charter§!"
+ pa_new_colonial_nation_colony_overlord_upkeep:0 ""
+ 
+ #US
+ usa_rugged_independence:0 "Rugged Independence"
+ usa_go_west_young_man:0 "Go west, Young man!"
+ usa_mississippi_mouth:0 "Mississippi Shipping Rights"
+ usa_southern_cash_crops:0 "Cash Crop Agriculture"
+ usa_western_settlers:0 "American Pioneers"
+ usa_interior_settlement:0 "Internal Settlement"
+ usa_fortify_florida:0 "Floridan Fortifications"
+ usa_carribean_plantations:0 "Caribbean Plantations"
+ usa_expediated_statehood:0 "Cuban State Capital"
+
+
+
+ #Trade
+ USA_TRADE_ST_LAWRENCE:0 "St. Lawrence Trade Fleet"
+ USA_TRADE_GREAT_LAKES:0 "Great Lakes Trade Fleet"
+ USA_TRADE_MISSISSIPPI:0 "Mississippi Trade Fleet"
+ USA_TRADE_CARRIBEAN:0 "Caribbean Private Trade Fleet"
+
+ #Estate
+ PA_SLAVERY_EXPANDED:0 "Slavery Expanded"
+
+ #Geography
+ nuuk_natural_harbor_modifier:0 "Nuuk Natural Harbor"
+ nuuk_natural_harbor_modifier_desc:0 "Controlling the natural harbor of Nuuk strengthens our hold of trade in the region."

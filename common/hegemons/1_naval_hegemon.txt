@@ -1,0 +1,53 @@
+naval_hegemon = {
+	allow = {
+		is_great_power = yes
+		if = {
+			limit = {
+				NOT = { has_country_flag = halve_hegemony_requirements }
+				NOT = { has_country_flag = jap_halve_naval_hegemony_requirements }
+			}
+			if = {
+				limit = {
+					has_government_attribute = to_hegemony_with_light_ships
+				}
+				OR = {
+					AND = {
+						num_of_light_ship = 400
+						NOT = { any_other_great_power = { num_of_light_ship = root } }
+					}
+					AND = {
+						num_of_heavy_ship = 250
+						NOT = { any_other_great_power = { num_of_heavy_ship = root } }
+					}
+				}
+			}
+			else = {
+				num_of_heavy_ship = 250
+				NOT = { any_other_great_power = { num_of_heavy_ship = root } }
+			}
+		}
+		else = { 
+			num_of_heavy_ship = 125
+			NOT = { any_other_great_power = { num_of_heavy_ship = root } }
+		}
+		NOT = { has_country_modifier = lost_hegemony }
+	}
+	
+	base = {
+		global_ship_trade_power = 0.2
+		war_exhaustion = -0.1
+		global_naval_engagement_modifier = 0.10
+	}
+	
+	# At max 100% tickup.
+	scale = {
+		reduced_liberty_desire = 20
+		global_sailors_modifier = 2.0
+		blockade_efficiency = 2.0
+	}
+	
+	max = {
+		backrow_artillery_damage = 0.20
+	}
+	
+}

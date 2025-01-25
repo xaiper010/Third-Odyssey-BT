@@ -1,0 +1,1289 @@
+country_decisions = {
+	
+	
+	#Rebuild the Chichen Itza city
+	msg_chichen_build = {
+		major = yes
+		potential = {
+			nhs_check_all_spartan = { CONDITION = tag }
+			has_country_flag = msg_no_itza
+		}	
+		
+		allow = {
+			owns = 846
+			stability = 1
+			if = {
+				limit = {
+					NOT = { has_dlc = "Leviathan" }
+				}
+				treasury = 150
+			}
+			if = {
+				limit = {
+					OR = {
+						ai = no
+						NOT = { has_dlc = "Leviathan" }
+					}
+				}
+				adm_power = 50
+				dip_power = 50
+				mil_power = 50
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				OR = {
+					advisor = fortification_expert
+					advisor = natural_scientist
+					dip = 4
+				}
+			}
+		}
+
+		effect = {
+			clr_country_flag = msg_no_itza
+			set_country_flag = msg_itza_project
+			add_prestige = 10
+			if = {
+				limit = {
+					OR = {
+						ai = no
+						NOT = { has_dlc = "Leviathan" }
+					}
+				}
+				add_adm_power = -50
+				add_dip_power = -50
+				add_mil_power = -50
+			}
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				custom_tooltip = msg_chicken_itza_enable_great_project_tt
+				if = {
+					limit = {
+						846 = {
+							to_has_great_project_at_least_at_tier_1 = {
+								TYPE = chichen_itza
+							}
+						}
+					}
+					846 = {
+						set_province_flag = msg_chichen_itza_upgrade_bonus
+						change_province_name = "Chichen Itza"
+						rename_capital = "Chichen Itza"
+						custom_tooltip = nhs_new_line_tt
+						add_base_tax = 2
+						add_base_production = 1
+						add_base_manpower = 2
+						change_religion = ROOT
+					}
+					if = {
+						limit = {
+							religion = pantheon_worship
+						}
+						custom_tooltip = nhs_new_line_tt
+						custom_tooltip = msg_enable_itza_temple_decision_tt
+					}
+				}
+				else = {
+					custom_tooltip = msg_upgrading_monument_rewards_tt
+				}
+			}
+			else = {
+				add_treasury = -150
+				custom_tooltip = nhs_new_line_tt
+				846 = {
+					add_permanent_province_modifier = {
+						name = "msg_itza_construction"
+						duration = -1
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_dlc = "Leviathan" }
+				OR = {
+					NOT = {
+						treasury = 200
+					}
+					num_of_loans = 1
+				}
+			}
+		}
+	}	
+	
+	#Rebuild Tenochtitlan
+	msg_tenoch_build = {
+		major = yes
+		potential = {
+			nhs_check_all_spartan = { CONDITION = tag }
+			had_country_flag = { flag = msg_teno_exodus days = 1825 }
+		}
+		
+		allow = {
+			owns = 852
+			stability = 1
+			if = {
+				limit = {
+					NOT = { has_dlc = "Leviathan" }
+				}
+				treasury = 400
+			}
+			if = {
+				limit = {
+					OR = {
+						ai = no
+						NOT = { has_dlc = "Leviathan" }
+					}
+				}
+				adm_power = 100
+				dip_power = 100
+				mil_power = 100
+				manpower = 3
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				OR = {
+					advisor = recruitmaster
+					advisor = statesman
+					mil = 5
+				}
+			}
+		}
+
+		effect = {
+			add_prestige = 10
+			if = {
+				limit = {
+					OR = {
+						ai = no
+						NOT = { has_dlc = "Leviathan" }
+					}
+				}
+				add_adm_power = -100
+				add_dip_power = -100
+				add_mil_power = -100
+				add_manpower = -3
+			}
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				set_country_flag = msg_teno_project
+				custom_tooltip = msg_tenochtitlan_enable_great_project_tt
+				if = {
+					limit = {
+						852 = {
+							to_has_great_project_at_least_at_tier_2 = {
+								TYPE = tenochtitlan
+							}
+						}
+					}
+					852 = {
+						remove_province_modifier = msg_teno_ruins
+						set_province_flag = nhs_msg_original_heartland
+						set_province_flag = msg_tenochtitlan_upgrade_bonus_1
+						set_province_flag = msg_tenochtitlan_upgrade_bonus_2
+						change_province_name = "Tenochtitlan"
+						rename_capital = "Tenochtitlan"
+						custom_tooltip = nhs_new_line_tt
+						add_base_tax = 4
+						add_base_production = 3
+						add_base_manpower = 5
+						change_religion = ROOT
+						change_culture = ROOT
+					}
+					if = {
+						limit = {
+							religion = aztlan_worship
+						}
+						custom_tooltip = nhs_new_line_tt
+						custom_tooltip = msg_enable_teotihuacan_decision_tt
+					}
+				}
+				else_if = {
+					limit = {
+						852 = {
+							to_has_great_project_at_least_at_tier_1 = {
+								TYPE = tenochtitlan
+							}
+						}
+					}
+					852 = {
+						remove_province_modifier = msg_teno_ruins
+						set_province_flag = nhs_msg_original_heartland
+						set_province_flag = msg_tenochtitlan_upgrade_bonus_1
+						change_province_name = "Tenochtitlan"
+						rename_capital = "Tenochtitlan"
+						custom_tooltip = nhs_new_line_tt
+						add_base_tax = 2
+						add_base_production = 1
+						add_base_manpower = 3
+						change_religion = ROOT
+						change_culture = ROOT
+					}
+					custom_tooltip = nhs_new_line_tt
+					custom_tooltip = msg_upgrading_tenochtitlan_monument_rewards_2_tt
+				}
+				else = {
+					852 = {
+						remove_province_modifier = msg_teno_ruins
+					}
+					custom_tooltip = msg_upgrading_tenochtitlan_monument_rewards_1_tt
+				}
+			}
+			else = {
+				add_treasury = -400
+				custom_tooltip = nhs_new_line_tt
+				852 = {
+					remove_province_modifier = msg_teno_ruins
+					add_permanent_province_modifier = {
+						name = "msg_teno_repaired"
+						duration = -1
+					}
+					add_base_tax = 1
+					add_base_manpower = 1
+					add_base_production = 1
+				}
+			}
+
+			clr_country_flag = msg_teno_exodus
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { has_dlc = "Leviathan" }
+				OR = {
+					NOT = {
+						treasury = 450
+					}
+					num_of_loans = 1
+				}
+			}
+		}
+	}
+
+	#Explore the Ghost City
+	msg_mictlan_explore = {
+		major = yes
+		potential = {
+			nhs_check_all_spartan = { CONDITION = tag }
+			has_country_flag = msg_no_ghost_city
+		}
+
+		allow = {
+			owns = 848
+			treasury = 50
+			mil_power = 50
+			stability = 1
+			OR = {
+				advisor = grand_captain
+				advisor = army_organiser
+				advisor = colonial_governor
+				dip = 4
+			}
+		}
+
+		effect = {
+			add_prestige = 5
+			add_treasury = -50
+			add_mil_power = -50
+			custom_tooltip = nhs_new_line_tt
+			country_event = { id = msg_conqevents.6 }
+			clr_country_flag = msg_no_ghost_city
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = {
+						treasury = 100
+					}
+					num_of_loans = 1
+				}
+			}
+		}
+	}
+	
+	#Rebuild Tikal
+	msg_tikal_rebuild = {
+		major = yes
+		potential = {
+			nhs_check_all_spartan = { CONDITION = tag }
+			has_country_flag = msg_no_tikal
+		}	
+
+		allow = {
+			owns = 842
+			stability = 1
+			if = {
+				limit = {
+					NOT = { has_dlc = "Leviathan" }
+				}
+				treasury = 400
+			}
+			if = {
+				limit = {
+					OR = {
+						ai = no
+						NOT = { has_dlc = "Leviathan" }
+					}
+				}
+				adm_power = 100
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				OR = {
+					advisor = grand_captain
+					advisor = army_organiser
+					advisor = colonial_governor
+					adm = 5
+					dip = 5
+					mil = 5
+				}
+			}
+		}
+
+		effect = {
+			set_country_flag = msg_tikal_project
+			add_prestige = 10
+			if = {
+				limit = {
+					OR = {
+						ai = no
+						NOT = { has_dlc = "Leviathan" }
+					}
+				}
+				add_adm_power = -100
+			}
+			clr_country_flag = msg_no_tikal
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				custom_tooltip = msg_tikal_enable_great_project_tt
+				if = {
+					limit = {
+						842 = {
+							to_has_great_project_at_least_at_tier_1 = {
+								TYPE = tikal
+							}
+						}
+					}
+					842 = {
+						set_province_flag = msg_tikal_upgrade_bonus
+						add_base_tax = 1
+						add_base_manpower = 1
+						add_base_production = 1
+						change_religion = ROOT
+					}
+				}
+				else = {
+					custom_tooltip = msg_upgrading_monument_rewards_tt
+				}
+			}
+			else = {
+				add_treasury = -400
+				custom_tooltip = nhs_new_line_tt
+				842 = {
+					add_permanent_province_modifier = {
+						name = "msg_tikal_repair"
+						duration = -1
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = { has_dlc = "Leviathan" }
+				factor = 0
+				OR = {
+					NOT = {
+						treasury = 450
+					}
+					num_of_loans = 1
+				}
+			}
+		}
+	}
+	
+	#Reform into Aztlan
+	msg_aztlan_reformation = {
+		major=yes
+		potential = {
+			tag = MSN
+			has_global_flag = aztlan_reformation
+			religion = pantheon_worship
+		
+		}
+		allow = {
+			has_country_modifier = nhs_high_priests
+			has_country_modifier = nhs_expanded_pantheon
+			stability = 1
+			adm_power = 50
+			dip_power = 50
+			mil_power = 50
+		}
+		effect = {
+			add_adm_power = -50
+			add_dip_power = -50
+			add_mil_power = -50
+			add_stability = -2
+			hidden_effect = {
+				country_event = { id = msg_religionevents.101 days = 1 }
+			}
+			change_religion = aztlan_worship
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Build a Port-Town north of Chichen Itza
+	msg_itza_port = {
+		major = yes
+		potential = {
+			tag = MSN
+			owns = 846
+			846 = { 
+				has_province_modifier = msg_itza_reconstructed
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+			is_year = 1550
+		}
+		
+
+		allow = {
+			846 = { has_province_modifier = msg_itza_reconstructed }
+			treasury = 500
+			dip_power = 100
+			stability = 1
+			OR = {
+				advisor = fortification_expert
+				advisor = trader
+				advisor = naval_reformer
+				dip = 5
+			}
+		}
+
+		effect = {
+			846 = {
+				nhs_set_center_of_trade_2 = yes
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_base_production = 2
+			}
+			add_prestige = 10
+			add_dip_power = -100
+			add_treasury = -500
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = {
+						treasury = 550
+					}
+					num_of_loans = 1
+				}
+			}
+		}
+	}
+	
+	#Make Cichen Itza a seat for a high priest
+	msg_itza_temple = {
+		major = yes
+		potential = {
+			nhs_check_all_spartan = { CONDITION = tag }
+			religion = pantheon_worship
+			846 = {
+				NOT = { has_province_flag = msg_itza_has_religious_center }
+			}
+			OR = {
+				846 = {
+					has_province_modifier = msg_itza_reconstructed 
+				}
+				846 = {
+					to_has_great_project_at_least_at_tier_1 = {
+						TYPE = chichen_itza
+					}
+				}
+			}
+		}
+		
+		allow = {
+			owns = 846
+			stability = 1
+			treasury = 200
+			adm_power = 100
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				846 = {
+					to_has_great_project_at_least_at_tier_1 = {
+						TYPE = chichen_itza
+					}
+				}
+			}
+			else = {
+				846 = { has_province_modifier = msg_itza_reconstructed }
+			}
+			has_country_modifier = nhs_high_priests
+			if = {
+				limit = {
+					ai = no
+				}
+				OR = {
+					advisor = theologian
+					advisor = inquisitor
+					advisor = artist
+					adm = 4
+				}
+			}
+		}
+
+		effect = {
+			add_prestige = 10
+			add_adm_power = -100
+			add_treasury = -200
+			846 = {
+				set_province_flag = msg_itza_has_religious_center
+				nhs_display_rel_center = yes
+				hidden_effect = {
+					add_province_triggered_modifier = religious_center
+				}
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_base_production = 1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = {
+						treasury = 250
+					}
+					num_of_loans = 1
+				}
+			}
+		}
+	}
+	
+	#Expand Tenochtitlan
+	msg_tenoch_expand = {
+		major = yes
+		potential = {
+			tag = MSN
+			NOT = { has_dlc = "Leviathan" }
+			owns = 852
+			852 = { 
+				has_province_modifier = msg_teno_repaired 
+				NOT = { has_province_modifier = msg_teno_expanding }
+				NOT = { has_province_modifier = msg_floating_city }
+			}
+		}	
+		
+
+		allow = {
+			treasury = 900
+			adm_power = 100
+			stability = 1
+			852 = { has_province_modifier = msg_teno_repaired }
+			OR = {
+				advisor = recruitmaster
+				advisor = natural_scientist
+				advisor = statesman
+				mil = 5
+			}
+		}
+
+		effect = {
+			set_country_flag = msg_teno_project
+			add_prestige = 10
+			add_treasury = -900
+			add_adm_power = -50
+			852 = {
+				remove_province_modifier = msg_teno_repaired
+				add_permanent_province_modifier = {
+					name = msg_teno_expanding
+					duration = -1
+				}
+			}
+			custom_tooltip = nhs_new_line_tt
+			country_event = { id = msg_conqevents.50 days = 3650 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = {
+						treasury = 900
+					}
+					num_of_loans = 1
+				}
+			}
+		}
+	}
+
+	#Build a great temple in Laconia (outcome changes depending on religion)
+	msg_great_temple = {
+		major = yes
+		
+		potential = {
+			nhs_check_all_spartan = { CONDITION = tag }
+			OR = {
+				religion_group = christian
+				religion = pantheon_worship
+				religion = aztlan_worship
+			}
+			has_country_flag = nhs_completed_msg_reforms
+			any_owned_province = {
+				has_province_flag = nhs_msg_original_capital
+			}
+			NOT = { has_global_flag = msg_great_temple }
+		}
+		
+		allow = {
+			treasury = 1200
+			adm_power = 200
+			mil_power = 200
+			stability = 2
+			if = {
+				limit = {
+					ai = no
+				}
+				OR = {
+					advisor = philosopher
+					advisor = artist
+					advisor = theologian
+					mil = 5
+					dip = 5
+					adm = 5
+				}
+			}	
+		}
+		effect = {
+			add_prestige = 20
+			add_treasury = -1200
+			add_adm_power = -200
+			add_mil_power = -200
+			if = {
+				limit = { religion = aztlan_worship }
+				country_event = { id = msg_religionevents.50 }
+			}
+			if = {
+				limit = { religion = pantheon_worship }
+				country_event = { id = msg_religionevents.51 }
+			}
+			if = {
+				limit = { religion_group = christian }
+				country_event = { id = msg_religionevents.52 }
+			}
+			set_global_flag = msg_great_temple
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = {
+						treasury = 1250
+					}
+					num_of_loans = 1
+				}
+			}
+		}
+	}
+	#Rebuild the Great temples of the moon and the sun if you are an aztlan worshiper
+	msg_teotihuacan = {
+		major = yes
+		
+		potential = {
+			nhs_check_all_spartan = { CONDITION = tag }
+			religion = aztlan_worship
+			852 = {
+				NOT = { has_province_flag = msg_sun_and_moon_temple }
+			}
+			OR = {
+				852 = {
+					has_province_modifier = msg_floating_city
+				}
+				852 = {
+					to_has_great_project_at_least_at_tier_2 = {
+						TYPE = tenochtitlan
+					}
+				}
+			}
+		}
+		
+		allow = {
+			owns = 852
+			treasury = 200
+			adm_power = 150
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				852 = {
+					to_has_great_project_at_least_at_tier_2 = {
+						TYPE = tenochtitlan
+					}
+				}
+			}
+			else = {
+				852 = { has_province_modifier = msg_floating_city }
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				OR = {
+					advisor = theologian
+					advisor = inquisitor
+					advisor = treasurer
+					adm = 5
+				}
+			}
+		}
+		
+		effect = {
+			add_treasury = -200
+			add_adm_power = -150
+			852 = {
+				set_province_flag = msg_sun_and_moon_temple
+				nhs_display_rel_center = yes
+				hidden_effect = {
+					add_province_triggered_modifier = religious_center
+				}
+				add_base_tax = 1
+				add_base_manpower = 1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = {
+						treasury = 250
+					}
+					num_of_loans = 1
+				}
+			}
+		}
+	}
+
+	#Build the Pitz Stadium
+	msg_pitz_stadium = {
+		major = yes
+		potential = {
+			tag = MSN
+			has_country_flag = msg_pitz_sport
+			any_owned_province = {
+				has_province_flag = nhs_msg_original_capital
+				controlled_by = ROOT
+			}
+			NOT = { has_global_flag = msg_pitz_built }
+		}
+
+		allow = {
+			treasury = 400
+			mil_power = 100
+			stability = 1
+			OR = {
+				advisor = natural_scientist
+				advisor = treasurer
+				advisor = master_of_mint
+				advisor = fortification_expert
+				mil = 4
+			}
+		}
+
+		effect = {
+			random_owned_province = {
+				limit = {
+					has_province_flag = nhs_msg_original_capital
+					controlled_by = ROOT
+					NOT = { has_province_modifier = msg_pitz_stadium }
+			 	}
+				add_permanent_province_modifier = {
+					name = "msg_pitz_stadium"
+					duration = -1
+				}
+				add_base_tax = 1
+			}
+			add_treasury = -400
+			add_mil_power = -100
+			set_global_flag = msg_pitz_built
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = {
+						treasury = 450
+					}
+					num_of_loans = 1
+				}
+			}
+		}
+	}
+
+	#Add a center of trade to Laconia
+	# msg_center_of_trade = {
+	# 	major = yes
+	# 	potential = {
+	# 		tag = MSN
+	# 		is_year = 1600
+	# 		any_owned_province = {
+	# 			has_province_flag = nhs_msg_original_capital
+	# 			controlled_by = ROOT
+	# 			#NOT = { province_has_center_of_trade_of_level = 2 }
+	# 		}
+	# 		NOT = { has_country_flag = msg_capital_port_done }
+	# 	}
+	# 	allow = {
+	# 		treasury = 300
+	# 		dip_power = 75
+	# 		stability = 1
+	# 		OR = {
+	# 			advisor = treasurer
+	# 			advisor = trader
+	# 			advisor = diplomat
+	# 			dip = 4
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 		random_owned_province = {
+	# 			limit = {
+	# 				has_province_flag = nhs_msg_original_capital
+	# 				controlled_by = ROOT
+	# 		 	}
+	# 			nhs_set_center_of_trade_2 = yes
+	# 			add_base_tax = 1
+	# 			add_base_production = 2
+	# 		}
+	# 		add_treasury = -300
+	# 		add_dip_power = -75
+	# 		set_country_flag = msg_capital_port_done
+	# 	}
+		
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 		modifier = {
+	# 			factor = 0
+	# 			OR = {
+	# 				NOT = {
+	# 					treasury = 350
+	# 				}
+	# 				num_of_loans = 1
+	# 			}
+	# 		}
+	# 	}
+	# }
+	
+	msg_remove_colonial_penalty = {
+		major = yes
+		potential = {
+			nhs_check_all_spartan = { CONDITION = tag }
+			has_country_modifier = nhs_msg_handicap_settlers
+		}
+		
+		allow = {
+			OR = {
+				has_institution = new_world_i
+				num_of_owned_provinces_with = {
+					value = 40
+					is_core = ROOT
+					OR = {
+						region = central_america_region
+						region = mexico_region
+					}
+				}
+			}
+		}
+
+		effect = {
+			remove_country_modifier = nhs_msg_handicap_settlers
+			set_country_flag = msg_beyond_meso
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	msg_break_pact_after_conquest = {
+		major = yes
+		potential = {
+			tag = MSN
+			any_country = {
+				OR = {
+					has_country_flag = msg_in_barbaroi_pact_with_MSN
+					has_country_flag = msg_in_viking_pact_with_MSN
+				}
+			}
+			has_global_flag = msg_did_one_nation_under_sparta_mission
+		}
+		
+		allow = {
+			stability = 1
+			dip_power = 200
+			OR = {
+				owns = 953
+				is_year = 1700
+			}
+		}
+		
+		effect = {
+			add_stability = -1
+			add_dip_power = -1
+			custom_tooltip = msg_break_pact_tooltip
+			hidden_effect = {
+				every_country = {
+					limit = {
+						OR = {
+							has_country_flag = msg_in_barbaroi_pact_with_MSN
+							has_country_flag = msg_in_viking_pact_with_MSN
+						}
+					}
+					clr_country_flag = msg_in_barbaroi_pact_with_MSN
+					clr_country_flag = msg_in_viking_pact_with_MSN
+					remove_historical_friend = MSN
+					add_historical_rival = MSN
+					add_opinion = {
+						who = MSN
+						modifier = msg_broke_pact
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_missionaries_aztlan = {
+		potential = {
+			OR = {
+				tag = MSN
+				num_of_cities = 20
+			}
+			religion = aztlan_worship
+			OR = {
+				capital_scope = {
+					continent = north_america
+				}
+				capital_scope = {
+					continent = south_america
+				}
+			}
+			any_known_country = {
+				OR = {
+					religion = totemism
+					religion = animism
+					religion = nahuatl
+					religion = mesoamerican_religion
+				}
+			}
+		}
+
+		allow = {
+			religion = aztlan_worship
+			if = {
+				limit = {
+					tag = MSN
+					has_reform = spartan_kingdom
+					NOT = { has_global_flag = msg_reforms_done }
+				}
+				has_reform = msg_aztlan_priesthood_yes
+			}
+			else = {
+				num_of_cities = 20
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				dip_power = 50
+			}
+			any_known_country = {
+				OR = {
+					custom_trigger_tooltip = {
+						tooltip = nhs_is_totemist_tt
+						religion = totemism
+					}
+					custom_trigger_tooltip = {
+						tooltip = nhs_is_animist_tt
+						religion = animism
+					}
+					custom_trigger_tooltip = {
+						tooltip = nhs_is_nahuatl_tt
+						religion = nahuatl
+					}
+					custom_trigger_tooltip = {
+						tooltip = nhs_is_mesoamerican_religion_tt
+						religion = mesoamerican_religion
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = nhs_not_recently_send_missionaries_to_tt
+					NOT = { has_country_modifier = nhs2_missionaries_cooldown_target }
+				}
+				has_opinion = { who = ROOT value = 0 }
+				NOT = { war_with = ROOT }
+				custom_trigger_tooltip = {
+					tooltip = to_has_totemist_nahuatl_mesoamerican_province_tt
+					any_owned_province = {
+						OR = {
+							religion = totemism
+							religion = animism
+							religion = nahuatl
+							religion = mesoamerican_religion
+						}
+					}
+				}
+				NOT = { border_distance = { who = ROOT distance = 200 } }
+			}
+			custom_trigger_tooltip = {
+				NOT = { has_country_modifier = nhs2_missionaries_cooldown }
+				tooltip = missionary_cooldown_tooltip
+			}
+		}
+
+		effect = {
+			if = {
+				limit = {
+					ai = no
+				}
+				add_dip_power = -50
+			}
+			custom_tooltip = nhs_herald_missionary_tooltip
+			hidden_effect = {
+				add_country_modifier = {
+					name = nhs2_missionaries_cooldown
+					duration = 1825
+					hidden = yes
+				}
+				random_country = {
+					limit = {
+						OR = {
+							religion = totemism
+							religion = nahuatl
+							religion = mesoamerican_religion
+						}
+						has_opinion = { who = ROOT value = 0 }
+						NOT = { war_with = ROOT }
+						NOT = { border_distance = { who = ROOT distance = 200 } }
+						NOT = { has_country_modifier = nhs2_missionaries_cooldown_target }
+						any_owned_province = {
+							OR = {
+								religion = totemism
+								religion = nahuatl
+								religion = mesoamerican_religion
+							}
+						}
+					}
+					add_country_modifier = {
+						name = nhs2_missionaries_cooldown_target
+						duration = 3650
+						hidden = yes
+					}
+					country_event = { id = msg_religionevents.60 }
+				}
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = nhs_specific_way_orthodox_tt
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					technology_group = north_american
+					technology_group = mesoamerican
+					technology_group = south_american
+					technology_group = andean
+				}
+			}
+		}
+	}
+
+	# #Establish the agoge, a public militaristic education system inspired by both the ancient spartans and the aztecs
+	# msg_agoge = {
+		# major = yes
+		
+		# potential = {
+			# is_year = 1590
+			# tag = MSN
+			# has_country_flag = nhs_msg_land3
+			# NOT = { has_country_flag = msg_agoge }
+		# }
+		
+		# allow = {
+			# treasury = 1000
+			# adm_power = 100
+			# mil_power = 200
+			# stability = 2
+			# OR = {
+				# advisor = treasurer
+				# advisor = recruitmaster
+				# advisor = quartermaster
+				# adm = 5
+				# dip = 5
+				# mil = 5
+			# }
+		# }
+		# effect = {
+			# add_stability = -1
+			# add_prestige = 10
+			# add_treasury = -1000
+			# add_adm_power = -100
+			# add_mil_power = -200
+			# set_country_flag = msg_agoge
+			# every_owned_province = {
+				# if = {
+					# limit = {
+						# OR = {
+							# culture = pipiltin
+							# culture = apogonoi
+						# }
+					# }
+					# add_permanent_province_modifier = {
+						# name = msg_heartland_agoge
+						# duration = -1
+					# }
+				# }
+				# if = {
+					# limit = {
+						# culture = pochteca
+					# }
+					# random = {
+						# chance = 80 
+						# add_permanent_province_modifier = {
+							# name = msg_agoge
+							# duration = -1
+						# }
+					# }
+				# }
+				# if = {
+					# limit = {
+						# culture = macehualtin
+					# }
+					# random = {
+						# chance = 50 
+						# add_permanent_province_modifier = { 
+							# name = msg_agoge
+							# duration = -1
+						# }
+					# }
+				# }
+			# }
+		# }
+		# ai_will_do = {
+			# factor = 1
+			# modifier = {
+				# factor = 0
+				# OR = {
+					# NOT = {
+						# treasury = 1050
+					# }
+					# num_of_loans = 1
+				# }
+			# }
+		# }
+	# }
+
+	#Establish the Lycurgus school (half the power of elysian library)
+	# msg_lycurgus_school = {
+	# 	major = yes
+		
+	# 	potential = {
+	# 		is_year = 1610
+	# 		tag = MSN
+	# 		has_country_flag = nhs_msg_land3
+	# 		has_country_flag = msg_agoge
+	# 		any_owned_province = {
+	# 			has_province_flag = nhs_msg_original_capital
+	# 			controlled_by = MSN
+	# 		}
+	# 		NOT = { has_global_flag = msg_lycurgus_built }
+	# 	}
+		
+	# 	allow = {
+	# 		treasury = 1000
+	# 		adm_power = 200
+	# 		mil_power = 200
+	# 		stability = 2
+	# 		OR = {
+	# 			advisor = philosopher
+	# 			advisor = artist
+	# 			dip = 5
+	# 			adm = 5
+	# 		}
+	# 	}
+	# 	effect = {
+	# 		add_prestige = 20
+	# 		add_treasury = -1000
+	# 		add_adm_power = -200
+	# 		add_mil_power = -200
+	# 		random_owned_province = {
+	# 		limit = {
+	# 				has_province_flag = nhs_msg_original_capital
+	# 				controlled_by = MSN
+	# 				NOT = { has_province_modifier = msg_lycurgus_school }
+	# 		 	}
+	# 			add_permanent_province_modifier = {
+	# 				name = "msg_lycurgus_school"
+	# 				duration = -1
+	# 			}
+	# 			add_base_tax = 2
+	# 			add_base_manpower = 1
+	# 			add_base_production = 1
+	# 		}
+	# 		set_global_flag = msg_lycurgus_built
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 		modifier = {
+	# 			factor = 0
+	# 			OR = {
+	# 				NOT = {
+	# 					treasury = 1050
+	# 				}
+	# 				num_of_loans = 1
+	# 			}
+	# 		}
+	# 	}
+	# }
+}
+
+
+	

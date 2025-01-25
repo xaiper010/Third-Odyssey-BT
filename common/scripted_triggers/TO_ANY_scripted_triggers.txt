@@ -1,0 +1,1162 @@
+to_building_counter_had_building = {
+	has_province_flag = $FLAG$_$BUILDING$
+}
+
+to_eligible_for_colonial_range_reduction = {
+	has_global_flag = nhs_europeans_tricked
+	NOT = { has_global_flag = nhs_europe_discovered }
+	# NOT = { is_year = 1550 }
+	NOT = { has_country_flag = nhs_portugese_secret }
+	OR = {
+		technology_group = western
+		technology_group = eastern
+		technology_group = ottoman
+		technology_group = muslim
+	}
+	capital_scope = { OR = { continent = europe region = anatolia_region } }
+	NOT = { has_country_modifier = byz_flight }
+}
+
+to_will_avoid_exploration_ideas = {
+	to_eligible_for_colonial_range_reduction = yes
+	NOT = { is_institution_enabled = new_world_i }
+}
+
+to_has_colonial_range_reduction = {
+	to_eligible_for_colonial_range_reduction = yes
+	NOT = { has_institution = new_world_i }
+}
+
+to_has_european_national_idea_range = {
+	OR = {
+		# has_idea_group = POR_ideas
+		has_idea = legacy_of_the_navigator
+		has_idea = call_of_our_forefathers
+		has_idea = couronian_colonization
+		has_idea = nrm_viking_explorers
+	}
+	# if = {
+	# 	limit = {
+
+	# 		has_idea = legacy_of_the_navigator
+	# 	}
+	# 	# has_idea_group = POR_ideas
+	# 	has_idea = legacy_of_the_navigator
+	# }
+	# else_if = {
+	# 	limit = {
+	# 		has_idea = call_of_our_forefathers
+	# 	}
+	# 	has_idea = call_of_our_forefathers
+	# }
+	# else_if = {
+	# 	limit = {
+	# 		has_idea = couronian_colonization
+	# 	}
+	# 	has_idea = couronian_colonization
+	# }
+	# else_if = {
+	# 	limit = {
+	# 		has_idea = nrm_viking_explorers
+	# 	}
+	# 	has_idea = nrm_viking_explorers
+	# }
+	# else = {
+	# 	always = no
+	# }
+}
+
+to_there_is_a_switchable_idea_group = {
+	OR = {
+		AND = {
+			adm_tech = 5
+			NOT = { adm_tech = 7 }
+			OR = {
+				has_idea_group = spy_ideas
+				has_idea_group = maritime_ideas
+				has_idea_group = indigenous_ideas
+				has_idea_group = administrative_ideas
+				has_idea_group = influence_ideas
+				has_idea_group = diplomatic_ideas
+				has_idea_group = innovativeness_ideas
+				has_idea_group = trade_ideas
+				has_idea_group = economic_ideas
+				has_idea_group = humanist_ideas
+				has_idea_group = religious_ideas
+				has_idea_group = plutocracy_ideas
+				has_idea_group = horde_gov_ideas
+				has_idea_group = theocracy_gov_ideas
+				has_idea_group = aristocracy_ideas
+				has_idea_group = naval_ideas
+				has_idea_group = offensive_ideas
+				has_idea_group = defensive_ideas
+				has_idea_group = quality_ideas
+				has_idea_group = quantity_ideas
+				has_idea_group = expansion_ideas
+				has_idea_group = infrastructure_ideas
+				has_idea_group = court_ideas
+				has_idea_group = mercenary_ideas
+			}
+		}
+		AND = {
+			adm_tech = 7
+			NOT = { adm_tech = 10 }
+			calc_true_if = {
+				amount = 2
+				has_idea_group = spy_ideas
+				has_idea_group = maritime_ideas
+				has_idea_group = indigenous_ideas
+				has_idea_group = administrative_ideas
+				has_idea_group = influence_ideas
+				has_idea_group = diplomatic_ideas
+				has_idea_group = innovativeness_ideas
+				has_idea_group = trade_ideas
+				has_idea_group = economic_ideas
+				has_idea_group = humanist_ideas
+				has_idea_group = religious_ideas
+				has_idea_group = plutocracy_ideas
+				has_idea_group = horde_gov_ideas
+				has_idea_group = theocracy_gov_ideas
+				has_idea_group = aristocracy_ideas
+				has_idea_group = naval_ideas
+				has_idea_group = offensive_ideas
+				has_idea_group = defensive_ideas
+				has_idea_group = quality_ideas
+				has_idea_group = quantity_ideas
+				has_idea_group = expansion_ideas
+				has_idea_group = infrastructure_ideas
+				has_idea_group = court_ideas
+				has_idea_group = mercenary_ideas
+			}
+		}
+		AND = {
+			adm_tech = 10
+			NOT = { adm_tech = 14 }
+			calc_true_if = {
+				amount = 3
+				has_idea_group = spy_ideas
+				has_idea_group = maritime_ideas
+				has_idea_group = indigenous_ideas
+				has_idea_group = administrative_ideas
+				has_idea_group = influence_ideas
+				has_idea_group = diplomatic_ideas
+				has_idea_group = innovativeness_ideas
+				has_idea_group = trade_ideas
+				has_idea_group = economic_ideas
+				has_idea_group = humanist_ideas
+				has_idea_group = religious_ideas
+				has_idea_group = plutocracy_ideas
+				has_idea_group = horde_gov_ideas
+				has_idea_group = theocracy_gov_ideas
+				has_idea_group = aristocracy_ideas
+				has_idea_group = naval_ideas
+				has_idea_group = offensive_ideas
+				has_idea_group = defensive_ideas
+				has_idea_group = quality_ideas
+				has_idea_group = quantity_ideas
+				has_idea_group = expansion_ideas
+				has_idea_group = infrastructure_ideas
+				has_idea_group = court_ideas
+				has_idea_group = mercenary_ideas
+			}
+		}
+		AND = {
+			adm_tech = 14
+			NOT = { adm_tech = 18 }
+			calc_true_if = {
+				amount = 4
+				has_idea_group = spy_ideas
+				has_idea_group = maritime_ideas
+				has_idea_group = indigenous_ideas
+				has_idea_group = administrative_ideas
+				has_idea_group = influence_ideas
+				has_idea_group = diplomatic_ideas
+				has_idea_group = innovativeness_ideas
+				has_idea_group = trade_ideas
+				has_idea_group = economic_ideas
+				has_idea_group = humanist_ideas
+				has_idea_group = religious_ideas
+				has_idea_group = plutocracy_ideas
+				has_idea_group = horde_gov_ideas
+				has_idea_group = theocracy_gov_ideas
+				has_idea_group = aristocracy_ideas
+				has_idea_group = naval_ideas
+				has_idea_group = offensive_ideas
+				has_idea_group = defensive_ideas
+				has_idea_group = quality_ideas
+				has_idea_group = quantity_ideas
+				has_idea_group = expansion_ideas
+				has_idea_group = infrastructure_ideas
+				has_idea_group = court_ideas
+				has_idea_group = mercenary_ideas
+			}
+		}
+		AND = {
+			adm_tech = 18
+			NOT = { adm_tech = 22 }
+			calc_true_if = {
+				amount = 5
+				has_idea_group = spy_ideas
+				has_idea_group = maritime_ideas
+				has_idea_group = indigenous_ideas
+				has_idea_group = administrative_ideas
+				has_idea_group = influence_ideas
+				has_idea_group = diplomatic_ideas
+				has_idea_group = innovativeness_ideas
+				has_idea_group = trade_ideas
+				has_idea_group = economic_ideas
+				has_idea_group = humanist_ideas
+				has_idea_group = religious_ideas
+				has_idea_group = plutocracy_ideas
+				has_idea_group = horde_gov_ideas
+				has_idea_group = theocracy_gov_ideas
+				has_idea_group = aristocracy_ideas
+				has_idea_group = naval_ideas
+				has_idea_group = offensive_ideas
+				has_idea_group = defensive_ideas
+				has_idea_group = quality_ideas
+				has_idea_group = quantity_ideas
+				has_idea_group = expansion_ideas
+				has_idea_group = infrastructure_ideas
+				has_idea_group = court_ideas
+				has_idea_group = mercenary_ideas
+			}
+		}
+		AND = {
+			adm_tech = 22
+			NOT = { adm_tech = 26 }
+			calc_true_if = {
+				amount = 6
+				has_idea_group = spy_ideas
+				has_idea_group = maritime_ideas
+				has_idea_group = indigenous_ideas
+				has_idea_group = administrative_ideas
+				has_idea_group = influence_ideas
+				has_idea_group = diplomatic_ideas
+				has_idea_group = innovativeness_ideas
+				has_idea_group = trade_ideas
+				has_idea_group = economic_ideas
+				has_idea_group = humanist_ideas
+				has_idea_group = religious_ideas
+				has_idea_group = plutocracy_ideas
+				has_idea_group = horde_gov_ideas
+				has_idea_group = theocracy_gov_ideas
+				has_idea_group = aristocracy_ideas
+				has_idea_group = naval_ideas
+				has_idea_group = offensive_ideas
+				has_idea_group = defensive_ideas
+				has_idea_group = quality_ideas
+				has_idea_group = quantity_ideas
+				has_idea_group = expansion_ideas
+				has_idea_group = infrastructure_ideas
+				has_idea_group = court_ideas
+				has_idea_group = mercenary_ideas
+			}
+		}
+		AND = {
+			adm_tech = 26
+			NOT = { adm_tech = 29 }
+			calc_true_if = {
+				amount = 7
+				has_idea_group = spy_ideas
+				has_idea_group = maritime_ideas
+				has_idea_group = indigenous_ideas
+				has_idea_group = administrative_ideas
+				has_idea_group = influence_ideas
+				has_idea_group = diplomatic_ideas
+				has_idea_group = innovativeness_ideas
+				has_idea_group = trade_ideas
+				has_idea_group = economic_ideas
+				has_idea_group = humanist_ideas
+				has_idea_group = religious_ideas
+				has_idea_group = plutocracy_ideas
+				has_idea_group = horde_gov_ideas
+				has_idea_group = theocracy_gov_ideas
+				has_idea_group = aristocracy_ideas
+				has_idea_group = naval_ideas
+				has_idea_group = offensive_ideas
+				has_idea_group = defensive_ideas
+				has_idea_group = quality_ideas
+				has_idea_group = quantity_ideas
+				has_idea_group = expansion_ideas
+				has_idea_group = infrastructure_ideas
+				has_idea_group = court_ideas
+				has_idea_group = mercenary_ideas
+			}
+		}
+		AND = {
+			adm_tech = 29
+			calc_true_if = {
+				amount = 8
+				has_idea_group = spy_ideas
+				has_idea_group = maritime_ideas
+				has_idea_group = indigenous_ideas
+				has_idea_group = administrative_ideas
+				has_idea_group = influence_ideas
+				has_idea_group = diplomatic_ideas
+				has_idea_group = innovativeness_ideas
+				has_idea_group = trade_ideas
+				has_idea_group = economic_ideas
+				has_idea_group = humanist_ideas
+				has_idea_group = religious_ideas
+				has_idea_group = plutocracy_ideas
+				has_idea_group = horde_gov_ideas
+				has_idea_group = theocracy_gov_ideas
+				has_idea_group = aristocracy_ideas
+				has_idea_group = naval_ideas
+				has_idea_group = offensive_ideas
+				has_idea_group = defensive_ideas
+				has_idea_group = quality_ideas
+				has_idea_group = quantity_ideas
+				has_idea_group = expansion_ideas
+				has_idea_group = infrastructure_ideas
+				has_idea_group = court_ideas
+				has_idea_group = mercenary_ideas
+			}
+		}
+	}
+}
+
+to_atlantic_trading_port = {
+	continent = europe
+	province_has_center_of_trade_of_level = 1
+	has_port = yes
+	sea_zone = {
+		region = north_atlantic_region
+	}
+}
+
+to_eligible_for_exploration_event = {
+	technology_group = western
+	adm_tech = 5
+	is_subject = no
+	OR = {
+		ai = no
+		AND = {
+			num_of_cities = 8
+			num_of_owned_provinces_with = {
+				value = 3
+				has_port = yes
+				continent = europe
+				sea_zone = {
+					region = north_atlantic_region
+				}
+			}
+		}
+	}
+	OR = {
+		tag = POR
+		AND = {
+			adm_tech = 7
+			OR = {
+				tag = GBR
+				tag = SPA
+				tag = CAS
+				tag = NED
+			}
+		}
+		AND = {
+			adm_tech = 10
+			OR = {
+				tag = ENG
+				tag = FRA
+				capital_scope = {
+					OR = {
+						region = france_region
+						region = iberia_region
+						region = british_isles_region
+						region = low_countries_region
+					}
+				}
+			}
+		}
+	}
+	any_owned_province = {
+		has_port = yes
+		continent = europe
+		sea_zone = {
+			region = north_atlantic_region
+		}
+	}
+}
+
+to_magellan_can_return = {
+	had_global_flag = {
+		flag = to_magellan_has_departed
+		days = 180
+	}
+}
+
+to_european_trading_port = {
+	to_atlantic_trading_port = yes
+	owner = {
+		technology_group = western
+	}
+}
+
+to_east_coast_province = {
+	sea_zone = {
+		OR = {
+			region = american_east_coast_region
+			region = caribbean_sea_region
+			region = atlantic_south_america_region
+		}
+	}
+}
+
+to_has_free_trade = {
+	OR = {
+		has_country_modifier = msg_free_trade
+		has_country_modifier = vov_free_trade
+		has_country_modifier = nhs2_elysian_free_trade
+	}
+}
+
+to_has_restricted_trade = {
+	OR = {
+		has_country_modifier = msg_restricted_trade
+		has_country_modifier = vov_restricted_trade
+		has_country_modifier = nhs2_elysian_restricted_trade
+	}
+}
+
+to_can_build_new_world_western_monument = {
+	# OR = {
+	# 	is_colonial_nation = yes
+	# 	is_former_colonial_nation = yes
+	# 	capital_scope = {
+	# 		NOT = { continent = north_america }
+	# 		NOT = { continent = south_america }
+	# 	}
+	# }
+	OR = {
+		technology_group = western
+		technology_group = eastern
+		culture_group = iberian
+	}
+}
+
+to_has_great_project_at_least_at_tier_1 = {
+	custom_trigger_tooltip = {
+		tooltip = to_has_$TYPE$_at_least_at_tier_1
+		has_great_project = {
+			type = $TYPE$
+			tier = 1
+		}
+		# OR = {
+		# 	has_great_project = {
+		# 		type = $TYPE$
+		# 		tier = 1
+		# 	}
+		# 	has_great_project = {
+		# 		type = $TYPE$
+		# 		tier = 2
+		# 	}
+		# 	has_great_project = {
+		# 		type = $TYPE$
+		# 		tier = 3
+		# 	}
+		# }
+	}
+}
+
+to_has_great_project_at_least_at_tier_2 = {
+	custom_trigger_tooltip = {
+		tooltip = to_has_$TYPE$_at_least_at_tier_2
+		has_great_project = {
+			type = $TYPE$
+			tier = 2
+		}
+		# OR = {
+		# 	has_great_project = {
+		# 		type = $TYPE$
+		# 		tier = 2
+		# 	}
+		# 	has_great_project = {
+		# 		type = $TYPE$
+		# 		tier = 3
+		# 	}
+		# }
+	}
+}
+
+to_has_great_project_at_exactly_tier_0 = {
+	has_great_project = {
+		type = $TYPE$
+		tier = 0
+	}
+	NOT = {
+		has_great_project = {
+			type = $TYPE$
+			tier = 1
+		}
+	}
+}
+
+to_has_great_project_at_exactly_tier_1 = {
+	has_great_project = {
+		type = $TYPE$
+		tier = 1
+	}
+	NOT = {
+		has_great_project = {
+			type = $TYPE$
+			tier = 2
+		}
+	}
+}
+
+to_has_great_project_at_exactly_tier_2 = {
+	has_great_project = {
+		type = $TYPE$
+		tier = 2
+	}
+	NOT = {
+		has_great_project = {
+			type = $TYPE$
+			tier = 3
+		}
+	}
+}
+
+to_can_develop_provinces = {
+	OR = {
+		has_institution = renaissance
+		NOT = {
+			capital_scope = {
+				OR = {
+					 continent = north_america
+					 continent = south_america
+				}
+			}
+		}
+	}
+}
+
+to_development_events_base_conditions = {
+	OR = {
+		continent = north_america
+		continent = south_america
+	}
+	NOT = { has_province_flag = nhs_had_dev_events_2 }
+	NOT = {	development = 8 }
+	NOT = { nhs_homelands = yes }
+	OR = {
+		has_owner_accepted_culture = yes
+		has_owner_culture = yes
+		culture_group = ROOT
+	}
+}
+
+to_guranteed_trade_good_salt = {
+	province_id = 5374
+}
+
+to_guranteed_trade_good_cloves = {
+	OR = {
+		area = molluca_area
+		area = spice_islands_area
+	}
+}
+
+# to_has_other_guranteed_trade_good = {
+# 	OR = {
+# 		[[!salt]
+# 		to_guranteed_trade_good_salt = yes
+# 		]
+# 		[[!cloves]
+# 		to_guranteed_trade_good_cloves = yes
+# 		]
+# 	}
+# }
+
+to_does_not_own_any_province_on_NA = {
+	custom_trigger_tooltip = {
+		tooltip = to_does_not_own_any_province_on_NA_tt
+		NOT = {
+			any_owned_province = {
+				continent = north_america
+			}
+		}
+	}
+}
+
+country_or_subject_or_ally_holds = {
+	custom_trigger_tooltip = {
+		tooltip = nhs_country_or_subject_or_ally_holds_tt
+		OR = {
+			country_or_subject_holds = $TAG$
+			owner = {
+				alliance_with = $TAG$
+			}
+		}
+	}
+}
+
+country_or_subject_or_ally_or_ally_subject_holds = {
+	custom_trigger_tooltip = {
+		tooltip = country_or_subject_or_ally_or_ally_subject_holds_tt
+		is_empty = no
+		OR = {
+			country_or_subject_holds = $TAG$
+			owner = {
+				OR = {
+					alliance_with = $TAG$
+					AND = {
+						is_subject = yes
+						overlord = {
+							OR = {
+								alliance_with = $TAG$
+								AND = {
+									is_subject = yes
+									overlord = {
+										OR = {
+											tag = $TAG$
+											alliance_with = $TAG$
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+to_is_added_country_trigger = {
+	OR = {
+		TAG = NHS
+		TAG = ELY
+		TAG = ELR
+		TAG = ERR
+		TAG = ER1
+		TAG = SHQ
+		TAG = KYK
+		TAG = HBN
+		TAG = AEG
+		TAG = CM1
+		TAG = ELF
+		TAG = ED0
+		TAG = ED1
+		TAG = ELA
+		TAG = SKY
+		TAG = BOR
+		TAG = HBR
+		TAG = HSP
+		TAG = LA1
+		TAG = VAE
+		TAG = MS1
+		TAG = MSN
+		TAG = VLA
+		TAG = HLL
+		TAG = MK1
+		TAG = JOM
+		TAG = VGD
+	}
+}
+
+country_or_subject_or_ally_or_ally_subject_holds_short_tooltip = {
+	custom_trigger_tooltip = {
+		tooltip = nhs_country_or_subject_or_ally_holds_tt
+		country_or_subject_or_ally_or_ally_subject_holds = { TAG = $TAG$ }
+	}
+}
+
+country_or_non_sovereign_subject_or_ally_holds_or_uncolonised = {
+	custom_trigger_tooltip = {
+		tooltip = nhs_country_or_subject_or_ally_holds_or_uncolonised_tt
+		OR = {
+			is_empty = yes
+			country_or_subject_or_ally_or_ally_subject_holds = { TAG = $TAG$ }
+		}
+	}
+}
+
+to_country_or_subject_or_subject_of_subject_holds = {
+	custom_trigger_tooltip = {
+		tooltip = to_country_or_subject_or_subject_of_subject_holds_$TAG$
+		OR = {
+			country_or_subject_holds = $TAG$
+			owner = {
+				is_subject = yes
+				overlord = {
+					is_subject_of = $TAG$
+					NOT = { is_subject_of_type = tributary_state }
+				}
+			}
+		}
+	}
+}
+
+to_can_receive_colonial_subsidies = {
+	OR = {
+		is_subject_of_type = vassal
+		is_subject_of_type = march
+		is_subject_of_type = personal_union
+		is_subject_of_type = client_vassal
+		is_subject_of_type = client_march
+		# is_subject_of_type = colony
+		# is_subject_of_type = crown_colony
+		# is_subject_of_type = private_enterprise
+		# is_subject_of_type = self_governing_colony
+		# is_subject_of_type = trade_protectorate
+
+		is_subject_of_type = elysian_subject
+		is_subject_of_type = nhs_imperial_associate
+		# is_subject_of_type = to_imperial_protectorate
+	}
+}
+
+to_disabled_navigator_advisor = {
+	owner = {
+		OR = {
+			to_has_colonial_range_reduction = yes
+			has_country_modifier = nhs_vov_population
+			has_country_modifier = nhs_constrained_resources
+		}
+	}
+}
+
+to_check_colonial_nation_restrictions_province = {
+	if = {
+		limit = {
+			ROOT = {
+				is_colonial_nation = yes
+			}
+		}
+		event_target:capital_province = {
+			colonial_region = PREV
+		}
+	}
+}
+
+is_in_north_america_superregions = {
+	OR = {
+		superregion = south_elysia_superregion
+		superregion = central_elysia_superregion
+		superregion = west_elysia_superregion
+		superregion = north_elysia_superregion
+		superregion = northeast_elysia_superregion
+		superregion = southeast_elysia_superregion
+		superregion = carribean_superregion
+	}
+}
+
+to_native_tech = {
+	OR = {
+		technology_group = north_american
+		technology_group = mesoamerican
+		technology_group = south_american
+		technology_group = andean
+	}
+}
+
+to_can_use_pt_colonial_treaties_elysium = {
+	OR = {
+		cb_on_primitives = yes
+		mission_completed = to_our_place_in_the_sun_mission
+		has_country_modifier = nhs_vov_organized_expansion
+	}
+	OR = {
+		mission_completed = to_looking_inwards_mission
+		FROM = {
+			OR = {
+				NOT = {
+					capital_scope = {
+						continent = north_america
+					}
+				}
+				is_former_colonial_nation = yes
+			}
+			# NOT = { nhs_exiles_tech = yes }
+			# NOT = { to_native_tech = yes }
+		}
+	}
+}
+
+to_can_use_pt_colonial_treaties_arkadia = {
+	OR = {
+		cb_on_primitives = yes
+		mission_completed = to_our_place_in_the_sun_mission
+		has_country_modifier = nhs_vov_organized_expansion
+	}
+	FROM = {
+		OR = {
+			NOT = {
+				capital_scope = {
+					continent = south_america
+				}
+			}
+			is_former_colonial_nation = yes
+		}
+		# NOT = { nhs_exiles_tech = yes }
+		# NOT = { to_native_tech = yes }
+	}
+}
+
+to_can_use_pt_colonial_treaties_australia = {
+	OR = {
+		cb_on_primitives = yes
+		mission_completed = to_across_the_eirenic_mission
+	}
+	FROM = {
+		OR = {
+			NOT = {
+				capital_scope = {
+					continent = oceania
+				}
+			}
+			is_former_colonial_nation = yes
+		}
+		# NOT = { nhs_exiles_tech = yes }
+		# NOT = { to_native_tech = yes }
+	}
+}
+
+to_cheaper_use_pt_colonial_treaties = {
+	mission_completed = to_looking_inwards_mission
+}
+
+to_has_claim_colonial_region_peace_treaty = {
+	has_country_flag = to_cannot_colonise_$COLONIAL_REGION$
+	NOT = {
+		had_country_flag = {
+			flag = to_cannot_colonise_$COLONIAL_REGION$
+			days = 7300
+		}
+	}
+}
+
+to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+	OR = {
+		to_has_claim_colonial_region_peace_treaty = {
+			COLONIAL_REGION = $COLONIAL_REGION$
+		}
+		AND = {
+			is_subject = yes
+			overlord = {
+				OR = {
+					to_has_claim_colonial_region_peace_treaty = {
+						COLONIAL_REGION = $COLONIAL_REGION$
+					}
+					AND = {
+						is_subject = yes
+						overlord = {
+							to_has_claim_colonial_region_peace_treaty = {
+								COLONIAL_REGION = $COLONIAL_REGION$
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+to_relative_economic_base_above = {
+	variable_arithmetic_trigger = {
+		export_to_variable = {
+			variable_name = relative_economic_base
+			value = stability
+		}
+		set_variable = {
+			which = relative_economic_base
+			value = 0
+		}
+		export_to_variable = {
+			variable_name = own_development
+			value = trigger_value:total_own_and_non_tributary_subject_development
+		}
+		change_variable = {
+			which = own_development
+			value = 10
+		}
+		divide_variable = {
+			which = own_development
+			value = 2
+		}
+		export_to_variable = {
+			variable_name = their_development
+			value = trigger_value:total_own_and_non_tributary_subject_development
+			who = FROM
+		}
+		change_variable = {
+			which = their_development
+			value = 10
+		}
+		divide_variable = {
+			which = their_development
+			value = 2
+		}
+
+		change_variable = {
+			which = own_development
+			value = 1
+		}
+		multiply_variable = {
+			which = their_development
+			which = their_development
+		}
+		divide_variable = {
+			which = their_development
+			value = 2
+		}
+		change_variable = {
+			which = their_development
+			value = 1
+		}
+
+		change_variable = {
+			which = relative_economic_base
+			which = own_development
+		}
+
+		divide_variable = {
+			which = relative_economic_base
+			which = their_development
+		}
+		multiply_variable = {
+			which = relative_economic_base
+			value = 30
+		}
+		subtract_variable = {
+			which = relative_economic_base
+			value = 90
+		}
+		check_variable = {
+			which = relative_economic_base
+			value = $VALUE$
+		}
+	}
+}
+
+to_conquest_of_rome_event_not_active = {
+	OR = {
+		NOT = { has_global_flag = to_conquest_of_rome_event_active }
+		had_global_flag = {
+			flag = to_conquest_of_rome_event_active
+			days = 365
+		}
+	}
+}
+
+to_has_abrahamic_religion = {
+	OR = {
+		religion_group = christian
+		religion_group = muslim
+		religion = jewish
+	}
+}
+
+to_has_locked_trade_good = {
+	OR = {
+		trade_goods = elysian_silk
+		trade_goods = skoros_silk
+		trade_goods = norse_mead
+		AND = {
+			trade_goods = naval_supplies
+			has_province_modifier = nhs2_ivos_naval_supplies_boost_tm
+		}
+	}
+}
+
+has_or_overlord_has = {
+	OR = {
+		AND = {
+			$TRIGGER$
+		}
+		AND = {
+			is_subject = yes
+			overlord = {
+				$TRIGGER$
+			}
+		}
+	}
+}
+
+to_can_build_shipyard = {
+	NOT = {
+		OR = {
+			has_great_project = {
+				type = nhs_elysian_arsenal
+				tier = 1
+			}
+			AND = {
+				area = chesapeake_area
+				950 = {
+					has_great_project = {
+						type = nhs_elysian_arsenal
+						tier = 3
+					}
+				}
+			}
+		}
+	}
+}
+
+##################################################
+# Missionary Strength from battles mechanic
+##################################################
+
+to_has_missionary_strength_from_battles_TIER = {
+	OR = {
+		has_province_modifier = to_missionary_strength_from_battles_$TIER$
+		has_province_modifier = to_missionary_strength_from_battles_inactive_$TIER$
+	}
+}
+
+to_has_missionary_strength_from_battles_active = {
+	OR = {
+		has_province_modifier = to_missionary_strength_from_battles_1
+		has_province_modifier = to_missionary_strength_from_battles_2
+		has_province_modifier = to_missionary_strength_from_battles_3
+		has_province_modifier = to_missionary_strength_from_battles_4
+	}
+}
+
+to_has_missionary_strength_from_battles_inactive = {
+	OR = {
+		has_province_modifier = to_missionary_strength_from_battles_inactive_1
+		has_province_modifier = to_missionary_strength_from_battles_inactive_2
+		has_province_modifier = to_missionary_strength_from_battles_inactive_3
+		has_province_modifier = to_missionary_strength_from_battles_inactive_4
+	}
+}
+
+to_has_missionary_strength_from_battles_correct_religion = {
+	# If you want this to work on other religions add more checks here
+	OR = {
+		AND = {
+			has_province_flag = to_missionary_strength_from_battles_aztlan
+			$COUNTRY_SCOPE$ = { religion = aztlan_worship }
+		}
+	}
+}
+
+to_has_missionary_strength_from_battles_incorrect_religion = {
+	# If you want this to work on other religions add more checks here
+	OR = {
+		AND = {
+			has_province_flag = to_missionary_strength_from_battles_aztlan
+			$COUNTRY_SCOPE$ = { NOT = { religion = aztlan_worship } }
+		}
+	}
+}
+
+to_has_range_reducing_modifier = {
+	OR = {
+		has_country_modifier = nhs_constrained_resources
+		has_country_modifier = nhs_vov_population
+		to_has_colonial_range_reduction = yes
+		has_country_modifier = nhs_msg_handicap_settlers
+	}
+}
+
+to_has_advanced_economic_reforms = {
+	OR = {
+		has_country_flag = to_show_advanced_economic_reforms
+
+		has_country_modifier = nhs2_elysian_restricted_trade
+		has_country_modifier = nhs2_elysian_free_trade
+		has_country_modifier = nhs2_elysian_isolationism
+		has_country_modifier = nhs2_ely_por_trade
+
+		# has_country_modifier = vov_restricted_trade
+		# has_country_modifier = vov_free_trade
+		# has_country_modifier = vov_isolationism
+
+		# has_country_modifier = msg_restricted_trade
+		# has_country_modifier = msg_free_trade
+		# has_country_modifier = msg_isolationism
+	}
+	NOT = { has_country_flag = to_hide_advanced_economic_reforms }
+}
+
+to_has_monopoly_estate_privilege_nobles = {
+	OR = {
+		has_estate_privilege = estate_nobles_monopoly_of_metals
+		has_estate_privilege = estate_nobles_monopoly_of_livestock
+		has_estate_privilege = estate_nobles_monopoly_of_gems
+	}
+}
+
+to_has_monopoly_estate_privilege_church = {
+	OR = {
+		has_estate_privilege = estate_church_monopoly_of_incense
+		has_estate_privilege = estate_church_monopoly_of_wool
+		has_estate_privilege = estate_church_monopoly_of_wine
+		has_estate_privilege = estate_church_monopoly_of_slaves
+	}
+}
+
+to_has_monopoly_estate_privilege_burghers = {
+	OR = {
+		has_estate_privilege = estate_burghers_monopoly_of_textiles
+		has_estate_privilege = estate_burghers_monopoly_of_dyes
+		has_estate_privilege = estate_burghers_monopoly_of_glass
+		has_estate_privilege = estate_burghers_monopoly_of_paper
+	}
+}
+
+to_overseas_colony_trigger = {
+	is_empty = no
+	is_city = no
+	# is_overseas = yes
+	NOT = { same_continent = capital }
+}
+
+to_owner_or_passable_border = {
+	OR = {
+		owned_by = PREV
+		AND = {
+			NOT = { owner = { has_government_attribute = to_no_institution_spread_across_borders } }
+			PREV = { owner = { NOT = { has_government_attribute = to_no_institution_spread_across_borders } } }
+		}
+	}
+}
+
+to_is_non_free_mercenary_company = {
+	NOT = { mercenary_company = merc_hakkapeliita_cavalry }
+	NOT = { mercenary_company = merc_prussian_volunteer_army }
+	NOT = { mercenary_company = merc_knights_templar }
+	NOT = { mercenary_company = merc_swiss_guard }
+	NOT = { mercenary_company = merc_large_hakkapeliita_cavalry }
+	NOT = { mercenary_company = merc_guerilla_hakkapeliita_cavalry }
+	NOT = { mercenary_company = merc_elite_hakkapeliita_cavalry }
+	NOT = { mercenary_company = merc_mongol_banner }
+	NOT = { mercenary_company = merc_swiss_canton_mercenaries }
+	NOT = { mercenary_company = merc_japanese_volunteers }
+	NOT = { mercenary_company = merc_militant_order_of_saint_joan }
+	NOT = { mercenary_company = merc_black_army }
+	NOT = { mercenary_company = merc_black_army_2 }
+	NOT = { mercenary_company = merc_tatar_vanguard }
+	NOT = { mercenary_company = merc_righteous_army }
+	NOT = { mercenary_company = merc_scouting_almogavars }
+	NOT = { mercenary_company = merc_skirmishing_almogavars }
+	NOT = { mercenary_company = merc_veteran_almogavars }
+
+	NOT = { mercenary_company = merc_epilektoi }
+	NOT = { mercenary_company = merc_varangian_guard }
+	NOT = { mercenary_company = merc_varangian_veterans }
+	NOT = { mercenary_company = merc_varangian_elite }
+	NOT = { mercenary_company = merc_vaeringjar }
+}
+
+to_in_colonial_region = {
+	OR = {
+		colonial_region = colonial_alaska
+		colonial_region = colonial_canada
+		colonial_region = colonial_eastern_america
+		colonial_region = colonial_louisiana
+		colonial_region = colonial_california
+		colonial_region = colonial_mexico
+		colonial_region = colonial_the_carribean
+		colonial_region = colonial_colombia
+		colonial_region = colonial_peru
+		colonial_region = colonial_la_plata
+		colonial_region = colonial_brazil
+		colonial_region = colonial_australia
+	}
+}

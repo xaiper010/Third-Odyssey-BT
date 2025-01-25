@@ -1,0 +1,2420 @@
+northwest_territories_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = northwest_territories
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = northwest_territories
+		}
+	}
+}
+
+
+columbia_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = columbia
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = columbia
+		}
+	}
+}
+
+
+alaska_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = alaska
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = alaska
+		}
+	}
+}
+
+
+australia_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = australia
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = australia
+		}
+	}
+}
+
+
+jalisco_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+		domestic_merchant_trigger = {
+			node = jalisco_trade
+		}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = jalisco_trade
+		}
+	}
+}
+
+
+yucatan_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+		domestic_merchant_trigger = {
+			node = yucatan_trade
+		}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = yucatan_trade
+		}
+	}
+}
+
+
+florida_straights_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+		domestic_merchant_trigger = {
+			node = florida_straights_trade
+		}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = florida_straights_trade
+		}
+	}
+}
+
+
+patagonia_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = patagonia
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = patagonia
+		}
+	}
+}
+
+
+amazonas_node_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = amazonas_node
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = amazonas_node
+		}
+	}
+}
+
+
+southern_australia_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = southern_australia
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = southern_australia
+		}
+	}
+}
+
+
+california_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = california
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = california
+		}
+	}
+}
+
+
+missouri_river_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+		domestic_merchant_trigger = {
+			node = missouri_river_trade
+		}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = missouri_river_trade
+		}
+	}
+}
+
+
+rio_grande_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = rio_grande
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = rio_grande
+		}
+	}
+}
+
+
+ohio_river_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = ohio_river_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = ohio_river_trade
+		}
+	}
+}
+
+
+mississippi_river_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = mississippi_river
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = mississippi_river
+		}
+	}
+}
+
+
+james_bay_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = james_bay
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = james_bay
+		}
+	}
+}
+
+
+ohio_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = ohio
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = ohio
+		}
+	}
+}
+
+
+laplata_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = laplata
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = laplata
+		}
+	}
+}
+
+
+cuiaba_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = cuiaba
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = cuiaba
+		}
+	}
+}
+
+
+lima_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = lima
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = lima
+		}
+	}
+}
+
+
+jalisco_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = jalisco_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = jalisco_trade
+		}
+	}
+}
+
+
+mexico_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = mexico
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = mexico
+		}
+	}
+}
+
+
+yucatan_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = yucatan_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = yucatan_trade
+		}
+	}
+}
+
+
+african_great_lakes_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = african_great_lakes
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = african_great_lakes
+		}
+	}
+}
+
+
+kongo_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = kongo
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = kongo
+		}
+	}
+}
+
+
+namibia_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = namibia_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = namibia_trade
+		}
+	}
+}
+
+
+zambezi_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = zambezi
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = zambezi
+		}
+	}
+}
+
+
+katsina_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = katsina
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = katsina
+		}
+	}
+}
+
+
+ethiopia_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = ethiopia
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = ethiopia
+		}
+	}
+}
+
+
+dongola_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = dongola_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = dongola_trade
+		}
+	}
+}
+
+
+timbuktu_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = timbuktu
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = timbuktu
+		}
+	}
+}
+
+
+girin_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = girin
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = girin
+		}
+	}
+}
+
+
+lhasa_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = lhasa
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = lhasa
+		}
+	}
+}
+
+
+burma_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = burma
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = burma
+		}
+	}
+}
+
+
+chengdu_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = chengdu
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = chengdu
+		}
+	}
+}
+
+
+gulf_of_siam_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = gulf_of_siam
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = gulf_of_siam
+		}
+	}
+}
+
+
+canton_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = canton
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = canton
+		}
+	}
+}
+
+
+the_moluccas_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = the_moluccas
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = the_moluccas
+		}
+	}
+}
+
+
+philippines_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = philippines
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = philippines
+		}
+	}
+}
+
+
+polynesia_node_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = polynesia_node
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = polynesia_node
+		}
+	}
+}
+
+
+nippon_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = nippon
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = nippon
+		}
+	}
+}
+
+
+hangzhou_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = hangzhou
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = hangzhou
+		}
+	}
+}
+
+
+xian_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = xian
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = xian
+		}
+	}
+}
+
+
+beijing_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = beijing
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = beijing
+		}
+	}
+}
+
+
+malacca_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = malacca
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = malacca
+		}
+	}
+}
+
+
+siberia_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = siberia
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = siberia
+		}
+	}
+}
+
+
+yumen_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = yumen
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = yumen
+		}
+	}
+}
+
+
+ganges_delta_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = ganges_delta
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = ganges_delta
+		}
+	}
+}
+
+
+doab_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = doab
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = doab
+		}
+	}
+}
+
+
+lahore_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = lahore
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = lahore
+		}
+	}
+}
+
+
+deccan_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = deccan
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = deccan
+		}
+	}
+}
+
+
+comorin_cape_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = comorin_cape
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = comorin_cape
+		}
+	}
+}
+
+
+gujarat_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = gujarat
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = gujarat
+		}
+	}
+}
+
+
+gulf_of_aden_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = gulf_of_aden
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = gulf_of_aden
+		}
+	}
+}
+
+
+hormuz_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = hormuz
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = hormuz
+		}
+	}
+}
+
+
+samarkand_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = samarkand
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = samarkand
+		}
+	}
+}
+
+
+persia_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = persia
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = persia
+		}
+	}
+}
+
+
+basra_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = basra
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = basra
+		}
+	}
+}
+
+
+pontus_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = pontus_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = pontus_trade
+		}
+	}
+}
+
+
+aleppo_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = aleppo
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = aleppo
+		}
+	}
+}
+
+
+astrakhan_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = astrakhan
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = astrakhan
+		}
+	}
+}
+
+
+kazan_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = kazan
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = kazan
+		}
+	}
+}
+
+
+zanzibar_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = zanzibar
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = zanzibar
+		}
+	}
+}
+
+
+cape_of_good_hope_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = cape_of_good_hope
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = cape_of_good_hope
+		}
+	}
+}
+
+
+ivory_coast_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = ivory_coast
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = ivory_coast
+		}
+	}
+}
+
+
+panama_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = panama
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = panama
+		}
+	}
+}
+
+
+brazil_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = brazil
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = brazil
+		}
+	}
+}
+
+
+florida_straights_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = florida_straights_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = florida_straights_trade
+		}
+	}
+}
+
+
+carribean_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = carribean_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = carribean_trade
+		}
+	}
+}
+
+
+chesapeake_bay_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = chesapeake_bay
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = chesapeake_bay
+		}
+	}
+}
+
+
+appalachia_trade_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = appalachia_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = appalachia_trade
+		}
+	}
+}
+
+
+st_lawrence_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = st_lawrence
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = st_lawrence
+		}
+	}
+}
+
+
+alexandria_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = alexandria
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = alexandria
+		}
+	}
+}
+
+
+tunis_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = tunis
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = tunis
+		}
+	}
+}
+
+
+safi_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = safi
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = safi
+		}
+	}
+}
+
+
+white_sea_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = white_sea
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = white_sea
+		}
+	}
+}
+
+
+murava_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = murava
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = murava
+		}
+	}
+}
+
+
+moscow_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = moscow_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = moscow_trade
+		}
+	}
+}
+
+
+crimea_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = crimea
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = crimea
+		}
+	}
+}
+
+
+kiev_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = kiev
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = kiev
+		}
+	}
+}
+
+
+novgorod_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = novgorod
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = novgorod
+		}
+	}
+}
+
+
+constantinople_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = constantinople
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = constantinople
+		}
+	}
+}
+
+
+aegean_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = aegean_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = aegean_trade
+		}
+	}
+}
+
+
+pest_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = pest
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = pest
+		}
+	}
+}
+
+
+krakow_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = krakow
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = krakow
+		}
+	}
+}
+
+
+ragusa_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = ragusa
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = ragusa
+		}
+	}
+}
+
+
+danzig_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = danzig_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = danzig_trade
+		}
+	}
+}
+
+
+baltic_sea_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = baltic_sea
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = baltic_sea
+		}
+	}
+}
+
+
+napoli_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = napoli
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = napoli
+		}
+	}
+}
+
+
+porto_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = porto_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = porto_trade
+		}
+	}
+}
+
+
+sevilla_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = sevilla
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = sevilla
+		}
+	}
+}
+
+
+valencia_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = valencia
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = valencia
+		}
+	}
+}
+
+
+venice_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = venice
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = venice
+		}
+	}
+}
+
+
+genua_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = genua
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = genua
+		}
+	}
+}
+
+
+wien_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = wien
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = wien
+		}
+	}
+}
+
+
+irish_sea_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = irish_sea
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = irish_sea
+		}
+	}
+}
+
+
+north_sea_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = north_sea
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = north_sea
+		}
+	}
+}
+
+
+lubeck_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = lubeck
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = lubeck
+		}
+	}
+}
+
+
+saxony_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = saxony
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = saxony
+		}
+	}
+}
+
+
+lyon_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = lyon_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = lyon_trade
+		}
+	}
+}
+
+
+bordeaux_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = bordeaux
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = bordeaux
+		}
+	}
+}
+
+
+rheinland_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = rheinland
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = rheinland
+		}
+	}
+}
+
+
+koeln_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = koeln_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = koeln_trade
+		}
+	}
+}
+
+
+rouen_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = rouen_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = rouen_trade
+		}
+	}
+}
+
+
+champagne_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = champagne
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = champagne
+		}
+	}
+}
+
+
+english_channel_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = english_channel
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = english_channel
+		}
+	}
+}
+
+
+darfur_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = darfur_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = darfur_trade
+		}
+	}
+}
+
+
+adrar_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = adrar_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = adrar_trade
+		}
+	}
+}
+
+
+tuat_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = tuat_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = tuat_trade
+		}
+	}
+}
+
+
+tripoli_trade_node_domestic_merchant_modifier = {
+	potential = {
+		always = yes
+	}
+	hidden = yes
+	trigger = {
+			domestic_merchant_trigger = {
+				node = tripoli_trade
+			}
+	}
+
+	on_activation = {
+	}
+
+	on_deactivation = {
+		domestic_merchant_effect = {
+			node = tripoli_trade
+		}
+	}
+}
+
+

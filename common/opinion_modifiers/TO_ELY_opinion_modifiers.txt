@@ -1,0 +1,390 @@
+##########################################################################
+# OPINION MODIFIERS ADDED BY THIRD ODYSSEY
+##########################################################################
+
+nhs_appreciates_pantheon = {
+	opinion = 75
+	max = 100
+	yearly_decay = 5
+}
+
+nhs_reduced_friction = {
+	opinion = 10
+	max = 10
+	yearly_decay = 1
+}
+
+nhs_accepted_gift = {
+	opinion = 120
+	yearly_decay = 2.5
+}
+
+nhs_generous_deal = {
+	opinion = 75
+	yearly_decay = 5
+}
+
+nhs_borderconflict_gold = {
+	opinion = -120
+	yearly_decay = 7.5
+	min = -40
+	years = 50
+}
+
+nhs_fears_demons = {
+	opinion = -25
+	min = -30
+	yearly_decay = 5
+}
+
+nhs_converted_orthodox = {
+	opinion = 25
+	max = 25
+	yearly_decay = 1
+}
+
+nhs_not_converted_orthodox = {
+	opinion = -25
+	min = -25
+	yearly_decay = 1
+}
+
+nhs_forced_culture_change = {
+	opinion = -100
+	yearly_decay = 5
+}
+
+nhs_constantinople_deal_op = {
+	opinion = 200
+	yearly_decay = 1
+}
+
+nhs_no_constantinople_deal_op = {
+	opinion = -50
+	yearly_decay = 2
+}
+
+
+is_iassociate = {
+	opinion = 25
+}
+
+is_iprotectorate = {
+	opinion = 25
+}
+
+is_elysian_governor = {
+	opinion = 100
+}
+
+nhs_msg_given_help_opinion = {
+	opinion = 100
+	yearly_decay = 1
+}
+
+nhs_msn_embraced_aztlan = {
+	opinion = -75
+	yearly_decay = 0.5
+}
+
+nhs_formed_greeko = {
+	opinion = 100
+	yearly_decay = 1
+}
+
+nhs_o_embraced_new_religion = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+nhs2_expansion = {
+	opinion = -50
+	yearly_decay = 0.5
+}
+
+nhs_natives_hw_denied_o = {
+	opinion = 100
+	yearly_decay = 1
+}
+
+nhs_took_patriarchate_reacted_opinion = {
+	opinion = -100
+	yearly_decay = 2
+}
+
+nhs_took_patriarchate_ignored_opinion = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+nhs_recognised_patriarch_o = {
+	opinion = 75
+	yearly_decay = 1
+}
+
+nhs_worships_demons = {
+	opinion = -100
+	yearly_decay = 4
+}
+
+nhs_naphta_deal = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+nhs_deception_por = {
+	opinion = -150
+	yearly_decay = 2
+}
+nhs_deception = {
+	opinion = -30
+	yearly_decay = 0.5
+}
+nhs_secret_ally = {
+	opinion = 100
+	yearly_decay = 1
+}
+nhs_por_trade_deal = {
+	opinion = 50
+}
+nhs_refused_trade_deal = {
+	opinion = -50
+	yearly_decay = 1
+}
+nhs_you_done_f_up = {
+	opinion = -200
+	yearly_decay = 2
+}
+nhs_dissapointed = {
+	opinion = -50
+	yearly_decay = 1
+}
+nhs_upheld_trade = {
+	opinion = 75
+	yearly_decay = 1
+}
+nhs_broke_the_deals = {
+	opinion = -100
+	yearly_decay = 2
+}
+denied_autocephaly = {
+	opinion = -50
+	yearly_decay = 1
+}
+recognized_autocephaly = {
+	opinion = 100
+	yearly_decay = 1
+}
+nhs_unchecked_expansion = {
+	opinion = 100
+	yearly_decay = 1
+}
+nhs_abandoned = {
+	opinion = -100
+	yearly_decay = 1
+}
+nhs_helped_in_need = {
+	opinion = 50
+	yearly_decay = 1
+}
+nhs_been_helped_in_need = {
+	opinion = 200
+	yearly_decay = 5
+}
+nhs2_jannisaries_angry = {
+	opinion = -50
+	yearly_decay = 1
+}
+nhs_first_contact_o = {
+	opinion = 25
+	yearly_decay = 1
+}
+
+to_por_hates_colonizers = {
+	opinion = -75
+}
+
+to_returned_rome_om = {
+	opinion = 25
+	yearly_decay = 1
+}
+
+to_executed_pope_om = {
+	opinion = -200
+	yearly_decay = 2
+}
+
+to_executed_pope_minor_om = {
+	opinion = -50
+	yearly_decay = 5
+}
+
+to_conquered_rome_om = {
+	opinion = -75
+	yearly_decay = 1
+}
+
+to_conquered_rome_minor_om = {
+	opinion = -40
+	yearly_decay = 1
+}
+
+to_executed_pope_severe_om = {
+	opinion = -400
+	yearly_decay = 2
+}
+
+to_executed_pope_minor_severe_om = {
+	opinion = -100
+	yearly_decay = 5
+}
+
+to_conquered_rome_severe_om = {
+	opinion = -150
+	yearly_decay = 1
+}
+
+to_conquered_rome_minor_severe_om = {
+	opinion = -80
+	yearly_decay = 1
+}
+
+to_sacked_rome_om = {
+	opinion = -400
+	yearly_decay = 1
+}
+
+to_sacked_rome_minor_om = {
+	opinion = -175
+	yearly_decay = 1
+}
+
+to_conquered_rome_pagan_om = {
+	opinion = -150
+	yearly_decay = 1
+}
+
+to_conquered_rome_pagan_small_om = {
+	opinion = -75
+	yearly_decay = 1
+}
+
+to_conquered_rome_pagan_minor_om = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+to_sacked_rome_severe_om = {
+	opinion = -800
+	yearly_decay = 1
+}
+
+to_sacked_rome_minor_severe_om = {
+	opinion = -400
+	yearly_decay = 1
+}
+
+to_conquered_rome_pagan_severe_om = {
+	opinion = -300
+	yearly_decay = 1
+}
+
+to_conquered_rome_pagan_small_severe_om = {
+	opinion = -125
+	yearly_decay = 1
+}
+
+to_conquered_rome_pagan_minor_severe_om = {
+	opinion = -75
+	yearly_decay = 1
+}
+
+to_varangian_ties_om = {
+	opinion = 30
+	yearly_decay = 1
+}
+
+to_disbanded_varangian_order_om = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+to_raided_by_varangians_om = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+to_raided_by_varangians_minor_om = {
+	opinion = -10
+	yearly_decay = 1
+}
+
+to_gave_hagia_sophia_to_greeks = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+to_gave_hagia_sophia_to_greeks_severe = {
+	opinion = -100
+	yearly_decay = 1
+}
+
+to_burned_hagia_sophia = {
+	opinion = -75
+	yearly_decay = 1
+}
+
+to_burned_hagia_sophia_severe = {
+	opinion = -150
+	yearly_decay = 1
+}
+
+to_expelled_turks = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+to_expelled_turks_severe = {
+	opinion = -200
+	yearly_decay = 1
+}
+
+to_kept_hre_bureaucracy_om = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+to_free_haven_pirate_opinion = {
+	opinion = 100
+}
+
+to_trade_expedition_opinion = {
+	opinion = 50
+	months = 240
+}
+
+to_burned_venice_om = {
+	opinion = 25
+	yearly_decay = 0.5
+}
+
+to_burned_venice_neg_om = {
+	opinion = -25
+	yearly_decay = 0.5
+}
+
+to_burned_venice_neg_severe_om = {
+	opinion = -50
+	yearly_decay = 0.5
+}
+
+to_burned_venice_ven_om = {
+	opinion = -200
+	yearly_decay = 2
+}
+
+# Still unused
+nhs_byz_deception = {
+	opinion = 60
+	yearly_decay = 0.5
+}

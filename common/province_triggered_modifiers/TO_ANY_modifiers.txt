@@ -1,0 +1,210 @@
+# Province Triggered modifiers are here.
+# These are added to provinces through the add_province_triggered_modifier effect
+#
+# Effects are fully scriptable here.
+
+to_yearly_event_pulse = {
+	potential = {
+	}
+	
+	#viewer = {
+	#}
+	trigger = {
+		is_month = 0
+		NOT = { is_month = 1 }
+	}
+		
+	#Province scope
+	on_activation = {
+		to_yearly_event_pulse_effect = yes
+		if = {
+			limit = {
+				NOT = { has_province_flag = to_two_year_pulse_cd }
+			}
+			set_province_flag = to_two_year_pulse_cd
+			to_two_year_event_pulse_1_effect = yes
+		}
+		else = {
+			clr_province_flag = to_two_year_pulse_cd
+			to_two_year_event_pulse_2_effect = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = to_three_year_event_pulse_counter
+						value = 1
+					}
+				}
+			}
+			to_three_year_event_pulse_1_effect = yes
+			change_variable = {
+				which = to_three_year_event_pulse_counter
+				value = 1
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = to_three_year_event_pulse_counter
+						value = 2
+					}
+				}
+			}
+			to_three_year_event_pulse_2_effect = yes
+			change_variable = {
+				which = to_three_year_event_pulse_counter
+				value = 1
+			}
+		}
+		else = {
+			to_three_year_event_pulse_3_effect = yes
+			set_variable = {
+				which = to_three_year_event_pulse_counter
+				value = 0
+			}
+		}
+	}
+	on_deactivation = {
+		
+	}
+
+}
+
+to_monthly_event_pulse = {
+	trigger = {
+		OR = {
+			is_month = 11
+			AND = {
+				is_month = 9
+				NOT = { is_month = 10 }
+			}
+			AND = {
+				is_month = 7
+				NOT = { is_month = 8 }
+			}
+			AND = {
+				is_month = 5
+				NOT = { is_month = 6 }
+			}
+			AND = {
+				is_month = 3
+				NOT = { is_month = 4 }
+			}
+			AND = {
+				is_month = 1
+				NOT = { is_month = 2 }
+			}
+		}
+	}
+
+	on_activation = {
+		to_monthly_pulse_effect = yes
+	}
+	on_deactivation = {
+		to_monthly_pulse_effect = yes
+	}
+}
+
+to_dynamic_cot_tm = {
+	picture = "local_build_time"
+
+	potential = {
+		is_city = yes
+		has_province_modifier = to_dynamic_cot
+		if = {
+			limit = {
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+			base_production = 6
+			development = 15
+			OR = {
+				has_building = marketplace
+				has_building = trade_depot
+				has_building = stock_exchange
+			}
+		}
+	}
+
+	trigger = {
+		if = {
+			limit = {
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+			hidden_trigger = {
+				owner = {
+					NOT = { has_country_flag = to_dynamic_cot_event_open }
+				}
+			}
+			base_production = 6
+			development = 15
+			OR = {
+				has_building = marketplace
+				has_building = trade_depot
+				has_building = stock_exchange
+			}
+		}
+		else = {
+			province_has_center_of_trade_of_level = 1
+		}
+	}
+
+	on_activation = {
+		hidden_effect = {
+			remove_province_triggered_modifier = to_dynamic_cot_tm
+		}
+		if = {
+			limit = {
+				province_has_center_of_trade_of_level = 1
+			}
+			remove_province_modifier = to_dynamic_cot
+		}
+		else_if = {
+			limit = {
+				owner = {
+					NOT = { has_country_flag = to_dynamic_cot_event_open }
+				}
+			}
+			province_event = { id = to_dynamic_cot.2 }
+		}
+	}
+}
+
+to_hold_triumph_war_activator = {
+	trigger = {
+		953 = {
+			is_empty = no
+			owner = {
+				is_at_war = yes
+			}
+		}
+	}
+
+	on_activation = {
+		953 = {
+			owner = {
+				if = {
+					limit = {
+						to_unlocked_hold_triumph_mechanic = yes
+					}
+					if = {
+						limit = {
+							to_is_triumph_active = yes
+						}
+						set_country_flag = to_triumph_war_timer
+						remove_country_modifier = to_triumph_peace
+						add_country_modifier = {
+							name = to_triumph_war
+							duration = 720
+							hidden = yes
+						}
+					}
+					else = {
+						country_event = { id = nhs_monuments.14 }
+					}
+				}
+			}
+		}
+	}
+}

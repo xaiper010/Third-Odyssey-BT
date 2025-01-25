@@ -1,0 +1,381 @@
+country_decisions = {
+	msg_reform_land = {
+		major = yes
+		potential = {
+			ai = yes
+			has_reform = msg_reform_land_ref_no
+		}
+		allow = {
+			adm_power = 50
+			government_reform_progress = 50
+		}
+		effect = {
+			add_adm_power = -50
+			change_government_reform_progress = -50
+			add_government_reform = msg_reform_land_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_reform_trade_ports = {
+		major = yes
+		potential = {
+			ai = yes
+			has_reform = msg_unreformed_trade_ports
+		}
+		allow = {
+			dip_power = 50
+			num_of_ports = 10
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_reform_trade_ports_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_reform_gold_mine = {
+		major = yes
+		potential = {
+			ai = yes
+			has_reform = msg_unreformed_gold_mines
+		}
+		allow = {
+			dip_power = 50
+			government_reform_progress = 50
+			num_of_owned_provinces_with = {
+				value = 3
+				trade_goods = gold
+				is_state = yes
+			}
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_reform_gold_mine_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_court_reform = {
+		major = yes
+		potential = {
+			ai = yes
+			has_reform = msg_court_reform_no
+		}
+		allow = {
+			mil_power = 50
+			num_of_cities = 25
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_court_reform_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_diplomats = {
+		major = yes
+		potential = {
+			ai = yes
+			has_reform = msg_diplomats_no
+		}
+		allow = {
+			dip_power = 50
+			OR = {
+				num_of_cities = 25
+				NOT = {
+					any_country = {
+						technology_group = mesoamerican
+						capital_scope = {
+							province_group = mesoamerica_pgroup
+						}
+						NOT = {
+							is_subject_of = ROOT
+						}
+					}
+				}
+			}
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_diplomats_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_naval_reform = {
+		major = yes
+		potential = {
+			ai = yes
+			has_reform = msg_naval_reform_no
+		}
+		allow = {
+			mil_power = 50
+			sailors = 500
+			num_of_ports = 10
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_naval_reform_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_spartan_heralds = {
+		major = yes
+		potential = {
+			ai = yes
+			religion = pantheon_worship
+			has_reform = msg_spartan_heralds_no
+		}
+		allow = {
+			adm_power = 50
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_spartan_heralds_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_native_deities = {
+		major = yes
+		potential = {
+			ai = yes
+			religion = pantheon_worship
+			has_reform = msg_native_deities_no
+		}
+		allow = {
+			adm_power = 50
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_native_deities_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_deify_leonidas = {
+		major = yes
+		potential = {
+			ai = yes
+			religion = pantheon_worship
+			has_reform = msg_deify_leonidas_no
+		}
+		allow = {
+			adm_power = 50
+			custom_trigger_tooltip = {
+				tooltip = msg_leonidas_dead
+				NOT = { has_ruler_modifier = msg_has_leonidas }
+			}
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_deify_leonidas_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_aztlan_priesthood = {
+		major = yes
+		potential = {
+			ai = yes
+			religion = aztlan_worship
+			has_reform = msg_aztlan_priesthood_no
+		}
+		allow = {
+			adm_power = 50
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_aztlan_priesthood_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_old_faith = {
+		major = yes
+		potential = {
+			ai = yes
+			religion = aztlan_worship
+			has_reform = msg_old_faith_no
+		}
+		allow = {
+			adm_power = 50
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_old_faith_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_sacrifice = {
+		major = yes
+		potential = {
+			ai = yes
+			religion = aztlan_worship
+			has_reform = msg_sacrifice_no
+		}
+		allow = {
+			adm_power = 50
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_sacrifice_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_spartan_patriarch = {
+		major = yes
+		potential = {
+			ai = yes
+			OR = {
+				religion = elysian_orthodoxy
+				religion = orthodox
+			}
+			has_reform = msg_spartan_patriarch_no
+		}
+		allow = {
+			adm_power = 50
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_spartan_patriarch_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_holy_army = {
+		major = yes
+		potential = {
+			ai = yes
+			OR = {
+				religion = elysian_orthodoxy
+				religion = orthodox
+			}
+			has_reform = msg_holy_army_no
+		}
+		allow = {
+			owns_or_non_sovereign_subject_of = 852
+			owns_or_non_sovereign_subject_of = 846
+			mil_power = 50
+			manpower = 5
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_holy_army_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	msg_saint_leo = {
+		major = yes
+		potential = {
+			ai = yes
+			OR = {
+				religion = elysian_orthodoxy
+				religion = orthodox
+			}
+			has_reform = msg_saint_leo_no
+		}
+		allow = {
+			adm_power = 50
+			custom_trigger_tooltip = {
+				tooltip = msg_leonidas_dead
+				NOT = { has_ruler_modifier = msg_has_leonidas }
+			}
+			government_reform_progress = 50
+		}
+		effect = {
+			change_government_reform_progress = -50
+			add_government_reform = msg_saint_leo_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	msg_crush_nobles = {
+		major = yes
+		potential = {
+			ai = yes
+			NOT = { has_reform = msg_crush_nobles_ref }
+			has_reform = spartan_kingdom
+		}
+		allow = {
+			mil_power = 100
+			adm_power = 100
+			dip_power = 100
+			has_reform = msg_government3_ref
+			has_reform = msg_economy3_ref
+			if = {
+				limit = {
+					religion = pantheon_worship
+				}
+				has_reform = msg_hellenic3_ref
+			}
+			else_if = {
+				limit = {
+					religion = aztlan_worship
+				}
+				has_reform = msg_aztlan3_ref
+			}
+			else_if = {
+				limit = {
+					OR = {
+						religion = orthodox
+						religion = elysian_orthodoxy
+					}
+				}
+				has_reform = msg_christian3_ref
+			}
+		}
+		effect = {
+			add_government_reform = msg_crush_nobles_ref
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -1,0 +1,429 @@
+vov_handle_coastal_bonus = {
+	if = {
+		limit = {
+			to_vov_eligible_for_coastal_bonus = yes
+		}
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						primary_culture = varangian_e
+						culture_group = norse_g
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_province_modifier = vov_coastal_bonus
+				}
+				remove_province_modifier = vov_coastal_bonus
+			}
+			add_province_modifier = {
+				name = vov_coastal_bonus_norse
+				duration = -1
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					has_province_modifier = vov_coastal_bonus_norse
+				}
+				remove_province_modifier = vov_coastal_bonus_norse
+			}
+			add_province_modifier = {
+				name = vov_coastal_bonus
+				duration = -1
+			}
+		}
+	}
+}
+
+vov_handle_coastal_bonus_all_owned_provinces = {
+	every_owned_province = {
+		limit = {
+			to_vov_eligible_for_coastal_bonus = yes
+		}
+		vov_handle_coastal_bonus = yes
+	}
+}
+
+vov_handle_culture_change_on_coastal_bonus = {
+	if = {
+		limit = {
+			to_vov_eligible_for_coastal_bonus = yes
+			owner = {
+				OR = {
+					primary_culture = varangian_e
+					culture_group = norse_g
+				}
+			}
+			NOT = { has_province_flag = to_static_colonial_culture }
+		}
+		owner = {
+			PREV = {
+				change_culture = PREV
+				change_religion = PREV
+			}
+		}
+	}
+}
+
+vov_handle_grand_forestries = {
+	if = {
+		limit = {
+			has_province_modifier = nhs_grand_forestries_modifier
+			OR = {
+				NOT = { owner = { has_idea = grand_forestries } }
+				NOT = { trade_goods = naval_supplies }
+			}
+		}
+		remove_province_modifier = nhs_grand_forestries_modifier
+	}
+	else_if = {
+		limit = {
+			trade_goods = naval_supplies
+			NOT = { has_province_modifier = nhs_grand_forestries_modifier }
+			owner = { has_idea = grand_forestries }
+		}
+		add_province_modifier = { 
+			name = nhs_grand_forestries_modifier
+			duration = -1
+			hidden = yes
+		}
+	}
+}
+
+vov_setup_coastal_bonus = {
+	every_province = {
+		limit = {
+			to_vov_eligible_for_coastal_bonus = yes
+		}
+		vov_handle_coastal_bonus = yes
+	}
+}
+
+vov_handle_brave_the_elements = {
+	if = {
+		limit = {
+			owner = { has_idea = brave_the_elements }
+			OR = {
+				has_climate = tropical
+				has_climate = arid
+				has_climate = arctic
+			}
+			NOT = { has_province_modifier = nhs_brave_the_elements_modifier1 }
+			NOT = { has_province_modifier = nhs_brave_the_elements_modifier2 }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_climate = tropical
+					has_climate = arid
+				}
+			}
+			add_province_modifier = {
+				name = nhs_brave_the_elements_modifier1
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				has_climate = arctic
+			}
+			add_province_modifier = {
+				name = nhs_brave_the_elements_modifier2
+				duration = -1
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_province_modifier = nhs_brave_the_elements_modifier1
+				has_province_modifier = nhs_brave_the_elements_modifier2
+			}
+			NOT = { owner = { has_idea = grand_forestries } }
+		}
+		remove_province_modifier = nhs_brave_the_elements_modifier1
+		remove_province_modifier = nhs_brave_the_elements_modifier2
+	}
+}
+
+to_vov_remove_viking_trade_deal = {
+	reverse_add_opinion = { who = $TAG$ modifier = nhs_broken_trade }
+	remove_historical_friend = $TAG$
+	$TAG$ = {
+		hidden_effect = {
+			remove_opinion = {
+				who = ROOT
+				modifier = nhs_vov_trade1
+			}
+			remove_opinion = {
+				who = ROOT
+				modifier = nhs_vov_trade2
+			}
+			reverse_remove_opinion = {
+				who = ROOT
+				modifier = nhs_vov_trade1
+			}
+			reverse_remove_opinion = {
+				who = ROOT
+				modifier = nhs_vov_trade2
+			}
+		}
+		tooltip = {
+			remove_historical_friend = ROOT
+		}
+		if = {
+			limit = {
+				always = $OFFENDER$
+			}
+			country_event = { id = nhs_vov_coloniesevents.25 }
+		}
+	}
+}
+
+to_vov_remove_markland_trade_deal = {
+	if = {
+		limit = {
+			OR = {
+				has_country_modifier = nhs_vov_markland_deal
+				has_country_modifier = nhs_vov_markland_deal_after
+			}
+		}
+		remove_country_modifier = nhs_vov_markland_deal
+		remove_country_modifier = nhs_vov_markland_deal_after
+		to_vov_remove_viking_trade_deal = { TAG = MK1 OFFENDER = $OFFENDER$ }
+		custom_tooltip = nhs_new_line_tt
+	}
+}
+
+to_vov_remove_helluland_trade_deal = {
+	if = {
+		limit = {
+			OR = {
+				has_country_modifier = nhs_vov_helluland_deal
+				has_country_modifier = nhs_vov_helluland_deal_after
+			}
+		}
+		remove_country_modifier = nhs_vov_helluland_deal
+		remove_country_modifier = nhs_vov_helluland_deal_after
+		to_vov_remove_viking_trade_deal = { TAG = HLL OFFENDER = $OFFENDER$ }
+		custom_tooltip = nhs_new_line_tt
+	}
+}
+
+to_vov_remove_vinland_trade_deal = {
+	if = {
+		limit = {
+			OR = {
+				has_country_modifier = nhs_vov_vinland_deal
+				has_country_modifier = nhs_vov_vinland_deal_after
+			}
+		}
+		remove_country_modifier = nhs_vov_vinland_deal
+		remove_country_modifier = nhs_vov_vinland_deal_after
+		to_vov_remove_viking_trade_deal = { TAG = VLA OFFENDER = $OFFENDER$ }
+		custom_tooltip = nhs_new_line_tt
+	}
+}
+
+to_vov_trade_deal_add_friend_and_opinion = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = nhs_first_trade_deal }
+		}
+		reverse_add_opinion = {
+			who = $TAG$
+			modifier = nhs_vov_trade1
+		}
+	}
+	else = {
+		reverse_add_opinion = {
+			who = $TAG$
+			modifier = nhs_vov_trade2
+		}
+	}
+	add_historical_friend = $TAG$
+	$TAG$ = {
+		tooltip = {
+			add_historical_friend = ROOT
+		}
+	}
+}
+
+to_vov_break_trade_deal_vikings = {
+	reverse_add_opinion = { who = $TAG$ modifier = nhs_broken_trade }
+	remove_historical_friend = $TAG$
+	$TAG$ = {
+		tooltip = {
+			remove_historical_friend = ROOT
+		}
+		country_event = { id = nhs_vov_coloniesevents.27 }
+	}
+}
+
+to_nhs_assign_correct_vinlandic_culture = {
+	if = {
+		limit = {
+			owner = {
+				is_subject_of_type = elysian_subject_varangian
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					PREV = {
+						culture = PREV
+					}
+				}
+			}
+			custom_tooltip = to_owner_culture_tt
+			hidden_effect = {
+				owner = {
+					PREV = {
+						change_culture = PREV
+					}
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_country_flag = to_vin_vatnmadr_culture
+			}
+			region = great_lakes_region
+		}
+		if = {
+			limit = {
+				NOT = { culture = vatnmadr }
+			}
+			change_culture = vatnmadr
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_country_flag = to_vin_west_vinlandic_culture
+			}
+			OR = {
+				region = cascadia_region
+				region = rocky_mountains_region
+			}
+		}
+		if = {
+			limit = {
+				NOT = { culture = west_vinlandic }
+			}
+			change_culture = west_vinlandic
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_country_flag = to_vin_vollrmadr_culture
+			}
+			region = great_plains_region
+		}
+		if = {
+			limit = {
+				NOT = { culture = vollrmadr }
+			}
+			change_culture = vollrmadr
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_country_flag = to_vin_rusnidr_culture
+			}
+			region = california_region
+		}
+		if = {
+			limit = {
+				NOT = { culture = rusnidr }
+			}
+			change_culture = rusnidr
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_country_flag = to_vin_islander_culture
+			}
+			region = carribeans_region
+		}
+		if = {
+			limit = {
+				NOT = { culture = islander }
+			}
+			change_culture = islander
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_country_flag = to_vin_arimadr_culture
+			}
+			OR = {
+				region = central_america_region
+				region = mexico_region
+			}
+		}
+		if = {
+			limit = {
+				NOT = { culture = arimadr }
+			}
+			change_culture = arimadr
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				has_country_flag = to_vin_south_vinlandic_culture
+			}
+			continent = south_america
+		}
+		if = {
+			limit = {
+				NOT = { culture = south_vinlandic }
+			}
+			change_culture = south_vinlandic
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				NOT = { primary_culture = varangian_n }
+			}
+			OR = {
+				region = canada_region
+				region = greenland_region
+			}
+		}
+		if = {
+			limit = {
+				NOT = { culture = vinlandic }
+			}
+			change_culture = vinlandic
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				PREV = {
+					culture = PREV
+				}
+			}
+		}
+		custom_tooltip = to_owner_culture_tt
+		hidden_effect = {
+			owner = {
+				PREV = {
+					change_culture = PREV
+				}
+			}
+		}
+	}
+}

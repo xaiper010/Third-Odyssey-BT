@@ -1,0 +1,272 @@
+# Scripted triggers with arguments that are very generic to 3rd Odyssey
+
+
+# -- GENERIC --
+
+# Check if TAG exists and given CONDITION matches it
+nhs_tag_exists_and_matches = {
+	if = {
+		limit = {
+			exists = $TAG$
+		}
+		$CONDITION$ = $TAG$
+	}
+}
+
+nhs_exiles_tech = {
+	OR = {
+		technology_group = exiled_greek
+		technology_group = exiled_spartan
+		technology_group = viking
+	}
+}
+
+
+# -- ELYSIAN --
+
+# Check if the culture is 'functionally Elysian'
+# Use: nhs_culturally_elysian = yes
+nhs_post_fragmentation_culturally_elysian = {
+	culture_group = byzantine
+	NOT = { primary_culture = greek }
+	NOT = { primary_culture = pontic_greek }
+	NOT = { primary_culture = goths }
+}
+
+# Check if the culture is 'functionally Elysian'
+# Use: nhs_culturally_elysian = yes
+nhs_culturally_elysian = {
+	culture_group = byzantine
+	OR = {
+		to_pre_romaic_greek_primary = yes
+		AND = {
+			nhs_post_fragmentation_culturally_elysian = yes
+			NOT = {
+				# Exclude 'Norse' Elysian
+				primary_culture = varangian_e
+			}
+			NOT = {
+				# Exclude 'Spartan' Elysian
+				primary_culture = lakonian
+			}
+			NOT = {
+				# Exclude 'Albanian' Elysian
+				primary_culture = shqipproi
+			}
+		}
+	}
+}
+
+# -- VINLAND --
+
+# Check if CONDITION matches any Vinlandic nation
+# Use: nhs_check_all_vinland = { CONDITION = tag }
+nhs_check_all_vinland = {
+	OR = {
+		$CONDITION$ = MK1
+		$CONDITION$ = HLL
+		$CONDITION$ = VLA
+	}
+}
+
+# Check if CONDITION matches any Norse nation
+# Use: nhs_check_all_norse = { CONDITION = tag }
+nhs_check_all_norse = {
+	OR = {
+		nhs_check_all_vinland = { CONDITION = $CONDITION$ }
+		$CONDITION$ = JOM  # Jomsvikings
+		$CONDITION$ = VGD  # Varangian Order
+	}
+}
+
+# Check if the culture is 'functionally Norse'
+# Use: nhs_culturally_norse = yes
+nhs_culturally_norse = {
+	OR = {
+		culture_group = norse_g
+		primary_culture = varangian_e
+	}
+}
+
+
+# -- SPARTAN --
+
+# Check if CONDITION matches any Spartan nation
+# Use: nhs_check_all_spartan = { CONDITION = tag }
+nhs_check_all_spartan = {
+	OR = {
+		$CONDITION$ = MS1
+		$CONDITION$ = MSN
+	}
+}
+
+# Check if CONDITION matches any Spartan nation, but check whichever exists first
+# Use: nhs_check_all_spartan_with_if = { CONDITION = tag }
+nhs_check_all_spartan_with_if = {
+	if = {
+		limit = {
+			exists = MS1
+		}
+		$CONDITION$ = MS1
+	}
+	else_if = {
+		limit = {
+			exists = MSN
+		}
+		$CONDITION$ = MSN
+	}
+}
+
+nhs_check_existing_spartan_tags_with_full_condition = {
+	OR = {
+		AND = {
+			exists = MS1
+			MS1 = {
+				$CONDITION$
+			}
+		}
+		AND = {
+			exists = MSN
+			MSN = {
+				$CONDITION$
+			}
+		}
+	}
+}
+
+# Check if CONDITION matches any Spartan nation, but check whichever exists first
+# Takes both left and right side of the condition argument
+# Use: nhs_check_all_spartan_with_if_complex = { CONDITION = tag }
+nhs_check_all_spartan_with_if_complex = {
+	if = {
+		limit = {
+			exists = MS1
+		}
+		$CONDITION$ = $ARGUMENT$
+	}
+	else_if = {
+		limit = {
+			exists = MSN
+		}
+		$CONDITION$ = $ARGUMENT$
+	}
+}
+
+# Check if the culture is 'functionally Spartan'
+# Use: nhs_culturally_spartan = yes
+nhs_culturally_spartan = {
+	OR = {
+		culture_group = spartakian_group
+		primary_culture = lakonian
+	}
+}
+
+
+# -- Albanian --
+
+# Check if the culture is 'functionally Albanian'
+# Use: nhs_culturally_albanian = yes
+nhs_culturally_albanian = {
+	OR = {
+		primary_culture = shqipproi
+		primary_culture = shqiperi
+		AND = {
+			primary_culture = albanian
+			capital_scope = {
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+			}
+		}
+	}
+}
+
+# -- Exiles --
+
+# Check if CONDITION matches any exiled nation
+# Use: nhs_check_all_exiles = { CONDITION = tag }
+nhs_check_all_exiles = {
+	OR = {
+		nhs_check_all_elysian_tags_expanded = { CONDITION = $CONDITION$ }
+		nhs_check_all_norse = { CONDITION = $CONDITION$ }
+		nhs_check_all_spartan = { CONDITION = $CONDITION$ }
+		# Include minor exiles
+		$CONDITION$ = SHQ  # Shqiperi
+	}
+}
+
+# Check if a province has a native culture
+nhs_culturally_native = {
+	custom_trigger_tooltip = {
+		tooltip = nhs_culturally_native_tt
+		OR = {
+			native_culture = yes
+			mesoamerican_native_culture = yes
+			southamerican_native_culture = yes
+		}
+	}
+}
+
+# Check if a country has a native primary culture
+nhs_culturally_native_primary = {
+	custom_trigger_tooltip = {
+		tooltip = nhs_culturally_native_tt
+		OR = {
+			native_culture_primary = yes
+			mesoamerican_native_culture_primary = yes
+			southamerican_native_culture_primary = yes
+		}
+	}
+}
+
+to_has_canal_construction = {
+	OR = {
+		has_construction = kiel_canal
+		has_construction = panama_canal
+		has_construction = suez_canal
+		has_construction = kiel_canal_outward_boost
+		has_construction = suez_canal_outward_boost
+		has_construction = panama_canal_outward_boost
+	}
+}
+
+to_no_or_has_defeated_RELIGION_dof = {
+	OR = {
+		custom_trigger_tooltip = {
+			tooltip = to_no_$RELIGION$_dof_tt
+			NOT = {
+				any_country = {
+					is_defender_of_faith = yes
+					religion = $RELIGION$
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_saved_global_event_target = to_$RELIGION$_dof
+				event_target:to_$RELIGION$_dof = {
+					religion = $RELIGION$
+					is_defender_of_faith = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = to_defeated_$RELIGION$_dof_specific_tt
+				event_target:to_$RELIGION$_dof = {
+					ROOT = {
+						has_won_war_against = {
+							who = PREV
+							max_years_since = 30
+						}
+					}
+				}
+			}
+		}
+		else = {
+			custom_trigger_tooltip = {
+				tooltip = to_defeated_$RELIGION$_dof_tt
+				always = no
+			}
+		}
+	}
+}

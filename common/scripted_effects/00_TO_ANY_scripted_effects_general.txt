@@ -1,0 +1,1028 @@
+# country
+to_on_startup = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = to_setup_done }
+		}
+		to_set_up_empty_province_flags = yes
+		vov_setup_coastal_bonus = yes
+		to_remove_tribal_land = yes
+		to_nat_set_development = yes
+		to_nat_tribal_development_setup = yes
+		to_nat_migratory_development_setup = yes
+		to_set_lakonian_culture_potential = yes
+		to_set_up_nodlc_coal = yes
+		every_country = {
+			to_non_abrahamic_conversion_penalty_check_country = yes
+		}
+		give_all_provids = yes
+		every_province = {
+			limit = {
+				OR = {
+					is_empty = yes
+					is_colony = yes
+				}
+			}
+			to_check_native_size = yes
+		}
+		1501 = {
+			add_province_triggered_modifier = to_yearly_event_pulse
+			add_province_triggered_modifier = to_monthly_event_pulse
+			add_province_triggered_modifier = to_hold_triumph_war_activator
+		}
+		to_dynamic_cot_setup = yes
+		to_setup_exarch_merchant_counters = yes
+		to_set_initial_exarch_targets = yes
+		to_achievement_setup = yes
+		set_global_flag = to_setup_done
+	}
+	to_check_dlc_locked_army_reforms = yes
+	to_check_venetian_control_modifiers = yes
+	to_check_ironman = yes
+
+	# Ensuring compatibility, remove later
+	to_ongoing_fixes = yes
+}
+
+to_set_up_nodlc_coal = {
+	if = {
+		limit = {
+			NOT = { has_dlc = "Rule Britannia" }
+		}
+		every_province = {
+			limit = {
+				nhs_has_coal = yes
+				NOT = { has_province_modifier = nhs2_lantent_coal_tm }
+			}
+			add_permanent_province_modifier = {
+				name = nhs2_lantent_coal
+				duration = -1
+			}
+			add_province_triggered_modifier = nhs2_lantent_coal_tm
+		}
+	}
+}
+
+to_set_up_empty_province_flags = {
+	every_province = {
+		if = {
+			limit = {
+				is_empty = yes
+			}
+			set_province_flag = nhs_is_empty_province
+		}
+		else_if = {
+			limit = {
+				has_province_flag = nhs_is_empty_province
+			}
+			clr_province_flag = nhs_is_empty_province
+		}
+	}
+}
+
+to_yearly_event_pulse_effect = {
+	to_trigger_hellenic_festival_tombola = yes
+
+	to_trigger_hellenic_disaster_random_event = yes
+	to_trigger_pagan_assemblies_event = yes
+	to_trigger_inquisition_event = yes
+	to_trigger_ai_silk_assignment_event = yes
+	to_yearly_achievement_check = yes
+}
+
+to_two_year_event_pulse_1_effect = {
+}
+
+to_two_year_event_pulse_2_effect = {
+}
+
+to_three_year_event_pulse_1_effect = {
+}
+
+to_three_year_event_pulse_2_effect = {
+}
+
+to_three_year_event_pulse_3_effect = {
+}
+
+to_monthly_pulse_effect = {
+	to_trigger_exarch_ownership_events = yes
+	to_culture_adaptation_progress_routine = yes
+	to_elysian_highways_progress_routine = yes
+	to_administrative_burden_check_subject_penalty = yes
+	to_roman_janissaries_check = yes
+	to_compute_gateway_to_elysium_trade_share = yes
+	to_check_arsenal_efficiency = yes
+	to_monthly_exarch_modifiers_check = yes
+	to_monthly_achievement_check = yes
+}
+
+to_handle_colonies = {
+	if = {
+		limit = {
+			has_province_flag = nhs_is_empty_province
+			is_empty = no
+			owner = {
+				has_native_government = yes
+				NOT = { has_reform = native_settle_down_reform }
+				NOT = { num_of_cities = 2 }
+			}
+			# OR = {
+			# 	is_capital = yes
+			# 	owner = {
+			# 		can_migrate = yes
+			# 		NOT = { num_of_cities = 2 }
+			# 	}
+			# }
+		}
+		# HANDLE NATIVE MIGRATION
+		clr_province_flag = nhs_is_empty_province
+		clr_province_flag = nhs_is_colony
+		to_nat_on_migrate_province = yes
+	}
+	else_if = {
+		limit = {
+			NOT = { has_province_flag = nhs_is_empty_province }
+			is_empty = yes
+		}
+		on_colony_destroyed = yes
+		set_province_flag = nhs_is_empty_province
+		clr_province_flag = nhs_is_colony
+		change_tribal_land = ---
+		to_check_native_size = yes
+		to_nat_remove_local_migratory_development = yes
+		to_nat_restore_local_tribal_development = yes
+	}
+}
+
+##scope = colony province, FROM = owner country or province if there's a minority expulsion source, fires when the colony is created
+to_on_colony_established = {
+	clr_province_flag = nhs_is_empty_province
+	set_province_flag = nhs_is_colony
+	to_half_colonysize_add = yes
+
+	vov_handle_culture_change_on_coastal_bonus = yes
+	nhs_settler_boost_on_colony_created = yes
+	handle_nhs_native_priv_inclusive_citizenship_modifier = yes
+	handle_to_vov_native_priv_benevolent_conquerors_modifier = yes
+	to_nat_handle_colonise_own_culture_modifier = yes
+	to_nat_handle_colonise_foreign_culture_modifier = yes
+	to_nat_handle_native_expansion_modifier = yes
+	to_nat_handle_expand_overseas_modifier = yes
+	to_handle_embrace_mercantilism_colonial_modifier = yes
+
+	to_ab_increase_colony_penalty = { SCOPE = owner }
+	to_destroy_forbidden_colonies = yes
+}
+
+on_colony_destroyed = {
+	remove_province_modifier = nhs_native_priv_inclusive_citizenship_mod
+	to_ab_decrease_colony_penalty = { SCOPE = FROM }
+}
+
+#ROOT - Province
+to_on_colony_finished = {
+	clr_province_flag = nhs_is_colony
+	to_check_province_transfer_to_overlord_colony = yes
+
+	to_european_immigration_effect = yes
+	handle_nhs_native_priv_ancestral_land_colony_finished = yes
+	to_nat_tribal_displacement_obtain_local_plunder = { PROVINCE_SCOPE = ROOT COUNTRY_SCOPE = owner }
+	to_nat_remove_tribal_development = yes
+	to_nat_handle_colonise_own_culture_modifier = yes
+	to_nat_handle_colonise_foreign_culture_modifier = yes
+	to_nat_handle_native_expansion_modifier = yes
+	to_nat_handle_expand_overseas_modifier = yes
+	handle_nhs_native_priv_inclusive_citizenship_colony_finished = yes
+	handle_to_vov_native_priv_benevolent_conquerors_colony_finished = yes
+	handle_to_nhs_estate_nhs_nobles_land_sale_privilege_colony_finished = yes
+	to_varangian_expedition_on_colony_finished = yes
+	vov_handle_culture_change_on_coastal_bonus = yes
+	to_handle_embrace_mercantilism_colonial_modifier = yes
+
+	to_nhs_handle_capital_area_cores_colonisation = yes
+
+	to_nhs_handle_post_disaster_tolerance_modifier = yes
+	to_nhs_handle_lots_of_people_modifiers = yes
+	nhs_handle_naphtha = yes
+	to_ab_decrease_colony_penalty = { SCOPE = owner }
+	to_check_exarch_province_colony_finished = yes
+
+	province_event = { id = to_nat_tribal_development.1 }
+	clr_province_flag = to_static_colonial_culture
+}
+
+# province
+# FROM = old owner
+to_on_province_owner_change = {
+	to_check_province_transfer_to_overlord_colony = yes
+	to_nat_on_conquered_migratory_development = yes
+	to_handle_colonies = yes
+	vov_handle_grand_forestries = yes
+	msg_handle_slaves = yes
+	to_handle_fort_manpower = yes
+	to_nhs_handle_capital_area_cores_conquest = yes
+	# nhs_assign_names_effect = yes
+	vov_handle_coastal_bonus = yes
+	vov_handle_brave_the_elements = yes
+	province_recalculate_estate_privileges_effect_natives = yes
+	handle_to_vov_native_priv_freedom_of_worship_modifier = yes
+	to_nat_handle_colonise_own_culture_modifier = yes
+	to_nat_handle_colonise_foreign_culture_modifier = yes
+	to_nat_handle_native_expansion_modifier = yes
+	to_nat_handle_expand_overseas_modifier = yes
+	to_nat_handle_grand_confederation_modifier = yes
+	to_handle_greek_immigration_modifier = yes
+	to_nat_remove_tribal_development = yes
+	to_culture_adaptation_on_owner_change = yes
+	to_culture_integrated_on_owner_change = yes
+	to_handle_exarch_autonomy_modifier = yes
+	nhs_handle_naphtha = yes
+	nhs_handle_supply_lines = yes
+	nhs_handle_base_of_operations = yes
+	to_nhs_handle_exemption_from_hellenic_disaster = yes
+	to_nhs_handle_post_disaster_tolerance_modifier = yes
+	to_nhs_handle_inwards_path_province_modifiers = yes
+	to_assemble_an_invasion_force_mission_handle_modifiers = yes
+	to_handle_new_patriarch_modifier = yes
+	to_handle_traditional_patriarch_modifier = yes
+	to_check_exarch_claims_on_province_gained = yes
+	to_check_exarch_claims_on_province_lost = yes
+	to_triumph_province_counter_check = yes
+	to_handle_elysian_penal_colony_modifier = yes
+	to_japanese_boost_check = yes
+	to_handle_para_bellum_modifier = yes
+	to_non_abrahamic_conversion_penalty_check_province = yes
+	to_check_missionary_strength_from_battles = yes
+	to_handle_familiar_administration_modifier = yes
+	to_cultureshock_check = yes
+	to_check_separatism_in_turkish_provinces = yes
+	to_check_separatism_in_christian_roman_and_sunni_levantine_provinces = yes
+	to_check_separatism_in_latin_provinces = yes
+	to_check_dynatoi_garrisons = yes
+	to_check_greek_religion_approach = {}
+	to_add_ia_upon_conquest = yes
+	to_remove_revolution_if_you_cannot_get_it = yes
+	to_handle_embrace_mercantilism_colonial_modifier = yes
+	to_handle_war_economy_province_modifier = yes
+	to_handle_cash_crops_province_modifier = yes
+	#to_handle_autarky_province_modifier = yes
+	to_handle_mercantile_nation_cot_boost_modifier = yes
+	to_handle_naval_bateries_give_defensivness_modifier = yes
+	to_on_enclave_conquered = yes
+	to_check_spared_from_greek_fire = yes
+	to_check_discouraged_recruits = yes
+	to_handle_wineries = yes
+	to_check_arsenal_efficiency_on_province_lost = yes
+	to_on_varangian_headquarters_removed = yes
+	to_check_exarch_merchant_counter = yes
+	to_check_kastrioti_dominion_modifier = yes
+	to_check_familiar_administration_in_albania_modifier = yes
+	to_check_exarch_aid_cost = { SCOPE = owner ADJUST = 1 }
+	to_check_exarch_aid_cost = { SCOPE = FROM ADJUST = -1 }
+	to_check_crack_down_on_heresy_validity = { SCOPE = FROM }
+	to_on_province_owner_change_achievement_check = yes
+	to_check_exarch_accepted_culture = yes
+	to_check_exarch_province = yes
+	to_check_exarch_incorrect_province = yes
+
+	clr_province_flag = to_separatism_restore_pending
+
+	if = {
+		limit = {
+			to_homelands_building_counter_trigger = yes
+			owner = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+		to_homelands_building_counter_eval_local_province = yes
+	}
+	else_if = {
+		limit = {
+			to_homelands_building_counter_trigger = yes
+			FROM = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+		to_homelands_building_counter_eval_former_province = yes
+	}
+
+	if = {
+		limit = {
+			continent = north_america
+			owner = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+		to_elysium_building_counter_eval_local_province = yes
+	}
+	else_if = {
+		limit = {
+			continent = north_america
+			FROM = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+		to_elysium_building_counter_eval_former_province = yes
+	}
+
+	clr_province_flag = to_check_culture_after_conversion
+}
+
+# province:  spawned whenever a new owner takes over the province
+# FROM = The previous owner.
+to_on_conquest = {
+}
+
+# ROOT = Overlord, FROM = Minor
+to_on_dependency_gained = {
+	FROM = {
+		if = {
+			limit = {
+				has_country_modifier = msg_rise_of_sparta
+			}
+			remove_country_modifier = msg_rise_of_sparta
+		}
+		else_if = {
+			limit = {
+				has_country_modifier = msg_rise_of_sparta_2
+			}
+			remove_country_modifier = msg_rise_of_sparta_2
+		}
+		else_if = {
+			limit = {
+				has_country_modifier = msg_rise_of_sparta_3
+			}
+			remove_country_modifier = msg_rise_of_sparta_3
+		}
+		to_handle_subject_colonial_nations_on_becoming_dependancy = yes
+		to_handle_subject_gaining_colonial_nation = yes
+
+		to_nat_determine_new_confederation_leader = yes
+		to_check_exarch_claims_on_become_subject = yes
+		to_triumph_province_counter_dependancy_gained = { SCOPE = ROOT }
+		to_handle_subject_annexation_date = yes
+
+		to_inherit_overlords_councils_privileges = yes
+		to_non_abrahamic_conversion_penalty_check_country = yes
+		to_handle_greek_immigration_modifier_country = yes
+		to_handle_familiar_administration_modifier_country = yes
+		to_janissaries_on_become_subject = yes
+		to_cultureshock_check_all_owned_provinces = yes
+	}
+	to_check_exarch_aid_cost = { SCOPE = FROM }
+
+	to_handle_ely_por_deal_subject = yes
+
+	to_nhs_handle_inwards_path_province_modifiers_all_provinces = yes
+	nhs_handle_naphtha_in_subject = yes
+}
+
+# ROOT = Overlord, FROM = Minor
+to_on_dependency_lost = {
+	FROM = {
+		clr_country_flag = to_subsidising_colonisation
+		to_handle_subject_colonial_nations_on_losing_dependancy = yes
+
+		to_triumph_province_counter_dependancy_lost = { SCOPE = ROOT }
+		to_non_abrahamic_conversion_penalty_check_country = yes
+		to_handle_greek_immigration_modifier_country = yes
+		to_handle_familiar_administration_modifier_country = yes
+		to_janissaries_on_independence_subject = yes
+		nhs_handle_naphtha_in_subject_lost = yes
+		to_cultureshock_check_all_owned_provinces = yes
+	}
+	to_handle_ely_por_deal_subject_lost = yes
+
+	to_check_discouraged_recruits_dependancy_lost = yes
+}
+
+#scope = new country, FROM = parent country
+to_on_colonial_nation_established = {
+	to_correct_colony_culture = yes
+}
+
+# province
+to_on_province_culture_converted = {
+	to_check_culture_after_conversion = yes
+	to_nat_tribal_development_on_province_culture_converted = yes
+	# to_on_province_culture_changed = yes
+	if = {
+		limit = {
+			has_province_modifier = msg_slave_province_tm
+		}
+		remove_province_triggered_modifier = msg_slave_province_tm
+	}
+	if = {
+		limit = {
+			has_province_modifier = msg_liberated_slaves
+		}
+		remove_province_modifier = msg_liberated_slaves
+	}
+}
+
+to_on_province_culture_changed = {
+	province_recalculate_estate_privileges_effect_natives = yes
+	to_nat_handle_grand_confederation_modifier = yes
+	handle_to_vov_native_priv_freedom_of_worship_modifier = yes
+	to_nhs_handle_post_disaster_tolerance_modifier = yes
+	to_handle_new_patriarch_modifier = yes
+	to_handle_traditional_patriarch_modifier = yes
+	to_culture_adaptation_on_culture_change = yes
+	to_culture_integrated_on_culture_change = yes
+
+	to_handle_greek_immigration_modifier = yes
+	to_handle_familiar_administration_modifier = yes
+	to_cultureshock_check = yes
+	to_check_spared_from_greek_fire = yes
+	to_check_discouraged_recruits = yes
+	to_check_lakonian_culture_potential = yes
+	to_check_kastrioti_dominion_modifier = yes
+	to_check_familiar_administration_in_albania_modifier = yes
+}
+
+# country
+to_on_religion_change = {
+	if = {
+		limit = {
+			has_reform = spartan_kingdom
+		}
+		if = {
+			limit = {
+				OR = {
+					religion = orthodox
+					religion = elysian_orthodoxy
+				}
+			}
+			add_government_reform = msg_christian0_ref
+			add_government_reform = msg_spartan_patriarch_no
+			add_government_reform = msg_holy_army_no
+			add_government_reform = msg_saint_leo_no
+		}
+		else_if = {
+			limit = {
+				religion = pantheon_worship
+			}
+			add_government_reform = msg_hellenic0_ref
+			add_government_reform = msg_spartan_heralds_no
+			add_government_reform = msg_native_deities_no
+			add_government_reform = msg_deify_leonidas_no
+		}
+		else_if = {
+			limit = {
+				religion = aztlan_worship
+			}
+			add_government_reform = msg_aztlan0_ref
+			add_government_reform = msg_aztlan_priesthood_no
+			add_government_reform = msg_old_faith_no
+			add_government_reform = msg_sacrifice_no
+		}
+	}
+	to_nhs_handle_post_disaster_tolerance_modifier_all_provinces = yes
+	to_add_new_patriarch_modifier_all_provinces = yes
+	to_add_traditional_patriarch_modifier_all_provinces = yes
+	to_non_abrahamic_conversion_penalty_check_country = yes
+
+	to_clear_all_defender_of_faith_mission_flags = yes
+	to_refresh_elysian_missions = yes
+	to_remove_missionary_strength_from_battles_from_owned_provinces = yes
+	to_check_greek_religion_approach_on_owner_religion_change = yes
+	to_roman_janissaries_on_religion_change = yes
+	to_check_crack_down_on_heresy_validity = { SCOPE = ROOT }
+}
+
+# country
+# root = winning country, from = loser country
+to_on_battle_won_country = {
+	if = {
+		limit = {
+			FROM = {
+				tag = NAT
+			}
+		}
+		ROOT = { set_country_flag = to_natives_won_battle }
+	}
+	if = {
+		limit = {
+			tag = NAT
+		}
+		FROM = { set_country_flag = to_natives_won_battle }
+	}
+	to_add_units_killed_in_won_battles = yes
+	to_increase_triumph_progress = yes
+}
+
+# province
+# root = location, from = loser country
+to_on_battle_won_province = {
+	to_nat_check_for_tribal_displacement_on_attack_natives = yes
+}
+
+# province
+# root = location, from = winner country
+to_on_battle_lost_province = {
+	to_nat_check_for_tribal_displacement_on_attack_natives = yes
+}
+
+#Unit Scope OnAction for Battle Won
+to_on_battle_won_unit = {
+	to_add_missionary_strength_from_battles = yes
+}
+
+# country
+# root = winning country, from = loser country
+to_on_war_won = {
+	# Not quite sure if this will 100% handle all the cases correctly
+	ROOT = {
+		clr_country_flag = to_last_war_lost
+		set_country_flag = to_last_war_won
+	}
+	FROM = {
+		clr_country_flag = to_last_war_won
+		set_country_flag = to_last_war_lost
+	}
+
+	ROOT = {
+		if = {
+			limit = {
+				is_at_war = no
+			}
+			clr_country_flag = to_declined_war_chief
+		}
+		add_faction_influence = {
+			faction = vin_vikingr
+			influence = 5
+		}
+		country_event = { id = nhs_vov_coloniesevents.50 }
+		country_event = { id = nhs2_mainlandevents.24 }
+		country_event = { id = nhs2_mainlandevents.13 }
+		# country_event = { id = elysian_revolution.102 }
+	}
+	FROM = {
+		if = {
+			limit = {
+				is_at_war = no
+			}
+			clr_country_flag = to_declined_war_chief
+		}
+		to_nat_handle_envoy_to_the_world = yes
+	}
+
+	to_missionary_strength_from_battles_after_war = {
+		CHECK_IF = "always = yes"
+		CHECK_FROM = yes
+	}
+
+	clr_country_flag = to_gives_defender_of_faith_credit
+	clr_country_flag = to_gives_defender_of_faith_great_power_credit
+	clr_country_flag = to_gives_defender_of_faith_minor_credit
+
+	to_trigger_triumph_peace_notifications = yes
+}
+
+on_main_war_won = {
+	to_increase_defender_of_faith_mission_progress_dof = yes
+}
+
+# country
+# root = winning country, from = loser country
+to_on_separate_war_won = {
+	to_clear_invalid_defender_of_faith_mission_flags = yes
+}
+
+# country
+# root = loser country, from = winner country
+to_on_war_lost = {
+	to_increase_defender_of_faith_progress = {
+		EFFECT_SCOPE = every_country
+		TARGET = FROM
+	}
+}
+
+to_on_country_creation = {
+	to_nat_handle_envoy_to_the_world = yes
+	if = {
+		limit = {
+			nhs_check_all_elysian_tags = { CONDITION = tag }
+		}
+		to_upgrade_japanese_boosts = yes
+	}
+	to_handle_free_haven_pirate_opinion_modifier = yes
+}
+
+# Nation annexed.
+# FROM is the nation being annexed
+to_on_annexed = {
+	FROM = {
+		to_nat_determine_new_confederation_leader = yes
+		to_remove_exarch_cores = yes
+		to_downgrade_japanese_boosts = yes
+
+		to_increase_defender_of_faith_progress = {
+			EFFECT_SCOPE = if
+			TARGET = ROOT
+		}
+
+		to_remove_former_colonial_owner = yes
+	}
+}
+
+# FROM is the nation being annexed
+to_on_diplomatic_annex = {
+	to_native_undiscover_provinces_outside_of_capital_region_if_annexed = yes
+	to_check_opinion_annex_limit = yes
+
+	FROM = {
+		to_remove_former_colonial_owner = yes
+	}
+}
+
+# FROM is the nation being annexed
+to_on_integrate = {
+	to_native_undiscover_provinces_outside_of_capital_region_if_annexed = yes
+	to_check_opinion_annex_limit = yes
+
+	FROM = {
+		to_remove_former_colonial_owner = yes
+	}
+}
+
+#ROOT = converted country, FROM = country which force converts ROOT, on_action gets called on Force religion peace and Enforce Religion subject interaction
+to_on_force_conversion = {
+	to_defender_of_faith_mission_check_force_conversion = yes
+	FROM = { country_event = { id = nhs_exploration.301 } }
+}
+
+# country
+to_on_death_election = {
+	if = {
+		limit = {
+			has_reform = varangian_guard
+			has_country_flag = vov_varangian_has_heir
+		}
+		clr_country_flag = vov_varangian_has_heir
+	}
+	else = {
+		country_event = { id = nhs_vov_varangian_order_events.202 }
+	}
+	if = {
+		limit = {
+			has_reform = cretan_admiralty
+			has_country_flag = vov_varangian_has_heir
+		}
+		clr_country_flag = vov_varangian_has_heir
+	}
+}
+
+to_on_culture_promoted = {
+	handle_nhs_native_priv_cultural_sufferance_modifier = yes
+	to_imperial_integration_on_culture_promoted_demoted = yes
+}
+
+to_on_culture_demoted = {
+	handle_nhs_native_priv_cultural_sufferance_modifier = yes
+	to_imperial_integration_on_culture_promoted_demoted = yes
+}
+
+to_on_primary_culture_changed = {
+	handle_nhs_native_priv_cultural_sufferance_modifier = yes
+	vov_handle_coastal_bonus_all_owned_provinces = yes
+	to_nhs_handle_post_disaster_tolerance_modifier_all_provinces = yes
+
+	to_nat_handle_colonise_own_culture_modifier_on_culture_change = yes
+	to_japanese_boost_check_owned_provinces = yes
+	to_cultureshock_on_primary_culture_change = yes
+	to_imperial_integration_on_primary_culture_changed = yes
+}
+
+# province
+to_on_province_religion_converted = {
+	to_check_non_hellenic_pagan_provinces_manual_conversion = yes
+}
+
+# province
+to_on_province_religion_changed = {
+	handle_to_vov_native_priv_freedom_of_worship_modifier = yes
+	to_nhs_handle_post_disaster_tolerance_modifier = yes
+	to_handle_new_patriarch_modifier = yes
+	to_handle_traditional_patriarch_modifier = yes
+	to_japanese_boost_check = yes
+	to_non_abrahamic_conversion_penalty_check_province = yes
+	to_check_greek_religion_approach = { REMOVE_OTHERWISE = yes }
+	to_check_crack_down_on_heresy_validity = { SCOPE = owner }
+	to_check_non_hellenic_pagan_provinces = yes
+}
+
+# this = Released country, FROM = Releasing country
+to_on_country_released = {
+	if = {
+		limit = {
+			tag = SHQ
+			FROM = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+				NOT = { is_year = 1550 }
+				NOT = { has_country_flag = nhs_three_lands }
+			}
+		}
+		to_remove_all_idea_groups = yes
+	}
+}
+
+# ROOT = New vassal, FROM = Overlord
+to_on_create_vassal = {
+}
+
+to_on_defender_of_faith_claim = {
+	if = {
+		limit = {
+			religion = catholic
+		}
+		save_global_event_target_as = to_catholic_dof
+	}
+	else_if = {
+		limit = {
+			religion = orthodox
+		}
+		save_global_event_target_as = to_orthodox_dof
+	}
+
+	to_add_champion_of_faith_modifier = yes
+}
+
+to_on_defender_of_faith_loss = {
+	to_clear_RELIGION_defender_of_faith_et = { RELIGION = catholic }
+	to_clear_RELIGION_defender_of_faith_et = { RELIGION = orthodox }
+	to_remove_champion_of_faith_modifier = yes
+}
+
+# province
+to_on_capital_moved = {
+	to_handle_varangian_quarter_on_capital_moved = yes
+	to_handle_epilektoi_garrison_on_capital_moved = yes
+	to_handle_embrace_mercantilism_colonial_modifier_capital_moved = yes
+	to_handle_exarch_change_capital = yes
+}
+
+# country
+to_on_new_monarch = {
+	to_add_religious_reformer_modifier = yes
+	to_add_unifier_modifier = yes
+}
+
+# country
+to_on_leader_recruited = {
+	# to_add_administrative_burden = { VALUE = 2 } # Moved to individual effects, since it showed up when changing ruler to general, but did not do anything in this case
+}
+
+# country
+to_on_general_recruited = {
+	to_add_administrative_burden = { VALUE = 2 }
+}
+
+# country
+to_on_admiral_recruited = {
+	to_add_administrative_burden = { VALUE = 2 }
+}
+
+# country
+to_on_conquistador_recruited = {
+	to_add_administrative_burden = { VALUE = 2 }
+}
+
+# country
+to_on_explorer_recruited = {
+	to_add_administrative_burden = { VALUE = 2 }
+}
+
+# THIS = Province, FROM = Country
+to_on_regiment_recruited = {
+	to_administrative_burden_on_regiment_recruited = yes
+}
+
+to_on_marine_raised = {
+	to_administrative_burden_on_regiment_recruited = yes
+}
+
+# THIS = Province, FROM = Country, ROOT = Merc Unit
+to_on_mercenary_recruited = {
+	FROM = { to_add_administrative_burden = { VALUE = 2 } }
+}
+
+# Fires when you start the construction,  ROOT - Province FROM - Country that started
+to_on_construction_started = {
+	to_administrative_burden_on_construction_started = { BUILDING = $BUILDING$ }
+}
+
+# Fires when you cancel the construction, ROOT - Province FROM - Country that canceled
+to_on_construction_canceled = {
+	to_administrative_burden_on_construction_canceled = { BUILDING = $BUILDING$ }
+}
+
+# ROOT = province, FROM = country
+to_on_trade_good_changed = {
+	vov_handle_grand_forestries = yes
+	to_handle_war_economy_province_modifier = yes
+	to_handle_cash_crops_province_modifier = yes
+	#to_handle_autarky_province_modifier = yes
+}
+
+# country
+# root = winning country, from = location
+to_on_siege_won_country = {
+	to_check_increase_devastation_upon_fort_capture = yes
+}
+
+#ROOT - Winer FROM - Loser
+to_on_war_ended = {
+	to_check_spared_from_greek_fire_on_war_ended = yes
+}
+
+to_on_adm_tech_taken = {
+	remove_country_modifier = to_knowledge_exchange_adm
+}
+
+to_on_dip_tech_taken = {
+	remove_country_modifier = to_knowledge_exchange_dip
+}
+
+to_on_mil_tech_taken = {
+	remove_country_modifier = to_knowledge_exchange_mil
+}
+
+to_pre_change_tag_effect = {
+	to_save_historal_friends_and_rivals = yes
+	to_save_former_colonial_owner_and_overlord = yes
+}
+
+to_on_change_tag_effect = {
+	to_retain_kaudan_religious_crisis_target = yes
+	to_retain_portugal_secret_target = yes
+	to_remove_historal_friends_and_rivals = yes
+	to_load_historal_friends_and_rivals = yes
+	to_load_former_colonial_owner_and_overlord = yes
+}
+
+# country
+to_on_bankruptcy = {
+	to_administrative_burden_on_bankruptcy = yes
+}
+
+##scope = colony province, FROM = owner country or province if there's a minority expulsion source
+to_on_colonist_boosting_colony = {
+	hidden_effect = {
+		if = {
+			limit = {
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				owner = {
+					to_has_native_priv_inclusive_citizenship = yes
+				}
+				NOT = { nhs_culturally_native = yes }
+				NOT = { has_province_flag = to_static_colonial_culture }
+				native_size = 0.01
+				to_nat_has_culture_flag = yes
+			}
+			to_nat_restore_original_culture_from_flag = { CHANGE_ORIGINAL_CULTURE = yes }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_province_flag = to_static_colonial_culture }
+				NOT = { to_has_correct_ely_dynamic_culture = yes }
+				OR = {
+					to_has_incorrect_ely_dynamic_culture = yes
+					NOT = {
+						AND = {
+							culture = FROM
+							religion = FROM
+						}
+					}
+				}
+				NOT = {
+					AND = {
+						OR = {
+							continent = north_america
+							continent = south_america
+						}
+						owner = {
+							to_has_native_priv_inclusive_citizenship = yes
+						}
+						OR = {
+							nhs_culturally_native = yes
+							to_nat_has_culture_flag = yes
+						}
+						native_size = 0.01
+					}
+				}
+				OR = {
+					AND = {
+						religion = noreligion
+						religion = noculture
+					}
+					AND = {
+						NOT = {
+							OR = {
+								continent = north_america
+								continent = south_america
+								continent = new_world
+							}
+						}
+						NOT = {
+							OR = {
+								has_dlc = "Dharma"
+								has_dlc = "Wealth of Nations"
+							}
+						}
+					}
+					#test if colonists outnumber natives
+					if = {
+						limit = {
+							owner = {
+								has_idea = free_colonies
+							}
+						}
+						NOT = { native_size = 20 }
+					}
+					else = {
+						variable_arithmetic_trigger = {
+							custom_tooltip = colonysize_is_larger_than_nativesize_tt
+							export_to_variable = {
+								which = vab_colonysize
+								value = trigger_value:colonysize
+							}
+							export_to_variable = {
+								which = vab_nativesize
+								value = trigger_value:native_size
+							}
+							multiply_variable = {
+								which = vab_nativesize
+								value = 100
+							}
+							check_variable = {
+								which = vab_colonysize
+								which = vab_nativesize
+							}
+						}
+					}
+				}
+			}
+			change_religion = FROM
+			change_culture = FROM
+			change_original_culture = FROM
+			to_ely_province_culture_check = { CHANGE_ORIGINAL_CULTURE = yes }
+		}
+	}
+}
+
+add_UOP_modifier = {
+	set_global_flag = UOP_modifiers_given
+	every_province = {
+		limit = {
+			OR = {
+				### Subcontinents
+				superregion = persia_superregion
+				superregion = tartary_superregion
+				superregion = india_superregion
+				superregion = far_east_superregion
+				superregion = china_superregion
+				superregion = south_america_superregion
+				superregion = andes_superregion
+				### Regions
+				region = oceanea_region
+				#
+				region = kongo_region
+				region = central_africa_region
+				region = east_africa_region
+				#
+				region = guinea_region
+				region = niger_region
+				region = sahel_region
+				#
+				region = arabia_region
+				#
+				region = ural_region
+				area = azov_area
+				area = lower_yik_area
+				area = middle_don_area
+				area = lower_don_area
+				area = astrakhan_area
+				#Caucasia
+				area = circassia_area
+				area = dagestan_area
+				province_id = 2195 #Adyghe
+				#Southern Central America
+				area = nicaragua_area
+				area = costa_rica_area
+				area = panama_area
+				area = honduras_area
+			}
+			is_wasteland = no
+		}
+		add_permanent_province_modifier = {
+			name = BT_UOP_province
+			duration = -1
+			desc = BT_UOP_province_tooltip
+		}
+	}
+}

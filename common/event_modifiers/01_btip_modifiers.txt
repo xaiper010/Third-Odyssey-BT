@@ -1,0 +1,45 @@
+
+# Event Modifiers from 01_btip_event_modifiers.txt
+
+btip_recently_seized_land = {
+	all_estate_loyalty_equilibrium = -0.20
+	estate_all_natives_loyalty_modifier = 0.20
+}
+
+btip_recently_seized_land_15_loyalty = {
+	all_estate_loyalty_equilibrium = -0.15
+	estate_all_natives_loyalty_modifier = 0.15
+}
+
+btip_recently_seized_land_10_loyalty = {
+	all_estate_loyalty_equilibrium = -0.10
+	estate_all_natives_loyalty_modifier = 0.10
+}
+
+# Modifiers from 01_btip_estate_privilege_agendas_modifiers.txt
+
+estate_peasants_mining_privileges_mod = {
+	trade_goods_size_modifier = 0.25
+}
+
+estate_peasants_monopoly_of_agriculture_mod = {
+	local_production_efficiency = -10
+}
+
+btip_peasants_rallying = {
+	land_morale = 0.1
+}
+
+# for clans
+
+btip_recently_seized_land_clans = {
+	estate_all_natives_loyalty_modifier = -0.20
+}
+
+btip_recently_seized_land_15_loyalty_clans = {
+	estate_all_natives_loyalty_modifier = -0.15
+}
+
+btip_recently_seized_land_10_loyalty_clans = {
+	estate_all_natives_loyalty_modifier = -0.10
+}

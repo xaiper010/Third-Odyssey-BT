@@ -1,0 +1,247 @@
+to_roman_janissary_mechanic = {
+	alert_icon_gfx = GFX_to_roman_janissaries_alert_icon
+	alert_icon_index = 1
+	available = {
+		OR = {
+			has_dlc = "Cradle of Civilization"
+			has_dlc = "Domination"
+		}
+		has_country_modifier = to_orhan_janissaries
+	}
+
+	powers = {
+		to_janissary_regiments = {
+			gui = GFX_to_roman_janissaries_gov_mech
+			# Used to be 10k but the progress bar doesn't work in this case, since it maxes out at a 100 still
+			max = 10000
+			min = 0
+			default = 1
+			reset_on_new_ruler = no
+			base_monthly_growth = 0
+			is_good = yes
+		}
+	}
+	
+	interactions = {
+		to_recruit_roman_janissaries = {
+			icon = GFX_devshirme_conscript_heathen_recruits_button
+			trigger = {
+				custom_trigger_tooltip = {
+					tooltip = to_janissary_reserve_for_one_regiment_tt
+					has_government_power = {
+						mechanic_type = to_roman_janissary_mechanic
+						power_type = to_janissary_regiments
+						value = 1000
+					}
+				}
+				capital_scope = {
+					area_for_scope_province = {
+						controlled_by = ROOT
+						has_siege = no
+					}
+				}
+			}
+			effect = {
+				if = {
+					limit = {
+						NOT = {
+							check_variable = {
+								which = to_janissary_regiments_change_tooltip
+								value = 100
+							}
+						}
+					}
+					custom_tooltip = to_janissary_reserve_warning_1_tt
+					custom_tooltip = nhs_new_line_tt
+				}
+				add_mil_power = -3
+				add_government_power = {
+					mechanic_type = to_roman_janissary_mechanic
+					power_type = to_janissary_regiments
+					value = -1000
+				}
+				if = {
+					limit = {
+						capital_scope = {
+							controlled_by = ROOT
+							has_siege = no
+						}
+					}
+					capital_scope = {
+						custom_tooltip = to_get_janissary_regiments_tt
+						hidden_effect = {
+							janissary_infantry = ROOT
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						capital_scope = {
+							area_for_scope_province = {
+								controlled_by = ROOT
+								has_siege = no
+							}
+						}
+					}
+					random_owned_province = {
+						limit = {
+							controlled_by = ROOT
+							has_siege = no
+							area_for_scope_province = {
+								is_capital_of = ROOT
+							}
+						}
+						custom_tooltip = to_get_janissary_regiments_tt
+						hidden_effect = {
+							janissary_infantry = ROOT
+						}
+					}
+				}
+				else = {
+					capital_scope = {
+						custom_tooltip = to_get_janissary_regiments_tt
+						hidden_effect = {
+							janissary_infantry = ROOT
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_government_mechanic = to_administrative_burden_mechanic
+					}
+					custom_tooltip = nhs_new_line_tt
+					add_government_power = {
+						mechanic_type = to_administrative_burden_mechanic
+						power_type = to_administrative_burden
+						value = 0.5
+					}
+				}
+			}
+			cooldown_years = 0
+			ai_chance = {
+				factor = 0
+			}
+		}
+		
+		to_harsh_recruitment = {
+			icon = GFX_to_recruit_janissaries_multiple
+			trigger = {
+				custom_trigger_tooltip = {
+					tooltip = to_janissary_reserve_for_five_regiments_tt
+					has_government_power = {
+						mechanic_type = to_roman_janissary_mechanic
+						power_type = to_janissary_regiments
+						value = 5000
+					}
+				}
+				capital_scope = {
+					area_for_scope_province = {
+						controlled_by = ROOT
+					}
+				}
+			}
+			effect = {
+				if = {
+					limit = {
+						NOT = {
+							check_variable = {
+								which = to_janissary_regiments_change_tooltip
+								value = 500
+							}
+						}
+					}
+					custom_tooltip = to_janissary_reserve_warning_5_tt
+					custom_tooltip = nhs_new_line_tt
+				}
+				add_mil_power = -15
+				add_government_power = {
+					mechanic_type = to_roman_janissary_mechanic
+					power_type = to_janissary_regiments
+					value = -5000
+				}
+				if = {
+					limit = {
+						capital_scope = {
+							controlled_by = ROOT
+						}
+					}
+					capital_scope = {
+						custom_tooltip = to_get_5_janissary_regiments_tt
+						hidden_effect = {
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						capital_scope = {
+							area_for_scope_province = {
+								controlled_by = ROOT
+							}
+						}
+					}
+					random_owned_province = {
+						limit = {
+							controlled_by = ROOT
+							area_for_scope_province = {
+								is_capital_of = ROOT
+							}
+						}
+						custom_tooltip = to_get_5_janissary_regiments_tt
+						hidden_effect = {
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+						}
+					}
+				}
+				else = {
+					capital_scope = {
+						custom_tooltip = to_get_5_janissary_regiments_tt
+						hidden_effect = {
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+							janissary_infantry = ROOT
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_government_mechanic = to_administrative_burden_mechanic
+					}
+					custom_tooltip = nhs_new_line_tt
+					add_government_power = {
+						mechanic_type = to_administrative_burden_mechanic
+						power_type = to_administrative_burden
+						value = 2.5
+					}
+				}
+			}
+			cooldown_years = 0
+		}
+
+		to_roman_janissary_laws = {
+			icon = GFX_to_janissary_laws
+			trigger = {
+				NOT = {
+					has_country_modifier = to_recent_janissary_law
+				}
+				hidden_trigger = {
+					NOT = { has_country_flag = to_janissary_laws_menu_open }
+				}
+			}
+			effect = {
+				country_event = { id = to_janissary_events.5 }
+			}
+			cooldown_years = 0
+		}
+	}
+}

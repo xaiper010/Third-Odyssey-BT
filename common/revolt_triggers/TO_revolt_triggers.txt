@@ -1,0 +1,30 @@
+# Spartans
+MS1 = {
+	is_core = MS1
+	NOT = { is_core = MSN }
+	NOT = { exists = MSN }
+	NOT = { exists = LA1 }
+}
+
+# Cretans
+CM1 = {
+	is_core = CM1
+}
+
+# Elysians
+NHS = {
+	is_core = NHS
+	NOT = { is_core = ELY }
+	NOT = { exists = ELY }
+}
+
+# ED0 = {
+# 	exists = ED0
+# }
+
+# ED1 = {
+# 	exists = ED1
+# }
+EEZ = {
+	exists = EEZ
+}

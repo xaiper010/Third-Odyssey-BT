@@ -1,0 +1,4939 @@
+to_compute_non_colonial_development = {
+	set_variable = {
+		which = $VARIABLE$
+		value = 0
+	}
+	every_owned_province = {
+		limit = {
+			is_city = yes
+		}
+		PREV = {
+			export_to_variable = {
+				which = to_local_dev
+				value = trigger_value:development
+				who = PREV
+			}
+			change_variable = {
+				which = $VARIABLE$
+				which = to_local_dev
+			}
+		}
+	}
+}
+
+to_half_colonysize_add = {
+	if = {
+		limit = {
+			owner = {
+				to_is_added_country_trigger = yes
+			}
+			NOT = { has_province_flag = halfsize_added }
+			NOT = { colonysize = 500 }
+			continent = north_america
+		}
+		set_province_flag = halfsize_added
+		add_colonysize = 500
+	}
+}
+
+to_compute_current_year_in_byzantine_calendar = {
+	export_to_variable = {
+		which = to_currentYearByzantineCalendar
+		value = trigger_value:is_year
+	}
+	change_variable = {
+		which = to_currentYearByzantineCalendar
+		value = 5508
+	}
+	if = {
+		limit = {
+			is_month = 8
+		}
+		change_variable = {
+			which = to_currentYearByzantineCalendar
+			value = 1
+		}
+	}
+}
+
+to_remove_republican_gov_reforms = {
+	# Highest tier gov reform removed cannot be picked again for free so we refund the points.
+	if = {
+		limit = {
+			reform_level = 13
+		}
+		change_government_reform_progress = 540
+	}
+	else_if = {
+		limit = {
+			reform_level = 12
+		}
+		change_government_reform_progress = 500
+	}
+	else_if = {
+		limit = {
+			reform_level = 11
+		}
+		change_government_reform_progress = 460
+	}
+	else_if = {
+		limit = {
+			reform_level = 10
+		}
+		change_government_reform_progress = 420
+	}
+	else_if = {
+		limit = {
+			reform_level = 9
+		}
+		change_government_reform_progress = 380
+	}
+	else_if = {
+		limit = {
+			reform_level = 8
+		}
+		change_government_reform_progress = 340
+	}
+	else_if = {
+		limit = {
+			reform_level = 7
+		}
+		change_government_reform_progress = 300
+	}
+	else_if = {
+		limit = {
+			reform_level = 6
+		}
+		change_government_reform_progress = 260
+	}
+	else_if = {
+		limit = {
+			reform_level = 5
+		}
+		change_government_reform_progress = 220
+	}
+	else_if = {
+		limit = {
+			reform_level = 4
+		}
+		change_government_reform_progress = 180
+	}
+	else_if = {
+		limit = {
+			reform_level = 3
+		}
+		change_government_reform_progress = 140
+	}
+	else_if = {
+		limit = {
+			reform_level = 2
+		}
+		change_government_reform_progress = 100
+	}
+
+	# republican_virtues
+	remove_government_reform = republican_authoritarianism_reform
+	remove_government_reform = nepotism_reform
+	remove_government_reform = republicanism_reform
+	remove_government_reform = democratic_values_reform
+	remove_government_reform = aristocratic_values_reform
+	remove_government_reform = religious_values_reform
+	remove_government_reform = articles_of_agreement_reform
+	remove_government_reform = smugglers_haven_reform
+	remove_government_reform = council_of_captains_reform
+	remove_government_reform = the_pirate_ways_reform
+	remove_government_reform = liberte_reform
+	remove_government_reform = egalite_reform
+	remove_government_reform = fraternite_reform
+	remove_government_reform = tysyatsky_reform
+	remove_government_reform = namestnik_reform
+	remove_government_reform = oprichnina_reform
+	remove_government_reform = consulate_of_the_sea
+	#1.36
+	remove_government_reform = diwan_al_khass_reform
+	remove_government_reform = integrated_ottoman_officials
+
+	#1.37 German Reforms
+	remove_government_reform = german_cultural_disunity_reform
+	remove_government_reform = german_franconian_reform
+	remove_government_reform = german_westphalian_reform
+	remove_government_reform = german_rhenish_reform
+	remove_government_reform = german_lower_saxon_reform
+	remove_government_reform = german_prussian_reform
+	remove_government_reform = german_austrian_reform
+	remove_government_reform = german_saxon_reform
+	remove_government_reform = german_bavarian_reform
+	remove_government_reform = german_swiss_reform
+	remove_government_reform = german_swabian_reform
+	remove_government_reform = german_other_reform
+	#1.37
+	remove_government_reform = support_state_reform
+
+
+	# frequent_elections_vs_consolidation_of_power
+	remove_government_reform = frequent_elections_reform
+	remove_government_reform = consolidation_of_power_reform
+	remove_government_reform = consolidate_power_in_doge_reform
+	remove_government_reform = consolidate_power_in_cities_reform
+	remove_government_reform = force_reelection_reform
+	remove_government_reform = devotee_to_the_people_reform
+	remove_government_reform = permanent_marathas_council_reform
+	remove_government_reform = governmental_purbias_register_reform
+	remove_government_reform = lottery_reform
+	remove_government_reform = council_of_the_indies_reform
+	remove_government_reform = legislative_assembly_reform
+	remove_government_reform = national_constituent_reform
+	remove_government_reform = national_assembly_reform
+	remove_government_reform = ven_promissione_ducale_reform
+
+
+	# republic_and_religion
+	remove_government_reform = papal_embassy_reform
+	remove_government_reform = lands_for_the_monasteries_reform
+	remove_government_reform = focus_of_the_patriarchy_reform
+	remove_government_reform = zoroastrian_focus_reform
+	remove_government_reform = power_to_the_synagogoues_reform
+	remove_government_reform = head_of_the_reformed_church_reform
+	remove_government_reform = confucian_governing_reform
+	remove_government_reform = empower_buddhist_temples_reform
+	remove_government_reform = public_hindu_practices_reform
+	remove_government_reform = strengthen_shaman_privileges_reform
+	remove_government_reform = abolished_caste_system_reform
+	remove_government_reform = strengthen_the_ulema_reform
+	remove_government_reform = strengthen_the_dhimmi_reform
+	remove_government_reform = legacy_of_the_steppes_reform
+	remove_government_reform = state_and_shrines_intertwined_reform
+	remove_government_reform = embedded_norse_government_reform
+	# Third Odyssey
+	remove_government_reform = to_promote_hestiates
+	remove_government_reform = to_battlefield_ceremonies
+	# TO END
+	remove_government_reform = strengthen_clergy_reform
+	remove_government_reform = curtail_clergy_power_reform
+	remove_government_reform = secure_clergy_power_reform
+	remove_government_reform = maintain_clergy_balance_of_power_reform
+	remove_government_reform = separate_clergy_from_state_affairs_reform
+	remove_government_reform = cult_of_reason_reform
+	remove_government_reform = conserve_the_religion_reform
+	remove_government_reform = secularization_of_the_state_reform
+	remove_government_reform = crew_before_faith_reform
+	remove_government_reform = relgious_freedom_reform
+	remove_government_reform = respect_for_the_sea_reform
+	remove_government_reform = establish_religious_institution_for_pirates_reform
+	#1.35
+	remove_government_reform = fiqh_laws_reform
+	remove_government_reform = sufism_decree_reform
+	remove_government_reform = holy_synod_reform
+	remove_government_reform = strengthened_the_patriarchy_reform
+	remove_government_reform = head_of_the_patriarchy_reform
+	remove_government_reform = anglican_state_church_reform
+	remove_government_reform = english_conciliarism_reform
+	#1.36
+	remove_government_reform = legacy_of_the_safavid_reform
+	remove_government_reform = state_madrasas_reform
+
+
+	# military_doctrines
+	remove_government_reform = organized_military_staff_reform
+	remove_government_reform = military_engineering_reform
+	remove_government_reform = defensive_stance_reform
+	remove_government_reform = sygnakhs_system_reform
+	remove_government_reform = sustained_discipline_reform
+	remove_government_reform = cavalry_warfare_reform
+	remove_government_reform = mercenary_leadership_reform
+	#Visible but locked
+	remove_government_reform = amphibious_specialization_reform
+	remove_government_reform = royal_marines_reform
+	remove_government_reform = maritime_military_reform
+	remove_government_reform = professional_navy_reform
+	remove_government_reform = doppelsoldner_reform
+	#Invisible until unlocked
+	remove_government_reform = expanded_devshirme_system_reform
+	remove_government_reform = reformed_ottoman_conscription_reform
+	remove_government_reform = mansure_army_reform
+	remove_government_reform = janissary_military_reform
+	remove_government_reform = wei_suo_system_reform
+	remove_government_reform = eight_banners_reform
+	remove_government_reform = green_standard_army_reform
+	remove_government_reform = ashigaru_reform
+	remove_government_reform = early_bushido_code_reform
+	remove_government_reform = the_righteous_army_reform
+	remove_government_reform = mansabdari_reform
+	remove_government_reform = rajput_military_leadership_reform
+	remove_government_reform = the_maratha_army_reform
+	remove_government_reform = subutais_strategies_reform
+	remove_government_reform = ahmudan_system_reform
+	remove_government_reform = ghazi_reform
+	remove_government_reform = the_cawa_regiments_reform
+	remove_government_reform = tercio_reform
+	remove_government_reform = fuero_militar_reform
+	remove_government_reform = ordennancas_reform
+	remove_government_reform = revive_the_almogavars_reform
+	remove_government_reform = volunteers_of_the_faith_reform
+	remove_government_reform = condottieri_contracts_reform
+	remove_government_reform = compagnie_dordonnance_reform
+	remove_government_reform = musketeers_reform
+	remove_government_reform = gendarmes_reform
+	remove_government_reform = general_war_commissariat_reform
+	remove_government_reform = swiss_mercenary_reform
+	remove_government_reform = allotment_system
+	remove_government_reform = boyars_army_reform
+	remove_government_reform = streltsy_reform
+	remove_government_reform = new_order_regiments_reform
+	remove_government_reform = reform_the_samurai_reform
+	remove_government_reform = staatse_leger_reform
+	remove_government_reform = watergeuzen_reform
+	remove_government_reform = cossacks_registry_reform
+	remove_government_reform = lessons_of_the_hussite_wars_reform
+	remove_government_reform = qollar_aghasi_regiments_reform
+	remove_government_reform = manrent_reform
+	remove_government_reform = merchant_arsenal_reform
+	remove_government_reform = tercios_reform
+	remove_government_reform = expanded_black_army_reform
+	#1.36
+	remove_government_reform = sparapet_office
+	remove_government_reform = legacy_of_the_seljuk_reform
+	remove_government_reform = modernized_furusiyya_reform
+	remove_government_reform = cawa_auxiliary_forces
+	#1.37
+	remove_government_reform = ayyubid_high_command
+	#1.37 Hungary
+	remove_government_reform = cuman_lancers_reform
+	#1.37 Bohemia
+	remove_government_reform = vozove_hradby_reform
+	remove_government_reform = russian_mercenary_guard_reform
+
+
+	# parliamentary_vs_presidential
+	remove_government_reform = parliamentary_reform
+	remove_government_reform = presidential_reform
+	remove_government_reform = estate_council_reform
+	remove_government_reform = attorney_general_reform
+	remove_government_reform = war_against_the_world_doctrine_reform
+	remove_government_reform = black_market_consortium_reform
+	remove_government_reform = pirate_king_reform
+	remove_government_reform = imperial_diplomacy_reform
+	remove_government_reform = municipal_self_defense_reform
+	remove_government_reform = feuillant_reform
+	remove_government_reform = two_chamber_reform
+	remove_government_reform = seize_executive_power_reform
+	remove_government_reform = proclaim_divine_guidance_reform
+	remove_government_reform = become_rev_empire_reform
+	#1.35
+	remove_government_reform = governing_senate_reform
+	remove_government_reform = enforced_autocracy_reform
+	#1.37
+	remove_government_reform = seven_provinces_reform
+
+
+	# economical_matters_republic
+	remove_government_reform = empower_the_burghers_reform
+	remove_government_reform = curtail_the_burghers_reform
+	remove_government_reform = mercantilistic_approach_reform
+	remove_government_reform = free_trade_reform
+	remove_government_reform = embrace_the_economic_theory_reform
+	remove_government_reform = war_economy_reform
+	#Visible but locked
+	remove_government_reform = new_world_exploitation_reform
+	remove_government_reform = lockean_proviso_reform
+	#Visible when unlocked
+	remove_government_reform = open_naval_services_reform
+	remove_government_reform = master_smugglers_reform
+	remove_government_reform = cutthroat_approach_reform
+	remove_government_reform = empowered_quartermasters_reform
+	#1.35
+	remove_government_reform = vodka_of_the_crown_reform
+	remove_government_reform = jap_gokaido_reform
+	remove_government_reform = thalassocracy_reform
+	remove_government_reform = royal_charters_reform
+	remove_government_reform = commercial_trade_empire_reform
+	#1.36
+	remove_government_reform = karimi_stations_reform
+	#1.37
+	remove_government_reform = merchant_representation_reform
+	remove_government_reform = modern_economics_reform
+	remove_government_reform = chinampa_farms_reform
+
+
+	# federalism_vs_unitarism_vs_confederacy
+	remove_government_reform = provincial_governments_reform
+	remove_government_reform = administrative_divisions_reform
+	remove_government_reform = union_of_states_reform
+	remove_government_reform = cultural_administration_reform
+	remove_government_reform = penal_colonies_reform
+	#1.36
+	remove_government_reform = superiority_of_the_state_reform
+	remove_government_reform = divided_aristocracy_reform
+
+
+	# consolidation_of_power_category
+	remove_government_reform = broaden_executive_powers_reform
+	remove_government_reform = devolution_of_powers_reform
+	remove_government_reform = consolidate_power_to_the_ruler_reform
+	remove_government_reform = consolidate_power_into_different_candidates_reform
+	remove_government_reform = power_to_the_raiders_reform
+	remove_government_reform = power_to_the_smugglers_reform
+	remove_government_reform = power_to_the_captains_reform
+	remove_government_reform = absolute_president_reform
+	remove_government_reform = revolutionary_council_reform
+	#1.37
+	remove_government_reform = orangist_stadholders_reform
+
+
+	# guiding_principle_of_administration
+	remove_government_reform = political_principle_reform
+	remove_government_reform = moral_principle_reform
+	remove_government_reform = stability_principle_reform
+	remove_government_reform = military_principle_reform
+	remove_government_reform = revolutionary_principle_reform
+	remove_government_reform = equality_principle_reform
+	remove_government_reform = imperial_principle_reform
+	remove_government_reform = enlightened_principle_reform
+
+
+	# electorate
+	remove_government_reform = landholders_reform
+	remove_government_reform = citizenry_reform
+	remove_government_reform = dynastic_rulership_reform
+	remove_government_reform = equal_electorate_reform
+	remove_government_reform = three_classes_reform
+	remove_government_reform = military_electorate_reform
+	remove_government_reform = rule_through_plunder_reform
+	remove_government_reform = admiralty_reform
+	remove_government_reform = military_rulership_reform
+
+
+	# office_selection
+	remove_government_reform = appointment_by_committee_reform
+	remove_government_reform = bureaucratic_aparatus_reform
+	remove_government_reform = universal_suffrage_reform
+	remove_government_reform = pirate_representation_reform
+
+
+	# question_of_dictatorship
+	remove_government_reform = strengthen_executive_powers_reform
+	remove_government_reform = reinforce_republican_values_reform
+	remove_government_reform = federal_senate_reform
+	remove_government_reform = pirates_become_republic_reform
+	remove_government_reform = president_for_life_reform
+	remove_government_reform = government_for_people_reform
+	remove_government_reform = unified_piratical_confederacy_reform
+	remove_government_reform = neutral_ground_reform
+	remove_government_reform = scourge_of_the_seven_sea_reform
+	#1.35
+	remove_government_reform = peters_government_reform
+}
+
+to_remove_monarchy_gov_reforms = {
+	# Highest tier gov reform removed cannot be picked again for free so we refund the points.
+	if = {
+		limit = {
+			reform_level = 11
+		}
+		change_government_reform_progress = 460
+	}
+	else_if = {
+		limit = {
+			reform_level = 10
+		}
+		change_government_reform_progress = 420
+	}
+	else_if = {
+		limit = {
+			reform_level = 9
+		}
+		change_government_reform_progress = 380
+	}
+	else_if = {
+		limit = {
+			reform_level = 8
+		}
+		change_government_reform_progress = 340
+	}
+	else_if = {
+		limit = {
+			reform_level = 7
+		}
+		change_government_reform_progress = 300
+	}
+	else_if = {
+		limit = {
+			reform_level = 6
+		}
+		change_government_reform_progress = 260
+	}
+	else_if = {
+		limit = {
+			reform_level = 5
+		}
+		change_government_reform_progress = 220
+	}
+	else_if = {
+		limit = {
+			reform_level = 4
+		}
+		change_government_reform_progress = 180
+	}
+	else_if = {
+		limit = {
+			reform_level = 3
+		}
+		change_government_reform_progress = 140
+	}
+	else_if = {
+		limit = {
+			reform_level = 2
+		}
+		change_government_reform_progress = 100
+	}
+
+
+	# hereditary_vs_nobility
+	remove_government_reform = enforce_privileges_reform
+	remove_government_reform = quash_noble_power_reform
+	remove_government_reform = enforce_trader_privileges_reform
+	remove_government_reform = bengali_reform
+	remove_government_reform = sufi_syncretism_reform
+	remove_government_reform = poligar_reform
+	remove_government_reform = khalsa_reform
+	remove_government_reform = deccani_society_reform
+	remove_government_reform = mughal_government
+	remove_government_reform = black_army_reform
+	remove_government_reform = legion_of_honor_reform
+	remove_government_reform = imperial_nobility_reform
+	remove_government_reform = uparaja_reform
+	remove_government_reform = grant_noble_castle_rights_reform
+	remove_government_reform = maintain_nobles_status_quo_reform
+	remove_government_reform = grant_military_command_reform
+	#Visible but locked
+	remove_government_reform = grant_nobles_electorate_reform
+	remove_government_reform = blackmail_nobility_reform
+	#Invisible until unlocked
+	#1.35
+	remove_government_reform = devshirme_system_reform
+	remove_government_reform = ottoman_conscription_reform
+	remove_government_reform = tysyatsky_reform
+	remove_government_reform = oprichnina_reform
+	remove_government_reform = house_of_lords_reform
+	remove_government_reform = ministerialis_promotion_reform
+	remove_government_reform = separation_of_boyars_from_court_reform
+	#1.36
+	remove_government_reform = nakharar_title
+	remove_government_reform = reform_the_pronoiars_reform
+	remove_government_reform = diwan_al_khass_reform
+	remove_government_reform = legacy_of_timur_reform
+
+	#1.37 German Reforms
+	remove_government_reform = german_cultural_disunity_reform
+	remove_government_reform = german_franconian_reform
+	remove_government_reform = german_westphalian_reform
+	remove_government_reform = german_rhenish_reform
+	remove_government_reform = german_lower_saxon_reform
+	remove_government_reform = german_prussian_reform
+	remove_government_reform = german_austrian_reform
+	remove_government_reform = german_saxon_reform
+	remove_government_reform = german_bavarian_reform
+	remove_government_reform = german_swiss_reform
+	remove_government_reform = german_swabian_reform
+	remove_government_reform = german_other_reform
+	#1.37 Hungary
+	remove_government_reform = extend_the_unio_trium_nationum_reform
+	#1.37 Trebizond
+	remove_government_reform = crusader_nobility_reform
+	remove_government_reform = TIM_plunder_economy
+
+
+	# bureaucracy
+	remove_government_reform = centralize_reform
+	remove_government_reform = centralize_empire_reform
+	remove_government_reform = decentralize_reform
+	remove_government_reform = examination_system_reform
+	remove_government_reform = expand_imperial_court_reform
+	remove_government_reform = limit_imperial_court_reform
+	remove_government_reform = regional_council_reform
+	remove_government_reform = representation_of_the_crown_reform
+	remove_government_reform = liberte_reform
+	remove_government_reform = egalite_reform
+	remove_government_reform = fraternite_reform
+	#Visible but locked
+	remove_government_reform = penal_colonies_reform
+	#Invisible until unlocked
+	remove_government_reform = sidhi_recruitment
+	remove_government_reform = corvee_reform
+	remove_government_reform = council_of_the_indies_reform
+	#1.35
+	remove_government_reform = ottoman_provincial_government_system_reform
+	remove_government_reform = namestnik_reform
+	remove_government_reform = consulate_of_the_sea
+	#1.36
+	remove_government_reform = restore_the_master_of_offices_reform
+	remove_government_reform = court_of_art_and_culture_reform
+	remove_government_reform = integrated_ottoman_officials
+	#1.37
+	remove_government_reform = seven_provinces_reform
+	#1.37 Hungary
+	remove_government_reform = continue_the_renaissance_reform
+	remove_government_reform = timurid_diwan_reform
+
+
+	# state_and_religion
+	remove_government_reform = papal_embassy_reform
+	remove_government_reform = lands_for_the_monasteries_reform
+	remove_government_reform = focus_of_the_patriarchy_reform
+	remove_government_reform = zoroastrian_focus_reform
+	remove_government_reform = power_to_the_synagogoues_reform
+	remove_government_reform = head_of_the_reformed_church_reform
+	remove_government_reform = confucian_governing_reform
+	remove_government_reform = empower_buddhist_temples_reform
+	remove_government_reform = public_hindu_practices_reform
+	remove_government_reform = strengthen_shaman_privileges_reform
+	remove_government_reform = abolished_caste_system_reform
+	remove_government_reform = strengthen_the_ulema_reform
+	remove_government_reform = strengthen_the_dhimmi_reform
+	remove_government_reform = legacy_of_the_steppes_reform
+	remove_government_reform = state_and_shrines_intertwined_reform
+	remove_government_reform = embedded_norse_government_reform
+	# Third Odyssey
+	remove_government_reform = to_promote_hestiates
+	remove_government_reform = to_battlefield_ceremonies
+	# TO END
+	remove_government_reform = strengthen_clergy_reform
+	remove_government_reform = curtail_clergy_power_reform
+	remove_government_reform = secure_clergy_power_reform
+	remove_government_reform = maintain_clergy_balance_of_power_reform
+	remove_government_reform = separate_clergy_from_state_affairs_reform
+	remove_government_reform = restoration_of_clergy_reform
+	remove_government_reform = cult_of_reason_reform
+	#Visible but locked
+	remove_government_reform = secularization_of_the_state_reform
+	#Invisible until unlocked
+	#1.35
+	remove_government_reform = fiqh_laws_reform
+	remove_government_reform = sufism_decree_reform
+	remove_government_reform = holy_synod_reform
+	remove_government_reform = strengthened_the_patriarchy_reform
+	remove_government_reform = head_of_the_patriarchy_reform
+	remove_government_reform = anglican_state_church_reform
+	remove_government_reform = english_conciliarism_reform
+	#1.36
+	remove_government_reform = legacy_of_the_safavid_reform
+	remove_government_reform = state_madrasas_reform
+
+
+	# military_doctrines
+	remove_government_reform = organized_military_staff_reform
+	remove_government_reform = military_engineering_reform
+	remove_government_reform = defensive_stance_reform
+	remove_government_reform = sygnakhs_system_reform
+	remove_government_reform = sustained_discipline_reform
+	remove_government_reform = cavalry_warfare_reform
+	remove_government_reform = mercenary_leadership_reform
+	#Visible but locked
+	remove_government_reform = amphibious_specialization_reform
+	remove_government_reform = royal_marines_reform
+	remove_government_reform = maritime_military_reform
+	remove_government_reform = professional_navy_reform
+	remove_government_reform = doppelsoldner_reform
+	#Invisible until unlocked
+	remove_government_reform = expanded_devshirme_system_reform
+	remove_government_reform = reformed_ottoman_conscription_reform
+	remove_government_reform = mansure_army_reform
+	remove_government_reform = janissary_military_reform
+	remove_government_reform = wei_suo_system_reform
+	remove_government_reform = eight_banners_reform
+	remove_government_reform = green_standard_army_reform
+	remove_government_reform = ashigaru_reform
+	remove_government_reform = early_bushido_code_reform
+	remove_government_reform = the_righteous_army_reform
+	remove_government_reform = mansabdari_reform
+	remove_government_reform = rajput_military_leadership_reform
+	remove_government_reform = the_maratha_army_reform
+	remove_government_reform = subutais_strategies_reform
+	remove_government_reform = ahmudan_system_reform
+	remove_government_reform = ghazi_reform
+	remove_government_reform = the_cawa_regiments_reform
+	remove_government_reform = tercio_reform
+	remove_government_reform = fuero_militar_reform
+	remove_government_reform = ordennancas_reform
+	remove_government_reform = revive_the_almogavars_reform
+	remove_government_reform = volunteers_of_the_faith_reform
+	remove_government_reform = condottieri_contracts_reform
+	remove_government_reform = compagnie_dordonnance_reform
+	remove_government_reform = musketeers_reform
+	remove_government_reform = gendarmes_reform
+	remove_government_reform = general_war_commissariat_reform
+	remove_government_reform = swiss_mercenary_reform
+	remove_government_reform = allotment_system
+	remove_government_reform = boyars_army_reform
+	remove_government_reform = streltsy_reform
+	remove_government_reform = new_order_regiments_reform
+	remove_government_reform = reform_the_samurai_reform
+	remove_government_reform = staatse_leger_reform
+	remove_government_reform = watergeuzen_reform
+	remove_government_reform = cossacks_registry_reform
+	remove_government_reform = lessons_of_the_hussite_wars_reform
+	remove_government_reform = qollar_aghasi_regiments_reform
+	remove_government_reform = manrent_reform
+	remove_government_reform = merchant_arsenal_reform
+	remove_government_reform = tercios_reform
+	remove_government_reform = expanded_black_army_reform
+	remove_government_reform = theme_system_reform
+	#1.36
+	remove_government_reform = sparapet_office
+	remove_government_reform = legacy_of_the_seljuk_reform
+	remove_government_reform = modernized_furusiyya_reform
+	remove_government_reform = cawa_auxiliary_forces
+	#1.37
+	remove_government_reform = ayyubid_high_command
+	#1.37 Hungary
+	remove_government_reform = cuman_lancers_reform
+	#1.37 Bohemia
+	remove_government_reform = vozove_hradby_reform
+	remove_government_reform = russian_mercenary_guard_reform
+
+	# deliberative_assembly
+	remove_government_reform = parliamentary_reform
+	remove_government_reform = royal_decree_reform
+	remove_government_reform = aristocratic_court_reform
+	remove_government_reform = general_estates_reform
+	remove_government_reform = states_general_reform
+	remove_government_reform = legislative_sejm
+	remove_government_reform = integrated_sejmiks
+	remove_government_reform = feuillant_reform
+	remove_government_reform = two_chamber_reform
+	remove_government_reform = imperial_decree_reform
+	remove_government_reform = become_a_republic_reform
+	remove_government_reform = install_theocratic_government_reform
+	remove_government_reform = become_rev_republic_reform
+	#1.35
+	remove_government_reform = ottoman_siyasah_tax_reform
+	remove_government_reform = governing_senate_reform
+	remove_government_reform = enforced_autocracy_reform
+	remove_government_reform = justicia_de_aragon_reform
+	remove_government_reform = catalan_cortes_reform
+	remove_government_reform = great_council_of_mechelen_reform
+	remove_government_reform = parliament_vs_monarchy_reform
+	remove_government_reform = restoration_of_the_senate_reform
+
+
+	# economical_matters
+	remove_government_reform = empower_the_burghers_reform
+	remove_government_reform = curtail_the_burghers_reform
+	remove_government_reform = reestablish_the_burgeoisie_reform
+	remove_government_reform = mercantilistic_approach_reform
+	remove_government_reform = free_trade_reform
+	remove_government_reform = embrace_the_economic_theory_reform
+	remove_government_reform = war_economy_reform
+	#Visible but locked
+	remove_government_reform = new_world_exploitation_reform
+	remove_government_reform = lockean_proviso_reform
+	#Visible when unlocked
+	#1.35
+	remove_government_reform = vodka_of_the_crown_reform
+	remove_government_reform = jap_gokaido_reform
+	remove_government_reform = thalassocracy_reform
+	remove_government_reform = royal_charters_reform
+	remove_government_reform = commercial_trade_empire_reform
+	remove_government_reform = laesio_enormis_reform
+	#1.36
+	remove_government_reform = karimi_stations_reform
+	#1.37
+	remove_government_reform = merchant_representation_reform
+	remove_government_reform = modern_economics_reform
+	remove_government_reform = chinampa_farms_reform
+	remove_government_reform = bergordnung_reforms_reform
+
+
+	# growth_of_administration
+	remove_government_reform = clergy_in_administration_reform
+	remove_government_reform = of_noble_bearing_reform
+	remove_government_reform = meritocratic_focus_reform
+	remove_government_reform = dakhni_culture_reform
+	remove_government_reform = zabt_reform
+	remove_government_reform = dyanstic_administration_reform
+	remove_government_reform = permanent_marathas_council_reform
+	remove_government_reform = governmental_purbias_register_reform
+	remove_government_reform = revolutionary_principle_reform
+	remove_government_reform = equality_principle_reform
+	remove_government_reform = imperial_principle_reform
+	remove_government_reform = sakdina_system_reform
+	#1.35
+	remove_government_reform = qng_grand_council_reform
+	remove_government_reform = standardized_millets_reform
+	remove_government_reform = direct_royal_administration_reform
+	remove_government_reform = administration_of_the_parliament_reform
+	remove_government_reform = strengthened_parliament_reform
+	#1.36
+	remove_government_reform = legacy_of_eranshahr_reform
+	remove_government_reform = superiority_of_the_state_reform
+	remove_government_reform = divided_aristocracy_reform
+
+
+	# legitimation_of_power
+	remove_government_reform = machiavellianistic_rule_reform
+	remove_government_reform = six_livres_reform
+	remove_government_reform = two_treatises_reform
+	remove_government_reform = the_leviathan_reform
+	remove_government_reform = the_social_contract_reform
+
+
+	# absolute_rule_vs_constitutional
+	remove_government_reform = letat_cest_moi_reform
+	remove_government_reform = regional_representation_reform
+	remove_government_reform = peoples_kingdom_reform
+	# Third Odyssey
+	remove_government_reform = peoples_kingdom_reform_nodlc
+	# TO END
+	remove_government_reform = deified_monarchy_reform
+	remove_government_reform = consulate_reform
+	remove_government_reform = military_electorate_reform
+	remove_government_reform = revolutionary_council_reform
+	#1.35 Addition
+	remove_government_reform = mng_seal_of_the_emperor_reform
+	remove_government_reform = strengthen_bakuhan_system_reform
+
+
+	# separation_of_power
+	remove_government_reform = political_absolutism_reform
+	remove_government_reform = legislative_houses_reform
+	remove_government_reform = presidential_monarchy_reform
+	remove_government_reform = emperor_of_the_revolution_reform
+	remove_government_reform = enlightened_monarchy_reform
+	#1.35
+	remove_government_reform = peters_government_reform
+	remove_government_reform = nizam_i_cedid_reform
+}
+
+to_setup_non_hellenic_pagan_provinces = {
+	every_province = {
+		limit = {
+			religion_group = pagan
+			NOT = { religion = pantheon_worship }
+		}
+		set_province_flag = to_non_hellenic_pagan_religion
+	}
+}
+
+to_check_non_hellenic_pagan_provinces_manual_conversion = {
+	if = {
+		limit = {
+			has_province_flag = to_converted_heretics_as_hellenic_potential
+		}
+		clr_province_flag = to_converted_heretics_as_hellenic_potential
+		owner = {
+			set_country_flag = to_converted_heretics_as_hellenic
+		}
+	}
+}
+
+to_check_non_hellenic_pagan_provinces = {
+	clr_province_flag = to_converted_heretics_as_hellenic_potential
+	if = {
+		limit = {
+			has_province_flag = to_non_hellenic_pagan_religion
+			OR = {
+				religion = pantheon_worship
+				NOT = { religion_group = pagan }
+			}
+		}
+		clr_province_flag = to_non_hellenic_pagan_religion
+		if = {
+			limit = {
+				religion = pantheon_worship
+				owner = {
+					religion = pantheon_worship
+				}
+			}
+			set_province_flag = to_converted_heretics_as_hellenic_potential
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { has_province_flag = to_non_hellenic_pagan_religion }
+			religion_group = pagan
+			NOT = { religion = pantheon_worship }
+		}
+		set_province_flag = to_non_hellenic_pagan_religion
+	}
+}
+
+to_save_years_of_nationalism = {
+	hidden_effect = {
+		set_variable = {
+			which = to_saved_years_of_nationalism
+			value = 0
+		}
+		if = {
+			limit = {
+				nationalism = 1
+				NOT = { has_province_flag = to_separatism_restore_pending }
+			}
+			export_to_variable = {
+				which = to_saved_years_of_nationalism
+				value = trigger_value:nationalism
+			}
+			subtract_variable = {
+				which = to_saved_years_of_nationalism
+				value = 2
+			}
+			if = {
+				limit = {
+					has_province_modifier = to_kastrioti_dominion_penalty
+				}
+				change_variable = {
+					which = to_saved_years_of_nationalism
+					value = -10
+				}
+			}
+		}
+	}
+}
+
+to_load_years_of_nationalism = {
+	hidden_effect = {
+		add_nationalism = -100
+		if = {
+			limit = {
+				check_variable = {
+					which = to_saved_years_of_nationalism
+					value = 1
+				}
+			}
+			to_add_correct_exarch_local_nationalism_modifier = yes
+		}
+	}
+}
+
+to_change_tag = {
+	to_pre_change_tag_effect = yes
+	change_tag = $TAG$
+	[[ADDITIONAL_EFFECT]
+	$ADDITIONAL_EFFECT$
+	]
+	on_change_tag_effect = yes
+}
+
+to_on_rebels_siege_province_land_share = {
+	if = {
+		limit = {
+			owner = {
+				religion = $religion$
+				has_estate = estate_church
+			}
+		}
+		owner = {
+			change_estate_land_share = {
+				estate = estate_church
+				share = 10.0
+				province = ROOT
+			}
+		}
+	}
+}
+
+to_on_rebels_enforce_demands_land_share = {
+	if = {
+		limit = {
+			religion = $religion$
+			has_estate = estate_church
+		}
+		change_estate_land_share = {
+			estate = estate_church
+			share = 10.0
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_estate_influence_modifier = {
+						estate = estate_church
+						modifier = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+					}
+				}
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_RELIGIOUS_ZEALOTS_TRIUMPH
+				duration = 3650
+				influence = 15
+			}
+		}
+	}
+}
+
+to_remove_all_idea_groups = {
+	remove_idea_group = development_ideas
+	remove_idea_group = discovery_ideas
+	remove_idea_group = domination_ideas
+	remove_idea_group = aristocracy_ideas
+	remove_idea_group = plutocracy_ideas
+	remove_idea_group = horde_gov_ideas
+	remove_idea_group = theocracy_gov_ideas
+	remove_idea_group = indigenous_ideas
+	remove_idea_group = innovativeness_ideas
+	remove_idea_group = religious_ideas
+	remove_idea_group = spy_ideas
+	remove_idea_group = diplomatic_ideas
+	remove_idea_group = offensive_ideas
+	remove_idea_group = defensive_ideas
+	remove_idea_group = trade_ideas
+	remove_idea_group = economic_ideas
+	remove_idea_group = exploration_ideas
+	remove_idea_group = maritime_ideas
+	remove_idea_group = quality_ideas
+	remove_idea_group = quantity_ideas
+	remove_idea_group = expansion_ideas
+	remove_idea_group = administrative_ideas
+	remove_idea_group = humanist_ideas
+	remove_idea_group = influence_ideas
+	remove_idea_group = naval_ideas
+	remove_idea_group = infrastructure_ideas
+	remove_idea_group = court_ideas
+	remove_idea_group = mercenary_ideas
+}
+
+to_replace_idea_group_with_exploration = {
+	remove_idea_group = $IDEA_GROUP$
+	add_idea_group = exploration_ideas
+}
+
+to_replace_idea_group_with_exploration_keep_progress = {
+	if = {
+		limit = {
+			has_idea_group = $IDEA_GROUP$
+			NOT = { has_idea_group = exploration_ideas }
+		}
+		if = {
+			limit = {
+				$IDEA_GROUP$ = 7
+			}
+			to_replace_idea_group_with_exploration = { IDEA_GROUP = $IDEA_GROUP$ }
+			add_idea = global_empire
+		}
+		else_if = {
+			limit = {
+				$IDEA_GROUP$ = 6
+			}
+			to_replace_idea_group_with_exploration = { IDEA_GROUP = $IDEA_GROUP$ }
+			add_idea = free_colonies
+		}
+		else_if = {
+			limit = {
+				$IDEA_GROUP$ = 5
+			}
+			to_replace_idea_group_with_exploration = { IDEA_GROUP = $IDEA_GROUP$ }
+			add_idea = vice_roys
+		}
+		else_if = {
+			limit = {
+				$IDEA_GROUP$ = 4
+			}
+			to_replace_idea_group_with_exploration = { IDEA_GROUP = $IDEA_GROUP$ }
+			add_idea = land_of_opportunity
+		}
+		else_if = {
+			limit = {
+				$IDEA_GROUP$ = 3
+			}
+			to_replace_idea_group_with_exploration = { IDEA_GROUP = $IDEA_GROUP$ }
+			add_idea = overseas_exploration
+		}
+		else_if = {
+			limit = {
+				$IDEA_GROUP$ = 2
+			}
+			to_replace_idea_group_with_exploration = { IDEA_GROUP = $IDEA_GROUP$ }
+			add_idea = colonial_ventures
+		}
+		else_if = {
+			limit = {
+				$IDEA_GROUP$ = 1
+			}
+			to_replace_idea_group_with_exploration = { IDEA_GROUP = $IDEA_GROUP$ }
+			add_idea = quest_for_the_new_world
+		}
+		else = {
+			to_replace_idea_group_with_exploration = { IDEA_GROUP = $IDEA_GROUP$ }
+		}
+	}
+}
+
+to_replace_idea_group_with_exploration_for_ai = {
+	if = {
+		limit = {
+			has_idea_group = spy_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = spy_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = maritime_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = maritime_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = indigenous_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = indigenous_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = administrative_ideas
+			NOt = { full_idea_group = administrative_ideas }
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = administrative_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = influence_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = influence_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = diplomatic_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = diplomatic_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = court_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = court_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = innovativeness_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = innovativeness_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = trade_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = trade_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = economic_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = economic_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = infrastructure_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = infrastructure_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = humanist_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = humanist_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = religious_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = religious_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = mercenary_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = mercenary_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = plutocracy_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = plutocracy_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = horde_gov_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = horde_gov_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = theocracy_gov_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = theocracy_gov_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = aristocracy_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = aristocracy_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = naval_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = naval_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = offensive_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = offensive_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = defensive_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = defensive_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = quality_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = quality_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = quantity_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = quantity_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = expansion_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = expansion_ideas }
+	}
+	else_if = {
+		limit = {
+			has_idea_group = administrative_ideas
+		}
+		to_replace_idea_group_with_exploration_keep_progress = { IDEA_GROUP = administrative_ideas }
+	}
+}
+
+to_replace_idea_group_with_exploration_master_effect = {
+	if = {
+		limit = {
+			NOT = { has_idea_group = exploration_ideas }
+			to_there_is_a_switchable_idea_group = yes
+		}
+		if = {
+			limit = {
+				ai = no
+			}
+			if = {
+				limit = {
+					adm_tech = 5
+					NOT = { adm_tech = 7 }
+					OR = {
+						has_idea_group = spy_ideas
+						has_idea_group = maritime_ideas
+						has_idea_group = indigenous_ideas
+						has_idea_group = administrative_ideas
+						has_idea_group = influence_ideas
+						has_idea_group = diplomatic_ideas
+						has_idea_group = innovativeness_ideas
+						has_idea_group = trade_ideas
+						has_idea_group = economic_ideas
+						has_idea_group = humanist_ideas
+						has_idea_group = religious_ideas
+						has_idea_group = plutocracy_ideas
+						has_idea_group = horde_gov_ideas
+						has_idea_group = theocracy_gov_ideas
+						has_idea_group = aristocracy_ideas
+						has_idea_group = naval_ideas
+						has_idea_group = offensive_ideas
+						has_idea_group = defensive_ideas
+						has_idea_group = quality_ideas
+						has_idea_group = quantity_ideas
+						has_idea_group = expansion_ideas
+						has_idea_group = infrastructure_ideas
+						has_idea_group = court_ideas
+						has_idea_group = mercenary_ideas
+					}
+				}
+				# Also works for the player if they only have a single idea group
+				to_replace_idea_group_with_exploration_for_ai = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						AND = {
+							adm_tech = 5
+							NOT = { adm_tech = 7 }
+							OR = {
+								has_idea_group = spy_ideas
+								has_idea_group = maritime_ideas
+								has_idea_group = indigenous_ideas
+								has_idea_group = administrative_ideas
+								has_idea_group = influence_ideas
+								has_idea_group = diplomatic_ideas
+								has_idea_group = innovativeness_ideas
+								has_idea_group = trade_ideas
+								has_idea_group = economic_ideas
+								has_idea_group = humanist_ideas
+								has_idea_group = religious_ideas
+								has_idea_group = plutocracy_ideas
+								has_idea_group = horde_gov_ideas
+								has_idea_group = theocracy_gov_ideas
+								has_idea_group = aristocracy_ideas
+								has_idea_group = naval_ideas
+								has_idea_group = offensive_ideas
+								has_idea_group = defensive_ideas
+								has_idea_group = quality_ideas
+								has_idea_group = quantity_ideas
+								has_idea_group = expansion_ideas
+								has_idea_group = infrastructure_ideas
+								has_idea_group = court_ideas
+								has_idea_group = mercenary_ideas
+							}
+						}
+					}
+				}
+				custom_tooltip = nhs_new_line_tt
+				# custom_tooltip = to_event_to_switch_idea_groups_tt
+				country_event = { id = to_colonialism_events.3 tooltip = to_event_to_switch_idea_groups_tt }
+			}
+		}
+		else = {
+			to_replace_idea_group_with_exploration_for_ai = yes
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { has_idea_group = exploration_ideas }
+			adm_tech = 5
+		}
+		add_idea_group = exploration_ideas
+	}
+}
+
+to_trigger_colonialism_events_with_portugal = {
+	every_country = {
+		limit = {
+			NOT = { tag = ROOT }
+			to_eligible_for_exploration_event = yes
+		}
+		country_event = { id = to_colonialism_events.1 }
+	}
+	hidden_effect = {
+		every_country = {
+			limit = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+			country_event = { id = to_colonialism_events.4 }
+		}
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				NOT = { nhs_check_all_elysian_tags = { CONDITION = tag } }
+				ai = no
+				NOT = { to_eligible_for_exploration_event = yes }
+			}
+			if = {
+				limit = {
+					knows_country = ROOT
+				}
+				country_event = { id = institution_events.300 }
+			}
+			else = {
+				country_event = { id = institution_events.301 }
+			}
+		}
+	}
+}
+
+to_trigger_colonialism_events_no_portugal = {
+	every_country = {
+		limit = {
+			NOT = { tag = ROOT }
+			to_eligible_for_exploration_event = yes
+		}
+		country_event = { id = to_colonialism_events.2 }
+	}
+	hidden_effect = {
+		every_country = {
+			limit = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+			country_event = { id = to_colonialism_events.5 }
+		}
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				NOT = { nhs_check_all_elysian_tags = { CONDITION = tag } }
+				ai = no
+				NOT = { to_eligible_for_exploration_event = yes }
+			}
+			if = {
+				limit = {
+					knows_country = ROOT
+				}
+				country_event = { id = institution_events.300 }
+			}
+			else = {
+				country_event = { id = institution_events.301 }
+			}
+		}
+	}
+}
+
+to_trigger_colonialism_events_magellan = {
+	every_country = {
+		limit = {
+			NOT = { tag = ROOT }
+			to_eligible_for_exploration_event = yes
+		}
+		country_event = { id = to_colonialism_events.11 }
+	}
+	hidden_effect = {
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				NOT = { nhs_check_all_elysian_tags = { CONDITION = tag } }
+				ai = no
+				NOT = { to_eligible_for_exploration_event = yes }
+			}
+			if = {
+				limit = {
+					knows_country = ROOT
+				}
+				country_event = { id = institution_events.300 }
+			}
+			else = {
+				country_event = { id = institution_events.301 }
+			}
+		}
+	}
+}
+
+to_birthplace_of_colonialism_effect = {
+	add_adm_power = 100
+	add_dip_power = 100
+	add_mil_power = 100
+	add_prestige = 20
+	if = {
+		limit = {
+			NOT = { has_completed_all_reforms_trigger = yes }
+		}
+		add_reform_progress_medium_effect = yes
+	}
+	[[ADD_MAGELLAN_EFFECT]
+	if =  {
+		limit = {
+			has_dlc = "Rights of Man"
+			NOT = { num_of_ruler_traits = { amount = 3 } }
+			NOT = { ruler_has_personality = navigator_personality }
+			has_regency = no
+		}
+		add_navy_tradition = 10
+		add_ruler_personality = navigator_personality
+	}
+	else = { add_navy_tradition = 20 }
+	]
+	custom_tooltip = to_colonialism_spread_europe_tt
+	custom_tooltip = institution_events.3.a.tt
+	custom_tooltip = nhs_new_line_tt
+	FROM = {
+		add_permanent_province_modifier = {
+			name = "birthplace_of_the_new_world"
+			duration = -1
+		}
+		if = {
+			limit = {
+				owner = {
+					has_country_modifier = nhs2_por_ely_trade
+				}
+			}
+			tooltip = {
+				add_permanent_province_modifier = {
+					name = to_por_gateway_to_elysia
+					duration = -1
+				}
+			}
+			hidden_effect = {
+				add_province_triggered_modifier = to_por_gateway_to_elysia_tm
+			}
+		}
+	}
+	[[ADD_MAGELLAN_EFFECT]
+	define_explorer = {
+		name = "Ferdinant Magellan"
+		shock = 2
+		fire = 1
+		manuever = 6
+		trait = accomplished_sailor_personality
+	}
+	]
+}
+
+to_discover_magellan_travels = {
+	custom_tooltip = to_discover_magellan_travels_tt
+	hidden_effect = {
+		discover_province = 1566
+		discover_province = 1578
+		discover_province = 1581
+		discover_province = 1576
+		discover_province = 1566
+		caribbean_sea_area = {
+			discover_country = ROOT
+		}
+		carribeans_region = {
+			limit = {
+				has_port = yes
+				NOT = { province_id = 481 }
+			}
+			discover_country = ROOT
+		}
+		if = {
+			limit = {
+				has_saved_event_target = to_magellan_landing
+			}
+			if = {
+				limit = {
+					event_target:to_magellan_landing = {
+						OR = {
+							province_id = 482
+							province_id = 483
+						}
+					}
+				}
+				bahama_channel_area = {
+					limit = {
+						NOT = { province_id = 481 }
+					}
+					discover_country = ROOT
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:to_magellan_landing = {
+						OR = {
+							region = mississippi_region
+							region = rio_grande_region
+							region = mexico_region
+							region = central_america_region
+						}
+					}
+				}
+				gulf_of_mexico_area = {
+					limit = {
+						NOT = { province_id = 481 }
+					}
+					discover_country = ROOT
+				}
+				if = {
+					limit = {
+						event_target:to_magellan_landing = {
+							OR = {
+								region = mexico_region
+								region = central_america_region
+							}
+						}
+					}
+					every_province = {
+						limit = {
+							province_group = to_east_coast
+							region = event_target:to_magellan_landing
+							has_port = yes
+						}
+						discover_country = ROOT
+					}
+				}
+				else = {
+					every_province = {
+						limit = {
+							region = event_target:to_magellan_landing
+							has_port = yes
+						}
+						discover_country = ROOT
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:to_magellan_landing = {
+						region = colombia_region
+					}
+				}
+				discover_province = 1528
+				discover_province = 1527
+				# discover_province = 1522
+				# discover_province = 1520
+				# discover_province = 1519
+				# discover_province = 1517
+				# discover_province = 1515
+				# discover_province = 491
+				colombia_region = {
+					limit = {
+						has_port = yes
+					}
+					discover_country = ROOT
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:to_magellan_landing = {
+						OR = {
+							area = north_florida_area
+							area = florida_area
+							area = south_carolina_area
+						}
+					}
+				}
+				bahama_channel_area = {
+					limit = {
+						NOT = { province_id = 481 }
+					}
+					discover_country = ROOT
+				}
+				if = {
+					limit = {
+						event_target:to_magellan_landing = {
+							OR = {
+								area = south_carolina_area
+								area = north_florida_area
+							}
+						}
+					}
+					discover_province = 1502
+				}
+				if = {
+					limit = {
+						event_target:to_magellan_landing = {
+							OR = {
+								area = florida_area
+								area = north_florida_area
+							}
+						}
+					}
+					discover_province = 1506
+				}
+				every_province = {
+					limit = {
+						area = event_target:to_magellan_landing
+						has_port = yes
+					}
+					discover_country = ROOT
+				}
+			}
+			else = {
+				every_province = {
+					limit = {
+						region = event_target:to_magellan_landing
+						has_port = yes
+					}
+					discover_country = ROOT
+				}
+			}
+		}
+	}
+}
+
+to_accept_magellan_offer = {
+	add_dip_power = -100
+	custom_tooltip = to_begin_magellan_voyage_tt
+	set_global_flag = to_magellan_has_departed
+	set_country_flag = to_magellan_departure_country
+	save_global_event_target_as = to_magellan_departure_country
+	hidden_effect = {
+		clear_global_event_target = to_magellan_initial_proposal
+		every_country = {
+			clr_country_flag = to_denied_magellan
+		}
+		random_country = {
+			limit = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+			country_event = { id = to_colonialism_events.9 days = 90 }
+		}
+	}
+}
+
+to_reject_magellan_offer = {
+	add_legitimacy = 10
+	hidden_effect = {
+		set_country_flag = to_denied_magellan
+		set_global_flag = to_magellan_seaches_for_employment
+	}
+	to_find_new_magellan_target = yes
+}
+
+to_find_new_magellan_target = {
+	if = {
+		limit = {
+			any_country = {
+				ai = no
+				OR = {
+					tag = POR
+					tag = CAS
+					tag = SPA
+				}
+				any_owned_province = {
+					continent = europe
+					sea_zone = {
+						region = north_atlantic_region
+					}
+				}
+				capital_scope = {
+					OR = {
+						continent = europe
+						superregion = africa_superregion
+					}
+				}
+				NOT = { has_country_flag = to_denied_magellan }
+			}
+		}
+		random_country = {
+			limit = {
+				ai = no
+				OR = {
+					tag = POR
+					tag = CAS
+					tag = SPA
+				}
+				any_owned_province = {
+					continent = europe
+					sea_zone = {
+						region = north_atlantic_region
+					}
+				}
+				capital_scope = {
+					OR = {
+						continent = europe
+						superregion = africa_superregion
+					}
+				}
+				NOT = { has_country_flag = to_denied_magellan }
+			}
+			country_event = { id = to_colonialism_events.7 days = 30 }
+		}
+	}
+	else_if = {
+		limit = {
+			any_country = {
+				ai = no
+				religion_group = ROOT
+				any_owned_province = {
+					continent = europe
+					sea_zone = {
+						region = north_atlantic_region
+					}
+				}
+				capital_scope = {
+					OR = {
+						continent = europe
+						superregion = africa_superregion
+					}
+				}
+				NOT = { has_country_flag = to_denied_magellan }
+			}
+		}
+		random_country = {
+			limit = {
+				ai = no
+				religion_group = ROOT
+				any_owned_province = {
+					continent = europe
+					sea_zone = {
+						region = north_atlantic_region
+					}
+				}
+				capital_scope = {
+					OR = {
+						continent = europe
+						superregion = africa_superregion
+					}
+				}
+				NOT = { has_country_flag = to_denied_magellan }
+			}
+			country_event = { id = to_colonialism_events.7 days = 30 }
+		}
+	}
+	else_if = {
+		limit = {
+			any_country = {
+				OR = {
+					tag = POR
+					tag = CAS
+					tag = SPA
+				}
+				any_owned_province = {
+					continent = europe
+					sea_zone = {
+						region = north_atlantic_region
+					}
+				}
+				capital_scope = {
+					OR = {
+						continent = europe
+						superregion = africa_superregion
+					}
+				}
+				NOT = { has_country_flag = to_denied_magellan }
+			}
+		}
+		random_country = {
+			limit = {
+				OR = {
+					tag = POR
+					tag = CAS
+					tag = SPA
+				}
+				any_owned_province = {
+					continent = europe
+					sea_zone = {
+						region = north_atlantic_region
+					}
+				}
+				capital_scope = {
+					OR = {
+						continent = europe
+						superregion = africa_superregion
+					}
+				}
+				NOT = { has_country_flag = to_denied_magellan }
+			}
+			country_event = { id = to_colonialism_events.7 days = 30 }
+		}
+	}
+	else_if = {
+		limit = {
+			any_country = {
+				religion_group = ROOT
+				any_owned_province = {
+					continent = europe
+					sea_zone = {
+						region = north_atlantic_region
+					}
+				}
+				capital_scope = {
+					OR = {
+						continent = europe
+						superregion = africa_superregion
+					}
+				}
+				NOT = { has_country_flag = to_denied_magellan }
+			}
+		}
+		random_country = {
+			limit = {
+				religion_group = ROOT
+				any_owned_province = {
+					continent = europe
+					sea_zone = {
+						region = north_atlantic_region
+					}
+				}
+				capital_scope = {
+					OR = {
+						continent = europe
+						superregion = africa_superregion
+					}
+				}
+				NOT = { has_country_flag = to_denied_magellan }
+			}
+			country_event = { id = to_colonialism_events.7 days = 30 }
+		}
+	}
+	else = {
+		custom_tooltip = to_magellan_private_financing_tt
+		clr_global_flag = to_magellan_seaches_for_employment
+		set_global_flag = to_magellan_private_financing
+		save_global_event_target_as = to_magellan_private_target
+	}
+}
+
+to_clean_magellan_flags = {
+	hidden_effect = {
+		every_country = {
+			clr_country_flag = to_magellan_departure_country
+			clr_country_flag = to_denied_magellan
+		}
+		every_province = {
+			clr_province_flag = to_magellan_landing
+		}
+		clr_global_flag = to_magellan_has_departed
+		clr_global_flag = to_magellan_found_elysia
+		clr_global_flag = to_magellan_seaches_for_employment
+		clear_global_event_target = to_magellan_departure_country
+		clear_global_event_target = to_magellan_initial_proposal
+	}
+}
+
+to_development_events_add_next_flag = {
+	# if = {
+	# 	limit = {
+	# 		has_province_flag = nhs_had_dev_events_2
+	# 	}
+	# 	set_province_flag = nhs_had_dev_events_3
+	# }
+	if = {
+		limit = {
+			has_province_flag = nhs_had_dev_events_1
+		}
+		set_province_flag = nhs_had_dev_events_2
+	}
+	else = {
+		set_province_flag = nhs_had_dev_events_2
+	}
+}
+
+to_add_2_stability_or_adm_power = {
+	if = {
+		limit = {
+			stability = 3
+		}
+		add_adm_power = 100
+	}
+	else_if = {
+		limit = {
+			stability = 2
+		}
+		add_stability = 1
+		add_adm_power = 50
+	}
+	else = {
+		add_stability = 2
+	}
+}
+
+to_round_up_variable = {
+	change_variable = {
+		which = $VARIABLE$
+		value = 0.5
+	}
+	multiply_variable = {
+		which = $VARIABLE$
+		value = 0.001
+	}
+	multiply_variable = {
+		which = $VARIABLE$
+		value = 1000
+	}
+}
+
+to_round_down_variable = {
+	multiply_variable = {
+		which = $VARIABLE$
+		value = 0.001
+	}
+	multiply_variable = {
+		which = $VARIABLE$
+		value = 1000
+	}
+}
+
+to_round_down_variable_one_decimal = {
+	multiply_variable = {
+		which = $VARIABLE$
+		value = 0.01
+	}
+	multiply_variable = {
+		which = $VARIABLE$
+		value = 100
+	}
+}
+
+to_round_down_variable_two_decimals = {
+	multiply_variable = {
+		which = $VARIABLE$
+		value = 0.1
+	}
+	multiply_variable = {
+		which = $VARIABLE$
+		value = 10
+	}
+}
+
+to_remove_var_if_not_0 = {
+	if = {
+		limit = {
+			NOT = {
+				is_variable_equal = {
+					which = $VARIABLE$
+					value = 0
+				}
+			}
+		}
+		set_variable = {
+			which = $VARIABLE$
+			value = 0
+		}
+	}
+}
+
+
+to_remove_historal_friends_and_rivals = {
+	hidden_effect = {
+		every_country = {
+			limit = {
+				historical_friend_with = ROOT
+			}
+			remove_historical_friend = ROOT
+		}
+		every_country = {
+			limit = {
+				ROOT = {
+					historical_friend_with = PREV
+				}
+			}
+			ROOT = {
+				remove_historical_friend = PREV
+			}
+		}
+		every_country = {
+			limit = {
+				historical_rival_with = ROOT
+			}
+			remove_historical_rival = ROOT
+		}
+		every_country = {
+			limit = {
+				ROOT = {
+					historical_rival_with = PREV
+				}
+			}
+			ROOT = {
+				remove_historical_rival = PREV
+			}
+		}
+	}
+}
+
+to_save_former_colonial_owner_and_overlord = {
+	every_province = {
+		limit = {
+			has_province_flag = to_former_colonial_owner@PREV
+		}
+		clr_province_flag = to_former_colonial_owner@PREV
+		set_province_flag = to_former_colonial_owner_TAG
+	}
+	every_country = {
+		limit = {
+			has_country_flag = to_former_overlord@PREV
+		}
+		set_country_flag = to_former_overlord_TAG
+	}
+}
+
+to_load_former_colonial_owner_and_overlord = {
+	every_province = {
+		limit = {
+			has_province_flag = to_former_colonial_owner_TAG
+		}
+		clr_province_flag = to_former_colonial_owner_TAG
+		set_province_flag = to_former_colonial_owner@PREV
+	}
+	every_country = {
+		limit = {
+			has_country_flag = to_former_overlord_TAG
+		}
+		clr_country_flag = to_former_overlord_TAG
+		set_country_flag = to_former_overlord@PREV
+	}
+}
+
+to_save_historal_friends_and_rivals = {
+	hidden_effect = {
+		every_country = {
+			limit = {
+				historical_friend_with = PREV
+			}
+			set_country_flag = to_historical_friend_with_ROOT
+			remove_historical_friend = PREV
+		}
+		every_country = {
+			limit = {
+				PREV = {
+					historical_friend_with = PREV
+				}
+			}
+			set_country_flag = to_ROOT_historical_friend_with_TAG
+			PREV = {
+				remove_historical_friend = PREV
+			}
+		}
+		every_country = {
+			limit = {
+				historical_rival_with = PREV
+			}
+			set_country_flag = to_historical_rival_with_ROOT
+			remove_historical_rival = PREV
+		}
+		every_country = {
+			limit = {
+				PREV = {
+					historical_rival_with = PREV
+				}
+			}
+			set_country_flag = to_ROOT_historical_rival_with_TAG
+			PREV = {
+				remove_historical_rival = PREV
+			}
+		}
+	}
+}
+
+to_load_historal_friends_and_rivals = {
+	hidden_effect = {
+		every_country = {
+			limit = {
+				has_country_flag = to_historical_friend_with_ROOT
+			}
+			clr_country_flag = to_historical_friend_with_ROOT
+			add_historical_friend = PREV
+		}
+		every_country = {
+			limit = {
+				has_country_flag = to_ROOT_historical_friend_with_TAG
+			}
+			clr_country_flag = to_ROOT_historical_friend_with_TAG
+			PREV = {
+				add_historical_friend = PREV
+			}
+		}
+		every_country = {
+			limit = {
+				has_country_flag = to_historical_rival_with_ROOT
+			}
+			clr_country_flag = to_historical_rival_with_ROOT
+			add_historical_rival = PREV
+		}
+		every_country = {
+			limit = {
+				has_country_flag = to_ROOT_historical_rival_with_TAG
+			}
+			clr_country_flag = to_ROOT_historical_rival_with_TAG
+			PREV = {
+				add_historical_rival = PREV
+			}
+		}
+	}
+}
+
+to_restore_historal_friends_and_rivals = {
+	hidden_effect = {
+		every_country = {
+			limit = {
+				$PREVIOUS_TAG$ = {
+					historical_friend_with = PREV
+				}
+			}
+			$PREVIOUS_TAG$ = {
+				remove_historical_friend = PREV
+			}
+			ROOT = {
+				add_historical_friend = PREV
+			}
+		}
+		every_country = {
+			limit = {
+				$PREVIOUS_TAG$ = {
+					PREV = {
+						historical_friend_with = PREV
+					}
+				}
+			}
+			$PREVIOUS_TAG$ = {
+				PREV = {
+					remove_historical_friend = PREV
+				}
+			}
+			add_historical_friend = ROOT
+		}
+		every_country = {
+			limit = {
+				$PREVIOUS_TAG$ = {
+					historical_rival_with = PREV
+				}
+			}
+			$PREVIOUS_TAG$ = {
+				remove_historical_rival = PREV
+			}
+			ROOT = {
+				add_historical_rival = PREV
+			}
+		}
+		every_country = {
+			limit = {
+				$PREVIOUS_TAG$ = {
+					PREV = {
+						historical_rival_with = PREV
+					}
+				}
+			}
+			$PREVIOUS_TAG$ = {
+				PREV = {
+					remove_historical_rival = PREV
+				}
+			}
+			add_historical_rival = ROOT
+		}
+	}
+}
+
+to_monuments_later = {
+	if = {
+		limit = {
+			$PROVINCE_ID$ = {
+				construction_progress = 0
+			}
+		}
+		if = {
+			limit = {
+				$PROVINCE_ID$ = {
+					has_construction = colonist
+				}
+			}
+			custom_tooltip = to_monuments_later_colonist_tt
+		}
+		else_if = {
+			limit = {
+				$PROVINCE_ID$ = {
+					has_construction = missionary
+				}
+			}
+			custom_tooltip = to_monuments_later_missionary_tt
+		}
+		else = {
+			custom_tooltip = to_monuments_later_tt
+		}
+		custom_tooltip = nhs_new_line_tt
+	}
+}
+
+to_correct_colony_culture = {
+	if = {
+		limit = {
+			is_colonial_nation = yes
+		}
+		overlord = {
+			if = {
+				limit = {
+					NOT = { nhs_post_fragmentation_culturally_elysian = yes }
+				}
+				PREV = {
+					change_primary_culture = PREV
+					set_ruler_culture = PREV
+				}
+			}
+			else = {
+				PREV = {
+					to_ely_country_culture_check = {
+						FLAG_SCOPE = PREV
+						FLAG_SCOPE_BACKUP = yes
+					}
+				}
+			}
+			PREV = {
+				change_religion = PREV
+			}
+		}
+	}
+}
+
+to_subject_monument_mod_transfer = {
+	if = {
+		limit = {
+			owner = {
+				is_subject = yes
+			}
+		}
+		custom_tooltip = to_subject_monument_mod_transfer_subject_tt
+	}
+	else = {
+		custom_tooltip = to_subject_monument_mod_transfer_tt
+	}
+}
+
+to_handle_subject_annexation_date = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = to_do_not_change_annexation_date }
+		}
+		clr_country_flag = to_became_a_subject
+		set_country_flag = to_became_a_subject
+		export_to_variable = {
+			which = to_protectorate_annexation_year_20
+			value = trigger_value:is_year
+		}
+		set_variable = {
+			which = to_protectorate_annexation_year_50
+			which = to_protectorate_annexation_year_20
+		}
+		change_variable = {
+			which = to_protectorate_annexation_year_20
+			value = 20
+		}
+		change_variable = {
+			which = to_protectorate_annexation_year_50
+			value = 50
+		}
+		export_to_variable = {
+			which = to_protectorate_annexation_month
+			value = trigger_value:is_month
+		}
+		change_variable = {
+			which = to_protectorate_annexation_month
+			value = 2
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = to_protectorate_annexation_month
+					value = 13
+				}
+			}
+			change_variable = {
+				which = to_protectorate_annexation_year_20
+				value = 1
+			}
+			change_variable = {
+				which = to_protectorate_annexation_year_50
+				value = 1
+			}
+			set_variable = {
+				which = to_protectorate_annexation_month
+				value = 1
+			}
+		}
+	}
+}
+
+to_set_isolation_to_VALUE = {
+	custom_tooltip = to_set_isolation_to_$VALUE$_tt
+	hidden_effect = {
+		set_isolationism = 0
+	}
+}
+
+
+nhs_save_previous_goods = {
+    clr_province_flag = nhs_had_grain_tg
+    clr_province_flag = nhs_had_wine_tg
+    clr_province_flag = nhs_had_wool_tg
+    clr_province_flag = nhs_had_cloth_tg
+    clr_province_flag = nhs_had_fish_tg
+    clr_province_flag = nhs_had_fur_tg
+    clr_province_flag = nhs_had_salt_tg
+    clr_province_flag = nhs_had_naval_supplies_tg
+    clr_province_flag = nhs_had_copper_tg
+    clr_province_flag = nhs_had_gold_tg
+    clr_province_flag = nhs_had_iron_tg
+    clr_province_flag = nhs_had_slaves_tg
+    clr_province_flag = nhs_had_ivory_tg
+    clr_province_flag = nhs_had_tea_tg
+    clr_province_flag = nhs_had_chinaware_tg
+    clr_province_flag = nhs_had_spices_tg
+    clr_province_flag = nhs_had_coffee_tg
+    clr_province_flag = nhs_had_cotton_tg
+    clr_province_flag = nhs_had_sugar_tg
+    clr_province_flag = nhs_had_tobacco_tg
+    clr_province_flag = nhs_had_cocoa_tg
+    clr_province_flag = nhs_had_silk_tg
+    clr_province_flag = nhs_had_elysian_silk_tg
+    clr_province_flag = nhs_had_skoros_silk_tg
+    clr_province_flag = nhs_had_tropical_wood_tg
+    clr_province_flag = nhs_had_dyes_tg
+    clr_province_flag = nhs_had_norse_mead_tg
+    clr_province_flag = nhs_had_livestock_tg
+    clr_province_flag = nhs_had_incense_tg
+    clr_province_flag = nhs_had_glass_tg
+    clr_province_flag = nhs_had_gems_tg
+    clr_province_flag = nhs_had_paper_tg
+    clr_province_flag = nhs_had_coal_tg
+    clr_province_flag = nhs_had_cloves_tg
+    clr_province_flag = nhs_had_unknown_tg
+    clr_province_flag = nhs_had_coal_2_tg
+    clr_province_flag = nhs_had_nothing_tg
+	if = { limit = { trade_goods = grain } set_province_flag = nhs_had_grain_tg }
+    else_if = { limit = { trade_goods = wine } set_province_flag = nhs_had_wine_tg }
+    else_if = { limit = { trade_goods = wool } set_province_flag = nhs_had_wool_tg }
+    else_if = { limit = { trade_goods = cloth } set_province_flag = nhs_had_cloth_tg }
+    else_if = { limit = { trade_goods = fish } set_province_flag = nhs_had_fish_tg }
+    else_if = { limit = { trade_goods = fur } set_province_flag = nhs_had_fur_tg }
+    else_if = { limit = { trade_goods = salt } set_province_flag = nhs_had_salt_tg }
+    else_if = { limit = { trade_goods = naval_supplies } set_province_flag = nhs_had_naval_supplies_tg }
+    else_if = { limit = { trade_goods = copper } set_province_flag = nhs_had_copper_tg }
+    else_if = { limit = { trade_goods = gold } set_province_flag = nhs_had_gold_tg }
+    else_if = { limit = { trade_goods = iron } set_province_flag = nhs_had_iron_tg }
+    else_if = { limit = { trade_goods = slaves } set_province_flag = nhs_had_slaves_tg }
+    else_if = { limit = { trade_goods = ivory } set_province_flag = nhs_had_ivory_tg }
+    else_if = { limit = { trade_goods = tea } set_province_flag = nhs_had_tea_tg }
+    else_if = { limit = { trade_goods = chinaware } set_province_flag = nhs_had_chinaware_tg }
+    else_if = { limit = { trade_goods = spices } set_province_flag = nhs_had_spices_tg }
+    else_if = { limit = { trade_goods = coffee } set_province_flag = nhs_had_coffee_tg }
+    else_if = { limit = { trade_goods = cotton } set_province_flag = nhs_had_cotton_tg }
+    else_if = { limit = { trade_goods = sugar } set_province_flag = nhs_had_sugar_tg }
+    else_if = { limit = { trade_goods = tobacco } set_province_flag = nhs_had_tobacco_tg }
+    else_if = { limit = { trade_goods = cocoa } set_province_flag = nhs_had_cocoa_tg }
+    else_if = { limit = { trade_goods = silk } set_province_flag = nhs_had_silk_tg }
+    else_if = { limit = { trade_goods = elysian_silk } set_province_flag = nhs_had_elysian_silk_tg }
+    else_if = { limit = { trade_goods = skoros_silk } set_province_flag = nhs_had_skoros_silk_tg }
+    else_if = { limit = { trade_goods = tropical_wood } set_province_flag = nhs_had_tropical_wood_tg }
+    else_if = { limit = { trade_goods = dyes } set_province_flag = nhs_had_dyes_tg }
+    else_if = { limit = { trade_goods = norse_mead } set_province_flag = nhs_had_norse_mead_tg }
+    else_if = { limit = { trade_goods = livestock } set_province_flag = nhs_had_livestock_tg }
+    else_if = { limit = { trade_goods = incense } set_province_flag = nhs_had_incense_tg }
+    else_if = { limit = { trade_goods = glass } set_province_flag = nhs_had_glass_tg }
+    else_if = { limit = { trade_goods = gems } set_province_flag = nhs_had_gems_tg }
+    else_if = { limit = { trade_goods = paper } set_province_flag = nhs_had_paper_tg }
+    else_if = { limit = { trade_goods = coal } set_province_flag = nhs_had_coal_tg }
+    else_if = { limit = { trade_goods = cloves } set_province_flag = nhs_had_cloves_tg }
+    else_if = { limit = { trade_goods = unknown } set_province_flag = nhs_had_unknown_tg }
+    else_if = { limit = { trade_goods = coal_2 } set_province_flag = nhs_had_coal_2_tg }
+    else_if = { limit = { trade_goods = nothing } set_province_flag = nhs_had_nothing_tg }
+}
+
+nhs_load_previous_goods = {
+	if = { limit = { has_province_flag = nhs_had_grain_tg } change_trade_goods = grain }
+	else_if = { limit = { has_province_flag = nhs_had_wine_tg } change_trade_goods = wine }
+	else_if = { limit = { has_province_flag = nhs_had_wool_tg } change_trade_goods = wool }
+	else_if = { limit = { has_province_flag = nhs_had_cloth_tg } change_trade_goods = cloth }
+	else_if = { limit = { has_province_flag = nhs_had_fish_tg } change_trade_goods = fish }
+	else_if = { limit = { has_province_flag = nhs_had_fur_tg } change_trade_goods = fur }
+	else_if = { limit = { has_province_flag = nhs_had_salt_tg } change_trade_goods = salt }
+	else_if = { limit = { has_province_flag = nhs_had_naval_supplies_tg } change_trade_goods = naval_supplies }
+	else_if = { limit = { has_province_flag = nhs_had_copper_tg } change_trade_goods = copper }
+	else_if = { limit = { has_province_flag = nhs_had_gold_tg } change_trade_goods = gold }
+	else_if = { limit = { has_province_flag = nhs_had_iron_tg } change_trade_goods = iron }
+	else_if = { limit = { has_province_flag = nhs_had_slaves_tg } change_trade_goods = slaves }
+	else_if = { limit = { has_province_flag = nhs_had_ivory_tg } change_trade_goods = ivory }
+	else_if = { limit = { has_province_flag = nhs_had_tea_tg } change_trade_goods = tea }
+	else_if = { limit = { has_province_flag = nhs_had_chinaware_tg } change_trade_goods = chinaware }
+	else_if = { limit = { has_province_flag = nhs_had_spices_tg } change_trade_goods = spices }
+	else_if = { limit = { has_province_flag = nhs_had_coffee_tg } change_trade_goods = coffee }
+	else_if = { limit = { has_province_flag = nhs_had_cotton_tg } change_trade_goods = cotton }
+	else_if = { limit = { has_province_flag = nhs_had_sugar_tg } change_trade_goods = sugar }
+	else_if = { limit = { has_province_flag = nhs_had_tobacco_tg } change_trade_goods = tobacco }
+	else_if = { limit = { has_province_flag = nhs_had_cocoa_tg } change_trade_goods = cocoa }
+	else_if = { limit = { has_province_flag = nhs_had_silk_tg } change_trade_goods = silk }
+	else_if = { limit = { has_province_flag = nhs_had_elysian_silk_tg } change_trade_goods = elysian_silk }
+	else_if = { limit = { has_province_flag = nhs_had_skoros_silk_tg } change_trade_goods = skoros_silk }
+	else_if = { limit = { has_province_flag = nhs_had_tropical_wood_tg } change_trade_goods = tropical_wood }
+	else_if = { limit = { has_province_flag = nhs_had_dyes_tg } change_trade_goods = dyes }
+	else_if = { limit = { has_province_flag = nhs_had_norse_mead_tg } change_trade_goods = norse_mead }
+	else_if = { limit = { has_province_flag = nhs_had_livestock_tg } change_trade_goods = livestock }
+	else_if = { limit = { has_province_flag = nhs_had_incense_tg } change_trade_goods = incense }
+	else_if = { limit = { has_province_flag = nhs_had_glass_tg } change_trade_goods = glass }
+	else_if = { limit = { has_province_flag = nhs_had_gems_tg } change_trade_goods = gems }
+	else_if = { limit = { has_province_flag = nhs_had_paper_tg } change_trade_goods = paper }
+	else_if = { limit = { has_province_flag = nhs_had_coal_tg } change_trade_goods = coal }
+	else_if = { limit = { has_province_flag = nhs_had_cloves_tg } change_trade_goods = cloves }
+	else_if = { limit = { has_province_flag = nhs_had_unknown_tg } change_trade_goods = unknown }
+	else_if = { limit = { has_province_flag = nhs_had_coal_2_tg } change_trade_goods = coal_2 }
+	else_if = { limit = { has_province_flag = nhs_had_nothing_tg } change_trade_goods = nothing }
+	clr_province_flag = nhs_had_grain_tg
+	clr_province_flag = nhs_had_wine_tg
+	clr_province_flag = nhs_had_wool_tg
+	clr_province_flag = nhs_had_cloth_tg
+	clr_province_flag = nhs_had_fish_tg
+	clr_province_flag = nhs_had_fur_tg
+	clr_province_flag = nhs_had_salt_tg
+	clr_province_flag = nhs_had_naval_supplies_tg
+	clr_province_flag = nhs_had_copper_tg
+	clr_province_flag = nhs_had_gold_tg
+	clr_province_flag = nhs_had_iron_tg
+	clr_province_flag = nhs_had_slaves_tg
+	clr_province_flag = nhs_had_ivory_tg
+	clr_province_flag = nhs_had_tea_tg
+	clr_province_flag = nhs_had_chinaware_tg
+	clr_province_flag = nhs_had_spices_tg
+	clr_province_flag = nhs_had_coffee_tg
+	clr_province_flag = nhs_had_cotton_tg
+	clr_province_flag = nhs_had_sugar_tg
+	clr_province_flag = nhs_had_tobacco_tg
+	clr_province_flag = nhs_had_cocoa_tg
+	clr_province_flag = nhs_had_silk_tg
+	clr_province_flag = nhs_had_elysian_silk_tg
+	clr_province_flag = nhs_had_skoros_silk_tg
+	clr_province_flag = nhs_had_tropical_wood_tg
+	clr_province_flag = nhs_had_dyes_tg
+	clr_province_flag = nhs_had_norse_mead_tg
+	clr_province_flag = nhs_had_livestock_tg
+	clr_province_flag = nhs_had_incense_tg
+	clr_province_flag = nhs_had_glass_tg
+	clr_province_flag = nhs_had_gems_tg
+	clr_province_flag = nhs_had_paper_tg
+	clr_province_flag = nhs_had_coal_tg
+	clr_province_flag = nhs_had_cloves_tg
+	clr_province_flag = nhs_had_unknown_tg
+	clr_province_flag = nhs_had_coal_2_tg
+	clr_province_flag = nhs_had_nothing_tg
+}
+
+nhs_add_reform = {
+	add_government_reform = $REF$
+	# if = {
+	# 	limit = {
+	# 		has_dlc = "Dharma"
+	# 	}
+	# 	#[[REM]
+	# 	#	remove_government_reform = $REM$
+	# 	#]
+	# 	add_government_reform = $REF$
+	# }
+}
+
+nhs_add_gov_reform = {
+	add_government_reform = $REF$
+}
+
+nhs_set_center_of_trade_1 = {
+	custom_tooltip = nhs_add_center_of_trade_1_tt
+	hidden_effect = {
+		remove_province_modifier = to_dynamic_cot
+		remove_province_triggered_modifier = to_dynamic_cot_tm
+		if = {
+			limit = {
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+			center_of_trade = 1
+		}
+		else = {
+			owner = {
+				add_treasury = 50
+			}
+		}
+		to_check_trade_center_modifiers_from_privileges = yes
+	}
+}
+
+nhs_set_center_of_trade_2 = {
+	custom_tooltip = nhs_add_center_of_trade_2_tt
+	hidden_effect = {
+		remove_province_modifier = to_dynamic_cot
+		remove_province_triggered_modifier = to_dynamic_cot_tm
+		if = {
+			limit = {
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+			center_of_trade = 2
+		}
+		else_if = {
+			limit = {
+				NOT = { province_has_center_of_trade_of_level = 2 }
+			}
+			add_center_of_trade_level = 1
+		}
+		else = {
+			owner = {
+				add_treasury = 100
+			}
+		}
+		to_check_trade_center_modifiers_from_privileges = yes
+	}
+}
+
+nhs_set_center_of_trade_3 = {
+	custom_tooltip = nhs_add_center_of_trade_3_tt
+	hidden_effect = {
+		remove_province_modifier = to_dynamic_cot
+		remove_province_triggered_modifier = to_dynamic_cot_tm
+		if = {
+			limit = {
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+			center_of_trade = 3
+		}
+		else_if = {
+			limit = {
+				NOT = { province_has_center_of_trade_of_level = 3 }
+			}
+			add_center_of_trade_level = 2
+		}
+		else = {
+			owner = {
+				add_treasury = 500
+			}
+		}
+		to_check_trade_center_modifiers_from_privileges = yes
+	}
+}
+
+nhs_set_center_in_a_region_to_level_3 = {
+	if = {
+		limit = {
+			any_owned_province = {
+				$CONDITION$
+				province_has_center_of_trade_of_level = 2
+				NOT = { province_has_center_of_trade_of_level = 3 }
+			}
+		}
+		nhs_set_center_of_trade_3 = yes
+	}
+	else_if = {
+		limit = {
+			any_owned_province = {
+				$CONDITION$
+				province_has_center_of_trade_of_level = 1
+				NOT = { province_has_center_of_trade_of_level = 3 }
+			}
+		}
+		nhs_set_center_of_trade_3 = yes
+	}
+	else_if = {
+		limit = {
+			any_province = {
+				$CONDITION$
+				country_or_non_sovereign_subject_holds = ROOT
+				province_has_center_of_trade_of_level = 2
+				NOT = { province_has_center_of_trade_of_level = 3 }
+			}
+		}
+		nhs_set_center_of_trade_3 = yes
+	}
+	else_if = {
+		limit = {
+			any_province = {
+				$CONDITION$
+				country_or_non_sovereign_subject_holds = ROOT
+				province_has_center_of_trade_of_level = 1
+				NOT = { province_has_center_of_trade_of_level = 3 }
+			}
+		}
+		nhs_set_center_of_trade_3 = yes
+	}
+	else_if = {
+		limit = {
+			any_province = {
+				$CONDITION$
+				country_or_subject_holds = ROOT
+				province_has_center_of_trade_of_level = 2
+				NOT = { province_has_center_of_trade_of_level = 3 }
+			}
+		}
+		nhs_set_center_of_trade_3 = yes
+	}
+	else_if = {
+		limit = {
+			any_province = {
+				$CONDITION$
+				country_or_subject_holds = ROOT
+				province_has_center_of_trade_of_level = 1
+				NOT = { province_has_center_of_trade_of_level = 3 }
+			}
+		}
+		nhs_set_center_of_trade_3 = yes
+	}
+	else = {
+		add_treasury = 750
+	}
+}
+
+nhs_set_center_in_a_region = {
+	if = {
+		limit = {
+			any_owned_province = {
+				$TYPE$ = $CNRG$
+				province_has_center_of_trade_of_level = 1
+				NOT = { province_has_center_of_trade_of_level = 2 }
+			}
+		}
+		random_owned_province = {
+			limit = {
+				$TYPE$ = $CNRG$
+				province_has_center_of_trade_of_level = 1
+				NOT = { province_has_center_of_trade_of_level = 2 }
+			}
+			nhs_set_center_of_trade_2 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			any_owned_province = {
+				nhs_eicticofminh = yes
+				$TYPE$ = $CNRG$
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+		}
+		random_owned_province = {
+			limit = {
+				nhs_eicticofminh = yes
+				$TYPE$ = $CNRG$
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+			nhs_set_center_of_trade_1 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			any_province = {
+				owner = {
+					is_subject_of = ROOT
+				}
+				nhs_eicticofminh = yes
+				$TYPE$ = $CNRG$
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+		}
+		random_province = {
+			limit = {
+				owner = {
+					is_subject_of = ROOT
+				}
+				nhs_eicticofminh = yes
+				$TYPE$ = $CNRG$
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+			nhs_set_center_of_trade_1 = yes
+		}
+	}
+	else_if = {
+		limit = {
+			any_province = {
+				owner = {
+					is_subject_of = ROOT
+				}
+				nhs_eicticofminh = yes
+				$TYPE$ = $CNRG$
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+		}
+		random_province = {
+			limit = {
+				owner = {
+					is_subject_of = ROOT
+				}
+				nhs_eicticofminh = yes
+				$TYPE$ = $CNRG$
+				NOT = { province_has_center_of_trade_of_level = 1 }
+			}
+			nhs_set_center_of_trade_1 = yes
+		}
+	}
+	else = {
+		add_treasury = 75
+	}
+}
+
+nhs_change_government = {
+	change_government = $GOV$
+	# if = {
+	# 	limit = {
+	# 		has_dlc = "Dharma"
+	# 		NOT = { government = $GOV$ }
+	# 	}
+	# 	change_government = $GOV$
+	# }
+	# [[LEGACY]
+	# 	set_legacy_government = $LEGACY$
+	# ]
+}
+
+to_add_government_reform_short_tooltip = {
+	custom_tooltip = to_add_$REFORM$_gov_reform_tt
+	hidden_effect = {
+		add_government_reform = $REFORM$
+	}
+}
+
+to_non_abrahamic_conversion_penalty_check_province = {
+	if = {
+		limit = {
+			to_has_abrahamic_religion = yes
+			owner = {
+				NOT = { to_has_abrahamic_religion = yes }
+				NOT = { mission_completed = to_the_old_gods_mission }
+				NOT = {
+					AND = {
+						is_subject = yes
+						overlord = {
+							OR = {
+								mission_completed = to_the_old_gods_mission
+								AND = {
+									is_subject = yes
+									overlord = {
+										mission_completed = to_the_old_gods_mission
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		add_province_modifier = {
+			name = to_abrahamic_conversion_penalty
+			duration = -1
+		}
+	}
+	else_if = {
+		limit = {
+			has_province_modifier = to_abrahamic_conversion_penalty
+		}
+		remove_province_modifier = to_abrahamic_conversion_penalty
+	}
+}
+
+to_non_abrahamic_conversion_penalty_check_country = {
+	if = {
+		limit = {
+			OR = {
+				to_has_abrahamic_religion = yes
+				mission_completed = to_the_old_gods_mission
+				AND = {
+					is_subject = yes
+					overlord = {
+						OR = {
+							mission_completed = to_the_old_gods_mission
+							AND = {
+								is_subject = yes
+								overlord = {
+									mission_completed = to_the_old_gods_mission
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = to_abrahamic_conversion_penalty
+			}
+			remove_province_modifier = to_abrahamic_conversion_penalty
+		}
+	}
+	else = {
+		every_owned_province = {
+			limit = {
+				to_has_abrahamic_religion = yes
+			}
+			add_province_modifier = {
+				name = to_abrahamic_conversion_penalty
+				duration = -1
+			}
+		}
+	}
+}
+
+to_clear_RELIGION_defender_of_faith_et = {
+	if = {
+		limit = {
+			has_saved_global_event_target = to_$RELIGION$_dof
+			NOT = {
+				any_country = {
+					is_defender_of_faith = yes
+					religion = $RELIGION$
+				}
+			}
+		}
+		clear_global_event_target = to_$RELIGION$_dof
+	}
+}
+
+to_remove_building_with_effect = {
+	if = {
+		limit = {
+			has_building = $BUILDING$
+		}
+		[[VISIBLE_EFFECT]$VISIBLE_EFFECT$]
+		hidden_effect = {
+			$EFFECT$
+			remove_building = $BUILDING$
+		}
+	}
+}
+
+to_effect_if_building_exists = {
+	if = {
+		limit = {
+			has_building = $BUILDING$
+		}
+		$EFFECT$
+	}
+}
+
+to_building_on_build_effect = {
+	to_building_on_build_effect_ely = { BUILDING = $BUILDING$ }
+}
+
+to_building_on_build_with_obsolete_effect = {
+	to_building_on_build_with_obsolete_effect_ely = {
+		BUILDING = $BUILDING$
+		OLD_BUILDING = $OLD_BUILDING$
+	}
+}
+
+to_building_on_build_with_two_obsolete_effect = {
+	to_building_on_build_with_two_obsolete_effect_ely = {
+		BUILDING = $BUILDING$
+		OLD_BUILDING = $OLD_BUILDING$
+		OLD_BUILDING_2 = $OLD_BUILDING_2$
+	}
+}
+
+to_building_on_build_with_three_obsolete_effect = {
+	to_building_on_build_with_three_obsolete_effect_ely = {
+		BUILDING = $BUILDING$
+		OLD_BUILDING = $OLD_BUILDING$
+		OLD_BUILDING_2 = $OLD_BUILDING_2$
+		OLD_BUILDING_3 = $OLD_BUILDING_3$
+	}
+}
+
+to_manufactory_on_build_effect = {
+	to_manufactory_on_build_effect_ely = { BUILDING = $BUILDING$ }
+}
+
+to_building_on_destroyed = {
+	to_building_on_destroyed_effect_ely = {
+		BUILDING = $BUILDING$
+		[[TIER_1] TIER_1 = yes ]
+		[[TIER_2] TIER_2 = yes ]
+		[[TIER_3] TIER_3 = yes ]
+		[[TIER_4] TIER_4 = yes ]
+	}
+}
+
+##################################################
+# Building counters
+##################################################
+
+to_building_counter_clear_flag = {
+	clr_province_flag = $FLAG$_$BUILDING$
+}
+to_building_counter_set_flag = {
+	set_province_flag = $FLAG$_$BUILDING$
+}
+to_building_counter_effect_add = {
+	if = {
+		limit = {
+			[[TRIGGER]
+				$TRIGGER$ = yes
+			]
+			NOT = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = $BUILDING$
+				}
+			}
+		}
+		to_building_counter_set_flag = {
+			FLAG = $FLAG$
+			BUILDING = $BUILDING$
+		}
+		owner = {
+			change_variable = {
+				which = $VAR$
+				value = $VALUE$
+			}
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				change_variable = {
+					which = $VAR$_$BUILDING$
+					value = 1
+				}
+			}
+			]
+		}
+
+	}
+}
+to_building_counter_effect_sub = {
+	if = {
+		limit = {
+			[[TRIGGER]
+				$TRIGGER$ = yes
+			]
+			to_building_counter_had_building = {
+				FLAG = $FLAG$
+				BUILDING = $BUILDING$
+			}
+		}
+		to_building_counter_clear_flag = {
+			FLAG = $FLAG$
+			BUILDING = $BUILDING$
+		}
+		owner = {
+			subtract_variable = {
+				which = $VAR$
+				value = $VALUE$
+			}
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				subtract_variable = {
+					which = $VAR$_$BUILDING$
+					value = 1
+				}
+			}
+			]
+		}
+	}
+}
+to_building_counter_effect_add_with_obsolete = {
+	if = {
+		limit = {
+			[[TRIGGER]
+				$TRIGGER$ = yes
+			]
+			NOT = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = $BUILDING$
+				}
+			}
+		}
+		[[COUNT_BUILDING]
+		hidden_effect = {
+			owner = {
+				change_variable = {
+					which = $VAR$_$BUILDING$
+					value = 1
+				}
+			}
+		}
+		]
+		if = {
+			limit = {
+				NOT = {
+					to_building_counter_had_building = {
+						FLAG = $FLAG$
+						BUILDING = $OLD_BUILDING$
+					}
+				}
+			}
+			to_building_counter_set_flag = {
+				FLAG = $FLAG$
+				BUILDING = $BUILDING$
+			}
+			owner = {
+				change_variable = {
+					which = $VAR$ # nhs_HighTierBuildingCount
+					value = $VALUE$
+				}
+			}
+		}
+		else = {
+			to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = $OLD_BUILDING$ }
+			to_building_counter_set_flag = { FLAG = $FLAG$ BUILDING = $BUILDING$ }
+			[[OLD_DIF_VALUE]
+			owner = {
+				change_variable = {
+					which = $VAR$ # nhs_HighTierBuildingCount
+					value = $OLD_DIF_VALUE$
+				}
+			}
+			]
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				owner = {
+					subtract_variable = {
+						which = $VAR$_$OLD_BUILDING$
+						value = 1
+					}
+				}
+			}
+			]
+		}
+	}
+}
+to_building_counter_effect_add_with_two_obsolete = {
+	if = {
+		limit = {
+			[[TRIGGER]
+				$TRIGGER$ = yes
+			]
+			NOT = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = $BUILDING$
+				}
+			}
+		}
+		[[COUNT_BUILDING]
+		hidden_effect = {
+			owner = {
+				change_variable = {
+					which = $VAR$_$BUILDING$
+					value = 1
+				}
+			}
+		}
+		]
+		if = {
+			limit = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = $OLD_BUILDING$
+				}
+			}
+			to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = $OLD_BUILDING$ }
+			to_building_counter_set_flag = { FLAG = $FLAG$ BUILDING = $BUILDING$ }
+			[[OLD_DIF_VALUE]
+			owner = {
+				change_variable = {
+					which = $VAR$ # nhs_HighTierBuildingCount
+					value = $OLD_DIF_VALUE$
+				}
+			}
+			]
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				owner = {
+					subtract_variable = {
+						which = $VAR$_$OLD_BUILDING$
+						value = 1
+					}
+				}
+			}
+			]
+		}
+		else_if = {
+			limit = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = $OLD_BUILDING_2$
+				}
+			}
+			to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = $OLD_BUILDING_2$ }
+			to_building_counter_set_flag = { FLAG = $FLAG$ BUILDING = $BUILDING$ }
+			[[OLD_DIF_VALUE_2]
+			owner = {
+				change_variable = {
+					which = $VAR$ # nhs_HighTierBuildingCount
+					value = $OLD_DIF_VALUE_2$
+				}
+			}
+			]
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				owner = {
+					subtract_variable = {
+						which = $VAR$_$OLD_BUILDING_2$
+						value = 1
+					}
+				}
+			}
+			]
+		}
+		else = {
+			to_building_counter_set_flag = {
+				FLAG = $FLAG$
+				BUILDING = $BUILDING$
+			}
+			owner = {
+				change_variable = {
+					which = $VAR$
+					value = $VALUE$
+				}
+			}
+		}
+	}
+}
+to_building_counter_effect_add_with_three_obsolete = {
+	if = {
+		limit = {
+			[[TRIGGER]
+				$TRIGGER$ = yes
+			]
+			NOT = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = $BUILDING$
+				}
+			}
+		}
+		[[COUNT_BUILDING]
+		hidden_effect = {
+			owner = {
+				subtract_variable = {
+					which = $VAR$_$BUILDING$
+					value = 1
+				}
+			}
+		}
+		]
+		if = {
+			limit = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = $OLD_BUILDING$
+				}
+			}
+			to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = $OLD_BUILDING$ }
+			to_building_counter_set_flag = { FLAG = $FLAG$ BUILDING = $BUILDING$ }
+			[[OLD_DIF_VALUE]
+			owner = {
+				change_variable = {
+					which = $VAR$ # nhs_HighTierBuildingCount
+					value = $OLD_DIF_VALUE$
+				}
+			}
+			]
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				owner = {
+					subtract_variable = {
+						which = $VAR$_$OLD_BUILDING$
+						value = 1
+					}
+				}
+			}
+			]
+		}
+		else_if = {
+			limit = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = $OLD_BUILDING_2$
+				}
+			}
+			to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = $OLD_BUILDING_2$ }
+			to_building_counter_set_flag = { FLAG = $FLAG$ BUILDING = $BUILDING$ }
+			[[OLD_DIF_VALUE_2]
+			owner = {
+				change_variable = {
+					which = $VAR$ # nhs_HighTierBuildingCount
+					value = $OLD_DIF_VALUE_2$
+				}
+			}
+			]
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				owner = {
+					subtract_variable = {
+						which = $VAR$_$OLD_BUILDING_2$
+						value = 1
+					}
+				}
+			}
+			]
+		}
+		else_if = {
+			limit = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = $OLD_BUILDING_3$
+				}
+			}
+			to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = $OLD_BUILDING_3$ }
+			to_building_counter_set_flag = { FLAG = $FLAG$ BUILDING = $BUILDING$ }
+			[[OLD_DIF_VALUE_3]
+			owner = {
+				change_variable = {
+					which = $VAR$ # nhs_HighTierBuildingCount
+					value = $OLD_DIF_VALUE_3$
+				}
+			}
+			]
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				owner = {
+					subtract_variable = {
+						which = $VAR$_$OLD_BUILDING_3$
+						value = 1
+					}
+				}
+			}
+			]
+		}
+		else = {
+			to_building_counter_set_flag = {
+				FLAG = $FLAG$
+				BUILDING = $BUILDING$
+			}
+			owner = {
+				change_variable = {
+					which = $VAR$
+					value = $VALUE$
+				}
+			}
+		}
+	}
+}
+
+to_building_counter_local_province_check_building = {
+	if = {
+		limit = {
+			has_building = $BUILDING$
+			NOT = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = $BUILDING$
+				}
+			}
+		}
+		to_building_counter_set_flag = {
+			FLAG = $FLAG$
+			BUILDING = $BUILDING$
+		}
+		owner = {
+			change_variable = {
+				which = $VAR$
+				value = $VALUE$
+			}
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				change_variable = {
+					which = $VAR$_$BUILDING$
+					value = 1
+				}
+			}
+			]
+		}
+	}
+}
+to_building_counter_local_province_check_manufactory = {
+	if = {
+		limit = {
+			has_building = $BUILDING$
+			NOT = {
+				to_building_counter_had_building = {
+					FLAG = $FLAG$
+					BUILDING = manufactory
+				}
+			}
+		}
+		to_building_counter_set_flag = {
+			FLAG = $FLAG$
+			BUILDING = manufactory
+		}
+		owner = {
+			change_variable = {
+				which = $VAR$
+				value = $VALUE$
+			}
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				change_variable = {
+					which = $VAR$_manufactory
+					value = 1
+				}
+			}
+			]
+		}
+	}
+}
+to_building_counter_former_province_check_building = {
+	if = {
+		limit = {
+			to_building_counter_had_building = {
+				FLAG = $FLAG$
+				BUILDING = $BUILDING$
+			}
+		}
+		to_building_counter_clear_flag = {
+			FLAG = $FLAG$
+			BUILDING = $BUILDING$
+		}
+		FROM = {
+			subtract_variable = {
+				which = $VAR$
+				value = $VALUE$
+			}
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				subtract_variable = {
+					which = $VAR$_$BUILDING$
+					value = 1
+				}
+			}
+			]
+		}
+	}
+}
+to_building_counter_former_province_check_manufactory = {
+	if = {
+		limit = {
+			to_building_counter_had_building = {
+				FLAG = $FLAG$
+				BUILDING = manufactory
+			}
+		}
+		to_building_counter_clear_flag = {
+			FLAG = $FLAG$
+			BUILDING = manufactory
+		}
+		FROM = {
+			subtract_variable = {
+				which = $VAR$
+				value = $VALUE$
+			}
+			[[COUNT_BUILDING]
+			hidden_effect = {
+				subtract_variable = {
+					which = $VAR$_manufactory
+					value = 1
+				}
+			}
+			]
+		}
+	}
+}
+
+# UNUSED
+to_building_counter_clear_flags = {
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = marketplace }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = workshop }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = temple }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = barracks }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = shipyard }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = fort_15th }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = coastal_defence }
+
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = courthouse }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = dock }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = regimental_camp }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = fort_16th }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = naval_battery }
+
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = cathedral }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = university }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = trade_depot }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = grand_shipyard }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = training_fields }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = fort_17th }
+
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = stock_exchange }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = counting_house }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = town_hall }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = drydock }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = conscription_center }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = fort_18th }
+
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = manufactory }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = wharf }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = weapons }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = textile }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = plantations }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = tradecompany }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = farm_estate }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = mills }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = furnace }
+
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = ramparts }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = soldier_households }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = impressment_offices }
+	to_building_counter_clear_flag = { FLAG = $FLAG$ BUILDING = state_house }
+}
+
+##################################################
+# Missionary Strength from battles mechanic
+##################################################
+
+to_missionary_strength_from_battles_clear_flags = {
+	clr_province_flag = to_missionary_strength_from_battles_cd
+	# If you want this to work on other religions add more flags here
+	clr_province_flag = to_missionary_strength_from_battles_aztlan
+}
+
+to_add_missionary_strength_from_battles = {
+	if = {
+		limit = {
+			unit_owner = {
+				has_government_attribute = to_missionary_strength_from_battles
+			}
+		}
+		unit_owner = {
+			save_event_target_as = to_battle_won_unit_tar
+		}
+		location = {
+			area = {
+				limit = {
+					is_empty = no
+					NOT = { religion = event_target:to_battle_won_unit_tar }
+					owner = {
+						OR = {
+							tag = event_target:to_battle_won_unit_tar
+							war_with = event_target:to_battle_won_unit_tar
+						}
+					}
+					# If you want this to work on other religions expand this
+					# OR = {
+					# 	NOT = { to_has_missionary_strength_from_battles_TIER = { TIER = 4 } }
+					# 	to_has_missionary_strength_from_battles_incorrect_religion = {
+					# 		COUNTRY_SCOPE = event_target:to_battle_won_unit_tar
+					# 	}
+					# }
+					OR = {
+						NOT = { has_province_flag = to_missionary_strength_from_battles_cd }
+						had_province_flag = {
+							flag = to_missionary_strength_from_battles_cd
+							days = 1
+						}
+					}
+				}
+				# If you want this to work on other religions expand this
+				# if = {
+				# 	limit = {
+				# 		to_has_missionary_strength_from_battles_incorrect_religion = {
+				# 			COUNTRY_SCOPE = event_target:to_battle_won_unit_tar
+				# 		}
+				# 	}
+				# 	to_missionary_strength_from_battles_clear_flags = yes
+				# 	to_remove_missionary_strength_from_battles_TIER = { TIER = 1 }
+				# 	to_remove_missionary_strength_from_battles_TIER = { TIER = 2 }
+				# 	to_remove_missionary_strength_from_battles_TIER = { TIER = 3 }
+				# 	to_remove_missionary_strength_from_battles_TIER = { TIER = 4 }
+				# }
+
+				clr_province_flag = to_missionary_strength_from_battles_cd
+				set_province_flag = to_missionary_strength_from_battles_cd
+				if = {
+					limit = {
+						owner = {
+							tag = event_target:to_battle_won_unit_tar
+						}
+					}
+					if = {
+						limit = {
+							to_has_missionary_strength_from_battles_TIER = { TIER = 3 }
+						}
+						to_remove_missionary_strength_from_battles_TIER = { TIER = 3 }
+						add_province_modifier = {
+							name = to_missionary_strength_from_battles_4
+							duration = -1
+						}
+					}
+					else_if = {
+						limit = {
+							to_has_missionary_strength_from_battles_TIER = { TIER = 2 }
+						}
+						to_remove_missionary_strength_from_battles_TIER = { TIER = 2 }
+						add_province_modifier = {
+							name = to_missionary_strength_from_battles_3
+							duration = -1
+						}
+					}
+					else_if = {
+						limit = {
+							to_has_missionary_strength_from_battles_TIER = { TIER = 1 }
+						}
+						to_remove_missionary_strength_from_battles_TIER = { TIER = 1 }
+						add_province_modifier = {
+							name = to_missionary_strength_from_battles_2
+							duration = -1
+						}
+					}
+					else = {
+						add_province_modifier = {
+							name = to_missionary_strength_from_battles_1
+							duration = -1
+						}
+					}
+				}
+				else = {
+					# If you want this to work on other religions expand this
+					if = {
+						limit = {
+							event_target:to_battle_won_unit_tar = {
+								religion = aztlan_worship
+							}
+						}
+						set_province_flag = to_missionary_strength_from_battles_aztlan
+					}
+					if = {
+						limit = {
+							to_has_missionary_strength_from_battles_TIER = { TIER = 3 }
+						}
+						to_remove_missionary_strength_from_battles_TIER = { TIER = 3 }
+						add_permanent_province_modifier = {
+							name = to_missionary_strength_from_battles_inactive_4
+							duration = -1
+						}
+					}
+					else_if = {
+						limit = {
+							to_has_missionary_strength_from_battles_TIER = { TIER = 2 }
+						}
+						to_remove_missionary_strength_from_battles_TIER = { TIER = 2 }
+						add_permanent_province_modifier = {
+							name = to_missionary_strength_from_battles_inactive_3
+							duration = -1
+						}
+					}
+					else_if = {
+						limit = {
+							to_has_missionary_strength_from_battles_TIER = { TIER = 1 }
+						}
+						to_remove_missionary_strength_from_battles_TIER = { TIER = 1 }
+						add_permanent_province_modifier = {
+							name = to_missionary_strength_from_battles_inactive_2
+							duration = -1
+						}
+					}
+					else = {
+						add_permanent_province_modifier = {
+							name = to_missionary_strength_from_battles_inactive_1
+							duration = -1
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+to_remove_missionary_strength_from_battles_TIER = {
+	remove_province_modifier = to_missionary_strength_from_battles_$TIER$
+	remove_province_modifier = to_missionary_strength_from_battles_inactive_$TIER$
+}
+
+to_activate_missionary_strength_from_battles = {
+	if = {
+		limit = {
+			has_province_modifier = to_missionary_strength_from_battles_inactive_4
+		}
+		remove_province_modifier = to_missionary_strength_from_battles_inactive_4
+		add_province_modifier = {
+			name = to_missionary_strength_from_battles_4
+			duration = -1
+		}
+	}
+	else_if = {
+		limit = {
+			has_province_modifier = to_missionary_strength_from_battles_inactive_3
+		}
+		remove_province_modifier = to_missionary_strength_from_battles_inactive_3
+		add_province_modifier = {
+			name = to_missionary_strength_from_battles_3
+			duration = -1
+		}
+	}
+	else_if = {
+		limit = {
+			has_province_modifier = to_missionary_strength_from_battles_inactive_2
+		}
+		remove_province_modifier = to_missionary_strength_from_battles_inactive_2
+		add_province_modifier = {
+			name = to_missionary_strength_from_battles_2
+			duration = -1
+		}
+	}
+	else_if = {
+		limit = {
+			has_province_modifier = to_missionary_strength_from_battles_inactive_1
+		}
+		remove_province_modifier = to_missionary_strength_from_battles_inactive_1
+		add_province_modifier = {
+			name = to_missionary_strength_from_battles_1
+			duration = -1
+		}
+	}
+}
+
+to_check_missionary_strength_from_battles = {
+	if = {
+		limit = {
+			to_has_missionary_strength_from_battles_inactive = yes
+		}
+		owner = {
+			save_event_target_as = to_battle_won_unit_tar
+		}
+		if = {
+			limit = {
+				owner = {
+					has_government_attribute = to_missionary_strength_from_battles
+					PREV = {
+						to_has_missionary_strength_from_battles_correct_religion = { COUNTRY_SCOPE = PREV }
+					}
+				}
+			}
+			to_missionary_strength_from_battles_clear_flags = yes
+			to_activate_missionary_strength_from_battles = yes
+		}
+		else = {
+			to_missionary_strength_from_battles_clear_flags = yes
+			to_remove_missionary_strength_from_battles_TIER = { TIER = 1 }
+			to_remove_missionary_strength_from_battles_TIER = { TIER = 2 }
+			to_remove_missionary_strength_from_battles_TIER = { TIER = 3 }
+			to_remove_missionary_strength_from_battles_TIER = { TIER = 4 }
+		}
+	}
+}
+
+to_missionary_strength_from_battles_after_war = {
+	if = {
+		limit = {
+			$CHECK_IF$
+		}
+		if = {
+			limit = {
+				is_at_war = no
+			}
+			clr_country_flag = to_missionary_strength_from_battles_is_at_war
+		}
+		[[CHECK_FROM]
+		FROM = {
+			if = {
+				limit = {
+					is_at_war = no
+				}
+				clr_country_flag = to_missionary_strength_from_battles_is_at_war
+			}
+		}
+		]
+		every_province = {
+			limit = {
+				to_has_missionary_strength_from_battles_inactive = yes
+			}
+			if = {
+				limit = {
+					owned_by = PREV
+					ROOT = {
+						has_government_attribute = to_missionary_strength_from_battles
+					}
+					to_has_missionary_strength_from_battles_correct_religion = { COUNTRY_SCOPE = PREV }
+				}
+				to_activate_missionary_strength_from_battles = yes
+			}
+			else_if = {
+				limit = {
+					owner = {
+						NOT = {
+							AND = {
+								has_government_attribute = to_missionary_strength_from_battles
+								NOT = { religion = PREV }
+								PREV = {
+									to_has_missionary_strength_from_battles_correct_religion = { COUNTRY_SCOPE = PREV }
+								}
+							}
+						}
+						NOT = {
+							AND = {
+								is_at_war = yes
+								any_war_enemy_country = {
+									has_government_attribute = to_missionary_strength_from_battles
+									NOT = { religion = PREV }
+									PREV = {
+										to_has_missionary_strength_from_battles_correct_religion = { COUNTRY_SCOPE = PREV }
+									}
+								}
+							}
+						}
+					}
+				}
+				to_missionary_strength_from_battles_clear_flags = yes
+				to_remove_missionary_strength_from_battles_TIER = { TIER = 1 }
+				to_remove_missionary_strength_from_battles_TIER = { TIER = 2 }
+				to_remove_missionary_strength_from_battles_TIER = { TIER = 3 }
+				to_remove_missionary_strength_from_battles_TIER = { TIER = 4 }
+			}
+		}
+	}
+}
+
+to_remove_missionary_strength_from_battles_from_owned_provinces = {
+	every_owned_province = {
+		limit = {
+			to_has_missionary_strength_from_battles_active = yes
+		}
+		remove_province_modifier = to_missionary_strength_from_battles_1
+		remove_province_modifier = to_missionary_strength_from_battles_2
+		remove_province_modifier = to_missionary_strength_from_battles_3
+		remove_province_modifier = to_missionary_strength_from_battles_4
+	}
+}
+
+to_compute_merc_company_size = {
+	export_to_variable = {
+		which = to_total_development
+		value = total_development
+	}
+	set_variable = {
+		which = $OUTPUT_VARIABLE$
+		which = to_total_development
+	}
+	multiply_variable = {
+		which = $OUTPUT_VARIABLE$
+		value = $REGIMENTS_PER_DEVELOPMENT$
+	}
+	to_round_down_variable = { VARIABLE = $OUTPUT_VARIABLE$ }
+	if = {
+		limit = {
+			mil_tech = 16
+		}
+		set_variable = {
+			which = to_merc_size_cap
+			value = 30
+		}
+	}
+	else_if = {
+		limit = {
+			mil_tech = 14
+		}
+		set_variable = {
+			which = to_merc_size_cap
+			value = 29
+		}
+	}
+	else_if = {
+		limit = {
+			mil_tech = 11
+		}
+		set_variable = {
+			which = to_merc_size_cap
+			value = 27
+		}
+	}
+	else_if = {
+		limit = {
+			mil_tech = 9
+		}
+		set_variable = {
+			which = to_merc_size_cap
+			value = 25
+		}
+	}
+	else_if = {
+		limit = {
+			mil_tech = 6
+		}
+		set_variable = {
+			which = to_merc_size_cap
+			value = 24
+		}
+	}
+	else_if = {
+		limit = {
+			mil_tech = 5
+		}
+		set_variable = {
+			which = to_merc_size_cap
+			value = 22
+		}
+	}
+	else_if = {
+		limit = {
+			mil_tech = 2
+		}
+		set_variable = {
+			which = to_merc_size_cap
+			value = 20
+		}
+	}
+	else = {
+		set_variable = {
+			which = to_merc_size_cap
+			value = 15
+		}
+	}
+	set_variable = {
+		which = to_relative_size_mod
+		value = $REGIMENTS_PER_DEVELOPMENT$
+	}
+	divide_variable = {
+		which = to_relative_size_mod
+		value = 0.05
+	}
+	multiply_variable = {
+		which = to_merc_size_cap
+		which = to_relative_size_mod
+	}
+	to_round_down_variable = { VARIABLE = to_merc_size_cap }
+	if = {
+		limit = {
+			check_variable = {
+				which = $OUTPUT_VARIABLE$
+				which = to_merc_size_cap
+			}
+		}
+		set_variable = {
+			which = $OUTPUT_VARIABLE$
+			which = to_merc_size_cap
+		}
+	}
+	set_variable = {
+		which = to_total_development
+		which = 0
+	}
+	set_variable = {
+		which = to_merc_size_cap
+		which = 0
+	}
+	set_variable = {
+		which = to_relative_size_mod
+		which = 0
+	}
+}
+
+to_change_manpower_by_VARIABLE = {
+	set_variable = {
+		which = to_manpower_change_counter
+		which = $VARIABLE$
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = to_manpower_change_counter
+				value = 10000
+			}
+		}
+		subtract_variable = {
+			which = to_manpower_change_counter
+			value = 10000
+		}
+		$SCOPE$ = {
+			add_manpower = $SIGN$10
+		}
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = to_manpower_change_counter
+				value = 1000
+			}
+		}
+		subtract_variable = {
+			which = to_manpower_change_counter
+			value = 1000
+		}
+		$SCOPE$ = {
+			add_manpower = $SIGN$1
+		}
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = to_manpower_change_counter
+				value = 100
+			}
+		}
+		subtract_variable = {
+			which = to_manpower_change_counter
+			value = 100
+		}
+		$SCOPE$ = {
+			add_manpower = $SIGN$0.1
+		}
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = to_manpower_change_counter
+				value = 10
+			}
+		}
+		subtract_variable = {
+			which = to_manpower_change_counter
+			value = 10
+		}
+		$SCOPE$ = {
+			add_manpower = $SIGN$0.01
+		}
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = to_manpower_change_counter
+				value = 1
+			}
+		}
+		subtract_variable = {
+			which = to_manpower_change_counter
+			value = 1
+		}
+		$SCOPE$ = {
+			add_manpower = $SIGN$0.001
+		}
+	}
+	set_variable = {
+		which = to_manpower_change_counter
+		which = 0
+	}
+}
+
+to_check_culture_after_conversion = {
+	if = {
+		limit = {
+			OR = {
+				has_province_flag = to_check_culture_after_conversion
+				AND = {
+					has_owner_culture = yes
+					to_has_promoted_local_culture = { LAKONIAN_DELAYED_CHECK = yes }
+				}
+			}
+		}
+		clr_province_flag = to_check_culture_after_conversion
+		if = {
+			limit = {
+				owner = {
+					OR = {
+						to_pre_romaic_greek_primary = yes
+						nhs_post_fragmentation_culturally_elysian = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					owner = {
+						nhs_post_fragmentation_culturally_elysian = yes
+					}
+					culture = greek
+					continent = north_america
+				}
+				owner = {
+					PREV = {
+						change_culture = PREV
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_province_flag = to_has_lakonian_culture_potential
+						AND = {
+							has_province_flag = to_has_lakonian_culture_potential_ping
+							NOT = { had_province_flag = { flag = to_has_lakonian_culture_potential_ping days = 1 } }
+						}
+					}
+					to_has_promoted_local_culture_flag = { CULTURE = lakonian }
+				}
+				change_culture = lakonian
+			}
+			else = {
+				to_ely_province_culture_check = {}
+			}
+		}
+		else_if = {
+			limit = {
+				owner = {
+					culture_group = norse_g
+				}
+			}
+			to_nhs_assign_correct_vinlandic_culture = {}
+		}
+	}
+}
+
+to_set_appropriate_elysian_culture = {
+	if = {
+		limit = {
+			owner = {
+				nhs_post_fragmentation_culturally_elysian = yes
+			}
+		}
+		to_ely_province_culture_check = {}
+	}
+}
+
+to_set_country_ruler_heir_consort_culture = {
+	change_primary_culture = $CULTURE$
+	set_ruler_culture = $CULTURE$
+	if = {
+		limit = {
+			has_heir = yes
+		}
+		set_heir_culture = $CULTURE$
+	}
+	if = {
+		limit = {
+			has_consort = yes
+		}
+		set_consort_culture = $CULTURE$
+	}
+}
+
+to_set_ruler_heir_consort_culture_if_primary = {
+	if = {
+		limit = {
+			ruler_culture = $PRIMARY_CULTURE$
+		}
+		set_ruler_culture = $CULTURE$
+	}
+	if = {
+		limit = {
+			has_heir = yes
+			heir_culture = $PRIMARY_CULTURE$
+		}
+		set_heir_culture = $CULTURE$
+	}
+	if = {
+		limit = {
+			has_consort = yes
+			consort_culture = $PRIMARY_CULTURE$
+		}
+		set_consort_culture = $CULTURE$
+	}
+}
+
+to_primary_culture_and_ruler_heir_consort_culture_if_primary = {
+	tooltip = {
+		change_primary_culture = $CULTURE$
+	}
+	[[ONLY_SHOW_PRIMARY]
+	hidden_effect = {
+	]
+		to_set_ruler_heir_consort_culture_if_primary = {
+			CULTURE = $CULTURE$
+			PRIMARY_CULTURE = $PRIMARY_CULTURE$
+		}
+	[[ONLY_SHOW_PRIMARY]
+	}
+	]
+	hidden_effect = {
+		change_primary_culture = $CULTURE$
+	}
+}
+
+to_remove_fraction_of_aggressive_expansion = {
+	hidden_effect = {
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				$COUNTRY_TRIGGER$
+			}
+			while = {
+				limit = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = aggressive_expansion
+					}
+				}
+				change_variable = {
+					which = to_ae_counter
+					value = 1
+				}
+				add_aggressive_expansion = {
+					who = ROOT
+					value = -1
+					apply_calc = no
+				}
+			}
+			multiply_variable = {
+				which = to_ae_counter
+				value = $FRACTION$
+			}
+			while = {
+				limit = {
+					check_variable = {
+						which = to_ae_counter
+						value = 1
+					}
+				}
+				change_variable = {
+					which = to_ae_counter
+					value = -1
+				}
+				add_aggressive_expansion = {
+					who = ROOT
+					value = 1
+					apply_calc = no
+				}
+			}
+			set_variable = {
+				which = to_ae_counter
+				value = 0
+			}
+		}
+	}
+}
+
+to_destroy_forbidden_colonies = {
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					OR = {
+						colonial_region = colonial_eastern_america
+						province_id = 953
+					}
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_eastern_america
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_louisiana
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_louisiana
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_california
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_california
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_mexico
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_mexico
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_the_carribean
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_the_carribean
+						}
+					}
+				}
+				AND = {
+					OR = {
+						colonial_region = colonial_canada
+						province_id = 980
+						province_id = 997
+						province_id = 994
+					}
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_canada
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_alaska
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_alaska
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_colombia
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_colombia
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_peru
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_peru
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_la_plata
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_la_plata
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_brazil
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_brazil
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_australia
+					owner = {
+						to_has_or_overlord_has_claim_colonial_region_peace_treaty = {
+							COLONIAL_REGION = colonial_australia
+						}
+					}
+				}
+				AND = {
+					has_global_flag = nhs_treaty_of_lantanopolis
+					OR = {
+						AND = {
+							continent = north_america
+							owner = {
+								OR = {
+									has_country_modifier = nhs2_treaty_of_lantanopolis_por
+									AND = {
+										is_subject = yes
+										NOT = { nhs_check_all_elysian_tags = { CONDITION = tag } }
+										overlord = {
+											OR = {
+												has_country_modifier = nhs2_treaty_of_lantanopolis_por
+												AND = {
+													is_subject = yes
+													NOT = { nhs_check_all_elysian_tags = { CONDITION = tag } }
+													overlord = {
+														has_country_modifier = nhs2_treaty_of_lantanopolis_por
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						AND = {
+							continent = south_america
+							owner = {
+								NOT = { has_country_flag = to_subjugated_treaty_partner }
+								OR = {
+									nhs_check_all_elysian_tags = { CONDITION = tag }
+									AND = {
+										is_subject = yes
+										NOT = { has_country_modifier = nhs2_treaty_of_lantanopolis_por }
+										overlord = {
+											NOT = { has_country_flag = to_subjugated_treaty_partner }
+											OR = {
+												nhs_check_all_elysian_tags = { CONDITION = tag }
+												AND = {
+													is_subject = yes
+													NOT = { has_country_modifier = nhs2_treaty_of_lantanopolis_por }
+													overlord = {
+														nhs_check_all_elysian_tags = { CONDITION = tag }
+														NOT = { has_country_flag = to_subjugated_treaty_partner }
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		add_province_modifier = {
+			name = nhs2_treaty_of_lantanopolis_colonial_growth_reduction
+			duration = -1
+		}
+	}
+}
+
+to_remove_revolution_if_you_cannot_get_it = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+			owner = {
+				OR = {
+					nhs_check_all_elysian_tags = { CONDITION = tag }
+					nhs_check_all_spartan = { CONDITION = tag }
+					tag = VGD
+					is_subject_of_type = elysian_subject
+					is_subject_of_type = elysian_subject_varangian
+				}
+			}
+		}
+		set_revolution_in_province = no
+	}
+}
+
+to_remove_revolution_if_you_cannot_get_it_all_provinces = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+			OR = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+				nhs_check_all_spartan = { CONDITION = tag }
+				tag = VGD
+				is_subject_of_type = elysian_subject
+				is_subject_of_type = elysian_subject_varangian
+			}
+		}
+		every_province = {
+			limit = {
+				country_or_subject_holds = PREV
+			}
+			set_revolution_in_province = no
+		}
+	}
+}
+
+to_remove_bad_personality_adm = {
+	trigger_switch = {
+		on_trigger = $WHO$_has_personality
+		embezzler_personality = { remove_$WHO$_personality = embezzler_personality }
+		sinner_personality = { remove_$WHO$_personality = sinner_personality }
+		greedy_personality = { remove_$WHO$_personality = greedy_personality }
+		obsessive_perfectionist_personality = { remove_$WHO$_personality = obsessive_perfectionist_personality }
+	}
+}
+
+to_remove_bad_personality_dip = {
+	trigger_switch = {
+		on_trigger = $WHO$_has_personality
+		drunkard_personality = { remove_$WHO$_personality = drunkard_personality }
+		babbling_buffoon_personality = { remove_$WHO$_personality = babbling_buffoon_personality }
+		cruel_personality = { remove_$WHO$_personality = cruel_personality }
+		naive_personality = { remove_$WHO$_personality = naive_personality }
+		malevolent_personality = { remove_$WHO$_personality = malevolent_personality }
+		loose_lips_personality = { remove_$WHO$_personality = loose_lips_personality }
+	}
+}
+
+to_remove_bad_personality_mil = {
+	trigger_switch = {
+		on_trigger = $WHO$_has_personality
+		craven_personality = { remove_$WHO$_personality = craven_personality }
+	}
+}
+
+to_remove_and_save_personality = {
+	if = {
+		limit = {
+			$WHO$_has_personality = $PERSONALITY$
+		}
+		remove_$WHO$_personality = $PERSONALITY$
+		set_country_flag = to_had_$PERSONALITY$
+	}
+}
+
+to_remove_and_save_personalities = {
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = just_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = righteous_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = tolerant_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = kind_hearted_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = free_thinker_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = well_connected_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = calm_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = careful_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = secretive_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = intricate_web_weaver_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = fertile_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = well_advised_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = benevolent_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = zealot_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = pious_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = lawgiver_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = midas_touched_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = incorruptible_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = architectural_visionary_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = scholar_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = entrepreneur_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = industrious_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = expansionist_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = charismatic_negotiator_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = silver_tongue_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = conqueror_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = tactical_genius_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = bold_fighter_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = strict_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = inspiring_leader_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = martial_educator_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = navigator_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = fierce_negotiator_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = babbling_buffoon_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = embezzler_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = infertile_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = drunkard_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = sinner_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = greedy_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = cruel_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = naive_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = craven_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = loose_lips_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = obsessive_perfectionist_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = malevolent_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = immortal_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = reformist_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = legendary_pirate_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = to_religious_reformer_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = to_unifier_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = legendary_conqueror_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = great_engineer_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = patron_of_arts_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = papal_puppetmaster_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = iron_crowned_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = peasant_revolt_leader_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = merchant_basileus_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = orangist_stadholder_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = reaver_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = last_knight_personality }
+
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = to_religious_reformer_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = to_unifier_personality }
+	to_remove_and_save_personality = { WHO = $WHO$ PERSONALITY = to_unifiers_prodege_personality }
+}
+
+to_restore_personality = {
+	if = {
+		limit = {
+			has_country_flag = to_had_$PERSONALITY$
+		}
+		clr_country_flag = to_had_$PERSONALITY$
+		add_$WHO$_personality = $PERSONALITY$
+	}
+}
+
+to_restore_personalities = {
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = just_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = righteous_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = tolerant_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = kind_hearted_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = free_thinker_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = well_connected_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = calm_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = careful_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = secretive_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = intricate_web_weaver_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = fertile_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = well_advised_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = benevolent_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = zealot_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = pious_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = lawgiver_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = midas_touched_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = incorruptible_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = architectural_visionary_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = scholar_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = entrepreneur_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = industrious_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = expansionist_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = charismatic_negotiator_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = silver_tongue_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = conqueror_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = tactical_genius_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = bold_fighter_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = strict_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = inspiring_leader_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = martial_educator_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = navigator_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = fierce_negotiator_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = babbling_buffoon_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = embezzler_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = infertile_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = drunkard_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = sinner_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = greedy_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = cruel_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = naive_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = craven_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = loose_lips_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = obsessive_perfectionist_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = malevolent_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = immortal_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = reformist_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = legendary_pirate_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = to_religious_reformer_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = to_unifier_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = legendary_conqueror_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = great_engineer_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = patron_of_arts_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = papal_puppetmaster_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = iron_crowned_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = peasant_revolt_leader_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = merchant_basileus_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = orangist_stadholder_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = reaver_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = last_knight_personality }
+
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = to_religious_reformer_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = to_unifier_personality }
+	to_restore_personality = { WHO = $WHO$ PERSONALITY = to_unifiers_prodege_personality }
+}
+
+to_add_ruler_heir_personality_or_modifier = {
+	if = {
+		limit = {
+			has_dlc = "Rights of Man"
+			OR = {
+				has_regency = no
+				has_consort_regency = yes
+			}
+			OR = {
+				NOT = { num_of_ruler_traits = { amount = 3 } }
+				ruler_has_bad_adm_personality = yes
+				ruler_has_bad_dip_personality = yes
+				ruler_has_bad_mil_personality = yes
+			}
+		}
+		if = {
+			limit = {
+				num_of_ruler_traits = { amount = 3 }
+			}
+			if = {
+				limit = {
+					ruler_has_bad_adm_personality = yes
+				}
+				to_remove_bad_personality_adm = { WHO = ruler }
+			}
+			else_if = {
+				limit = {
+					ruler_has_bad_dip_personality = yes
+				}
+				to_remove_bad_personality_dip = { WHO = ruler }
+			}
+			else_if = {
+				limit = {
+					ruler_has_bad_mil_personality = yes
+				}
+				to_remove_bad_personality_mil = { WHO = ruler }
+			}
+		}
+		# Ensure the added trait is displayed fist
+		hidden_effect = {
+			to_remove_and_save_personalities = { WHO = ruler }
+		}
+		add_ruler_personality = $RULER_PERSONALITY$
+		hidden_effect = {
+			to_restore_personalities = { WHO = ruler }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_regency = no
+				has_consort_regency = yes
+			}
+		}
+		add_ruler_modifier = {
+			name = $RULER_MODIFIER$
+			duration = -1
+		}
+	}
+
+	if = {
+		limit = {
+			has_dlc = "Rights of Man"
+			has_heir = yes
+			has_regency = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					heir_has_good_adm_personality = yes
+					heir_has_good_dip_personality = yes
+					heir_has_good_mil_personality = yes
+					heir_has_bad_adm_personality = yes
+					heir_has_bad_dip_personality = yes
+					heir_has_bad_mil_personality = yes
+				}
+			}
+			set_heir_flag = $HEIR_FLAG$
+			custom_tooltip = $HEIR_TOOLTIP_PERSONALITY$
+		}
+		else = {
+			add_heir_personality = $HEIR_PERSONALITY$
+		}
+	}
+	else_if = {
+		limit = {
+			has_heir = yes
+			has_regency = yes
+		}
+		set_heir_flag = $HEIR_FLAG$
+		custom_tooltip = $HEIR_TOOLTIP_MODIFIER$
+	}
+}
+
+to_check_trade_center_modifiers_from_privileges = {
+	if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_burghers_development_of_cities
+			}
+			NOT = { has_province_modifier = estate_burghers_development_of_cities_mod }
+		}
+		add_province_modifier = {
+			name = estate_burghers_development_of_cities_mod
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_vaisyas_development_of_cities
+			}
+			NOT = { has_province_modifier = estate_vaisyas_development_of_cities_mod }
+		}
+		add_province_modifier = {
+			name = estate_vaisyas_development_of_cities_mod
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_jains_development_of_cities
+			}
+			NOT = { has_province_modifier = estate_jains_development_of_cities_mod }
+		}
+		add_province_modifier = {
+			name = estate_jains_development_of_cities_mod
+			duration = -1
+		}
+	}
+	owner = {
+		save_event_target_as = to_province_owner
+	}
+	if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_burghers_exclusive_trade_rights
+			}
+			calc_true_if = {
+				amount = 3
+				all_trade_node_member_province = {
+					owned_by = event_target:to_province_owner
+					province_has_center_of_trade_of_level = 1
+				}
+			}
+		}
+		every_trade_node_member_province = {
+			limit = {
+				owned_by = event_target:to_province_owner
+				province_has_center_of_trade_of_level = 1
+			}
+			add_province_modifier = {
+				name = estate_burghers_exclusive_trade_rights_mod
+				duration = -1
+			}
+		}
+	}
+	to_handle_mercantile_nation_cot_boost_modifier = yes
+}
+
+to_native_undiscover_provinces_outside_of_capital_region_if_annexed = {
+	if = {
+		limit = {
+			NOT = { technology_group = FROM }
+			FROM = {
+				OR = {
+					technology_group = north_american
+					technology_group = south_american
+					technology_group = mesoamerican
+					technology_group = andean
+				}
+			}
+		}
+		FROM = {
+			capital_scope = {
+				save_event_target_as = to_annexed_capital_scope
+			}
+			every_province = {
+				limit = {
+					NOT = { region = event_target:to_annexed_capital_scope }
+				}
+				undiscover_country = PREV
+			}
+		}
+	}
+}
+
+to_transfer_colonial_nation = {
+	if = {
+		limit = {
+			is_subject_of_type = crown_colony
+		}
+		$OVERLORD_SCOPE$ = {
+			create_subject = {
+				subject_type = crown_colony
+				subject = $COLONY_SCOPE$
+				keep_liberty_desire = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			is_subject_of_type = private_enterprise
+		}
+		$OVERLORD_SCOPE$ = {
+			create_subject = {
+				subject_type = private_enterprise
+				subject = $COLONY_SCOPE$
+				keep_liberty_desire = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			is_subject_of_type = self_governing_colony
+		}
+		$OVERLORD_SCOPE$ = {
+			create_subject = {
+				subject_type = self_governing_colony
+				subject = $COLONY_SCOPE$
+				keep_liberty_desire = yes
+			}
+		}
+	}
+	else = {
+		$OVERLORD_SCOPE$ = {
+			create_subject = {
+				subject_type = colony
+				subject = $COLONY_SCOPE$
+				keep_liberty_desire = yes
+			}
+		}
+	}
+}
+
+to_handle_subject_colonial_nations_on_becoming_dependancy = {
+	if = {
+		limit = {
+			NOT = { is_subject_of_type = tributary_state }
+			colony = 1
+		}
+		save_event_target_as = to_overlord
+		overlord = {
+			save_event_target_as = to_overlord_overlord
+		}
+		every_subject_country = {
+			limit = {
+				is_colonial_nation = yes
+			}
+			# set_country_flag = to_has_former_overlord
+			set_country_flag = to_former_overlord@FROM
+			every_owned_province = {
+				set_province_flag = to_former_colonial_owner@FROM
+			}
+			to_transfer_colonial_nation = {
+				OVERLORD_SCOPE = event_target:to_overlord_overlord
+				COLONY_SCOPE = PREV
+			}
+			country_event = { id = nhs2_test.6 }
+		}
+	}
+}
+
+to_handle_subject_colonial_nations_on_losing_dependancy = {
+	if = {
+		limit = {
+			exists = yes
+			ROOT = {
+				colony = 1
+			}
+		}
+		ROOT = {
+			every_subject_country = {
+				limit = {
+					is_colonial_nation = yes
+					has_country_flag = to_former_overlord@FROM
+				}
+				clr_country_flag = to_former_overlord@FROM
+				to_transfer_colonial_nation = {
+					OVERLORD_SCOPE = FROM
+					COLONY_SCOPE = PREV
+				}
+				every_owned_province = {
+					if = {
+						limit = {
+							NOT = { has_province_flag = to_former_colonial_owner@FROM }
+						}
+						if = {
+							limit = {
+								is_state_core = PREV
+							}
+							add_core = ROOT
+						}
+						else_if = {
+							limit = {
+								is_territorial_core = PREV
+							}
+							add_territorial_core = ROOT
+						}
+						cede_province = ROOT
+					}
+					clr_province_flag = to_former_colonial_owner@FROM
+				}
+			}
+		}
+	}
+}
+
+to_handle_subject_gaining_colonial_nation = {
+	if = {
+		limit = {
+			is_colonial_nation = yes
+			overlord = {
+				is_subject = yes
+			}
+		}
+		save_event_target_as = to_colony
+		overlord = {
+			save_event_target_as = to_overlord
+			overlord = {
+				save_event_target_as = to_overlord_overlord
+			}
+		}
+		set_country_flag = to_former_overlord@event_target:to_overlord
+		every_owned_province = {
+			set_province_flag = to_former_colonial_owner@event_target:to_overlord
+		}
+		to_transfer_colonial_nation = {
+			OVERLORD_SCOPE = event_target:to_overlord_overlord
+			COLONY_SCOPE = PREV
+		}
+		country_event = { id = nhs2_test.6 }
+	}
+}
+
+to_check_province_transfer_to_overlord_colony = {
+	owner = {
+		save_event_target_as = to_owner
+	}
+	if = {
+		limit = {
+			is_city = yes
+			is_empty = no
+			is_colony = no
+			is_overseas = yes
+			to_in_colonial_region = yes
+			NOT = { has_province_flag = nhs_is_colony }
+			owner = {
+				is_subject = yes
+				NOT = { has_country_flag = no_colonial_nations }
+				NOT = {
+					capital_scope = {
+						to_in_colonial_region = yes
+					}
+				}
+				overlord = {
+					any_subject_country = {
+						has_country_flag = to_former_overlord@event_target:to_owner
+						capital_scope = {
+							colonial_region = ROOT
+						}
+					}
+				}
+			}
+		}
+		owner = {
+			overlord = {
+				random_subject_country = {
+					limit = {
+						has_country_flag = to_former_overlord@event_target:to_owner
+						capital_scope = {
+							colonial_region = ROOT
+						}
+					}
+					ROOT = {
+						cede_province = PREV
+						set_province_flag = to_former_colonial_owner@event_target:to_owner
+					}
+				}
+			}
+		}
+	}
+}
+
+to_remove_former_colonial_owner = {
+	every_province = {
+		clr_province_flag = to_former_colonial_owner@PREV
+	}
+	every_country = {
+		clr_country_flag = to_former_overlord@PREV
+	}
+}
+
+to_generate_ruler_from_variable = {
+	# Code generated by generate_ruler_with_stats/generate_ruler_with_stats.py
+	if = { limit = { check_variable = { which = $ADM_VARIABLE$ value = 6 } } if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 6 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 6 DIP = 6 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 6 DIP = 6 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 6 DIP = 6 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 6 DIP = 6 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 6 DIP = 6 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 6 DIP = 6 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 6 DIP = 6 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 5 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 6 DIP = 5 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 6 DIP = 5 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 6 DIP = 5 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 6 DIP = 5 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 6 DIP = 5 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 6 DIP = 5 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 6 DIP = 5 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 4 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 6 DIP = 4 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 6 DIP = 4 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 6 DIP = 4 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 6 DIP = 4 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 6 DIP = 4 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 6 DIP = 4 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 6 DIP = 4 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 3 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 6 DIP = 3 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 6 DIP = 3 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 6 DIP = 3 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 6 DIP = 3 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 6 DIP = 3 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 6 DIP = 3 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 6 DIP = 3 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 2 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 6 DIP = 2 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 6 DIP = 2 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 6 DIP = 2 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 6 DIP = 2 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 6 DIP = 2 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 6 DIP = 2 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 6 DIP = 2 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 1 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 6 DIP = 1 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 6 DIP = 1 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 6 DIP = 1 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 6 DIP = 1 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 6 DIP = 1 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 6 DIP = 1 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 6 DIP = 1 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 0 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 6 DIP = 0 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 6 DIP = 0 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 6 DIP = 0 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 6 DIP = 0 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 6 DIP = 0 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 6 DIP = 0 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 6 DIP = 0 MIL = 0 } } } } else_if = { limit = { check_variable = { which = $ADM_VARIABLE$ value = 5 } } if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 6 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 5 DIP = 6 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 5 DIP = 6 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 5 DIP = 6 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 5 DIP = 6 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 5 DIP = 6 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 5 DIP = 6 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 5 DIP = 6 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 5 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 5 DIP = 5 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 5 DIP = 5 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 5 DIP = 5 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 5 DIP = 5 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 5 DIP = 5 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 5 DIP = 5 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 5 DIP = 5 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 4 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 5 DIP = 4 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 5 DIP = 4 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 5 DIP = 4 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 5 DIP = 4 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 5 DIP = 4 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 5 DIP = 4 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 5 DIP = 4 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 3 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 5 DIP = 3 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 5 DIP = 3 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 5 DIP = 3 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 5 DIP = 3 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 5 DIP = 3 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 5 DIP = 3 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 5 DIP = 3 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 2 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 5 DIP = 2 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 5 DIP = 2 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 5 DIP = 2 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 5 DIP = 2 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 5 DIP = 2 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 5 DIP = 2 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 5 DIP = 2 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 1 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 5 DIP = 1 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 5 DIP = 1 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 5 DIP = 1 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 5 DIP = 1 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 5 DIP = 1 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 5 DIP = 1 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 5 DIP = 1 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 0 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 5 DIP = 0 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 5 DIP = 0 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 5 DIP = 0 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 5 DIP = 0 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 5 DIP = 0 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 5 DIP = 0 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 5 DIP = 0 MIL = 0 } } } } else_if = { limit = { check_variable = { which = $ADM_VARIABLE$ value = 4 } } if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 6 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 4 DIP = 6 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 4 DIP = 6 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 4 DIP = 6 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 4 DIP = 6 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 4 DIP = 6 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 4 DIP = 6 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 4 DIP = 6 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 5 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 4 DIP = 5 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 4 DIP = 5 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 4 DIP = 5 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 4 DIP = 5 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 4 DIP = 5 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 4 DIP = 5 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 4 DIP = 5 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 4 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 4 DIP = 4 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 4 DIP = 4 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 4 DIP = 4 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 4 DIP = 4 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 4 DIP = 4 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 4 DIP = 4 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 4 DIP = 4 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 3 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 4 DIP = 3 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 4 DIP = 3 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 4 DIP = 3 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 4 DIP = 3 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 4 DIP = 3 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 4 DIP = 3 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 4 DIP = 3 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 2 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 4 DIP = 2 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 4 DIP = 2 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 4 DIP = 2 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 4 DIP = 2 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 4 DIP = 2 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 4 DIP = 2 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 4 DIP = 2 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 1 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 4 DIP = 1 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 4 DIP = 1 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 4 DIP = 1 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 4 DIP = 1 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 4 DIP = 1 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 4 DIP = 1 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 4 DIP = 1 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 0 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 4 DIP = 0 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 4 DIP = 0 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 4 DIP = 0 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 4 DIP = 0 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 4 DIP = 0 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 4 DIP = 0 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 4 DIP = 0 MIL = 0 } } } } else_if = { limit = { check_variable = { which = $ADM_VARIABLE$ value = 3 } } if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 6 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 3 DIP = 6 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 3 DIP = 6 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 3 DIP = 6 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 3 DIP = 6 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 3 DIP = 6 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 3 DIP = 6 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 3 DIP = 6 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 5 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 3 DIP = 5 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 3 DIP = 5 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 3 DIP = 5 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 3 DIP = 5 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 3 DIP = 5 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 3 DIP = 5 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 3 DIP = 5 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 4 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 3 DIP = 4 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 3 DIP = 4 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 3 DIP = 4 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 3 DIP = 4 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 3 DIP = 4 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 3 DIP = 4 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 3 DIP = 4 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 3 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 3 DIP = 3 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 3 DIP = 3 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 3 DIP = 3 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 3 DIP = 3 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 3 DIP = 3 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 3 DIP = 3 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 3 DIP = 3 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 2 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 3 DIP = 2 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 3 DIP = 2 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 3 DIP = 2 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 3 DIP = 2 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 3 DIP = 2 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 3 DIP = 2 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 3 DIP = 2 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 1 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 3 DIP = 1 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 3 DIP = 1 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 3 DIP = 1 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 3 DIP = 1 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 3 DIP = 1 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 3 DIP = 1 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 3 DIP = 1 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 0 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 3 DIP = 0 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 3 DIP = 0 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 3 DIP = 0 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 3 DIP = 0 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 3 DIP = 0 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 3 DIP = 0 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 3 DIP = 0 MIL = 0 } } } } else_if = { limit = { check_variable = { which = $ADM_VARIABLE$ value = 2 } } if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 6 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 2 DIP = 6 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 2 DIP = 6 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 2 DIP = 6 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 2 DIP = 6 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 2 DIP = 6 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 2 DIP = 6 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 2 DIP = 6 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 5 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 2 DIP = 5 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 2 DIP = 5 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 2 DIP = 5 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 2 DIP = 5 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 2 DIP = 5 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 2 DIP = 5 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 2 DIP = 5 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 4 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 2 DIP = 4 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 2 DIP = 4 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 2 DIP = 4 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 2 DIP = 4 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 2 DIP = 4 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 2 DIP = 4 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 2 DIP = 4 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 3 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 2 DIP = 3 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 2 DIP = 3 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 2 DIP = 3 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 2 DIP = 3 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 2 DIP = 3 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 2 DIP = 3 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 2 DIP = 3 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 2 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 2 DIP = 2 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 2 DIP = 2 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 2 DIP = 2 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 2 DIP = 2 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 2 DIP = 2 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 2 DIP = 2 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 2 DIP = 2 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 1 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 2 DIP = 1 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 2 DIP = 1 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 2 DIP = 1 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 2 DIP = 1 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 2 DIP = 1 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 2 DIP = 1 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 2 DIP = 1 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 0 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 2 DIP = 0 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 2 DIP = 0 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 2 DIP = 0 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 2 DIP = 0 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 2 DIP = 0 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 2 DIP = 0 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 2 DIP = 0 MIL = 0 } } } } else_if = { limit = { check_variable = { which = $ADM_VARIABLE$ value = 1 } } if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 6 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 1 DIP = 6 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 1 DIP = 6 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 1 DIP = 6 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 1 DIP = 6 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 1 DIP = 6 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 1 DIP = 6 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 1 DIP = 6 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 5 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 1 DIP = 5 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 1 DIP = 5 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 1 DIP = 5 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 1 DIP = 5 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 1 DIP = 5 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 1 DIP = 5 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 1 DIP = 5 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 4 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 1 DIP = 4 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 1 DIP = 4 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 1 DIP = 4 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 1 DIP = 4 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 1 DIP = 4 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 1 DIP = 4 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 1 DIP = 4 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 3 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 1 DIP = 3 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 1 DIP = 3 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 1 DIP = 3 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 1 DIP = 3 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 1 DIP = 3 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 1 DIP = 3 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 1 DIP = 3 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 2 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 1 DIP = 2 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 1 DIP = 2 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 1 DIP = 2 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 1 DIP = 2 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 1 DIP = 2 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 1 DIP = 2 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 1 DIP = 2 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 1 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 1 DIP = 1 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 1 DIP = 1 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 1 DIP = 1 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 1 DIP = 1 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 1 DIP = 1 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 1 DIP = 1 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 1 DIP = 1 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 0 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 1 DIP = 0 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 1 DIP = 0 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 1 DIP = 0 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 1 DIP = 0 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 1 DIP = 0 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 1 DIP = 0 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 1 DIP = 0 MIL = 0 } } } } else_if = { limit = { check_variable = { which = $ADM_VARIABLE$ value = 0 } } if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 6 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 0 DIP = 6 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 0 DIP = 6 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 0 DIP = 6 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 0 DIP = 6 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 0 DIP = 6 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 0 DIP = 6 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 0 DIP = 6 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 5 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 0 DIP = 5 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 0 DIP = 5 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 0 DIP = 5 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 0 DIP = 5 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 0 DIP = 5 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 0 DIP = 5 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 0 DIP = 5 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 4 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 0 DIP = 4 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 0 DIP = 4 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 0 DIP = 4 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 0 DIP = 4 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 0 DIP = 4 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 0 DIP = 4 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 0 DIP = 4 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 3 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 0 DIP = 3 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 0 DIP = 3 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 0 DIP = 3 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 0 DIP = 3 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 0 DIP = 3 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 0 DIP = 3 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 0 DIP = 3 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 2 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 0 DIP = 2 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 0 DIP = 2 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 0 DIP = 2 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 0 DIP = 2 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 0 DIP = 2 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 0 DIP = 2 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 0 DIP = 2 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 1 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 0 DIP = 1 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 0 DIP = 1 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 0 DIP = 1 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 0 DIP = 1 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 0 DIP = 1 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 0 DIP = 1 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 0 DIP = 1 MIL = 0 } } } else_if = { limit = { check_variable = { which = $DIP_VARIABLE$ value = 0 } } if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 6 } } $EFFECT$ = { ADM = 0 DIP = 0 MIL = 6 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 5 } } $EFFECT$ = { ADM = 0 DIP = 0 MIL = 5 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 4 } } $EFFECT$ = { ADM = 0 DIP = 0 MIL = 4 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 3 } } $EFFECT$ = { ADM = 0 DIP = 0 MIL = 3 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 2 } } $EFFECT$ = { ADM = 0 DIP = 0 MIL = 2 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 1 } } $EFFECT$ = { ADM = 0 DIP = 0 MIL = 1 } } else_if = { limit = { check_variable = { which = $MIL_VARIABLE$ value = 0 } } $EFFECT$ = { ADM = 0 DIP = 0 MIL = 0 } } } }
+}

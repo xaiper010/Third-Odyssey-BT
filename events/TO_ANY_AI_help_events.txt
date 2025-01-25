@@ -1,0 +1,283 @@
+namespace = to_ai_events
+
+# Ensures the ai will colonise if they have subsidies
+country_event = {
+	id = to_ai_events.1
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		ai = yes
+		is_subject = yes
+		to_can_receive_colonial_subsidies = yes
+		NOT = { num_of_colonies = 1 }
+		num_of_colonists = 1
+		NOT = { num_of_loans = 1 }
+		NOT = { has_country_modifier = nhs2_ai_colonising_timer }
+		has_country_flag = to_subsidising_colonisation
+		NOT = { to_nhs_has_vin_colonial_restrictions = yes }
+		NOT = { to_nhs_has_msn_colonial_restrictions = yes }
+		OR = {
+			AND = {
+				NOT = { to_nhs_has_cm1_colonial_restrictions = yes }
+				OR = {
+					any_owned_province = {
+						any_empty_neighbor_province = {
+							to_nhs_check_lantanopolis_ely_restrictions_province = yes
+							to_nhs_check_lantanopolis_por_restrictions_province = yes
+						}
+					}
+					AND = {
+						NOT = {	to_nhs_has_shq_colonial_restrictions = yes }
+						any_province = {
+							has_port = yes
+							is_empty = yes
+							range = ROOT
+							has_discovered = ROOT
+							to_nhs_check_lantanopolis_ely_restrictions_province = yes
+							to_nhs_check_lantanopolis_por_restrictions_province = yes
+							to_check_colonial_nation_restrictions_province = yes
+						}
+					}
+				}
+			}
+			AND = {
+				to_nhs_has_cm1_colonial_restrictions = yes
+				OR = {
+					any_owned_province = {
+						any_empty_neighbor_province = {
+							region = carribeans_region
+							to_nhs_check_lantanopolis_ely_restrictions_province = yes
+							to_nhs_check_lantanopolis_por_restrictions_province = yes
+						}
+					}
+					any_province = {
+						has_port = yes
+						is_empty = yes
+						range = ROOT
+						has_discovered = ROOT
+						region = carribeans_region
+						to_nhs_check_lantanopolis_ely_restrictions_province = yes
+						to_nhs_check_lantanopolis_por_restrictions_province = yes
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	immediate = {
+		add_country_modifier = {
+			name = nhs2_ai_colonising_timer
+			duration = 20
+			hidden = yes
+		}
+		capital_scope = {
+			save_event_target_as = capital_province
+		}
+		## COT
+		random_owned_province = {
+			limit = {
+				any_empty_neighbor_province = {
+					has_port = yes
+					province_has_center_of_trade_of_level = 1
+					to_nhs_check_cm1_colonial_restrictions_province = yes
+					to_nhs_check_lantanopolis_ely_restrictions_province = yes
+					to_nhs_check_lantanopolis_por_restrictions_province = yes
+				}
+			}
+			random_empty_neighbor_province = {
+				limit = {
+					has_port = yes
+					province_has_center_of_trade_of_level = 1
+					to_nhs_check_cm1_colonial_restrictions_province = yes
+					to_nhs_check_lantanopolis_ely_restrictions_province = yes
+					to_nhs_check_lantanopolis_por_restrictions_province = yes
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+				NOT = {	to_nhs_has_shq_colonial_restrictions = yes }
+			}
+			random_province = {
+				limit = {
+					is_empty = yes
+					province_has_center_of_trade_of_level = 1
+					to_nhs_check_cm1_colonial_restrictions_province = yes
+					to_nhs_check_lantanopolis_ely_restrictions_province = yes
+					to_nhs_check_lantanopolis_por_restrictions_province = yes
+					any_neighbor_province = {
+						OR = {
+							owned_by = ROOT
+							owner = {
+								is_colonial_nation_of = ROOT
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+				NOT = {	to_nhs_has_shq_colonial_restrictions = yes }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					has_discovered = ROOT
+					range = ROOT
+					province_has_center_of_trade_of_level = 1
+					to_nhs_check_cm1_colonial_restrictions_province = yes
+					to_nhs_check_lantanopolis_ely_restrictions_province = yes
+					to_nhs_check_lantanopolis_por_restrictions_province = yes
+					to_check_colonial_nation_restrictions_province = yes
+					event_target:capital_province = {
+						region = PREV
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		## PORT
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						has_port = yes
+						to_nhs_check_cm1_colonial_restrictions_province = yes
+						to_nhs_check_lantanopolis_ely_restrictions_province = yes
+						to_nhs_check_lantanopolis_por_restrictions_province = yes
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						has_port = yes
+						to_nhs_check_cm1_colonial_restrictions_province = yes
+						to_nhs_check_lantanopolis_ely_restrictions_province = yes
+						to_nhs_check_lantanopolis_por_restrictions_province = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+				NOT = {	to_nhs_has_shq_colonial_restrictions = yes }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					to_nhs_check_cm1_colonial_restrictions_province = yes
+					to_nhs_check_lantanopolis_ely_restrictions_province = yes
+					to_nhs_check_lantanopolis_por_restrictions_province = yes
+					any_neighbor_province = {
+						OR = {
+							owned_by = ROOT
+							owner = {
+								is_colonial_nation_of = ROOT
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		## NEIGHBORING PROVINCE
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						to_nhs_check_cm1_colonial_restrictions_province = yes
+						to_nhs_check_lantanopolis_ely_restrictions_province = yes
+						to_nhs_check_lantanopolis_por_restrictions_province = yes
+						to_check_colonial_nation_restrictions_province = yes
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						to_nhs_check_cm1_colonial_restrictions_province = yes
+						to_nhs_check_lantanopolis_ely_restrictions_province = yes
+						to_nhs_check_lantanopolis_por_restrictions_province = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		## DISTANT PROVINCE
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+				NOT = {	to_nhs_has_shq_colonial_restrictions = yes }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					has_discovered = ROOT
+					range = ROOT
+					event_target:capital_province = {
+						region = PREV
+					}
+					to_nhs_check_cm1_colonial_restrictions_province = yes
+					to_nhs_check_lantanopolis_ely_restrictions_province = yes
+					to_nhs_check_lantanopolis_por_restrictions_province = yes
+					to_check_colonial_nation_restrictions_province = yes
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+				NOT = {	to_nhs_has_shq_colonial_restrictions = yes }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					has_discovered = ROOT
+					range = ROOT
+					to_nhs_check_cm1_colonial_restrictions_province = yes
+					to_nhs_check_lantanopolis_ely_restrictions_province = yes
+					to_nhs_check_lantanopolis_por_restrictions_province = yes
+					to_check_colonial_nation_restrictions_province = yes
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		
+		if = {
+			limit = {
+				has_saved_event_target = ai_help_colony
+			}
+			capital_scope = {
+				event_target:ai_help_colony = {
+					create_colony = 20
+				}
+			}
+		}
+	}
+
+	option = {
+		name = nhs2_hidden.a
+	}
+}

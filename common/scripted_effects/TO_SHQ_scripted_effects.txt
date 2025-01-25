@@ -1,0 +1,406 @@
+oth_remove_albanian_quarter = {
+	if = {
+		limit = {
+			owns = 953
+		}
+		953 = {
+			remove_province_modifier = nhs2_albanian_quarter
+			add_base_tax = -2
+			add_base_manpower = -1
+			add_base_production = -2
+		}
+	}
+	else = {
+		hidden_effect = {
+			953 = {
+				remove_province_modifier = nhs2_albanian_quarter
+				add_base_tax = -2
+				add_base_manpower = -1
+				add_base_production = -2
+			}
+		}
+	}
+}
+
+oth_albanian_initial_colonisation_frontier = {
+	clr_province_flag = nhs_is_empty_province
+	clr_province_flag = nhs_is_colony
+	cede_province = ROOT
+	add_territorial_core = ROOT
+	hidden_effect = {
+		if = {
+			limit = {
+				is_colony = yes
+			}
+			add_colonysize = 1009
+		}
+	}
+	hidden_effect = {
+		add_institution_embracement = {
+			which = "feudalism"
+			value = 100
+		}
+	}
+	change_culture = shqiperi
+	add_core = SHQ
+	custom_tooltip = nhs_new_line_tt
+	add_base_tax = 1
+	add_base_manpower = 1
+	tooltip = {
+		add_permanent_province_modifier = {
+			name = nhs2_albanian_majority
+			duration = -1
+		}
+	}
+	hidden_effect = {
+		add_province_triggered_modifier = nhs2_albanian_majority_tm
+	}
+	if = {
+		limit = {
+			NOT = { religion = orthodox }
+			NOT = { owner = { has_global_flag = nhs2_patriarchate_established } }
+		}
+		change_religion = orthodox
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 14600
+		}
+	}
+	if = {
+		limit = {
+			NOT = { religion = elysian_orthodoxy }
+			owner = { has_global_flag = nhs2_patriarchate_established }
+		}
+		change_religion = elysian_orthodoxy
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 14600
+		}
+	}
+	to_nhs_handle_post_disaster_tolerance_modifier_albanians = { COUNTRY_SCOPE = ROOT CHECK_FLAG = yes }
+	hidden_effect = {
+		add_nationalism = -100
+		# Prevents the colony finished procedure from firing
+	}
+}
+
+oth_albanian_initial_colonisation_vassal = {
+	# cede_province = ROOT
+	# add_core = ROOT
+	tooltip = {
+		cede_province = SHQ
+	}
+	hidden_effect = {
+		clr_province_flag = nhs_is_empty_province
+		clr_province_flag = nhs_is_colony
+		cede_province = ROOT
+		discover_country = ROOT
+		add_institution_embracement = {
+			which = "feudalism"
+			value = 100
+		}
+	}
+	change_culture = shqiperi
+	add_core = SHQ
+	hidden_effect = {
+		if = {
+			limit = {
+				is_colony = yes
+			}
+			add_colonysize = 1009
+		}
+	}
+	tooltip = {
+		vassalize = SHQ
+	}
+	add_base_tax = 2
+	add_base_production = 1
+	add_base_manpower = 2
+	custom_tooltip = to_give_inactive_albanian_majority_tt
+	custom_tooltip = nhs_new_line_tt
+	hidden_effect = {
+		add_province_triggered_modifier = nhs2_albanian_majority_tm
+	}
+	if = {
+		limit = {
+			NOT = { religion = orthodox }
+			NOT = { owner = { has_global_flag = nhs2_patriarchate_established } }
+		}
+		change_religion = orthodox
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 14600
+		}
+	}
+	if = {
+		limit = {
+			NOT = { religion = elysian_orthodoxy }
+			owner = { has_global_flag = nhs2_patriarchate_established }
+		}
+		change_religion = elysian_orthodoxy
+		add_province_modifier = {
+			name = religious_zeal_at_conv
+			duration = 14600
+		}
+	}
+	to_nhs_handle_post_disaster_tolerance_modifier_albanians = { COUNTRY_SCOPE = ROOT CHECK_FLAG = yes }
+}
+
+oth_albanian_colonisation = {
+	clr_province_flag = nhs_is_empty_province
+	clr_province_flag = nhs_is_colony
+	if = {
+		limit = {
+			exists = SHQ
+			SHQ = { is_subject_of = ROOT }
+		}
+		cede_province = SHQ
+		add_core = SHQ
+	}
+	else = {
+		cede_province = ROOT
+		add_territorial_core = ROOT
+		add_core = SHQ
+	}
+	add_local_autonomy = -100
+	hidden_effect = {
+		discover_country = ROOT
+		add_institution_embracement = {
+			which = "feudalism"
+			value = 100
+		}
+	}
+	if = {
+		limit = {
+			has_global_flag = nhs_shqiperi_into_elysian
+		}
+		change_culture = shqipproi
+		if = {
+			limit = {
+				exists = SHQ
+				SHQ = { is_subject_of = ROOT }
+			}
+			custom_tooltip = to_give_inactive_albanian_majority_tt
+		}
+		else = {
+			tooltip = {
+				add_permanent_province_modifier = {
+					name = nhs2_albanian_majority2
+					duration = -1
+				}
+			}
+		}
+		hidden_effect = {
+			add_province_triggered_modifier = nhs2_albanian_majority2_tm
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_global_flag = nhs_shqiperi_into_elysian }
+		}
+		change_culture = shqiperi
+		tooltip = {
+			add_permanent_province_modifier = {
+				name = nhs2_albanian_majority
+				duration = -1
+			}
+		}
+		hidden_effect = {
+			add_province_triggered_modifier = nhs2_albanian_majority_tm
+		}
+	}
+
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					NOT = { religion = orthodox }
+					NOT = { owner = { has_global_flag = nhs2_patriarchate_established } }
+				}
+				AND = {
+					NOT = { religion = elysian_orthodoxy }
+					owner = { has_global_flag = nhs2_patriarchate_established }
+				}
+			}
+			OR = {
+				NOT = { exists = SHQ }
+				AND = {
+					exists = SHQ
+					SHQ = { is_subject_of = ROOT }
+					SHQ = {
+						OR = {
+							religion = orthodox
+							religion = elysian_orthodoxy
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { religion = orthodox }
+				NOT = { owner = { has_global_flag = nhs2_patriarchate_established } }
+			}
+			change_religion = orthodox
+			add_province_modifier = {
+				name = religious_zeal_at_conv
+				duration = 14600
+			}
+		}
+		if = {
+			limit = {
+				NOT = { religion = elysian_orthodoxy }
+				owner = { has_global_flag = nhs2_patriarchate_established }
+			}
+			change_religion = elysian_orthodoxy
+			add_province_modifier = {
+				name = religious_zeal_at_conv
+				duration = 14600
+			}
+		}
+	}
+	to_nhs_handle_post_disaster_tolerance_modifier_albanians = { COUNTRY_SCOPE = ROOT CHECK_FLAG = yes }
+}
+
+oth_albanian_movement = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = nhs_shqiperi_into_elysian }
+		}
+		change_culture = shqiperi
+		if = {
+			limit = {
+				has_country_flag = nhs_alb_change_religion
+			}
+			if = {
+				limit = {
+					NOT = { religion = orthodox }
+					NOT = { owner = { has_global_flag = nhs2_patriarchate_established } }
+				}
+				change_religion = orthodox
+			}
+			if = {
+				limit = {
+					NOT = { religion = elysian_orthodoxy }
+					owner = { has_global_flag = nhs2_patriarchate_established }
+
+				}
+				change_religion = elysian_orthodoxy
+			}
+			to_nhs_handle_post_disaster_tolerance_modifier_albanians = { COUNTRY_SCOPE = ROOT CHECK_FLAG = yes }
+			clr_country_flag = nhs_alb_change_religion
+		}
+		else = {
+			change_religion = ROOT
+		}
+	}
+	else = {
+		change_culture = shqipproi
+		change_religion = ROOT
+	}
+	add_core = SHQ
+	add_base_tax = 2
+	add_base_production = 1
+	add_base_manpower = 2
+	add_unrest = 10
+	if = {
+		limit = {
+			ROOT = {
+				has_parliament = yes
+			}
+			has_seat_in_parliament = yes
+		}
+		set_seat_in_parliament = no
+	}
+	tooltip = {
+		add_permanent_province_modifier = {
+			name = nhs2_albanian_majority
+			duration = -1
+		}
+	}
+	hidden_effect = {
+		add_province_triggered_modifier = nhs2_albanian_majority_tm
+	}
+}
+
+oth_albanian_integration = {
+	if = {
+		limit = {
+			exists = SHQ
+		}
+		SHQ = {
+			custom_tooltip = to_country_name_change_to_arbanon_tt
+			to_primary_culture_and_ruler_heir_consort_culture_if_primary = {
+				CULTURE = shqipproi
+				PRIMARY_CULTURE = THIS
+				ONLY_SHOW_PRIMARY = yes
+			}
+			change_religion = ROOT
+			# add_opinion = {
+			# 	who = ROOT
+			# 	modifier = nhs_forced_culture_change
+			# }
+			hidden_effect = {
+				override_country_name = TO_ALVANOI
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+	}
+	else = {
+		hidden_effect = {
+			SHQ = {
+				override_country_name = TO_ALVANOI
+				to_primary_culture_and_ruler_heir_consort_culture_if_primary = {
+					CULTURE = shqipproi
+					PRIMARY_CULTURE = THIS
+				}
+				change_religion = ROOT
+			}
+		}
+	}
+	custom_tooltip = nhs_albanian_to_shqipproi_all_provinces_tt
+	custom_tooltip = nhs_update_albanian_majority_tt
+	if = {
+		limit = {
+			exists = SHQ
+		}
+		custom_tooltip = nhs_self_governance_tt
+	}
+	hidden_effect = {
+		every_province = {
+			limit = {
+				OR = {
+					has_province_modifier = nhs2_albanian_majority_tm
+					culture = shqiperi
+				}
+			}
+			change_culture = shqipproi
+			if = {
+				limit = {
+					has_province_modifier = nhs2_albanian_majority_tm
+				}
+				custom_tooltip = nhs_update_albanian_majority_tt
+				hidden_effect = {
+					remove_province_triggered_modifier = nhs2_albanian_majority_tm
+					add_province_triggered_modifier = nhs2_albanian_majority2_tm
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						religion = orthodox
+						religion = elysian_orthodoxy
+					}
+				}
+				to_nhs_handle_post_disaster_tolerance_modifier_albanians = { COUNTRY_SCOPE = owner }
+			}
+		}
+	}
+	set_global_flag = nhs_shqiperi_into_elysian
+	clr_country_flag = nhs_ingrate60
+	clr_country_flag = nhs_ingrate50
+	clr_country_flag = nhs_ingrate40
+	clr_country_flag = nhs_ingrate30
+	clr_country_flag = nhs_ingrate20
+	clr_country_flag = nhs_ingrate10
+}

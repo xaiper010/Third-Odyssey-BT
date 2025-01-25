@@ -1,0 +1,3067 @@
+country_decisions = {
+	# Konstantinia
+	# nhs_grant_balkans_to_elg = {
+	# 	potential = {
+	# 		NOT = { has_global_flag = nhs_elg_got_balkans }
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		# has_country_flag = nhs_formed_greek
+	# 		exists = ELG
+	# 		ELG = {
+	# 			is_subject_of_type = elysian_subject
+	# 			is_subject_of = ROOT
+	# 		}
+	# 		any_owned_province = {
+	# 			region = balkan_region
+	# 			NOT = {
+	# 				nhs_greek_areas = yes
+	# 			}
+	# 		}
+	# 	}
+
+	# 	allow = {
+	# 		any_owned_province = {
+	# 			region = balkan_region
+	# 			NOT = { culture_group = byzantine }
+	# 			custom_trigger_tooltip = {
+	# 				tooltip = nhs_not_greek_areas_provinces_tt
+	# 				NOT = { nhs_greek_areas_no_culture = yes }
+	# 			}
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 		set_global_flag = nhs_elg_got_balkans
+			
+	# 		if = {
+	# 			limit = {
+	# 				ELG = {
+	# 					has_country_flag = nhs_ely_march_all
+	# 				}
+	# 			}
+	# 			if = {
+	# 				limit = {
+	# 					any_owned_province = {
+	# 						region = balkan_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { has_construction = core }
+	# 						NOT = { province_id = 151 }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 					}
+	# 				}
+	# 				custom_tooltip = nhs_no_missionary_core_provinces_tt
+	# 				every_owned_province = {
+	# 					limit = {
+	# 						region = balkan_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { has_construction = core }
+	# 						NOT = { province_id = 151 }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 					}
+	# 					cede_province = ELG
+	# 					hidden_effect = {
+	# 						if = {
+	# 							limit = {
+	# 								is_core = ROOT
+	# 							}
+	# 							remove_core = ROOT
+	# 							add_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_territorial_core = ROOT
+	# 							}
+	# 							add_territorial_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_permanent_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_permanent_claim = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_claim = ELG
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 			else = {
+	# 				custom_tooltip = nhs_exarch_no_eligible_provinces_tt
+	# 			}
+	# 		}
+	# 		else_if = {
+	# 			limit = {
+	# 				ELG = {
+	# 					has_country_flag = nhs_ely_march_territory
+	# 				}
+	# 			}
+	# 			if = {
+	# 				limit = {
+	# 					any_owned_province = {
+	# 						region = balkan_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = core }
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { province_id = 151 }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 						NOT = { is_state_core = ROOT }
+	# 						is_owned_by_trade_company = no
+	# 					}
+	# 				}
+	# 				custom_tooltip = nhs_no_missionary_core_trade_company_provinces_tt
+	# 				every_owned_province = {
+	# 					limit = {
+	# 						region = balkan_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = core }
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { province_id = 151 }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 						NOT = { is_state_core = ROOT }
+	# 						is_owned_by_trade_company = no
+	# 					}
+	# 					cede_province = ELG
+	# 					hidden_effect = {
+	# 						if = {
+	# 							limit = {
+	# 								is_core = ROOT
+	# 							}
+	# 							remove_core = ROOT
+	# 							add_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_territorial_core = ROOT
+	# 							}
+	# 							add_territorial_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_permanent_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_permanent_claim = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_claim = ELG
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 			else = {
+	# 				custom_tooltip = nhs_exarch_no_eligible_provinces_tt
+	# 			}
+	# 		}
+	# 		else_if = {
+	# 			limit = {
+	# 				ELG = {
+	# 					has_country_flag = nhs_ely_march_no_core
+	# 				}
+	# 			}
+	# 			if = {
+	# 				limit = {
+	# 					any_owned_province = {
+	# 						region = balkan_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = core }
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { province_id = 151 }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 						NOT = { is_state_core = ROOT }
+	# 						NOT = { is_territorial_core = ROOT }
+	# 						is_owned_by_trade_company = no
+	# 					}
+	# 				}
+	# 				custom_tooltip = nhs_no_missionary_core_trade_company_provinces_tt
+	# 				every_owned_province = {
+	# 					limit = {
+	# 						region = balkan_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = core }
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { province_id = 151 }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 						NOT = { is_state_core = ROOT }
+	# 						NOT = { is_territorial_core = ROOT }
+	# 						is_owned_by_trade_company = no
+	# 					}
+	# 					cede_province = ELG
+	# 					hidden_effect = {
+	# 						if = {
+	# 							limit = {
+	# 								is_core = ROOT
+	# 							}
+	# 							remove_core = ROOT
+	# 							add_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_territorial_core = ROOT
+	# 							}
+	# 							add_territorial_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_permanent_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_permanent_claim = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_claim = ELG
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 			else = {
+	# 				custom_tooltip = nhs_exarch_no_eligible_provinces_tt
+	# 			}
+	# 		}
+	# 		else = {
+	# 			custom_tooltip = nhs_exarch_no_eligible_provinces_tt
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				mission_completed = to_a_new_hope_mission
+	# 			}
+	# 			custom_tooltip = nhs_new_line_tt
+	# 			to_add_old_world_exarch_claim = { TERRITORY = balkan_region TAG = ELG }
+	# 		}
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	
+	# nhs_grant_anatolia_to_elg = {
+	# 	potential = {
+	# 		NOT = { has_global_flag = nhs_elg_got_anatolia }
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		# has_country_flag = nhs_formed_greek
+	# 		exists = ELG
+	# 		ELG = {
+	# 			is_subject_of_type = elysian_subject
+	# 			is_subject_of = ROOT
+	# 		}
+	# 		any_owned_province = {
+	# 			region = anatolia_region
+	# 			NOT = {
+	# 				nhs_greek_areas = yes
+	# 			}
+	# 		}
+	# 	}
+
+	# 	allow = {
+	# 		any_owned_province = {
+	# 			region = anatolia_region
+	# 			NOT = { culture_group = byzantine }
+	# 			NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 			NOT = { has_province_modifier = nhs2_base_of_operations }
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 		set_global_flag = nhs_elg_got_anatolia
+			
+	# 		if = {
+	# 			limit = {
+	# 				ELG = {
+	# 					has_country_flag = nhs_ely_march_all
+	# 				}
+	# 			}
+	# 			if = {
+	# 				limit = {
+	# 					any_owned_province = {
+	# 						region = anatolia_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { has_construction = core }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 					}
+	# 				}
+	# 				custom_tooltip = nhs_no_missionary_core_provinces_tt
+	# 				every_owned_province = {
+	# 					limit = {
+	# 						region = anatolia_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { has_construction = core }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 					}
+	# 					cede_province = ELG
+	# 					hidden_effect = {
+	# 						if = {
+	# 							limit = {
+	# 								is_core = ROOT
+	# 							}
+	# 							remove_core = ROOT
+	# 							add_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_territorial_core = ROOT
+	# 							}
+	# 							add_territorial_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_permanent_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_permanent_claim = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_claim = ELG
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 			else = {
+	# 				custom_tooltip = nhs_exarch_no_eligible_provinces_tt
+	# 			}
+	# 		}
+	# 		else_if = {
+	# 			limit = {
+	# 				ELG = {
+	# 					has_country_flag = nhs_ely_march_territory
+	# 				}
+	# 			}
+	# 			if = {
+	# 				limit = {
+	# 					any_owned_province = {
+	# 						region = anatolia_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = core }
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 						NOT = { is_state_core = ROOT }
+	# 						is_owned_by_trade_company = no
+	# 					}
+	# 				}
+	# 				custom_tooltip = nhs_no_missionary_core_trade_company_provinces_tt
+	# 				every_owned_province = {
+	# 					limit = {
+	# 						region = anatolia_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = core }
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 						NOT = { is_state_core = ROOT }
+	# 						is_owned_by_trade_company = no
+	# 					}
+	# 					cede_province = ELG
+	# 					hidden_effect = {
+	# 						if = {
+	# 							limit = {
+	# 								is_core = ROOT
+	# 							}
+	# 							remove_core = ROOT
+	# 							add_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_territorial_core = ROOT
+	# 							}
+	# 							add_territorial_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_permanent_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_permanent_claim = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_claim = ELG
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 			else = {
+	# 				custom_tooltip = nhs_exarch_no_eligible_provinces_tt
+	# 			}
+	# 		}
+	# 		else_if = {
+	# 			limit = {
+	# 				ELG = {
+	# 					has_country_flag = nhs_ely_march_no_core
+	# 				}
+	# 			}
+	# 			if = {
+	# 				limit = {
+	# 					any_owned_province = {
+	# 						region = anatolia_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = core }
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 						NOT = { is_state_core = ROOT }
+	# 						NOT = { is_territorial_core = ROOT }
+	# 						is_owned_by_trade_company = no
+	# 					}
+	# 				}
+	# 				custom_tooltip = nhs_no_missionary_core_trade_company_provinces_tt
+	# 				every_owned_province = {
+	# 					limit = {
+	# 						region = anatolia_region
+	# 						NOT = {
+	# 							nhs_greek_areas = yes
+	# 						}
+	# 						NOT = { has_construction = core }
+	# 						NOT = { has_construction = missionary }
+	# 						NOT = { has_province_modifier = nhs2_base_of_operations_tm }
+	# 						NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 						NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 						NOT = { is_state_core = ROOT }
+	# 						NOT = { is_territorial_core = ROOT }
+	# 						is_owned_by_trade_company = no
+	# 					}
+	# 					cede_province = ELG
+	# 					hidden_effect = {
+	# 						if = {
+	# 							limit = {
+	# 								is_core = ROOT
+	# 							}
+	# 							remove_core = ROOT
+	# 							add_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_territorial_core = ROOT
+	# 							}
+	# 							add_territorial_core = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_permanent_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_permanent_claim = ELG
+	# 						}
+	# 						else_if = {
+	# 							limit = {
+	# 								is_claim = ROOT
+	# 							}
+	# 							remove_claim = ROOT
+	# 							add_claim = ELG
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 			else = {
+	# 				custom_tooltip = nhs_exarch_no_eligible_provinces_tt
+	# 			}
+	# 		}
+	# 		else = {
+	# 			custom_tooltip = nhs_exarch_no_eligible_provinces_tt
+	# 		}
+			
+	# 		if = {
+	# 			limit = {
+	# 				mission_completed = to_a_new_hope_mission
+	# 			}
+	# 			custom_tooltip = nhs_new_line_tt
+	# 			to_add_old_world_exarch_claim = { TERRITORY = anatolia_region TAG = ELG }
+	# 		}
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+
+	to_make_portugal_exarch = {
+		potential = {
+			has_global_flag = to_portugal_hates_colonizers
+			has_country_modifier = nhs2_ely_por_trade
+			NOT = { has_country_flag = to_portuguese_deal_ended_event_active }
+			NOT = { has_country_flag = to_block_deal_break_decisions }
+			has_saved_global_event_target = to_portugal_secret_target
+			event_target:to_portugal_secret_target = {
+				exists = yes
+				has_country_modifier = nhs2_por_ely_trade
+				NOT = { tag = EEH }
+				NOT = { tag = EEK }
+			}
+		}
+
+		major = yes
+
+		allow = {
+			mission_completed = to_the_eagle_rises_mission
+			# custom_trigger_tooltip = {
+			# 	tooltip = to_can_make_portugal_exarch_dev_tt
+			# 	any_country = {
+			# 		has_country_modifier = nhs2_por_ely_trade
+			# 		variable_arithmetic_trigger = {
+			# 			# export_to_variable = {
+			# 			# 	variable_name = nhs_my_total_dev
+			# 			# 	value = trigger_value:total_own_and_non_tributary_subject_development
+			# 			# 	who = ROOT
+			# 			# }
+			# 			# export_to_variable = {
+			# 			# 	variable_name = their_total_dev
+			# 			# 	value = total_development
+			# 			# 	who = THIS
+			# 			# }
+			# 			# multiply_variable = {
+			# 			# 	which = their_total_dev
+			# 			# 	value = 3
+			# 			# }
+			# 			check_variable = {
+			# 				which = nhs_my_total_dev
+			# 				which = their_total_dev
+			# 			}
+			# 		}
+			# 	}
+			# }
+			if = {
+				limit = {
+					226 = {
+						has_province_flag = nhs_exarch_province_exemption
+					}
+				}
+				num_of_provinces_owned_or_owned_by_subjects_with = {
+					value = 5
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_subject_of_type = elysian_subject
+						}
+					}
+					nhs_EEH_province = yes
+					NOT = { is_state_core = ROOT }
+					NOT = { has_construction = core }
+					is_owned_by_trade_company = no
+					NOT = { province_id = 226 }
+				    NOT = { has_province_modifier = nhs2_supply_lines_tm }
+				}
+			}
+			else = {
+				num_of_provinces_owned_or_owned_by_subjects_with = {
+					value = 5
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_subject_of_type = elysian_subject
+						}
+					}
+					nhs_EEH_province = yes
+					NOT = { is_state_core = ROOT }
+					NOT = { has_construction = core }
+					is_owned_by_trade_company = no
+				    NOT = { has_province_modifier = nhs2_supply_lines_tm }
+				}
+			}
+		}
+
+		effect = {
+			event_target:to_portugal_secret_target = {
+				hidden_effect = {
+					every_owned_province = {
+						limit = {
+							nhs_EEH_province = yes
+						}
+						to_make_exarch_province_reserved = yes
+					}
+				}
+				if = {
+					limit = {
+						exists = EEH
+					}
+					inherit = EEH
+				}
+				hidden_effect = {
+					to_change_tag = { TAG = EEK }
+					to_swap_exarch_dynamic_tag = {
+						BASE_TAG = EEH
+						CURRENT_TAG = EEH
+						NEW_TAG = EEK
+						NEW_NAME = TO_PORTUGAL_EXARCH
+					}
+
+					to_initialize_custom_exarch_peripheral_territories = { PROVINCE_TRIGGER = "NOT = { nhs_EEH_province = yes }" }
+
+					to_transfer_provinces_to_exarch = { TAG = EEK }
+
+					every_core_province = {
+						limit = {
+							owner = {
+								NOT = { tag = EEK }
+							}
+						}
+						remove_core = EEK
+						add_permanent_claim = ROOT
+					}
+				}
+				custom_tooltip = to_country_changes_to_portugal_exarch_tt
+				
+				# if = {
+				# 	limit = {
+				# 		NOT = {
+				# 			capital_scope = {
+				# 				nhs_EEH_province = yes
+				# 			}
+				# 		}
+				# 		any_province = {
+				# 			nhs_EEH_province = yes
+				# 			OR = {
+				# 				owned_by = PREV
+				# 				owned_by = EEH
+				# 				AND = {
+				# 					OR = {
+				# 						owned_by = ROOT
+				# 						owner = {
+				# 							is_subject_of_type = elysian_subject
+				# 						}
+				# 					}
+				# 					nhs_EEH_province = yes
+				# 					NOT = { is_state_core = ROOT }
+				# 					NOT = { has_construction = core }
+				# 					is_owned_by_trade_company = no
+				# 					NOT = { has_province_modifier = nhs2_supply_lines_tm }
+				# 				}
+				# 			}
+				# 		}
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			227 = {
+				# 				OR = {
+				# 					owned_by = PREV
+				# 					owned_by = EEH
+				# 					AND = {
+				# 						OR = {
+				# 							owned_by = ROOT
+				# 							owner = {
+				# 								is_subject_of_type = elysian_subject
+				# 							}
+				# 						}
+				# 						nhs_EEH_province = yes
+				# 						NOT = { is_state_core = ROOT }
+				# 						NOT = { has_construction = core }
+				# 						is_owned_by_trade_company = no
+				# 						NOT = { has_province_modifier = nhs2_supply_lines_tm }
+				# 					}
+				# 				}
+				# 			}
+				# 		}
+				# 		set_capital = 227
+				# 	}
+				# 	else = {
+				# 		random_province = {
+				# 			limit = {
+				# 				nhs_EEH_province = yes
+				# 				OR = {
+				# 					owned_by = PREV
+				# 					owned_by = EEH
+				# 					AND = {
+				# 						OR = {
+				# 							owned_by = ROOT
+				# 							owner = {
+				# 								is_subject_of_type = elysian_subject
+				# 							}
+				# 						}
+				# 						nhs_EEH_province = yes
+				# 						NOT = { is_state_core = ROOT }
+				# 						NOT = { has_construction = core }
+				# 						is_owned_by_trade_company = no
+				# 						NOT = { has_province_modifier = nhs2_supply_lines_tm }
+				# 					}
+				# 				}
+				# 			}
+				# 			PREV = {
+				# 				set_capital = PREV
+				# 			}
+				# 		}
+				# 	}
+				# }
+				hidden_effect = {
+					ROOT = {
+						create_subject = {
+							subject_type = elysian_subject
+							subject = PREV
+						}
+					}
+					add_liberty_desire = -20
+					set_country_flag = to_50_year_cooldown_on_exarch_annex
+					if = {
+						limit = {
+							government = monarchy
+						}
+						add_government_reform = to_exarch_reform_monarchy
+					}
+					else = {
+						change_government = republic
+						add_government_reform = to_exarch_reform
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					NOT = { exists = EEH }
+				}
+				custom_tooltip = nhs_new_line_tt
+				custom_tooltip = to_exarch_starting_land_EEH_tt
+				custom_tooltip = to_exarch_creation_starting_land_limits_tt
+				custom_tooltip = nhs_new_line_tt
+				
+				custom_tooltip = nhs_exarchate_setting_desc_tt
+			}
+			custom_tooltip = nhs_new_line_tt
+			
+			event_target:to_portugal_secret_target = {
+				custom_tooltip = to_set_exarch_reform_tt
+			}
+			custom_tooltip = to_reform_effects_for_overlord_tt
+			if = {
+			    limit = {
+			        mission_completed = to_the_eagle_rises_mission
+			    }
+			    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+			    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+			}
+			else = {
+			    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+			    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+			}
+			custom_tooltip = to_exarch_bonus_merchant_eeh_tt
+			custom_tooltip = nhs_new_line_tt
+			
+			custom_tooltip = to_reform_effects_tt
+			custom_tooltip = to_automatically_accepts_culture_tt
+			custom_tooltip = to_min_autonomy_exarch_modifier_tt
+			custom_tooltip = nhs_new_line_tt
+
+			custom_tooltip = to_reform_modifiers_tt
+			custom_tooltip = to_exarch_reform_modifiers_tt
+			custom_tooltip = nhs_new_line_tt
+
+			if = {
+				limit = {
+					government = monarchy
+					OR = {
+						has_dlc = "Common Sense"
+						has_dlc = "Domination"
+					}
+				}
+				custom_tooltip = to_reform_government_attributes_tt
+				custom_tooltip = mechanic_has_parliament_yes
+			}
+			else_if = {
+				limit = {
+					NOT = { government = monarchy }
+				}
+				custom_tooltip = to_reform_government_attributes_tt
+				custom_tooltip = to_exarch_reform_government_attributes_tt
+			}
+		}
+	}
+
+    # Code generated by exarch_formation_decisions.py
+    # Armenia
+    # to_form_exarch_armenia = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEA }
+	# 		any_owned_province = {
+	# 			nhs_EEA_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEA_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEA
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEA_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEA
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEA_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEA_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEA }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEA = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Anglia
+    # to_form_exarch_anglia = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEB }
+	# 		any_owned_province = {
+	# 			nhs_EEB_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEB_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEB
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEB_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEB
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEB_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEB_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEB }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEB = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Skanza
+    # to_form_exarch_skanza = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEC }
+	# 		any_owned_province = {
+	# 			nhs_EEC_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEC_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEC
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEC_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEC
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEC_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEC_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEC }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEC = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Pannonia
+    # to_form_exarch_pannonia = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EED }
+	# 		any_owned_province = {
+	# 			nhs_EED_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EED_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEED
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EED_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEED
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EED_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EED_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EED }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EED = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Aigyptos
+    # to_form_exarch_aigyptos = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEE }
+	# 		any_owned_province = {
+	# 			nhs_EEE_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEE_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEE
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEE_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEE
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEE_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEE_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEE }
+	# 		if = {
+	# 			limit = { mission_completed = to_in_alexios_footsteps_mission }
+	# 			custom_tooltip = nhs_new_line_tt
+	# 			to_add_old_world_exarch_claim = { TERRITORY = egypt_region TAG = EEE }
+	# 			custom_tooltip = nhs_new_line_tt
+	# 		}
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEE = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Aphrike
+    # to_form_exarch_aphrike = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEF }
+	# 		any_owned_province = {
+	# 			nhs_EEF_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEF_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no
+    #                 NOT = { has_province_modifier = nhs2_supply_lines_tm }    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEF
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEF_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEF
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEF_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 			NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEF_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEF }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEF = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Frankia
+    # to_form_exarch_frankia = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEG }
+	# 		any_owned_province = {
+	# 			nhs_EEG_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEG_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEG
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEG_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEG
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEG_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEG_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEG }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEG = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Spania
+    # to_form_exarch_spania = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEH }
+	# 		any_owned_province = {
+	# 			nhs_EEH_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEH_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no
+    #                 NOT = { has_province_modifier = nhs2_supply_lines_tm }    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEH
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEH_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEH
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+    #         if = {
+	# 			limit = {
+	# 				226 = {
+	# 					has_province_flag = nhs_exarch_province_exemption
+	# 				}
+	# 			}
+	# 			any_owned_province = {
+	# 				nhs_EEH_province = yes
+	# 				NOT = { is_state_core = ROOT }
+	# 				NOT = { has_construction = core }
+	# 				is_owned_by_trade_company = no
+	# 				NOT = { province_id = 226 }
+	# 			    NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 			}
+	# 		}
+	# 		else = {
+	# 			any_owned_province = {
+	# 				nhs_EEH_province = yes
+	# 				custom_trigger_tooltip = {
+	# 				    tooltip = to_is_not_state_core_of_ROOT_tt
+	# 				    NOT = { is_state_core = ROOT }
+	# 				}
+	# 				NOT = { has_construction = core }
+	# 				is_owned_by_trade_company = no
+	# 			    NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 			}
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEH_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEH }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEH = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_eeh_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Ano Germania
+    # to_form_exarch_ano_germania = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEI }
+	# 		any_owned_province = {
+	# 			nhs_EEI_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEI_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEI
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEI_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEI
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEI_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEI_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEI }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEI = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Baltikos
+    # to_form_exarch_baltikos = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEJ }
+	# 		any_owned_province = {
+	# 			nhs_EEJ_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEJ_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEJ
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEJ_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEJ
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEJ_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEJ_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEJ }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEJ = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Rhosia
+    # to_form_exarch_rhosia = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEL }
+	# 		any_owned_province = {
+	# 			nhs_EEL_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEL_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEL
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEL_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEL
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEL_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEL_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEL }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEL = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Antaia
+    # to_form_exarch_antaia = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEM }
+	# 		any_owned_province = {
+	# 			nhs_EEM_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEM_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEM
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEM_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEM
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEM_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEM_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEM }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEM = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Syria
+    # to_form_exarch_syria = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEO }
+	# 		any_owned_province = {
+	# 			nhs_EEO_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEO_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEO
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEO_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEO
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEO_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEO_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEO }
+	# 		if = {
+	# 			limit = { mission_completed = to_in_alexios_footsteps_mission }
+	# 			custom_tooltip = nhs_new_line_tt
+	# 			to_add_old_world_exarch_claim = { TERRITORY = aleppo_area TAG = EEO }
+	# 			to_add_old_world_exarch_claim = { TERRITORY = syria_area TAG = EEO }
+	# 			to_add_old_world_exarch_claim = { TERRITORY = palestine_area TAG = EEO }
+	# 			to_add_old_world_exarch_claim = { TERRITORY = syrian_desert_area TAG = EEO }
+	# 			to_add_old_world_exarch_claim = { TERRITORY = trans_jordan_area TAG = EEO }
+	# 			custom_tooltip = nhs_new_line_tt
+	# 		}
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEO = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Italia
+    # to_form_exarch_italia = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EER }
+	# 		any_owned_province = {
+	# 			nhs_EER_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EER_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no
+    #                 NOT = { has_province_modifier = nhs2_supply_lines_tm }    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEER
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EER_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEER
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+    #         if = {
+	# 			limit = {
+	# 				126 = {
+	# 				    owned_by = ROOT
+	# 					has_province_modifier = to_varangian_headquarters
+	# 				}
+	# 			}
+	# 			any_owned_province = {
+	# 				nhs_EER_province = yes
+	# 				NOT = { is_state_core = ROOT }
+	# 				NOT = { has_construction = core }
+	# 				is_owned_by_trade_company = no
+	# 				NOT = { has_province_modifier = to_varangian_headquarters }
+	# 			    NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 			}
+	# 		}
+	# 		else = {
+	# 			any_owned_province = {
+	# 				nhs_EER_province = yes
+	# 				NOT = { is_state_core = ROOT }
+	# 				NOT = { has_construction = core }
+	# 				is_owned_by_trade_company = no
+	# 			    NOT = { has_province_modifier = nhs2_supply_lines_tm }
+	# 			}
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EER_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EER }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EER = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		if = {
+	# 			limit = { VGD = { is_subject_of = ROOT is_subject_of_type = elysian_subject_varangian } }
+	# 			custom_tooltip = to_exarch_bonus_merchant_eer_tt
+	# 		}
+	# 		else = {
+	# 			custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		}
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Megale Kimmeria
+    # to_form_exarch_megale_kimmeria = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EES }
+	# 		any_owned_province = {
+	# 			nhs_EES_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EES_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEES
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EES_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEES
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EES_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EES_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EES }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EES = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Kato Germania
+    # to_form_exarch_kato_germania = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EET }
+	# 		any_owned_province = {
+	# 			nhs_EET_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EET_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEET
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EET_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEET
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EET_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EET_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EET }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EET = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Megali Germania
+    # to_form_exarch_megali_germania = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEU }
+	# 		any_owned_province = {
+	# 			nhs_EEU_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEU_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEU
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEU_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEU
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEU_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEU_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEU }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEU = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Vendia
+    # to_form_exarch_vendia = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEV }
+	# 		any_owned_province = {
+	# 			nhs_EEV_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEV_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEV
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEV_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEV
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEV_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEV_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEV }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEV = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Arabia
+    # to_form_exarch_arabia = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEQ }
+	# 		any_owned_province = {
+	# 			nhs_EEQ_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEQ_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEQ
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEQ_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEQ
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEQ_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEQ_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEQ }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEQ = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+    # # Perses
+    # to_form_exarch_perses = {
+	# 	potential = {
+	# 		nhs_check_all_elysian_tags = { CONDITION = tag }
+	# 		NOT = { exists = EEP }
+	# 		any_owned_province = {
+	# 			nhs_EEP_province = yes
+	# 			NOT = { has_province_flag = nhs_exarch_province_exemption }
+	# 		}
+	# 	}
+		
+	# 	provinces_to_highlight = {
+	# 	    nhs_EEP_province = yes
+	# 	    OR = {
+	# 	        NOT = { owned_by = ROOT }
+	# 	        AND = {
+	# 	        	NOT = { is_state_core = ROOT }
+    #                 NOT = { has_construction = core }
+    #                 is_owned_by_trade_company = no    
+	# 	        }
+	# 	    }
+	# 	}
+
+	# 	allow = {
+	# 	    if = {
+	# 	        limit = {
+	# 	            has_country_flag = to_annexed_exarchEEP
+	# 	        }
+	# 	        custom_trigger_tooltip = {
+    #                 tooltip = to_has_not_annexed_exarch_in_5_years_EEP_tt
+    #                 had_country_flag = {
+    #                     flag = to_annexed_exarchEEP
+    #                     days = 1825
+    #                 }
+    #             }
+	# 	    }
+	# 		any_owned_province = {
+	# 			nhs_EEP_province = yes
+	# 			NOT = { is_state_core = ROOT }
+	# 			NOT = { has_construction = core }
+	# 			is_owned_by_trade_company = no
+	# 		}
+	# 	}
+
+	# 	effect = {
+	# 	    custom_tooltip = to_exarch_starting_land_EEP_tt
+	# 		custom_tooltip = to_exarchate_starting_exclusions_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = nhs_exarchate_setting_desc_tt
+	# 		custom_tooltip = nhs_new_line_tt
+						
+	# 		to_initialize_exarch = { EXARCH_TAG = EEP }
+	# 		custom_tooltip = nhs_new_line_tt
+	# 		EEP = {
+	# 			custom_tooltip = to_set_exarch_reform_republic_tt
+	# 		}
+	# 		custom_tooltip = to_reform_effects_for_overlord_tt
+	# 		if = {
+	# 		    limit = {
+	# 		        mission_completed = to_the_eagle_rises_mission
+	# 		    }
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_reduced_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_reduced_tt
+	# 		}
+	# 		else = {
+	# 		    custom_tooltip = to_reduce_overlord_govcap_exarch_tt
+	# 		    custom_tooltip = to_reduce_overlord_forcelimit_exarch_tt
+	# 		}
+	# 		custom_tooltip = to_exarch_bonus_merchant_tt
+	# 		custom_tooltip = nhs_new_line_tt
+			
+	# 		custom_tooltip = to_reform_effects_tt
+	# 		custom_tooltip = to_automatically_accepts_culture_tt
+	# 		custom_tooltip = to_min_autonomy_exarch_modifier_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_modifiers_tt
+	# 		custom_tooltip = to_exarch_reform_modifiers_tt
+	# 		custom_tooltip = nhs_new_line_tt
+
+	# 		custom_tooltip = to_reform_government_attributes_tt
+	# 		custom_tooltip = to_exarch_reform_government_attributes_tt
+	# 	}
+	# 	ai_will_do = {
+    #         factor = 1
+    #     }
+	# }
+
+	move_capital_to_EEA = {
+        potential = {
+            tag = EEA 
+            owns = 419
+            NOT = { capital = 419 }
+        }
+        allow = {
+            is_core = 419
+            is_at_war = no
+        }
+        effect = {
+            419 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEB = {
+        potential = {
+            tag = EEB
+            owns = 236
+            NOT = { capital = 236 }
+        }
+        allow = {
+            is_core = 236
+            is_at_war = no
+        }
+        effect = {
+            236 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEC = {
+        potential = {
+            tag = EEC 
+            owns = 1
+            NOT = { capital = 1 }
+        }
+        allow = {
+            is_core = 1
+            is_at_war = no
+        }
+        effect = {
+            1 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+	move_capital_to_EED = {
+        potential = {
+            tag = EED 
+            owns = 153
+            NOT = { capital = 153 }
+        }
+        allow = {
+            is_core = 153
+            is_at_war = no
+        }
+        effect = {
+            153 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEE = {
+        potential = {
+            tag = EEE 
+            owns = 358
+            NOT = { capital = 358 }
+        }
+        allow = {
+            is_core = 358
+            is_at_war = no
+        }
+        effect = {
+            358 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEF = {
+        potential = {
+            tag = EEF
+            owns = 341
+            NOT = { capital = 341 }
+        }
+        allow = {
+            is_core = 341
+            is_at_war = no
+        }
+        effect = {
+            341 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEG = {
+        potential = {
+            tag = EEG
+            owns = 183
+            NOT = { capital = 183 }
+        }
+        allow = {
+            is_core = 183
+            is_at_war = no
+        }
+        effect = {
+            183 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEH = {
+        potential = {
+            tag = EEH
+            owns = 227
+            NOT = { capital = 227 }
+        }
+        allow = {
+            is_core = 227
+            is_at_war = no
+        }
+        effect = {
+            227 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEI = {
+        potential = {
+            tag = EEI
+            owns = 134
+            NOT = { capital = 134 }
+        }
+        allow = {
+            is_core = 134
+            is_at_war = no
+        }
+        effect = {
+            134 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+	move_capital_to_EEJ = {
+        potential = {
+            tag = EEJ
+            owns = 43
+            NOT = { capital = 43 }
+        }
+        allow = {
+            is_core = 43
+            is_at_war = no
+        }
+        effect = {
+            43 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEL = {
+        potential = {
+            tag = EEL
+            owns = 310
+            NOT = { capital = 310 }
+        }
+        allow = {
+            is_core = 310
+            is_at_war = no
+        }
+        effect = {
+            310 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEM = {
+        potential = {
+            tag = EEM
+            owns = 280
+            NOT = { capital = 280 }
+        }
+        allow = {
+            is_core = 280
+            is_at_war = no
+        }
+        effect = {
+            280 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+	move_capital_to_EEO = {
+        potential = {
+            tag = EEO
+            owns = 377
+            NOT = { capital = 377 }
+        }
+        allow = {
+            is_core = 377
+            is_at_war = no
+        }
+        effect = {
+            377 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEP = {
+        potential = {
+            tag = EEP
+            owns = 428
+            NOT = { capital = 428 }
+        }
+        allow = {
+            is_core = 428
+            is_at_war = no
+        }
+        effect = {
+            428 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEQ = {
+        potential = {
+            tag = EEQ
+            owns = 385
+            NOT = { capital = 385 }
+        }
+        allow = {
+            is_core = 385
+            is_at_war = no
+        }
+        effect = {
+            385 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EER = {
+        potential = {
+            tag = EER
+            owns = 118
+            NOT = { capital = 118 }
+        }
+        allow = {
+            is_core = 118
+            is_at_war = no
+        }
+        effect = {
+            118 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EES = {
+        potential = {
+            tag = EES
+            owns = 284
+            NOT = { capital = 284 }
+        }
+        allow = {
+            is_core = 284
+            is_at_war = no
+        }
+        effect = {
+            284 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EET = {
+        potential = {
+            tag = EET
+            owns = 97
+            NOT = { capital = 97 }
+        }
+        allow = {
+            is_core = 97
+            is_at_war = no
+        }
+        effect = {
+            97 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEU = {
+        potential = {
+            tag = EEU
+            owns = 50
+            NOT = { capital = 50 }
+        }
+        allow = {
+            is_core = 50
+            is_at_war = no
+        }
+        effect = {
+            50 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+	
+    move_capital_to_EEV = {
+        potential = {
+            tag = EEV
+            owns = 262
+            NOT = { capital = 262 }
+        }
+        allow = {
+            is_core = 262
+            is_at_war = no
+        }
+        effect = {
+            262 = {
+                move_capital_effect = yes
+            }
+        }
+        ai_will_do = {
+            factor = 1
+        }
+    }
+}

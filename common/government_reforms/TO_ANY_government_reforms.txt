@@ -1,0 +1,114 @@
+peoples_kingdom_reform_nodlc = {
+	icon = "peasant_republic"
+	potential = {
+		NOT = { has_dlc = "Dharma" }
+		NOT = { has_reform = senatorial_empire }
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		yearly_corruption = -0.1
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+########################################
+# Tier IV (Religious Reforms)
+########################################
+
+to_promote_hestiates = {
+	icon = plutocracy_reform
+	potential = {
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		OR = {
+			is_revolutionary = no
+			NOT = { has_dlc = "Emperor" }
+		}
+		religion = pantheon_worship
+		if = {
+			limit = {
+				NOT = { nhs_check_all_elysian_tags = { CONDITION = tag } }
+			}
+			OR = {
+				has_country_modifier = nhs_high_priests
+				has_country_flag = to_enable_high_priesthood_decision
+			}
+		}
+	}
+	trigger = {
+		religion = pantheon_worship
+		has_country_modifier = nhs_high_priests
+	}
+	modifiers = {
+		church_influence_modifier = 0.1
+		church_loyalty_modifier = 0.1
+		global_prosperity_growth = 0.5
+		# global_monthly_devastation = -0.05
+	}
+	custom_attributes = {
+		to_reduce_hellenic_festival_cost = yes
+		to_increase_hellenic_festival_frequency = yes
+		to_improved_focus_on_religion = yes
+	}
+}
+
+to_battlefield_ceremonies = {
+	icon = msg_sacrifice_yes
+	potential = {
+		NOT = { has_government_attribute = is_pirate_republic_reform }
+		OR = {
+			is_revolutionary = no
+			NOT = { has_dlc = "Emperor" }
+		}
+		religion = aztlan_worship
+	}
+	trigger = {
+		religion = aztlan_worship
+	}
+	modifiers = {
+		church_influence_modifier = 0.1
+		church_loyalty_modifier = 0.1
+		war_exhaustion = -0.03
+		general_cost = -0.10
+	}
+	custom_attributes = {
+		to_missionary_strength_from_battles = yes
+	}
+	effect = {
+		hidden_effect = {
+			if = {
+				limit = {
+					is_at_war = yes
+				}
+				set_country_flag = to_missionary_strength_from_battles_is_at_war
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			to_missionary_strength_from_battles_after_war = {
+				CHECK_IF = "always = yes" 
+			}
+			every_owned_province = {
+				limit = {
+					religion = ROOT
+				}
+				to_remove_missionary_strength_from_battles_TIER = { TIER = 1 }
+				to_remove_missionary_strength_from_battles_TIER = { TIER = 2 }
+				to_remove_missionary_strength_from_battles_TIER = { TIER = 3 }
+				to_remove_missionary_strength_from_battles_TIER = { TIER = 4 }
+			}
+		}
+	}
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 10
+			is_subject = yes
+			overlord = {
+				has_reform = to_battlefield_ceremonies
+			}
+		}
+	}
+}

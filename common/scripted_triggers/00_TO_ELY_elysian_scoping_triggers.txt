@@ -1,0 +1,776 @@
+
+# Check if CONDITION matches any Elysian nation
+# Use: nhs_check_all_elysian_tags = { CONDITION = tag }
+nhs_check_all_elysian_tags = {
+	OR = {
+		$CONDITION$ = ELY  # Elysian Empire
+		$CONDITION$ = NHS  # Elysia
+		$CONDITION$ = ELR  # Elysian Noble Republic
+		$CONDITION$ = ERR  # Basileia Rhomanion
+		$CONDITION$ = ER1  # Basileia Elysion
+	}
+}
+
+# Check if CONDITION matches any Elysian nation, including Kauda and culture primaries
+# Use: nhs_check_all_elysian_tags_expanded = { CONDITION = tag }
+nhs_check_all_elysian_tags_expanded = {
+	OR = {
+		nhs_check_all_elysian_tags = { CONDITION = $CONDITION$ }
+		$CONDITION$ = CM1  # Kauda
+		# $CONDITION$ = ELF  # Elysian settlers
+		$CONDITION$ = ELA  # Elysian Federation
+		$CONDITION$ = KYK  # Kykladia
+		$CONDITION$ = SKY  # Scythia
+		$CONDITION$ = BOR  # Borealia
+		$CONDITION$ = HBR  # Hyperborealia
+		$CONDITION$ = HSP  # Hesperidia
+		$CONDITION$ = LA1  # Lakonia
+		$CONDITION$ = VAE  # Varangia
+		$CONDITION$ = HBN  # Hybernica
+		AND = {
+			OR = {
+				nhs_post_fragmentation_culturally_elysian = yes
+				to_pre_romaic_greek_primary = yes
+			}
+			OR = {
+				is_colonial_nation = yes
+				is_former_colonial_nation = yes
+			}
+		}
+	}
+}
+
+nhs_check_all_elysian_tags_with_if = {
+	if = {
+		limit = {
+			exists = ELY
+		}
+		$CONDITION$ = ELY
+	}
+	else_if = {
+		limit = {
+			exists = NHS
+		}
+		$CONDITION$ = NHS
+	}
+	else_if = {
+		limit = {
+			exists = ELR
+		}
+		$CONDITION$ = ELR
+	}
+	else_if = {
+		limit = {
+			exists = ERR
+		}
+		$CONDITION$ = ERR
+	}
+	else_if = {
+		limit = {
+			exists = ER1
+		}
+		$CONDITION$ = ER1
+	}
+	else_if = {
+		limit = {
+			has_global_flag = nhs_romaic_to_elysian
+		}
+		$CONDITION$ = ELY
+	}
+	else = {
+		$CONDITION$ = NHS
+	}
+}
+
+nhs_check_all_elysian_tags_army_size = {
+	if = {
+		limit = {
+			exists = ELY
+		}
+		army_strength = {
+			who = ELY
+			value = $VALUE$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = NHS
+		}
+		army_strength = {
+			who = NHS
+			value = $VALUE$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ELR
+		}
+		army_strength = {
+			who = ELR
+			value = $VALUE$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ERR
+		}
+		army_strength = {
+			who = ERR
+			value = $VALUE$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ER1
+		}
+		army_strength = {
+			who = ER1
+			value = $VALUE$
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = nhs_romaic_to_elysian
+		}
+		army_strength = {
+			who = ELY
+			value = $VALUE$
+		}
+	}
+	else = {
+		army_strength = {
+			who = NHS
+			value = $VALUE$
+		}
+	}
+}
+
+nhs_check_existing_elysian_tags_with_full_condition = {
+	OR = {
+		AND = {
+			exists = ELY
+			ELY = {
+				$CONDITION$
+			}
+		}
+		AND = {
+			exists = NHS
+			NHS = {
+				$CONDITION$
+			}
+		}
+		AND = {
+			exists = ELR
+			ELR = {
+				$CONDITION$
+			}
+		}
+		AND = {
+			exists = ERR
+			ERR = {
+				$CONDITION$
+			}
+		}
+		AND = {
+			exists = ER1
+			ER1 = {
+				$CONDITION$
+			}
+		}
+	}
+}
+
+nhs_check_existing_elysian_tags_with_full_condition_with_if = {
+	if = {
+		limit = {
+			exists = ELY
+		}
+		ELY = {
+			$CONDITION$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = NHS
+		}
+		NHS = {
+			$CONDITION$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ELR
+		}
+		ELR = {
+			$CONDITION$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ERR
+		}
+		ERR = {
+			$CONDITION$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ER1
+		}
+		ER1 = {
+			$CONDITION$
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = nhs_romaic_to_elysian
+		}
+		ELY = {
+			$CONDITION$
+		}
+	}
+	else = {
+		NHS = {
+			$CONDITION$
+		}
+	}
+}
+
+nhs_is_elysian_tag_or_subject = {
+	OR = {
+		AND = {
+			exists = NHS
+			OR = {
+				tag = NHS
+				is_subject_of = NHS
+				AND = {
+					is_subject = yes
+					overlord = {
+						is_subject_of = NHS
+					}
+				}
+			}
+		}
+		AND = {
+			exists = ELY
+			OR = {
+				tag = ELY
+				is_subject_of = ELY
+				AND = {
+					is_subject = yes
+					overlord = {
+						is_subject_of = ELY
+					}
+				}
+			}
+		}
+		AND = {
+			exists = ELR
+			OR = {
+				tag = ELR
+				is_subject_of = ELR
+				AND = {
+					is_subject = yes
+					overlord = {
+						is_subject_of = ELR
+					}
+				}
+			}
+		}
+		AND = {
+			exists = ERR
+			OR = {
+				tag = ERR
+				is_subject_of = ERR
+				AND = {
+					is_subject = yes
+					overlord = {
+						is_subject_of = ERR
+					}
+				}
+			}
+		}
+		AND = {
+			exists = ER1
+			OR = {
+				tag = ER1
+				is_subject_of = ER1
+				AND = {
+					is_subject = yes
+					overlord = {
+						is_subject_of = ER1
+					}
+				}
+			}
+		}
+	}
+}
+
+nhs_has_spy_network_in_elysian_tag = {
+	if = {
+		limit = {
+			exists = ELY
+		}
+		has_spy_network_in = {
+			who = ELY
+			value = $VALUE$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = NHS
+		}
+		has_spy_network_in = {
+			who = NHS
+			value = $VALUE$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ELR
+		}
+		has_spy_network_in = {
+			who = ELR
+			value = $VALUE$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ERR
+		}
+		has_spy_network_in = {
+			who = ERR
+			value = $VALUE$
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ER1
+		}
+		has_spy_network_in = {
+			who = ER1
+			value = $VALUE$
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = nhs_romaic_to_elysian
+		}
+		has_spy_network_in = {
+			who = ELY
+			value = $VALUE$
+		}
+	}
+	else = {
+		has_spy_network_in = {
+			who = NHS
+			value = $VALUE$
+		}
+	}
+}
+
+trading_with_markland = {
+	custom_trigger_tooltip = {
+	tooltip = trading_with_markland_tooltip
+		OR = {
+			AND = {
+				exists = ELY
+				ELY = {
+					OR = {
+						has_country_modifier = nhs_vov_markland_deal
+						has_country_modifier = nhs_vov_markland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = NHS
+				NHS = {
+					OR = {
+						has_country_modifier = nhs_vov_markland_deal
+						has_country_modifier = nhs_vov_markland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = ELR
+				ELR = {
+					OR = {
+						has_country_modifier = nhs_vov_markland_deal
+						has_country_modifier = nhs_vov_markland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = ERR
+				ERR = {
+					OR = {
+						has_country_modifier = nhs_vov_markland_deal
+						has_country_modifier = nhs_vov_markland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = ER1
+				ER1 = {
+					OR = {
+						has_country_modifier = nhs_vov_markland_deal
+						has_country_modifier = nhs_vov_markland_deal_after
+					}
+				}
+			}
+		}
+	}
+}
+
+trading_with_helluland = {
+	custom_trigger_tooltip = {
+	tooltip = trading_with_helluland_tooltip
+		OR = {
+			AND = {
+				exists = ELY
+				ELY = {
+					OR = {
+						has_country_modifier = nhs_vov_helluland_deal
+						has_country_modifier = nhs_vov_helluland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = NHS
+				NHS = {
+					OR = {
+						has_country_modifier = nhs_vov_helluland_deal
+						has_country_modifier = nhs_vov_helluland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = ELR
+				ELR = {
+					OR = {
+						has_country_modifier = nhs_vov_helluland_deal
+						has_country_modifier = nhs_vov_helluland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = ERR
+				ERR = {
+					OR = {
+						has_country_modifier = nhs_vov_helluland_deal
+						has_country_modifier = nhs_vov_helluland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = ER1
+				ER1 = {
+					OR = {
+						has_country_modifier = nhs_vov_helluland_deal
+						has_country_modifier = nhs_vov_helluland_deal_after
+					}
+				}
+			}
+		}
+	}
+}
+
+trading_with_vinland = {
+	custom_trigger_tooltip = {
+		tooltip = trading_with_vinland_tooltip
+		OR = {
+			AND = {
+				exists = ELY
+				ELY = {
+					OR = {
+						has_country_modifier = nhs_vov_vinland_deal
+						has_country_modifier = nhs_vov_vinland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = NHS
+				NHS = {
+					OR = {
+						has_country_modifier = nhs_vov_vinland_deal
+						has_country_modifier = nhs_vov_vinland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = ELR
+				ELR = {
+					OR = {
+						has_country_modifier = nhs_vov_vinland_deal
+						has_country_modifier = nhs_vov_vinland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = ERR
+				ERR = {
+					OR = {
+						has_country_modifier = nhs_vov_vinland_deal
+						has_country_modifier = nhs_vov_vinland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = ER1
+				ER1 = {
+					OR = {
+						has_country_modifier = nhs_vov_vinland_deal
+						has_country_modifier = nhs_vov_vinland_deal_after
+					}
+				}
+			}
+		}
+	}
+}
+
+# usage example: nhs_check_all_elysian_tags_has_opinion_X = { VALUE = -50 }
+nhs_check_all_elysian_tags_has_opinion_X = {
+	if = {
+		limit = {
+			exists = ELY
+		}
+		has_opinion = { who = ELY value = $VALUE$ }
+	}
+	else_if = {
+		limit = {
+			exists = NHS
+		}
+		has_opinion = { who = NHS value = $VALUE$ }
+	}
+	else_if = {
+		limit = {
+			exists = ELR
+		}
+		has_opinion = { who = ELR value = $VALUE$ }
+	}
+	else_if = {
+		limit = {
+			exists = ERR
+		}
+		has_opinion = { who = ERR value = $VALUE$ }
+	}
+	else_if = {
+		limit = {
+			exists = ER1
+		}
+		has_opinion = { who = ER1 value = $VALUE$ }
+	}
+	else_if = {
+		limit = {
+			has_global_flag = nhs_romaic_to_elysian
+		}
+		has_opinion = { who = ELY value = $VALUE$ }
+	}
+	else = {
+		has_opinion = { who = NHS value = $VALUE$ }
+	}
+}
+
+# usage example: nhs_check_all_elysian_tags_has_opinion_of_TAG = { TAG = VLA VALUE = -50 }
+nhs_check_all_elysian_tags_has_opinion_of_TAG = {
+	if = {
+		limit = {
+			exists = ELY
+		}
+		ELY = { has_opinion = { who = $TAG$ value = $VALUE$ } }
+	}
+	else_if = {
+		limit = {
+			exists = NHS
+		}
+		NHS = { has_opinion = { who = $TAG$ value = $VALUE$ } }
+	}
+	else_if = {
+		limit = {
+			exists = ELR
+		}
+		ELR = { has_opinion = { who = $TAG$ value = $VALUE$ } }
+	}
+	else_if = {
+		limit = {
+			exists = ERR
+		}
+		ERR = { has_opinion = { who = $TAG$ value = $VALUE$ } }
+	}
+	else_if = {
+		limit = {
+			exists = ER1
+		}
+		ER1 = { has_opinion = { who = $TAG$ value = $VALUE$ } }
+	}
+	else_if = {
+		limit = {
+			has_global_flag = nhs_romaic_to_elysian
+		}
+		ELY = { has_opinion = { who = $TAG$ value = $VALUE$ } }
+	}
+	else = {
+		NHS = { has_opinion = { who = $TAG$ value = $VALUE$ } }
+	}
+}
+
+nhs_ely_seek_to_establish_trade_deal_vikings_allow = {
+	if = {
+		limit = {
+			exists = NHS
+		}
+		alliance_with = NHS
+		OR = {
+			NHS = { has_opinion = { who = ROOT value = 100 } }
+			dip = 4
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ELY
+		}
+		alliance_with = ELY
+		OR = {
+			ELY = { has_opinion = { who = ROOT value = 100 } }
+			dip = 4
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ERR
+		}
+		alliance_with = ERR
+		OR = {
+			ERR = { has_opinion = { who = ROOT value = 100 } }
+			dip = 4
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ELR
+		}
+		alliance_with = ELR
+		OR = {
+			ELR = { has_opinion = { who = ROOT value = 100 } }
+			dip = 4
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ER1
+		}
+		alliance_with = ER1
+		OR = {
+			ER1 = { has_opinion = { who = ROOT value = 100 } }
+			dip = 4
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = nhs_romaic_to_elysian
+		}
+		alliance_with = ELY
+		OR = {
+			ELY = { has_opinion = { who = ROOT value = 100 } }
+			dip = 4
+		}
+	}
+	else = {
+		alliance_with = NHS
+		OR = {
+			NHS = { has_opinion = { who = ROOT value = 100 } }
+			dip = 4
+		}
+	}
+}
+
+nhs_ely_vin_break_trade_deal_vikings_allow = {
+	if = {
+		limit = {
+			exists = NHS
+		}
+		NOT = { is_subject_of = NHS }
+		NOT = { alliance_with = NHS }
+		OR = {
+			NOT = {
+				NHS = { has_opinion = { who = ROOT value = 50 } }
+			}
+			dip = 4
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ELY
+		}
+		NOT = { is_subject_of = ELY }
+		NOT = { alliance_with = ELY }
+		OR = {
+			NOT = {
+				ELY = { has_opinion = { who = ROOT value = 50 } }
+			}
+			dip = 4
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ERR
+		}
+		NOT = { is_subject_of = ERR }
+		NOT = { alliance_with = ERR }
+		OR = {
+			NOT = {
+				ERR = { has_opinion = { who = ROOT value = 50 } }
+			}
+			dip = 4
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ELR
+		}
+		NOT = { is_subject_of = ELR }
+		NOT = { alliance_with = ELR }
+		OR = {
+			NOT = {
+				ELR = { has_opinion = { who = ROOT value = 50 } }
+			}
+			dip = 4
+		}
+	}
+	else_if = {
+		limit = {
+			exists = ER1
+		}
+		NOT = { is_subject_of = ER1 }
+		NOT = { alliance_with = ER1 }
+		OR = {
+			NOT = {
+				ER1 = { has_opinion = { who = ROOT value = 50 } }
+			}
+			dip = 4
+		}
+	}
+	else_if = {
+		limit = {
+			has_global_flag = nhs_romaic_to_elysian
+		}
+		NOT = { is_subject_of = ELY }
+		NOT = { alliance_with = ELY }
+		OR = {
+			NOT = {
+				ELY = { has_opinion = { who = ROOT value = 50 } }
+			}
+			dip = 4
+		}
+	}
+	else = {
+		NOT = { is_subject_of = NHS }
+		NOT = { alliance_with = NHS }
+		OR = {
+			NOT = {
+				NHS = { has_opinion = { who = ROOT value = 50 } }
+			}
+			dip = 4
+		}
+	}
+}

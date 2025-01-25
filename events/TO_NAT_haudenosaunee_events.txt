@@ -1,0 +1,794 @@
+namespace = to_nat_haudenosaunee
+
+###################################################
+### Haudenosaunee Diplomacy
+###################################################
+
+# Great Peacemaker appears
+country_event = {
+	id = to_nat_haudenosaunee.1
+	title = to_nat_haudenosaunee.1.t
+	desc = {
+		trigger = { NOT = { tag = MOH  } }
+		desc = to_nat_haudenosaunee.1.da
+	}
+
+	desc = {
+		trigger = { tag = MOH }
+		desc = to_nat_haudenosaunee.1.db
+	}
+	picture = LIBERUM_VETO_eventPicture
+		
+	trigger = {
+		is_haudenosaunee_tag = yes
+		is_year = 1449
+		NOT = { has_country_flag = to_nat_visited_by_great_peacemaker }
+		NOT = { has_global_flag = to_nat_haudenosaunee_confederation_formed }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 0.5
+			has_country_flag = to_nat_will_be_visited_by_great_peacemaker
+		}
+	}
+
+	immediate = {
+		set_country_flag = to_nat_visited_by_great_peacemaker
+	}
+	
+	option = {
+		name = to_nat_haudenosaunee.1.a
+		ai_chance = {
+			factor = 1
+		}
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				is_haudenosaunee_tag = yes
+				NOT = { has_country_flag = to_nat_will_be_visited_by_great_peacemaker }
+			}
+			add_truce_with = ROOT
+			set_country_flag = to_nat_will_be_visited_by_great_peacemaker
+			hidden_effect = {
+				country_event = {
+					id = to_nat_haudenosaunee.1
+					days = 90
+					random = 30
+				}
+			}
+		}
+	}
+}
+
+# Formation of Haudenosaunee Confederation
+country_event = {
+	id = to_nat_haudenosaunee.2
+	title = to_nat_haudenosaunee.2.t
+	desc = to_nat_haudenosaunee.2.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+
+	major = yes
+	major_trigger = { 
+		knows_country = ROOT 
+	}
+		
+	trigger = {
+		is_haudenosaunee_tag = yes
+		OR = {
+			tag = ONO
+			AND = {
+				NOT = { exists = ONO }
+				is_haudenosaunee_tag = yes
+			}
+		}
+		is_year = 1450
+		NOT = { has_global_flag = to_nat_haudenosaunee_confederation_formed }
+		NOT = {
+			any_country = {
+				is_haudenosaunee_tag = yes
+				NOT = { has_country_flag = to_nat_visited_by_great_peacemaker }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		set_global_flag = to_nat_haudenosaunee_confederation_formed
+	}
+	
+	option = {
+		name = to_nat_haudenosaunee.2.a
+		define_ruler = {
+			name = "Deganawida"
+			adm = 5
+			dip = 6
+			mil = 3
+			age = 38
+			force_republican_names = yes
+		}
+		add_ruler_personality = charismatic_negotiator_personality
+		add_ruler_personality = silver_tongue_personality
+		add_ruler_personality = lawgiver_personality
+		set_ruler_flag = to_nat_has_special_ruler
+		set_ruler_flag = to_nat_great_peacemaker
+		hidden_effect = {
+			set_ai_personality = {
+				personality = ai_diplomat
+			}
+		}
+		hidden_effect = {
+			add_ruler_modifier = {
+				name = to_nat_great_peacemaker
+				duration = 10
+				hidden = yes
+			}
+		}
+		define_advisor = {
+			type = diplomat
+			name = "Jigonhsasee"
+			culture = iroquois
+			religion = totemism
+			skill = 2
+			female = yes
+			cost_multiplier = 0.1
+		}
+		define_advisor = {
+			type = commandant
+			name = "Hiawatha"
+			culture = iroquois
+			religion = totemism
+			skill = 2
+			cost_multiplier = 0.1
+		}
+		custom_tooltip = to_nat_add_law_of_peace_reform_tt
+		hidden_effect = {
+			add_government_reform = to_native_reform_law_of_peace
+			set_variable = {
+				which = to_native_council_adm
+				value = 5
+			}
+			set_variable = {
+				which = to_native_council_dip
+				value = 6
+			}
+			set_variable = {
+				which = to_native_council_mil
+				value = 3
+			}
+		}
+		
+		every_country = {
+			limit = {
+				is_haudenosaunee_tag = yes
+			}
+			if = {
+				limit = {
+					NOT = { tag = ROOT }
+				}
+				ROOT = {
+					create_subject = {
+						subject_type = to_confederation_subject
+						subject = PREV
+					}
+				}
+				hidden_effect = {
+					add_historical_friend = ROOT
+					ROOT = {
+						add_historical_friend = PREV
+					}
+					every_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							NOT = { tag = PREV }
+							is_haudenosaunee_tag = yes
+						}
+						add_historical_friend = PREV
+					}
+				}
+			}
+			clr_country_flag = to_nat_will_be_visited_by_great_peacemaker
+		}
+
+		hidden_effect = {
+			nhs_effect_for_existing_elysian_tag_without_elseif = {
+				EFFECT = "country_event = { id = to_nat_haudenosaunee.3 days = 365 }"
+			}
+		}
+	}
+}
+
+# Elysia gets informed about Haudenosaunee Confederacy
+country_event = {
+	id = to_nat_haudenosaunee.3
+	title = to_nat_haudenosaunee.3.t
+	desc = to_nat_haudenosaunee.3.d
+	picture = BYZANTINE_EMPEROR_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = {
+			exists = yes
+		}
+	}
+	
+	option = {
+		name = to_nat_haudenosaunee.3.a
+		ai_chance = {
+			factor = 1
+		}
+		FROM = {
+			country_event = {
+				id = to_nat_haudenosaunee.4
+				days = 60
+			}
+		}
+	}
+	option = {
+		name = to_nat_haudenosaunee.3.b
+		ai_chance = {
+			factor = 0
+		}
+		add_dip_power = 50
+		add_mil_power = 50
+		every_country = {
+			limit = {
+				has_native_government = yes
+				is_subject = no
+				NOT = {
+					border_distance = {
+						who = FROM
+						distance = 60
+					}
+				}
+				NOT = {
+					tag = FROM
+				}
+				# OR = {
+				# 	is_rival = FROM
+				# 	is_enemy = FROM
+				# 	NOT = {
+				# 		has_opinion = {
+				# 			who = FROM
+				# 			value = 0
+				# 		}
+				# 	}
+				# }
+			}
+			country_event = {
+				id = to_nat_haudenosaunee.5
+				days = 60
+			}
+			custom_tooltip = to_nat_delayed_effects
+			tooltip = {
+				add_opinion = {
+					who = ROOT
+					modifier = to_nat_diplomatic_outreach
+				}
+			}
+			custom_tooltip = to_nat_discover_land_and_sorrounding_provinces
+		}
+	}
+}
+
+# Elysian Ambassador arrives in Haudenosaunee capital
+country_event = {
+	id = to_nat_haudenosaunee.4
+	title = to_nat_haudenosaunee.4.t
+	desc = to_nat_haudenosaunee.4.d
+	picture = REFORM_eventPicture
+
+	is_triggered_only = yes
+
+	goto = other_party_capital
+
+	trigger = {
+		FROM = {
+			exists = yes
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				capital_scope = {
+					save_event_target_as = other_party_capital
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = to_nat_haudenosaunee.4.a
+		ai_chance = {
+			factor = 1
+		}
+		FROM = {
+			country_event = {
+				id = to_nat_haudenosaunee.6
+				days = 60
+			}
+		}
+	}
+	option = {
+		name = to_nat_haudenosaunee.4.b
+		ai_chance = {
+			factor = 0
+		}
+		FROM = {
+			add_opinion = {
+				who = ROOT
+				modifier = to_nat_diplomats_denied
+			}
+			country_event = {
+				id = to_nat_haudenosaunee.10
+				days = 60
+			}
+		}
+	}
+}
+
+# Elysian Ambassador arrives in native tribe
+country_event = {
+	id = to_nat_haudenosaunee.5
+	title = to_nat_haudenosaunee.5.t
+	desc = to_nat_haudenosaunee.5.d
+	picture = REFORM_eventPicture
+
+	is_triggered_only = yes
+
+	goto = other_party_capital
+
+	trigger = {
+		FROM = {
+			exists = yes
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				capital_scope = {
+					save_event_target_as = other_party_capital
+				}
+			}
+		}
+	}
+	
+	
+	option = {
+		name = to_nat_haudenosaunee.5.a
+		add_opinion = {
+			who = FROM
+			modifier = to_nat_diplomatic_outreach
+		}
+		FROM = {
+			hidden_effect = {
+				every_province = {
+					limit = {
+						OR = {
+							country_or_subject_holds = ROOT
+							any_neighbor_province = {
+								country_or_subject_holds = ROOT
+							}
+						}
+					}
+					discover_country = FROM
+				}
+			}
+		}
+	}
+}
+
+
+# Haudenosaunee envoy arrives in Elysian capital
+country_event = {
+	id = to_nat_haudenosaunee.6
+	title = to_nat_haudenosaunee.6.t
+	desc = to_nat_haudenosaunee.6.d
+	picture = BYZANTINE_EMPEROR_eventPicture
+
+	is_triggered_only = yes
+
+	goto = other_party_capital
+
+	trigger = {
+		FROM = {
+			exists = yes
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				capital_scope = {
+					discover_country = ROOT
+					save_event_target_as = other_party_capital
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = to_nat_haudenosaunee.6.a
+		ai_chance = {
+			factor = 35
+		}
+		custom_tooltip = to_nat_haudenosaunee.6.a.tt
+		create_alliance = FROM
+		add_historical_friend = FROM
+		add_opinion = {
+			who = FROM
+			modifier = to_nat_diplomatic_outreach
+		}
+		FROM = {
+			tooltip = {
+				add_historical_friend = ROOT
+				add_opinion = {
+					who = ROOT
+					modifier = to_nat_diplomatic_outreach
+				}
+				if = {
+					limit = {
+						NOT = { mil_tech = 3 }
+					}
+					add_mil_tech = 1
+				}
+			}
+			to_nat_start_legalism_spread = yes
+			country_event = {
+				id = to_nat_haudenosaunee.7
+			}
+		}
+		custom_tooltip = to_nat_discover_land_and_sorrounding_provinces
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						country_or_subject_holds = FROM
+						any_neighbor_province = {
+							country_or_subject_holds = FROM
+						}
+					}
+				}
+				discover_country = ROOT
+			}
+		}
+	}
+	option = {
+		name = to_nat_haudenosaunee.6.b
+		ai_chance = {
+			factor = 55
+		}
+		custom_tooltip = to_nat_haudenosaunee.6.b.tt
+		create_alliance = FROM
+		add_opinion = {
+			who = FROM
+			modifier = to_nat_diplomatic_outreach
+		}
+		FROM = {
+			tooltip = {
+				add_opinion = {
+					who = ROOT
+					modifier = to_nat_diplomatic_outreach
+				}
+			}
+			country_event = {
+				id = to_nat_haudenosaunee.8
+			}
+		}
+		custom_tooltip = to_nat_discover_land_and_sorrounding_provinces
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						country_or_subject_holds = FROM
+						any_neighbor_province = {
+							country_or_subject_holds = FROM
+						}
+					}
+				}
+				discover_country = ROOT
+			}
+		}
+	}
+	option = {
+		name = to_nat_haudenosaunee.6.c
+		ai_chance = {
+			factor = 10
+		}
+		custom_tooltip = to_nat_haudenosaunee.6.c.tt
+		add_mil_power = 50
+		add_treasury = 50
+		add_historical_rival = FROM
+		add_country_modifier = {
+			name = to_nat_deceitful
+			duration = 5475
+		}
+		
+		FROM = {
+			tooltip = {
+				add_historical_rival = ROOT
+				add_treasury = -50
+				add_prestige = -10
+				add_casus_belli = {
+					target = ROOT
+					type = cb_insult
+					months = 120
+				}
+			}
+			country_event = {
+				id = to_nat_haudenosaunee.9
+			}
+		}
+	}
+}
+
+# Haudenosaunee envoy reports back
+country_event = {
+	id = to_nat_haudenosaunee.7
+	title = to_nat_haudenosaunee.7.t
+	desc = to_nat_haudenosaunee.7.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	goto = other_party_capital
+
+	trigger = {
+		FROM = {
+			exists = yes
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				capital_scope = {
+					save_event_target_as = other_party_capital
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = to_nat_haudenosaunee.7.a
+		tooltip = {
+			create_alliance = FROM
+		}
+		add_historical_friend = FROM
+		add_opinion = {
+			who = FROM
+			modifier = to_nat_diplomatic_outreach
+		}
+		tooltip = {
+			FROM = {
+				add_historical_friend = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NOT = { mil_tech = 3 }
+			}
+			add_mil_tech = 1
+		}
+		to_nat_start_legalism_spread = yes
+		if = {
+			limit = {
+				NOT = {
+					capital_scope = {
+						feudalism = 100
+					}
+				}
+			}
+			capital_scope = {
+				add_institution_embracement = {
+					which = "feudalism"
+					value = 33
+				}
+			}
+		}
+	}
+}
+
+# Haudenosaunee envoy reports back
+country_event = {
+	id = to_nat_haudenosaunee.8
+	title = to_nat_haudenosaunee.8.t
+	desc = to_nat_haudenosaunee.8.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	goto = other_party_capital
+
+	trigger = {
+		FROM = {
+			exists = yes
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				capital_scope = {
+					save_event_target_as = other_party_capital
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = to_nat_haudenosaunee.8.a
+		add_opinion = {
+			who = FROM
+			modifier = to_nat_diplomatic_outreach
+		}
+		tooltip = {
+			create_alliance = FROM
+			FROM = {
+				add_opinion = {
+					who = ROOT
+					modifier = to_nat_diplomatic_outreach
+				}
+			}
+		}
+	}
+}
+
+# Haudenosaunee killed
+country_event = {
+	id = to_nat_haudenosaunee.9
+	title = to_nat_haudenosaunee.9.t
+	desc = to_nat_haudenosaunee.9.d
+	picture = LIBERUM_VETO_eventPicture
+
+	is_triggered_only = yes
+
+	goto = other_party_capital
+
+	trigger = {
+		FROM = {
+			exists = yes
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				capital_scope = {
+					save_event_target_as = other_party_capital
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = to_nat_haudenosaunee.9.a
+		add_historical_rival = FROM
+		add_prestige = -10
+		add_treasury = -50
+		add_casus_belli = {
+			target = FROM
+			type = cb_insult
+			months = 120
+		}
+		tooltip = {
+			FROM = {
+				add_country_modifier = {
+					name = to_nat_deceitful
+					duration = 5475
+				}
+			}
+		}
+	}
+}
+
+# Elysia was denied by Haudenosaunee
+country_event = {
+	id = to_nat_haudenosaunee.10
+	title = to_nat_haudenosaunee.10.t
+	desc = to_nat_haudenosaunee.10.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	goto = other_party_capital
+
+	trigger = {
+		FROM = {
+			exists = yes
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				capital_scope = {
+					save_event_target_as = other_party_capital
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = to_nat_haudenosaunee.10.a
+		tooltip = {
+			add_opinion = {
+				who = FROM
+				modifier = to_nat_diplomats_denied
+			}
+		}
+		every_country = {
+			limit = {
+				has_native_government = yes
+				is_subject = no
+				NOT = {
+					border_distance = {
+						who = FROM
+						distance = 60
+					}
+				}
+				NOT = {
+					tag = FROM
+				}
+				# OR = {
+				# 	is_rival = FROM
+				# 	is_enemy = FROM
+				# 	NOT = {
+				# 		has_opinion = {
+				# 			who = FROM
+				# 			value = 0
+				# 		}
+				# 	}
+				# }
+			}
+			country_event = {
+				id = to_nat_haudenosaunee.5
+				days = 60
+			}
+			custom_tooltip = to_nat_delayed_effects
+			tooltip = {
+				add_opinion = {
+					who = ROOT
+					modifier = to_nat_diplomatic_outreach
+				}
+			}
+			custom_tooltip = to_nat_discover_land_and_sorrounding_provinces
+		}
+	}
+}
+
+# Haudenosaunee get TC if still allied after paths complete
+country_event = {
+	id = to_nat_haudenosaunee.11
+	title = to_nat_haudenosaunee.11.t
+	desc = to_nat_haudenosaunee.11.d
+	picture = ROMAN_ROAD_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				set_country_flag = nhs_haudenosaunee_trade_boom_happened
+			}
+		}
+	}
+	
+	option = {
+		name = to_nat_haudenosaunee.11.a
+		add_treasury = 200
+		capital_scope = {
+			nhs_set_center_of_trade_2 = yes
+		}
+	}
+}

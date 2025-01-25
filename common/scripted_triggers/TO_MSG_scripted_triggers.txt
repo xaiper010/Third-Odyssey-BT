@@ -1,0 +1,229 @@
+#These triggers are temporary
+#Checks for certain global flags are present indicating the player/AI made choices giving nobles power
+#I find it a better indicator than the in-game influence tracker, plus it works without Cossacks.
+check_pippie_power_2 = { #Any scope
+	calc_true_if = {
+		has_global_flag = msg_pipiltin_court
+		has_global_flag = msg_pipiltin_gold
+		OR = {
+			AND = {
+				has_global_flag = msg_pipiltin_patriarch
+				religion_group = christian
+			}
+			AND = {
+				has_global_flag = msg_pipiltin_heralds
+				religion = pantheon_worship
+			}
+		}
+		amount = 2
+	}
+}
+
+check_pippie_power_3 = { #Any scope
+	calc_true_if = {
+		has_global_flag = msg_pipiltin_court
+		has_global_flag = msg_pipiltin_gold
+		OR = {
+			AND = {
+				has_global_flag = msg_pipiltin_patriarch
+				religion_group = christian
+			}
+			AND = {
+				has_global_flag = msg_pipiltin_heralds
+				religion = pantheon_worship
+			}
+		}
+		amount = 3
+	}
+}
+
+check_appie_power_2 = { #Any scope
+	calc_true_if = {
+		has_global_flag = msg_apogonoi_court
+		has_global_flag = msg_apogonoi_gold
+		OR = {
+			AND = {
+				has_global_flag = msg_apogonoi_patriarch
+				religion_group = christian
+			}
+			AND = {
+				has_global_flag = msg_apogonoi_heralds
+				religion = pantheon_worship
+			}
+		}
+		amount = 2
+	}
+}
+
+check_appie_power_3 = { #Any scope
+	calc_true_if = {
+		has_global_flag = msg_apogonoi_court
+		has_global_flag = msg_apogonoi_gold
+		OR = {
+			AND = {
+				has_global_flag = msg_apogonoi_patriarch
+				religion_group = christian
+			}
+			AND = {
+				has_global_flag = msg_apogonoi_heralds
+				religion = pantheon_worship
+			}
+		}
+		amount = 3
+	}
+}
+
+mesoamerican_landing_provinces = {
+	OR = {
+		province_id = 848
+		province_id = 7668
+		province_id = 2647
+		province_id = 2630
+		province_id = 2631
+		province_id = 2650
+		province_id = 845
+		province_id = 2651
+		province_id = 2633
+		province_id = 2632
+	}
+}
+
+#msg_any_society_enabled = { #Any scope
+#	OR = {
+#		AND = {
+#			has_global_flag = msg_slaverevolt_started
+#			NOT = { has_global_flag = msg_slaverevolt_ended }
+#		}
+#		#space for more societies
+#	}
+#}
+
+msg_is_major_city_cap = { #Province scope
+	OR = {
+		has_province_flag = nhs_msg_original_capital
+		AND = {
+			province_id = 846 # Chichen Itza
+			NOT = { ROOT = { has_country_flag = msg_no_itza } }
+		}
+		AND = {
+			province_id = 852 # Tenochtitlan
+			NOT = { ROOT = { has_country_flag = msg_teno_exodus } }
+		}
+		AND = {
+			province_id = 848 # Mictlan
+			NOT = { ROOT = { has_country_flag = msg_no_ghost_city } }
+		}
+		AND = {
+			province_id = 842 # Tikal
+			ROOT = { has_country_flag = msg_tikal_project }
+		}
+	}
+}
+
+msg_is_major_city = { #Province scope # Difference from above is that it doesn't check for the capital
+	OR = {
+		AND = {
+			province_id = 846 # Chichen Itza
+			NOT = { ROOT = { has_country_flag = msg_no_itza } }
+		}
+		AND = {
+			province_id = 852 # Tenochtitlan
+			NOT = { ROOT = { has_country_flag = msg_teno_exodus } }
+		}
+		AND = {
+			province_id = 848 # Mictlan
+			NOT = { ROOT = { has_country_flag = msg_no_ghost_city } }
+		}
+		AND = {
+			province_id = 842 # Tikal
+			ROOT = { has_country_flag = msg_tikal_project }
+		}
+	}
+}
+
+msg_has_refused_estate_bribe = {
+	NOT = { has_global_flag = msg_$ESTATE$_bribe }
+	OR = {
+		has_country_flag = msg_$ESTATE$_tried_bribe
+		has_global_flag = msg_reforms_done
+	}
+}
+
+msg_has_build_estate_palace = {
+	NOT = { has_global_flag = msg_no_$ESTATE$_palace }
+	OR = {
+		has_country_flag = msg_had_$ESTATE$_palace_choice
+		has_global_flag = msg_reforms_done
+	}
+}
+
+to_msg_neighboring_foreign_religion = {
+	OR = {
+		AND = {
+			religion = pantheon_worship
+			any_neighbor_province = {
+				OR = {
+					religion = mesoamerican_religion
+					religion = nahuatl
+					religion = aztlan_worship
+				}
+			}
+		}
+		AND = {
+			OR = {
+				religion = mesoamerican_religion
+				religion = nahuatl
+			}
+			any_neighbor_province = {
+				OR = {
+					religion = pantheon_worship
+					religion = aztlan_worship
+				}
+			}
+		}
+	}
+}
+
+can_have_aztlan_center_of_reformation_trigger = { #Province Scope
+	#$RELIGION$ needs to match the religion of the center that is being spawned.
+	continent = north_america
+	OR = {
+		religion = aztlan_worship
+		religion = mesoamerican_religion
+		religion = nahuatl
+		religion = pantheon_worship
+	}
+	is_reformation_center = no
+	is_island = no
+	expelling_minorities = no
+}
+
+msg_is_not_sparta_with_closed_trade = {
+	OR = {
+		has_global_flag = msg_opened_trade
+		NOT = {
+			nhs_check_all_spartan = { CONDITION = tag }
+		}
+	}
+}
+
+msg_can_use_guarantees_and_favors_trigger_with_tooltip = {
+	if = {
+		limit = {
+			OR = {
+				has_reform = msg_diplomats_no
+				has_reform = msg_diplomats_ref
+			}
+		}
+		has_reform = msg_diplomats_yes
+	}
+	else_if = {
+		limit = {
+			has_reform = spartan_army
+		}
+		NOT = { has_reform = spartan_army }
+	}
+	else = {
+		NOT = { has_government_attribute = msg_cannot_use_guarantees_and_warning_and_enforce_peace }
+	}
+}

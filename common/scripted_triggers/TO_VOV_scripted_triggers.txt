@@ -1,0 +1,153 @@
+vov_is_markland_path = {
+	OR = {
+		province_id = 2569
+		province_id = 4891
+		province_id = 985
+		province_id = 2572
+		province_id = 986
+		province_id = 2582
+		province_id = 2583
+		province_id = 994
+	}
+}
+
+vov_is_helluland_path = {
+	OR = {
+		province_id = 2576
+		province_id = 2577
+		province_id = 995
+		province_id = 994
+	}
+}
+
+vov_eligible_for_vinland_improvements_restoration = {
+	OR = {
+		culture_group = norse_g
+		primary_culture = varangian_e
+		AND = {
+			capital_scope = {
+				OR = {
+					province_id = 980
+					province_id = 997
+					province_id = 994
+				}
+			}
+			OR = {
+				culture_group = scandinavian
+				custom_trigger_tooltip = {
+					tooltip = nhs_accepts_one_vinlandic_culture_tt
+					OR = {
+						accepted_culture = vinlandic
+						accepted_culture = skraeling
+						accepted_culture = west_vinlandic
+						accepted_culture = vatnmadr
+						accepted_culture = vollrmadr
+						accepted_culture = rusnidr
+						accepted_culture = islander
+						accepted_culture = arimadr
+						accepted_culture = south_vinlandic
+						accepted_culture = varangian_n
+						accepted_culture = varangian_e
+					}
+				}
+			}
+		}
+	}
+}
+
+vov_eligible_for_vinland_improvements = {
+	if = {
+		limit = {
+			has_province_flag = nhs_vi_$MODIFIER$_decay
+		}
+		custom_trigger_tooltip = {
+			tooltip = nhs_ei_repaired_tt
+			NOT = { has_province_flag = nhs_vi_$MODIFIER$_decay }
+		}
+	}
+	owner = {
+		OR = {
+			culture_group = norse_g
+			primary_culture = varangian_e
+			custom_trigger_tooltip = {
+				tooltip = nhs_recently_conquered_improvement_tt
+				ROOT = { NOT = { has_province_flag = nhs_vi_$MODIFIER$_decay } }
+			}
+			AND = {
+				capital_scope = {
+					OR = {
+						province_id = 980
+						province_id = 997
+						province_id = 994
+					}
+				}
+				OR = {
+					culture_group = scandinavian
+					custom_trigger_tooltip = {
+						tooltip = nhs_accepts_one_vinlandic_culture_tt
+						OR = {
+							accepted_culture = vinlandic
+							accepted_culture = skraeling
+							accepted_culture = west_vinlandic
+							accepted_culture = vatnmadr
+							accepted_culture = vollrmadr
+							accepted_culture = rusnidr
+							accepted_culture = islander
+							accepted_culture = arimadr
+							accepted_culture = south_vinlandic
+							accepted_culture = varangian_n
+							accepted_culture = varangian_e
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+vov_not_eligible_for_vinland_improvements = {
+	custom_trigger_tooltip = {
+		tooltip = nhs_not_been_rebuild_yet_tt
+		has_province_flag = nhs_vi_$MODIFIER$_decay
+	}
+}
+
+to_vov_has_integrating_privilege = {
+	OR = {
+		has_estate_privilege = to_vov_native_priv_benevolent_conquerors
+		has_estate_privilege = to_vov_native_priv_open_ranks
+	}
+}
+
+to_vov_can_convert_to_skraeling = {
+	is_core = ROOT
+	is_colony = no
+	native_culture = yes
+	OR = {
+		has_owner_religion = yes
+		tolerance_to_this = 0
+	}
+	NOT = { culture = skraeling }
+	NOT = { nationalism = 1 }
+}
+
+to_vov_eligible_for_coastal_bonus = {
+	OR = {
+		region = canada_region
+		region = greenland_region
+	}
+	has_port = yes
+}
+
+to_vov_can_start_trading_with_viking = {
+	OR = {
+		alliance_with = $TAG$
+		$TAG$ = {
+			is_subject_of = ROOT
+		}
+	}
+	OR = {
+		reverse_has_opinion = { who = $TAG$ value = 100 }
+		dip = 4
+	}
+}

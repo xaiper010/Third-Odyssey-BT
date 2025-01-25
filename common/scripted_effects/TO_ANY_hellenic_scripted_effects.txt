@@ -1,0 +1,517 @@
+to_trigger_hellenic_festival_tombola = {
+	every_country = {
+		limit = {
+			to_can_have_hellenic_festival = yes
+			OR = {
+				NOT = { has_country_flag = to_had_hellenic_festival }
+				had_country_flag = {
+					flag = to_had_hellenic_festival
+					days = 3467
+				}
+				AND = {
+					has_government_attribute = to_increase_hellenic_festival_frequency
+					had_country_flag = {
+						flag = to_had_hellenic_festival
+						days = 1642
+					}
+				}
+			}
+		}
+		clr_country_flag = to_had_hellenic_festival
+		set_country_flag = to_had_hellenic_festival
+		country_event = {
+			id = to_hellenic_events.1000
+			days = 1
+			random = 363
+		}
+	}
+}
+
+to_trigger_hellenic_festival = {
+	if = {
+		limit = {
+			to_can_have_hellenic_festival = yes
+		}
+		if = {
+			limit = {
+				to_hellenic_standard_pantheon = yes
+			}
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_zeus
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.100 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_hera
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.112 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_poseidon
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.110 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_athena
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.104 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_ares
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.102 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_hermes
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.106 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_aphrodite
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.108 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				to_hellenic_zeus_pantheon = yes
+			}
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_zeus
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.100 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_hera
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.112 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_hermes
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.106 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_athena
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.104 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_demeter
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.131 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				to_hellenic_poseidon_pantheon = yes
+			}
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_poseidon
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.110 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_amphitrite
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.114 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_oceanus
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.116 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_atlas
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.118 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_aphrodite
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.108 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				to_hellenic_apollo_pantheon = yes
+			}
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_apollo
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.120 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_artemis
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.122 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_dionysus
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.126 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_leto
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.128 }
+				}
+				1 = {
+					modifier = {
+						factor = 1.5
+						has_personal_deity = nhs_hellenic_reformed_chiron
+					}
+					to_trigger_hellenic_festival_event = { EVENT_ID = to_hellenic_events.124 }
+				}
+			}
+		}
+	}
+}
+
+to_trigger_hellenic_festival_event = {
+	country_event = {
+		id = $EVENT_ID$
+	}
+}
+
+to_hellenic_festival_immediate = {
+}
+
+to_hellenic_festival_organize_cost = {
+	if = {
+		limit = {
+			has_government_attribute = to_reduce_hellenic_festival_cost
+		}
+		if = {
+			limit = {
+				NOT = { monthly_income = 25 }
+			}
+			add_treasury = -15
+		}
+		else_if = {
+			limit = {
+				NOT = { monthly_income = 416 }
+			}
+			add_years_of_income = -0.05
+		}
+		else = {
+			add_treasury = -250
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				NOT = { monthly_income = 21 }
+			}
+			add_treasury = -25
+		}
+		else_if = {
+			limit = {
+				NOT = { monthly_income = 416 }
+			}
+			add_years_of_income = -0.10
+		}
+		else = {
+			add_treasury = -500
+		}
+	}
+	# if = {
+	# 	limit = {
+	# 		[[STANDARD_PANTHEON]
+	# 			NOT = { has_personal_deity = nhs_hellenic_reformed_$GOD$ }
+	# 		]
+	# 		[[ZEUS_PANTHEON]
+	# 			NOT = { has_personal_deity = nhs_hellenic_reformed_$GOD$ }
+	# 		]
+	# 		[[POSEIDON_PANTHEON]
+	# 			NOT = { has_personal_deity = nhs_hellenic_reformed_$GOD$ }
+	# 		]
+	# 		[[APOLLO_PANTHEON]
+	# 			NOT = { has_personal_deity = nhs_hellenic_reformed_$GOD$ }
+	# 		]
+	# 	}
+	# 	add_years_of_income = -0.10
+	# }
+	# else = {
+	# 	custom_tooltip = nhs_hellenic_free_festival_$GOD$
+	# }
+}
+
+to_hellenic_festival_organize = {
+	add_ruler_modifier = {
+		name = to_offer_to_$GOD$
+		duration = 3650
+	}
+}
+
+to_hellenic_festival_study = {
+	add_ruler_modifier = {
+		name = to_hellenic_festival_study
+		duration = -1
+	}
+	custom_tooltip = to_hellenic_festival_$GOD$_improvement_tt
+	set_ruler_flag = to_hellenic_festival_$GOD$_improvement
+}
+
+to_hellenic_festival_cynical = {
+	add_prestige = -5
+	add_ruler_modifier = { 
+		name = to_cynical_believer
+		duration = -1
+	}
+}
+
+to_hellenic_festival_impious = {
+	add_prestige = -5
+	remove_country_modifier = to_cynical_believer
+	add_ruler_modifier = {
+		name = to_impious_believer
+		duration = -1
+	}
+	custom_tooltip = to_disables_hellenic_festivals_for_ruler_tt
+}
+
+to_hellenic_festival_study_immediate = {
+	hidden_effect = {
+		set_ruler_flag = to_hellenic_festival_finished_study
+		clr_ruler_flag = to_hellenic_festival_$GOD$_improvement
+	}
+}
+
+to_hellenic_festival_option = {
+	remove_country_modifier = to_hellenic_festival_study
+}
+
+to_increase_mana_or_add_power = {
+	if = {
+		limit = {
+			NOT = { $TYPE$ = 6 }
+		}
+		change_$TYPE$ = 1
+	}
+	else = {
+		add_$TYPE$_power = 50
+	}
+}
+
+to_check_greek_religion_approach = {
+	if = {
+		limit = {
+			OR = {
+				culture = greek
+				culture = pontic_greek
+			}
+			NOT = { religion = pantheon_worship }
+			owner = {
+				religion = pantheon_worship
+			}
+		}
+		if = {
+			limit = {
+				owner = {
+					has_or_overlord_has = { 
+						TRIGGER = "has_country_flag = to_greek_religion_humanist" 
+					}
+				}
+			}
+			add_province_modifier = {
+				name = to_humanist_approach
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				owner = {
+					has_or_overlord_has = { 
+						TRIGGER = "has_country_flag = to_greek_religion_moderate" 
+					}
+				}
+			}
+			add_province_modifier = {
+				name = to_moderate_approach
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				owner = {
+					has_or_overlord_has = { 
+						TRIGGER = "has_country_flag = to_greek_religion_militarist" 
+					}
+				}
+			}
+			add_province_modifier = {
+				name = to_militarist_approach
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				owner = {
+					has_or_overlord_has = { 
+						TRIGGER = "has_country_flag = to_greek_religion_purist" 
+					}
+				}
+			}
+			add_province_modifier = {
+				name = to_purist_approach
+				duration = -1
+			}
+		}
+	}
+	# No need to remove on owner change
+	[[REMOVE_OTHERWISE]
+	else = {
+		remove_province_modifier = to_humanist_approach
+		remove_province_modifier = to_moderate_approach
+		remove_province_modifier = to_militarist_approach
+		remove_province_modifier = to_purist_approach
+	}
+	]
+}
+
+to_check_greek_religion_approach_on_owner_religion_change = {
+	if = {
+		limit = {
+			has_or_overlord_has = {
+				TRIGGER = "
+				OR = {
+					has_country_flag = to_greek_religion_humanist
+					has_country_flag = to_greek_religion_moderate
+					has_country_flag = to_greek_religion_militarist
+					has_country_flag = to_greek_religion_purist
+				}
+				"
+			}
+		}
+		if = {
+			limit = {
+				NOT = { religion = pantheon_worship }
+			}
+			every_owned_province = {
+				remove_province_modifier = to_humanist_approach
+				remove_province_modifier = to_moderate_approach
+				remove_province_modifier = to_militarist_approach
+				remove_province_modifier = to_purist_approach
+			}
+		}
+		else_if = {
+			limit = {
+				has_or_overlord_has = { TRIGGER = "has_country_flag = to_greek_religion_humanist" }
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = greek
+						culture = pontic_greek
+					}
+					NOT = { religion = pantheon_worship }
+				}
+				add_province_modifier = {
+					name = to_humanist_approach
+					duration = -1
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_or_overlord_has = { TRIGGER = "has_country_flag = to_greek_religion_moderate" }
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = greek
+						culture = pontic_greek
+					}
+					NOT = { religion = pantheon_worship }
+				}
+				add_province_modifier = {
+					name = to_moderate_approach
+					duration = -1
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_or_overlord_has = { TRIGGER = "has_country_flag = to_greek_religion_militarist" }
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = greek
+						culture = pontic_greek
+					}
+					NOT = { religion = pantheon_worship }
+				}
+				add_province_modifier = {
+					name = to_militarist_approach
+					duration = -1
+				}
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = greek
+						culture = pontic_greek
+					}
+					NOT = { religion = pantheon_worship }
+				}
+				add_province_modifier = {
+					name = to_purist_approach
+					duration = -1
+				}
+			}
+		}
+	}
+}

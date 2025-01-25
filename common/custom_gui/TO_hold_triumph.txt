@@ -1,0 +1,323 @@
+custom_window = {
+    name = to_hold_triumph_window
+    potential = {
+        to_unlocked_hold_triumph_mechanic = yes
+        ai = no
+        NOT = { has_country_flag = to_hide_hold_triumph_gui }
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_bg
+    potential = {
+    }
+}
+
+custom_text_box = {
+    name = to_hold_triumph_title
+    potential = {
+    }
+}
+
+custom_button = {
+    name = to_hold_triumph_menu_buttons
+    tooltip = to_hold_triumph_menu_buttons_tt
+    potential = {
+        to_unlocked_hold_triumph_mechanic = yes
+	    ai = no
+    }
+    trigger = {
+    }
+    effect = {
+        if = {
+            limit = {
+                has_country_flag = to_hide_hold_triumph_gui
+            }
+            clr_country_flag = to_hide_hold_triumph_gui
+        }
+        else = {
+            set_country_flag = to_hide_hold_triumph_gui
+        }
+    }
+    frame = {
+        number = 1
+        trigger = {
+            has_country_flag = to_hide_hold_triumph_gui
+        }
+    }
+    frame = {
+        number = 2
+        trigger = { }
+    }
+}
+
+custom_button = {
+    name = to_hold_triumph_button
+    tooltip = to_hold_triumph_button_tt
+    potential = {
+        NOT = { to_is_triumph_active = yes }
+    }
+    trigger = {
+        to_can_hold_triumph = yes
+    }
+    effect = {
+        to_enable_triumph_effect = yes
+    }
+    frame = {
+        number = 1
+        trigger = {
+            religion_group = christian
+        }
+    }
+    frame = {
+        number = 2
+        trigger = { }
+    }
+}
+
+custom_button = {
+    name = to_hold_triumph_button_active
+    tooltip = to_hold_triumph_button_active_tt
+    potential = {
+        to_is_triumph_active = yes
+    }
+    trigger = {
+        to_can_hold_triumph = yes
+    }
+    effect = {
+        tooltip = {
+            to_enable_triumph_effect = yes
+        }
+    }
+    frame = {
+        number = 1
+        trigger = {
+            religion_group = christian
+        }
+    }
+    frame = {
+        number = 2
+        trigger = { }
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_button_frame
+    potential = {
+    }
+    frame = {
+        number = 2
+        trigger = {
+            to_is_triumph_active = yes
+        }
+    }
+    frame = {
+        number = 1
+        trigger = { }
+    }
+}
+
+custom_button = {
+    name = to_hold_triumph_button_war
+    tooltip = to_hold_triumph_button_war_tt
+    potential = {
+    }
+    trigger = {
+    }
+    effect = {
+        if = {
+            limit = {
+                has_country_flag = to_enable_hold_triumph_alert_war
+            }
+            clr_country_flag = to_enable_hold_triumph_alert_war
+        }
+        else = {
+            set_country_flag = to_enable_hold_triumph_alert_war
+        }
+        custom_tooltip = to_hold_triumph_alert_war_tt
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_button_war_highlight
+    potential = {
+        has_country_flag = to_enable_hold_triumph_alert_war
+    }
+}
+
+custom_button = {
+    name = to_hold_triumph_button_peace
+    tooltip = to_hold_triumph_button_peace_tt
+    potential = {
+    }
+    trigger = {
+    }
+    effect = {
+        if = {
+            limit = {
+                has_country_flag = to_enable_hold_triumph_alert_peace
+            }
+            clr_country_flag = to_enable_hold_triumph_alert_peace
+        }
+        else = {
+            set_country_flag = to_enable_hold_triumph_alert_peace
+        }
+        custom_tooltip = to_hold_triumph_alert_peace_tt
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_button_peace_highlight
+    potential = {
+        has_country_flag = to_enable_hold_triumph_alert_peace
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_progress_bar_frame
+    potential = {
+        ai = no
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_progress_bar
+    tooltip = to_hold_triumph_progress_bar_tt
+    potential = {
+    }
+    
+    frame_variable = "to_glory_display"
+}
+
+custom_text_box = {
+    name = to_hold_triumph_no_effect
+    potential = {
+        NOT = { to_is_triumph_active = yes }
+    }
+}
+
+# custom_icon = {
+#     name = to_hold_triumph_effects_icons_peace
+#     potential = {
+#         to_has_hold_triumph_peace_modifiers = yes
+#     }
+# }
+
+# custom_text_box = {
+#     name = to_hold_triumph_effects_war
+#     potential = {
+#         to_has_hold_triumph_war_modifiers = yes
+#     }
+# }
+
+custom_icon = {
+    name = to_hold_triumph_effects_war_exhaustion_icon
+    tooltip = to_hold_triumph_effects_war_exhaustion_icon_tt
+    potential = {
+        to_has_hold_triumph_peace_modifiers = yes
+    }
+}
+
+custom_text_box = {
+    name = to_hold_triumph_effects_war_exhaustion
+    potential = {
+        to_has_hold_triumph_peace_modifiers = yes
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_effects_manpower_icon
+    tooltip = to_hold_triumph_effects_manpower_icon_tt
+    potential = {
+        to_has_hold_triumph_peace_modifiers = yes
+    }
+}
+
+custom_text_box = {
+    name = to_hold_triumph_effects_manpower
+    potential = {
+        to_has_hold_triumph_peace_modifiers = yes
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_effects_stability_cost_icon
+    tooltip = to_hold_triumph_effects_stability_cost_icon_tt
+    potential = {
+        to_has_hold_triumph_peace_modifiers = yes
+    }
+}
+
+custom_text_box = {
+    name = to_hold_triumph_effects_stability_cost
+    potential = {
+        to_has_hold_triumph_peace_modifiers = yes
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_effects_maintenance_icon
+    tooltip = to_hold_triumph_effects_maintenance_icon_tt
+    potential = {
+        to_has_hold_triumph_peace_modifiers = yes
+    }
+}
+
+custom_text_box = {
+    name = to_hold_triumph_effects_maintenance
+    potential = {
+        to_has_hold_triumph_peace_modifiers = yes
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_effects_shock_damage_icon
+    tooltip = to_hold_triumph_effects_shock_damage_icon_tt
+    potential = {
+        to_has_hold_triumph_war_modifiers = yes
+    }
+}
+
+custom_text_box = {
+    name = to_hold_triumph_effects_shock_damage
+    potential = {
+        to_has_hold_triumph_war_modifiers = yes
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_effects_movement_speed_icon
+    tooltip = to_hold_triumph_effects_movement_speed_icon_tt
+    potential = {
+        to_has_hold_triumph_war_modifiers = yes
+    }
+}
+
+custom_text_box = {
+    name = to_hold_triumph_effects_movement_speed
+    potential = {
+        to_has_hold_triumph_war_modifiers = yes
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_duration_icon
+    tooltip = to_hold_triumph_duration_icon_tt
+    potential = {
+        to_has_hold_triumph_war_modifiers = yes
+    }
+}
+
+custom_icon = {
+    name = to_hold_triumph_duration_bg
+    potential = {
+        to_has_hold_triumph_war_modifiers = yes
+    }
+}
+
+custom_text_box = {
+    name = to_hold_triumph_duration
+    potential = {
+        to_has_hold_triumph_war_modifiers = yes
+    }
+}

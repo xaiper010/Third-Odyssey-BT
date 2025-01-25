@@ -1,0 +1,1143 @@
+namespace = nhs2_test
+
+country_event = {
+	id = nhs2_test.1
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+
+	option = {
+		name = "nhs2_hidden.a"
+		change_primary_culture = elysian
+		to_change_tag = { TAG = ELY }
+		add_government_reform = senatorial_empire
+		hidden_effect = {
+			every_province = {
+				limit = {
+					continent = north_america
+				}
+				cede_province = ROOT
+				change_religion = ROOT
+				change_culture = elysian
+				add_core = ROOT
+				change_trade_goods = grain
+				hidden_effect = {
+					to_set_appropriate_elysian_culture = yes
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "nhs2_hidden.a"
+		change_primary_culture = elysian
+		to_change_tag = { TAG = ELY }
+		add_government_reform = senatorial_empire
+	}
+	
+	option = {
+		name = "ALL EUROPE"
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+						region = maghreb_region
+						region = egypt_region
+						region = persia_region
+					}
+					
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "nhs2_hidden.a"
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						region = maghreb_region
+						region = egypt_region
+					}
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "nhs2_hidden.a"
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						region = anatolia_region
+						region = balkan_region
+					}
+				}
+				cede_province = ELG
+			}
+		}
+	}
+}
+
+province_event = {
+	id = nhs2_test.2
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = "nhs2_hidden.a"
+		add_building = fort_15th
+	}
+}
+
+country_event = {
+	id = nhs2_test.3
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+
+	option = {
+		name = "nhs2_hidden.a"
+		change_religion = elysian_orthodoxy
+		hidden_effect = {
+			every_province = {
+				limit = {
+					continent = north_america
+				}
+				cede_province = ROOT
+				change_culture = ROOT
+				change_religion = ROOT
+				add_core = ROOT
+				change_trade_goods = grain
+				hidden_effect = {
+					to_set_appropriate_elysian_culture = yes
+				}
+			}
+		}
+		every_owned_province = {
+			limit = {
+				is_colony = yes
+			}
+			add_colonysize = 1000
+		}
+	}
+	option = {
+		change_primary_culture = elysian
+		to_change_tag = { TAG = ELY }
+		add_government_reform = senatorial_empire
+		set_global_flag = nhs_borealians_appeared
+		set_global_flag = nhs_hyperborealians_appeared
+		set_global_flag = nhs_hesperidians_appeared
+		set_global_flag = nhs_kykladian_appeared
+		set_global_flag = nhs_elyric_appeared
+		set_global_flag = nhs_arkadians_appeared
+		set_global_flag = nhs_eleutheroi_appeared
+		hidden_effect = {
+			every_province = {
+				limit = {
+					continent = north_america
+					is_wasteland = no
+					OR = {
+						is_empty = yes
+						has_province_modifier = to_nat_tribal_development
+					}
+					
+				}
+				cede_province = ROOT
+				change_culture = elysian
+				to_ely_province_culture_check = {}
+				change_religion = ROOT
+				add_core = ROOT
+			}
+			481 = {
+				change_culture = kykladian
+			}
+			every_province = {
+				limit = {
+					to_mesoamerican_assimilation_province = yes
+				}
+				cede_province = ROOT
+				change_culture = lakonian
+				change_religion = ROOT
+				add_core = ROOT
+			}
+			every_province = {
+				limit = {
+					to_norse_assimilation_province = yes
+				}
+				cede_province = ROOT
+				change_culture = varangian_e
+				change_religion = ROOT
+				add_core = ROOT
+			}
+			every_province = {
+				limit = {
+					region = colombia_region
+					OR = {
+						is_empty = yes
+						owner = {
+							OR = {
+								tag = ROOT
+								technology_group = north_american
+								technology_group = south_american
+							}
+						}
+					}
+				}
+				cede_province = ROOT
+				change_culture = elysian
+				to_ely_province_culture_check = {}
+				change_religion = ROOT
+				add_core = ROOT
+			}
+		}
+	}
+}
+
+country_event = {
+	id = nhs2_test.4
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+
+	option = {
+		name = "nhs2_hidden.a"
+		change_primary_culture = elysian
+		to_change_tag = { TAG = ELY }
+		nhs_change_government = { GOV = monarchy }
+		add_government_reform = senatorial_empire
+		change_unit_type  = exiled_greek
+	}
+	# option = {
+	# 	name = "nhs2_hidden.a"
+	# 	change_primary_culture = elysian
+	# 	to_change_tag = { TAG = ER1 }
+	# 	nhs_change_government = { GOV = republic }
+	# 	add_government_reform = elysian_republic
+	# 	change_unit_type  = exiled_greek
+	# }
+	# option = {
+	# 	name = "nhs2_hidden.a"
+	# 	change_primary_culture = elysian
+	# 	to_change_tag = { TAG = ELR }
+	# 	nhs_change_government = { GOV = republic }
+	# 	add_government_reform = nhs_noble_republic
+	# 	change_unit_type  = exiled_greek
+	# }
+	# option = {
+	# 	name = "nhs2_hidden.a"
+	# 	change_primary_culture = elysian
+	# 	to_change_tag = { TAG = ERR }
+	# 	nhs_change_government = { GOV = republic }
+	# 	add_government_reform = elysian_revolutionary_republic
+	# 	change_unit_type  = exiled_greek
+	# }
+	after = {
+		swap_non_generic_missions = yes
+	}
+}
+
+country_event = {
+	id = nhs2_test.5
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+		custom_tooltip = nhs_too_many_patriarch_t
+	}
+
+	option = {
+		name = "nhs2_hidden.a"
+		change_religion = elysian_orthodoxy
+	}
+	
+	option = {
+		name = "nhs2_hidden.a"
+		change_religion = pantheon_worship
+	}
+}
+
+country_event = {
+	id = nhs2_test.6
+	title = nhs2_test.6.t
+	desc = nhs2_test.6.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	hidden = yes
+
+	immediate = {
+		overlord = {
+			country_event = { id = nhs2_test.7 }
+		}
+	}
+	
+	option = {
+		name = nhs2_test.6.a
+		
+	}
+}
+
+country_event = {
+	id = nhs2_test.7
+	title = nhs2_test.7.t
+	desc = nhs2_test.7.d
+	picture = westerngfx_HARBOUR_eventPicture
+
+	goto = to_colony_capital
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				capital_scope = {
+					save_event_target_as = to_colony_capital
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = nhs2_test.7.a
+		tooltip = {
+			if = {
+				limit = {
+					FROM = {
+						is_subject_of_type = crown_colony
+					}
+				}
+				create_subject = {
+					subject_type = crown_colony
+					subject = FROM
+					keep_liberty_desire = yes
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = {
+						is_subject_of_type = private_enterprise
+					}
+				}
+				create_subject = {
+					subject_type = private_enterprise
+					subject = FROM
+					keep_liberty_desire = yes
+				}
+			}
+			else_if = {
+				limit = {
+					is_subject_of_type = self_governing_colony
+				}
+				create_subject = {
+					subject_type = self_governing_colony
+					subject = FROM
+					keep_liberty_desire = yes
+				}
+			}
+			else = {
+				create_subject = {
+					subject_type = colony
+					subject = FROM
+					keep_liberty_desire = yes
+				}
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		custom_tooltip = to_gets_former_overlord_colonies_tt
+	}
+}
+
+#Remove trading if trading partner doesn't exist
+country_event = {
+	id = nhs2_test.11
+	title = nhs2_hidden.t
+	desc = nhs2_test.11.d
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			reset_triumph_counter = { REGION = france_region }
+			reset_triumph_counter = { REGION = low_countries_region }
+			reset_triumph_counter = { REGION = italy_region }
+			reset_triumph_counter = { REGION = south_german_region }
+			reset_triumph_counter = { REGION = iberia_region }
+			reset_triumph_counter = { REGION = british_isles_region }
+			reset_triumph_counter = { REGION = carpathia_region }
+			reset_triumph_counter = { REGION = egypt_region }
+			reset_triumph_counter = { REGION = maghreb_region }
+			reset_triumph_counter = { REGION = mashriq_region }
+			reset_triumph_counter = { REGION = anatolia_region }
+			reset_triumph_counter = { REGION = balkan_region }
+			every_province = {
+				limit = {
+					is_empty = no
+				}
+				if = {
+					limit = {
+						nhs_check_all_elysian_tags = { CONDITION = owned_by }
+					}
+					to_change_triumph_province_counters = { CHANGE = 1 SCOPE = owner }
+				}
+				else_if = {
+					limit = {
+						nhs_check_all_elysian_tags = { CONDITION = country_or_subject_holds }
+					}
+					owner = {
+						overlord = {
+							save_event_target_as = to_roman_overlord
+						}
+					}
+					to_change_triumph_province_counters = { CHANGE = 1 SCOPE = event_target:to_roman_overlord }
+				}
+			}
+		}
+	}
+	
+
+	option = {
+		name = "nhs2_hidden.a"
+	}
+}
+
+#Remove trading if trading partner doesn't exist
+country_event = {
+	id = nhs2_test.12
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		NOT = { has_country_flag = to_vinland_formed_event_active }
+		OR = {
+			AND = {
+				NOT = { exists = MK1 }
+				trading_with_markland = yes
+			}
+			AND = {
+				NOT = { exists = HLL }
+				trading_with_helluland = yes
+			}
+			AND = {
+				NOT = { exists = VLA }
+				trading_with_vinland = yes
+			}
+		}
+	}
+	
+	immediate = {
+		set_global_flag = nhs_vov_no_deal
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_markland_deal
+			}
+			remove_country_modifier = nhs_vov_markland_deal
+			MK1 = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_helluland_deal
+			}
+			remove_country_modifier = nhs_vov_helluland_deal
+			HLL = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_vinland_deal
+			}
+			remove_country_modifier = nhs_vov_vinland_deal
+			VLA = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_markland_deal_after
+			}
+			remove_country_modifier = nhs_vov_markland_deal_after
+			MK1 = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_helluland_deal_after
+			}
+			remove_country_modifier = nhs_vov_helluland_deal_after
+			HLL = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_vinland_deal_after
+			}
+			remove_country_modifier = nhs_vov_vinland_deal_after
+			VLA = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+	}
+	
+
+	option = {
+		name = "nhs2_hidden.a"
+	}
+}
+
+#Test
+country_event = {
+	id = nhs2_test.26
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	
+	option = {
+		name = "nhs2_hidden.a"
+		953 = {
+			show_ambient_object = wonder_statue
+		}
+	}
+	option = {
+		name = "nhs2_hidden.a"
+		950 = {
+			show_ambient_object = wonder_lighthouse
+		}
+	}
+	option = {
+		name = "nhs2_hidden.a"
+		953 = {
+			show_ambient_object = wonder_generic
+		}
+	}
+	option = {
+		name = "nhs2_hidden.a"
+		change_religion = orthodox
+		set_country_flag = nhs_great_project
+	}
+	
+}
+
+country_event = {
+	id = nhs2_test.28
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = alliance_with }
+	}
+	
+	immediate = {
+	
+	}
+	
+	option = {
+		name = "nhs2_hidden.a"
+		exile_ruler_as = { name = to_exile_test_@ROOT }
+	}
+
+	option = {
+		name = "nhs2_hidden.a"
+		set_ruler = to_exile_test_@ROOT
+	}
+	
+}
+
+#Testing grounds
+country_event = {
+	id = nhs2_test.32
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "nhs2_hidden.a"
+		if = {
+			limit = {
+				has_regency = no
+				has_heir = yes
+			}
+			exile_heir_as = nhs_rev_exiled_heir
+			exile_ruler_as = { name = nhs_rev_exiled_ruler }
+			set_global_flag = nhs_has_exiled_heir
+			set_global_flag = nhs_has_exiled_ruler
+		}
+		else_if = {
+			limit = {
+				has_regency = no
+				has_heir = no
+			}
+			exile_ruler_as = { name = nhs_rev_exiled_ruler }
+			set_global_flag = nhs_has_exiled_ruler
+		}
+		else_if = {
+			limit = {
+				has_regency = yes
+			}
+			exile_heir_as = nhs_rev_exiled_heir
+			set_global_flag = nhs_has_exiled_heir
+		}
+	}
+	option = {
+		
+		ELF = {
+			if = {
+				limit = {
+					has_global_flag = nhs_has_exiled_heir
+					has_global_flag = nhs_has_exiled_ruler
+				}
+				set_ruler = nhs_rev_exiled_ruler
+				set_heir = nhs_rev_exiled_heir
+				if = {
+					limit = {
+						ruler_age = 70
+					}
+					if = {
+						limit = {
+							heir_age = 80
+						}
+						ROOT = {
+							define_ruler = {
+								dynasty = PREV
+								claim = 50
+								min_age = 30
+								max_age = 40
+							}
+							if = {
+								limit = {
+									ruler_age = 60
+									has_heir = no
+								}
+								kill_ruler = yes
+								define_heir = {
+									dynasty = PREV
+									claim = 50
+									age = 15
+								}
+							}
+						}
+					}
+					else = {
+						exile_heir_as = nhs_rev_exiled_heir
+						ROOT = {
+							define_ruler = {
+								name = "(Interregnum)"
+								adm = 3
+								max_random_adm = 3
+								dip = 3
+								max_random_dip = 3
+								mil = 1
+								max_random_mil = 1
+								regency = yes
+							}
+							set_heir = nhs_rev_exiled_heir
+							add_legitimacy = 100
+							add_legitimacy = -20
+							if = {
+								limit = {
+									heir_age = 60
+								}
+								kill_ruler = yes
+								if = {
+									limit = {
+										has_heir = no
+									}
+									define_heir = {
+										dynasty = PREV
+										claim = 50
+										age = 15
+									}
+								}
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							heir_age = 70
+						}
+						exile_ruler_as = { name = nhs_rev_exiled_ruler }
+						ROOT = {
+							set_ruler = nhs_rev_exiled_ruler
+							if = {
+								limit = {
+									ruler_age = 50
+									has_heir = no
+								}
+								define_heir = {
+									dynasty = PREV
+									claim = 50
+									age = 15
+								}
+							}
+						}
+					}
+					else = {
+						exile_heir_as = nhs_rev_exiled_heir
+						exile_ruler_as = { name = nhs_rev_exiled_ruler }
+						ROOT = {
+							set_heir = nhs_rev_exiled_heir
+							set_ruler = nhs_rev_exiled_ruler
+							add_legitimacy = 100
+							add_legitimacy = -20
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_global_flag = nhs_has_exiled_heir
+					NOT = { has_global_flag = nhs_has_exiled_ruler }
+				}
+				set_heir = nhs_rev_exiled_heir
+				if = {
+					limit = {
+						heir_age = 80
+					}
+					ROOT = {
+						define_ruler = {
+							dynasty = PREV
+							claim = 50
+							age = 21
+						}
+					}
+				}
+				else = {
+					exile_heir_as = nhs_rev_exiled_heir
+					ROOT = {
+						define_ruler = {
+							name = "(Interregnum)"
+							adm = 3
+							max_random_adm = 3
+							dip = 3
+							max_random_dip = 3
+							mil = 1
+							max_random_mil = 1
+							regency = yes
+						}
+						set_heir = nhs_rev_exiled_heir
+						add_legitimacy = 100
+						add_legitimacy = -20
+						if = {
+							limit = {
+								heir_age = 60
+							}
+							kill_ruler = yes
+							if = {
+								limit = {
+									has_heir = no
+								}
+								define_heir = {
+									dynasty = PREV
+									claim = 50
+									age = 15
+								}
+							}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_global_flag = nhs_has_exiled_heir }
+					has_global_flag = nhs_has_exiled_ruler
+				}
+				set_ruler = nhs_rev_exiled_ruler
+				if = {
+					limit = {
+						ruler_age = 80
+					}
+					log = "RULER TOO OLD"
+					ROOT = {
+						define_ruler = {
+							dynasty = PREV
+							claim = 50
+							age = 21
+						}
+					}
+				}
+				else = {
+					exile_ruler_as = { name = nhs_rev_exiled_ruler }
+					ROOT = {
+						set_ruler = nhs_rev_exiled_ruler
+						if = {
+							limit = {
+								ruler_age = 50
+								has_heir = no
+							}
+							define_heir = {
+								dynasty = PREV
+								claim = 50
+								age = 15
+							}
+						}
+					}
+				}
+			}
+			else = {
+				ROOT = {
+					define_ruler = {
+						dynasty = "historic_dynasty"
+						claim = 40
+						age = 21
+					}
+				}
+			}
+			clr_global_flag = nhs_has_exiled_heir
+			clr_global_flag = nhs_has_exiled_ruler
+		}
+	}
+}
+
+country_event = {
+	id = nhs2_test.34
+	title = nhs2_test.34.t
+	desc = nhs2_test.34.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+	}
+	immediate = {
+		hidden_effect = {
+			set_variable = {
+				which = to_test_var
+				value = 0
+			}
+			every_province = {
+				limit = {
+					is_wasteland = no
+					continent = north_america
+				}
+				ROOT = {
+					change_variable = {
+						which = to_test_var
+						value = 1
+					}
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = "nhs2_hidden.a"
+		custom_tooltip = nhs_test_program_tt
+	}
+	option = {
+		name = "nhs2_hidden.a"
+		capital_scope = {
+			add_province_modifier = {
+				name = judaism_abrahamic_roots
+				duration = 1825
+			}
+		}
+		
+	}
+	option = {
+		capital_scope = {
+			extend_province_modifier = {
+				name = judaism_abrahamic_roots
+				duration = 3650
+			}
+		}
+	}
+}
+
+# Print Number of provinces in European Regions
+country_event = {
+	id = nhs2_test.42
+	title = nhs2_test.42.t
+	desc = nhs2_test.42.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			to_count_provinces_in_region = { REGION = france_region }
+			to_count_provinces_in_region = { REGION = low_countries_region }
+			to_count_provinces_in_region = { REGION = italy_region }
+			to_count_provinces_in_region = { REGION = south_german_region }
+			to_count_provinces_in_region = { REGION = iberia_region }
+
+			to_count_provinces_in_region = { REGION = british_isles_region }
+			to_count_provinces_in_region = { REGION = balkan_region }
+			to_count_provinces_in_region = { REGION = carpathia_region }
+			to_count_provinces_in_region = { REGION = egypt_region }
+			to_count_provinces_in_region = { REGION = maghreb_region }
+			to_count_provinces_in_region = { REGION = mashriq_region }
+
+			to_count_provinces_in_region = { REGION = anatolia_region }
+
+			set_variable = {
+				which = balkans_no_greece_provinces
+				value = 0
+			}
+			every_province = {
+				limit = {
+					region = balkan_region
+					NOT = {
+						nhs_greek_areas_no_culture = yes
+					}
+				}
+				ROOT = {
+					change_variable = {
+						which = balkans_no_greece_provinces
+						value = 1
+					}
+				}
+			}
+
+			set_variable = {
+				which = tc_in_na
+				value = 0
+			}
+			every_province = {
+				limit = {
+					continent = north_america
+					province_has_center_of_trade_of_level = 1
+				}
+				ROOT = {
+					change_variable = {
+						which = tc_in_na
+						value = 1
+					}
+				}
+			}
+			set_variable = {
+				which = tc_dyn_in_na
+				value = 0
+			}
+			every_province = {
+				limit = {
+					continent = north_america
+					OR = {
+						has_province_modifier = to_dynamic_cot
+						province_has_center_of_trade_of_level = 1
+					}
+				}
+				ROOT = {
+					change_variable = {
+						which = tc_dyn_in_na
+						value = 1
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "nhs2_hidden.a"
+		custom_tooltip = to_province_counter
+	}
+}
+
+# Test
+country_event = {
+	id = nhs2_test.43
+	title = nhs2_test.43.t
+	desc = nhs2_test.43.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		
+	}
+	
+	option = {
+		name = "nhs2_test.43.a"
+		if = {
+			limit = {
+				has_dlc = "Art of War"
+			}
+			if = {
+				limit = {
+					hre_religion_treaty = yes
+				}
+				set_hre_religion_treaty = no
+			}
+			set_hre_religion = ROOT
+		}
+		set_in_empire = yes
+		if = {
+			limit = {
+				NOT = { is_emperor = yes }
+			}
+			set_emperor = yes
+		}
+		hre_inheritable = yes
+		if = {
+			limit = {
+				has_dlc = "Art of War"
+			}
+			set_hre_religion = ROOT
+			set_hre_religion_locked = yes
+		}
+		country_event = { id = nhs2_mainlandevents.40 }
+	}
+}
+
+# Test
+country_event = {
+	id = nhs2_test.44
+	title = nhs2_test.43.t
+	desc = nhs2_test.43.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = "nhs2_test.43.a"
+		custom_tooltip = to_exarch_needed_provinces_for_merchant_tt
+	}
+	option = {
+		name = "nhs2_test.43.a"
+	}
+}
+
+# Increase Hippodrome progress
+country_event = {
+	id = nhs2_test.13
+	title = nhs2_test.13.t
+	desc = nhs2_test.13.d
+	picture = OPENINGPICTURE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "nhs2_test.13.a"
+		change_variable = {
+			which = to_land_units_killed_in_won_battles
+			value = 50000
+		}
+	}
+	option = {
+		name = "nhs2_test.13.b"
+		change_variable = {
+			which = to_land_units_killed_in_won_battles
+			value = 125000
+		}
+	}
+	option = {
+		name = "nhs2_test.13.c"
+	}
+}
+
+# Test
+country_event = {
+	id = nhs2_test.45
+	title = nhs2_test.43.t
+	desc = nhs2_test.43.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = difficulty_easy_player
+	}
+	
+	immediate = {
+		hidden_effect = {
+			play_sound = to_achievement_completed
+			to_compute_achievement_score_from_development = { ACHIEVEMENT = the_only_colonizer }
+		}
+	}
+	
+	option = {
+		name = "nhs2_test.43.a"
+		custom_tooltip = nhs_test_test
+	}
+	option = {
+		name = "nhs2_test.43.a"
+		to_complete_achievement = {
+			ACHIEVEMENT = the_only_colonizer
+			ADDITIONAL_EFFECT = "to_compute_achievement_score_from_development = { ACHIEVEMENT = the_only_colonizer }"
+		}
+	}
+	option = {
+		name = "nhs2_test.43.a"
+		to_complete_achievement = {
+			ACHIEVEMENT = veni_vidi_vici
+			ADDITIONAL_EFFECT = "to_compute_achievement_score_from_development = { ACHIEVEMENT = veni_vidi_vici }"
+		}
+	}
+}
+
+# Recount exarch merchant counters
+province_event = {
+	id = nhs2_test.46
+	title = nhs2_test.43.t
+	desc = nhs2_test.43.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+	}
+	
+	immediate = {
+		clr_global_flag = to_setup_exarch_merchant_provinces
+		to_setup_exarch_merchant_counters = yes
+	}
+	
+	option = {
+		name = "nhs2_test.43.a"
+	}
+}

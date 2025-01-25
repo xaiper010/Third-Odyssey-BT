@@ -1,0 +1,1280 @@
+# Province Triggered modifiers are here.
+# These are added to provinces through the add_province_triggered_modifier effect
+#
+# Effects are fully scriptable here.
+non_catholic_rome_with_hellenics = {
+	potential = {
+		normal_or_historical_nations = yes
+		NOT = { has_dlc = "Leviathan" }
+	}
+
+	#viewer = {
+	#}
+
+	trigger = {
+		owner = {
+			if = {
+				limit = {
+					is_subject_of_type = elysian_subject
+					overlord = {
+						OR = {
+							religion = pantheon_worship
+							religion = aztlan_worship
+							religion = elysian_orthodoxy
+						}
+					}
+				}
+				NOT = { religion = catholic }
+				OR = {
+					religion_group = christian
+					religion_group = muslim
+					religion = pantheon_worship
+					religion = aztlan_worship
+				}
+				NOT = { is_subject_of_type = elysian_subject }
+			}
+			else = {
+				NOT = { religion = catholic }
+				OR = {
+					religion_group = christian
+					religion_group = muslim
+					religion = pantheon_worship
+					religion = aztlan_worship
+				}
+			}
+		}
+	}
+
+	prestige = 0.5
+	missionaries = 1
+
+	#Province scope
+	on_activation = {
+
+	}
+
+	on_deactivation = {
+
+	}
+
+}
+
+nhs_conquest_of_athens = {
+	potential = {
+		NOT = { has_dlc = "Leviathan" }
+	}
+	trigger = {
+		owner = {
+			if = {
+				limit = {
+					is_subject_of_type = elysian_subject
+					overlord = {
+						religion = pantheon_worship
+					}
+				}
+				religion = pantheon_worship
+				NOT = { is_subject_of_type = elysian_subject }
+			}
+			else = {
+				religion = pantheon_worship
+			}
+		}
+	}
+
+	picture = "to_parthenon"
+
+	tolerance_own = 1
+	missionaries = 1
+	missionary_maintenance_cost = -0.20
+	reverse_relation_with_same_religion = 15
+	church_loyalty_modifier = 0.1
+	church_influence_modifier = 0.1
+}
+
+nhs_conquest_of_athens_humanist = {
+	potential = {
+		NOT = { has_dlc = "Leviathan" }
+	}
+	trigger = {
+		owner = {
+			if = {
+				limit = {
+					is_subject_of_type = elysian_subject
+					overlord = {
+						religion = pantheon_worship
+					}
+				}
+				religion = pantheon_worship
+				NOT = { is_subject_of_type = elysian_subject }
+			}
+			else = {
+				religion = pantheon_worship
+			}
+		}
+	}
+
+	picture = "to_parthenon"
+
+	tolerance_of_heretics_capacity = 1
+	tolerance_of_heathens_capacity = 1
+	religious_unity = 0.15
+	advisor_cost = -0.1
+	church_loyalty_modifier = -0.1
+	church_influence_modifier = -0.1
+}
+
+nhs_conquest_of_athens_moderate = {
+	potential = {
+		NOT = { has_dlc = "Leviathan" }
+	}
+	trigger = {
+		owner = {
+			if = {
+				limit = {
+					is_subject_of_type = elysian_subject
+					overlord = {
+						religion = pantheon_worship
+					}
+				}
+				religion = pantheon_worship
+				NOT = { is_subject_of_type = elysian_subject }
+			}
+			else = {
+				religion = pantheon_worship
+			}
+		}
+	}
+
+	picture = "to_parthenon"
+
+	tolerance_heathen = 0.5
+	ae_impact = -0.1
+	diplomatic_reputation = 0.5
+}
+
+nhs_conquest_of_athens_militarist = {
+	potential = {
+		NOT = { has_dlc = "Leviathan" }
+	}
+	trigger = {
+		owner = {
+			if = {
+				limit = {
+					is_subject_of_type = elysian_subject
+					overlord = {
+						religion = pantheon_worship
+					}
+				}
+				religion = pantheon_worship
+				NOT = { is_subject_of_type = elysian_subject }
+			}
+			else = {
+				religion = pantheon_worship
+			}
+		}
+	}
+
+	picture = "to_parthenon"
+
+	missionaries = 1
+	army_tradition = 0.25
+	stability_cost_modifier = -0.20
+}
+
+nhs_seat_of_high_priesthood = {
+	potential = {
+	}
+	trigger = {
+		religion = pantheon_worship
+		owner = {
+			religion = pantheon_worship
+		}
+	}
+	tolerance_own = 1
+	local_missionary_strength = -0.05
+}
+
+nhs_gibraltar_mod = {
+	potential = {
+	}
+
+	#viewer = {
+	#}
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = nhs_owned_by_elysia_or_subject_tt
+			owner = {
+				nhs_is_elysian_tag_or_subject = yes
+			}
+		}
+	}
+	province_trade_power_value = 10
+	local_sailors = 500
+	local_ship_repair = 0.5
+	ship_recruit_speed = -0.25
+	fort_level = 1
+	local_defensiveness = 0.5
+	local_hostile_attrition = 2
+	#Province scope
+	on_activation = {
+		owner = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							is_subject = yes
+							NOT = {
+								overlord = {
+									226 = {
+										has_trade_modifier = {
+											who = PREV
+											key = CONTROLS_THE_ROCK
+										}
+									}
+								}
+							}
+
+						}
+						AND = {
+							is_subject = no
+							NOT = {
+								226 = {
+									has_trade_modifier = {
+										who = PREV
+										key = CONTROLS_THE_ROCK
+									}
+								}
+							}
+						}
+					}
+				}
+				226 = {
+					add_trade_modifier = {
+						who = ROOT
+						duration = -1
+						power = 30
+						key = CONTROLS_THE_ROCK
+					}
+				}
+			}
+		}
+	}
+	on_deactivation = {
+		owner = {
+			random_country = {
+				limit = {
+					NOT = { overlord_of = PREV }
+					NOT = { tag = PREV }
+					226 = {
+						has_trade_modifier = {
+							who = PREV
+							key = CONTROLS_THE_ROCK
+						}
+					}
+				}
+				226 = {
+					remove_trade_modifier = {
+						who = PREV
+						key = CONTROLS_THE_ROCK
+					}
+				}
+			}
+		}
+	}
+}
+
+religious_center_pantheon = {
+	potential = {
+	}
+
+	#viewer = {
+	#}
+
+	trigger = {
+		religion = pantheon_worship
+	}
+
+	local_missionary_strength = -0.05
+
+	#Province scope
+	on_activation = {
+
+	}
+
+	on_deactivation = {
+
+	}
+}
+
+religious_center_aztlan = {
+	potential = {
+	}
+
+	#viewer = {
+	#}
+
+	trigger = {
+		religion = aztlan_worship
+	}
+
+	local_missionary_strength = -0.05
+
+	#Province scope
+	on_activation = {
+
+	}
+
+	on_deactivation = {
+
+	}
+}
+
+religious_center_elysian_orthodox = {
+	potential = {
+	}
+
+	#viewer = {
+	#}
+
+	trigger = {
+		religion = elysian_orthodoxy
+	}
+
+	local_missionary_strength = -0.05
+
+	#Province scope
+	on_activation = {
+
+	}
+
+	on_deactivation = {
+
+	}
+}
+
+nhs_toll_modifier_tm = {
+	potential = {
+		#NOT = { has_province_flag = nhs_ei_toll_decay }
+		#NOT = { has_province_flag = nhs_elysian_improvement_decay }
+		#owner = {
+		#	nhs_eligible_for_elysian_improvements = { MODIFIER = toll_modifier }
+		#}
+		always = yes
+	}
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = toll_modifier }
+	}
+	province_trade_power_value = 20
+	naval_forcelimit = 2
+	picture = "nhs_toll_modifier"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_toll_modifier_tm_decay = {
+	potential = {
+		has_province_flag = nhs_ei_toll_modifier_decay
+		#has_province_flag = nhs_elysian_improvement_decay
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = yes
+		# }
+	}
+	#viewer = {
+	#}
+	trigger = {
+		nhs_not_eligible_for_elysian_improvements = { MODIFIER = toll_modifier }
+	}
+	province_trade_power_value = 5
+	local_unrest = 0.5
+	picture = "nhs_toll_modifier_decay"
+	#Province scope
+	on_activation = {
+	}
+	on_deactivation = {
+	}
+}
+
+nhs_gilded_keep_tm = {
+	potential = {
+		#NOT = { has_province_flag = nhs_ei_gilded_keep_decay }
+		# NOT = { has_province_flag = nhs_elysian_improvement_decay }
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = yes
+		# }
+		always = yes
+	}
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = gilded_keep }
+	}
+	local_defensiveness = 0.10
+	legitimacy = 0.25
+	prestige = 0.1
+	picture = "gilded_keep"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_gilded_keep_tm_decay = {
+	potential = {
+		has_province_flag = nhs_ei_gilded_keep_decay
+		# has_province_flag = nhs_elysian_improvement_decay
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = yes
+		# }
+	}
+	trigger = {
+		nhs_not_eligible_for_elysian_improvements = { MODIFIER = gilded_keep }
+	}
+	local_defensiveness = 0.10
+	local_manpower = 0.03
+	local_unrest = 0.5
+	picture = "gilded_keep_decay"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_carthaginian_design_harbour_tm = {
+	potential = {
+		#NOT = { has_province_flag = nhs_ei_carthaginian_design_harbour_decay }
+		# NOT = { has_province_flag = nhs_elysian_improvement_decay }
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = { MODIFIER = gilded_keep }
+		# }
+		always = yes
+	}
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = carthaginian_design_harbour }
+	}
+	province_trade_power_value = 10
+	#trade_efficiency = 0.05
+	local_sailors = 500
+	global_trade_power = 0.1
+	naval_forcelimit = 5
+	prestige = 0.01
+	picture = "carthagian_harbor"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_carthaginian_design_harbour_tm_decay = {
+	potential = {
+		has_province_flag = nhs_ei_carthaginian_design_harbour_decay
+		# has_province_flag = nhs_elysian_improvement_decay
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = { MODIFIER = carthaginian_design_harbour }
+		# }
+	}
+	trigger = {
+		nhs_not_eligible_for_elysian_improvements = { MODIFIER = carthaginian_design_harbour }
+	}
+	local_unrest = 0.5
+	naval_forcelimit = 2
+	picture = "carthagian_harbor_decay"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_seagate_guardians_tm = {
+	potential = {
+		#NOT = { has_province_flag = nhs_ei_seagate_guardians_decay }
+		#NOT = { has_province_flag = nhs_elysian_improvement_decay }
+		#owner = {
+		#	nhs_eligible_for_elysian_improvements = yes
+		#}
+		always = yes
+	}
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = seagate_guardians }
+	}
+	naval_morale = 0.05
+	placed_merchant_power = 20
+	prestige = 0.25
+	picture = "seagate_guardians"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_seagate_guardians_tm_decay = {
+	potential = {
+		has_province_flag = nhs_ei_seagate_guardians_decay
+		# has_province_flag = nhs_elysian_improvement_decay
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = yes
+		# }
+	}
+	trigger = {
+		nhs_not_eligible_for_elysian_improvements = { MODIFIER = seagate_guardians }
+	}
+	local_build_cost = -0.05
+	local_unrest = 0.5
+	picture = "seagate_guardians_decay"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_alexandrian_library_tm = {
+	potential = {
+		#NOT = { has_province_flag = nhs_ei_alexandrian_library_decay }
+		# NOT = { has_province_flag = nhs_elysian_improvement_decay }
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = yes
+		# }
+		always = yes
+	}
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = alexandrian_library }
+	}
+	idea_cost = -0.15
+	technology_cost = -0.15
+	prestige = 0.01
+	picture = "alexandrian_library"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_alexandrian_library_tm_decay = {
+	potential = {
+		has_province_flag = nhs_ei_alexandrian_library_decay
+		#has_province_flag = nhs_elysian_improvement_decay
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = yes
+		# }
+	}
+	trigger = {
+		nhs_not_eligible_for_elysian_improvements = { MODIFIER = alexandrian_library }
+	}
+	idea_cost = -0.01
+	technology_cost = -0.01
+	local_unrest = 0.5
+	picture = "alexandrian_library_decay"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_alexandrian_library_no_books_tm = {
+	potential = {
+		#NOT = { has_province_flag = nhs_ei_alexandrian_library_decay }
+		# NOT = { has_province_flag = nhs_elysian_improvement_decay }
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = yes
+		# }
+		always = yes
+	}
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = alexandrian_library_no_books }
+	}
+	idea_cost = -0.10
+	technology_cost = -0.10
+	prestige = 0.01
+	picture = "alexandrian_library"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_alexandrian_library_no_books_tm_decay = {
+	potential = {
+		has_province_flag = nhs_ei_alexandrian_library_decay
+		#has_province_flag = nhs_elysian_improvement_decay
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = yes
+		# }
+	}
+	trigger = {
+		nhs_not_eligible_for_elysian_improvements = { MODIFIER = alexandrian_library_no_books }
+	}
+	idea_cost = -0.01
+	technology_cost = -0.01
+	local_unrest = 0.5
+	picture = "alexandrian_library_decay"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_hippodrome_tm = {
+	potential = {
+		#NOT = { has_province_flag = nhs_ei_hippodrome_decay }
+		# NOT = { has_province_flag = nhs_elysian_improvement_decay }
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = yes
+		# }
+		always = yes
+	}
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = hippodrome }
+	}
+	cavalry_cost = -0.05
+	cavalry_power = 0.05
+	global_unrest = -1
+	prestige = 0.01
+	picture = "hippodrome"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_hippodrome_tm_decay = {
+	potential = {
+		has_province_flag = nhs_ei_hippodrome_decay
+		# has_province_flag = nhs_elysian_improvement_decay
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = yes
+		# }
+	}
+	trigger = {
+		nhs_not_eligible_for_elysian_improvements = { MODIFIER = hippodrome }
+	}
+	local_build_cost = -0.05
+	local_unrest = 0.5
+	picture = "hippodrome_decay"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+to_silk_quarter_early_tm = {
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = silk_quarter }
+	}
+
+	trade_goods_size_modifier = 0.10
+	picture = "to_silk_quarter_skoros_silk"
+}
+
+to_silk_quarter_0_tm = {
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = silk_quarter }
+	}
+
+	trade_goods_size = 1
+	trade_goods_size_modifier = 0.10
+	picture = "to_silk_quarter_elysian_silk"
+}
+
+to_silk_quarter_1_tm = {
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = silk_quarter }
+	}
+
+	trade_goods_size = 2
+	trade_goods_size_modifier = 0.10
+	picture = "to_silk_quarter_elysian_silk"
+}
+
+to_silk_quarter_2_tm = {
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = silk_quarter }
+	}
+
+	trade_goods_size = 3
+	trade_goods_size_modifier = 0.10
+	picture = "to_silk_quarter_elysian_silk"
+}
+
+to_silk_quarter_3_tm = {
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = silk_quarter }
+	}
+
+	trade_goods_size = 3
+	trade_goods_size_modifier = 0.20
+	picture = "to_silk_quarter_elysian_silk"
+}
+
+to_silk_quarter_4_tm = {
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = silk_quarter }
+	}
+
+	trade_goods_size = 3
+	trade_goods_size_modifier = 0.20
+	merchants = 1
+	picture = "to_silk_quarter_elysian_silk"
+}
+
+to_silk_quarter_5_v1_tm = {
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = silk_quarter }
+	}
+
+	trade_goods_size = 5
+	trade_goods_size_modifier = 0.30
+	merchants = 1
+	improve_relation_modifier = 0.1
+	picture = "to_silk_quarter_elysian_silk"
+}
+
+to_silk_quarter_5_v2_tm = {
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = silk_quarter }
+	}
+
+	trade_goods_size = 5
+	trade_goods_size_modifier = 0.30
+	merchants = 1
+	global_trade_power = 0.1
+	picture = "to_silk_quarter_elysian_silk"
+}
+
+to_silk_quarter_5_v3_tm = {
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = silk_quarter }
+	}
+
+	trade_goods_size = 5
+	trade_goods_size_modifier = 0.30
+	merchants = 1
+	land_morale = 0.05
+	land_maintenance_modifier = 0.10
+	picture = "to_silk_quarter_elysian_silk"
+}
+
+nhs_elysian_arsenal_tm = {
+	potential = {
+		#NOT = { has_province_flag = nhs_ei_carthaginian_design_harbour_decay }
+		# NOT = { has_province_flag = nhs_elysian_improvement_decay }
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = { MODIFIER = gilded_keep }
+		# }
+		always = yes
+	}
+	trigger = {
+		nhs_eligible_for_elysian_improvements = { MODIFIER = elysian_arsenal }
+	}
+	ship_recruit_speed = -0.75
+	local_ship_repair = 0.75
+	local_ship_cost = -0.2
+	ship_durability = 0.05
+	global_ship_cost = -0.2
+	artillery_cost = -0.15
+	naval_forcelimit = 10
+	prestige = 0.01
+	picture = "nhs_venetian_arsenal"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs_elysian_arsenal_tm_decay = {
+	potential = {
+		has_province_flag = nhs_ei_elysian_arsenal_decay
+		# has_province_flag = nhs_elysian_improvement_decay
+		# owner = {
+			# nhs_eligible_for_elysian_improvements = { MODIFIER = carthaginian_design_harbour }
+		# }
+	}
+	trigger = {
+		nhs_not_eligible_for_elysian_improvements = { MODIFIER = elysian_arsenal }
+	}
+	ship_recruit_speed = -0.75
+	local_ship_repair = 0.75
+	local_ship_cost = -0.2
+	ship_durability = 0.05
+	global_ship_cost = -0.2
+	artillery_cost = -0.15
+	naval_forcelimit = 10
+	prestige = 0.01
+	picture = "nhs_venetian_arsenal_decay"
+	#Province scope
+	on_activation = {}
+	on_deactivation = {}
+}
+
+nhs2_traditional_patriarch_greek_tm = {
+	trigger = {
+		religion = orthodox
+	}
+	local_missionary_strength = -0.05
+
+	picture = "orthodox_patriarch"
+}
+
+nhs2_lantent_coal_tm = {
+	potential = {
+		if = {
+			limit = {
+				NOT = { trade_goods = coal_2 }
+			}
+			OR = {
+				development = 20
+				owner = {
+					full_idea_group = innovativeness_ideas
+				}
+			}
+			provincial_institution_progress = {
+				which = enlightenment
+				value = 100
+			}
+			owner = { has_institution = enlightenment }
+		}
+		else = {
+			NOT = {
+				AND = {
+					OR = {
+						development = 20
+						owner = {
+							full_idea_group = innovativeness_ideas
+						}
+					}
+					provincial_institution_progress = {
+						which = enlightenment
+						value = 100
+					}
+					owner = { has_institution = enlightenment }
+				}
+			}
+		}
+	}
+	trigger = {
+		always = yes
+	}
+
+	on_activation = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { trade_goods = coal_2 }
+				}
+				nhs_save_previous_goods = yes
+				remove_province_modifier = nhs2_lantent_coal
+				change_trade_goods = coal_2
+			}
+			else = {
+				nhs_load_previous_goods = yes
+				add_permanent_province_modifier = {
+					name = nhs2_lantent_coal
+					duration = -1
+				}
+			}
+
+		}
+	}
+	# on_deactivation = {
+	# 	hidden_effect = {
+	# 		nhs_load_previous_goods = yes
+	# 		add_permanent_province_modifier = {
+	# 			name = nhs2_lantent_coal
+	# 			duration = -1
+	# 		}
+	# 	}
+	# }
+
+	picture = "nhs_coal_icon"
+	#trade_goods_size = 0.05
+	#local_state_maintenance_modifier = -0.2
+}
+
+nhs2_lantent_coal_deactivate_tm = {
+	potential = {
+		trade_goods = coal_2
+		NOT = {
+			AND = {
+				OR = {
+					development = 20
+					owner = {
+						full_idea_group = innovativeness_ideas
+					}
+				}
+				provincial_institution_progress = {
+					which = enlightenment
+					value = 100
+				}
+				owner = { has_institution = enlightenment }
+			}
+		}
+	}
+	# viewer = {
+		# always = no
+	# }
+	trigger = {
+		NOT = {
+			AND = {
+				OR = {
+					development = 20
+					owner = {
+						full_idea_group = innovativeness_ideas
+					}
+				}
+				provincial_institution_progress = {
+					which = enlightenment
+					value = 100
+				}
+				owner = { has_institution = enlightenment }
+			}
+		}
+	}
+
+	on_activation = {
+		hidden_effect = {
+			nhs_load_previous_goods = yes
+			add_permanent_province_modifier = {
+				name = nhs2_lantent_coal
+				duration = -1
+			}
+		}
+	}
+	on_deactivation = {
+	}
+
+	picture = "nhs_coal_icon"
+	#trade_goods_size = 0.05
+	#local_state_maintenance_modifier = -0.2
+}
+
+nhs2_steam_engine_tm = {
+	trigger = {
+		if = {
+			limit = {
+				has_saved_global_event_target = to_great_mine_tm_province
+			}
+			event_target:to_great_mine_tm_province = {
+				owned_by = ROOT
+				has_building = furnace
+			}
+		}
+		else = {
+			always = no
+		}
+	}
+
+	trade_goods_size = 5
+	global_trade_goods_size_modifier = 0.05
+	technology_cost = -0.1
+	idea_cost = -0.1
+	picture = "nhs_steam_engine"
+}
+
+nhs2_great_mine_tm = {
+	trigger = {
+		has_building = furnace
+		if = {
+			limit = {
+				has_saved_global_event_target = to_steam_engine_tm_province
+			}
+			event_target:to_steam_engine_tm_province = {
+				owned_by = ROOT
+			}
+		}
+		else = {
+			always = no
+		}
+	}
+	trade_goods_size = 5
+	local_unrest = 5
+	global_trade_goods_size_modifier = -0.05
+	picture = "nhs_coal_wagon"
+}
+
+nhs2_ivos_naval_supplies_boost_tm = {
+	potential = {
+		always = no
+	}
+	trigger = {
+	}
+}
+
+to_por_gateway_to_elysia_tm = {
+	trigger = {
+		owner = {
+			has_country_modifier = nhs2_por_ely_trade
+		}
+	}
+	province_trade_power_value = 20
+	province_trade_power_modifier = 0.5
+	local_sailors_modifier = 0.5
+}
+
+nhs2_supply_lines_tm = {
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = nhs_owned_by_elysia_or_subject_tt
+			owner = {
+				nhs_is_elysian_tag_or_subject = yes
+			}
+		}
+	}
+
+	local_unrest = -10
+	local_ship_repair = 0.50
+	province_trade_power_value = 10
+	ship_recruit_speed = -0.25
+	regiment_recruit_speed = -0.25
+	supply_limit_modifier = 3
+	picture = "supply_limit_modifier"
+}
+
+nhs2_base_of_operations_tm = {
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = nhs_owned_by_elysia_or_subject_tt
+			owner = {
+				nhs_is_elysian_tag_or_subject = yes
+			}
+		}
+	}
+	local_defensiveness = 0.5
+	local_unrest = -10
+	supply_limit = 3
+	local_ship_repair = 0.50
+	picture = "defense_fort"
+
+	#Province scope
+	on_activation = {
+		if = {
+			limit = {
+				owner = {
+					is_subject = yes
+					nhs_check_all_elysian_tags_with_if = { CONDITION = is_subject_of }
+				}
+			}
+			owner = {
+				overlord = {
+					ROOT = {
+						cede_province = PREV
+					}
+				}
+			}
+		}
+	}
+	on_deactivation = {
+
+	}
+}
+
+nhs_hcd_exempt_from_disaster_tm = {
+	potential = {
+		is_empty = no
+		has_owner_culture = no
+		owner = {
+			has_disaster = nhs_hcd_hellenic_crisis
+		}
+	}
+
+	trigger = {
+		has_owner_culture = no
+		owner = {
+			has_disaster = nhs_hcd_hellenic_crisis
+		}
+	}
+
+	local_religious_unity_contribution = -1
+}
+
+nhs_ares_temple_tm = {
+	potential = {
+	}
+
+	trigger = {
+		has_building = cathedral
+		religion = pantheon_worship
+		owner = {
+			religion = pantheon_worship
+		}
+	}
+	picture = "nhs_parthenon"
+	free_land_leader_pool = 1
+	prestige_from_land = 0.25
+	local_manpower_modifier = 0.25
+}
+
+nhs_poseidon_temple_tm = {
+	potential = {
+	}
+
+	trigger = {
+		has_building = cathedral
+		religion = pantheon_worship
+		owner = {
+			religion = pantheon_worship
+		}
+	}
+	picture = "nhs_parthenon"
+	free_navy_leader_pool = 1
+	naval_morale = 0.05
+	local_sailors_modifier = 0.25
+}
+
+to_nhs_gateway_to_elysium_tm = {
+	trigger = {
+		owner = {
+			custom_trigger_tooltip = {
+				tooltip = to_at_least_90_trade_power_in_bay_of_elysia_tt
+				953 = {
+					trade_share = {
+						country = PREV
+						share = 90
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = to_owner_at_least_66_trade_power_in_kykladian_isles_tt
+				check_variable = {
+					which = to_kykladia_trade_share_total
+					value = 66
+				}
+			}
+		}
+	}
+
+	trade_steering = 0.15
+}
+
+to_nhs_gateway_to_elysium_2_tm = {
+	trigger = {
+		owner = {
+			custom_trigger_tooltip = {
+				tooltip = to_at_least_90_trade_power_in_bay_of_elysia_tt
+				953 = {
+					trade_share = {
+						country = PREV
+						share = 90
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = to_owner_at_least_66_trade_power_in_kykladian_isles_tt
+				check_variable = {
+					which = to_kykladia_trade_share_total
+					value = 66
+				}
+			}
+		}
+	}
+
+	trade_steering = 0.15
+	global_own_trade_power = 0.15
+	mercantilism_cost = -0.1
+
+	on_activation = {
+		every_province = {
+			limit = {
+				province_group = to_chesapeake_bay_trade_node
+			}
+			remove_province_modifier = to_gateway_to_elysium_trade_value_inactive
+			if = {
+				limit = {
+					NOT = { has_province_modifier = to_gateway_to_elysium_trade_value }
+				}
+				add_permanent_province_modifier = {
+					name = to_gateway_to_elysium_trade_value
+					duration = -1
+				}
+			}
+		}
+	}
+
+	on_deactivation = {
+		every_province = {
+			limit = {
+				province_group = to_chesapeake_bay_trade_node
+			}
+			remove_province_modifier = to_gateway_to_elysium_trade_value
+			if = {
+				limit = {
+					NOT = { has_province_modifier = to_gateway_to_elysium_trade_value_inactive }
+				}
+				add_permanent_province_modifier = {
+					name = to_gateway_to_elysium_trade_value_inactive
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+to_para_bellum_modifier_tm = {
+	trigger = {
+		NOT = { has_province_modifier = scorched_earth }
+		has_influencing_fort = yes
+		controller = {
+			mission_completed = to_para_bellum_mission
+		}
+	}
+	picture = "fort_level"
+
+	local_fort_maintenance_modifier = -0.5
+	local_hostile_movement_speed = -0.5
+	local_garrison_size = 0.5
+	local_monthly_devastation = -0.1
+}
+
+to_spared_from_greek_fire_tm = {
+	trigger = {
+		nhs_check_all_elysian_tags_with_if = { CONDITION = sieged_by }
+	}
+	picture = "to_spared_devastation_by_greek_fire"
+
+	local_defensiveness = 0.33
+}
+
+to_control_of_venice_tm = {
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = nhs_owned_by_elysia_or_subject_tt
+			owner = {
+				nhs_is_elysian_tag_or_subject = yes
+			}
+		}
+	}
+
+	province_trade_power_value = 10
+	province_trade_power_modifier = 0.10
+	local_sailors_modifier = 0.33
+	trade_value_modifier = 0.10
+
+	picture = "to_control_of_venice"
+}
+
+to_control_of_venice_upgraded_nodlc_tm = {
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = nhs_owned_by_elysia_or_subject_tt
+			owner = {
+				nhs_is_elysian_tag_or_subject = yes
+			}
+		}
+	}
+
+	province_trade_power_value = 20
+	province_trade_power_modifier = 0.25
+	local_governing_cost = -0.15
+	local_sailors_modifier = 1
+	trade_value_modifier = 0.25
+	galley_power = 0.10
+
+	picture = "to_control_of_venice"
+}
+
+to_control_of_venice_upgraded_tm = {
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = nhs_owned_by_elysia_or_subject_tt
+			owner = {
+				nhs_is_elysian_tag_or_subject = yes
+			}
+		}
+	}
+
+	province_trade_power_value = 20
+	province_trade_power_modifier = 0.25
+	local_ship_repair = 0.25
+	ship_recruit_speed = -0.25
+	local_governing_cost = -0.15
+	local_sailors_modifier = 1
+	trade_value_modifier = 0.25
+	has_galleass = yes
+	allowed_galleass_fraction = 0.25
+	local_has_galleass = yes
+
+	picture = "to_control_of_venice"
+}

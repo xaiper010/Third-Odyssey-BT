@@ -1,0 +1,1219 @@
+namespace = oth_ctm_events
+
+# Choose Heir
+country_event = {
+	id = oth_ctm_events.1
+	title = oth_ctm_events.1.t
+	desc = {
+		trigger = {
+			has_government_attribute = enables_nepotism
+			NOT = { has_country_flag = ctm_council_choose_your }
+		}
+		desc = oth_ctm_events.1.da
+	}
+	desc = {
+		trigger = {
+			NOT = { has_government_attribute = enables_nepotism }
+		}
+		desc = oth_ctm_events.1.db
+	}
+	desc = {
+		trigger = {
+			has_government_attribute = enables_nepotism
+			has_country_flag = ctm_council_choose_your
+		}
+		desc = oth_ctm_events.1.dc
+	}
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	trigger = {
+		has_reform = cretan_admiralty
+		has_heir = no
+		ruler_age = 30
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				70 = {
+					clr_country_flag = vov_female_heir_varangians
+				}
+				30 = {
+					set_country_flag = vov_female_heir_varangians
+				}
+			}
+			clr_country_flag = ctm_council_choose_adm
+			clr_country_flag = ctm_council_choose_dip
+			clr_country_flag = ctm_council_choose_mil
+			clr_country_flag = ctm_council_choose_your
+			nhs_heir_age_mm_10_pregen = { HT = 0 }
+			nhs_heir_age_mm_20_pregen = { HT = 1 }
+			nhs_heir_age_mm_20_pregen = { HT = 2 }
+			nhs_heir_age_mm_20_pregen = { HT = 3 }
+			if = {
+				limit = {
+					has_government_attribute = enables_nepotism
+				}
+				if = {
+					limit = {
+						faction_in_power = ctm_dynatoi
+					}
+					random_list = {
+						70 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						10 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						10 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+						10 = {
+							set_country_flag = ctm_council_choose_your
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						faction_in_power = ctm_patrikioi
+					}
+					random_list = {
+						10 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						70 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						10 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+						10 = {
+							set_country_flag = ctm_council_choose_your
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						faction_in_power = ctm_admiralty
+					}
+					random_list = {
+						10 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						10 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						60 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+						20 = {
+							set_country_flag = ctm_council_choose_your
+						}
+					}
+				}
+				else = {
+					random_list = {
+						70 = {
+							set_country_flag = ctm_council_choose_your
+						}
+						10 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						10 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						10 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						faction_in_power = ctm_dynatoi
+					}
+					random_list = {
+						70 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						15 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						15 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						faction_in_power = ctm_patrikioi
+					}
+					random_list = {
+						15 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						70 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						15 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						faction_in_power = ctm_admiralty
+					}
+					random_list = {
+						15 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						15 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						70 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+					}
+				}
+				else = {
+					random_list = {
+						30 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						30 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						30 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	after = {
+		set_country_flag = vov_varangian_has_heir
+		clr_country_flag = ctm_council_choose_adm
+		clr_country_flag = ctm_council_choose_dip
+		clr_country_flag = ctm_council_choose_mil
+		clr_country_flag = ctm_council_choose_your
+		clr_country_flag = vov_female_heir_varangians
+	}
+
+	option = { # Nepotism choice, re-electing within dynasty
+		name = "oth_ctm_events.1.a"
+		trigger = {
+			has_government_attribute = enables_nepotism
+		}
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 75 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = ctm_council_choose_your }
+			}
+			add_republican_tradition = -25
+		}
+		if = {
+			limit = { has_active_policy = mandatory_service }
+			if = {
+				limit = {
+					has_country_flag = vov_female_heir_varangians
+				}
+				nhs_heir_age_mm_10 = {
+					AGE1 = 2
+					MIN_R_ADM = 1
+					MIN_R_DIP = 1
+					MIN_R_MIL = 1
+					DYNASTY = ROOT
+					IS_FEMALE = yes
+					HT = 0
+				}
+			}
+			else = {
+				nhs_heir_age_mm_10 = {
+					AGE1 = 2
+					MIN_R_ADM = 1
+					MIN_R_DIP = 1
+					MIN_R_MIL = 1
+					DYNASTY = ROOT
+					IS_MALE = yes
+					HT = 0
+				}
+			}
+		}
+		else = {
+			nhs_heir_age_mm_10 = {
+				AGE1 = 2
+				DYNASTY = ROOT
+				IS_MALE = yes
+				HT = 0
+			}
+		}
+		set_country_flag = vov_varangian_has_heir
+		hidden_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_ruler_flag = to_ruler_loukas
+						has_ruler_flag = to_ruler_loukas_descendant
+					}
+				}
+				set_heir_flag = to_ruler_loukas_descendant
+			}
+		}
+	}
+	option = {
+		name = "oth_ctm_events.1.be"	# Landed Nobility Elected
+		ai_chance = {
+			factor = 40
+		}
+		trigger = {
+			has_country_flag = ctm_council_choose_adm
+		}
+		custom_tooltip = ctm_choose_adm_ruler_tt
+		hidden_effect = {
+			if = {
+				limit = { has_active_policy = mandatory_service }
+				if = {
+					limit = {
+						has_country_flag = vov_female_heir_varangians
+					}
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_ADM = 1
+						MAX_R_DIP = 3
+						IS_FEMALE = yes
+						HT = 1
+					}
+				}
+				else = {
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_ADM = 1
+						MAX_R_DIP = 3
+						IS_MALE = yes
+						HT = 1
+					}
+				}
+			}
+			else = {
+				nhs_heir_age_mm_20 = {
+					AGE1 = 3
+					AGE2 = 4
+					MIN_R_ADM = 1
+					MAX_R_DIP = 3
+					IS_FEMALE = yes
+					HT = 1
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_faction = ctm_dynatoi
+			}
+			add_faction_influence = {
+				faction = ctm_dynatoi
+				influence = 20
+			}				
+		}
+		set_country_flag = vov_varangian_has_heir
+	}
+	option = {
+		name = "oth_ctm_events.1.ce"	# Merchant Nobility Elected
+		ai_chance = { factor = 40 }
+		trigger = {
+			has_country_flag = ctm_council_choose_dip
+		}
+		custom_tooltip = ctm_choose_dip_ruler_tt
+		hidden_effect = {
+			if = {
+				limit = { has_active_policy = mandatory_service }
+				if = {
+					limit = {
+						has_country_flag = vov_female_heir_varangians
+					}
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_DIP = 1
+						MAX_R_MIL = 3
+						IS_FEMALE = yes
+						HT = 2
+					}
+				}
+				else = {
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_DIP = 1
+						MAX_R_MIL = 3
+						IS_MALE = yes
+						HT = 2
+					}
+				}
+			}
+			else = {
+				nhs_heir_age_mm_20 = {
+					AGE1 = 3
+					AGE2 = 4
+					MIN_R_DIP = 1
+					MAX_R_MIL = 3
+					IS_MALE = yes
+					HT = 2
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_faction = ctm_patrikioi
+			}
+			add_faction_influence = {
+				faction = ctm_patrikioi
+				influence = 20
+			}				
+		}
+		set_country_flag = vov_varangian_has_heir
+	}
+	option = {
+		name = "oth_ctm_events.1.ee"	# Admirality Elected
+		trigger = {
+			has_country_flag = ctm_council_choose_mil
+		}
+		ai_chance = { factor = 40 }
+		custom_tooltip = ctm_choose_mil_ruler_tt
+		hidden_effect = {
+			if = {
+				limit = { has_active_policy = mandatory_service }
+				if = {
+					limit = {
+						has_country_flag = vov_female_heir_varangians
+					}
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_MIL = 1
+						MAX_R_ADM = 3
+						IS_FEMALE = yes
+						HT = 3
+					}
+				}
+				else = {
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_MIL = 1
+						MAX_R_ADM = 3
+						IS_MALE = yes
+						HT = 3
+					}
+				}
+			}
+			else = {
+				nhs_heir_age_mm_20 = {
+					AGE1 = 3
+					AGE2 = 4
+					MIN_R_MIL = 1
+					MAX_R_ADM = 3
+					IS_MALE = yes
+					HT = 3
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_faction = ctm_admiralty
+			}
+			add_faction_influence = {
+				faction = ctm_admiralty
+				influence = 20
+			}				
+		}
+		set_country_flag = vov_varangian_has_heir
+	}
+	option = {
+		name = "oth_ctm_events.1.b"	# Landed Nobility
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 75 }
+			}
+		}
+		trigger = {
+			NOT = { has_country_flag = ctm_council_choose_adm }
+		}
+		custom_tooltip = ctm_choose_adm_ruler_tt
+		add_republican_tradition = -25
+		hidden_effect = {
+			if = {
+				limit = { has_active_policy = mandatory_service }
+				if = {
+					limit = {
+						has_country_flag = vov_female_heir_varangians
+					}
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_ADM = 1
+						MAX_R_DIP = 3
+						IS_FEMALE = yes
+						HT = 1
+					}
+				}
+				else = {
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_ADM = 1
+						MAX_R_DIP = 3
+						IS_MALE = yes
+						HT = 1
+					}
+				}
+			}
+			else = {
+				nhs_heir_age_mm_20 = {
+					AGE1 = 3
+					AGE2 = 4
+					MIN_R_ADM = 1
+					MAX_R_DIP = 3
+					IS_FEMALE = yes
+					HT = 1
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_faction = ctm_dynatoi
+			}
+			add_faction_influence = {
+				faction = ctm_dynatoi
+				influence = 40
+			}				
+		}
+		set_country_flag = vov_varangian_has_heir
+	}
+	
+	option = {
+		name = "oth_ctm_events.1.c"	# Merchant Nobility
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 75 }
+			}
+		}
+		trigger = {
+			NOT = { has_country_flag = ctm_council_choose_dip }
+		}
+		custom_tooltip = ctm_choose_dip_ruler_tt
+		add_republican_tradition = -25
+		hidden_effect = {
+			if = {
+				limit = { has_active_policy = mandatory_service }
+				if = {
+					limit = {
+						has_country_flag = vov_female_heir_varangians
+					}
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_DIP = 1
+						MAX_R_MIL = 3
+						IS_FEMALE = yes
+						HT = 2
+					}
+				}
+				else = {
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_DIP = 1
+						MAX_R_MIL = 3
+						IS_MALE = yes
+						HT = 2
+					}
+				}
+			}
+			else = {
+				nhs_heir_age_mm_20 = {
+					AGE1 = 3
+					AGE2 = 4
+					MIN_R_DIP = 1
+					MAX_R_MIL = 3
+					IS_MALE = yes
+					HT = 2
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_faction = ctm_patrikioi
+			}
+			add_faction_influence = {
+				faction = ctm_patrikioi
+				influence = 40
+			}				
+		}
+		set_country_flag = vov_varangian_has_heir
+	}
+	option = {
+		name = "oth_ctm_events.1.e"	# Admirality
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 75 }
+			}
+		}
+		trigger = {
+			NOT = { has_country_flag = ctm_council_choose_mil }
+		}
+		custom_tooltip = ctm_choose_mil_ruler_tt
+		add_republican_tradition = -25
+		hidden_effect = {
+			if = {
+				limit = { has_active_policy = mandatory_service }
+				if = {
+					limit = {
+						has_country_flag = vov_female_heir_varangians
+					}
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_MIL = 1
+						MAX_R_ADM = 3
+						IS_FEMALE = yes
+						HT = 3
+					}
+				}
+				else = {
+					nhs_heir_age_mm_20 = {
+						AGE1 = 3
+						AGE2 = 4
+						MIN_R_MIL = 1
+						MAX_R_ADM = 3
+						IS_MALE = yes
+						HT = 3
+					}
+				}
+			}
+			else = {
+				nhs_heir_age_mm_20 = {
+					AGE1 = 3
+					AGE2 = 4
+					MIN_R_MIL = 1
+					MAX_R_ADM = 3
+					IS_MALE = yes
+					HT = 3
+				}
+			}
+		}
+		if = {
+			limit = { 
+				has_faction = ctm_admiralty
+			}
+			add_faction_influence = {
+				faction = ctm_admiralty
+				influence = 40
+			}				
+		}
+		set_country_flag = vov_varangian_has_heir
+	}
+}
+
+# Election on death
+country_event = {
+	id = oth_ctm_events.2
+	title = oth_ctm_events.2.t
+	desc = {
+		trigger = {
+			has_government_attribute = enables_nepotism
+			NOT = { has_country_flag = ctm_council_choose_your }
+		}
+		desc = oth_ctm_events.2.da
+	}
+	desc = {
+		trigger = {
+			NOT = { has_government_attribute = enables_nepotism }
+		}
+		desc = oth_ctm_events.2.db
+	}
+	desc = {
+		trigger = {
+			has_government_attribute = enables_nepotism
+			has_country_flag = ctm_council_choose_your
+		}
+		desc = oth_ctm_events.2.dc
+	}
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = cretan_admiralty
+		NOT = { has_country_flag = vov_varangian_has_heir }
+	}
+	
+	immediate = {
+		hidden_effect = {
+			add_stability = -1
+			clr_country_flag = ctm_council_choose_adm
+			clr_country_flag = ctm_council_choose_dip
+			clr_country_flag = ctm_council_choose_mil
+			clr_country_flag = ctm_council_choose_your
+			if = {
+				limit = {
+					has_government_attribute = enables_nepotism
+				}
+				if = {
+					limit = {
+						faction_in_power = ctm_dynatoi
+					}
+					random_list = {
+						40 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						20 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						20 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+						20 = {
+							set_country_flag = ctm_council_choose_your
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						faction_in_power = ctm_patrikioi
+					}
+					random_list = {
+						20 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						40 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						20 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+						20 = {
+							set_country_flag = ctm_council_choose_your
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						faction_in_power = ctm_admiralty
+					}
+					random_list = {
+						20 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						20 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						30 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+						30 = {
+							set_country_flag = ctm_council_choose_your
+						}
+					}
+				}
+				else = {
+					random_list = {
+						40 = {
+							set_country_flag = ctm_council_choose_your
+						}
+						20 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						20 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						20 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						faction_in_power = ctm_dynatoi
+					}
+					random_list = {
+						50 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						25 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						25 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						faction_in_power = ctm_patrikioi
+					}
+					random_list = {
+						25 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						50 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						25 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						faction_in_power = ctm_admiralty
+					}
+					random_list = {
+						25 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						25 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						50 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+					}
+				}
+				else = {
+					random_list = {
+						30 = {
+							set_country_flag = ctm_council_choose_adm
+						}
+						30 = {
+							set_country_flag = ctm_council_choose_dip
+						}
+						30 = {
+							set_country_flag = ctm_council_choose_mil
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "oth_ctm_events.2.a"
+		if = {
+			limit = {
+				has_country_flag = ctm_council_choose_your
+			}
+			custom_tooltip = oth_ctm_events.2.tt.a
+			custom_tooltip = nhs_new_line_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						OR = {
+							has_ruler_flag = to_ruler_loukas
+							has_ruler_flag = to_ruler_loukas_descendant
+						}
+					}
+					set_country_flag = to_ruler_loukas_descendant_remember
+				}
+			}
+			if = {
+				limit = { has_active_policy = mandatory_service }
+				define_ruler = {
+					change_adm = 1
+					change_dip = 1
+					change_mil = 1
+					min_age = 30
+					max_age = 60
+					random_gender = yes # Allows random gender for republics
+				}
+			}
+			else = {
+				define_ruler = {
+					change_adm = 1
+					change_dip = 1
+					change_mil = 1
+					min_age = 30
+					max_age = 60
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = to_ruler_loukas_descendant_remember
+					}
+					clr_country_flag = to_ruler_loukas_descendant_remember
+					set_ruler_flag = to_ruler_loukas_descendant
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_country_flag = ctm_council_choose_adm
+			}
+			custom_tooltip = oth_ctm_events.2.tt.b
+			if = {
+				limit = { 
+					has_faction = ctm_dynatoi
+				}
+				add_faction_influence = {
+					faction = ctm_dynatoi
+					influence = 20
+				}				
+			}
+			custom_tooltip = nhs_new_line_tt
+			if = {
+				limit = { has_active_policy = mandatory_service }
+				define_ruler = {
+					change_adm = 1
+					max_random_dip = 3
+					min_age = 30
+					max_age = 50
+					random_gender = yes
+				}
+			}
+			else = {
+				define_ruler = {
+					change_adm = 1
+					max_random_dip = 3
+					min_age = 30
+					max_age = 50
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_country_flag = ctm_council_choose_dip
+			}
+			custom_tooltip = oth_ctm_events.2.tt.c
+			if = {
+				limit = { 
+					has_faction = ctm_patrikioi
+				}
+				add_faction_influence = {
+					faction = ctm_patrikioi
+					influence = 20
+				}				
+			}
+			custom_tooltip = nhs_new_line_tt
+			if = {
+				limit = { has_active_policy = mandatory_service }
+				define_ruler = {
+					change_dip = 1
+					max_random_mil = 3
+					min_age = 20
+					max_age = 40
+					random_gender = yes
+				}
+			}
+			else = {
+				define_ruler = {
+					change_dip = 1
+					max_random_mil = 3
+					min_age = 20
+					max_age = 40
+				}
+			}
+		}
+		else = {
+			custom_tooltip = oth_ctm_events.2.tt.d
+			if = {
+				limit = { 
+					has_faction = ctm_admiralty
+				}
+				add_faction_influence = {
+					faction = ctm_admiralty
+					influence = 20
+				}				
+			}
+			custom_tooltip = nhs_new_line_tt
+			if = {
+				limit = { has_active_policy = mandatory_service }
+				define_ruler = {
+					change_mil = 1
+					max_random_adm = 3
+					min_age = 30
+					max_age = 50
+					random_gender = yes
+				}
+			}
+			else = {
+				define_ruler = {
+					change_mil = 1
+					max_random_adm = 3
+					min_age = 30
+					max_age = 50
+				}
+			}
+		}
+		clr_country_flag = ctm_council_choose_adm
+		clr_country_flag = ctm_council_choose_dip
+		clr_country_flag = ctm_council_choose_mil
+		clr_country_flag = ctm_council_choose_your
+	}
+}
+
+# CM1 survivors left on their own
+country_event = {
+	id = oth_ctm_events.3
+	title = oth_ctm_events.3.t
+	desc = oth_ctm_events.3.d
+	picture = BYZANTINE_EMPEROR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = CM1
+	}
+
+	immediate = {
+		set_country_flag = cm1_elysia_made_its_decision
+	}
+	
+	option = {	
+		name = oth_ctm_events.3.a
+		# if = {
+		# 	limit = {
+		# 		FROM = {
+		# 			OR = {
+		# 				religion = orthodox
+		# 				religion = elysian_orthodoxy
+		# 			}
+		# 		}
+		# 	}
+		# 	add_stability = -1
+		# 	add_prestige = -20
+		# }
+		add_stability = -1
+		add_treasury = 100
+		# Set flag for free colonies event
+		set_country_flag = nhs_hadevent_othersevents53
+	}
+}
+
+# Events that launch CM1 colonies
+country_event = {
+	id = oth_ctm_events.4
+	title = oth_ctm_events.4.t
+	desc = oth_ctm_events.4.d
+	picture = caribbean_arrival_eventPicture
+
+	goto = kretan_colony
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CM1
+		NOT = { has_country_flag = cm1_had_spawned_colonies }
+		AND = {
+			has_country_flag = cm1_elysia_made_its_decision
+			is_subject = no
+		}
+		# Double check
+		NOT = { has_country_flag = cm1_had_spawned_colonies }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		set_country_flag = cm1_had_spawned_colonies
+		hidden_effect = {
+			to_nhs_discover_carribean = { TAG = ROOT }
+			add_country_modifier = {
+				name = nhs_early_uprising_reduction
+				duration = 7300
+			}
+			to_cm1_spawn_carribean_colony = { EVENT_TARGET = kretan_colony }
+		}
+	}
+
+	option = {
+		name = oth_ctm_events.4.a
+		# add_base_tax = -1
+		# add_base_manpower = -2
+		if = {
+			limit = {
+				NOT = { num_of_colonists = 1 }
+			}
+			add_country_modifier = {
+				name = "nhs_new_world"
+				duration = -1
+				DESC = "UNTIL_SECOND_COLONIST"
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = nhs_europe_discovered_got
+			}
+			remove_country_modifier = nhs_constrained_resources
+		}
+		else = {
+			custom_tooltip = to_cm1_modify_constrained_resources_tt
+			custom_tooltip = nhs_new_line_tt
+			hidden_effect = {
+				remove_country_modifier = nhs_constrained_resources
+				if = {
+					limit = {
+						NOT = { has_country_flag = nhs_europe_discovered_got }
+					}
+					add_country_modifier = {
+						name = nhs_constrained_resources_cm1
+						duration = -1
+					}
+				}
+			}
+		}
+		tooltip = {
+			add_country_modifier = {
+				name = nhs_early_uprising_reduction_tooltip
+				duration = 7300
+			}
+		}
+		random_province = {
+			limit = {
+				region = carribeans_region
+				any_neighbor_province = { 
+					owned_by = ROOT 
+				}
+				is_empty = yes
+			}
+			custom_tooltip = cm1_colonise_tt
+			hidden_effect = {
+				save_event_target_as = second_kretan_colony
+			}
+			change_culture = ROOT
+			change_religion = ROOT
+			hidden_effect = {
+				set_province_flag = to_static_colonial_culture
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_saved_event_target = second_kretan_colony
+				}
+				capital_scope = {
+					event_target:second_kretan_colony = {
+						create_colony = 400
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = oth_ctm_events.5
+	title = oth_ctm_events.5.t
+	desc = oth_ctm_events.5.d
+	picture = caribbean_arrival_eventPicture
+
+	goto = kretan_colony
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = CM1
+		# Double check
+		NOT = { has_country_flag = cm1_had_spawned_colonies }
+	}
+	
+	immediate = {
+		set_country_flag = cm1_had_spawned_colonies
+	}
+
+	option = {
+		name = oth_ctm_events.5.a
+		if = {
+			limit = {
+				NOT = { num_of_colonists = 1 }
+			}
+			add_country_modifier = {
+				name = "nhs_new_world"
+				duration = -1
+				DESC = "UNTIL_SECOND_COLONIST"
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = nhs_europe_discovered_got
+			}
+			remove_country_modifier = nhs_constrained_resources
+		}
+		else = {
+			custom_tooltip = to_cm1_modify_constrained_resources_tt
+			custom_tooltip = nhs_new_line_tt
+			hidden_effect = {
+				remove_country_modifier = nhs_constrained_resources
+				if = {
+					limit = {
+						NOT = { has_country_flag = nhs_europe_discovered_got }
+					}
+					add_country_modifier = {
+						name = nhs_constrained_resources_cm1
+						duration = -1
+					}
+				}
+			}
+		}
+		tooltip = {
+			add_country_modifier = {
+				name = nhs_early_uprising_reduction_tooltip
+				duration = 7300
+			}
+		}
+		random_province = {
+			limit = {
+				region = carribeans_region
+				any_neighbor_province = { 
+					owned_by = ROOT 
+				}
+				is_empty = yes
+			}
+			custom_tooltip = cm1_colonise_tt
+			hidden_effect = {
+				save_event_target_as = second_kretan_colony
+			}
+			change_culture = ROOT
+			change_religion = ROOT
+			hidden_effect = {
+				to_set_appropriate_elysian_culture = yes
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_saved_event_target = second_kretan_colony
+				}
+				capital_scope = {
+					event_target:second_kretan_colony = {
+						create_colony = 400
+						hidden_effect = {
+							to_set_appropriate_elysian_culture = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}

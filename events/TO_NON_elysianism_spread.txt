@@ -1,0 +1,36 @@
+namespace = nhs2_p
+
+# Hidden events that speed up institution spread across North America
+
+country_event = {
+	id = nhs2_p.5
+	title = nhs2_p.5.t
+	desc = nhs2_p.5.d
+	picture = COURT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+	option = {
+		name = nhs2_bookmark.3.a
+	}
+}
+
+country_event = {
+	id = nhs2_p.1
+	title = nhs2_p.1.t
+	desc = nhs2_p.1.d
+	picture = COURT_eventPicture
+	
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+	}
+	
+	option = {
+		name = nhs2_bookmark.3.a
+	}
+}

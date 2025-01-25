@@ -1,0 +1,625 @@
+namespace = nhs2_aievents
+
+# AI colonisation help 1 - Elysia make a colony
+country_event = {
+	id = nhs2_aievents.1
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		ai = yes
+		NOT = { num_of_colonies = 1 }
+		OR = {
+			is_subject = no
+			is_subject_of_type = to_confederation_subject
+		}
+		num_of_colonists = 1
+		NOT = { has_country_modifier = nhs2_ai_colonising_timer }
+		any_province = {
+			OR = {
+				any_neighbor_province = {
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_colonial_nation_of = ROOT
+						}
+					}
+				}
+				AND = {
+					has_port = yes
+					has_discovered = ROOT
+					range = ROOT
+					OR = {
+						region = northeast_america_region
+						region = southeast_america_region
+						region = mississippi_region
+						region = rio_grande_region
+						region = carribeans_region
+					}
+				}
+			}
+		}
+		# any_owned_province = {
+		# 	has_empty_adjacent_province = yes
+		# }
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	immediate = {
+		add_country_modifier = {
+			name = nhs2_ai_colonising_timer
+			duration = 20
+			hidden = yes
+		}
+		capital_scope = {
+			save_event_target_as = capital_province
+		}
+		## Homelands
+		random_owned_province = {
+			limit = {
+				any_empty_neighbor_province = {
+					nhs_homelands_no_capital = yes
+				}
+			}
+			random_empty_neighbor_province = {
+				limit = {
+					nhs_homelands_no_capital = yes
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		## COT
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						has_port = yes
+						province_has_center_of_trade_of_level = 1
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						has_port = yes
+						province_has_center_of_trade_of_level = 1
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					is_empty = yes
+					province_has_center_of_trade_of_level = 1
+					any_neighbor_province = {
+						OR = {
+							owned_by = ROOT
+							owner = {
+								is_colonial_nation_of = ROOT
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		## LOCK DOWN EAST COAST
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						OR = {
+							region = northeast_america_region
+							region = southeast_america_region
+						}
+						has_port = yes
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						OR = {
+							region = northeast_america_region
+							region = southeast_america_region
+						}
+						has_port = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					has_discovered = ROOT
+					range = ROOT
+					OR = {
+						region = northeast_america_region
+						region = southeast_america_region
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		## LOCK DOWN MISSISSIPPI REGION
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						region = mississippi_region
+						has_port = yes
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						region = mississippi_region
+						has_port = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					has_discovered = ROOT
+					range = ROOT
+					region = mississippi_region
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		## LOCK DOWN RIO GRANDE REGION
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						region = mississippi_region
+						has_port = yes
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						region = mississippi_region
+						has_port = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					has_discovered = ROOT
+					range = ROOT
+					region = mississippi_region
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		## FINISH COLONISING EAST COAST
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						OR = {
+							region = northeast_america_region
+							region = southeast_america_region
+						}
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						OR = {
+							region = northeast_america_region
+							region = southeast_america_region
+						}
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		## FOCUS ON CARRIBEAN
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						region = carribeans_region
+						has_port = yes
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						region = carribeans_region
+						has_port = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					has_discovered = ROOT
+					range = ROOT
+					region = carribeans_region
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		# NEIGHBORING PROVINCES
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					has_port = yes
+					has_empty_adjacent_province = yes
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						has_port = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					any_neighbor_province = {
+						OR = {
+							owned_by = ROOT
+							owner = {
+								is_colonial_nation_of = ROOT
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					has_empty_adjacent_province = yes
+				}
+				random_empty_neighbor_province = {
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					is_empty = yes
+					any_neighbor_province = {
+						OR = {
+							owned_by = ROOT
+							owner = {
+								is_colonial_nation_of = ROOT
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		## DISTANT PROVINCE
+		# if = {
+		# 	limit = {
+		# 		NOT = { has_saved_event_target = ai_help_colony }
+		# 	}
+		# 	random_province = {
+		# 		limit = {
+		# 			has_port = yes
+		# 			is_empty = yes
+		# 			has_discovered = ROOT
+		# 			range = ROOT
+		# 		}
+		# 		save_event_target_as = ai_help_colony
+		# 	}
+		# }
+		
+		if = {
+			limit = {
+				has_saved_event_target = ai_help_colony
+			}
+			capital_scope = {
+				event_target:ai_help_colony = {
+					if = {
+						limit = {
+							nhs_homelands_no_capital = yes
+						}
+						create_colony = 75
+					}
+					else = {
+						create_colony = 20
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = nhs2_hidden.a
+	}
+}
+
+
+# AI colonisation help 2 - Others make a colony
+country_event = {
+	id = nhs2_aievents.2
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = SHQ
+			tag = CM1
+			was_tag = CM1
+			nhs_check_all_elysian_tags_expanded = { CONDITION = tag }
+		}
+		ai = yes
+		NOT = { num_of_colonies = 1 }
+		num_of_colonists = 1
+		NOT = { has_country_modifier = nhs2_ai_colonising_timer }
+		is_subject = no
+		NOT = { num_of_cities = 50 }
+		# Wanted to extend the help to subject with a good balance, but apparently current_income_balance does ignore the subsidies. Fun.
+		# OR = {
+		# 	AND = {
+		# 		is_subject = no
+		# 		NOT = { num_of_cities = 20 }
+		# 	}
+		# 	AND = {
+		# 		OR = {
+		# 			tag = CM1
+		# 			was_tag = CM1
+		# 		}
+		# 		current_income_balance = 3
+		# 	}
+		# }
+		OR = {
+			any_owned_province = {
+				has_empty_adjacent_province = yes
+			}
+			any_province = {
+				has_port = yes
+				is_empty = yes
+				has_discovered = ROOT
+				range = ROOT
+			}
+		}
+		# OR = {
+		# 	any_owned_province = {
+		# 		has_empty_adjacent_province = yes
+		# 	}
+		# 	any_province = {
+		# 		is_empty = yes
+		# 		range = ROOT
+		# 		has_discovered = ROOT
+		# 		OR = {
+		# 			has_port = yes
+		# 			any_neighbor_province = {
+		# 				OR = {
+		# 					owned_by = ROOT
+		# 					owner = {
+		# 						is_colonial_nation_of = ROOT
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		add_country_modifier = {
+			name = nhs2_ai_colonising_timer
+			duration = 20
+			hidden = yes
+		}
+		capital_scope = {
+			save_event_target_as = capital_province
+		}
+		## COT
+		random_owned_province = {
+			limit = {
+				any_empty_neighbor_province = {
+					has_port = yes
+					province_has_center_of_trade_of_level = 1
+				}
+			}
+			random_empty_neighbor_province = {
+				limit = {
+					has_port = yes
+					province_has_center_of_trade_of_level = 1
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					is_empty = yes
+					province_has_center_of_trade_of_level = 1
+					any_neighbor_province = {
+						OR = {
+							owned_by = ROOT
+							owner = {
+								is_colonial_nation_of = ROOT
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		## PORT
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						has_port = yes
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						has_port = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					any_neighbor_province = {
+						OR = {
+							owned_by = ROOT
+							owner = {
+								is_colonial_nation_of = ROOT
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		## NEIGHBORING PROVINCE
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					has_empty_adjacent_province = yes
+				}
+				random_empty_neighbor_province = {
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		## DISTANT PROVINCE
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					has_discovered = ROOT
+					range = ROOT
+					event_target:capital_province = {
+						region = PREV
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					has_port = yes
+					is_empty = yes
+					has_discovered = ROOT
+					range = ROOT
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		
+		if = {
+			limit = {
+				has_saved_event_target = ai_help_colony
+			}
+			capital_scope = {
+				event_target:ai_help_colony = {
+					create_colony = 20
+				}
+			}
+		}
+	}
+
+	option = {
+		name = nhs2_hidden.a
+	}
+}

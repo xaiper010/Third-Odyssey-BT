@@ -1,0 +1,17 @@
+# 980 - Beothuk
+add_core = MK1
+owner = MK1
+controller = MK1
+culture = vinlandic
+religion = norse_pagan_reformed
+capital = "Leifsbudir"
+trade_goods = fish
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 2
+native_size = 5
+native_ferocity = 1
+native_hostileness = 4
+discovered_by = north_american
+discovered_by = viking

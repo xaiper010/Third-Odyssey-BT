@@ -1,0 +1,847 @@
+namespace = to_janissary_events
+
+# Frontier Skirmishes
+country_event = {
+	id = to_janissary_events.1
+	title = to_janissary_events.1.t
+	desc = to_janissary_events.1.d
+	picture = tur_MILITARY_CAMP_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		has_country_flag = nhs_new_flight_taken_turks
+		num_of_cities = 2
+		any_owned_province = {
+			is_colony = yes
+			colonysize = 400
+		}
+	}
+
+	after = {
+		set_country_flag = to_had_janissary_events_1
+	}
+
+	option = {
+		name = "to_janissary_events.1.a"
+		define_conquistador = {
+			name = "Orhan Çelebi"
+			shock = 3
+			fire = 3
+			manuever = 2
+			siege = 1
+			trait = siege_specialist_personality
+		}
+		if = {
+			limit = {
+				OR = {
+					has_dlc = "Cradle of Civilization"
+					has_dlc = "Domination"
+				}
+			}
+			add_manpower = 2
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					is_colony = yes
+					colonysize = 400
+					controlled_by = ROOT
+					has_siege = no
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_colony = yes
+					colonysize = 400
+					controlled_by = ROOT
+					has_siege = no
+				}
+				to_spawn_janissary_regiments = { INFANTRY_WITHOUT_DLC = yes }
+				add_colonysize = 400
+				add_base_manpower = 2
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					OR = {
+						capital_scope = {
+							controlled_by = ROOT
+							has_siege = no
+						}
+					}
+				}
+				capital_scope = {
+					to_spawn_janissary_regiments = { INFANTRY_WITHOUT_DLC = yes }
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						controlled_by = ROOT
+						has_siege = no
+					}
+				}
+				random_owned_province = {
+					limit = {
+						controlled_by = ROOT
+						has_siege = no
+					}
+					to_spawn_janissary_regiments = { INFANTRY_WITHOUT_DLC = yes }
+				}
+			}
+			else = {
+				capital_scope = {
+					to_spawn_janissary_regiments = { INFANTRY_WITHOUT_DLC = yes }
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_colony = yes
+					colonysize = 400
+				}
+				add_colonysize = 400
+				add_base_manpower = 2
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		every_province = {
+			limit = {
+				nhs_homelands_no_capital = yes
+				OR = {
+					is_colony = yes
+					is_empty = yes
+				}
+			}
+			change_native_ferocity = -10
+			change_native_hostileness = -10
+		}
+	}
+	
+	option = {
+		name = "to_janissary_events.1.b"
+		if = {
+			limit = {
+				is_year = 1450
+			}
+			define_advisor = {
+				type = commandant
+				name = "Orhan Çelebi"
+				skill = 2
+				culture = turkish
+				religion = sunni
+				cost_multiplier = 0.25
+				female = no
+				age = 38
+			}
+		}
+		else_if = {
+			limit = {
+				is_year = 1449
+			}
+			define_advisor = {
+				type = commandant
+				name = "Orhan Çelebi"
+				skill = 2
+				culture = turkish
+				religion = sunni
+				cost_multiplier = 0.25
+				female = no
+				age = 37
+			}
+		}
+		else_if = {
+			limit = {
+				is_year = 1448
+			}
+			define_advisor = {
+				type = commandant
+				name = "Orhan Çelebi"
+				skill = 2
+				culture = turkish
+				religion = sunni
+				cost_multiplier = 0.25
+				female = no
+				age = 36
+			}
+		}
+		else_if = {
+			limit = {
+				is_year = 1447
+			}
+			define_advisor = {
+				type = commandant
+				name = "Orhan Çelebi"
+				skill = 2
+				culture = turkish
+				religion = sunni
+				cost_multiplier = 0.25
+				female = no
+				age = 35
+			}
+		}
+		else_if = {
+			limit = {
+				is_year = 1446
+			}
+			define_advisor = {
+				type = commandant
+				name = "Orhan Çelebi"
+				skill = 2
+				culture = turkish
+				religion = sunni
+				cost_multiplier = 0.25
+				female = no
+				age = 34
+			}
+		}
+		else_if = {
+			limit = {
+				is_year = 1445
+			}
+			define_advisor = {
+				type = commandant
+				name = "Orhan Çelebi"
+				skill = 2
+				culture = turkish
+				religion = sunni
+				cost_multiplier = 0.25
+				female = no
+				age = 33
+			}
+		}
+		else = {
+			define_advisor = {
+				type = commandant
+				name = "Orhan Çelebi"
+				skill = 2
+				culture = turkish
+				religion = sunni
+				cost_multiplier = 0.25
+				female = no
+				age = 32
+			}
+		}
+		add_manpower = 2
+		if = {
+			limit = {
+				capital_scope = {
+					controlled_by = ROOT
+					has_siege = no
+				}
+			}
+			capital_scope = {
+				to_spawn_janissary_regiments = {}
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_province = {
+					controlled_by = ROOT
+					has_siege = no
+				}
+			}
+			random_owned_province = {
+				limit = {
+					controlled_by = ROOT
+					has_siege = no
+				}
+				to_spawn_janissary_regiments = {}
+			}
+		}
+		else = {
+			capital_scope = {
+				to_spawn_janissary_regiments = {}
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_colony = yes
+				colonysize = 400
+			}
+			add_colonysize = 400
+			add_base_manpower = 2
+		}
+		custom_tooltip = nhs_new_line_tt
+		every_province = {
+			limit = {
+				nhs_homelands_no_capital = yes
+				OR = {
+					is_colony = yes
+					is_empty = yes
+				}
+			}
+			change_native_ferocity = -10
+			change_native_hostileness = -10
+		}
+	}
+}
+
+# Orhanns Janissaries
+country_event = {
+    id = to_janissary_events.2
+    title = to_janissary_events.2.t
+    desc = to_janissary_events.2.d
+    picture = imported_PASHAS_eventPicture
+
+    fire_only_once = yes
+    
+    trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		is_year = 1447
+		is_month = 5
+		had_country_flag = {
+			flag = to_had_janissary_events_1
+			days = 90
+		}
+		OR = {
+			has_dlc = "Cradle of Civilization"
+			has_dlc = "Domination"
+		}
+    }
+
+	immediate = {
+		clr_country_flag = to_had_janissary_events_1
+	}
+
+	after = {
+		set_country_flag = to_had_janissary_events_2
+	}
+
+    option = {
+        name = "to_janissary_events.2.a"
+		add_legitimacy = -10
+        add_country_modifier = {
+            name = to_orhan_janissaries
+            duration = -1
+        }
+		custom_tooltip = to_enable_janissary_mechanic_tt
+		hidden_effect = {
+			regenerate_government_mechanics = yes
+			add_country_modifier = {
+				name = to_janissary_child_levy
+				duration = -1
+				hidden = yes
+			}
+			to_roman_janissaries_maintenance = {}
+			to_check_exarch_nationalism_all_subjects = {}
+		}
+    }
+    
+    option = {
+        name = "to_janissary_events.2.b"
+        add_army_tradition = 10
+        add_mil_power = 50
+    }
+}
+
+# Prinkipes (Mercenaries)
+country_event = {
+	id = to_janissary_events.3
+	title = to_janissary_events.3.t
+	desc = {
+		trigger = {
+			has_country_flag = to_had_orhans_jannisaries_ad
+		}
+		desc = to_janissary_events.3.da
+	}
+	desc = {
+		desc = to_janissary_events.3.db
+	}
+	picture = imported_JANISSARIES_IN_FORMATION_eventPicture
+
+	is_triggered_only = yes
+
+	after = {
+		clr_country_flag = to_had_orhans_jannisaries_ad
+	}
+
+	option = {
+		name = "to_janissary_events.3.aa"
+		trigger = {
+			has_country_flag = to_had_orhans_jannisaries_ad
+		}
+		add_legitimacy = -10
+		set_country_flag = to_established_prinkipes
+		custom_tooltip = to_enables_prinkipes_mercs_tt
+		custom_tooltip = nhs_new_line_tt
+		add_country_modifier = {
+			name = to_prinkipe_recruitment
+			duration = -1
+		}
+		to_check_exarch_nationalism_all_subjects = {}
+	}
+
+	option = {
+		name = "to_janissary_events.3.ab"
+		trigger = {
+			NOT = { has_country_flag = to_had_orhans_jannisaries_ad }
+		}
+		add_legitimacy = -10
+		set_country_flag = to_established_prinkipes
+		custom_tooltip = to_enables_prinkipes_mercs_tt
+		custom_tooltip = nhs_new_line_tt
+		add_country_modifier = {
+			name = to_prinkipe_recruitment
+			duration = -1
+		}
+		to_check_exarch_nationalism_all_subjects = {}
+	}
+	
+	option = {
+		name = "to_janissary_events.3.b"
+		add_manpower = 5
+		add_mil_power = 50
+	}
+}
+
+# Janissaries Recruitment Menu
+country_event = {
+	id = to_janissary_events.4
+	title = to_janissary_events.4.t
+	desc = to_janissary_events.4.d
+	picture = imported_JANISSARIES_IN_FORMATION_eventPicture
+
+	goto = to_janissary_recruitment_province
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = to_janissary_recruitment_menu_open
+		hidden_effect = {
+			if = {
+				limit = {
+					capital_scope = {
+						controlled_by = ROOT
+					}
+				}
+				capital_scope = {
+					save_event_target_as = to_janissary_recruitment_province
+				}
+			}
+			else_if = {
+				limit = {
+					capital_scope = {
+						area_for_scope_province = {
+							controlled_by = ROOT
+						}
+					}
+				}
+				capital_scope = {
+					save_event_target_as = to_janissary_recruitment_province
+				}
+			}
+			else = {
+				capital_scope = {
+					save_event_target_as = to_janissary_recruitment_province
+				}
+			}
+		}
+	}
+
+	after = {
+		clr_country_flag = to_janissary_recruitment_menu_open
+		country_event = { id = to_janissary_events.4 }
+	}
+
+	option = {
+		name = "to_janissary_events.4.a"
+		trigger = {
+			capital_scope = {
+				area_for_scope_province = {
+					controlled_by = ROOT
+				}
+			}
+		}
+		if = {
+			limit = {
+				capital_scope = {
+					controlled_by = ROOT
+				}
+			}
+			capital_scope = {
+				janissary_infantry = ROOT
+			}
+		}
+		else_if = {
+			limit = {
+				event_target:to_janissary_recruitment_province = {
+					controlled_by = ROOT
+				}
+			}
+			capital_scope = {
+				janissary_infantry = ROOT
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = {
+					area_for_scope_province = {
+						controlled_by = ROOT
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					controlled_by = ROOT
+					area_for_scope_province = {
+						is_capital_of = ROOT
+					}
+				}
+				janissary_infantry = ROOT
+			}
+		}
+		else = {
+			capital_scope = {
+				janissary_infantry = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = "to_janissary_events.3.ab"
+		trigger = {
+			NOT = { has_country_flag = to_had_orhans_jannisaries_ad }
+		}
+		
+	}
+
+	option = {
+		name = "to_janissary_events.3.ab"
+		trigger = {
+			NOT = { has_country_flag = to_had_orhans_jannisaries_ad }
+		}
+		
+	}
+	
+	option = {
+		name = "to_janissary_events.3.b"
+	}
+}
+
+# Janissaries Laws
+country_event = {
+	id = to_janissary_events.5
+	title = to_janissary_events.5.t
+	desc = to_janissary_events.5.d
+	picture = BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		to_on_janissary_law_open = yes
+	}
+
+	# Enact child levy
+	option = {
+		name = "to_janissary_events.5.aa"
+		trigger = {
+			NOT = { has_country_modifier = to_janissary_child_levy }
+		}
+		to_consider_child_levy = yes
+
+		to_switch_janissary_law_event = yes
+	}
+
+	# End the child levy
+	option = {
+		name = "to_janissary_events.5.ab"
+		trigger = {
+			has_country_modifier = to_janissary_child_levy
+		}
+		to_consider_revoke_child_levy = yes
+		
+		to_switch_janissary_law_event = yes
+	}
+
+	# Draft the Faithful
+	option = {
+		name = "to_janissary_events.5.ba"
+		trigger = {
+			OR = {
+				has_country_modifier = to_janissary_child_levy
+				has_country_flag = to_consider_child_levy
+			}
+			NOT = { has_country_modifier = to_janissaries_from_true_faith }
+			NOT = { has_country_flag = to_consider_revoke_child_levy }
+		}
+		to_consider_from_true_faith = yes
+
+		to_switch_janissary_law_event = yes
+	}
+
+	# End the Draft of the Faithful
+	option = {
+		name = "to_janissary_events.5.bb"
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+			NOT = { has_country_flag = to_consider_revoke_child_levy }
+		}
+		to_consider_revoke_from_true_faith = yes
+
+		to_switch_janissary_law_event = yes
+	}
+
+	# Recruitment Quotas
+	option = {
+		name = "to_janissary_events.5.ca"
+		trigger = {
+			OR = {
+				has_country_modifier = to_janissary_child_levy
+				has_country_flag = to_consider_child_levy
+			}
+			NOT = { has_country_modifier = to_janissary_recruitment_quotas }
+			NOT = { has_country_flag = to_consider_revoke_child_levy }
+		}
+		to_consider_recruitment_quotas = yes
+
+		to_switch_janissary_law_event = yes
+	}
+
+	# End Recruitment Quotas
+	option = {
+		name = "to_janissary_events.5.cb"
+		trigger = {
+			has_country_modifier = to_janissary_recruitment_quotas
+			NOT = { has_country_flag = to_consider_revoke_child_levy }
+		}
+		to_consider_revoke_recruitment_quotas = yes
+		
+		to_switch_janissary_law_event = yes
+	}
+
+	# Open Recruitment
+	option = {
+		name = "to_janissary_events.5.da"
+		trigger = {
+			NOT = { has_country_modifier = to_janissary_open_recruitment }
+		}
+
+		to_consider_open_recruitment = yes
+
+		to_switch_janissary_law_event = yes
+	}
+
+	# Restrict Recruitment
+	option = {
+		name = "to_janissary_events.5.db"
+		trigger = {
+			has_country_modifier = to_janissary_open_recruitment
+		}
+
+		to_consider_revoke_open_recruitment = yes
+		
+		to_switch_janissary_law_event = yes
+	}
+
+	# Increase Compensation
+	option = {
+		name = "to_janissary_events.5.ea"
+		trigger = {
+			NOT = { has_country_modifier = to_janissary_increase_compensation }
+		}
+
+		to_consider_increase_compensation = yes
+
+		to_switch_janissary_law_event = yes
+	}
+
+	# Reduce Compensation
+	option = {
+		name = "to_janissary_events.5.eb"
+		trigger = {
+			has_country_modifier = to_janissary_increase_compensation
+		}
+
+		to_consider_revoke_increase_compensation = yes
+		
+		to_switch_janissary_law_event = yes
+	}
+
+	# Revise Laws
+	option = {
+		name = "to_janissary_events.5.f"
+		highlight = yes
+		trigger = {
+			hidden_trigger = {
+				to_is_considering_janissary_law = yes
+			}
+		}
+
+		to_enact_janissary_law_changes = yes
+		clr_country_flag = to_janissary_laws_menu_open
+	}
+
+	# Exit
+	option = {
+		name = "to_janissary_events.5.g"
+		trigger = {
+			NOT = { to_is_considering_janissary_law = yes }
+		}
+		clr_country_flag = to_janissary_laws_menu_open
+	}
+}
+
+# Janissaries Laws 2
+country_event = {
+	id = to_janissary_events.6
+	title = to_janissary_events.5.t
+	desc = to_janissary_events.5.d
+	picture = BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	# Enact child levy
+	option = {
+		name = "to_janissary_events.5.aa"
+		trigger = {
+			NOT = { has_country_modifier = to_janissary_child_levy }
+		}
+		to_consider_child_levy = yes
+
+		to_switch_janissary_law_event_2 = yes
+	}
+
+	# End the child levy
+	option = {
+		name = "to_janissary_events.5.ab"
+		trigger = {
+			has_country_modifier = to_janissary_child_levy
+		}
+		to_consider_revoke_child_levy = yes
+		
+		to_switch_janissary_law_event_2 = yes
+	}
+
+	# Draft the Faithful
+	option = {
+		name = "to_janissary_events.5.ba"
+		trigger = {
+			OR = {
+				has_country_modifier = to_janissary_child_levy
+				has_country_flag = to_consider_child_levy
+			}
+			NOT = { has_country_modifier = to_janissaries_from_true_faith }
+			NOT = { has_country_flag = to_consider_revoke_child_levy }
+		}
+		to_consider_from_true_faith = yes
+
+		to_switch_janissary_law_event_2 = yes
+	}
+
+	# End the Draft of the Faithful
+	option = {
+		name = "to_janissary_events.5.bb"
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+			NOT = { has_country_flag = to_consider_revoke_child_levy }
+		}
+		to_consider_revoke_from_true_faith = yes
+
+		to_switch_janissary_law_event_2 = yes
+	}
+
+	# Recruitment Quotas
+	option = {
+		name = "to_janissary_events.5.ca"
+		trigger = {
+			OR = {
+				has_country_modifier = to_janissary_child_levy
+				has_country_flag = to_consider_child_levy
+			}
+			NOT = { has_country_modifier = to_janissary_recruitment_quotas }
+			NOT = { has_country_flag = to_consider_revoke_child_levy }
+		}
+		to_consider_recruitment_quotas = yes
+
+		to_switch_janissary_law_event_2 = yes
+	}
+
+	# End Recruitment Quotas
+	option = {
+		name = "to_janissary_events.5.cb"
+		trigger = {
+			has_country_modifier = to_janissary_recruitment_quotas
+			NOT = { has_country_flag = to_consider_revoke_child_levy }
+		}
+		to_consider_revoke_recruitment_quotas = yes
+		
+		to_switch_janissary_law_event_2 = yes
+	}
+
+	# Open Recruitment
+	option = {
+		name = "to_janissary_events.5.da"
+		trigger = {
+			NOT = { has_country_modifier = to_janissary_open_recruitment }
+		}
+
+		to_consider_open_recruitment = yes
+
+		to_switch_janissary_law_event_2 = yes
+	}
+
+	# Restrict Recruitment
+	option = {
+		name = "to_janissary_events.5.db"
+		trigger = {
+			has_country_modifier = to_janissary_open_recruitment
+		}
+
+		to_consider_revoke_open_recruitment = yes
+		
+		to_switch_janissary_law_event_2 = yes
+	}
+
+	# Increase Compensation
+	option = {
+		name = "to_janissary_events.5.ea"
+		trigger = {
+			NOT = { has_country_modifier = to_janissary_increase_compensation }
+		}
+
+		to_consider_increase_compensation = yes
+
+		to_switch_janissary_law_event_2 = yes
+	}
+
+	# Reduce Compensation
+	option = {
+		name = "to_janissary_events.5.eb"
+		trigger = {
+			has_country_modifier = to_janissary_increase_compensation
+		}
+
+		to_consider_revoke_increase_compensation = yes
+		
+		to_switch_janissary_law_event_2 = yes
+	}
+
+	# Revise Laws
+	option = {
+		name = "to_janissary_events.5.f"
+		highlight = yes
+		trigger = {
+			hidden_trigger = {
+				to_is_considering_janissary_law = yes
+			}
+		}
+
+		to_enact_janissary_law_changes = yes
+		clr_country_flag = to_janissary_laws_menu_open
+	}
+
+	# Exit
+	option = {
+		name = "to_janissary_events.5.g"
+		trigger = {
+			NOT = { to_is_considering_janissary_law = yes }
+		}
+		clr_country_flag = to_janissary_laws_menu_open
+	}
+}

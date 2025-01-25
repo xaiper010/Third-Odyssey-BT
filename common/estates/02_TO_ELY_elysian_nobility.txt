@@ -1,0 +1,128 @@
+estate_nhs_nobles =
+{
+	icon = 2
+	
+	color = { 200 0 50 }
+	
+	# If true, country will get estate
+	trigger = {
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		NOT = { has_country_flag = nhs_disable_estate_nhs_nobles }
+	}
+	
+	country_modifier_happy = {
+		army_tradition = 1
+		global_regiment_cost = -0.1
+		monthly_to_administrative_burden = -0.05
+	}
+	country_modifier_neutral = {
+		army_tradition = 0.5
+	}
+	country_modifier_angry = {
+		global_regiment_cost = 0.1
+		manpower_recovery_speed = -0.15
+		global_unrest = 2
+	}
+	land_ownership_modifier = {
+		estate_nhs_nobles_loyalty_modifier = 0.2
+	}
+
+	# Influence modifiers
+	base_influence = 25
+	influence_from_dev_modifier = 1.0
+
+	# Influence modifiers from Events:
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			OR = {
+				has_disaster = estate_church_disaster
+				has_disaster = estate_burghers_disaster
+				#has_disaster = estate_nhs_nobility_disaster
+			}
+		}
+		influence = -40
+	}
+	
+	# Loyalty modifiers
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			OR = {
+				has_disaster = estate_church_disaster
+				has_disaster = estate_burghers_disaster
+				#has_disaster = estate_nhs_nobility_disaster
+			}
+		}
+		loyalty = -20
+	}
+
+	loyalty_modifier = {
+		desc = EST_VAL_NOBLE_CONSORT
+		trigger = {
+			has_dlc = "Rights of Man"
+			has_consort = yes
+			is_origin_of_consort = ROOT
+		}
+		loyalty = 5
+	}
+	
+	privileges = {
+		to_nhs_estate_nhs_nobles_land_sale_privilege
+		# TODO: currently just has some vanilla privileges
+		estate_nobles_land_rights
+		estate_nobles_nobility_primacy
+		estate_nobles_officer_corp
+		estate_nobles_levies
+		estate_nobles_advisors
+		estate_nobles_right_of_counsel
+		estate_nobles_supremacy_over_crown
+		estate_nobles_strong_duchies
+		estate_nobles_monopoly_of_metals
+		estate_nobles_monopoly_of_livestock
+		estate_nobles_monopoly_of_gems
+		estate_nobles_statutory_rights
+		estate_nobles_command_of_the_military
+		estate_nobles_better_integration
+
+		estate_nobles_development_of_castles
+		estate_nobles_statesman_servitude
+		estate_nobles_royal_court_tasks
+		estate_nobles_diet_right
+		estate_nobles_force_conscription
+		estate_nobles_noble_officer_right
+		# estate_nobles_expedition_rights
+	}
+
+	agendas = {
+		# TODO: currently just has some vanilla agendas
+		estate_nobles_develop_x
+		estate_nobles_build_army_building_in_y
+		estate_nobles_build_fort_building_in_y
+		estate_nobles_build_university_in_y
+		estate_nobles_build_manufactory_in_y
+		estate_nobles_get_allies
+		estate_nobles_befriend_rival_of_rival
+		estate_nobles_restore_legitimacy
+		estate_nobles_relations_with_X
+		estate_nobles_break_coalition
+		estate_nobles_condottieri_rivals
+		estate_nobles_support_independence
+		estate_nobles_retake_core
+		estate_nobles_crush_revolts
+		estate_nobles_regain_liberty
+		estate_nobles_convert_province_culture
+		estate_nobles_protect_our_culture
+		estate_nobles_vassalise_vulnerable_country
+		estate_nobles_expand_into_x
+		estate_nobles_complete_conquest_of_x
+		estate_nobles_annex_subject
+		estate_nobles_build_an_army
+		estate_nobles_bigger_army_than_rival
+		estate_nobles_build_up_manpower_reserves
+		estate_nobles_recover_abysmal_prestige
+		estate_nobles_improve_prestige
+		estate_nobles_hire_advisor
+		estate_nobles_fire_advisor
+	}
+}

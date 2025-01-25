@@ -1,0 +1,21 @@
+test_mod = {
+	global_autonomy = -10
+}
+
+build_time_mod = {
+	build_time = -0.99
+	diplomatic_annexation_cost = -1
+	province_warscore_cost = -1
+	administrative_efficiency = 1
+	culture_conversion_cost = -1
+	culture_conversion_time = -1
+	colonists = 10
+	land_forcelimit = 1000
+	global_missionary_strength = 5
+	global_colonial_growth = 10000
+	global_ship_recruit_speed = -1
+}
+
+to_show_european_emigration = {
+	trade_goods_size = 2
+}

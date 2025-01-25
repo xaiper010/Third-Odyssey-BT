@@ -1,0 +1,2545 @@
+# -- NATIVE ESTATE EFFECTS --
+to_add_appropriate_native_estate_flag = {
+	clr_country_flag = native_council_enabled_early
+	clr_country_flag = native_council_enabled_mid
+	# clr_country_flag = native_council_enabled_late
+	if = {
+		limit = {
+			nhs_check_all_vinland = { CONDITION = tag }
+			# OR = {
+			# 	has_global_flag = nhs_first_barbaroi_integration
+			# 	nhs_check_all_vinland = { CONDITION = tag }
+			# }
+		}
+		set_country_flag = native_council_enabled_mid
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_country_flag = nhs_barbaroi_integration
+				AND = {
+					has_global_flag = nhs_first_barbaroi_integration
+					any_owned_province = {
+						culture = elysameric
+					}
+				}
+			}
+		}
+		set_country_flag = native_council_enabled_mid
+	}
+	else = {
+		set_country_flag = native_council_enabled_early
+	}
+}
+
+to_nhs_setup_council_land = {
+	if = {
+		limit = {
+			has_country_flag = nhs_set_initial_councils_stats
+			has_estate = estate_all_natives
+		}
+		clr_country_flag = nhs_set_initial_councils_stats
+		set_estate_privilege = nhs_native_privilege_foreign_invaders
+		to_change_any_native_estate_land_share = {
+			SHARE = -100
+		}
+		hidden_effect = {
+			to_inherit_overlords_councils_privileges = yes
+		}
+	}
+}
+
+# Change land share of native estate by SHARE
+# We need this since we have to momentarily remove the privilege that prevent land share being taken in general
+# Use: to_change_any_native_estate_land_share = { share = 10 }
+to_change_any_native_estate_land_share = {
+	hidden_effect = {
+		remove_estate_privilege = nhs_native_privilege_foreign_invaders
+	}
+	change_estate_land_share = {
+		estate = estate_all_natives
+		share = $SHARE$
+	}
+	hidden_effect = {
+		set_estate_privilege = nhs_native_privilege_foreign_invaders
+	}
+}
+
+# Update a single province, single native estate privilege's modifier
+# Use: to_province_update_estate_privilege = { PRIVILEGE = nhs_native_priv_local_councils_empowered MODIFIER = nhs_native_priv_local_councils_empowered_mod }
+to_province_update_estate_privilege = {
+	if = {
+		# Add province modifier if needed (and applicable)
+		limit = {
+			[[PRIVILEGE]
+				owner = { has_estate_privilege = $PRIVILEGE$ }
+			]
+			[[ADDITIONAL_TRIGGER]
+				$ADDITIONAL_TRIGGER$ = yes
+			]
+			to_nat_tribal_native_culture_province = yes
+		}
+		[[EARLY_MODIFIER]
+		if = {
+			limit = {
+				owner = {
+					has_country_flag = native_council_enabled_early
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_province_modifier = $EARLY_MODIFIER$ }
+				}
+				add_province_modifier = {
+					name = $EARLY_MODIFIER$
+					duration = -1
+				}
+			}
+			add_province_modifier = {
+				name = $EARLY_MODIFIER$
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = $EARLY_MODIFIER$
+			}
+			remove_province_modifier = $EARLY_MODIFIER$
+		}
+		]
+		[[MID_MODIFIER]
+		if = {
+			limit = {
+				owner = {
+					has_country_flag = native_council_enabled_mid
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_province_modifier = $MID_MODIFIER$ }
+				}
+				add_province_modifier = {
+					name = $MID_MODIFIER$
+					duration = -1
+				}
+			}
+			add_province_modifier = {
+				name = $MID_MODIFIER$
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = $MID_MODIFIER$
+			}
+			remove_province_modifier = $MID_MODIFIER$
+		}
+		]
+		[[LATE_MODIFIER]
+		if = {
+			limit = {
+				owner = {
+					has_country_flag = native_council_enabled_late
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_province_modifier = $LATE_MODIFIER$ }
+				}
+				add_province_modifier = {
+					name = $LATE_MODIFIER$
+					duration = -1
+				}
+			}
+			add_province_modifier = {
+				name = $LATE_MODIFIER$
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = $LATE_MODIFIER$
+			}
+			remove_province_modifier = $LATE_MODIFIER$
+		}
+		]
+		[[MODIFIER]
+		if = {
+			limit = {
+				NOT = { has_province_modifier = $MODIFIER$ }
+			}
+			add_province_modifier = {
+				name = $MODIFIER$
+				duration = -1
+			}
+		}
+		]
+	}
+	else = {
+		# Remove province modifier if present (and not applicable)
+		[[EARLY_MODIFIER]
+		remove_province_modifier = $EARLY_MODIFIER$
+		]
+		[[MID_MODIFIER]
+		remove_province_modifier = $MID_MODIFIER$
+		]
+		[[LATE_MODIFIER]
+		remove_province_modifier = $LATE_MODIFIER$
+		]
+		[[MODIFIER]
+		remove_province_modifier = $MODIFIER$
+		]
+	}
+	
+}
+
+# Recalculate all native estate modifiers for a single province
+province_recalculate_estate_privileges_effect_natives = {
+	# TODO: effect can't use other effect?
+	to_province_update_estate_privilege = { PRIVILEGE = nhs_native_priv_local_councils_empowered MODIFIER = nhs_native_priv_local_councils_empowered_mod }
+	to_province_update_estate_privilege = { PRIVILEGE = nhs_native_priv_pax_romana_early MODIFIER = nhs_native_priv_pax_romana_early_mod }
+	to_province_update_estate_privilege = { PRIVILEGE = nhs_native_priv_pax_romana_mid MODIFIER = nhs_native_priv_pax_romana_mid_mod }
+	to_province_update_estate_privilege = { PRIVILEGE = nhs_native_priv_increase_tribute MODIFIER = nhs_native_priv_increase_tribute_mod }
+	to_province_update_estate_privilege = {
+		EARLY_MODIFIER = nhs_native_priv_cultural_sufferance_early_mod 
+		MID_MODIFIER = nhs_native_priv_cultural_sufferance_mid_mod 
+		ADDITIONAL_TRIGGER = to_native_priv_cultural_sufferance_province_trigger
+	}
+	to_province_update_estate_privilege = { PRIVILEGE = nhs_native_priv_designate_development_zones MODIFIER = nhs_native_priv_designate_development_zones_mod }
+	to_province_update_estate_privilege = { PRIVILEGE = nhs_native_priv_divide_et_impera_early MODIFIER = nhs_native_priv_divide_et_impera_early_mod }
+	to_province_update_estate_privilege = { PRIVILEGE = nhs_native_priv_divide_et_impera_mid MODIFIER = nhs_native_priv_divide_et_impera_mid_mod }
+
+	to_province_update_estate_privilege = { PRIVILEGE = to_vov_native_priv_skraeling_thingas MODIFIER = to_vov_native_priv_skraeling_thingas_mod }
+	to_province_update_estate_privilege = { PRIVILEGE = to_vov_native_priv_raiding_hosts MODIFIER = to_vov_native_priv_raiding_hosts_mod }
+}
+
+handle_nhs_native_priv_inclusive_citizenship_modifier = {
+	if = {
+		limit = {
+			to_native_priv_inclusive_citizenship_province = yes
+		}
+		add_province_modifier = {
+			name = nhs_native_priv_inclusive_citizenship_mod
+			duration = -1
+		}
+	}
+	else_if = {
+		limit = {
+			has_province_modifier = nhs_native_priv_inclusive_citizenship_mod
+		}
+		remove_province_modifier = nhs_native_priv_inclusive_citizenship_mod
+	}
+}
+
+handle_nhs_native_priv_inclusive_citizenship_colony_finished = {
+	if = {
+		limit = {
+			has_province_modifier = nhs_native_priv_inclusive_citizenship_mod
+		}
+		remove_province_modifier = nhs_native_priv_inclusive_citizenship_mod
+		# add_local_autonomy = 20
+		owner = {
+			change_estate_land_share = {
+				estate = estate_all_natives
+				share = 5
+				province = PREV
+			}
+		}
+	}
+}
+
+handle_to_vov_native_priv_benevolent_conquerors_modifier = {
+	if = {
+		limit = {
+			to_vov_native_priv_benevolent_conquerors_province = yes
+		}
+		add_province_modifier = {
+			name = to_vov_native_priv_benevolent_conquerors_mod
+			duration = -1
+		}
+	}
+	else_if = {
+		limit = {
+			has_province_modifier = to_vov_native_priv_benevolent_conquerors_mod
+		}
+		remove_province_modifier = to_vov_native_priv_benevolent_conquerors_mod
+	}
+}
+
+handle_to_vov_native_priv_benevolent_conquerors_colony_finished = {
+	if = {
+		limit = {
+			has_province_modifier = to_vov_native_priv_benevolent_conquerors_mod
+		}
+		remove_province_modifier = to_vov_native_priv_benevolent_conquerors_mod
+		# add_local_autonomy = 10
+		owner = {
+			change_estate_land_share = {
+				estate = estate_all_natives
+				share = 5
+				province = PREV
+			}
+		}
+	}
+}
+
+handle_nhs_native_priv_ancestral_land_colony_finished = {
+	if = {
+		limit = {
+			has_province_modifier = to_nat_tribal_development
+			owner = {
+				has_estate_privilege = nhs_native_priv_ancestral_land
+			}
+		}
+		owner = {
+			if = {
+				limit = {
+					ai = no
+				}
+				change_estate_land_share = {
+					estate = estate_all_natives
+					share = 20
+					province = PREV
+				}
+			}
+			else = {
+				change_estate_land_share = {
+					estate = estate_all_natives
+					share = 5
+					province = PREV
+				}
+			}
+		}
+	}
+}
+
+handle_to_nhs_estate_nhs_nobles_land_sale_privilege_colony_finished = {
+	if = {
+		limit = {
+			continent = north_america
+			owner = {
+				has_estate_privilege = to_nhs_estate_nhs_nobles_land_sale_privilege
+			}
+			# Let's ignore albanian provinces
+			# NOT = { has_albanian_majority_modifier = yes }
+		}
+		owner = {
+			# add_treasury = 30
+			if = {
+				limit = {
+					ai = no
+				}
+				change_estate_land_share = {
+					estate = estate_nhs_nobles
+					share = 20
+					province = PREV
+				}
+			}
+			else = {
+				change_estate_land_share = {
+					estate = estate_nhs_nobles
+					share = 5
+					province = PREV
+				}
+			}
+		}
+	}
+}
+
+handle_nhs_native_priv_cultural_sufferance_modifier = {
+	every_owned_province = {
+		to_province_update_estate_privilege = { 
+			EARLY_MODIFIER = nhs_native_priv_cultural_sufferance_early_mod 
+			MID_MODIFIER = nhs_native_priv_cultural_sufferance_mid_mod 
+			ADDITIONAL_TRIGGER = to_native_priv_cultural_sufferance_province_trigger
+		}
+	}
+}
+
+handle_to_vov_native_priv_freedom_of_worship_modifier = {
+	if = {
+		limit = {
+			owner = {
+				has_estate_privilege = to_vov_native_priv_freedom_of_worship
+			}
+		}
+		if = {
+			limit = {
+				to_nat_tribal_native_culture_province = yes
+				NOT = { religion = root }
+			}
+			if = {
+				limit = {
+					NOT = { has_province_modifier = to_vov_native_priv_freedom_of_worship_mod }
+				}
+				add_province_modifier = {
+					name = to_vov_native_priv_freedom_of_worship_mod
+					duration = -1
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = to_vov_native_priv_freedom_of_worship_mod
+			}
+			remove_province_modifier = to_vov_native_priv_freedom_of_worship_mod
+		}
+	}
+}
+
+to_switch_elysian_native_estate_to_mid = {
+	custom_tooltip = nhs_new_council_loyalty_tt
+	custom_tooltip = nhs_new_council_privileges_tt
+	custom_tooltip = nhs_new_line_tt
+	# custom_tooltip = nhs_native_priv_ancestral_land_mid_change_tt
+	# custom_tooltip = nhs_native_priv_local_councils_empowered_change_tt
+	custom_tooltip = nhs_native_priv_divide_et_impera_change_tt
+	custom_tooltip = nhs_new_line_tt
+	custom_tooltip = nhs_native_priv_pax_romana_change_tt
+	custom_tooltip = nhs_new_line_tt
+	custom_tooltip = nhs_native_priv_inclusive_citizenship_change_tt
+	custom_tooltip = nhs_new_line_tt
+	custom_tooltip = nhs_native_priv_open_offices_change_tt
+	custom_tooltip = nhs_new_line_tt
+	custom_tooltip = nhs_privileges_now_allow_symmachoi_assimilation_$SCOPE$_tt
+	hidden_effect = {
+		$SCOPE$ = {
+			set_country_flag = native_council_enabled_mid
+			clr_country_flag = native_council_enabled_early
+			if = {
+				limit = {
+					has_estate_privilege = nhs_native_priv_inclusive_citizenship_early
+				}
+				set_estate_privilege = nhs_native_priv_inclusive_citizenship_mid
+				remove_estate_privilege = nhs_native_priv_inclusive_citizenship_early
+			}
+			if = {
+				limit = {
+					has_estate_privilege = nhs_native_priv_divide_et_impera_early
+				}
+				set_estate_privilege = nhs_native_priv_divide_et_impera_mid
+				remove_estate_privilege = nhs_native_priv_divide_et_impera_early
+			}
+			if = {
+				limit = {
+					has_estate_privilege = nhs_native_priv_pax_romana_early
+				}
+				set_estate_privilege = nhs_native_priv_pax_romana_mid
+				remove_estate_privilege = nhs_native_priv_pax_romana_early
+			}
+		}
+	}
+}
+
+to_spawn_seize_native_estate_rebels = {
+	spawn_rebels = {
+		type = $TYPE$
+		size = 2
+		estate = estate_all_natives
+		as_if_faction = yes
+	}
+	area = {
+		limit = {
+			owned_by = ROOT
+		}
+		set_province_flag = seize_land_spawn_unrest_and_rebels
+		if = {
+			limit = {
+				NOT = { has_province_flag = has_estate_unrest_flag }
+				OR = {
+					to_nat_tribal_native_culture_province = yes
+					has_province_modifier = to_nat_tribal_development
+				}
+			}
+			add_named_unrest = { name = estate_land_seized value = 10 }
+			set_province_flag = has_estate_unrest_flag
+		}
+	}
+}
+
+seize_native_estate_land_effect = {
+	hidden_effect = {
+		set_variable = {
+			which = seize_land_effect_variable
+			value = $scale$
+		}
+		while = {
+			limit = {
+				check_variable = {
+					which = seize_land_effect_variable
+					value = 1
+				}
+			}
+			change_variable = {
+				which = seize_land_effect_variable
+				value = -1
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						to_spawn_rebels_valid_province_native_land = yes
+						area_for_scope_province = {
+							any_neighbor_province = {
+								owned_by = root
+								has_province_flag = seize_land_spawn_unrest_and_rebels
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_owned_province = {
+							to_spawn_rebels_valid_province_native_land = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+							highest_supply_limit_in_area = yes
+						}
+					}
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_native_land = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+							highest_supply_limit_in_area = yes
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = nationalist_rebels }
+					}
+				}
+				else = {
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_native_land = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = nationalist_rebels }
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						to_spawn_rebels_valid_province_native_land = yes
+					}
+				}
+				if = {
+					limit = {
+						any_owned_province = {
+							to_spawn_rebels_valid_province_native_land = yes
+							highest_supply_limit_in_area = yes
+						}
+					}
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_native_land = yes
+							highest_supply_limit_in_area = yes
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = nationalist_rebels }
+					}
+				}
+				else = {
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_native_land = yes
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = nationalist_rebels }
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						to_spawn_rebels_valid_province_integrated_native_land = yes
+						area_for_scope_province = {
+							any_neighbor_province = {
+								owned_by = root
+								has_province_flag = seize_land_spawn_unrest_and_rebels
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_owned_province = {
+							to_spawn_rebels_valid_province_integrated_native_land = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+							highest_supply_limit_in_area = yes
+						}
+					}
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_integrated_native_land = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+							highest_supply_limit_in_area = yes
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = nationalist_rebels }
+					}
+				}
+				else = {
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_native_land = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = nationalist_rebels }
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						to_spawn_rebels_valid_province_integrated_native_land = yes
+					}
+				}
+				if = {
+					limit = {
+						any_owned_province = {
+							to_spawn_rebels_valid_province_integrated_native_land = yes
+							highest_supply_limit_in_area = yes
+						}
+					}
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_integrated_native_land = yes
+							highest_supply_limit_in_area = yes
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = nationalist_rebels }
+					}
+				}
+				else = {
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_native_land = yes
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = nationalist_rebels }
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						to_spawn_rebels_valid_province_tribal_land = yes
+						area_for_scope_province = {
+							any_neighbor_province = {
+								owned_by = root
+								has_province_flag = seize_land_spawn_unrest_and_rebels
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_owned_province = {
+							to_spawn_rebels_valid_province_tribal_land = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+							highest_supply_limit_in_area = yes
+						}
+					}
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_tribal_land = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+							highest_supply_limit_in_area = yes
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = particularist_rebels }
+					}
+				}
+				else = {
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_tribal_land = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = particularist_rebels }
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						to_spawn_rebels_valid_province_tribal_land = yes
+					}
+				}
+				if = {
+					limit = {
+						any_owned_province = {
+							to_spawn_rebels_valid_province_tribal_land = yes
+							highest_supply_limit_in_area = yes
+						}
+					}
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_tribal_land = yes
+							highest_supply_limit_in_area = yes
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = particularist_rebels }
+					}
+				}
+				else = {
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province_tribal_land = yes
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = particularist_rebels }
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						to_spawn_rebels_valid_province = yes
+						area_for_scope_province = {
+							any_neighbor_province = {
+								owned_by = root
+								has_province_flag = seize_land_spawn_unrest_and_rebels
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_owned_province = {
+							to_spawn_rebels_valid_province = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+							highest_supply_limit_in_area = yes
+						}
+					}
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+							highest_supply_limit_in_area = yes
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = particularist_rebels }
+					}
+				}
+				else = {
+					random_owned_province = {
+						limit = {
+							to_spawn_rebels_valid_province = yes
+							area_for_scope_province = {
+								any_neighbor_province = {
+									owned_by = root
+									has_province_flag = seize_land_spawn_unrest_and_rebels
+								}
+							}
+						}
+						to_spawn_seize_native_estate_rebels = { TYPE = particularist_rebels }
+					}
+				}
+			}
+			else = {
+				random_owned_province = {
+					limit = {
+						to_spawn_rebels_valid_province = yes
+					}
+					to_spawn_seize_native_estate_rebels = { TYPE = particularist_rebels }
+				}
+			}
+		}
+		every_owned_province = {
+			limit = { has_province_flag = seize_land_spawn_unrest_and_rebels }
+			clr_province_flag = seize_land_spawn_unrest_and_rebels
+		}
+	}
+}
+
+spawn_native_estate_rebels_seize_land_switch = {
+	trigger_switch = {
+		on_trigger = num_of_owned_areas
+		1000 = { custom_tooltip = estate_seize_land_interaction_tooltip_1000 seize_native_estate_land_effect = { scale = 101 } }
+		990 = { custom_tooltip = estate_seize_land_interaction_tooltip_990 seize_native_estate_land_effect = { scale = 100 } }
+		980 = { custom_tooltip = estate_seize_land_interaction_tooltip_980 seize_native_estate_land_effect = { scale = 99 } }
+		970 = { custom_tooltip = estate_seize_land_interaction_tooltip_970 seize_native_estate_land_effect = { scale = 98 } }
+		960 = { custom_tooltip = estate_seize_land_interaction_tooltip_960 seize_native_estate_land_effect = { scale = 97 } }
+		950 = { custom_tooltip = estate_seize_land_interaction_tooltip_950 seize_native_estate_land_effect = { scale = 96 } }
+		940 = { custom_tooltip = estate_seize_land_interaction_tooltip_940 seize_native_estate_land_effect = { scale = 95 } }
+		930 = { custom_tooltip = estate_seize_land_interaction_tooltip_930 seize_native_estate_land_effect = { scale = 94 } }
+		920 = { custom_tooltip = estate_seize_land_interaction_tooltip_920 seize_native_estate_land_effect = { scale = 93 } }
+		910 = { custom_tooltip = estate_seize_land_interaction_tooltip_910 seize_native_estate_land_effect = { scale = 92 } }
+		900 = { custom_tooltip = estate_seize_land_interaction_tooltip_900 seize_native_estate_land_effect = { scale = 91 } }
+		890 = { custom_tooltip = estate_seize_land_interaction_tooltip_890 seize_native_estate_land_effect = { scale = 90 } }
+		880 = { custom_tooltip = estate_seize_land_interaction_tooltip_880 seize_native_estate_land_effect = { scale = 89 } }
+		870 = { custom_tooltip = estate_seize_land_interaction_tooltip_870 seize_native_estate_land_effect = { scale = 88 } }
+		860 = { custom_tooltip = estate_seize_land_interaction_tooltip_860 seize_native_estate_land_effect = { scale = 87 } }
+		850 = { custom_tooltip = estate_seize_land_interaction_tooltip_850 seize_native_estate_land_effect = { scale = 86 } }
+		840 = { custom_tooltip = estate_seize_land_interaction_tooltip_840 seize_native_estate_land_effect = { scale = 85 } }
+		830 = { custom_tooltip = estate_seize_land_interaction_tooltip_830 seize_native_estate_land_effect = { scale = 84 } }
+		820 = { custom_tooltip = estate_seize_land_interaction_tooltip_820 seize_native_estate_land_effect = { scale = 83 } }
+		810 = { custom_tooltip = estate_seize_land_interaction_tooltip_810 seize_native_estate_land_effect = { scale = 82 } }
+		800 = { custom_tooltip = estate_seize_land_interaction_tooltip_800 seize_native_estate_land_effect = { scale = 81 } }
+		790 = { custom_tooltip = estate_seize_land_interaction_tooltip_790 seize_native_estate_land_effect = { scale = 80 } }
+		780 = { custom_tooltip = estate_seize_land_interaction_tooltip_780 seize_native_estate_land_effect = { scale = 79 } }
+		770 = { custom_tooltip = estate_seize_land_interaction_tooltip_770 seize_native_estate_land_effect = { scale = 78 } }
+		760 = { custom_tooltip = estate_seize_land_interaction_tooltip_760 seize_native_estate_land_effect = { scale = 77 } }
+		750 = { custom_tooltip = estate_seize_land_interaction_tooltip_750 seize_native_estate_land_effect = { scale = 76 } }
+		740 = { custom_tooltip = estate_seize_land_interaction_tooltip_740 seize_native_estate_land_effect = { scale = 75 } }
+		730 = { custom_tooltip = estate_seize_land_interaction_tooltip_730 seize_native_estate_land_effect = { scale = 74 } }
+		720 = { custom_tooltip = estate_seize_land_interaction_tooltip_720 seize_native_estate_land_effect = { scale = 73 } }
+		710 = { custom_tooltip = estate_seize_land_interaction_tooltip_710 seize_native_estate_land_effect = { scale = 72 } }
+		700 = { custom_tooltip = estate_seize_land_interaction_tooltip_700 seize_native_estate_land_effect = { scale = 71 } }
+		690 = { custom_tooltip = estate_seize_land_interaction_tooltip_690 seize_native_estate_land_effect = { scale = 70 } }
+		680 = { custom_tooltip = estate_seize_land_interaction_tooltip_680 seize_native_estate_land_effect = { scale = 69 } }
+		670 = { custom_tooltip = estate_seize_land_interaction_tooltip_670 seize_native_estate_land_effect = { scale = 68 } }
+		660 = { custom_tooltip = estate_seize_land_interaction_tooltip_660 seize_native_estate_land_effect = { scale = 67 } }
+		650 = { custom_tooltip = estate_seize_land_interaction_tooltip_650 seize_native_estate_land_effect = { scale = 66 } }
+		640 = { custom_tooltip = estate_seize_land_interaction_tooltip_640 seize_native_estate_land_effect = { scale = 65 } }
+		630 = { custom_tooltip = estate_seize_land_interaction_tooltip_630 seize_native_estate_land_effect = { scale = 64 } }
+		620 = { custom_tooltip = estate_seize_land_interaction_tooltip_620 seize_native_estate_land_effect = { scale = 63 } }
+		610 = { custom_tooltip = estate_seize_land_interaction_tooltip_610 seize_native_estate_land_effect = { scale = 62 } }
+		600 = { custom_tooltip = estate_seize_land_interaction_tooltip_600 seize_native_estate_land_effect = { scale = 61 } }
+		590 = { custom_tooltip = estate_seize_land_interaction_tooltip_590 seize_native_estate_land_effect = { scale = 60 } }
+		580 = { custom_tooltip = estate_seize_land_interaction_tooltip_580 seize_native_estate_land_effect = { scale = 59 } }
+		570 = { custom_tooltip = estate_seize_land_interaction_tooltip_570 seize_native_estate_land_effect = { scale = 58 } }
+		560 = { custom_tooltip = estate_seize_land_interaction_tooltip_560 seize_native_estate_land_effect = { scale = 57 } }
+		550 = { custom_tooltip = estate_seize_land_interaction_tooltip_550 seize_native_estate_land_effect = { scale = 56 } }
+		540 = { custom_tooltip = estate_seize_land_interaction_tooltip_540 seize_native_estate_land_effect = { scale = 55 } }
+		530 = { custom_tooltip = estate_seize_land_interaction_tooltip_530 seize_native_estate_land_effect = { scale = 54 } }
+		520 = { custom_tooltip = estate_seize_land_interaction_tooltip_520 seize_native_estate_land_effect = { scale = 53 } }
+		510 = { custom_tooltip = estate_seize_land_interaction_tooltip_510 seize_native_estate_land_effect = { scale = 52 } }
+		500 = { custom_tooltip = estate_seize_land_interaction_tooltip_500 seize_native_estate_land_effect = { scale = 51 } }
+		490 = { custom_tooltip = estate_seize_land_interaction_tooltip_490 seize_native_estate_land_effect = { scale = 50 } }
+		480 = { custom_tooltip = estate_seize_land_interaction_tooltip_480 seize_native_estate_land_effect = { scale = 49 } }
+		470 = { custom_tooltip = estate_seize_land_interaction_tooltip_470 seize_native_estate_land_effect = { scale = 48 } }
+		460 = { custom_tooltip = estate_seize_land_interaction_tooltip_460 seize_native_estate_land_effect = { scale = 47 } }
+		450 = { custom_tooltip = estate_seize_land_interaction_tooltip_450 seize_native_estate_land_effect = { scale = 46 } }
+		440 = { custom_tooltip = estate_seize_land_interaction_tooltip_440 seize_native_estate_land_effect = { scale = 45 } }
+		430 = { custom_tooltip = estate_seize_land_interaction_tooltip_430 seize_native_estate_land_effect = { scale = 44 } }
+		420 = { custom_tooltip = estate_seize_land_interaction_tooltip_420 seize_native_estate_land_effect = { scale = 43 } }
+		410 = { custom_tooltip = estate_seize_land_interaction_tooltip_410 seize_native_estate_land_effect = { scale = 42 } }
+		400 = { custom_tooltip = estate_seize_land_interaction_tooltip_400 seize_native_estate_land_effect = { scale = 41 } }
+		390 = { custom_tooltip = estate_seize_land_interaction_tooltip_390 seize_native_estate_land_effect = { scale = 40 } }
+		380 = { custom_tooltip = estate_seize_land_interaction_tooltip_380 seize_native_estate_land_effect = { scale = 39 } }
+		370 = { custom_tooltip = estate_seize_land_interaction_tooltip_370 seize_native_estate_land_effect = { scale = 38 } }
+		360 = { custom_tooltip = estate_seize_land_interaction_tooltip_360 seize_native_estate_land_effect = { scale = 37 } }
+		350 = { custom_tooltip = estate_seize_land_interaction_tooltip_350 seize_native_estate_land_effect = { scale = 36 } }
+		340 = { custom_tooltip = estate_seize_land_interaction_tooltip_340 seize_native_estate_land_effect = { scale = 35 } }
+		330 = { custom_tooltip = estate_seize_land_interaction_tooltip_330 seize_native_estate_land_effect = { scale = 34 } }
+		320 = { custom_tooltip = estate_seize_land_interaction_tooltip_320 seize_native_estate_land_effect = { scale = 33 } }
+		310 = { custom_tooltip = estate_seize_land_interaction_tooltip_310 seize_native_estate_land_effect = { scale = 32 } }
+		300 = { custom_tooltip = estate_seize_land_interaction_tooltip_300 seize_native_estate_land_effect = { scale = 31 } }
+		290 = { custom_tooltip = estate_seize_land_interaction_tooltip_290 seize_native_estate_land_effect = { scale = 30 } }
+		280 = { custom_tooltip = estate_seize_land_interaction_tooltip_280 seize_native_estate_land_effect = { scale = 29 } }
+		270 = { custom_tooltip = estate_seize_land_interaction_tooltip_270 seize_native_estate_land_effect = { scale = 28 } }
+		260 = { custom_tooltip = estate_seize_land_interaction_tooltip_260 seize_native_estate_land_effect = { scale = 27 } }
+		250 = { custom_tooltip = estate_seize_land_interaction_tooltip_250 seize_native_estate_land_effect = { scale = 26 } }
+		240 = { custom_tooltip = estate_seize_land_interaction_tooltip_240 seize_native_estate_land_effect = { scale = 25 } }
+		230 = { custom_tooltip = estate_seize_land_interaction_tooltip_230 seize_native_estate_land_effect = { scale = 24 } }
+		220 = { custom_tooltip = estate_seize_land_interaction_tooltip_220 seize_native_estate_land_effect = { scale = 23 } }
+		210 = { custom_tooltip = estate_seize_land_interaction_tooltip_210 seize_native_estate_land_effect = { scale = 22 } }
+		200 = { custom_tooltip = estate_seize_land_interaction_tooltip_200 seize_native_estate_land_effect = { scale = 21 } }
+		190 = { custom_tooltip = estate_seize_land_interaction_tooltip_190 seize_native_estate_land_effect = { scale = 20 } }
+		180 = { custom_tooltip = estate_seize_land_interaction_tooltip_180 seize_native_estate_land_effect = { scale = 19 } }
+		170 = { custom_tooltip = estate_seize_land_interaction_tooltip_170 seize_native_estate_land_effect = { scale = 18 } }
+		160 = { custom_tooltip = estate_seize_land_interaction_tooltip_160 seize_native_estate_land_effect = { scale = 17 } }
+		150 = { custom_tooltip = estate_seize_land_interaction_tooltip_150 seize_native_estate_land_effect = { scale = 16 } }
+		140 = { custom_tooltip = estate_seize_land_interaction_tooltip_140 seize_native_estate_land_effect = { scale = 15 } }
+		130 = { custom_tooltip = estate_seize_land_interaction_tooltip_130 seize_native_estate_land_effect = { scale = 14 } }
+		120 = { custom_tooltip = estate_seize_land_interaction_tooltip_120 seize_native_estate_land_effect = { scale = 13 } }
+		110 = { custom_tooltip = estate_seize_land_interaction_tooltip_110 seize_native_estate_land_effect = { scale = 12 } }
+		100 = { custom_tooltip = estate_seize_land_interaction_tooltip_100 seize_native_estate_land_effect = { scale = 11 } }
+		90 = { custom_tooltip = estate_seize_land_interaction_tooltip_90 seize_native_estate_land_effect = { scale = 10 } }
+		80 = { custom_tooltip = estate_seize_land_interaction_tooltip_80 seize_native_estate_land_effect = { scale = 9 } }
+		70 = { custom_tooltip = estate_seize_land_interaction_tooltip_70 seize_native_estate_land_effect = { scale = 8 } }
+		60 = { custom_tooltip = estate_seize_land_interaction_tooltip_60 seize_native_estate_land_effect = { scale = 7 } }
+		50 = { custom_tooltip = estate_seize_land_interaction_tooltip_50 seize_native_estate_land_effect = { scale = 6 } }
+		40 = { custom_tooltip = estate_seize_land_interaction_tooltip_40 seize_native_estate_land_effect = { scale = 5 } }
+		30 = { custom_tooltip = estate_seize_land_interaction_tooltip_30 seize_native_estate_land_effect = { scale = 4 } }
+		20 = { custom_tooltip = estate_seize_land_interaction_tooltip_20 seize_native_estate_land_effect = { scale = 3 } }
+		10 = { custom_tooltip = estate_seize_land_interaction_tooltip_10 seize_native_estate_land_effect = { scale = 2 } }
+		1 = { custom_tooltip = estate_seize_land_interaction_tooltip_1 seize_native_estate_land_effect = { scale = 1 } }
+	}
+}
+
+to_native_estate_spawn_disaster_rebels_find_province = {
+	random_owned_province = {
+		limit = {
+			is_colony = no
+			is_state = $IS_STATE$
+			to_nat_tribal_native_culture_province = yes
+			nationalism = 1
+			[[IGNORE_SELECTED]
+			NOT = { has_province_flag = to_native_estate_disaster_rebel_target }
+			]
+		}
+		save_event_target_as = to_native_estate_disaster_rebel_target
+		set_province_flag = to_native_estate_disaster_rebel_target
+		ROOT = {
+			set_country_flag = to_native_estate_disaster_found_rebel_target
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = to_native_estate_disaster_found_rebel_target }
+		}
+		random_owned_province = {
+			limit = {
+				is_colony = no
+				is_state = $IS_STATE$
+				to_nat_tribal_native_culture_province = yes
+				NOT = { culture_group = ROOT }
+				NOT = { nationalism = 1 }
+				[[IGNORE_SELECTED]
+				NOT = { has_province_flag = to_native_estate_disaster_rebel_target }
+				]
+			}
+			save_event_target_as = to_native_estate_disaster_rebel_target
+			set_province_flag = to_native_estate_disaster_rebel_target
+			ROOT = {
+				set_country_flag = to_native_estate_disaster_found_rebel_target
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = to_native_estate_disaster_found_rebel_target }
+		}
+		random_owned_province = {
+			limit = {
+				is_colony = no
+				is_state = $IS_STATE$
+				to_nat_tribal_native_culture_province = yes
+				culture_group = ROOT
+				NOT = { nationalism = 1 }
+				[[IGNORE_SELECTED]
+				NOT = { has_province_flag = to_native_estate_disaster_rebel_target }
+				]
+			}
+			save_event_target_as = to_native_estate_disaster_rebel_target
+			set_province_flag = to_native_estate_disaster_rebel_target
+			ROOT = {
+				set_country_flag = to_native_estate_disaster_found_rebel_target
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = to_native_estate_disaster_found_rebel_target }
+		}
+		random_owned_province = {
+			limit = {
+				is_colony = no
+				is_state = $IS_STATE$
+				NOT = {
+					to_nat_tribal_native_culture_province = yes
+				}
+				has_province_modifier = to_nat_tribal_development
+				[[IGNORE_SELECTED]
+				NOT = { has_province_flag = to_native_estate_disaster_rebel_target }
+				]
+			}
+			save_event_target_as = to_native_estate_disaster_rebel_target
+			set_province_flag = to_native_estate_disaster_rebel_target
+			ROOT = {
+				set_country_flag = to_native_estate_disaster_found_rebel_target
+			}
+		}
+	}
+}
+
+to_native_estate_spawn_disaster_rebels = {
+	clr_country_flag = to_native_estate_disaster_found_rebel_target
+	to_native_estate_spawn_disaster_rebels_find_province = { 
+		IGNORE_SELECTED = yes
+		IS_STATE = yes
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = to_native_estate_disaster_found_rebel_target }
+		}
+		to_native_estate_spawn_disaster_rebels_find_province = { 
+			IGNORE_SELECTED = yes
+			IS_STATE = no
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = to_native_estate_disaster_found_rebel_target }
+		}
+		to_native_estate_spawn_disaster_rebels_find_province = { 
+			IS_STATE = yes
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = to_native_estate_disaster_found_rebel_target }
+		}
+		to_native_estate_spawn_disaster_rebels_find_province = { 
+			IS_STATE = no
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = to_native_estate_disaster_found_rebel_target
+		}
+		event_target:to_native_estate_disaster_rebel_target = {
+			if = {
+				limit = {
+					nhs_culturally_native = yes
+				}
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = $SIZE$
+				}
+			}
+			else = {
+				spawn_rebels = {
+					type = particularist_rebels
+					size = $SIZE$
+				}
+			}
+			# spawn_rebels = {
+			# 	type = native_rebels
+			# 	size = $SIZE$
+			# }
+		}
+	}
+	else = {
+		set_variable = {
+			which = to_size_of_narive_revolt
+			value = 0
+		}
+	}
+}
+
+to_inherit_overlords_councils_privileges = {
+	# Due to some incredible pdx spaghetti code I'm not able to use else and else_if to set estate privileges here. Pain.
+	if = {
+		limit = {
+			has_estate = estate_all_natives
+			to_has_overlords_council_privileges = yes
+		}
+		set_country_flag = to_bypass_councils_formation_event_active_check
+		if = {
+			limit = {
+				NOT = {
+					has_estate_privilege = nhs_native_priv_ancestral_land
+				}
+				overlord = {
+					has_estate_privilege = nhs_native_priv_ancestral_land
+				}
+			}
+			set_estate_privilege = nhs_native_priv_ancestral_land
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_inclusive_citizenship_early
+						has_estate_privilege = nhs_native_priv_inclusive_citizenship_mid
+						has_estate_privilege = to_vov_native_priv_benevolent_conquerors
+					}
+				}
+				overlord = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_inclusive_citizenship_early
+						has_estate_privilege = nhs_native_priv_inclusive_citizenship_mid
+						has_estate_privilege = to_vov_native_priv_benevolent_conquerors
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_estate_privilege = estate_church_one_faith_one_culture
+				}
+				remove_estate_privilege = estate_church_one_faith_one_culture
+			}
+			if = {
+				limit = {
+					nhs_check_all_vinland = { CONDITION = tag }
+				}
+				set_estate_privilege = to_vov_native_priv_benevolent_conquerors
+			}
+			if = {
+				limit = {
+					NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+					has_country_flag = native_council_enabled_mid
+				}
+				set_estate_privilege = nhs_native_priv_inclusive_citizenship_mid
+			}
+			if = {
+				limit = {
+					NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+					NOT = { has_country_flag = native_council_enabled_mid }
+				}
+				set_estate_privilege = nhs_native_priv_inclusive_citizenship_early
+			}
+		}
+
+		if = {
+			limit = {
+				nhs_check_all_vinland = { CONDITION = tag }
+				NOT = { has_estate_privilege = to_vov_native_priv_freedom_of_worship }
+				overlord = {
+					has_estate_privilege = to_vov_native_priv_freedom_of_worship
+				}
+			}
+			if = {
+				limit = {
+					has_estate_privilege = estate_church_one_faith_one_culture
+				}
+				remove_estate_privilege = estate_church_one_faith_one_culture
+			}
+			if = {
+				limit = {
+					has_estate_privilege = estate_church_enforced_one_faith
+				}
+				remove_estate_privilege = estate_church_enforced_one_faith
+			}
+			set_estate_privilege = to_vov_native_priv_freedom_of_worship
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_local_councils_empowered
+						has_estate_privilege = to_vov_native_priv_skraeling_thingas
+					}
+				}
+				overlord = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_local_councils_empowered
+						has_estate_privilege = to_vov_native_priv_skraeling_thingas
+					}
+				}
+			}
+			if = {
+				limit = {
+					nhs_check_all_vinland = { CONDITION = tag }
+				}
+				set_estate_privilege = to_vov_native_priv_skraeling_thingas
+			}
+			if = {
+				limit = {
+					NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+				}
+				set_estate_privilege = nhs_native_priv_local_councils_empowered
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_citizenship_for_service
+						has_estate_privilege = to_vov_native_priv_raiding_hosts
+					}
+				}
+				overlord = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_citizenship_for_service
+						has_estate_privilege = to_vov_native_priv_raiding_hosts
+					}
+				}
+			}
+			if = {
+				limit = {
+					nhs_check_all_vinland = { CONDITION = tag }
+				}
+				set_estate_privilege = to_vov_native_priv_raiding_hosts
+			}
+			if = {
+				limit = {
+					NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+				}
+				set_estate_privilege = nhs_native_priv_citizenship_for_service
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { has_estate_privilege = nhs_native_priv_increase_tribute }
+				overlord = {
+					has_estate_privilege = nhs_native_priv_increase_tribute
+				}
+			}
+			if = {
+				limit = {
+					has_estate_privilege = nhs_native_priv_designate_development_zones
+				}
+				remove_estate_privilege = nhs_native_priv_designate_development_zones
+			}
+			set_estate_privilege = nhs_native_priv_increase_tribute
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_encourage_barbaroi_officials
+						has_estate_privilege = to_vov_native_priv_open_ranks
+					}
+				}
+				overlord = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_encourage_barbaroi_officials
+						has_estate_privilege = to_vov_native_priv_open_ranks
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_estate_privilege = estate_church_one_faith_one_culture
+				}
+				remove_estate_privilege = estate_church_one_faith_one_culture
+			}
+			if = {
+				limit = {
+					nhs_check_all_vinland = { CONDITION = tag }
+				}
+				set_estate_privilege = to_vov_native_priv_open_ranks
+			}
+			if = {
+				limit = {
+					NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+				}
+				set_estate_privilege = nhs_native_priv_encourage_barbaroi_officials
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+				NOT = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_pax_romana_early
+						has_estate_privilege = nhs_native_priv_pax_romana_mid
+					}
+				}
+				overlord = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_pax_romana_early
+						has_estate_privilege = nhs_native_priv_pax_romana_mid
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_estate_privilege = nhs_native_priv_divide_et_impera_early
+				}
+				remove_estate_privilege = nhs_native_priv_divide_et_impera_early
+			}
+			if = {
+				limit = {
+					has_estate_privilege = nhs_native_priv_divide_et_impera_mid
+				}
+				remove_estate_privilege = nhs_native_priv_divide_et_impera_mid
+			}
+			if = {
+				limit = {
+					has_country_flag = native_council_enabled_mid
+				}
+				set_estate_privilege = nhs_native_priv_pax_romana_mid
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = native_council_enabled_mid }
+				}
+				set_estate_privilege = nhs_native_priv_pax_romana_early
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+				NOT = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_divide_et_impera_early
+						has_estate_privilege = nhs_native_priv_divide_et_impera_mid
+					}
+				}
+				overlord = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_divide_et_impera_early
+						has_estate_privilege = nhs_native_priv_divide_et_impera_mid
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_estate_privilege = nhs_native_priv_pax_romana_early
+				}
+				remove_estate_privilege = nhs_native_priv_pax_romana_early
+			}
+			if = {
+				limit = {
+					has_estate_privilege = nhs_native_priv_pax_romana_mid
+				}
+				remove_estate_privilege = nhs_native_priv_pax_romana_mid
+			}
+			if = {
+				limit = {
+					has_country_flag = native_council_enabled_mid
+				}
+				set_estate_privilege = nhs_native_priv_divide_et_impera_mid
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = native_council_enabled_mid }
+				}
+				set_estate_privilege = nhs_native_priv_divide_et_impera_early
+			}
+		}
+
+		if = {
+			limit = {
+				NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+				NOT = { has_estate_privilege = nhs_native_priv_designate_development_zones }
+				overlord = {
+					has_estate_privilege = nhs_native_priv_designate_development_zones
+				}
+			}
+			if = {
+				limit = {
+					has_estate_privilege = nhs_native_priv_increase_tribute
+				}
+				remove_estate_privilege = nhs_native_priv_increase_tribute
+			}
+			set_estate_privilege = nhs_native_priv_designate_development_zones
+		}
+
+		clr_country_flag = to_bypass_councils_formation_event_active_check
+	}
+}
+
+# -- GENERAL ESTATE EFFECTS --
+
+to_add_monopoly_mercantilism = {
+	if = {
+		limit = {
+			NOT = { has_country_modifier = nhs2_elysian_free_trade }
+		}
+		if = {
+			limit = {
+				mission_completed = to_center_of_commerce_mission
+			}
+			add_mercantilism = 2
+		}
+		else = {
+			add_mercantilism = 1
+		}
+	}
+}
+
+to_add_estate_loyalty_if_exists = {
+	if = {
+		limit = {
+			has_estate = $ESTATE$
+		}
+		add_estate_loyalty = {
+			estate = $ESTATE$
+			loyalty = $LOYALTY$
+			short = yes
+		}
+	}
+}
+
+to_add_estate_influence_modifier_if_exists = {
+	if = {
+		limit = {
+			has_estate = $ESTATE$
+		}
+		add_estate_influence_modifier = {
+			estate = $ESTATE$
+			desc = $DESC$
+			duration = $DURATION$
+			influence = $INFLUENCE$
+			short = yes
+		}
+	}
+}
+
+# ESTATE - estate identifier
+# TERRITORY_VARIABLE - variable into which the territory will be stored
+to_export_estate_territory_to_variable = {
+	# You could also do this with else if bloc, but you can't get decimals.
+	set_variable = {
+		which = $TERRITORY_VARIABLE$
+		value = 0
+	}
+	while = {
+		limit = {
+			estate_territory = {
+				estate = $ESTATE$
+				territory = 10
+			}
+		}
+		change_estate_land_share = {
+			estate = $ESTATE$
+			share = -10
+		}
+		change_variable = {
+			which = $TERRITORY_VARIABLE$
+			value = 10
+		}
+	}
+	while = {
+		limit = {
+			estate_territory = {
+				estate = $ESTATE$
+				territory = 1
+			}
+		}
+		change_estate_land_share = {
+			estate = $ESTATE$
+			share = -1
+		}
+		change_variable = {
+			which = $TERRITORY_VARIABLE$
+			value = 1
+		}
+	}
+	# The following is the result of estate_territory not accepting decimals. Have fun.
+	change_estate_land_share = {
+		estate = $ESTATE$
+		share = 1
+	}
+	while = {
+		limit = {
+			estate_territory = {
+				estate = $ESTATE$
+				territory = 1
+			}
+		}
+		change_estate_land_share = {
+			estate = $ESTATE$
+			share = -0.1
+		}
+		change_variable = {
+			which = $TERRITORY_VARIABLE$
+			value = 0.1
+		}
+	}
+	change_variable = {
+		which = $TERRITORY_VARIABLE$
+		value = -0.1
+	}
+	change_estate_land_share = {
+		estate = $ESTATE$
+		share = 0.1
+	}
+	while = {
+		limit = {
+			estate_territory = {
+				estate = $ESTATE$
+				territory = 1
+			}
+		}
+		change_estate_land_share = {
+			estate = $ESTATE$
+			share = -0.01
+		}
+		change_variable = {
+			which = $TERRITORY_VARIABLE$
+			value = 0.01
+		}
+	}
+	change_variable = {
+		which = $TERRITORY_VARIABLE$
+		value = -0.01
+	}
+	change_estate_land_share = {
+		estate = $ESTATE$
+		share = 0.01
+	}
+	while = {
+		limit = {
+			estate_territory = {
+				estate = $ESTATE$
+				territory = 1
+			}
+		}
+		change_estate_land_share = {
+			estate = $ESTATE$
+			share = -0.001
+		}
+		change_variable = {
+			which = $TERRITORY_VARIABLE$
+			value = 0.001
+		}
+	}
+	change_variable = {
+		which = $TERRITORY_VARIABLE$
+		value = -0.001
+	}
+	change_estate_land_share = {
+		estate = $ESTATE$
+		share = -1
+	}
+	set_variable = {
+		which = estate_territory_temp
+		which = $TERRITORY_VARIABLE$
+	}
+	while = {
+		limit = {
+			check_variable = {
+				which = estate_territory_temp
+				value = 0.001
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					which = estate_territory_temp
+					value = 10
+				}
+			}
+			change_estate_land_share = {
+				estate = $ESTATE$
+				share = 10
+			}
+			change_variable = {
+				which = estate_territory_temp
+				value = -10
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = estate_territory_temp
+					value = 1
+				}
+			}
+			change_estate_land_share = {
+				estate = $ESTATE$
+				share = 1
+			}
+			change_variable = {
+				which = estate_territory_temp
+				value = -1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = estate_territory_temp
+					value = 0.1
+				}
+			}
+			change_estate_land_share = {
+				estate = $ESTATE$
+				share = 0.1
+			}
+			change_variable = {
+				which = estate_territory_temp
+				value = -0.1
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = {
+					which = estate_territory_temp
+					value = 0.01
+				}
+			}
+			change_estate_land_share = {
+				estate = $ESTATE$
+				share = 0.01
+			}
+			change_variable = {
+				which = estate_territory_temp
+				value = -0.01
+			}
+		}
+		else = {
+			change_estate_land_share = {
+				estate = $ESTATE$
+				share = 0.001
+			}
+			change_variable = {
+				which = estate_territory_temp
+				value = -0.001
+			}
+		}
+	}
+	set_variable = {
+		which = estate_territory_temp
+		value = 0
+	}
+}
+
+# ESTATE - Estate which territory will be equalized
+# ESTATE_GOAL - Estate which territory will be equalized to
+# ONLY_POSITIVE
+# ONLY_POSITIVE_ERR_FLAG
+to_equalize_estate_territory = {
+	to_export_estate_territory_to_variable = {
+		ESTATE = $ESTATE$
+		TERRITORY_VARIABLE = estate_init_territory
+	}
+	to_export_estate_territory_to_variable = {
+		ESTATE = $ESTATE_GOAL$
+		TERRITORY_VARIABLE = estate_goal_territory
+	}
+	set_variable = {
+		which = territory_diff
+		which = estate_goal_territory
+	}
+	subtract_variable = {
+		which = territory_diff
+		which = estate_init_territory
+	}
+	if = {
+		limit = {
+			always = $ONLY_POSITIVE$
+			NOT = {
+				check_variable = {
+					which = territory_diff
+					value = 0
+				}
+			}
+		}
+		[[ONLY_POSITIVE]
+			set_country_flag = $ONLY_POSITIVE_ERR_FLAG$
+		]
+	}
+	else_if = {
+		limit = { 
+			check_variable = {
+				which = territory_diff
+				value = 0
+			}
+		}
+		while = {
+			limit = {
+				check_variable = {
+					which = territory_diff
+					value = 0.001
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = territory_diff
+						value = 10
+					}
+				}
+				change_estate_land_share = {
+					estate = $ESTATE$
+					share = 10
+				}
+				change_variable = {
+					which = territory_diff
+					value = -10
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = territory_diff
+						value = 1
+					}
+				}
+				change_estate_land_share = {
+					estate = $ESTATE$
+					share = 1
+				}
+				change_variable = {
+					which = territory_diff
+					value = -1
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = territory_diff
+						value = 0.1
+					}
+				}
+				change_estate_land_share = {
+					estate = $ESTATE$
+					share = 0.1
+				}
+				change_variable = {
+					which = territory_diff
+					value = -0.1
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = territory_diff
+						value = 0.01
+					}
+				}
+				change_estate_land_share = {
+					estate = $ESTATE$
+					share = 0.01
+				}
+				change_variable = {
+					which = territory_diff
+					value = -0.01
+				}
+			}
+			else = {
+				change_estate_land_share = {
+					estate = $ESTATE$
+					share = 0.001
+				}
+				change_variable = {
+					which = territory_diff
+					value = -0.001
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				NOT = {
+					check_variable = {
+						which = territory_diff
+						value = -0.001
+					}
+				}
+				is_variable_equal = {
+					which = territory_diff
+					value = -0.001
+				}
+			}
+		}
+		while = {
+			limit = {
+				check_variable = {
+					which = territory_diff
+					value = -0.001
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = territory_diff
+						value = -10
+					}
+				}
+				change_estate_land_share = {
+					estate = $ESTATE$
+					share = -10
+				}
+				change_variable = {
+					which = territory_diff
+					value = 10
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = territory_diff
+						value = -1
+					}
+				}
+				change_estate_land_share = {
+					estate = $ESTATE$
+					share = -1
+				}
+				change_variable = {
+					which = territory_diff
+					value = 1
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = territory_diff
+						value = -0.1
+					}
+				}
+				change_estate_land_share = {
+					estate = $ESTATE$
+					share = -0.1
+				}
+				change_variable = {
+					which = territory_diff
+					value = 0.1
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = territory_diff
+						value = -0.01
+					}
+				}
+				change_estate_land_share = {
+					estate = $ESTATE$
+					share = -0.01
+				}
+				change_variable = {
+					which = territory_diff
+					value = 0.01
+				}
+			}
+			else = {
+				change_estate_land_share = {
+					estate = $ESTATE$
+					share = -0.001
+				}
+				change_variable = {
+					which = territory_diff
+					value = 0.001
+				}
+			}
+		}
+	}
+}
+
+# -- NOBLE ESTATE EFFECTS --
+
+to_add_noble_estate_influence_modifier = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+			NOT = {
+				has_estate_influence_modifier = {
+					estate = estate_nobles
+					modifier = $desc$
+				}
+			}
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			[[desc]desc = $desc$]
+			influence = $influence$
+			duration = $duration$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+			NOT = {
+				has_estate_influence_modifier = {
+					estate = estate_nhs_nobles
+					modifier = $desc$
+				}
+			}
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_nobles
+			[[desc]desc = $desc$]
+			influence = $influence$
+			duration = $duration$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+			NOT = {
+				has_estate_influence_modifier = {
+					estate = estate_nhs_apogonoi
+					modifier = $desc$
+				}
+			}
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			[[desc]desc = $desc$]
+			influence = $influence$
+			duration = $duration$
+		}
+	}
+}
+
+to_add_noble_estate_loyalty = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = $loyalty$
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_nobles
+			loyalty = $loyalty$
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = $loyalty$
+		}
+	}
+}
+
+to_change_noble_estate_land_share = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = $share$
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = $share$
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = $share$
+		}
+	}
+}
+
+to_add_noble_estate_loyalty_modifier = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		add_estate_loyalty_modifier = {
+			estate = estate_nobles
+			loyalty = $loyalty$
+			[[desc]
+				desc = $desc$
+			]
+			duration = $duration$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		add_estate_loyalty_modifier = {
+			estate = estate_nhs_nobles
+			loyalty = $loyalty$
+			[[desc]
+				desc = $desc$
+			]
+			duration = $duration$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		add_estate_loyalty_modifier = {
+			estate = estate_nhs_apogonoi
+			loyalty = $loyalty$
+			[[desc]
+				desc = $desc$
+			]
+			duration = $duration$
+		}
+	}
+}
+
+to_auto_complete_nobles_estate_agenda = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		auto_complete_estate_agenda = {
+			estate = estate_nobles
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		auto_complete_estate_agenda = {
+			estate = estate_nhs_nobles
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		auto_complete_estate_agenda = {
+			estate = estate_nhs_apogonoi
+		}
+	}
+}
+
+to_increase_noble_estate_action_counter = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		increase_estate_action_counter = {
+			estate = estate_nobles
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		increase_estate_action_counter = {
+			estate = estate_nhs_nobles
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		increase_estate_action_counter = {
+			estate = estate_nhs_apogonoi
+		}
+	}
+}
+
+to_noble_estate_action_monarch_power = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		estate_action_monarch_power = {
+			estate = estate_nobles
+			type = $type$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		estate_action_monarch_power = {
+			estate = estate_nhs_nobles
+			type = $type$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		estate_action_monarch_power = {
+			estate = estate_nhs_apogonoi
+			type = $type$
+		}
+	}
+}
+
+to_generate_noble_estate_advisor = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		generate_estate_advisor = {
+			estate = estate_nobles
+			type = $type$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		generate_estate_advisor = {
+			estate = estate_nhs_nobles
+			type = $type$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		generate_estate_advisor = {
+			estate = estate_nhs_apogonoi
+			type = $type$
+		}
+	}
+}
+
+to_noble_estate_action_scaling_modifier = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		estate_action_scaling_modifier = {
+			estate = estate_nobles
+			name = $name$
+			duration = $duration$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		estate_action_scaling_modifier = {
+			estate = estate_nhs_nobles
+			name = $name$
+			duration = $duration$
+		}
+	}
+	if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		estate_action_scaling_modifier = {
+			estate = estate_nhs_apogonoi
+			name = $name$
+			duration = $duration$
+		}
+	}
+}
+
+to_add_nhs_noble_loyalty_with_equilibrium = {
+	custom_tooltip = to_add_loy_wth_equi_nobility_$loyalty$_$duration$_tt
+	hidden_effect = {
+		to_add_noble_estate_loyalty = {
+			loyalty = $loyalty$
+		}
+		to_add_noble_estate_loyalty_modifier = {
+			desc = $desc$
+			loyalty = $loyalty$
+			duration = $duration$
+		}
+	}
+}
+
+# estate = what estate
+# Will give the estate 1% land
+to_give_noble_estate_land_share_small = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = 1
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = 1
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = 1
+		}
+	}
+}
+
+# estate = what estate
+# Will give the estate 2% land
+to_give_noble_estate_land_share_medium = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = 2
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = 2
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = 2
+		}
+	}
+}
+
+# estate = what estate
+# Will give the estate 3% land
+to_give_noble_estate_land_share_large = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = 3
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = 3
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = 3
+		}
+	}
+}
+
+# estate = what estate
+# Will give the estate 5% land
+to_give_noble_estate_land_share_massive = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = 5
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = 5
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = 5
+		}
+	}
+}
+
+# estate = what estate
+# Will give the estate 10% land
+to_give_noble_estate_land_share_gigantic = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = 10
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = 10
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = 10
+		}
+	}
+}
+
+# Will take the 1% land from estate
+to_take_noble_estate_land_share_small = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = -1
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = -1
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = -1
+		}
+	}
+}
+
+# estate = what estate
+# Will take away 2% land from estate
+to_take_noble_estate_land_share_medium = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = -2
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = -2
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = -2
+		}
+	}
+}
+
+# estate = what estate
+# Will take the 3% land from estate
+to_take_noble_estate_land_share_large = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = -3
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = -3
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = -3
+		}
+	}
+}
+
+# estate = what estate
+# Will take the 5% land from estate
+to_take_noble_estate_land_share_massive = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = -5
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = -5
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = -5
+		}
+	}
+}
+
+# estate = what estate
+# Will take the 10% land from estate
+to_take_noble_estate_land_share_gigantic = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nobles
+			share = -10
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_nobles
+			share = -10
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = -10
+		}
+	}
+}
+
+to_scaled_estate_nobles_land_share_effect = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		scaled_estate_land_share_add_effect = { estate = estate_nobles }
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		scaled_estate_land_share_add_effect = { estate = estate_nhs_nobles }
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		scaled_estate_land_share_add_effect = { estate = estate_nhs_apogonoi }
+	}
+}
+
+to_scaled_estate_nobles_land_share_reduce_effect = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		scaled_estate_land_share_reduce_effect = { estate = estate_nobles }
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		scaled_estate_land_share_reduce_effect = { estate = estate_nhs_nobles }
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		scaled_estate_land_share_reduce_effect = { estate = estate_nhs_apogonoi }
+	}
+}
+
+on_completed_noble_estate_agenda_effect = {
+	if = {
+		limit = {
+			has_estate = estate_nobles
+		}
+		on_completed_agenda_effect = {
+			estate = estate_nobles
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_nobles
+		}
+		on_completed_agenda_effect = {
+			estate = estate_nhs_nobles
+		}
+	}
+	else_if = {
+		limit = {
+			has_estate = estate_nhs_apogonoi
+		}
+		on_completed_agenda_effect = {
+			estate = estate_nhs_apogonoi
+		}
+	}
+}

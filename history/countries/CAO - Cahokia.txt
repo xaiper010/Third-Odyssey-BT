@@ -1,0 +1,23 @@
+# No previous file for Cahokia
+
+government = native
+add_government_reform = to_native_reform_stratified
+add_government_reform = native_oral_tradition_reform
+add_government_reform = native_settle_down_reform
+add_government_reform = to_native_reform_cahokian_dynasties
+government_rank = 1
+primary_culture = illini
+religion = totemism
+technology_group = north_american
+capital = 917
+historical_friend = OSA
+
+1444.11.11 = {
+	monarch = {
+		name = "Pemmikawatta"
+		dynasty = "Amonokoa"
+		adm = 5
+		dip = 3
+		mil = 2
+	}
+}

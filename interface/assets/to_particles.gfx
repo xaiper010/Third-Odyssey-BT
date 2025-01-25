@@ -1,0 +1,7 @@
+objectTypes = {
+
+	pdxparticle = {
+		name = "siphon_muzzle"
+		type = "siphon_muzzle"
+	}
+}

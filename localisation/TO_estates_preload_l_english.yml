@@ -1,0 +1,6 @@
+﻿l_english:
+ clans_privilege_slots:0 "[Country.GetClansName] Max Privileges"
+ estate_nhs_apogonoi_privilege_slots:0 "[Country.GetApogonoiName] Max Privileges"
+ estate_nhs_nobles_privilege_slots:0 "[Country.GetDynatoiName] Max Privileges"
+ estate_nhs_pipiltin_privilege_slots:0 "[Country.GetPipiltinName] Max Privileges"
+ 

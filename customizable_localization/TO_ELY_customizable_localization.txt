@@ -1,0 +1,6078 @@
+defined_text = {
+	name = GetELGLand
+	random = no
+
+	text = {
+		localisation_key = ELGLand_v2_tt
+		trigger = { has_global_flag = to_elg_got_albania }
+	}
+	text = {
+		localisation_key = ELGLand_v3_tt
+		trigger = { has_global_flag = to_elg_got_anatolia }
+	}
+	text = {
+		localisation_key = ELGLand_v1_tt
+	}
+}
+
+defined_text = {
+	name = GetELGMerchantLand
+	random = no
+
+	text = {
+		localisation_key = ELGMerchantLand_v2_tt
+		trigger = { has_global_flag = to_elg_got_albania }
+	}
+	text = {
+		localisation_key = ELGMerchantLand_v1_tt
+	}
+}
+
+defined_text = {
+	name = GetExarchMaintenance
+	random = no
+
+	text = {
+		localisation_key = to_exarch_maintenance_reduced_tt
+		trigger = { FROM = { mission_completed = to_the_eagle_rises_mission } }
+	}
+	text = {
+		localisation_key = to_exarch_maintenance_full_tt
+	}
+}
+
+defined_text = {
+	name = GetExarchMaintenanceTooltip
+	random = no
+
+	text = {
+		localisation_key = to_exarch_maintenance_tooltip_reduced_tt
+		trigger = { FROM = { mission_completed = to_the_eagle_rises_mission } }
+	}
+	text = {
+		localisation_key = to_exarch_maintenance_tooltip_full_tt
+	}
+}
+
+defined_text = {
+	name = GetExarchLibertyFromAbsolutismAndStability
+	random = no
+
+	text = {
+		localisation_key = to_liberty_desire_from_stability_tt
+		trigger = {
+			FROM = {
+				NOT = { absolutism = 10 }
+			}
+		}
+	}
+	text = {
+		localisation_key = to_liberty_desire_from_absolutism_stab_3_tt
+		trigger = {
+			stability = 3
+		}
+	}
+	text = {
+		localisation_key = to_liberty_desire_from_absolutism_stab_2_tt
+		trigger = {
+			stability = 2
+		}
+	}
+	text = {
+		localisation_key = to_liberty_desire_from_absolutism_stab_1_tt
+		trigger = {
+			stability = 1
+		}
+	}
+	text = {
+		localisation_key = to_liberty_desire_from_absolutism_tt
+	}
+}
+
+defined_text = {
+	name = GetExarchLibertyFromStability
+	random = no
+
+	text = {
+		localisation_key = to_15_minus_green_percentage_tt
+		trigger = { stability = 3 }
+	}
+	text = {
+		localisation_key = to_10_minus_green_percentage_tt
+		trigger = { stability = 2 }
+	}
+	text = {
+		localisation_key = to_5_minus_green_percentage_tt
+		trigger = { stability = 1 }
+	}
+	text = {
+		localisation_key = to_yellow_zero_percentage_tt
+	}
+}
+
+defined_text = {
+	name = GetExarchLibertyFromAbsolutism
+	random = no
+
+	text = {
+		localisation_key = to_50_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 100 } }
+	}
+	text = {
+		localisation_key = to_45_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 90 } }
+	}
+	text = {
+		localisation_key = to_40_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 80 } }
+	}
+	text = {
+		localisation_key = to_35_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 70 } }
+	}
+	text = {
+		localisation_key = to_30_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 60 } }
+	}
+	text = {
+		localisation_key = to_25_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 50 } }
+	}
+	text = {
+		localisation_key = to_20_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 40 } }
+	}
+	text = {
+		localisation_key = to_15_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 30 } }
+	}
+	text = {
+		localisation_key = to_10_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 20 } }
+	}
+	text = {
+		localisation_key = to_5_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 10 } }
+	}
+	text = {
+		localisation_key = to_yellow_zero_percentage_tt
+	}
+}
+
+defined_text = {
+	name = GetExarchLibertyFromAbsolutismStability1
+	random = no
+
+	text = {
+		localisation_key = to_45_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 100 } }
+	}
+	text = {
+		localisation_key = to_40_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 90 } }
+	}
+	text = {
+		localisation_key = to_35_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 80 } }
+	}
+	text = {
+		localisation_key = to_30_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 70 } }
+	}
+	text = {
+		localisation_key = to_25_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 60 } }
+	}
+	text = {
+		localisation_key = to_20_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 50 } }
+	}
+	text = {
+		localisation_key = to_15_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 40 } }
+	}
+	text = {
+		localisation_key = to_10_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 30 } }
+	}
+	text = {
+		localisation_key = to_5_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 20 } }
+	}
+	text = {
+		localisation_key = to_yellow_zero_percentage_tt
+		trigger = { FROM = { absolutism = 10 } }
+	}
+	text = {
+		localisation_key = to_5_minus_green_percentage_tt
+	}
+}
+
+defined_text = {
+	name = GetExarchLibertyFromAbsolutismStability2
+	random = no
+
+	text = {
+		localisation_key = to_40_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 100 } }
+	}
+	text = {
+		localisation_key = to_35_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 90 } }
+	}
+	text = {
+		localisation_key = to_30_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 80 } }
+	}
+	text = {
+		localisation_key = to_25_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 70 } }
+	}
+	text = {
+		localisation_key = to_20_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 60 } }
+	}
+	text = {
+		localisation_key = to_15_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 50 } }
+	}
+	text = {
+		localisation_key = to_10_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 40 } }
+	}
+	text = {
+		localisation_key = to_5_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 30 } }
+	}
+	text = {
+		localisation_key = to_yellow_zero_percentage_tt
+		trigger = { FROM = { absolutism = 20 } }
+	}
+	text = {
+		localisation_key = to_5_minus_green_percentage_tt
+		trigger = { FROM = { absolutism = 10 } }
+	}
+	text = {
+		localisation_key = to_10_minus_green_percentage_tt
+	}
+}
+
+defined_text = {
+	name = GetExarchLibertyFromAbsolutismStability3
+	random = no
+
+	text = {
+		localisation_key = to_35_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 100 } }
+	}
+	text = {
+		localisation_key = to_30_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 90 } }
+	}
+	text = {
+		localisation_key = to_25_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 80 } }
+	}
+	text = {
+		localisation_key = to_20_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 70 } }
+	}
+	text = {
+		localisation_key = to_15_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 60 } }
+	}
+	text = {
+		localisation_key = to_10_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 50 } }
+	}
+	text = {
+		localisation_key = to_5_plus_red_percentage_tt
+		trigger = { FROM = { absolutism = 40 } }
+	}
+	text = {
+		localisation_key = to_yellow_zero_percentage_tt
+		trigger = { FROM = { absolutism = 30 } }
+	}
+	text = {
+		localisation_key = to_5_minus_green_percentage_tt
+		trigger = { FROM = { absolutism = 20 } }
+	}
+	text = {
+		localisation_key = to_10_minus_green_percentage_tt
+		trigger = { FROM = { absolutism = 10 } }
+	}
+	text = {
+		localisation_key = to_15_minus_green_percentage_tt
+	}
+}
+
+defined_text = {
+	name = GetProvinceCountForExarchMerchant
+	random = no
+
+	text = {
+		localisation_key = to_eip_count_for_merchant_no_tt
+		trigger = { has_province_flag = to_exarch_always_count_for_merchant }
+	}
+	text = {
+		localisation_key = to_eip_count_for_merchant_yes_tt
+		trigger = { }
+	}
+}
+
+defined_text = {
+	# Code generated by exarchs/exarch_formation_decisions.py
+	name = GetExarchLand
+	random = no
+
+	text = {
+		localisation_key = to_exarch_land_EEA_tt
+		trigger = { tag = EEA }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEB_tt
+		trigger = { tag = EEB }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEC_tt
+		trigger = { tag = EEC }
+	}
+	text = {
+		localisation_key = to_exarch_land_EED_tt
+		trigger = { tag = EED }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEE_tt
+		trigger = { tag = EEE }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEF_tt
+		trigger = { tag = EEF }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEG_tt
+		trigger = { tag = EEG }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEH_tt
+		trigger = { tag = event_target:to_EEH_target }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEI_tt
+		trigger = { tag = EEI }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEJ_tt
+		trigger = { tag = EEJ }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEL_tt
+		trigger = { tag = EEL }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEM_tt
+		trigger = { tag = EEM }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEO_tt
+		trigger = { tag = EEO }
+	}
+	text = {
+		localisation_key = to_exarch_land_EER_tt
+		trigger = { tag = EER }
+	}
+	text = {
+		localisation_key = to_exarch_land_EES_tt
+		trigger = { tag = EES }
+	}
+	text = {
+		localisation_key = to_exarch_land_EET_tt
+		trigger = { tag = EET }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEU_tt
+		trigger = { tag = EEU }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEV_tt
+		trigger = { tag = EEV }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEQ_tt
+		trigger = { tag = EEQ }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEP_tt
+		trigger = { tag = EEP }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEY_tt
+		trigger = { tag = event_target:to_EEY_target }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEN_tt
+		trigger = { tag = EEN }
+	}
+	text = {
+		localisation_key = to_exarch_land_ELG_tt
+		trigger = { tag = ELG }
+	}
+}
+
+defined_text = {
+	# Code generated by exarchs/exarch_formation_decisions.py
+	name = GetExarchLandFrom
+	random = no
+
+	text = {
+		localisation_key = to_exarch_land_EEA_tt
+		trigger = { FROM = { tag = EEA } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEB_tt
+		trigger = { FROM = { tag = EEB } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEC_tt
+		trigger = { FROM = { tag = EEC } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EED_tt
+		trigger = { FROM = { tag = EED } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEE_tt
+		trigger = { FROM = { tag = EEE } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEF_tt
+		trigger = { FROM = { tag = EEF } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEG_tt
+		trigger = { FROM = { tag = EEG } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEH_tt
+		trigger = { FROM = { tag = event_target:to_EEH_target } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEI_tt
+		trigger = { FROM = { tag = EEI } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEJ_tt
+		trigger = { FROM = { tag = EEJ } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEL_tt
+		trigger = { FROM = { tag = EEL } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEM_tt
+		trigger = { FROM = { tag = EEM } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEO_tt
+		trigger = { FROM = { tag = EEO } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EER_tt
+		trigger = { FROM = { tag = EER } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EES_tt
+		trigger = { FROM = { tag = EES } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EET_tt
+		trigger = { FROM = { tag = EET } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEU_tt
+		trigger = { FROM = { tag = EEU } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEV_tt
+		trigger = { FROM = { tag = EEV } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEQ_tt
+		trigger = { FROM = { tag = EEQ } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEP_tt
+		trigger = { FROM = { tag = EEP } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEY_tt
+		trigger = { FROM = { tag = event_target:to_EEY_target } }
+	}
+	text = {
+		localisation_key = to_exarch_land_EEN_tt
+		trigger = { FROM = { tag = EEN } }
+	}
+	text = {
+		localisation_key = to_exarch_land_ELG_tt
+		trigger = { FROM = { tag = ELG } }
+	}
+}
+
+defined_text = {
+	# Code generated by exarchs/exarch_formation_decisions.py
+	name = GetExarchMerchantLand
+	random = no
+
+	text = {
+		localisation_key = to_exarch_merchant_land_EEA_tt
+		trigger = { tag = EEA }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEB_tt
+		trigger = { tag = EEB }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEC_tt
+		trigger = { tag = EEC }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EED_tt
+		trigger = { tag = EED }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEE_tt
+		trigger = { tag = EEE }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEF_tt
+		trigger = { tag = EEF }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEG_tt
+		trigger = { tag = EEG }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEH_tt
+		trigger = { tag = event_target:to_EEH_target }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEI_tt
+		trigger = { tag = EEI }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEJ_tt
+		trigger = { tag = EEJ }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEL_tt
+		trigger = { tag = EEL }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEM_tt
+		trigger = { tag = EEM }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEO_tt
+		trigger = { tag = EEO }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EER_tt
+		trigger = { tag = EER }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EES_tt
+		trigger = { tag = EES }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EET_tt
+		trigger = { tag = EET }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEU_tt
+		trigger = { tag = EEU }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEV_tt
+		trigger = { tag = EEV }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEQ_tt
+		trigger = { tag = EEQ }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEP_tt
+		trigger = { tag = EEP }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEY_tt
+		trigger = { tag = event_target:to_EEY_target }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEN_tt
+		trigger = { tag = EEN }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_ELG_tt
+		trigger = { tag = ELG }
+	}
+}
+
+defined_text = {
+	# Code generated by exarchs/exarch_formation_decisions.py
+	name = GetExarchMerchantLand_2
+	random = no
+
+	text = {
+		localisation_key = to_exarch_merchant_land_2_ELG_tt
+		trigger = { tag = ELG }
+	}
+}
+
+defined_text = {
+	# Code generated by exarchs/exarch_formation_decisions.py
+	name = GetExarchMerchantLandFromProvince
+	random = no
+
+	text = {
+		localisation_key = to_exarch_merchant_land_EEA_tt
+		trigger = { nhs_EEA_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEB_tt
+		trigger = { nhs_EEB_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEC_tt
+		trigger = { nhs_EEC_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EED_tt
+		trigger = { nhs_EED_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEE_tt
+		trigger = { nhs_EEE_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEF_tt
+		trigger = { nhs_EEF_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEG_tt
+		trigger = { nhs_EEG_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEH_tt
+		trigger = { nhs_EEH_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEI_tt
+		trigger = { nhs_EEI_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEJ_tt
+		trigger = { nhs_EEJ_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEL_tt
+		trigger = { nhs_EEL_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEM_tt
+		trigger = { nhs_EEM_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEO_tt
+		trigger = { nhs_EEO_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EER_tt
+		trigger = { nhs_EER_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EES_tt
+		trigger = { nhs_EES_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EET_tt
+		trigger = { nhs_EET_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEU_tt
+		trigger = { nhs_EEU_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEV_tt
+		trigger = { nhs_EEV_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEQ_tt
+		trigger = { nhs_EEQ_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEP_tt
+		trigger = { nhs_EEP_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEY_tt
+		trigger = { nhs_EEY_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEN_tt
+		trigger = { nhs_EEN_province = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_2_ELG_tt
+		trigger = { nhs_ELG_merchant_land_2 = yes }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_ELG_tt
+		trigger = { nhs_ELG_province = yes }
+	}
+}
+
+defined_text = {
+	# Code generated by exarchs/exarch_formation_decisions.py
+	name = GetExarchMerchantLandFromCapital
+	random = no
+
+	text = {
+		localisation_key = to_exarch_merchant_land_EEA_tt
+		trigger = { capital_scope = { nhs_EEA_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEB_tt
+		trigger = { capital_scope = { nhs_EEB_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEC_tt
+		trigger = { capital_scope = { nhs_EEC_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EED_tt
+		trigger = { capital_scope = { nhs_EED_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEE_tt
+		trigger = { capital_scope = { nhs_EEE_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEF_tt
+		trigger = { capital_scope = { nhs_EEF_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEG_tt
+		trigger = { capital_scope = { nhs_EEG_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEH_tt
+		trigger = { capital_scope = { nhs_EEH_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEI_tt
+		trigger = { capital_scope = { nhs_EEI_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEJ_tt
+		trigger = { capital_scope = { nhs_EEJ_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEL_tt
+		trigger = { capital_scope = { nhs_EEL_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEM_tt
+		trigger = { capital_scope = { nhs_EEM_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEO_tt
+		trigger = { capital_scope = { nhs_EEO_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EER_tt
+		trigger = { capital_scope = { nhs_EER_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EES_tt
+		trigger = { capital_scope = { nhs_EES_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EET_tt
+		trigger = { capital_scope = { nhs_EET_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEU_tt
+		trigger = { capital_scope = { nhs_EEU_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEV_tt
+		trigger = { capital_scope = { nhs_EEV_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEQ_tt
+		trigger = { capital_scope = { nhs_EEQ_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEP_tt
+		trigger = { capital_scope = { nhs_EEP_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEY_tt
+		trigger = { capital_scope = { nhs_EEY_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_EEN_tt
+		trigger = { capital_scope = { nhs_EEN_province = yes } }
+	}
+	text = {
+		localisation_key = to_exarch_merchant_land_ELG_tt
+		trigger = { capital_scope = { nhs_ELG_province = yes } }
+	}
+}
+
+defined_text = {
+	name = EnablesParliament
+	random = no
+	text = {
+		localisation_key = mechanic_has_parliament_yes
+		trigger = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+	}
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = OpenClosePotentialProjectsText
+	random = no
+	text = {
+		localisation_key = to_open_potential_projects_menu_tt
+		trigger = {
+			has_province_flag = to_hide_potential_projects_gui
+		}
+	}
+	text = {
+		localisation_key = to_close_potential_projects_menu_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianSilkCostReducedTooltip
+	random = no
+	text = {
+		localisation_key = to_elysian_silk_objective_dip_cost_reduction_tt
+	}
+}
+
+defined_text = {
+	name = GetDevelopedSilkProvinces
+	random = no
+	text = {
+		localisation_key = to_6_more_such_provinces_tt
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 7
+				development = 20
+				trade_goods = elysian_silk
+			}
+		}
+	}
+	text = {
+		localisation_key = to_6_such_provinces_tt
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 6
+				development = 20
+				trade_goods = elysian_silk
+			}
+		}
+	}
+	text = {
+		localisation_key = to_5_such_provinces_tt
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 5
+				development = 20
+				trade_goods = elysian_silk
+			}
+		}
+	}
+	text = {
+		localisation_key = to_4_such_provinces_tt
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 4
+				development = 20
+				trade_goods = elysian_silk
+			}
+		}
+	}
+	text = {
+		localisation_key = to_3_such_provinces_tt
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 3
+				development = 20
+				trade_goods = elysian_silk
+			}
+		}
+	}
+	text = {
+		localisation_key = to_2_such_provinces_tt
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 2
+				development = 20
+				trade_goods = elysian_silk
+			}
+		}
+	}
+	text = {
+		localisation_key = to_1_such_provinces_tt
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 1
+				development = 20
+				trade_goods = elysian_silk
+			}
+		}
+	}
+	text = {
+		localisation_key = to_0_such_provinces_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianSilkProvinceTooltip
+	random = no
+	text = {
+		localisation_key = to_elysian_silk_provinces_tooltip_starting
+		trigger = {
+			NOT = { has_global_flag = to_elysian_silk_price_increase_1_done }
+		}
+	}
+	text = {
+		trigger = {
+			NOT = { has_global_flag = to_elysian_silk_price_increase_5_done }
+		}
+		localisation_key = to_elysian_silk_provinces_tooltip_additional
+	}
+	text = {
+		localisation_key = to_elysian_silk_provinces_tooltip_final
+	}
+}
+
+defined_text = {
+	name = GetPotentialElysianSilkProvinces
+	random = no
+	text = {
+		localisation_key = to_elysian_silk_base_provinces_tt
+		trigger = {
+			OR = {
+				NOT = { has_global_flag = to_elysian_silk_price_increase_5_done }
+				NOT = { total_own_and_non_tributary_subject_development = 1000 }
+			}
+		}
+	}
+	# Code generated by elysian silk/potential_provinces.py
+	text = {
+		localisation_key = to_elysian_silk_potential_27_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 21000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_26_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 20000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_25_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 19000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_24_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 18000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_23_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 17000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_22_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 16000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_21_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 15000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_20_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 14000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_19_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 13000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_18_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 12000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_17_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 11000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_16_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 10000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_15_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 9000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_14_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 8000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_13_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 7000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_12_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 6000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_11_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 5000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_10_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 4000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_9_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 3000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_8_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 2000
+		}
+	}
+	text = {
+		localisation_key = to_elysian_silk_potential_7_tt
+		trigger = {
+			total_own_and_non_tributary_subject_development = 1000
+		}
+	}		
+}
+
+defined_text = {
+	name = GetStandardizeCurrencyGold
+	random = no
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			mission_completed = to_standardize_currency_mission
+		}
+	}
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			any_owned_province = {
+				to_ely_high_income_mission_is_gold_province = yes
+				NOT = { trade_goods = gold }
+			}
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetKaudaEventRulerDesc
+	random = no
+	text = {
+		localisation_key = to_kauda_ruler_loukas_tt
+		trigger = {
+			CM1 = {
+				has_ruler_flag = to_ruler_loukas
+			}
+		}
+	}
+	# text = {
+	# 	localisation_key = to_kauda_ruler_descendant_tt
+	# 	trigger = {
+	# 		CM1 = {
+	# 			has_ruler_flag = to_ruler_loukas_descendant
+	# 		}
+	# 	}
+	# }
+	text = {
+		localisation_key = to_kauda_ruler_other_tt
+	}
+}
+
+defined_text = {
+	name = GetKaudaHellenicResponse
+	random = no
+	text = {
+		localisation_key = to_kauda_hellenic_nontolerant_tt
+		trigger = {
+			NOT = { has_country_flag = nhs_enable_tolerated_minority }
+			NOT = { has_country_flag = nhs_enable_semi_tolerated_minority }
+		}
+	}
+	text = {
+		localisation_key = to_kauda_hellenic_tolerant_tt
+	}
+}
+
+defined_text = {
+	name = GetNextAdmiratyFaction
+	random = no
+	text = {
+		localisation_key = ctm_dynatoi
+		trigger = {
+			has_country_flag = ctm_council_choose_adm
+		}
+	}
+	text = {
+		localisation_key = ctm_patrikioi
+		trigger = {
+			has_country_flag = ctm_council_choose_dip
+		}
+	}
+	text = {
+		localisation_key = ctm_admiralty
+	}
+}
+
+defined_text = {
+	name = elysian_infighting_10_title
+	random = no
+	text = {
+		localisation_key = elysian_infighting_10_ta
+		trigger = {
+			has_ruler_flag = nobleleader
+		}
+	}
+	text = {
+		localisation_key = elysian_infighting_10_tb
+		trigger = {
+			NOT = { has_ruler_flag = nobleleader }
+		}
+	}
+}
+
+defined_text = {
+	name = GetSenatorMP
+	random = no
+	text = {
+		localisation_key = nhs_senator_cl
+		trigger = {
+			OR = {
+				culture_group = byzantine
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_mp_cl
+		trigger = {
+			NOT = {
+				OR = {
+					culture_group = byzantine
+					nhs_check_all_elysian_tags = { CONDITION = tag }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetCapSenatorMP
+	random = no
+	text = {
+		localisation_key = nhs_cap_senator_cl
+		trigger = {
+			OR = {
+				culture_group = byzantine
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_mp_cl
+		trigger = {
+			NOT = {
+				OR = {
+					culture_group = byzantine
+					nhs_check_all_elysian_tags = { CONDITION = tag }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetSenatorialParliamentary
+	random = no
+	text = {
+		localisation_key = nhs_senatorial_cl
+		trigger = {
+			OR = {
+				culture_group = byzantine
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_parlimentary_cl
+		trigger = {
+			NOT = {
+				OR = {
+					culture_group = byzantine
+					nhs_check_all_elysian_tags = { CONDITION = tag }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetCapSenatorialParliamentary
+	random = no
+	text = {
+		localisation_key = nhs_cap_senatorial_cl
+		trigger = {
+			OR = {
+				culture_group = byzantine
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_cap_parlimentary_cl
+		trigger = {
+			NOT = {
+				OR = {
+					culture_group = byzantine
+					nhs_check_all_elysian_tags = { CONDITION = tag }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetSenateParliament
+	random = no
+	text = {
+		localisation_key = nhs_senate_cl
+		trigger = {
+			OR = {
+				culture_group = byzantine
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_parliment_cl
+		trigger = {
+			NOT = {
+				OR = {
+					culture_group = byzantine
+					nhs_check_all_elysian_tags = { CONDITION = tag }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetCapSenateParliament
+	random = no
+	text = {
+		localisation_key = nhs_cap_senate_cl
+		trigger = {
+			OR = {
+				culture_group = byzantine
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_cap_parliment_cl
+		trigger = {
+			NOT = {
+				OR = {
+					culture_group = byzantine
+					nhs_check_all_elysian_tags = { CONDITION = tag }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ctmElectedCand
+	random = no
+	text = {
+		localisation_key = ctmElectedCand_dynatoi
+		trigger = {
+			has_country_flag = ctm_council_choose_adm
+		}
+	}
+	text = {
+		localisation_key = ctmElectedCand_patrikoi
+		trigger = {
+			has_country_flag = ctm_council_choose_dip
+		}
+	}
+	text = {
+		localisation_key = ctmElectedCand_admiralty
+		trigger = {
+			has_country_flag = ctm_council_choose_mil
+		}
+	}
+}
+
+
+defined_text = {
+    name = GetNumberOfHeralds
+	random = no
+    text = {
+        localisation_key = nhs_too_many_herads_recently0_tt
+        trigger = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = NHS_HERALD_ACTIVE_MISSIONARY
+			}
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = NHS_HERALD_ACTIVE_MISSIONARY_2
+			}
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = NHS_HERALD_ACTIVE_MISSIONARY_3
+			}
+        }
+    }
+    text = {
+        localisation_key = nhs_too_many_herads_recently1_tt
+        trigger = {
+			calc_true_if = {
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY
+				}
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_2
+				}
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_3
+				}
+				amount = 2
+			}
+        }
+    }
+	text = {
+        localisation_key = nhs_too_many_herads_recently2_tt
+        trigger = {
+			OR = {
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY
+				}
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_2
+				}
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_3
+				}
+			}
+        }
+	}
+	text = {
+        localisation_key = nhs_too_many_herads_recently3_tt
+        trigger = {
+			NOT = {
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_3
+				}
+			}
+			NOT = {
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_2
+				}
+			}
+			NOT = {
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY
+				}
+			}
+        }
+	}
+}
+
+defined_text = {
+    name = GetNumberOfHeralds_for_interaction
+	random = no
+    text = {
+        localisation_key = nothing_tt
+        trigger = {
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = NHS_HERALD_ACTIVE_MISSIONARY
+			}
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = NHS_HERALD_ACTIVE_MISSIONARY_2
+			}
+			has_estate_influence_modifier = {
+				estate = estate_church
+				modifier = NHS_HERALD_ACTIVE_MISSIONARY_3
+			}
+        }
+    }
+    text = {
+        localisation_key = nhs_too_many_herads_recently1_tt
+        trigger = {
+			calc_true_if = {
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY
+				}
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_2
+				}
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_3
+				}
+				amount = 2
+			}
+        }
+    }
+	text = {
+        localisation_key = nhs_too_many_herads_recently2_tt
+		trigger = {
+			OR = {
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY
+				}
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_2
+				}
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_3
+				}
+			}
+        }
+	}
+	text = {
+        localisation_key = nhs_too_many_herads_recently3_tt
+        trigger = {
+			NOT = {
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_3
+				}
+			}
+			NOT = {
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY_2
+				}
+			}
+			NOT = {
+				has_estate_influence_modifier = {
+					estate = estate_church
+					modifier = NHS_HERALD_ACTIVE_MISSIONARY
+				}
+			}
+        }
+	}
+}
+defined_text = {
+	name = GetRestriction
+	random = no
+	text = {
+		localisation_key = nhs_GetRestriction_SHQ
+		trigger = {
+			tag = SHQ
+		}
+	}
+	text = {
+		localisation_key = nhs_GetRestriction_CTM_KYK
+		trigger = {
+			OR = {
+				tag = CM1
+				tag = KYK
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_GetRestriction_VIN
+		trigger = {
+			OR = {
+				tag = MK1
+				tag = HLL
+				tag = VLA
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_GetRestriction_MSN
+		trigger = {
+			OR = {
+				tag = MSG
+				tag = MSN
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetRestrictionDesc
+	random = no
+	text = {
+		localisation_key = nhs_GetRestrictionDesc_SHQ
+		trigger = {
+			FROM = {
+				tag = SHQ
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_GetRestrictionDesc_CTM_KYK
+		trigger = {
+			FROM = {
+				OR = {
+					tag = CM1
+					tag = KYK
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_GetRestrictionDesc_VIN
+		trigger = {
+			FROM = {
+				OR = {
+					tag = MK1
+					tag = HLL
+					tag = VLA
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = nhs_GetRestrictionDesc_MSN
+		trigger = {
+			FROM = {
+				OR = {
+					tag = MSG
+					tag = MSN
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = nhs_GetCoalEnlightenmentOwn
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			enlightenment = 100
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+		trigger = {
+			NOT = { enlightenment = 100 }
+		}
+	}
+}
+
+defined_text = {
+	name = nhs_GetCoalEnlightenmentOwner
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			owner = { has_institution = enlightenment }
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+		trigger = {
+			NOT = { owner = { has_institution = enlightenment } }
+		}
+	}
+}
+
+defined_text = {
+	name = nhs_GetCoalTriggersDevelopment
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			OR = {
+				development = 20
+				owner = {
+					full_idea_group = innovativeness_ideas
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+		trigger = {
+			NOT = {
+				OR = {
+					development = 20
+					owner = {
+						full_idea_group = innovativeness_ideas
+					}
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = nhs4GetLosesText
+	random = no
+	text = {
+		localisation_key = nhs4GetLosesTextGood
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_ship_loses_gra }
+			NOT = { has_country_flag = nhs_new_flight_troop_loses }
+		}
+	}
+	text = {
+		localisation_key = nhs4GetLosesTextBad
+		trigger = {
+			has_country_flag = nhs_new_flight_ship_loses_gra
+		}
+	}
+	text = {
+		localisation_key = nhs4GetLosesTextBad2
+		trigger = {
+			has_country_flag = nhs_new_flight_troop_loses
+		}
+	}
+}
+
+defined_text = {
+	name = nhs3GetLosesText
+	random = no
+	text = {
+		localisation_key = nhs3GetLosesTextGood
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_ship_loses_gra }
+			NOT = { has_country_flag = nhs_new_flight_troop_loses }
+		}
+	}
+	text = {
+		localisation_key = nhs3GetLosesTextBad
+		trigger = {
+			has_country_flag = nhs_new_flight_ship_loses_gra
+		}
+	}
+	text = {
+		localisation_key = nhs3GetLosesTextBad2
+		trigger = {
+			has_country_flag = nhs_new_flight_troop_loses
+		}
+	}
+}
+
+defined_text = {
+	name = nhs2GetLosesText
+	random = no
+	text = {
+		localisation_key = nhs2GetLosesTextGood
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_ship_loses_gra }
+			NOT = { has_country_flag = nhs_new_flight_troop_loses }
+		}
+	}
+	text = {
+		localisation_key = nhs2GetLosesTextBad
+		trigger = {
+			has_country_flag = nhs_new_flight_ship_loses_gra
+		}
+	}
+	text = {
+		localisation_key = nhs2GetLosesTextBad2
+		trigger = {
+			has_country_flag = nhs_new_flight_troop_loses
+		}
+	}
+}
+
+defined_text = {
+	name = nhs1GetLosesText
+	random = no
+	text = {
+		localisation_key = nhs1GetLosesTextGood
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_ship_loses_gra }
+			NOT = { has_country_flag = nhs_new_flight_troop_loses }
+		}
+	}
+	text = {
+		localisation_key = nhs1GetLosesTextBad
+		trigger = {
+			has_country_flag = nhs_new_flight_ship_loses_gra
+		}
+	}
+	text = {
+		localisation_key = nhs1GetLosesTextBad2
+		trigger = {
+			has_country_flag = nhs_new_flight_troop_loses
+		}
+	}
+}
+
+defined_text = {
+	name = nhs4GetVeniceGenoa
+	random = no
+	text = {
+		localisation_key = nhs4GetVeniceGenoaMor
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_sold_morea_to_venice }
+			NOT = { has_country_flag = nhs_new_flight_sold_morea_to_genoa }
+		}
+	}
+	text = {
+		localisation_key = nhs4GetVeniceGenoaVen
+		trigger = {
+			has_country_flag = nhs_new_flight_sold_morea_to_venice
+		}
+	}
+	text = {
+		localisation_key = nhs4GetVeniceGenoaGen
+		trigger = {
+			has_country_flag = nhs_new_flight_sold_morea_to_genoa
+		}
+	}
+}
+
+define_text = {
+	name = GenoaArmyProfTrad
+
+	text = {
+		localisation_key = to_genoa_starting_army_prof_tt
+		trigger = {
+			has_dlc = "Cradle of Civilization"
+		}
+	}
+	text = {
+		localisation_key = to_genoa_starting_army_trad_tt
+	}
+}
+
+defined_text = {
+	name = nhs1GetVeniceGenoa
+	random = no
+	text = {
+		localisation_key = nhs4GetVeniceGenoaMor
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_sold_morea_to_venice }
+			NOT = { has_country_flag = nhs_new_flight_sold_morea_to_genoa }
+		}
+	}
+	text = {
+		localisation_key = nhs1GetVeniceGenoaVen
+		trigger = {
+			has_country_flag = nhs_new_flight_sold_morea_to_venice
+		}
+	}
+	text = {
+		localisation_key = nhs4GetVeniceGenoaGen
+		trigger = {
+			has_country_flag = nhs_new_flight_sold_morea_to_genoa
+		}
+	}
+}
+
+defined_text = {
+	name = nhs4GetPiratesStorm
+	random = no
+	text = {
+		localisation_key = nhs4GetPiratesStormGood
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flightevents_lose_dev_storm }
+		}
+	}
+	text = {
+		localisation_key = nhs4GetPiratesStormSt
+		trigger = {
+			has_country_flag = nhs_new_flightevents_lose_dev_storm
+		}
+	}
+	# text = {
+	# 	localisation_key = nhs4GetPiratesStormGood
+	# 	trigger = {
+	# 		NOT = { has_country_flag = nhs_new_flight_ship_loses_gra }
+	# 		NOT = { has_country_flag = nhs_new_flightevents_lose_dev_storm }
+	# 	}
+	# }
+	# text = {
+	# 	localisation_key = nhs4GetPiratesStormPirSt
+	# 	trigger = {
+	# 		has_country_flag = nhs_new_flight_ship_loses_gra
+	# 		has_country_flag = nhs_new_flightevents_lose_dev_storm
+	# 	}
+	# }
+	# text = {
+	# 	localisation_key = nhs4GetPiratesStormSt
+	# 	trigger = {
+	# 		NOT = { has_country_flag = nhs_new_flight_ship_loses_gra }
+	# 		has_country_flag = nhs_new_flightevents_lose_dev_storm
+	# 	}
+	# }
+	# text = {
+	# 	localisation_key = nhs4GetPiratesStormPir
+	# 	trigger = {
+	# 		has_country_flag = nhs_new_flight_ship_loses_gra
+	# 		NOT = { has_country_flag = nhs_new_flightevents_lose_dev_storm }
+	# 	}
+	# }
+}
+
+defined_text = {
+	name = GetTrueNationTriggerMissionList
+	random = no
+	text = {
+		localisation_key = nhs_true_nation_mission_trigger_list
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetFarmingMissingLoc
+	random = no
+	text = {
+		localisation_key = to_taming_the_land_mission_desc_with_supplies
+		trigger = {
+			OR = {
+				has_country_flag = nhs_new_flight_food_status_3
+				has_country_flag = nhs_new_flight_food_status_4
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_taming_the_land_mission_desc_without_supplies
+	}
+}
+
+defined_text = {
+	name = GetCorrectTONobilityName
+	random = no
+	text = {
+		localisation_key = this_nhs_nobles
+		trigger = {
+			has_estate = estate_nhs_nobles
+		}
+	}
+
+	text = {
+		localisation_key = this_nhs_apogonoi
+		trigger = {
+			has_estate = estate_nhs_apogonoi
+		}
+	}
+
+	text = {
+		localisation_key = this_nobles
+	}
+}
+
+defined_text = {
+	name = GetRomeElysia
+	random = no
+	text = {
+		localisation_key = ELY
+		trigger = {
+			OR = {
+				exists = ELY
+				exists = ER1
+				AND = {
+					NOT = { exists = NHS }
+					NOT = { exists = ERR }
+					has_global_flag = nhs_romaic_to_elysian
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = to_nhs_rome
+	}
+}
+
+defined_text = {
+	name = GetElysiansRomans
+	random = no
+	text = {
+		localisation_key = to_nhs_elysians
+		trigger = {
+			OR = {
+				exists = ELY
+				exists = ER1
+				AND = {
+					NOT = { exists = NHS }
+					NOT = { exists = ERR }
+					has_global_flag = nhs_romaic_to_elysian
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = to_nhs_romans
+	}
+}
+
+defined_text = {
+	name = GetElysianRoman
+	random = no
+	text = {
+		localisation_key = to_nhs_elysian
+		trigger = {
+			OR = {
+				exists = ELY
+				exists = ER1
+				AND = {
+					NOT = { exists = NHS }
+					NOT = { exists = ERR }
+					has_global_flag = nhs_romaic_to_elysian
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = to_nhs_roman
+	}
+}
+
+defined_text = {
+	name = GetElysianRomanWithArticle
+	random = no
+	text = {
+		localisation_key = to_nhs_elysian_with_article
+		trigger = {
+			OR = {
+				exists = ELY
+				exists = ER1
+				AND = {
+					NOT = { exists = NHS }
+					NOT = { exists = ERR }
+					has_global_flag = nhs_romaic_to_elysian
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = to_nhs_roman_with_article
+	}
+}
+
+defined_text = {
+	name = GetAssimilationElysianCultureName
+	random = no
+	text = {
+		localisation_key = to_owner_culture_tt
+		trigger = {
+			owner = {
+				NOT = { nhs_post_fragmentation_culturally_elysian = yes }
+			}
+		}
+	}
+	text = {
+		localisation_key = lakonian
+		trigger = {
+			OR = {
+				AND = {
+					owner = {
+						to_enabled_mesoamerican_assimilation = yes
+					}
+					to_mesoamerican_assimilation_province = yes
+				}
+				AND = {
+					owner = {
+						to_enabled_spartan_assimilation = yes
+					}
+					to_spartan_assimilation_province = yes
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = varangian_e
+		trigger = {
+			owner = {
+				to_enabled_norse_assimilation = yes
+			}
+			to_norse_assimilation_province = yes
+		}
+	}
+	text = {
+		localisation_key = shqipproi
+		trigger = {
+			owner = {
+				primary_culture = shqipproi
+			}
+		}
+	}
+	text = {
+		localisation_key = borealian
+		trigger = {
+			owner = {
+				has_country_flag = nhs_borealians_appeared_country
+			}
+			nhs_borealian_province = yes
+		}
+	}
+	text = {
+		localisation_key = hyperborealian
+		trigger = {
+			owner = {
+				has_country_flag = nhs_hyperborealians_appeared_country
+			}
+			nhs_hyperborealian_province = yes
+		}
+	}
+	text = {
+		localisation_key = hesperidian
+		trigger = {
+			owner = {
+				has_country_flag = nhs_hesperidians_appeared_country
+			}
+			nhs_hesperidian_province = yes
+		}
+	}
+	text = {
+		localisation_key = kykladian
+		trigger = {
+			owner = {
+				has_country_flag = nhs_kykladian_appeared_country
+			}
+			nhs_kykladian_province = yes
+		}
+	}
+	text = {
+		localisation_key = elyric
+		trigger = {
+			owner = {
+				has_country_flag = nhs_elyric_appeared_country
+			}
+			nhs_elyric_province = yes
+		}
+	}
+	text = {
+		localisation_key = arkadian
+		trigger = {
+			owner = {
+				has_country_flag = nhs_arkadians_appeared_country
+			}
+			nhs_arkadian_province = yes
+		}
+	}
+	text = {
+		localisation_key = eleutheroi
+		trigger = {
+			owner = {
+				has_country_flag = nhs_eleutheroi_appeared_country
+			}
+			nhs_eleutheroi_province = yes
+		}
+	}
+	text = {
+		localisation_key = romaic
+		trigger = {
+			OR = {
+				region = northeast_america_region
+				region = southeast_america_region
+			}
+			to_nhs_eligible_for_romaic_culture = yes
+		}
+	}
+	text = {
+		localisation_key = elysian
+		trigger = {
+			OR = {
+				region = northeast_america_region
+				region = southeast_america_region
+			}
+		}
+	}
+	text = {
+		localisation_key = to_owner_culture_tt
+	}
+}
+
+defined_text = {
+	name = GetPromoteLocalElysianCultureText
+	random = no
+	text = {
+		localisation_key = to_promote_lakonian_local_culture_tt
+		trigger = {
+			nhs_lakonian_province = yes
+		}
+	}
+	text = {
+		localisation_key = to_promote_borealian_local_culture_additional_tt
+		trigger = {
+			owner = {
+				has_country_flag = nhs_borealians_appeared_country
+				NOT = { has_country_flag = nhs_hyperborealians_appeared_country }
+			}
+			nhs_borealian_province = yes
+		}
+	}
+	text = {
+		localisation_key = to_promote_borealian_local_culture_tt
+		trigger = {
+			owner = {
+				has_country_flag = nhs_borealians_appeared_country
+			}
+			nhs_borealian_province = yes
+		}
+	}
+	text = {
+		localisation_key = to_promote_thoulean_local_culture_tt
+		trigger = {
+			owner = {
+				has_country_flag = nhs_hyperborealians_appeared_country
+			}
+			nhs_hyperborealian_province = yes
+		}
+	}
+	text = {
+		localisation_key = to_promote_hesperidian_local_culture_tt
+		trigger = {
+			owner = {
+				has_country_flag = nhs_hesperidians_appeared_country
+			}
+			nhs_hesperidian_province = yes
+		}
+	}
+	text = {
+		localisation_key = to_promote_kykladian_local_culture_tt
+		trigger = {
+			owner = {
+				has_country_flag = nhs_kykladian_appeared_country
+			}
+			nhs_kykladian_province = yes
+		}
+	}
+	text = {
+		localisation_key = to_promote_elyric_local_culture_tt
+		trigger = {
+			owner = {
+				has_country_flag = nhs_elyric_appeared_country
+			}
+			nhs_elyric_province = yes
+		}
+	}
+	text = {
+		localisation_key = to_promote_arkadian_local_culture_tt
+		trigger = {
+			owner = {
+				has_country_flag = nhs_arkadians_appeared_country
+			}
+			nhs_arkadian_province = yes
+		}
+	}
+	text = {
+		localisation_key = to_promote_eleutheroi_local_culture_tt
+		trigger = {
+			owner = {
+				has_country_flag = nhs_eleutheroi_appeared_country
+			}
+			nhs_eleutheroi_province = yes
+		}
+	}
+}
+
+defined_text = {
+	name = PromoteLocalCultureButtonTooltip
+	random = no
+	text = {
+		localisation_key = to_promote_local_culture_button_enabled_tt
+		trigger = {
+			to_has_promoted_local_culture = {}
+		}
+	}
+	text = {
+		localisation_key = to_promote_local_culture_button_disabled_tt
+	}
+}
+
+defined_text = {
+	name = NhsAdmTech16
+	random = no
+	
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			adm_tech = 16
+		}
+	}
+	
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = NhsDipTech16
+	random = no
+	
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			dip_tech = 16
+		}
+	}
+	
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = NhsMilTech16
+	random = no
+	
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			dip_tech = 16
+		}
+	}
+	
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetAttitudeChangeText
+	random = no
+
+	text = {
+		localisation_key = to_nhs_attitude_change_tt
+	}
+}
+
+defined_text = {
+	name = GetAttitudeNoChangeText
+	random = no
+
+	text = {
+		localisation_key = to_nhs_attitude_nochange_tt
+	}
+}
+
+defined_text = {
+	name = GetCurrentHellenicAttitude
+	random = no
+
+	text = {
+		localisation_key = to_nhs_attitude_friendly_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_friendly = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_neutral_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_neutral = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_unfriendly_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_unfriendly = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_hostile_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_hostile = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetHellenicAttitudeChangeMinor
+	random = no
+
+	text = {
+		localisation_key = to_nhs_attitude_change_neutral_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_minor_neutral = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_unfriendly_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_minor_unfriendly = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_hostile_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_minor_hostile = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_hellenic_attitude_nochange_tt
+	}
+}
+
+defined_text = {
+	name = GetHellenicAttitudeChangeMajor
+	random = no
+
+	text = {
+		localisation_key = to_nhs_attitude_change_neutral_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_major_neutral = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_unfriendly_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_major_unfriendly = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_hostile_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_major_hostile = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_hellenic_attitude_nochange_tt
+	}
+}
+
+defined_text = {
+	name = GetHellenicAttitudeChangeHuge
+	random = no
+
+	text = {
+		localisation_key = to_nhs_attitude_change_neutral_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_huge_neutral = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_unfriendly_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_huge_unfriendly = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_hostile_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_huge_hostile = {
+				ATTITUDE_VARIABLE = HellenicUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_hellenic_attitude_nochange_tt
+	}
+}
+
+defined_text = {
+	name = GetCurrentOrthodoxAttitude
+	random = no
+
+	text = {
+		localisation_key = to_nhs_attitude_friendly_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_friendly = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_neutral_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_neutral = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_unfriendly_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_unfriendly = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_hostile_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_hostile = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetOrthodoxAttitudeChangeMinor
+	random = no
+
+	text = {
+		localisation_key = to_nhs_attitude_change_neutral_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_minor_neutral = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_unfriendly_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_minor_unfriendly = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_hostile_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_minor_hostile = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_orthodox_attitude_nochange_tt
+	}
+}
+
+defined_text = {
+	name = GetOrthodoxAttitudeChangeMajor
+	random = no
+
+	text = {
+		localisation_key = to_nhs_attitude_change_neutral_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_major_neutral = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_unfriendly_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_major_unfriendly = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_hostile_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_major_hostile = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_orthodox_attitude_nochange_tt
+	}
+}
+
+defined_text = {
+	name = GetOrthodoxAttitudeChangeHuge
+	random = no
+
+	text = {
+		localisation_key = to_nhs_attitude_change_neutral_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_huge_neutral = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_unfriendly_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_huge_unfriendly = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_attitude_change_hostile_tt
+		trigger = {
+			to_nhs_hellenic_disaster_attitude_changes_huge_hostile = {
+				ATTITUDE_VARIABLE = OrthodoxUprising
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nhs_orthodox_attitude_nochange_tt
+	}
+}
+
+defined_text = {
+	name = GetExistingElysiaName
+	random = no
+
+	text = {
+		localisation_key = ELR
+		trigger = {
+			exists = ELR
+		}
+	}
+	text = {
+		localisation_key = ERR
+		trigger = {
+			exists = ERR
+		}
+	}
+	text = {
+		localisation_key = ER1
+		trigger = {
+			exists = ER1
+		}
+	}
+
+	text = {
+		localisation_key = ELY
+		trigger = {
+			OR = {
+				exists = ELY
+				AND = {
+					NOT = { exists = NHS }
+					has_global_flag = nhs_romaic_to_elysian
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = NHS
+	}
+}
+
+defined_text = {
+	name = GetExistingElysiaReligion
+	random = no
+
+	text = {
+		localisation_key = ELR_religion_tt
+		trigger = {
+			exists = ELR
+		}
+	}
+	text = {
+		localisation_key = ERR_religion_tt
+		trigger = {
+			exists = ERR
+		}
+	}
+	text = {
+		localisation_key = ERF_religion_tt
+		trigger = {
+			exists = ER1
+		}
+	}
+
+	text = {
+		localisation_key = ELY_religion_tt
+		trigger = {
+			OR = {
+				exists = ELY
+				AND = {
+					NOT = { exists = NHS }
+					has_global_flag = nhs_romaic_to_elysian
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = NHS_religion_tt
+	}
+}
+
+defined_text = {
+	name = GetExistingElysiaReligionIfExists
+	random = no
+
+	text = {
+		localisation_key = to_elysia_religion_tt
+		trigger = {
+			nhs_check_all_elysian_tags = { CONDITION = exists }
+		}
+	}
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetHas15Cities
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			num_of_cities = 15
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetHas5DipRuler
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			dip = 5
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetHasFriendlyNative
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			any_known_country = {
+				technology_group = north_american
+				has_opinion = { who = ROOT value = 100 }
+			}
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianCapitalMonumentGovernmentModifier
+	random = no
+	text = {
+		localisation_key = nhs_capital_monument_monarchy_leviathan_tt
+		trigger = {
+			government = monarchy
+			has_dlc = "Leviathan"
+		}
+	}
+	text = {
+		localisation_key = nhs_capital_monument_monarchy_tt
+		trigger = {
+			government = monarchy
+		}
+	}
+	text = {
+		localisation_key = nhs_capital_monument_theocracy_tt
+		trigger = {
+			government = theocracy
+		}
+	}
+	text = {
+		localisation_key = nhs_capital_monument_republic_tt
+		trigger = {
+			government = republic
+		}
+	}
+}
+
+defined_text = {
+	name = GetElysianCapitalMonumentGovernmentModifierSpaced
+	random = no
+	text = {
+		localisation_key = nhs_capital_monument_monarchy_leviathan_spaced_tt
+		trigger = {
+			government = monarchy
+			has_dlc = "Leviathan"
+		}
+	}
+	text = {
+		localisation_key = nhs_capital_monument_monarchy_spaced_tt
+		trigger = {
+			government = monarchy
+		}
+	}
+	text = {
+		localisation_key = nhs_capital_monument_theocracy_spaced_tt
+		trigger = {
+			government = theocracy
+		}
+	}
+	text = {
+		localisation_key = nhs_capital_monument_republic_spaced_tt
+		trigger = {
+			government = republic
+		}
+	}
+}
+
+defined_text = {
+	name = GetInwardFocusDesc
+	random = no
+	text = {
+		localisation_key = to_looking_inwards_mission_desc_with_return_tt
+		trigger = {
+			OR = {
+				owns_or_subject_of = 151
+				mission_completed = to_back_to_the_motherland_mission
+			}
+		}
+	}
+	text = {
+		localisation_key = to_looking_inwards_mission_desc_without_return_tt
+	}
+}
+
+defined_text = {
+	name = GetElysianDespotateColorChange
+	random = no
+	text = {
+		localisation_key = to_change_elysian_governor_color_tooltip_green
+		trigger = {
+			FROM = {
+				tag = ED0
+			}
+		}
+	}
+	text = {
+		localisation_key = to_change_elysian_governor_color_tooltip_purple
+	}
+}
+
+defined_text = {
+	name = EnablePropagateReligionTooltip
+	random = no
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = { has_dlc = "Cradle of Civilization" }
+		}
+	}
+	text = {
+		localisation_key = to_enable_propagate_religion_tt
+	}
+}
+
+
+defined_text = {
+	name = AdditionalFlagship
+	random = no
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = { has_dlc = "Golden Century" }
+		}
+	}
+	text = {
+		localisation_key = to_add_additional_flagship_tt
+	}
+}
+
+defined_text = {
+	name = NoTradePowerForPolicies
+	random = no
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = { has_dlc = "Cradle of Civilization" }
+		}
+	}
+	text = {
+		localisation_key = to_no_trade_power_for_policies_tt
+	}
+}
+
+
+defined_text = {
+	name = RemoveProtectorateRestrictionFromGP
+	random = no
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = { has_dlc = "Rights of Man" }
+			NOT = { has_dlc = "Emperor" }
+		}
+	}
+	text = {
+		localisation_key = to_remove_protectorate_restriction_from_gp
+	}
+}
+
+defined_text = {
+	name = HasOpenedTradeCenter_1818
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			1818 = {
+				to_has_opened_trade_center_in_province = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = HasOpenedTradeCenter_1017
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			1017 = {
+				to_has_opened_trade_center_in_province = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = HasOpenedTradeCenter_1021
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			1021 = {
+				to_has_opened_trade_center_in_province = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = HasOpenedTradeCenter_1028
+	random = no
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			1028 = {
+				to_has_opened_trade_center_in_province = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetExarchAnnexationCost
+	random = no
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			mission_completed = to_basileus_basileon_mission
+			capital = 151
+		}
+	}
+	text = {
+		localisation_key = to_exarch_annexation_cost_tt
+	}
+}
+
+defined_text = {
+	name = GetExarchAnnexationCostLong
+	random = no
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			mission_completed = to_basileus_basileon_mission
+			capital = 151
+		}
+	}
+	text = {
+		localisation_key = to_exarch_annexation_cost_long_tt
+	}
+}
+
+defined_text = {
+	name = GetColonyAnnexationCost
+	random = no
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			OR = {
+				mission_completed = to_the_promised_land_mission
+				has_government_attribute = to_free_annexation_of_colonial_nations
+			}
+		}
+	}
+	text = {
+		localisation_key = to_colony_annexation_cost_tt
+	}
+}
+
+defined_text = {
+	name = GetColonyAnnexationCostLong
+	random = no
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			OR = {
+				mission_completed = to_the_promised_land_mission
+				has_government_attribute = to_free_annexation_of_colonial_nations
+			}
+		}
+	}
+	text = {
+		localisation_key = to_colony_annexation_cost_long_tt
+	}
+}
+
+defined_text = {
+	name = GetElyEmperorTitle
+	random = no
+	text = {
+		localisation_key = BASILEUS
+		trigger = {
+			has_reform = elysian_patriarchy
+		}
+	}
+	text = {
+		localisation_key = to_get_ruler_title_tt
+	}
+}
+
+defined_text = {
+	name = GetMoveCapitalToConstrantinopleEventTitle
+	random = no
+	text = {
+		localisation_key = nhs_mission_events.22.tb
+		trigger = {
+			has_global_flag = nhs_romaic_to_elysian
+		}
+	}
+	text = {
+		localisation_key = nhs_mission_events.22.ta
+	}
+}
+
+defined_text = {
+	name = GetAcrossTheEirenicDesc
+	random = no
+	text = {
+		localisation_key = to_across_the_eirenic_mission_desc_with_columbus
+		trigger = {
+			has_global_flag = to_columbus_sailed
+		}
+	}
+	text = {
+		localisation_key = to_across_the_eirenic_mission_desc_without_columbus
+	}
+}
+
+defined_text = {
+	name = GetKingAndEmperorOrRomansAndElysians
+	random = no
+	text = {
+		localisation_key = to_king_and_emperor_of_romans_and_elysians_tt
+		trigger = {
+			has_global_flag = nhs_romaic_to_elysian
+		}
+	}
+	text = {
+		localisation_key = to_king_and_emperor_of_romans_and_tt
+	}
+}
+
+defined_text = {
+	name = GetDefenderOfFaithProgress
+	random = no
+	text = {
+		localisation_key = to_defender_of_faith_progress_value
+		trigger = {
+			check_variable = {
+				which = to_defender_of_faith_progress
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = to_yellow_zero_percentage_tt
+	}
+}
+
+defined_text = {
+	name = GetDefenderOfFaithGPLine
+	random = no
+	text = {
+		localisation_key = to_defeating_a_great_power
+		trigger = {
+			OR = {
+				has_dlc = "Rights of Man"
+				has_dlc = "Emperor"
+			}
+		}
+	}
+	text = {
+		localisation_key = to_defeating_a_high_dev_country
+	}
+}
+
+defined_text = {
+	name = GetDefenderOfFaithDoF
+	random = no
+	text = {
+		localisation_key = to_defender_of_faith_mission_counter_dof_value
+		trigger = {
+			check_variable = {
+				which = to_defender_of_faith_mission_counter_dof
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = to_yellow_zero_tt
+	}
+}
+
+defined_text = {
+	name = GetDefenderOfFaithWarsWon
+	random = no
+	text = {
+		localisation_key = to_defender_of_faith_mission_counter_won_wars_value
+		trigger = {
+			check_variable = {
+				which = to_defender_of_faith_mission_counter_won_wars
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = to_yellow_zero_tt
+	}
+}
+
+defined_text = {
+	name = GetDefenderOfFaithGreatPowers
+	random = no
+	text = {
+		localisation_key = to_defender_of_faith_mission_counter_great_power_value
+		trigger = {
+			check_variable = {
+				which = to_defender_of_faith_mission_counter_great_power
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = to_yellow_zero_tt
+	}
+}
+
+defined_text = {
+	name = GetDefenderOfFaithPope
+	random = no
+	text = {
+		localisation_key = to_defender_of_faith_mission_counter_pope_value
+		trigger = {
+			check_variable = {
+				which = to_defender_of_faith_mission_counter_pope
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = to_yellow_zero_tt
+	}
+}
+
+defined_text = {
+	name = GetDefenderOfFaithForceConversion
+	random = no
+	text = {
+		localisation_key = to_defender_of_faith_mission_counter_force_conversion_value
+		trigger = {
+			check_variable = {
+				which = to_defender_of_faith_mission_counter_force_conversion
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = to_yellow_zero_tt
+	}
+}
+
+defined_text = {
+	name = GetVarangianStrongholdTooltip
+	random = no
+	text = {
+		localisation_key = to_add_and_modify_varangian_stronghold_tt
+		trigger = {
+			VGD = {
+				num_of_cities = 2
+			}
+			any_owned_province = {
+				has_province_modifier = to_varangian_stronghold_independent
+			}
+		}
+	}
+	text = {
+		localisation_key = to_add_varangian_stronghold_tt
+		trigger = {
+			VGD = {
+				num_of_cities = 2
+			}
+		}
+	}
+	text = {
+		localisation_key = to_modify_varangian_stronghold_tt
+		trigger = {
+			any_owned_province = {
+				has_province_modifier = to_varangian_stronghold_independent
+			}
+		}
+	}
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetCurrentVarangianCulture
+	random = no
+	text = {
+		localisation_key = varangian_e
+		trigger = {
+			owner = {
+				has_country_flag = to_varangian_culture_change
+			}
+		}
+	}
+	text = {
+		localisation_key = varangian_n
+	}
+}
+
+defined_text = {
+	name = GetExarchFLReduction
+	random = no
+	text = {
+		localisation_key = to_minus_25p
+		trigger = {
+			mission_completed = to_the_eagle_rises_mission
+		}
+	}
+	text = {
+		localisation_key = to_minus_50p
+	}
+}
+
+defined_text = {
+	name = SetHREOfficialFaith
+	random = no
+	text = {
+		localisation_key = to_set_hre_religion_to_root_tt
+		trigger = {
+			has_dlc = "Art of War"
+		}
+	}
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetHOJAmbitionsName
+	random = no
+	text = {
+		localisation_key = new_hellas_ideas_ely_bonus
+		trigger = {
+			OR = {
+				tag = ELY
+				tag = ER1
+			}
+		}
+	}
+	text = {
+		localisation_key = new_hellas_ideas_bonus
+	}
+}
+
+defined_text = {
+	name = GetPaxRomanaName
+	random = no
+	text = {
+		localisation_key = to_idea_pax_elysiana
+		trigger = {
+			OR = {
+				tag = ELY
+				tag = ER1
+			}
+		}
+	}
+	text = {
+		localisation_key = to_idea_pax_romana
+	}
+}
+
+defined_text = {
+	name = GetCodexOfWarfareName
+	random = no
+	text = {
+		localisation_key = to_idea_army_reform_ely
+		trigger = {
+			OR = {
+				tag = ELY
+				tag = ER1
+			}
+		}
+	}
+	text = {
+		localisation_key = to_idea_army_reform
+	}
+}
+
+defined_text = {
+	name = GetRomanCitizenshipName
+	random = no
+	text = {
+		localisation_key = roman_citizenship_ely
+		trigger = {
+			OR = {
+				tag = ELY
+				tag = ER1
+			}
+		}
+	}
+	text = {
+		localisation_key = roman_citizenship
+	}
+}
+
+defined_text = {
+	name = ReplaceHOJTraditions
+	random = no
+	text = {
+		localisation_key = to_modify_elysian_traditions_tt
+		trigger = {
+			OR = {
+				tag = ELY
+				tag = ER1
+			}
+		}
+	}
+	text = {
+		localisation_key = to_resurgent_traditions_replace_exiled_traditions_tt
+	}
+}
+
+
+defined_text = {
+	name = GetMajorChurchTemple
+	random = no
+	text = {
+		localisation_key = to_church_of_saint_konstantinos_tt
+		trigger = {
+			religion_group = christian
+		}
+	}
+	text = {
+		localisation_key = to_grand_temple_of_ares_tt
+		trigger = {
+			religion = pantheon_worship
+			953 = {
+				owned_by = ROOT
+				has_province_modifier = nhs_ares_temple_tm
+			}
+		}
+	}
+	text = {
+		localisation_key = to_grand_temple_of_poseidon_tt
+		trigger = {
+			religion = pantheon_worship
+			953 = {
+				owned_by = ROOT
+				has_province_modifier = nhs_poseidon_temple_tm
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_temple_of_apollo_tt
+		trigger = {
+			religion = pantheon_worship
+			to_hellenic_apollo_pantheon = yes
+		}
+	}
+	text = {
+		localisation_key = to_temple_of_poseidon_tt
+		trigger = {
+			religion = pantheon_worship
+			to_hellenic_poseidon_pantheon = yes
+		}
+	}
+	text = {
+		localisation_key = to_temple_of_zeus_tt
+		trigger = {
+			religion = pantheon_worship
+		}
+	}
+	
+	text = {
+		localisation_key = to_grand_temple_tt
+	}
+}
+
+defined_text = {
+	name = GetMonarchAsKingsOfKings
+	random = no
+	text = {
+		localisation_key = to_monarch_as_king_of_kings_tt
+		trigger = {
+			has_regency = no
+			is_female = no
+		}
+	}
+	text = {
+		localisation_key = to_heir_as_king_of_kings_tt
+		trigger = {
+			has_regency = yes
+			has_female_heir = no
+		}
+	}
+	text = {
+		localisation_key = to_monarch_as_paramount_sovereign_tt
+		trigger = {
+			has_regency = no
+			is_female = yes
+		}
+	}
+	text = {
+		localisation_key = to_heir_as_paramount_sovereign_tt
+		trigger = {
+			has_regency = yes
+			has_female_heir = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetInvasionBeginsDescription
+	random = no
+	text = {
+		localisation_key = to_invasion_begins_elysian_tt
+		trigger = {
+			OR = {
+				tag = ELY
+				tag = ER1
+			}
+		}
+	}
+	text = {
+		localisation_key = to_invasion_begins_roman_tt
+	}
+}
+
+defined_text = {
+	name = GetImperialProtectorateDesc
+	random = no
+	text = {
+		localisation_key = to_imperial_protectorate_desc
+	}
+}
+
+defined_text = {
+	name = GetFinalRedMissionTitle
+	random = no
+	text = {
+		localisation_key = to_elysia_ascendant_mission_title
+		trigger = {
+			has_mission = to_elysia_ascendant_mission
+		}
+	}
+	text = {
+		localisation_key = to_rome_restored_mission_title
+	}
+}
+
+defined_text = {
+	name = GetMonthlyJanissaryChange
+	random = no
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_janissary_regiments_change_tooltip
+				value = 0
+			}
+		}
+	}
+	text = {
+		localisation_key = to_monthly_janissary_regiment_negative_tt
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = to_janissary_regiments_change_tooltip
+					value = 0
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_monthly_janissary_regiment_positive_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryChangeActiveRegiments
+	random = no
+	text = {
+		localisation_key = to_janissary_change_active_regiments_tt
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = to_num_of_janissaries
+					value = 0
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_yellow_minus_zero_tt
+	}
+}
+
+### Child Levy
+defined_text = {
+	name = GetChildLevyStatus
+	random = no
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissary_child_levy
+		}
+		localisation_key = to_child_levy_on_tt
+	}
+
+	text = {
+		localisation_key = to_child_levy_off_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryChangeChildLevy
+	random = no
+
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = { has_country_modifier = to_janissary_child_levy }
+		}
+	}
+
+	text = {
+		localisation_key = to_child_levy_change_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_janissary_regiments_child_levy
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_child_levy_change_tt
+	}
+}
+
+defined_text = {
+	name = GetChildLevyReserve
+	random = no
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissary_child_levy
+			to_has_abrahamic_religion = yes
+		}
+		localisation_key = to_child_levy_reserve_tt
+	}
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissary_child_levy
+		}
+		localisation_key = to_child_levy_reserve_heretic_tt
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryChildLevy
+	random = no
+
+	text = {
+		localisation_key = to_has_janissary_law_consider_revoke_tt
+		trigger = {
+			has_country_modifier = to_janissary_child_levy
+			has_country_flag = to_consider_revoke_child_levy
+		}
+	}
+
+	text = {
+		localisation_key = to_has_janissary_law_tt
+		trigger = {
+			has_country_modifier = to_janissary_child_levy
+		}
+	}
+
+	text = {
+		localisation_key = to_not_has_janissary_law_consider_enact_tt
+		trigger = {
+			has_country_flag = to_consider_child_levy
+		}
+	}
+
+	text = {
+		localisation_key = to_not_has_janissary_law_tt
+	}
+}
+
+defined_text = {
+	name = ConsideringChildLevy
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			has_country_flag = to_consider_child_levy
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = ConsideringRevokeChildLevy
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			has_country_flag = to_consider_revoke_child_levy
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = ChildLevyPotentialGainLoss
+	random = no
+
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_child_levy_potential
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_child_levy_pontential_loss_tt
+		trigger = {
+			has_country_modifier = to_janissary_child_levy
+		}
+	}
+
+	text = {
+		localisation_key = to_child_levy_pontential_gain_tt
+	}
+}
+
+defined_text = {
+	name = GetChildLevyEffect
+	random = no
+
+	text = {
+		localisation_key = to_child_levy_effect_tt
+	}
+}
+
+defined_text = {
+	name = GetChildLevyEffectRemoved
+	random = no
+
+	text = {
+		localisation_key = to_child_levy_removed_effect_tt
+	}
+}
+
+defined_text = {
+	name = GetChildLevyHereticEffect
+	random = no
+
+	text = {
+		localisation_key = to_child_levy_effect_heretic_tt
+		trigger = {
+			NOT = { to_has_abrahamic_religion = yes }
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetChildLevyHereticEffectRemoved
+	random = no
+
+	text = {
+		localisation_key = to_child_levy_effect_heretic_removed_tt
+		trigger = {
+			NOT = { to_has_abrahamic_religion = yes }
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+### Draft the Faithful
+defined_text = {
+	name = GetFromTrueFaithStatus
+	random = no
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+		}
+		localisation_key = to_from_true_faith_on_tt
+	}
+
+	text = {
+		localisation_key = to_from_true_faith_off_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryChangeFromTrueFaith
+	random = no
+
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = { has_country_modifier = to_janissaries_from_true_faith }
+		}
+	}
+
+	text = {
+		localisation_key = to_from_true_faith_change_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_janissary_regiments_from_true_faith
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_from_true_faith_change_tt
+	}
+}
+
+defined_text = {
+	name = GetFromTrueFaithReserve
+	random = no
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+			to_has_abrahamic_religion = yes
+			has_country_flag = nhs_barbaroi_integration
+		}
+		localisation_key = to_true_faith_reserve_symmachoi_heretic_tt
+	}
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+			has_country_flag = nhs_barbaroi_integration
+		}
+		localisation_key = to_true_faith_reserve_symmachoi_tt
+	}
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+			to_has_abrahamic_religion = yes
+		}
+		localisation_key = to_true_faith_reserve_heretic_tt
+	}
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+		}
+		localisation_key = to_true_faith_reserve_tt
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryFromFaithful
+	random = no
+
+	text = {
+		localisation_key = to_has_janissary_law_consider_revoke_tt
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+			OR = {
+				has_country_flag = to_consider_revoke_from_true_faith
+				has_country_flag = to_consider_revoke_child_levy
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_has_janissary_law_tt
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+		}
+	}
+
+	text = {
+		localisation_key = to_not_has_janissary_law_consider_enact_tt
+		trigger = {
+			has_country_flag = to_consider_from_true_faith
+			OR = {
+				has_country_modifier = to_janissary_child_levy
+				has_country_flag = to_consider_child_levy
+			}
+			NOT = { has_country_flag = to_consider_revoke_child_levy }
+		}
+	}
+
+	text = {
+		localisation_key = to_not_has_janissary_law_tt
+	}
+}
+
+defined_text = {
+	name = ConsideringFromTrueFaith
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			has_country_flag = to_consider_from_true_faith
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = ConsideringRevokeFromTrueFaith
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			has_country_flag = to_consider_revoke_from_true_faith
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = FromTrueFaithPotentialGainLoss
+	random = no
+
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_child_levy_potential
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_from_true_faith_pontential_loss_tt
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+		}
+	}
+
+	text = {
+		localisation_key = to_from_true_faith_pontential_gain_tt
+	}
+}
+
+defined_text = {
+	name = GetFromTrueFaithEffect
+	random = no
+
+	text = {
+		localisation_key = to_from_true_faith_effect_tt
+	}
+}
+
+defined_text = {
+	name = GetFromTrueFaithEffectRemoved
+	random = no
+
+	text = {
+		localisation_key = to_from_true_faith_removed_effect_tt
+	}
+}
+
+defined_text = {
+	name = GetFromTrueFaithEffectSymmachoi
+	random = no
+
+	text = {
+		trigger = {
+			has_country_flag = nhs_barbaroi_integration
+		}
+		localisation_key = to_from_true_faith_effect_symmachoi_tt
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetFromTrueFaithEffectRemovedSymmachoi
+	random = no
+
+	text = {
+		trigger = {
+			has_country_flag = nhs_barbaroi_integration
+		}
+		localisation_key = to_from_true_faith_removed_effect_symmachoi_tt
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetTrueFaithReligion
+	random = no
+
+	text = {
+		trigger = {
+			to_has_abrahamic_religion = yes
+		}
+		localisation_key = to_root_religion_group_tt
+	}
+
+	text = {
+		localisation_key = to_root_religion_tt
+	}
+}
+
+### Conscript from Subjects
+# defined_text = {
+# 	name = GetFromSubjectsStatus
+# 	random = no
+
+# 	text = {
+# 		trigger = {
+# 			has_country_flag = to_janissary_from_subjects
+# 		}
+# 		localisation_key = to_from_subjects_on_tt
+# 	}
+
+# 	text = {
+# 		localisation_key = to_from_subjects_off_tt
+# 	}
+# }
+
+# defined_text = {
+# 	name = GetFromSubjectsReserve
+# 	random = no
+
+# 	text = {
+# 		trigger = {
+# 			has_country_flag = to_janissary_from_subjects
+# 		}
+# 		localisation_key = to_from_subjects_reserve_tt
+# 	}
+
+# 	text = {
+# 		localisation_key = to_empty_string_tt
+# 	}
+# }
+
+# defined_text = {
+# 	name = GetJanissaryFromSubjects
+# 	random = no
+
+# 	text = {
+# 		localisation_key = to_has_janissary_law_tt
+# 		trigger = {
+# 			has_country_flag = to_janissary_from_subjects
+# 		}
+# 	}
+
+# 	text = {
+# 		localisation_key = to_not_has_janissary_law_tt
+# 	}
+# }
+
+# defined_text = {
+# 	name = GetFromSubjectsEffect
+# 	random = no
+
+# 	text = {
+# 		localisation_key = to_from_subjects_effect_tt
+# 	}
+# }
+
+# defined_text = {
+# 	name = GetFromSubjectsEffectRemoved
+# 	random = no
+
+# 	text = {
+# 		localisation_key = to_from_subjects_removed_effect_tt
+# 	}
+# }
+
+# defined_text = {
+# 	name = GetFromSubjectsHereticEffect
+# 	random = no
+
+# 	text = {
+# 		localisation_key = to_from_subjects_effect_heretic_tt
+# 		trigger = {
+# 			NOT = { to_has_abrahamic_religion = yes }
+# 		}
+# 	}
+
+# 	text = {
+# 		localisation_key = to_empty_string_tt
+# 	}
+# }
+
+# defined_text = {
+# 	name = GetFromSubjectsHereticEffectRemoved
+# 	random = no
+
+# 	text = {
+# 		localisation_key = to_from_subjects_effect_heretic_removed_tt
+# 		trigger = {
+# 			NOT = { to_has_abrahamic_religion = yes }
+# 		}
+# 	}
+
+# 	text = {
+# 		localisation_key = to_empty_string_tt
+# 	}
+# }
+
+### Recruitment Quotas
+defined_text = {
+	name = GetRecruitmentQuotasStatus
+	random = no
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissary_recruitment_quotas
+		}
+		localisation_key = to_recruitment_quotas_on_tt
+	}
+
+	text = {
+		localisation_key = to_recruitment_quotas_off_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryChangeRecruitmentQuotas
+	random = no
+
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = { has_country_modifier = to_janissary_recruitment_quotas }
+		}
+	}
+
+	text = {
+		localisation_key = to_recruitment_quotas_change_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_janissary_regiments_recruitment_quotas
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_recruitment_quotas_change_tt
+	}
+}
+
+defined_text = {
+	name = GetRecruitmentQuotasReserve
+	random = no
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissary_recruitment_quotas
+			has_country_modifier = to_janissaries_from_true_faith
+		}
+		localisation_key = to_recruitment_quotas_reserve_with_from_true_faith_tt
+	}
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissary_recruitment_quotas
+		}
+		localisation_key = to_recruitment_quotas_reserve_tt
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryRecruitmentQuotas
+	random = no
+
+	text = {
+		localisation_key = to_has_janissary_law_consider_revoke_tt
+		trigger = {
+			has_country_modifier = to_janissary_recruitment_quotas
+			OR = {
+				has_country_flag = to_consider_revoke_recruitment_quotas
+				has_country_flag = to_consider_revoke_child_levy
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_has_janissary_law_tt
+		trigger = {
+			has_country_modifier = to_janissary_recruitment_quotas
+		}
+	}
+
+	text = {
+		localisation_key = to_not_has_janissary_law_consider_enact_tt
+		trigger = {
+			has_country_flag = to_consider_recruitment_quotas
+			OR = {
+				has_country_modifier = to_janissary_child_levy
+				has_country_flag = to_consider_child_levy
+			}
+			NOT = { has_country_flag = to_consider_revoke_child_levy }
+		}
+	}
+
+	text = {
+		localisation_key = to_not_has_janissary_law_tt
+	}
+}
+
+defined_text = {
+	name = ConsideringRecruitmentQuotas
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			has_country_flag = to_consider_recruitment_quotas
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = ConsideringRevokeRecruitmentQuotas
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			has_country_flag = to_consider_revoke_recruitment_quotas
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = RecruitmentQuotasPotentialGainLoss
+	random = no
+
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_child_levy_potential
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_recruitment_quotas_pontential_with_from_true_faith_loss_tt
+		trigger = {
+			has_country_modifier = to_janissary_recruitment_quotas
+			OR = {
+				has_country_flag = to_consider_from_true_faith
+				has_country_modifier = to_janissary_child_levy
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_recruitment_quotas_pontential_loss_tt
+		trigger = {
+			has_country_modifier = to_janissary_recruitment_quotas
+		}
+	}
+
+	text = {
+		localisation_key = to_recruitment_quotas_pontential_with_from_true_faith_gain_tt
+		trigger = {
+			OR = {
+				has_country_flag = to_consider_from_true_faith
+				has_country_modifier = to_janissary_child_levy
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_recruitment_quotas_pontential_gain_tt
+	}
+}
+
+defined_text = {
+	name = GetRecruitmentQuotasEffect
+	random = no
+
+	text = {
+		localisation_key = to_recruitment_quotas_effect_tt
+	}
+}
+
+defined_text = {
+	name = GetRecruitmentQuotasEffectRemoved
+	random = no
+
+	text = {
+		localisation_key = to_recruitment_quotas_removed_effect_tt
+	}
+}
+
+### Open Recruitment
+defined_text = {
+	name = GetOpenRecruitmentStatus
+	random = no
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissary_open_recruitment
+		}
+		localisation_key = to_open_recruitment_on_tt
+	}
+
+	text = {
+		localisation_key = to_open_recruitment_off_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryChangeOpenRecruitment
+	random = no
+
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = { has_country_modifier = to_janissary_open_recruitment }
+		}
+	}
+
+	text = {
+		localisation_key = to_open_recruitment_change_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_janissary_regiments_open_recruitment
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_open_recruitment_change_tt
+	}
+}
+
+defined_text = {
+	name = GetOpenRecruitmentReserve
+	random = no
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissary_increase_compensation
+		}
+		localisation_key = to_open_recruitment_reserve_tt
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryOpenRecruitment
+	random = no
+
+	text = {
+		localisation_key = to_has_janissary_law_consider_revoke_tt
+		trigger = {
+			has_country_modifier = to_janissary_open_recruitment
+			has_country_flag = to_consider_revoke_open_recruitment
+		}
+	}
+
+	text = {
+		localisation_key = to_has_janissary_law_tt
+		trigger = {
+			has_country_modifier = to_janissary_open_recruitment
+		}
+	}
+
+	text = {
+		localisation_key = to_not_has_janissary_law_consider_enact_tt
+		trigger = {
+			has_country_flag = to_consider_open_recruitment
+		}
+	}
+
+	text = {
+		localisation_key = to_not_has_janissary_law_tt
+	}
+}
+
+defined_text = {
+	name = ConsideringOpenRecruitment
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			has_country_flag = to_consider_open_recruitment
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = ConsideringRevokeOpenRecruitment
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			has_country_flag = to_consider_revoke_open_recruitment
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = OpenRecruitmentPotentialGainLoss
+	random = no
+
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_open_recruitment_potential
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_open_recruitment_pontential_loss_tt
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+		}
+	}
+
+	text = {
+		localisation_key = to_open_recruitment_pontential_gain_tt
+	}
+}
+
+defined_text = {
+	name = GetOpenRecruitmentEffect
+	random = no
+
+	text = {
+		localisation_key = to_open_recruitment_effect_tt
+	}
+}
+
+defined_text = {
+	name = GetOpenRecruitmentEffectRemoved
+	random = no
+
+	text = {
+		localisation_key = to_open_recruitment_removed_effect_tt
+	}
+}
+
+### Increase Compensation
+defined_text = {
+	name = GetIncreaseCompensationStatus
+	random = no
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissary_increase_compensation
+		}
+		localisation_key = to_increase_compensation_on_tt
+	}
+
+	text = {
+		localisation_key = to_increase_compensation_off_tt
+	}
+}
+
+defined_text = {
+	name = GetIncreaseCompensationEffect
+	random = no
+
+	text = {
+		localisation_key = to_increase_compensation_effect_tt
+	}
+}
+
+defined_text = {
+	name = GetIncreaseCompensationEffectRemoved
+	random = no
+
+	text = {
+		localisation_key = to_increase_compensation_removed_effect_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryIncreaseCompensation
+	random = no
+
+	text = {
+		localisation_key = to_has_janissary_law_consider_revoke_tt
+		trigger = {
+			has_country_modifier = to_janissary_increase_compensation
+			has_country_flag = to_consider_revoke_increase_compensation
+		}
+	}
+
+	text = {
+		localisation_key = to_has_janissary_law_tt
+		trigger = {
+			has_country_modifier = to_janissary_increase_compensation
+		}
+	}
+
+	text = {
+		localisation_key = to_not_has_janissary_law_consider_enact_tt
+		trigger = {
+			has_country_flag = to_consider_increase_compensation
+		}
+	}
+
+	text = {
+		localisation_key = to_not_has_janissary_law_tt
+	}
+}
+
+defined_text = {
+	name = ConsideringIncreaseCompensation
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			has_country_flag = to_consider_increase_compensation
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = ConsideringRevokeIncreaseCompensation
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			has_country_flag = to_consider_revoke_increase_compensation
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+###Blood Tax
+defined_text = {
+	name = GetBloodTaxEffect
+	random = no
+
+	text = {
+		localisation_key = to_demand_blood_tax_effect_both_true_faith_tt
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+			if = {
+				limit = {
+					to_has_abrahamic_religion = yes
+				}
+				FROM = { religion_group = ROOT }
+			}
+			else = {
+				FROM = { religion = ROOT }
+			}
+		}
+	}
+	text = {
+		localisation_key = to_demand_blood_tax_effect_true_faith_tt
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+		}
+	}
+
+	text = {
+		localisation_key = to_demand_blood_tax_effect_tt
+	}
+}
+
+defined_text = {
+	name = GetBloodTaxRemovedEffect
+	random = no
+
+	text = {
+		localisation_key = to_demand_blood_tax_removed_effect_both_true_faith_tt
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+			if = {
+				limit = {
+					to_has_abrahamic_religion = yes
+				}
+				FROM = { religion_group = ROOT }
+			}
+			else = {
+				FROM = { religion = ROOT }
+			}
+		}
+	}
+	text = {
+		localisation_key = to_demand_blood_tax_removed_effect_true_faith_tt
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+		}
+	}
+
+	text = {
+		localisation_key = to_demand_blood_tax_removed_effect_tt
+	}
+}
+
+defined_text = {
+	name = GetBloodTaxSymmachoiEffect
+	random = no
+
+	text = {
+		localisation_key = to_demand_blood_tax_effect_symmachoi_tt
+		trigger = {
+			has_country_flag = nhs_barbaroi_integration
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetBloodTaxSymmachoiRemovedEffect
+	random = no
+
+	text = {
+		localisation_key = to_demand_blood_tax_removed_effect_symmachoi_tt
+		trigger = {
+			has_country_flag = nhs_barbaroi_integration
+		}
+	}
+
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = BloodTaxPotentialGainLoss
+	random = no
+
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+			FROM = {
+				is_variable_equal = {
+					which = to_blood_tax_from_true_faith_potential
+					value = 0
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_blood_tax_from_true_faith_pontential_loss_tt
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+			FROM = {
+				OR = {
+					has_country_modifier = to_blood_tax
+					has_country_modifier = to_blood_tax_true_faith
+				}
+			}
+		}
+	}
+
+	text = {
+		trigger = {
+			has_country_modifier = to_janissaries_from_true_faith
+		}
+		localisation_key = to_blood_tax_from_true_faith_pontential_gain_tt
+	}
+
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_blood_tax_potential
+					value = 0
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_blood_tax_pontential_loss_tt
+		trigger = {
+			FROM = {
+				OR = {
+					has_country_modifier = to_blood_tax
+					has_country_modifier = to_blood_tax_true_faith
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_blood_tax_pontential_gain_tt
+	}
+}
+
+defined_text = {
+	name = GetJanissaryChangeBloodTax
+	random = no
+
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = {
+				any_subject_country = {
+					OR = {
+						has_country_modifier = to_blood_tax
+						has_country_modifier = to_blood_tax_true_faith
+					}
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_blood_tax_change_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_janissary_regiments_blood_tax
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_blood_tax_change_tt
+	}
+}
+
+defined_text = {
+	name = GetHeirOfJustinianName
+	random = no
+
+	text = {
+		localisation_key = to_heir_of_justinian_tt
+		trigger = {
+			NOT = { religion_group = pagan }
+		}
+	}
+
+	text = {
+		localisation_key = to_heir_of_aurelian_tt
+	}
+}
+
+defined_text = {
+	name = GetHeirOfJustinianDesc
+	random = no
+
+	text = {
+		localisation_key = to_heir_of_justinian_mission_desc_justinian_tt
+		trigger = {
+			NOT = { religion_group = pagan }
+		}
+	}
+
+	text = {
+		localisation_key = to_heir_of_justinian_mission_desc_aurelian_tt
+	}
+}
+
+defined_text = {
+	name = Tier2ArsenalReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_arsenal_tier_2_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = Tier3ArsenalReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_arsenal_tier_3_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = ArsenalEfficiencyMax
+	random = no
+
+	text = {
+		localisation_key = to_arsenal_efficiency_production_max_tt
+		trigger = {
+			has_dlc = "Mandate of Heaven"
+		}
+	}
+
+	text = {
+		localisation_key = to_arsenal_efficiency_production_max_non_dlc_tt
+	}
+}
+
+defined_text = {
+	name = ArsenalEfficiencyProductionStep
+	random = no
+
+	text = {
+		localisation_key = to_arsenal_efficiency_production_step_tt
+		trigger = {
+			has_dlc = "Mandate of Heaven"
+		}
+	}
+
+	text = {
+		localisation_key = to_arsenal_efficiency_production_step_non_dlc_tt
+	}
+}
+
+defined_text = {
+	name = Tier1CothonReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_cothon_tier_1_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = Tier2CothonReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_cothon_tier_2_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = Tier3CothonReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_cothon_tier_3_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = Tier1HippodromeReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_hippodrome_tier_1_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = Tier2HippodromeReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_hippodrome_tier_2_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = Tier3HippodromeReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_hippodrome_tier_3_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = Tier1LibraryReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_library_tier_1_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = Tier2LibraryReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_library_tier_2_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = Tier3LibraryReq
+	random = no
+
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			to_library_tier_3_trigger = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = AdditionalFlagshipFromArsenal
+	random = no
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = { has_dlc = "Golden Century" }
+		}
+	}
+	text = {
+		localisation_key = to_add_additional_flagship_from_arsenal_tt
+	}
+}
+
+defined_text = {
+	name = SoldersKilledInWonBattles
+	random = no
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_land_units_killed_in_won_battles
+					value = 0
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = to_land_units_killed_in_won_battles_tt
+	}
+}
+
+defined_text = {
+	name = OpenCloseHoldTriumphText
+	random = no
+	text = {
+		localisation_key = to_open_hold_triumph_menu_tt
+		trigger = {
+			has_country_flag = to_hide_hold_triumph_gui
+		}
+	}
+	text = {
+		localisation_key = to_close_hold_triumph_menu_tt
+	}
+}
+
+defined_text = {
+	name = GloryDisplay
+	random = no
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_glory_display
+				value = 0
+			}
+		}
+	}
+	text = {
+		localisation_key = to_glory_display_tt
+	}
+}
+
+defined_text = {
+	name = HoldTriumphWarAlert
+	random = no
+	text = {
+		localisation_key = to_hold_triumph_alert_war_enabled_tt
+		trigger = {
+			has_country_flag = to_enable_hold_triumph_alert_war
+		}
+	}
+	text = {
+		localisation_key = to_hold_triumph_alert_war_disabled_tt
+	}
+}
+
+defined_text = {
+	name = HoldTriumphPeaceAlert
+	random = no
+	text = {
+		localisation_key = to_hold_triumph_alert_peace_enabled_tt
+		trigger = {
+			has_country_flag = to_enable_hold_triumph_alert_peace
+		}
+	}
+	text = {
+		localisation_key = to_hold_triumph_alert_peace_disabled_tt
+	}
+}
+
+defined_text = {
+	name = HoldTriumphWarDuration
+	random = no
+
+    # Code generated by hold triumph/hold_triumph.py
+	text = {
+		localisation_key = to_1_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 700 } }
+		}
+	}
+	text = {
+		localisation_key = to_2_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 669 } }
+		}
+	}
+	text = {
+		localisation_key = to_3_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 639 } }
+		}
+	}
+	text = {
+		localisation_key = to_4_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 608 } }
+		}
+	}
+	text = {
+		localisation_key = to_5_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 578 } }
+		}
+	}
+	text = {
+		localisation_key = to_6_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 548 } }
+		}
+	}
+	text = {
+		localisation_key = to_7_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 517 } }
+		}
+	}
+	text = {
+		localisation_key = to_8_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 487 } }
+		}
+	}
+	text = {
+		localisation_key = to_9_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 456 } }
+		}
+	}
+	text = {
+		localisation_key = to_10_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 426 } }
+		}
+	}
+	text = {
+		localisation_key = to_11_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 395 } }
+		}
+	}
+	text = {
+		localisation_key = to_12_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 365 } }
+		}
+	}
+	text = {
+		localisation_key = to_13_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 335 } }
+		}
+	}
+	text = {
+		localisation_key = to_14_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 304 } }
+		}
+	}
+	text = {
+		localisation_key = to_15_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 274 } }
+		}
+	}
+	text = {
+		localisation_key = to_16_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 243 } }
+		}
+	}
+	text = {
+		localisation_key = to_17_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 213 } }
+		}
+	}
+	text = {
+		localisation_key = to_18_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 183 } }
+		}
+	}
+	text = {
+		localisation_key = to_19_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 152 } }
+		}
+	}
+	text = {
+		localisation_key = to_20_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 122 } }
+		}
+	}
+	text = {
+		localisation_key = to_21_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 91 } }
+		}
+	}
+	text = {
+		localisation_key = to_22_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 61 } }
+		}
+	}
+	text = {
+		localisation_key = to_23_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_triumph_war_timer days = 30 } }
+		}
+	}
+	text = {
+		localisation_key = to_24_tt
+	}
+}
+
+defined_text = {
+	name = TradeExpeditionTarget
+	random = no
+	text = {
+		localisation_key = to_trade_expedition_target_tt
+		trigger = {
+			has_saved_global_event_target = to_trade_expedition_target
+			NOT = { had_country_flag = { flag = to_send_trade_expedition days = 7300 } }
+		}
+	}
+	text = {
+		localisation_key = to_minus_tt
+	}
+}
+
+defined_text = {
+	name = TradeExpeditionRecallLoc
+	random = no
+	text = {
+		localisation_key = to_trade_expeditions_recall_with_target_tt
+		trigger = {
+			has_saved_global_event_target = to_trade_expedition_target
+			NOT = { had_country_flag = { flag = to_send_trade_expedition days = 7300 } }
+		}
+	}
+	text = {
+		localisation_key = to_trade_expeditions_recall_without_target_tt
+	}
+}
+
+defined_text = {
+	name = TradeExpeditionDuration
+	random = no
+	text = {
+		localisation_key = to_minus_tt
+		trigger = {
+			FROM = {
+				OR = {
+					NOT = { has_country_flag = to_send_trade_expedition }
+					had_country_flag = { flag = to_send_trade_expedition days = 7300 }
+				}
+			}
+		}
+	}
+	# Code generated by trade expeditions/trade_expeditions.py
+	text = {
+		localisation_key = to_1_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 7270 } }
+		}
+	}
+	text = {
+		localisation_key = to_2_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 7239 } }
+		}
+	}
+	text = {
+		localisation_key = to_3_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 7209 } }
+		}
+	}
+	text = {
+		localisation_key = to_4_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 7178 } }
+		}
+	}
+	text = {
+		localisation_key = to_5_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 7148 } }
+		}
+	}
+	text = {
+		localisation_key = to_6_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 7118 } }
+		}
+	}
+	text = {
+		localisation_key = to_7_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 7087 } }
+		}
+	}
+	text = {
+		localisation_key = to_8_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 7057 } }
+		}
+	}
+	text = {
+		localisation_key = to_9_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 7026 } }
+		}
+	}
+	text = {
+		localisation_key = to_10_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 6996 } }
+		}
+	}
+	text = {
+		localisation_key = to_11_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 6965 } }
+		}
+	}
+	text = {
+		localisation_key = to_12_months_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 6935 } }
+		}
+	}
+	text = {
+		localisation_key = to_2_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 6570 } }
+		}
+	}
+	text = {
+		localisation_key = to_3_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 6205 } }
+		}
+	}
+	text = {
+		localisation_key = to_4_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 5840 } }
+		}
+	}
+	text = {
+		localisation_key = to_5_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 5475 } }
+		}
+	}
+	text = {
+		localisation_key = to_6_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 5110 } }
+		}
+	}
+	text = {
+		localisation_key = to_7_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 4745 } }
+		}
+	}
+	text = {
+		localisation_key = to_8_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 4380 } }
+		}
+	}
+	text = {
+		localisation_key = to_9_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 4015 } }
+		}
+	}
+	text = {
+		localisation_key = to_10_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 3650 } }
+		}
+	}
+	text = {
+		localisation_key = to_11_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 3285 } }
+		}
+	}
+	text = {
+		localisation_key = to_12_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 2920 } }
+		}
+	}
+	text = {
+		localisation_key = to_13_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 2555 } }
+		}
+	}
+	text = {
+		localisation_key = to_14_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 2190 } }
+		}
+	}
+	text = {
+		localisation_key = to_15_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 1825 } }
+		}
+	}
+	text = {
+		localisation_key = to_16_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 1460 } }
+		}
+	}
+	text = {
+		localisation_key = to_17_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 1095 } }
+		}
+	}
+	text = {
+		localisation_key = to_18_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 730 } }
+		}
+	}
+	text = {
+		localisation_key = to_19_years_tt
+		trigger = {
+			FROM = { had_country_flag = { flag = to_send_trade_expedition days = 365 } }
+		}
+	}
+	text = {
+		localisation_key = to_20_years_tt
+		trigger = {
+		}
+	}
+}
+
+defined_text = {
+	name = TotalTradeShareKykladia
+	random = no
+	text = {
+		localisation_key = to_yellow_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_kykladia_trade_share_total
+				value = 0
+			}
+		}
+	}
+	text = {
+		localisation_key = to_total_trade_share_in_kykladian_isles_tt
+	}
+}
+
+defined_text = {
+	name = TotalTradeShareKykladiaOwner
+	random = no
+	text = {
+		localisation_key = to_yellow_zero_percentage_tt
+		trigger = {
+			owner = {
+				is_variable_equal = {
+					which = to_kykladia_trade_share_total
+					value = 0
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = to_total_trade_share_in_kykladian_isles_owner_tt
+	}
+}
+
+defined_text = {
+	name = BurnVeniceText
+	random = no
+	text = {
+		localisation_key = nhs2_mainlandevents.42.ca
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_taken_venetians }
+		}
+	}
+	text = {
+		localisation_key = nhs2_mainlandevents.42.cb
+	}
+}
+
+##################################################
+# Building counters
+##################################################
+
+defined_text = {
+	name = GetHomelandsBuildingCount
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = nhs_HomelandsBuildingCount value = 0 }
+		}
+	}
+	text = {
+		localisation_key = nhs_HomelandsBuildingCount_tt
+	}
+}
+
+defined_text = {
+	name = GetElysiumBuildingCount
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_ElysiumBuildingCount_tt
+	}
+}
+
+# Code generated by building counter/building_counter.py
+defined_text = {
+	name = ElysiumBuildingCounter_temple
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_temple value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_temple_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_cathedral
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_cathedral value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_cathedral_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_workshop
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_workshop value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_workshop_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_counting_house
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_counting_house value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_counting_house_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_marketplace
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_marketplace value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_marketplace_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_trade_depot
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_trade_depot value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_trade_depot_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_stock_exchange
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_stock_exchange value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_stock_exchange_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_barracks
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_barracks value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_barracks_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_training_fields
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_training_fields value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_training_fields_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_regimental_camp
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_regimental_camp value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_regimental_camp_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_conscription_center
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_conscription_center value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_conscription_center_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_dock
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_dock value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_dock_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_drydock
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_drydock value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_drydock_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_shipyard
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_shipyard value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_shipyard_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_grand_shipyard
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_grand_shipyard value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_grand_shipyard_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_courthouse
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_courthouse value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_courthouse_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_town_hall
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_town_hall value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_town_hall_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_university
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_university value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_university_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_fort_15th
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_fort_15th value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_fort_15th_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_fort_16th
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_fort_16th value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_fort_16th_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_fort_17th
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_fort_17th value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_fort_17th_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_fort_18th
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_fort_18th value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_fort_18th_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_coastal_defence
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_coastal_defence value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_coastal_defence_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_naval_battery
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_naval_battery value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_naval_battery_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_manufactory
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_manufactory value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_manufactory_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_ramparts
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_ramparts value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_ramparts_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_soldier_households
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_soldier_households value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_soldier_households_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_impressment_offices
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_impressment_offices value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_impressment_offices_elysium_counter_tt
+	}
+}
+defined_text = {
+	name = ElysiumBuildingCounter_state_house
+	text = {
+		localisation_key = ZERO
+		trigger = {
+			is_variable_equal = { which = to_ElysiumBuildingCount_state_house value = 0 }
+		}
+	}
+	text = {
+		localisation_key = to_state_house_elysium_counter_tt
+	}
+}
+
+defined_text = {
+	name = ExarchNameFromProvince
+	text = {
+		localisation_key = to_owner_of_province_tt
+		trigger = {
+			owner = {
+				is_subject_of_type = elysian_subject
+			}
+		}
+	}
+	# Code generated by exarchs/exarch_generation.py
+	text = {
+		localisation_key = to_EEA_name_tt
+		trigger = { nhs_EEA_province = yes }
+	}
+	text = {
+		localisation_key = to_EEB_name_tt
+		trigger = { nhs_EEB_province = yes }
+	}
+	text = {
+		localisation_key = to_EEC_name_tt
+		trigger = { nhs_EEC_province = yes }
+	}
+	text = {
+		localisation_key = to_EED_name_tt
+		trigger = { nhs_EED_province = yes }
+	}
+	text = {
+		localisation_key = to_EEE_name_tt
+		trigger = { nhs_EEE_province = yes }
+	}
+	text = {
+		localisation_key = to_EEF_name_tt
+		trigger = { nhs_EEF_province = yes }
+	}
+	text = {
+		localisation_key = to_EEG_name_tt
+		trigger = { nhs_EEG_province = yes }
+	}
+	text = {
+		localisation_key = to_EEH_name_tt
+		trigger = { nhs_EEH_province = yes }
+	}
+	text = {
+		localisation_key = to_EEI_name_tt
+		trigger = { nhs_EEI_province = yes }
+	}
+	text = {
+		localisation_key = to_EEJ_name_tt
+		trigger = { nhs_EEJ_province = yes }
+	}
+	text = {
+		localisation_key = to_EEL_name_tt
+		trigger = { nhs_EEL_province = yes }
+	}
+	text = {
+		localisation_key = to_EEM_name_tt
+		trigger = { nhs_EEM_province = yes }
+	}
+	text = {
+		localisation_key = to_EEO_name_tt
+		trigger = { nhs_EEO_province = yes }
+	}
+	text = {
+		localisation_key = to_EER_name_tt
+		trigger = { nhs_EER_province = yes }
+	}
+	text = {
+		localisation_key = to_EES_name_tt
+		trigger = { nhs_EES_province = yes }
+	}
+	text = {
+		localisation_key = to_EET_name_tt
+		trigger = { nhs_EET_province = yes }
+	}
+	text = {
+		localisation_key = to_EEU_name_tt
+		trigger = { nhs_EEU_province = yes }
+	}
+	text = {
+		localisation_key = to_EEV_name_tt
+		trigger = { nhs_EEV_province = yes }
+	}
+	text = {
+		localisation_key = to_EEQ_name_tt
+		trigger = { nhs_EEQ_province = yes }
+	}
+	text = {
+		localisation_key = to_EEP_name_tt
+		trigger = { nhs_EEP_province = yes }
+	}
+	text = {
+		localisation_key = to_EEY_name_tt
+		trigger = { nhs_EEY_province = yes }
+	}
+	text = {
+		localisation_key = to_EEN_name_tt
+		trigger = { nhs_EEN_province = yes }
+	}
+	text = {
+		localisation_key = to_ELG_name_tt
+		trigger = { nhs_ELG_province = yes }
+	}
+}
+
+defined_text = {
+	name = ExarchGiveLandTooltip
+	text = {
+		localisation_key = to_eip_give_land_tooltip_grant_land
+		trigger = {
+			to_exarch_trigger_from_province = {
+				TRIGGER = "
+					exists = yes
+				"
+			}
+		}
+	}
+	text = {
+		localisation_key = to_eip_give_land_tooltip_create_exarch
+	}
+}
+
+defined_text = {
+	name = ShowHideExarchMenu
+	text = {
+		localisation_key = to_hide_exarch_menu_tt
+		trigger = {
+			FROM = {
+				has_country_flag = to_show_exarch_menu
+			}
+		}
+	}
+	text = {
+		localisation_key = to_show_exarch_menu_tt
+	}
+}
+
+defined_text = {
+	name = ClaimProvinceTooltip
+	text = {
+		localisation_key = to_eip_add_province_exemption_tooltip_active
+		trigger = {
+			has_province_flag = nhs_exarch_province_exemption
+		}
+	}
+	text = {
+		localisation_key = to_eip_add_province_exemption_tooltip_inactive
+	}
+}

@@ -1,0 +1,18 @@
+# 996 - Innu
+add_core = HLL
+owner = HLL
+controller = HLL
+culture = vinlandic
+religion = norse_pagan_reformed
+capital = "Innu"
+trade_goods = naval_supplies
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+discovered_by = north_american
+1444.1.1 = { tribal_owner = XXX }
+1444.11.15 = { tribal_owner = XXX }
+1444.11.18 = { tribal_owner = XXX }
+1534.1.1 = { discovered_by = FRA } # Jacques Cartier
+1707.5.12 = { discovered_by = GBR } 

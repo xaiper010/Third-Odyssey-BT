@@ -1,0 +1,170 @@
+
+to_change_triumph_province_counter = {
+	$SCOPE$ = {
+		change_variable = {
+			which = to_$REGION$_provinces
+			value = $CHANGE$
+		}
+		if = {
+			limit = {
+				NOT = { to_has_completed_triumph_flag = { REGION = $REGION$ } }
+				to_has_completed_triumph = {
+					REGION = $REGION$
+					CHECK_CITIES = yes
+				}
+			}
+			set_country_flag = to_has_completed_triumph_$REGION$
+		}
+		else_if = {
+			limit = {
+				to_has_completed_triumph_flag = { REGION = $REGION$ }
+				NOT = {
+					to_has_completed_triumph = {
+						REGION = $REGION$
+						CHECK_CITIES = yes
+					}
+				}
+			}
+			clr_country_flag = to_has_completed_triumph_$REGION$
+		}
+	}
+}
+
+reset_triumph_counter = {
+	set_variable = {
+		which = to_$REGION$_provinces
+		value = 0
+	}
+	clr_country_flag = to_has_completed_triumph_$REGION$
+}
+
+to_change_triumph_province_counters = {
+	trigger_switch = {
+		on_trigger = region
+		france_region = {
+			to_change_triumph_province_counter = { REGION = france_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		low_countries_region = {
+			to_change_triumph_province_counter = { REGION = low_countries_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		italy_region = {
+			to_change_triumph_province_counter = { REGION = italy_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		south_german_region = {
+			to_change_triumph_province_counter = { REGION = south_german_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		iberia_region = {
+			to_change_triumph_province_counter = { REGION = iberia_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		british_isles_region = {
+			to_change_triumph_province_counter = { REGION = british_isles_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		carpathia_region = {
+			to_change_triumph_province_counter = { REGION = carpathia_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		egypt_region = {
+			to_change_triumph_province_counter = { REGION = egypt_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		maghreb_region = {
+			to_change_triumph_province_counter = { REGION = maghreb_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		mashriq_region = {
+			to_change_triumph_province_counter = { REGION = mashriq_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		anatolia_region = {
+			to_change_triumph_province_counter = { REGION = anatolia_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+		balkan_region = {
+			to_change_triumph_province_counter = { REGION = balkan_region CHANGE = $CHANGE$ SCOPE = $SCOPE$ }
+		}
+	}
+}
+
+to_triumph_province_counter_check = {
+	if = {
+		limit = {
+			to_triumph_province = yes
+			NOT = { has_province_flag = to_ignore_triumph_check }
+		}
+		if = {
+			limit = {
+				nhs_check_all_elysian_tags = { CONDITION = country_or_subject_holds }
+				NOT = {
+					FROM = {
+						OR = {
+							nhs_check_all_elysian_tags = { CONDITION = tag }
+							nhs_check_all_elysian_tags = { CONDITION = is_subject_of }
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					nhs_check_all_elysian_tags = { CONDITION = owned_by }
+				}
+				to_change_triumph_province_counters = { CHANGE = 1 SCOPE = owner }
+			}
+			else = {
+				owner = {
+					overlord = {
+						save_event_target_as = to_roman_overlord
+					}
+				}
+				to_change_triumph_province_counters = { CHANGE = 1 SCOPE = event_target:to_roman_overlord }
+			}
+			
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					nhs_check_all_elysian_tags = { CONDITION = country_or_subject_holds }
+				}
+				FROM = {
+					OR = {
+						nhs_check_all_elysian_tags = { CONDITION = tag }
+						nhs_check_all_elysian_tags = { CONDITION = is_subject_of }
+					}
+				}
+			}
+			to_change_triumph_province_counters = { CHANGE = -1 SCOPE = FROM }
+		}
+	}
+}
+
+to_triumph_province_counter_dependancy_gained = {
+	if = {
+		limit = {
+			$SCOPE$ = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+			any_owned_province = {
+				to_triumph_province = yes
+			}
+		}
+		every_owned_province = {
+			limit = {
+				to_triumph_province = yes
+			}
+			to_change_triumph_province_counters = { CHANGE = 1 SCOPE = $SCOPE$ }
+		}
+	}
+}
+
+to_triumph_province_counter_dependancy_lost = {
+	if = {
+		limit = {
+			$SCOPE$ = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+			any_owned_province = {
+				to_triumph_province = yes
+			}
+		}
+		every_owned_province = {
+			limit = {
+				to_triumph_province = yes
+			}
+			to_change_triumph_province_counters = { CHANGE = -1 SCOPE = $SCOPE$ }
+		}
+	}
+}

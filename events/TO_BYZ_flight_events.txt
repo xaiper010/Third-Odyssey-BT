@@ -1,0 +1,3408 @@
+namespace = nhs_new_flightevents
+
+### Opening event, moved here back from country events
+country_event = {
+	id = nhs_new_flightevents.1444
+	title = nhs_new_flightevents.1444.t
+	desc = nhs_new_flightevents.1444.d
+	picture = OPENINGPICTURE_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = BYZ
+		NOT = { is_year = 1445 }
+		is_random_new_world = no
+	}
+
+	immediate = {
+		hidden_effect = {
+			add_manpower = -1000
+			add_sailors = -10000
+			disband_all_units = yes
+			add_country_modifier = {
+				name = "byz_flight"
+				duration = -1
+			}
+			add_treasury = 500
+			while = {
+				limit = {
+					treasury = 550
+				}
+				add_treasury = -100
+			}
+			while = {
+				limit = {
+					treasury = 460
+				}
+				add_treasury = -10
+			}
+			while = {
+				limit = {
+					treasury = 451
+				}
+				add_treasury = -1
+			}
+			add_ruler_modifier = {
+				name = to_byz_dont_die
+				duration = -1
+				hidden = yes
+			}
+			set_ruler_flag = civil_war_exempt
+			set_heir_flag = civil_war_exempt
+			set_heir_flag = to_is_konstantinos
+		}
+	}
+
+	option = {
+		name = "nhs_new_flightevents.1444.a"
+		tooltip = {
+			add_country_modifier = {
+				name = "byz_flight_tooltip"
+				duration = -1
+			}
+		}
+		custom_tooltip = nhs_ruler_busy_with_flight_tt
+		change_adm = -5
+		change_dip = -5
+		change_mil = -5
+		free_vassal = ATH
+		free_vassal = LES
+		hidden_effect = {
+			country_event = { id = nhs_new_flightevents.1 days = 0 }
+		}
+	}
+}
+
+#day 0
+# Greek Fire and Library of Knowledge
+country_event = {
+	id = nhs_new_flightevents.1
+	title = nhs_new_flightevents.1.t
+	desc = nhs_new_flightevents.1.d
+	picture = BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+	}
+
+	option = {
+		name = "nhs_new_flightevents.1.a"
+		tooltip = {
+			define_advisor = {
+				type = artist
+				name = "Georgios Sphrantzes"
+				skill = 2
+				culture = greek
+				religion = orthodox
+				cost_multiplier = 0.25
+				location = 151
+				female = no
+				age = 43
+			}
+		}
+		define_advisor = {
+			type = fortification_expert
+			name = "Johannes Grandt"
+			skill = 2
+			culture = austrian
+			religion = catholic
+			cost_multiplier = 0.25
+			location = 151
+			age = 41
+			female = no
+		}
+		hidden_effect = {
+			country_event = { id = nhs_new_flightevents.2 days = 2 }
+		}
+	}
+}
+
+#day 2
+# Silk production
+country_event = {
+	id = nhs_new_flightevents.2
+	title = nhs_new_flightevents.2.t
+	desc = nhs_new_flightevents.2.d
+	picture = byz_COURT_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+	}
+
+	option = {
+		name = "nhs_new_flightevents.2.a"
+		custom_tooltip = nhs_theophilos_heir_tt
+		hidden_effect = {
+			country_event = { id = nhs_new_flightevents.7 days = 2 }
+		}
+	}
+}
+
+#day 4
+# Sale of Morea
+country_event = {
+	id = nhs_new_flightevents.7
+	title = nhs_new_flightevents.7.t
+	desc = nhs_new_flightevents.7.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+	}
+
+	option = { #To Venetians
+		name = "nhs_new_flightevents.7.a"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				TUR = {
+					ai = no
+				}
+			}
+		}
+		set_country_flag = nhs_new_flight_sold_morea_to_venice
+		custom_tooltip = nhs_new_flightevents_ships_and_dev_tt
+		release = MOE
+		VEN = {
+			add_opinion = {
+				who = ROOT
+				modifier = nhs_generous_deal
+			}
+			vassalize = MOE
+			country_event = { id = nhs_new_flightevents.17 days = 1 }
+		}
+		MOE = {
+			define_ruler = {
+				name = "Theodoros II"
+				dynasty = "Palaeologus"
+				adm = 3
+				dip = 3
+				mil = 4
+				age = 48
+			}
+			define_heir = {
+				name = "Thomas"
+				dynasty = "Palaeologus"
+				adm = 2
+				dip = 2
+				mil = 2
+				age = 35
+			}
+			hidden_effect = {
+				nhs_change_government = { GOV = monarchy }
+				nhs_add_gov_reform = { REF = feudalism_reform }
+				if = {
+					limit = {
+						has_heir = yes
+					}
+					kill_heir = { allow_new_heir = no }
+				}
+				add_treasury = 50
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_manpower = 3
+				add_sailors = 100
+				capital_scope = {
+					infantry = PREV
+					infantry = PREV
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = nhs_new_flightevents.4 days = 3 }
+		}
+	}
+	option = { #To Genoese
+		name = "nhs_new_flightevents.7.b"
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				TUR = {
+					ai = no
+				}
+			}
+		}
+		set_country_flag = nhs_new_flight_sold_morea_to_genoa
+		custom_tooltip = nhs_new_flightevents_troops_and_arms_tt
+		release = MOE
+		GEN = {
+			add_opinion = {
+				who = ROOT
+				modifier = nhs_generous_deal
+			}
+			vassalize = MOE
+			country_event = { id = nhs_new_flightevents.18 days = 1 }
+		}
+		MOE = {
+			define_ruler = {
+				name = "Theodoros II"
+				dynasty = "Palaeologus"
+				adm = 3
+				dip = 3
+				mil = 4
+				age = 48
+			}
+			define_heir = {
+				name = "Thomas"
+				dynasty = "Palaeologus"
+				adm = 2
+				dip = 2
+				mil = 2
+				age = 35
+			}
+			hidden_effect = {
+				nhs_change_government = { GOV = monarchy }
+				nhs_add_gov_reform = { REF = feudalism_reform }
+				if = {
+					limit = {
+						has_heir = yes
+					}
+					kill_heir = { allow_new_heir = no }
+				}
+				add_treasury = 50
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_manpower = 3
+				add_sailors = 100
+				capital_scope = {
+					infantry = PREV
+					infantry = PREV
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = nhs_new_flightevents.3 days = 3 }
+		}
+	}
+	option = { #Release it
+		name = "nhs_new_flightevents.7.c"
+		ai_chance = {
+			factor = 33
+		}
+		set_country_flag = nhs_new_flight_sold_morea_to_athens
+		add_stability = 1
+		add_treasury = 75
+		release = MOE
+		MOE = {
+			define_ruler = {
+				name = "Theodoros II"
+				dynasty = "Palaeologus"
+				adm = 3
+				dip = 3
+				mil = 4
+				age = 48
+			}
+			define_heir = {
+				name = "Thomas"
+				dynasty = "Palaeologus"
+				adm = 2
+				dip = 2
+				mil = 2
+				age = 35
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = nhs_generous_deal
+			}
+			add_historical_friend = ROOT
+			vassalize = ATH
+			vassalize = LES
+			hidden_effect = {
+				nhs_change_government = { GOV = monarchy }
+				nhs_add_gov_reform = { REF = feudalism_reform }
+				if = {
+					limit = {
+						has_heir = yes
+					}
+					kill_heir = { allow_new_heir = no }
+				}
+				add_adm_power = 200
+				add_dip_power = 200
+				add_mil_power = 200
+				add_treasury = 100
+				add_manpower = 6
+				add_sailors = 200
+				add_prestige = 30
+				capital_scope = {
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					galley = PREV
+					galley = PREV
+					galley = PREV
+					galley = PREV
+					galley = PREV
+				}
+			}
+		}
+		ATH = {
+			country_event = { id = nhs_new_flightevents.19 days = 1 }
+		}
+		LES = {
+			country_event = { id = nhs_new_flightevents.19 days = 1 }
+		}
+		hidden_effect = {
+			add_historical_friend = MOE
+			country_event = { id = nhs_new_flightevents.3 days = 3 }
+		}
+	}
+	after = {
+		hidden_effect = {
+			MOE = {
+				every_owned_province = {
+					limit = {
+						is_core = ROOT
+					}
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+### Event for Venice if you sell them Morea
+country_event = {
+	id = nhs_new_flightevents.17
+	title = nhs_new_flightevents.17.18.t
+	desc = nhs_new_flightevents.17.18.t
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = nhs_new_flightevents.17.18.a
+		tooltip = {
+			FROM = {
+				release = MOE
+			}
+			add_opinion = {
+				who = FROM
+				modifier = nhs_generous_deal
+			}
+			vassalize = MOE
+		}
+	}
+}
+
+### Event for Genoa if you sell them Morea
+country_event = {
+	id = nhs_new_flightevents.18
+	title = nhs_new_flightevents.17.18.t
+	desc = nhs_new_flightevents.17.18.d
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = nhs_new_flightevents.17.18.a
+		tooltip = {
+			FROM = {
+				release = MOE
+			}
+			add_opinion = {
+				who = FROM
+				modifier = nhs_generous_deal
+			}
+			vassalize = MOE
+		}
+	}
+}
+
+### Event for Athens if you release Morea
+country_event = {
+	id = nhs_new_flightevents.19
+	title = nhs_new_flightevents.19.t
+	desc = nhs_new_flightevents.19.d
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = nhs_new_flightevents.19.a
+		tooltip = {
+			FROM = {
+				release = MOE
+			}
+			MOE = {
+				vassalize = ROOT
+			}
+		}
+	}
+}
+
+#day 7
+# The Venetian Captains (event if you didnï¿½t sell Morea to Venice)
+country_event = {
+	id = nhs_new_flightevents.3
+	title = nhs_new_flightevents.3.t
+	desc = nhs_new_flightevents.3.d
+	picture = byz_HARBOUR_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+	}
+
+	option = {
+		name = "nhs_new_flightevents.3.a"
+		custom_tooltip = nhs_get_trevisano_advisor_tt
+		# Arte di Trevisano
+		hidden_effect = {
+			if = {
+				limit = {
+					ai = no
+				}
+				country_event = { id = nhs_new_flightevents.5 days = 2 }
+			}
+			else = {
+				nhs_ai_picks_secrets = yes
+				country_event = { id = nhs_new_flightevents.8 days = 9 }
+			}
+		}
+	}
+}
+
+#day 7
+# The Venetian Captains (event if you sold Morea to Venice)
+country_event = {
+	id = nhs_new_flightevents.4
+	title = nhs_new_flightevents.4.t
+	desc = nhs_new_flightevents.4.d
+	picture = byz_HARBOUR_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+	}
+
+	option = {
+		name = "nhs_new_flightevents.4.a"
+		custom_tooltip = nhs_get_delfin_advisor_tt
+		# Arte di Delfini
+		hidden_effect = {
+			if = {
+				limit = {
+					ai = no
+				}
+				country_event = { id = nhs_new_flightevents.5 days = 2 }
+			}
+			else = {
+				nhs_ai_picks_secrets = yes
+				country_event = { id = nhs_new_flightevents.8 days = 9 }
+			}
+		}
+	}
+}
+
+#day 9
+country_event = {
+	id = nhs_new_flightevents.5
+	title = nhs_new_flightevents.5.t
+	desc = {
+		trigger = {
+			check_variable = {
+				which = nhs_new_flight_food_status
+				value = 4
+			}
+		}
+		desc = nhs_new_flightevents.5.d_plentiful
+	}
+	desc = {
+		trigger = {
+			check_variable = {
+				which = nhs_new_flight_food_status
+				value = 3
+			}
+			NOT = {
+				check_variable = {
+					which = nhs_new_flight_food_status
+					value = 4
+				}
+			}
+		}
+		desc = nhs_new_flightevents.5.d_high
+	}
+	desc = {
+		trigger = {
+			check_variable = {
+				which = nhs_new_flight_food_status
+				value = 2
+			}
+			NOT = {
+				check_variable = {
+					which = nhs_new_flight_food_status
+					value = 3
+				}
+			}
+		}
+		desc = nhs_new_flightevents.5.d_sufficient
+	}
+	desc = {
+		trigger = {
+			check_variable = {
+				which = nhs_new_flight_food_status
+				value = 1
+			}
+			NOT = {
+				check_variable = {
+					which = nhs_new_flight_food_status
+					value = 2
+				}
+			}
+		}
+		desc = nhs_new_flightevents.5.d_scarce
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = nhs_new_flight_food_status
+					value = 1
+				}
+			}
+		}
+		desc = nhs_new_flightevents.5.d_abysmal
+	}
+
+	picture = TRADE_GOODS_PLANTATION_GOODS_IN_WAREHOUSE_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = nhs_new_flight_set_statuses }
+				}
+				set_variable = {
+					which = nhs_new_flight_space_status
+					value = 0
+				}
+				set_variable = {
+					which = nhs_new_flight_food_status
+					value = 4
+				}
+				set_country_flag = nhs_new_flight_set_statuses
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = nhs_new_flight_taken_venetians
+				has_country_flag = nhs_new_flight_taken_fire
+			}
+			custom_tooltip = nhs_new_flight_fleet_status_venetians_fire_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = nhs_new_flight_taken_venetians
+				NOT = { has_country_flag = nhs_new_flight_taken_fire }
+			}
+			custom_tooltip = nhs_new_flight_fleet_status_venetians_tt
+		}
+		else_if = {
+			limit = {
+				NOT = { has_country_flag = nhs_new_flight_taken_venetians }
+				has_country_flag = nhs_new_flight_taken_fire
+			}
+			custom_tooltip = nhs_new_flight_fleet_status_fire_tt
+		}
+		else = {
+			custom_tooltip = nhs_new_flight_fleet_status_tt
+		}
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.a"
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_taken_fire }
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_fire_tt
+		set_country_flag = nhs_new_flight_taken_fire
+		add_country_modifier = {
+			name = "nhs_secrets_greekfire"
+			duration = -1
+		}
+		nhs_lower_supplies = yes
+		nhs_switch_starting_event = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.b"
+		trigger = {
+			has_country_flag = nhs_new_flight_taken_fire
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_fire_tt
+		clr_country_flag = nhs_new_flight_taken_fire
+		remove_country_modifier = nhs_secrets_greekfire
+		custom_tooltip = nhs_new_line_tt
+		nhs_increase_supplies = yes
+		nhs_switch_starting_event = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.c"
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_taken_books }
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_books_tt
+		set_country_flag = nhs_new_flight_taken_books
+		add_country_modifier = {
+			name = "nhs_secrets_books"
+			duration = -1
+		}
+		nhs_lower_supplies = yes
+		nhs_switch_starting_event = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.e"
+		trigger = {
+			has_country_flag = nhs_new_flight_taken_books
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_books_tt
+		clr_country_flag = nhs_new_flight_taken_books
+		remove_country_modifier = nhs_secrets_books
+		custom_tooltip = nhs_new_line_tt
+		nhs_increase_supplies = yes
+		nhs_switch_starting_event = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.f"
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_taken_silk }
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_silk_tt
+		set_country_flag = nhs_new_flight_taken_silk
+		add_country_modifier = {
+			name = "nhs_secrets_silk"
+			duration = -1
+		}
+		nhs_lower_supplies = yes
+		nhs_switch_starting_event = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.g"
+		trigger = {
+			has_country_flag = nhs_new_flight_taken_silk
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_silk_tt
+		clr_country_flag = nhs_new_flight_taken_silk
+		remove_country_modifier = nhs_secrets_silk
+		custom_tooltip = nhs_new_line_tt
+		nhs_increase_supplies = yes
+		nhs_switch_starting_event = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.h"
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_taken_venetians }
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_venetians_tt
+		set_country_flag = nhs_new_flight_taken_venetians
+		set_global_flag = nhs_enable_venetian_merchant_estate_g
+		custom_tooltip = nhs_flight_venetian_effect_tt
+		if = {
+			limit = {
+				has_country_flag = nhs_new_flight_sold_morea_to_venice
+			}
+			tooltip = {
+				define_advisor = {
+					type = naval_reformer
+					name = "Delfino Delfin"
+					skill = 2
+					culture = venetian
+					religion = catholic
+					cost_multiplier = 0.25
+					female = no
+				}
+			}
+		}
+		else = {
+			tooltip = {
+				define_advisor = {
+					type = naval_reformer
+					name = "Gabriele Trevisano"
+					skill = 2
+					culture = venetian
+					religion = catholic
+					cost_multiplier = 0.25
+					female = no
+				}
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		nhs_lower_supplies = yes
+		nhs_switch_starting_event = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.i"
+		trigger = {
+			has_country_flag = nhs_new_flight_taken_venetians
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_venetians_tt
+		clr_country_flag = nhs_new_flight_taken_venetians
+		clr_global_flag = nhs_enable_venetian_merchant_estate_g
+		custom_tooltip = nhs_flight_venetian_effect_tt
+		custom_tooltip = nhs_new_line_tt
+		nhs_increase_supplies = yes
+		nhs_switch_starting_event = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.j"
+		nhs_low_supply_warning = yes
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = nhs_new_flight_taken_venetians
+				}
+				if = {
+					limit = {
+						has_country_flag = nhs_new_flight_sold_morea_to_venice
+					}
+					define_advisor = {
+						type = naval_reformer
+						name = "Delfino Delfin"
+						skill = 2
+						culture = venetian
+						religion = catholic
+						cost_multiplier = 0.25
+						female = no
+					}
+				}
+				else = {
+					define_advisor = {
+						type = naval_reformer
+						name = "Gabriele Trevisano"
+						skill = 2
+						culture = venetian
+						religion = catholic
+						cost_multiplier = 0.25
+						female = no
+					}
+				}
+			}
+			country_event = { id = nhs_new_flightevents.8 days = 7 }
+		}
+	}
+}
+
+country_event = {
+	id = nhs_new_flightevents.6
+	title = nhs_new_flightevents.5.t
+	desc = {
+		trigger = {
+			check_variable = {
+				which = nhs_new_flight_food_status
+				value = 4
+			}
+		}
+		desc = nhs_new_flightevents.5.d_plentiful
+	}
+	desc = {
+		trigger = {
+			check_variable = {
+				which = nhs_new_flight_food_status
+				value = 3
+			}
+			NOT = {
+				check_variable = {
+					which = nhs_new_flight_food_status
+					value = 4
+				}
+			}
+		}
+		desc = nhs_new_flightevents.5.d_high
+	}
+	desc = {
+		trigger = {
+			check_variable = {
+				which = nhs_new_flight_food_status
+				value = 2
+			}
+			NOT = {
+				check_variable = {
+					which = nhs_new_flight_food_status
+					value = 3
+				}
+			}
+		}
+		desc = nhs_new_flightevents.5.d_sufficient
+	}
+	desc = {
+		trigger = {
+			check_variable = {
+				which = nhs_new_flight_food_status
+				value = 1
+			}
+			NOT = {
+				check_variable = {
+					which = nhs_new_flight_food_status
+					value = 2
+				}
+			}
+		}
+		desc = nhs_new_flightevents.5.d_scarce
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = nhs_new_flight_food_status
+					value = 1
+				}
+			}
+		}
+		desc = nhs_new_flightevents.5.d_abysmal
+	}
+	picture = TRADE_GOODS_PLANTATION_GOODS_IN_WAREHOUSE_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = nhs_new_flight_set_statuses }
+				}
+				set_variable = {
+					which = nhs_new_flight_space_status
+					value = 0
+				}
+				set_variable = {
+					which = nhs_new_flight_food_status
+					value = 4
+				}
+				set_country_flag = nhs_new_flight_set_statuses
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = nhs_new_flight_taken_venetians
+				has_country_flag = nhs_new_flight_taken_fire
+			}
+			custom_tooltip = nhs_new_flight_fleet_status_venetians_fire_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = nhs_new_flight_taken_venetians
+				NOT = { has_country_flag = nhs_new_flight_taken_fire }
+			}
+			custom_tooltip = nhs_new_flight_fleet_status_venetians_tt
+		}
+		else_if = {
+			limit = {
+				NOT = { has_country_flag = nhs_new_flight_taken_venetians }
+				has_country_flag = nhs_new_flight_taken_fire
+			}
+			custom_tooltip = nhs_new_flight_fleet_status_fire_tt
+		}
+		else = {
+			custom_tooltip = nhs_new_flight_fleet_status_tt
+		}
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.a"
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_taken_fire }
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_fire_tt
+		set_country_flag = nhs_new_flight_taken_fire
+		add_country_modifier = {
+			name = "nhs_secrets_greekfire"
+			duration = -1
+		}
+		nhs_lower_supplies = yes
+		nhs_switch_starting_event_2 = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.b"
+		trigger = {
+			has_country_flag = nhs_new_flight_taken_fire
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_fire_tt
+		clr_country_flag = nhs_new_flight_taken_fire
+		remove_country_modifier = nhs_secrets_greekfire
+		custom_tooltip = nhs_new_line_tt
+		nhs_increase_supplies = yes
+		nhs_switch_starting_event_2 = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.c"
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_taken_books }
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_books_tt
+		set_country_flag = nhs_new_flight_taken_books
+		add_country_modifier = {
+			name = "nhs_secrets_books"
+			duration = -1
+		}
+		nhs_lower_supplies = yes
+		nhs_switch_starting_event_2 = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.e"
+		trigger = {
+			has_country_flag = nhs_new_flight_taken_books
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_books_tt
+		clr_country_flag = nhs_new_flight_taken_books
+		remove_country_modifier = nhs_secrets_books
+		custom_tooltip = nhs_new_line_tt
+		nhs_increase_supplies = yes
+		nhs_switch_starting_event_2 = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.f"
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_taken_silk }
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_silk_tt
+		set_country_flag = nhs_new_flight_taken_silk
+		add_country_modifier = {
+			name = "nhs_secrets_silk"
+			duration = -1
+		}
+		nhs_lower_supplies = yes
+		nhs_switch_starting_event_2 = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.g"
+		trigger = {
+			has_country_flag = nhs_new_flight_taken_silk
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_silk_tt
+		clr_country_flag = nhs_new_flight_taken_silk
+		remove_country_modifier = nhs_secrets_silk
+		custom_tooltip = nhs_new_line_tt
+		nhs_increase_supplies = yes
+		nhs_switch_starting_event_2 = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.h"
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_taken_venetians }
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_venetians_tt
+		set_country_flag = nhs_new_flight_taken_venetians
+		set_global_flag = nhs_enable_venetian_merchant_estate_g
+		custom_tooltip = nhs_flight_venetian_effect_tt
+		custom_tooltip = nhs_new_line_tt
+		nhs_lower_supplies = yes
+		nhs_switch_starting_event_2 = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.i"
+		trigger = {
+			has_country_flag = nhs_new_flight_taken_venetians
+		}
+		nhs_low_supply_warning = yes
+		custom_tooltip = nhs_additional_expanation_venetians_tt
+		clr_country_flag = nhs_new_flight_taken_venetians
+		clr_global_flag = nhs_enable_venetian_merchant_estate_g
+		custom_tooltip = nhs_new_line_tt
+		nhs_increase_supplies = yes
+		nhs_switch_starting_event_2 = yes
+	}
+
+	option = {
+		name = "nhs_new_flightevents.5.j"
+		nhs_low_supply_warning = yes
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = nhs_new_flight_taken_venetians
+				}
+				if = {
+					limit = {
+						has_country_flag = nhs_new_flight_sold_morea_to_venice
+					}
+					define_advisor = {
+						type = naval_reformer
+						name = "Delfino Delfin"
+						skill = 2
+						culture = venetian
+						religion = catholic
+						cost_multiplier = 0.25
+						female = no
+					}
+				}
+				else = {
+					define_advisor = {
+						type = naval_reformer
+						name = "Gabriele Trevisano"
+						skill = 2
+						culture = venetian
+						religion = catholic
+						cost_multiplier = 0.25
+						female = no
+					}
+				}
+			}
+			country_event = { id = nhs_new_flightevents.8 days = 7 }
+		}
+	}
+
+}
+
+#day 16
+# Rebels and Exiles
+country_event = {
+	id = nhs_new_flightevents.8
+	title = nhs_new_flightevents.8.t
+	desc = nhs_new_flightevents.8.d
+	picture = tur_TRANSYLVANIAN_OTTOMAN_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+	}
+
+	option = { #Pick Albs
+		trigger = {
+			# has_country_flag = nhs_new_flight_taken_fire
+			has_country_modifier = nhs_secrets_greekfire
+		}
+		ai_chance = {
+			factor = 50
+		}
+		name = "nhs_new_flightevents.8.a"
+		define_general = {
+			name = "Gjergj Kastrioti Skanderbeg"
+			fire = 5
+			shock = 5
+			manuever = 5
+			siege = 0
+		}
+		custom_tooltip = nhs_new_flight_taken_albanians_tt
+		set_country_flag = nhs_new_flight_taken_albanians
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = ALB
+					ALB = {
+						has_ruler = "Gjergj Skanderbeg"
+					}
+				}
+				ALB = {
+					exile_ruler_as = { name = nhs_ignore }
+				}
+			}
+		}
+	}
+	option = { #Pick Turks
+		trigger = {
+			# has_country_flag = nhs_new_flight_taken_fire
+			has_country_modifier = nhs_secrets_greekfire
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				TUR = {
+					ai = no
+				}
+			}
+		}
+		name = "nhs_new_flightevents.8.b"
+		define_advisor = {
+			type = commandant
+			name = "Orhan Çelebi"
+			skill = 2
+			culture = turkish
+			religion = sunni
+			cost_multiplier = 0.25
+			female = no
+			age = 32
+		}
+		custom_tooltip = nhs_new_flight_taken_turks_tt
+		set_country_flag = nhs_new_flight_taken_turks
+	}
+
+	option = { #Pick Albs w Fire
+		trigger = {
+			# NOT = { has_country_flag = nhs_new_flight_taken_fire }
+			NOT = { has_country_modifier = nhs_secrets_greekfire }
+		}
+		ai_chance = {
+			factor = 50
+		}
+		highlight = yes
+		name = "nhs_new_flightevents.8.c"
+		define_general = {
+			name = "Gjergj Kastrioti Skanderbeg"
+			fire = 5
+			shock = 5
+			manuever = 5
+			siege = 0
+		}
+		custom_tooltip = nhs_new_flight_taken_albanians_tt
+		custom_tooltip = nhs_flight_fire_defenders_tt
+		set_country_flag = nhs_new_flight_taken_albanians
+		set_global_flag = nhs_byz_left_fire
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = ALB
+					ALB = {
+						has_ruler = "Gjergj Skanderbeg"
+					}
+				}
+				ALB = {
+					exile_ruler_as = { name = nhs_ignore }
+				}
+			}
+		}
+	}
+	option = { #Pick Turks w Fire
+		trigger = {
+			# NOT = { has_country_flag = nhs_new_flight_taken_fire }
+			NOT = { has_country_modifier = nhs_secrets_greekfire }
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				TUR = {
+					ai = no
+				}
+			}
+		}
+		highlight = yes
+		name = "nhs_new_flightevents.8.e"
+		define_advisor = {
+			type = commandant
+			name = "Orhan Çelebi"
+			skill = 2
+			culture = turkish
+			religion = sunni
+			cost_multiplier = 0.25
+			female = no
+			age = 32
+		}
+		custom_tooltip = nhs_new_flight_taken_turks_tt
+		custom_tooltip = nhs_flight_fire_defenders_tt
+		set_country_flag = nhs_new_flight_taken_turks
+		set_global_flag = nhs_byz_left_fire
+	}
+	after = {
+		hidden_effect = {
+			to_trigger_granadan_pirates_event = yes
+		}
+	}
+}
+
+#day 30
+# Granadan Pirates
+country_event = {
+	id = nhs_new_flightevents.9
+	title = nhs_new_flightevents.9.t
+	desc = nhs_new_flightevents.9.d
+	picture = gra_NAVAL_MILITARY_eventPicture
+
+	goto = 1293
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+	}
+
+	option = { #Pay
+		trigger = {
+			NOT = {
+				AND = {
+					has_country_flag = nhs_new_flight_taken_fire
+					has_country_flag = nhs_new_flight_taken_turks
+					has_country_flag = nhs_new_flight_taken_venetians
+				}
+			}
+		}
+		name = "nhs_new_flightevents.9.a"
+		# Standard pay
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				NOT = { has_country_flag = nhs_new_flight_taken_venetians }
+				OR = {
+					has_country_flag = nhs_new_flight_taken_fire
+					# has_country_flag = nhs_new_flight_taken_venetians
+					has_country_flag = nhs_new_flight_taken_turks
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = nhs_new_flight_taken_venetians
+			}
+			custom_tooltip = nhs_new_flight_venetian_negotiation_tt
+			add_treasury = -50
+		}
+		else = {
+			add_treasury = -80
+		}
+		set_country_flag = nhs_new_flight_paid_toll
+	}
+	option = { #Fight
+		trigger = {
+			NOT = { has_country_flag = nhs_new_flight_taken_turks }
+			NOT = { has_country_flag = nhs_new_flight_taken_fire }
+			NOT = { has_country_flag = nhs_new_flight_taken_venetians }
+		}
+		ai_chance = {
+			factor = 50
+		}
+		name = "nhs_new_flightevents.9.b"
+		# Standard loss
+		add_navy_tradition = 15
+		custom_tooltip = nhs_new_flight_standard_loses_tt
+		set_country_flag = nhs_new_flight_ship_loses_gra
+	}
+	option = { #Have Orhan's Janissaries board them
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = nhs_has_taken_turks_tt
+				has_country_flag = nhs_new_flight_taken_turks
+				NOT = {
+					AND = {
+						has_country_flag = nhs_new_flight_taken_fire
+						has_country_flag = nhs_new_flight_taken_venetians
+					}
+				}
+			}
+		}
+		name = "nhs_new_flightevents.9.c"
+		ai_chance = {
+			factor = 100
+		}
+		highlight = yes
+		# Lesser loss
+		add_prestige = 5
+		add_navy_tradition = 15
+		set_country_flag = nhs_new_flight_janissary_boarding
+		custom_tooltip = nhs_new_flight_lesser_loses_tt
+		custom_tooltip = nhs_new_flight_additional_ship_tt
+	}
+	option = { #Set them alight with Greek Fire!
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = nhs_has_taken_fire_tt
+				has_country_flag = nhs_new_flight_taken_fire
+				NOT = {
+					AND = {
+						has_country_flag = nhs_new_flight_taken_venetians
+						has_country_flag = nhs_new_flight_taken_turks
+						has_country_flag = nhs_new_flight_taken_fire
+					}
+				}
+			}
+		}
+		name = "nhs_new_flightevents.9.e"
+		ai_chance = {
+			factor = 100
+		}
+		highlight = yes
+		# Less long fire
+		custom_tooltip = nhs_new_flight_less_fire_tt
+		set_country_flag = nhs_new_flight_fire_depleted_minor
+	}
+	# option = { #We have allies too!
+	# 	trigger = {
+	# 		custom_trigger_tooltip = {
+	# 			tooltip = nhs_has_taken_venetians_tt
+	# 			has_country_flag = nhs_new_flight_taken_venetians
+	# 			NOT = {
+	# 				AND = {
+	# 					has_country_flag = nhs_new_flight_taken_venetians
+	# 					has_country_flag = nhs_new_flight_taken_turks
+	# 					has_country_flag = nhs_new_flight_taken_fire
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# 	name = "nhs_new_flightevents.9.f"
+	# 	ai_chance = {
+	# 		factor = 100
+	# 	}
+	# 	highlight = yes
+	# 	# Lesser loss
+	# 	add_prestige = 10
+	# 	add_navy_tradition = 15
+	# 	custom_tooltip = nhs_new_flight_lesser_loses_tt
+	# 	set_country_flag = nhs_new_flight_venetian_fight
+	# }
+	option = { #We're more than prepared for a sea battle!
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = nhs_has_taken_fire_tt
+				has_country_flag = nhs_new_flight_taken_fire
+			}
+			custom_trigger_tooltip = {
+				tooltip = nhs_has_taken_venetians_tt
+				has_country_flag = nhs_new_flight_taken_venetians
+			}
+			custom_trigger_tooltip = {
+				tooltip = nhs_has_taken_turks_tt
+				has_country_flag = nhs_new_flight_taken_turks
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		name = "nhs_new_flightevents.9.g"
+		highlight = yes
+		# lesser penatly to long fire, prestige
+		add_prestige = 15
+		add_legitimacy = 5
+		add_navy_tradition = 20
+		set_country_flag = nhs_new_flight_sea_battle_major
+		custom_tooltip = nhs_new_flight_additional_ship_tt
+	}
+	option = { #If they want piracy, we will give them piracy!
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = nhs_has_taken_fire_tt
+				has_country_flag = nhs_new_flight_taken_fire
+			}
+			custom_trigger_tooltip = {
+				tooltip = nhs_has_taken_turks_tt
+				has_country_flag = nhs_new_flight_taken_turks
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		name = "nhs_new_flightevents.9.i"
+		highlight = yes
+		# Less long fire
+		# Gain some sailors
+		# Gain some additional cash
+		set_country_flag = nhs_new_flight_raids
+		add_treasury = 50
+		223 = {
+			add_devastation = 33
+		}
+		custom_tooltip = nhs_new_flight_lesser_loses_tt
+	}
+	after = {
+		hidden_effect = {
+			country_event = { id = nhs_new_flightevents.10 days = 2 }
+		}
+	}
+}
+
+#day 32
+# Portugese strike Deal
+country_event = {
+	id = nhs_new_flightevents.10
+	title = nhs_new_flightevents.10.t
+	desc = nhs_new_flightevents.10.d
+	picture = DIPLOMACY_eventPicture
+
+	goto = 1292
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+	}
+
+	option = {
+		name = nhs_new_flightevents.10.a
+		# custom_tooltip = nhs_new_flightevents_portuguese_tt
+		ai_chance = {
+			factor = 50
+		}
+		add_treasury = 30
+		reverse_add_opinion = {
+			who = POR
+			modifier = nhs_generous_deal
+		}
+		POR = {
+			country_event = { id = nhs_othersevents.10 }
+			set_country_flag = nhs_portugese_secret
+			save_global_event_target_as = to_portugal_secret_target
+		}
+		set_global_flag = nhs_europeans_tricked
+		set_global_flag = nhs_portugese_secret_global
+	}
+	option = {
+		name = nhs_new_flightevents.10.b
+		# custom_tooltip = nhs_new_flightevents_portuguese_tt
+		ai_chance = {
+			factor = 50
+		}
+		add_treasury = 30
+		POR = {
+			country_event = { id = nhs_othersevents.4 }
+		}
+		set_global_flag = nhs_europeans_tricked
+	}
+	after = {
+		hidden_effect = {
+			country_event = { id = nhs_new_flightevents.30 days = 17 }
+
+			set_country_flag = to_byz_flight_discovery_path_1
+			country_event = { id = nhs_new_flightevents.29 days = 6 }
+			country_event = { id = nhs_new_flightevents.29 days = 12 }
+		}
+	}
+}
+
+#day 49
+### Back to Orthodox
+country_event = {
+	id = nhs_new_flightevents.30
+	title = nhs_new_flightevents.30.t
+	desc = nhs_new_flightevents.30.d
+	picture = ORTHODOX_eventPicture
+
+	goto = 1580
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			to_byz_discover_next_flight_path_province = yes
+		}
+	}
+
+	option = {
+		name = nhs_new_flightevents.30.a
+		set_ruler_religion = orthodox
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			set_heir_religion = orthodox
+		}
+		if = {
+			limit = {
+				has_consort = yes
+				consort_religion = catholic
+			}
+			set_consort_religion = catholic
+		}
+		custom_tooltip = to_revoke_union_of_the_churches_tt
+		hidden_effect = {
+			remove_estate_privilege = estate_church_union_of_the_churches
+			to_trigger_storm_event = yes
+
+			country_event = { id = nhs_new_flightevents.29 days = 6 }
+			country_event = { id = nhs_new_flightevents.29 days = 11 }
+		}
+	}
+}
+
+
+#day 67
+# Storm approaches
+country_event = {
+	id = nhs_new_flightevents.11
+	title = nhs_new_flightevents.11.t
+	desc = nhs_new_flightevents.11.d
+	picture = westerngfx_NAVAL_MILITARY_eventPicture
+
+	goto = 1574
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+	}
+
+	immediate = {
+		# Survivors of the storm are stranded on Bermuda - 481
+		hidden_effect = {
+			to_byz_discover_next_flight_path_province = yes
+			if = {
+				# Enabled with criteria that trigger non-randomised colony placement
+				limit = {
+					is_random_new_world = no
+				}
+				481 = {
+					add_institution_embracement = {
+						which = "feudalism"
+						value = 100
+					}
+					cede_province = CM1
+					add_core = CM1
+					# add_base_tax = 2
+					# add_base_production = 2
+					# add_base_manpower = 1
+					set_province_flag = nhs_had_dev_events_2
+					change_culture = ROOT
+					change_religion = orthodox
+					change_original_culture = ROOT
+				}
+				undiscover_province = 481
+				CM1 = {
+					nhs_change_government = { GOV = republic }
+					add_government_reform = cretan_admiralty
+					add_government_reform = nepotism_reform
+					change_primary_culture = greek
+					change_religion = orthodox
+					country_event = { id = nhs_othersevents.51 }
+					# country_event = { id = nhs_new_flightevents.16 days = 1 }
+					define_ruler = {
+						name = "Ioannes VIII"
+						dynasty = "Palaiologos"
+						adm = 4
+						dip = 3
+						mil = 3
+						age = 20
+						claim = 100
+						religion = ROOT
+						culture = greek
+					}
+					define_heir = {
+						name = "Loukas"
+						dynasty = "Notaras"
+						adm = 3
+						dip = 5
+						mil = 3
+						birth_date = 1402.5.4
+						claim = 70
+						religion = orthodox
+						culture = greek
+					}
+					kill_ruler = yes
+					add_stability = 1
+					set_ruler_flag = to_ruler_loukas
+					set_country_flag = to_megas_doux_ruler_title
+				}
+			}
+		}
+	}
+
+	option = {
+		name = nhs_new_flightevents.11.a # Lose ruler stats
+		ai_chance = {
+			factor = 100
+		}
+		custom_tooltip = nhs_new_flightevents_lose_advisors_tt
+		change_heir_adm = -1
+		change_heir_dip = -1
+		if = {
+			limit = {
+				is_advisor_employed = 10000
+			}
+			kill_advisor = 10000
+		}
+		else = {
+			custom_tooltip = nhs_kill_georgios_tt
+		}
+		set_country_flag = nhs_new_flightevents_lose_stats_storm
+		hidden_effect = {
+			CM1 = {
+				change_adm = 1
+				change_dip = 1
+				define_advisor = {
+					type = artist
+					name = "Georgios Sphrantzes"
+					skill = 2
+					culture = greek
+					religion = orthodox
+					cost_multiplier = 0.25
+					female = no
+					age = 43
+				}
+			}
+		}
+	}
+	option = {
+		name = nhs_new_flightevents.11.b # Lose people (and 'ships', thus basetax)
+		ai_chance = { factor = 0 }
+		custom_tooltip = nhs_new_flightevents_lose_dev_tt
+		set_country_flag = nhs_new_flightevents_lose_dev_storm
+		hidden_effect = {
+			481 = {
+				add_base_tax = 1
+				add_base_manpower = 1
+			}
+			define_advisor = {
+				type = artist
+				name = "Georgios Sphrantzes"
+				skill = 2
+				culture = greek
+				religion = orthodox
+				cost_multiplier = 0.25
+				location = 151
+				female = no
+				age = 43
+			}
+		}
+	}
+	after = {
+		# Next event
+		hidden_effect = {
+			if = {
+				limit = {
+					has_ruler = "Ioannes VIII"
+				}
+				country_event = { id = nhs_new_flightevents.12 }
+			}
+			else = {
+				to_trigger_journey_end_event = yes
+
+				country_event = { id = nhs_new_flightevents.29 days = 7 }
+				country_event = { id = nhs_new_flightevents.29 days = 14 }
+				country_event = { id = nhs_new_flightevents.29 days = 17 }
+			}
+		}
+	}
+}
+
+#day 67
+# A great catastrophe has occurred!
+country_event = {
+	id = nhs_new_flightevents.12
+	title = nhs_new_flightevents.12.t
+	desc = nhs_new_flightevents.12.d
+	picture = KING_SICK_IN_BED_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+		# has_ruler = "Ioannes VIII"
+		# NOT = { has_country_flag = nhs_emperor_is_dead }
+	}
+
+	immediate = {
+		set_country_flag = nhs_emperor_is_dead
+	}
+
+	option = {
+		name = nhs_new_flightevents.12.a
+		hidden_effect = {
+			if = {
+				limit = {
+					has_ruler_modifier = to_byz_dont_die
+					NOT = { has_heir_flag = to_is_konstantinos }
+				}
+				if = {
+					limit = {
+						has_country_flag = nhs_new_flightevents_lose_stats_storm
+					}
+					define_heir = {
+						name = "Konstantinos"
+						dynasty = "Palaeologus"
+						monarch_name = "Konstantinos XI"
+						adm = 5
+						dip = 2
+						mil = 5
+						birth_date = 1405.2.8
+						culture = greek
+						religion = orthodox
+					}
+				}
+				else = {
+					define_heir = {
+						name = "Konstantinos"
+						dynasty = "Palaeologus"
+						monarch_name = "Konstantinos XI"
+						adm = 6
+						dip = 3
+						mil = 5
+						birth_date = 1405.2.8
+						culture = greek
+						religion = orthodox
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_ruler_modifier = to_byz_dont_die
+					has_heir_flag = to_is_konstantinos
+				}
+			}
+			kill_ruler = yes
+		}
+		add_ruler_modifier = {
+			name = to_byz_dont_die
+			duration = -1
+			hidden = yes
+		}
+		define_heir = {
+			name = "Theophilos"
+			dynasty = "Palaeologus"
+			monarch_name = "Theophilos II"
+			adm = 5
+			dip = 4
+			mil = 3
+			claim = 80
+			birth_date = 1420.9.5
+			culture = greek
+			religion = orthodox
+		}
+		hidden_effect = {
+			# clear_scipted_personalities = yes
+			# add_ruler_personality = righteous_personality
+			add_ruler_personality = expansionist_personality
+			add_heir_personality = scholar_personality
+		}
+		add_stability = 1
+		# Next event
+		hidden_effect = {
+			to_trigger_journey_end_event = yes
+
+			country_event = { id = nhs_new_flightevents.29 days = 7 }
+			country_event = { id = nhs_new_flightevents.29 days = 14 }
+			country_event = { id = nhs_new_flightevents.29 days = 17 }
+		}
+	}
+}
+
+# A great catastrophe has occurred - before the storm
+country_event = {
+	id = nhs_new_flightevents.13
+	title = nhs_new_flightevents.13.t
+	desc = nhs_new_flightevents.13.d
+	picture = KING_SICK_IN_BED_eventPicture
+
+	is_triggered_only = yes
+	hidden = yes
+
+	trigger = {
+		tag = BYZ
+		has_country_modifier = byz_flight
+		has_ruler = "Konstantinos XI"
+		NOT = { has_country_flag = nhs_emperor_is_dead }
+	}
+
+	immediate = {
+		set_country_flag = nhs_emperor_is_dead
+		hidden_effect = {
+			define_heir = {
+				name = "Theophilos"
+				dynasty = "Palaeologus"
+				monarch_name = "Theophilos II"
+				adm = 5
+				dip = 4
+				mil = 3
+				claim = 80
+				birth_date = 1420.9.5
+				culture = greek
+				religion = orthodox
+			}
+			# add_ruler_personality = righteous_personality
+			# add_ruler_personality = expansionist_personality
+			add_heir_personality = scholar_personality
+		}
+	}
+
+	option = {
+		name = nhs_new_flightevents.13.a
+		add_stability = 1
+	}
+}
+
+# country_event = {
+# 	id = nhs_new_flightevents.14
+# 	title = nhs_new_flightevents.14.t
+# 	desc = nhs_new_flightevents.14.d
+# 	picture = nhs_DIPLOMAT_INTERROGATION_eventPicture
+
+# 	is_triggered_only = yes
+
+# 	trigger = {
+# 		has_country_modifier = byz_flight
+# 	}
+
+# 	option = {
+# 		name = nhs_new_flightevents.14.a
+# 		ai_chance = { factor = 50 }
+# 		change_religion = pantheon_worship	# Convert
+# 		set_ruler_religion = pantheon_worship
+# 		if = {
+# 			limit = {
+# 				has_heir = yes
+# 			}
+# 			set_heir_religion = pantheon_worship
+# 		}
+# 		add_legitimacy = -25
+# 		define_advisor = {
+# 			type = theologian
+# 			name = "Gemistos Plethon"
+# 			skill = 2
+# 			culture = greek
+# 			religion = pantheon_worship
+# 			cost_multiplier = 0.2
+# 		}
+# 	}
+
+# 	option = {
+# 		name = nhs_new_flightevents.14.b
+# 		ai_chance = { factor = 50 }
+# 		add_prestige = 5
+# 		add_stability = 1
+# 	}
+
+# 	after = {
+# 		hidden_effect = {
+# 			country_event = { id = nhs_new_flightevents.15 days = 15 }
+# 		}
+# 	}
+# }
+
+#day 85
+# Founding the New Nation - Finish flight
+country_event = {
+	id = nhs_new_flightevents.15
+	title = nhs_new_flightevents.15.t
+	desc = nhs_new_flightevents.15.d
+	picture = COLONIZATION_eventPicture
+
+	goto = 953
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_modifier = byz_flight
+	}
+
+	immediate = {
+		##### Calculate Ending
+		hidden_effect = {
+			# PIA migrates out
+			remove_country_modifier = to_byz_dont_die
+			2553 = {
+				cede_province = PIA
+				add_core = PIA
+				change_culture = powhatan
+				change_religion = totemism
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				to_nat_add_to_local_tribal_development = {
+					TAX = 1
+					PRODUCTION = 1
+					MANPOWER = 1
+				}
+			}
+			2552 = {
+				cede_province = PIA
+				add_core = PIA
+				change_culture = powhatan
+				change_religion = totemism
+				add_base_tax = 1
+				add_base_production = 1
+				to_nat_add_to_local_tribal_development = {
+					TAX = 1
+					PRODUCTION = 1
+				}
+			}
+			953 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				to_nat_clear_local_tribal_development = yes
+				remove_province_modifier = to_nat_had_tribal_development
+				set_province_flag = nhs_had_dev_events_2
+			}
+			PIA = {
+				set_capital = 2553
+				set_ai_personality = {
+					personality = ai_balanced
+					locked = yes
+				}
+			}
+			POW = {
+				set_ai_personality = {
+					personality = ai_capitalist
+					locked = yes
+				}
+			}
+			LEN = {
+				set_ai_personality = {
+					personality = ai_militarist
+					locked = yes
+				}
+			}
+			NHS = {
+				add_manpower = -100
+				add_treasury = 175
+			}
+			953 = {
+				change_culture = greek
+				add_institution_embracement = {
+					which = "feudalism"
+					value = 100
+				}
+				cede_province = ELF
+				add_core = NHS
+				ELF = {
+					release = NHS
+				}
+				remove_core = PIA
+				change_culture = greek
+				change_religion = ROOT
+				# change_trade_goods = grain
+				change_trade_goods = nothing
+			}
+			NHS = {
+				set_country_flag = to_block_ai_ab_interactions
+				set_country_flag = to_enables_overburdened_administration
+				nhs_change_government = { GOV = monarchy }
+				nhs_add_gov_reform = { REF = elysian_empire }
+				add_mil_power = 226
+				add_dip_power = 184
+				add_adm_power = 212
+
+				# american_east_coast_region = {
+				# 	every_country = {
+				# 		limit = { tag = NHS }
+				# 		undiscover_province = PREV
+				# 	}
+				# }
+				caribbean_sea_region = {
+					every_country = {
+						limit = { tag = NHS }
+						undiscover_province = PREV
+					}
+				}
+				north_west_pacific_region = {
+					every_country = {
+						limit = { tag = NHS }
+						undiscover_province = PREV
+					}
+				}
+				capital_scope = {
+					set_province_flag = nhs_original_capital
+					set_province_flag = nhs_original_heartland
+				}
+				every_province = {
+					limit = {
+						nhs_homelands_no_capital = yes
+					}
+					set_province_flag = nhs_original_heartland
+					# add_permanent_claim = NHS
+				}
+				change_primary_culture = greek
+				change_religion = ROOT
+				change_technology_group = exiled_greek
+				change_unit_type = exiled_greek
+				define_heir = {
+					name = "Konstantinos"
+					monarch_name = "Konstantinos XI"
+					dynasty = "Palaiologos"
+					adm = 6
+					dip = 3
+					mil = 5
+					birth_date = 1405.2.8
+				}
+				kill_ruler = yes
+				add_stability = 1
+				define_heir = {
+					name = "Theophilos"
+					dynasty = "Palaiologos"
+					monarch_name = "Theophilos II"
+					adm = 5
+					dip = 4
+					mil = 3
+					claim = 80
+					birth_date = 1420.9.5
+				}
+				# add_ruler_personality = righteous_personality
+				add_ruler_personality = expansionist_personality
+				add_heir_personality = scholar_personality
+				# define_ruler_to_general = {
+				# 	shock = 3
+				# 	fire = 3
+				# 	manuever = 4
+				# 	siege = 0
+				# }
+				capital_scope = { change_province_name = "Elyseia" rename_capital = "Nea Konstantinoupolis" }
+				set_variable = { which = nhs_num_of_light_ships value = 2 }
+				set_country_flag = nhs_no_new_world_crops
+				set_country_flag = nhs_locked_native_mercenaries
+				set_country_flag = nhs_disable_estate_nhs_nobles
+				set_country_flag = disables_estate_church_flag
+				set_country_flag = to_disable_cb_humiliate_rotw
+				set_global_flag = nhs_byzantines_arrive_to_new_world
+
+				set_variable = {
+					which = starting_troops
+					value = 0
+				}
+			}
+			### Add and remove suiting modifiers
+			remove_country_modifier = "byz_flight"
+			NHS = {
+				add_country_modifier = {
+					name = "nhs_no_merchant_class"
+					duration = -1
+				}
+				add_country_modifier = {
+					name = "nhs_constrained_resources"
+					duration = -1
+				}
+				add_country_modifier = {
+					name = "nhs_handicap_settlers"
+					duration = -1
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = nhs_new_flightevents_lose_stats_storm }
+				}
+				NHS = {
+					define_advisor = {
+						type = artist
+						name = "Georgios Sphrantzes"
+						skill = 2
+						culture = greek
+						religion = orthodox
+						cost_multiplier = 0.25
+						female = no
+						age = 43
+					}
+				}
+			}
+			NHS = {
+				define_advisor = {
+					type = fortification_expert
+					name = "Johannes Grandt"
+					skill = 2
+					culture = austrian
+					religion = catholic
+					cost_multiplier = 0.25
+					female = no
+				}
+			}
+			# Set secrets
+			if = {
+				limit = {
+					has_country_modifier = nhs_secrets_greekfire
+				}
+				NHS = {
+					set_country_flag = nhs_new_flight_taken_fire
+					add_country_modifier = {
+						name = "nhs_secrets_greekfire"
+						duration = -1
+					}
+				}
+				remove_country_modifier = nhs_secrets_greekfire
+			}
+			if = {
+				limit = {
+					has_country_modifier = nhs_secrets_books
+				}
+				NHS = {
+					set_country_flag = nhs_new_flight_taken_books
+					add_country_modifier = {
+						name = "nhs_secrets_books"
+						duration = -1
+					}
+				}
+				remove_country_modifier = nhs_secrets_books
+			}
+			if = {
+				limit = {
+					has_country_modifier = nhs_secrets_silk
+				}
+				NHS = {
+					set_country_flag = nhs_new_flight_taken_silk
+					add_country_modifier = {
+						name = "nhs_secrets_silk"
+						duration = -1
+					}
+				}
+				remove_country_modifier = nhs_secrets_silk
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_new_flight_taken_venetians
+				}
+				NHS = {
+					set_country_flag = nhs_new_flight_taken_venetians
+				}
+				if = {
+					limit = {
+						has_country_flag = nhs_new_flight_sold_morea_to_venice
+					}
+					if = {
+						limit = {
+							religion = pantheon_worship
+						}
+						NHS = {
+							define_advisor = {
+								type = naval_reformer
+								name = "Delfino Delfin"
+								skill = 2
+								culture = venetian
+								religion = pantheon_worship
+								cost_multiplier = 0.25
+								female = no
+							}
+						}
+					}
+					else = {
+						NHS = {
+							define_advisor = {
+								type = naval_reformer
+								name = "Delfino Delfin"
+								skill = 2
+								culture = venetian
+								religion = catholic
+								cost_multiplier = 0.25
+								female = no
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							religion = pantheon_worship
+						}
+						NHS = {
+							define_advisor = {
+								type = naval_reformer
+								name = "Gabriele Trevisano"
+								skill = 2
+								culture = venetian
+								religion = pantheon_worship
+								cost_multiplier = 0.25
+								female = no
+							}
+						}
+					}
+					else = {
+						NHS = {
+							define_advisor = {
+								type = naval_reformer
+								name = "Gabriele Trevisano"
+								skill = 2
+								culture = venetian
+								religion = catholic
+								cost_multiplier = 0.25
+								female = no
+							}
+						}
+					}
+				}
+
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = nhs_new_flight_food_status
+						value = 4
+					}
+				}
+				set_country_flag = nhs_new_flight_food_status_4
+				NHS = {
+					set_country_flag = nhs_new_flight_food_status_4
+					capital_scope = {
+						add_base_tax = 5
+						add_base_production = 5
+						add_base_manpower = 4
+					}
+					add_treasury = 275
+					change_variable = {
+						which = starting_troops
+						value = 5
+					}
+					add_manpower = 5
+					change_variable = { which = nhs_num_of_light_ships value = 4 }
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = nhs_new_flight_food_status
+						value = 3
+					}
+				}
+				set_country_flag = nhs_new_flight_food_status_3
+				NHS = {
+					set_country_flag = nhs_new_flight_food_status_3
+					add_treasury = 200
+					capital_scope = {
+						add_base_tax = 4
+						add_base_production = 4
+						add_base_manpower = 3
+					}
+					change_variable = {
+						which = starting_troops
+						value = 4
+					}
+					add_manpower = 3
+					# add_country_modifier = {
+					# 	name = nhs2_colonial_needs_1
+					# 	duration = 3650
+					# }
+					change_variable = { which = nhs_num_of_light_ships value = 2 }
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = nhs_new_flight_food_status
+						value = 2
+					}
+				}
+				set_country_flag = nhs_new_flight_food_status_2
+				NHS = {
+					set_country_flag = nhs_new_flight_food_status_2
+					add_treasury = 125
+					capital_scope = {
+						add_base_tax = 2
+						add_base_production = 2
+						add_base_manpower = 2
+					}
+					change_variable = {
+						which = starting_troops
+						value = 3
+					}
+					add_manpower = 2
+					add_country_modifier = {
+						name = nhs2_colonial_needs_1
+						duration = 7300
+					}
+					change_variable = { which = nhs_num_of_light_ships value = 1 }
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = nhs_new_flight_food_status
+						value = 1
+					}
+				}
+				set_country_flag = nhs_new_flight_food_status_1
+				add_treasury = 50
+				NHS = {
+					set_country_flag = nhs_new_flight_food_status_1
+					change_variable = {
+						which = starting_troops
+						value = 2
+					}
+					capital_scope = {
+						add_base_tax = 2
+					}
+					add_manpower = 2
+					add_country_modifier = {
+						name = nhs2_colonial_needs_2
+						duration = 10950
+					}
+					set_country_flag = nhs_colonial_troubles_minor
+				}
+			}
+			else = {
+				set_country_flag = nhs_new_flight_food_status_0
+				NHS = {
+					set_country_flag = nhs_new_flight_food_status_0
+					add_treasury = -25
+					capital_scope = {
+						add_base_tax = 1
+					}
+					change_variable = {
+						which = starting_troops
+						value = 2
+					}
+					add_manpower = 2
+					add_country_modifier = {
+						name = nhs2_colonial_needs_2
+						duration = 10950
+					}
+					set_country_flag = nhs_colonial_troubles_major
+				}
+			}
+
+			### Add basetax, troops and ships for each 'ship' in capital
+			if = {
+				limit = {
+					has_country_flag = nhs_new_flight_sold_morea_to_venice
+				}
+				NHS = {
+					capital_scope = {
+						add_base_tax = 1
+						# add_base_production = 1
+						add_base_manpower = 1
+					}
+					set_country_flag = nhs_new_flight_sold_morea_to_venice
+					change_variable = { which = nhs_num_of_light_ships value = 1 }
+				}
+
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_new_flight_sold_morea_to_genoa
+				}
+				NHS = {
+					change_variable = {
+						which = starting_troops
+						value = 2
+					}
+					add_manpower = 1
+					set_country_flag = nhs_new_flight_sold_morea_to_genoa
+					if = {
+						limit = {
+							has_dlc = "Cradle of Civilization"
+						}
+						add_army_professionalism = 0.05
+					}
+					else = {
+						add_army_tradition = 20
+					}
+					set_country_flag = to_ab_no_building_penalty
+					capital_scope = {
+						add_building = barracks
+					}
+					clr_country_flag = to_ab_no_building_penalty
+				}
+
+			}
+			else = {
+				NHS = {
+					add_stability = 1
+					add_treasury = 75
+					add_historical_friend = MOE
+					MOE = {
+						add_historical_friend = NHS
+					}
+				}
+
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_new_flight_taken_albanians
+				}
+				NHS = {
+					set_country_flag = nhs_new_flight_taken_albanians
+					capital_scope = {
+						#Add albanian modifier
+						add_base_tax = 2
+						add_base_manpower = 1
+						add_base_production = 2
+						add_permanent_province_modifier = {
+							name = nhs2_albanian_quarter
+							duration = 25550
+						}
+					}
+					define_general = {
+						name = "Gjergj Kastrioti Skanderbeg"
+						fire = 5
+						shock = 5
+						manuever = 5
+						siege = 0
+					}
+				}
+			}
+			else = {
+				NHS = {
+					set_country_flag = nhs_new_flight_taken_turks
+				}
+
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_new_flight_paid_toll
+				}
+				NHS = {
+					if = {
+						limit = {
+							has_country_flag = nhs_new_flight_taken_venetians
+						}
+						add_treasury = -50
+					}
+					else = {
+						add_treasury = -80
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_new_flight_ship_loses_gra
+				}
+				NHS = {
+					# add_manpower = -2
+					add_navy_tradition = 15
+					change_variable = {
+						which = starting_troops
+						value = -2
+					}
+					set_country_flag = nhs_new_flight_ship_loses_gra
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_new_flight_venetian_fight
+				}
+				set_country_flag = nhs_new_flight_troop_loses
+				NHS = {
+					add_prestige = 10
+					add_navy_tradition = 15
+					change_variable = {
+						which = starting_troops
+						value = -1
+					}
+					set_country_flag = nhs_new_flight_troop_loses
+				}
+
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_new_flight_janissary_boarding
+				}
+				set_country_flag = nhs_new_flight_troop_loses
+				NHS = {
+					add_prestige = 5
+					add_navy_tradition = 15
+					change_variable = {
+						which = starting_troops
+						value = -1
+					}
+					change_variable = { which = nhs_num_of_light_ships value = 1 }
+					set_country_flag = nhs_new_flight_troop_loses
+				}
+
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_new_flight_fire_depleted_minor
+				}
+				NHS = {
+					set_country_flag = nhs_new_flight_fire_depleted_minor
+				}
+
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_new_flight_sea_battle_major
+				}
+				NHS = {
+					add_prestige = 15
+					add_legitimacy = 5
+					add_navy_tradition = 20
+					change_variable = { which = nhs_num_of_light_ships value = 1 }
+				}
+
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_new_flight_raids
+				}
+				set_country_flag = nhs_new_flight_troop_loses
+				NHS = {
+					add_treasury = 50
+					change_variable = { which = nhs_num_of_light_ships value = 1 }
+					change_variable = {
+						which = starting_troops
+						value = -1
+					}
+					set_country_flag = nhs_new_flight_troop_loses
+				}
+
+			}
+			# You always get Portuguese ship
+			NHS = {
+				# capital_scope = {
+				# 	add_base_production = 1
+				# }
+				add_treasury = 30
+				change_variable = { which = nhs_num_of_light_ships value = 1 }
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_new_flightevents_lose_dev_storm
+				}
+				NHS = {
+					capital_scope = {
+						add_base_tax = -2
+						add_base_manpower = -1
+					}
+					set_country_flag = nhs_new_flightevents_lose_dev_storm
+				}
+
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_new_flightevents_lose_cash_storm
+				}
+				NHS = {
+					add_treasury = -60
+				}
+
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_new_flightevents_lose_stats_storm
+				}
+				NHS = {
+					change_adm = -1
+					change_dip = -1
+				}
+				if = {
+					limit = {
+						has_country_flag = nhs_new_flight_food_status_0
+					}
+					NHS = {
+						set_country_flag = nhs_new_flightevents_lose_stats_storm
+					}
+				}
+			}
+			NHS = {
+				set_country_flag = NF_colony
+				set_country_flag = NF_peacenik
+			}
+			### Next event
+			NHS = {
+				swap_non_generic_missions = yes
+				add_corruption = -100
+				country_event = { id = nhs_new_flightevents.16 days = 3 }
+				if = {
+					limit = {
+						has_country_flag = nhs_new_flight_taken_venetians
+					}
+					country_event = { id = nhs2_countryevents.69 days = 33 }
+				}
+				else = {
+					country_event = { id = nhs2_countryevents.22 days = 33 }
+				}
+				set_country_flag = to_ab_no_recruit_penalty
+				while = {
+					limit = {
+						check_variable = {
+							which = starting_troops
+							value = 1
+						}
+					}
+					change_variable = {
+						which = starting_troops
+						value = -1
+					}
+					capital_scope = {
+						infantry = NHS
+					}
+				}
+				clr_country_flag = to_ab_no_recruit_penalty
+			}
+
+			to_byz_undiscover_flight_path = yes
+			north_atlantic_region = {
+				every_country = {
+					limit = { tag = ROOT }
+					undiscover_province = PREV
+				}
+			}
+			undiscover_province = 1584
+			if = {
+				limit = {
+					ai = no
+				}
+				country_event = { id = nhs_new_flightevents.20 }
+			}
+		}
+	}
+
+	after = {
+		BYZ = {
+			clr_country_flag = nhs_new_flight_taken_venetians
+			clr_country_flag = nhs_new_flight_sold_morea_to_venice
+			clr_country_flag = nhs_new_flight_sold_morea_to_genoa
+			clr_country_flag = nhs_new_flight_sold_morea_to_athens
+			clr_country_flag = nhs_new_flightevents_lose_stats_storm
+			clr_country_flag = nhs_new_flightevents_lose_cash_storm
+			clr_country_flag = nhs_new_flightevents_lose_dev_storm
+			clr_country_flag = nhs_new_flight_additional_ship
+			clr_country_flag = nhs_new_flight_fire_depleted_minor
+			clr_country_flag = nhs_new_flight_janissary_boarding
+			clr_country_flag = nhs_new_flight_venetian_fight
+			clr_country_flag = nhs_new_flight_taken_turks
+			clr_country_flag = nhs_new_flight_raids
+		}
+		151 = {
+			if = {
+				limit = {
+					NOT = { has_building = fort_15th }
+				}
+				add_building = fort_15th
+			}
+		}
+	}
+
+	option = {
+		name = nhs_new_flightevents.15.a
+		if = {
+			limit = {
+				has_dlc = "Golden Century"
+			}
+			custom_tooltip = nhs_starting_flagship_tt
+			hidden_effect = {
+				NHS = {
+					set_country_flag = nhs_first_flagship
+					set_country_flag = to_ab_no_recruit_penalty
+					capital_scope = {
+						create_flagship = {
+							name = "Aghia Theotoke"
+							type = heavy_ship
+						}
+					}
+					clr_country_flag = nhs_first_flagship
+					clr_country_flag = to_ab_no_recruit_penalty
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = nhs_new_flight_food_status_4
+			}
+			custom_tooltip = nhs_new_flight_food_status_4_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = nhs_new_flight_food_status_3
+			}
+			custom_tooltip = nhs_new_flight_food_status_3_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = nhs_new_flight_food_status_2
+			}
+			custom_tooltip = nhs_new_flight_food_status_2_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = nhs_new_flight_food_status_1
+			}
+			custom_tooltip = nhs_new_flight_food_status_1_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = nhs_new_flight_food_status_0
+			}
+			custom_tooltip = nhs_new_flight_food_status_0_tt
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = nhs_new_flight_food_status_4
+					has_country_flag = nhs_new_flight_food_status_3
+					has_country_flag = nhs_new_flight_food_status_2
+				}
+			}
+			custom_tooltip = nhs_new_flight_food_status_modifiers_tt
+		}
+		else = {
+			custom_tooltip = nhs_new_flight_food_status_modifiers_worse_tt
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				has_country_flag = nhs_new_flight_taken_albanians
+			}
+			custom_tooltip = nhs_new_flight_taken_albanians_end_tt
+		}
+		custom_tooltip = nhs_new_line_tt
+		tooltip = {
+			country_event = { id = nhs2_countryevents.13 days = 3 }
+		}
+		hidden_effect = {
+			NHS = {
+				country_event = { id = nhs2_countryevents.13 days = 3 }
+			}
+			BYZ = {
+				clr_country_flag = nhs_new_flight_food_status_4
+				clr_country_flag = nhs_new_flight_food_status_3
+				clr_country_flag = nhs_new_flight_food_status_2
+				clr_country_flag = nhs_new_flight_food_status_1
+				clr_country_flag = nhs_new_flight_food_status_0
+				clr_country_flag = nhs_new_flight_taken_albanians
+			}
+			every_province = {
+				limit = {
+					# any_neighbor_province = {
+					# 	owned_by = ROOT
+					# }
+					OR = {
+						nhs_homelands_no_capital = yes
+						owned_by = LEN
+						owned_by = PIA
+					}
+					NOT = { has_discovered = ROOT }
+				}
+				every_country = {
+					limit = { tag = NHS }
+					discover_province = PREV
+				}
+			}
+		}
+	}
+}
+
+# Switch
+country_event = {
+	id = nhs_new_flightevents.20
+	title = nhs_new_flightevents.20.t
+	desc = nhs_new_flightevents.20.d
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				NHS = {
+					has_country_modifier = godly_inspiration
+				}
+			}
+			NHS = {
+				remove_country_modifier = godly_inspiration
+			}
+		}
+		switch_tag = NHS
+	}
+
+	option = {
+		name = "nhs_new_flightevents.20.a"
+	}
+}
+
+### Steam user 'Jords' inspired event to undiscover European provinces at start, thanks dude! :D -Lichtkang
+#Years later I have no idea who this 'Jords' person is, but thanks all the same ;) -Scurek
+country_event = {
+	id = nhs_new_flightevents.16
+	title = nhs_new_flightevents.16.t
+	desc = nhs_new_flightevents.16.d
+	picture = nhs_OVEREXTENSION_eventPicture
+
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = nhs_new_flight_taken_turks
+				}
+				ALB = {
+					country_event = { id = nhs_new_flightevents.26 }
+				}
+				TUR = {
+					country_event = { id = nhs_new_flightevents.28 }
+				}
+			}
+			else = {
+				TUR = {
+					country_event = { id = nhs_new_flightevents.21 days = 1 }
+				}
+				ALB = {
+					country_event = { id = nhs_new_flightevents.27 }
+				}
+			}
+			europe = {
+				every_country = {
+					limit = { tag = ROOT }
+					undiscover_province = PREV
+				}
+			}
+			africa = {
+				every_country = {
+					limit = { tag = ROOT }
+					undiscover_province = PREV
+				}
+			}
+			asia = {
+				every_country = {
+					limit = { tag = ROOT }
+					undiscover_province = PREV
+				}
+			}
+			# Added required sea provinces as new region to easily undiscover
+			european_seas_lakes = {
+				every_country = {
+					limit = { tag = ROOT }
+					undiscover_province = PREV
+				}
+			}
+			north_atlantic_region = {
+				every_country = {
+					limit = { tag = ROOT }
+					undiscover_province = PREV
+				}
+			}
+			mediterrenean_region = {
+				every_country = {
+					limit = { tag = ROOT }
+					undiscover_province = PREV
+				}
+			}
+			undiscover_province = 1584
+			to_byz_undiscover_flight_path = yes
+		}
+	}
+
+	option = {
+		name = nhs_new_flightevents.16.a
+		custom_tooltip = byz_undiscover_tt
+	}
+}
+
+### Last Stand of the Romans
+country_event = {
+	id = nhs_new_flightevents.21
+	title = nhs_new_flightevents.21.t
+	desc = nhs_new_flightevents.21.d
+	picture = tur_CONQUEST_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = nhs_new_flightevents.21.a
+		ai_chance = {
+			factor = 100
+		}
+		hidden_effect = {
+			151 = {
+				add_core = RUM
+				add_permanent_claim = ROOT
+				if = {
+					limit = {
+						NOT = { has_building = fort_15th }
+						NOT = { has_building = fort_16th }
+						NOT = { has_building = fort_17th }
+						NOT = { has_building = fort_18th }
+					}
+					add_building = fort_15th
+				}
+			}
+			every_province = {
+				limit = {
+					owned_by = BYZ
+				}
+				add_core = RUM
+				add_permanent_claim = ROOT
+			}
+			BYZ = {
+				release = RUM
+			}
+			every_province = {
+				limit = {
+					is_core = BYZ
+				}
+				remove_core = BYZ
+			}
+			RUM = {
+				nhs_change_government = { GOV = monarchy }
+				nhs_add_gov_reform = { REF = ottoman_government }
+				define_ruler = {
+					name = "Orhan Çelebi"
+					dynasty = "Osmanoglu"
+					adm = 2
+					dip = 4
+					mil = 5
+					age = 32
+				}
+				vassalize = ALB
+				if = {
+					limit = {
+						has_heir = yes
+					}
+					kill_heir = { allow_new_heir = no }
+				}
+				capital_scope = {
+					cavalry = RUM
+					cavalry = RUM
+					build_to_forcelimit = {
+						infantry = 1
+					}
+				}
+				add_treasury = 400
+				add_adm_power = 200
+				add_dip_power = 200
+				add_mil_power = 200
+				if = {
+					limit = {
+						has_global_flag = nhs_byz_left_fire
+					}
+					add_country_modifier = {
+						name = nhs_greekfire_update
+						duration = 3650
+					}
+					clr_global_flag = nhs_byz_left_fire
+				}
+				add_accepted_culture = greek
+				form_coalition_against = ROOT
+				every_province = {
+					limit = {
+						is_core = ROOT
+					}
+					add_core = RUM
+				}
+				set_country_flag = formed_rum_flag
+			}
+			every_country = {
+				limit = {
+					OR = {
+						tag = ATH
+						tag = LES
+						tag = MOE
+						tag = EPI
+						tag = LVC
+					}
+					is_subject = no
+				}
+				set_country_flag = nhs_new_flight_last_stand_pending
+			}
+		}
+		tooltip = {
+			151 = {
+				cede_province = RUM
+			}
+			RUM = {
+				define_ruler = {
+					name = "Orhan Çelebi"
+					dynasty = "Osmanoglu"
+					adm = 2
+					dip = 4
+					mil = 5
+					age = 32
+				}
+				vassalize = ALB
+				if = {
+					limit = {
+						has_global_flag = nhs_byz_left_fire
+					}
+					add_country_modifier = {
+						name = nhs_greekfire_update
+						duration = 3650
+					}
+					clr_global_flag = nhs_byz_left_fire
+				}
+			}
+			declare_war_with_cb = {
+				who = RUM
+				casus_belli = cb_conquest
+				war_goal_province = 151
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					tag = ATH
+					tag = MOE
+					tag = EPI
+					tag = LVC
+					tag = LES
+				}
+				is_subject = no
+			}
+			country_event = { id = nhs_new_flightevents.25 }
+		}
+	}
+
+	option = {
+		name = nhs_new_flightevents.21.b
+		ai_chance = {
+			factor = 0
+		}
+		tooltip = {
+			switch_tag = RUM
+		}
+		hidden_effect = {
+			151 = {
+				add_core = RUM
+				add_permanent_claim = ROOT
+			}
+			every_province = {
+				limit = {
+					owned_by = BYZ
+				}
+				add_core = RUM
+				add_permanent_claim = ROOT
+			}
+			BYZ = {
+				release = RUM
+			}
+			every_province = {
+				limit = {
+					is_core = BYZ
+				}
+				remove_core = BYZ
+			}
+			RUM = {
+				nhs_change_government = { GOV = monarchy }
+				nhs_add_gov_reform = { REF = ottoman_government }
+				define_ruler = {
+					name = "Orhan Çelebi"
+					dynasty = "Osmanoglu"
+					adm = 2
+					dip = 4
+					mil = 5
+					age = 32
+				}
+				add_accepted_culture = greek
+				vassalize = ALB
+				if = {
+					limit = {
+						has_heir = yes
+					}
+					kill_heir = { allow_new_heir = no }
+				}
+				capital_scope = {
+					cavalry = ROOT
+					cavalry = ROOT
+					build_to_forcelimit = {
+						infantry = 1
+					}
+				}
+				add_treasury = 400
+				add_adm_power = 200
+				add_dip_power = 200
+				add_mil_power = 200
+				add_manpower = 10
+				if = {
+					limit = {
+						has_global_flag = nhs_byz_left_fire
+					}
+					add_country_modifier = {
+						name = nhs_greekfire_update
+						duration = 3650
+					}
+					clr_global_flag = nhs_byz_left_fire
+				}
+				form_coalition_against = ROOT
+				every_province = {
+					limit = {
+						is_core = ROOT
+					}
+					add_core = RUM
+				}
+				set_country_flag = formed_rum_flag
+			}
+			every_country = {
+				limit = {
+					OR = {
+						tag = ATH
+						tag = LES
+						tag = MOE
+						tag = EPI
+						tag = LVC
+					}
+					is_subject = no
+				}
+				set_country_flag = nhs_new_flight_last_stand_pending
+			}
+		}
+		tooltip = {
+			151 = {
+				cede_province = RUM
+			}
+			RUM = {
+				define_ruler = {
+					name = "Orhan Çelebi"
+					dynasty = "Osmanoglu"
+					adm = 2
+					dip = 4
+					mil = 5
+					age = 32
+				}
+				vassalize = ALB
+				if = {
+					limit = {
+						has_global_flag = nhs_byz_left_fire
+					}
+					add_country_modifier = {
+						name = nhs_greekfire_update
+						duration = 3650
+					}
+					clr_global_flag = nhs_byz_left_fire
+				}
+			}
+			declare_war_with_cb = {
+				who = RUM
+				casus_belli = cb_conquest
+				war_goal_province = 151
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					tag = ATH
+					tag = LES
+					tag = MOE
+					tag = EPI
+					tag = LVC
+				}
+				is_subject = no
+			}
+			country_event = { id = nhs_new_flightevents.25 }
+		}
+		hidden_effect = {
+			switch_tag = RUM
+		}
+	}
+}
+
+### To Resist the House of Osman
+country_event = {
+	id = nhs_new_flightevents.25
+	title = nhs_new_flightevents.25.t
+	desc = nhs_new_flightevents.25.d
+	picture = tur_CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = nhs_new_flightevents.25.a
+		ai_chance = {
+			factor = 100
+		}
+		create_alliance = RUM
+		add_historical_friend = RUM
+		hidden_effect = {
+			RUM = {
+				add_historical_friend = ROOT
+			}
+		}
+		clr_country_flag = nhs_new_flight_last_stand_pending
+		tooltip = {
+			TUR = {
+				declare_war_with_cb = {
+					who = RUM
+					casus_belli = cb_conquest
+					war_goal_province = 151
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						any_country = {
+							has_country_flag = nhs_new_flight_last_stand_pending
+						}
+					}
+				}
+				TUR = {
+					declare_war_with_cb = {
+						who = RUM
+						casus_belli = cb_conquest
+						war_goal_province = 151
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = nhs_new_flightevents.25.b
+		ai_chance = {
+			factor = 0
+		}
+		clr_country_flag = nhs_new_flight_last_stand_pending
+		tooltip = {
+			TUR = {
+				declare_war_with_cb = {
+					who = RUM
+					casus_belli = cb_conquest
+					war_goal_province = 151
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						any_country = {
+							has_country_flag = nhs_new_flight_last_stand_pending
+						}
+					}
+				}
+				TUR = {
+					declare_war_with_cb = {
+						who = RUM
+						casus_belli = cb_conquest
+						war_goal_province = 151
+					}
+				}
+			}
+		}
+	}
+}
+
+### Albanian reaction - not taken with
+country_event = {
+	id = nhs_new_flightevents.26
+	title = nhs_new_flightevents.26.t
+	desc = nhs_new_flightevents.26.d
+	picture = ALBANIAN_EAGLE_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = nhs_new_flightevents.26.a
+		add_treasury = 400
+		add_manpower = 2
+		add_prestige = 10
+		capital_scope = {
+			infantry = ROOT
+		}
+		if = {
+			limit = {
+				has_global_flag = nhs_byz_left_fire
+			}
+			add_country_modifier = {
+				name = nhs_greekfire_update
+				duration = 3650
+			}
+			clr_global_flag = nhs_byz_left_fire
+		}
+	}
+}
+
+### Albanian reaction - taken with
+country_event = {
+	id = nhs_new_flightevents.27
+	title = nhs_new_flightevents.27.t
+	desc = nhs_new_flightevents.27.d
+	picture = ALBANIAN_EAGLE_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = nhs_new_flightevents.27.a
+		define_ruler = {
+			adm = 2
+			dip = 1
+			mil = 5
+			age = 34
+			claim = 60
+		}
+		hidden_effect = {
+			define_heir = {
+				age = 16
+				claim = 60
+				dynasty = ROOT
+			}
+		}
+	}
+}
+
+### Turks gain free land upon leaving if you take Orhan
+country_event = {
+	id = nhs_new_flightevents.28
+	title = nhs_new_flightevents.28.t
+	desc = nhs_new_flightevents.28.d
+	picture = tur_CONQUEST_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = nhs_new_flightevents.27.a
+		every_province = {
+			limit = {
+				owned_by = BYZ
+			}
+			cede_province = ROOT
+			add_core = ROOT
+			add_core = MOE
+		}
+		if = {
+			limit = {
+				151 = {
+					NOT = { has_building = fort_15th }
+					NOT = { has_building = fort_16th }
+					NOT = { has_building = fort_17th }
+					NOT = { has_building = fort_18th }
+				}
+			}
+			151 = {
+				add_building = fort_15th
+			}
+		}
+		hidden_effect = {
+			every_province = {
+				limit = {
+					is_core = BYZ
+				}
+				remove_core = BYZ
+			}
+		}
+		declare_war_with_cb = {
+			who = ALB
+			casus_belli = cb_conquest
+			war_goal_province = 4175
+		}
+	}
+}
+
+
+### Flight Path Discovery
+country_event = {
+	id = nhs_new_flightevents.29
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = tur_CONQUEST_eventPicture
+
+	is_triggered_only = yes
+	hidden = yes
+
+	immediate = {
+		to_byz_discover_next_flight_path_province = yes
+	}
+
+	option = {
+		name = nhs2_hidden.a
+	}
+}

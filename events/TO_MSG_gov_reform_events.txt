@@ -1,0 +1,3105 @@
+namespace = msg_reforms
+
+
+#Informing that armies can't govern well without a government
+country_event = {
+	id = msg_reforms.1
+	title = msg_reforms.1.t
+	desc = msg_reforms.1.d
+	picture = spartan_rifleman_eventPicture
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			nhs_change_government = { GOV = spartan_monarchy }
+			add_government_reform = spartan_kingdom
+			change_government_reform_progress = -1000
+
+			add_government_reform = msg_government0_ref
+			add_government_reform = msg_court_reform_no
+			add_government_reform = msg_diplomats_no
+			add_government_reform = msg_naval_reform_no
+			add_government_reform = msg_economy0_ref
+			add_government_reform = msg_reform_land_ref_no
+			add_government_reform = msg_unreformed_trade_ports
+			add_government_reform = msg_unreformed_gold_mines
+			if = {
+				limit = {
+					religion = pantheon_worship
+				}
+				add_government_reform = msg_hellenic0_ref
+				add_government_reform = msg_spartan_heralds_no
+				add_government_reform = msg_native_deities_no
+				add_government_reform = msg_deify_leonidas_no
+			}
+			else_if = {
+				limit = {
+					religion = aztlan_worship
+				}
+				add_government_reform = msg_aztlan0_ref
+				add_government_reform = msg_aztlan_priesthood_no
+				add_government_reform = msg_old_faith_no
+				add_government_reform = msg_sacrifice_no
+			}
+			else = {
+				add_government_reform = msg_christian0_ref
+				add_government_reform = msg_spartan_patriarch_no
+				add_government_reform = msg_holy_army_no
+				add_government_reform = msg_saint_leo_no
+			}
+		}
+	}
+	
+	option = {
+		name = msg_reforms.1.a
+		custom_tooltip = nhs_spartan_reform_explained_dharma_tt
+	}
+}
+
+
+#REFORMS BEGIN EVENTS
+
+
+#Economic
+
+#Reform the Gold Mines
+country_event = {
+	id = msg_reforms.2
+	title = msg_reforms.2.t
+	desc = msg_reforms.2.d
+	picture = MINE_1_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					trade_goods = gold
+					is_state = yes
+					NOT = {
+						any_province = {
+							NOT = { province_id = PREV }
+							owned_by = ROOT
+							is_state = yes
+							trade_goods = gold
+							base_production = PREV
+						}
+					}
+				}
+				save_event_target_as = gold_mine_target
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = gold_mine_target }
+				}
+				random_owned_province = {
+					limit = {
+						trade_goods = gold
+						is_state = yes
+					}
+					save_event_target_as = gold_mine_target
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = msg_reforms.2.a # Burghers are yum
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_burghers
+					influence = 80
+				}
+			}
+		}
+		add_inflation = -2
+		add_mercantilism = 5
+		event_target:gold_mine_target = {
+			tooltip = {
+				add_province_modifier = {
+					name = msg_imperial_mint
+					duration = -1
+				}
+			}
+			hidden_effect = {
+				add_province_triggered_modifier = msg_imperial_mint_tm
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_burghers
+			share = 75
+			province = event_target:gold_mine_target
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_burghers
+			desc = msg_gave_gold_mines
+			influence = 10
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = -10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = msg_denied_gold_mines
+			influence = -10
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = -10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = msg_denied_gold_mines
+			influence = -10
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.18 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.2.b # Give it to the Pippies
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_nhs_pipiltin
+					influence = 80
+				}
+			}
+		}
+		# custom_tooltip = msg_consequences
+		# set_global_flag = msg_pipiltin_gold
+		add_manpower = 5
+		event_target:gold_mine_target = {
+			tooltip = {
+				add_province_modifier = {
+					name = msg_imperial_mint
+					duration = -1
+				}
+			}
+			hidden_effect = {
+				add_province_triggered_modifier = msg_imperial_mint_tm
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_pipiltin
+			share = 50
+			province = event_target:gold_mine_target
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = msg_gave_gold_mines
+			influence = 10
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = -15
+		}	
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = msg_denied_gold_mines
+			influence = -10
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.18 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.2.c # Give it to the Appies
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_nhs_apogonoi
+					influence = 80
+				}
+			}
+		}
+		# custom_tooltip = msg_consequences
+		# set_global_flag = msg_apogonoi_gold
+		add_army_tradition = 10
+		event_target:gold_mine_target = {
+			tooltip = {
+				add_province_modifier = {
+					name = msg_imperial_mint
+					duration = -1
+				}
+			}
+			hidden_effect = {
+				add_province_triggered_modifier = msg_imperial_mint_tm
+			}
+		}
+		change_estate_land_share = {
+			estate = estate_nhs_apogonoi
+			share = 50
+			province = event_target:gold_mine_target
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = msg_gave_gold_mines
+			influence = 10
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = -15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = msg_denied_gold_mines
+			influence = -10
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.18 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.2.e # Direct rule from Laconya
+		ai_chance = {
+			factor = 100
+		}
+		add_treasury = 50
+		add_corruption = 3
+		event_target:gold_mine_target = {
+			tooltip = {
+				add_province_modifier = {
+					name = msg_imperial_mint
+					duration = -1
+				}
+			}
+			hidden_effect = {
+				add_province_triggered_modifier = msg_imperial_mint_tm
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = -10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = msg_denied_gold_mines
+			influence = -10
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = -10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = msg_denied_gold_mines
+			influence = -10
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.18 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.2.f # We're not ready yet
+		trigger = {
+			ai = no
+		}
+		change_government_reform_progress = 50
+		add_stability = 1
+		add_treasury = 100
+		add_dip_power = 50
+		nhs_add_reform = { REF = msg_unreformed_gold_mines }
+		# clr_country_flag = msg_reform_in_progress
+	}
+}
+
+#Trade Ports
+country_event = {
+	id = msg_reforms.3
+	title = msg_reforms.3.t
+	desc = msg_reforms.3.d
+	picture = Harbor_eventPicture
+	
+	is_triggered_only = yes
+
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.3.a #Free trade
+		ai_chance = {
+			factor = 50
+		}
+		# custom_tooltip = msg_unrestricted_local_trade_institution_spread_tt
+		# custom_tooltip = nhs_new_line_tt
+		add_country_modifier = {
+			name = "msg_unrestricted_local_trade" #Lots of global trade power
+			duration = 7300
+		}
+		# add_mercantilism = -5
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 20
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.19 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.3.b #Local nobles can decide
+		ai_chance = {
+			factor = 50
+		}
+		add_country_modifier = {
+			name = "msg_restricted_local_trade" # Global trade power and global autonomy increase
+			duration = 7300
+		}
+		add_mercantilism = 5
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -10
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.19 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.3.c # We're not ready
+		trigger = {
+			ai = no
+		}
+		change_government_reform_progress = 50
+		add_corruption = -2
+		add_treasury = 50
+		add_dip_power = 50
+		nhs_add_reform = { REF = msg_unreformed_trade_ports }
+		# clr_country_flag = msg_reform_in_progress
+	}
+}
+	
+#Land Reform (gasp!)
+country_event = {
+	id = msg_reforms.4
+	title = msg_reforms.4.t
+	desc = msg_reforms.4.d
+	picture = RIVER_THROUGH_VALLEY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+
+	option = {
+		name = msg_reforms.4.a # Pay for land
+		if = {
+			limit = {
+				ai = no
+			}
+			if = {
+				limit = { current_age = age_of_discovery }
+				add_years_of_estate_land_income = -1.25
+			}
+			else_if = {
+				limit = { current_age = age_of_reformation }
+				add_years_of_estate_land_income = -1.0
+			}
+			else_if = {
+				limit = { current_age = age_of_absolutism }
+				add_years_of_estate_land_income = 0.75
+			}
+			else_if = {
+				limit = { current_age = age_of_revolutions }
+				add_years_of_estate_land_income = -0.5
+			}
+		}	
+		take_estate_land_share_massive = { estate = all }
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.20 days = 1095 }
+	}
+
+	option = {
+		name = msg_reforms.4.b # Sieze land
+		trigger = {
+			ai = no
+		}
+		add_estate_loyalty = {
+			estate = all
+			loyalty = -20
+			short = yes
+		}
+		custom_tooltip = seize_land_rebels_tt
+		if = { 
+			limit = {
+				NOT = {
+					estate_loyalty = {
+						estate = all
+						loyalty = 30
+					}
+				}
+				estate_influence = {
+					estate = all
+					influence = 1
+				}				
+			}
+			spawn_rebels_seize_land_switch = yes
+		}
+		take_estate_land_share_massive = { estate = all }
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.20 days = 1095 }
+	}
+	option = {
+		name = msg_reforms.4.c # Redistribute state land
+		trigger = {
+			ai = no
+		}
+		custom_tooltip = msg_10_automony_in_all_provinces_tt
+		hidden_effect = {
+			every_owned_province = {
+				add_local_autonomy = 10
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.20 days = 1095 }
+	}
+	option = {
+		name = msg_reforms.4.e # We're not ready
+		trigger = {
+			ai = no
+		}
+		change_government_reform_progress = 50
+		add_stability = 1
+		capital_scope = {
+			add_base_tax = 1
+		}
+		nhs_add_reform = { REF = msg_reform_land_ref_no }
+		# clr_country_flag = msg_reform_in_progress
+	}
+}
+
+
+
+#Religious (Hellenic)
+
+#Deification of Leonidas
+country_event = {
+	id = msg_reforms.5
+	title = msg_reforms.5.t
+	desc = msg_reforms.5.d
+	picture = OLYMPIANS_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = pantheon_worship
+	}
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.5.a # Leonidas is the Divine Son of Ares!
+		set_global_flag = msg_hellenic_leonidas_deity
+		custom_tooltip = msg_add_leonidas_deity_tt
+		add_country_modifier = {
+			name = "msg_leonidas_god"
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = "msg_leonidas_god_infl"
+			influence = -10
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_first_religious_reform_done } }
+			country_event = { id = msg_reforms.21 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_first_religious_reform_done }
+			country_event = { id = msg_reforms.21 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.5.b # Leonidas is a mortal ascended!
+		add_prestige = 15
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 5
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_first_religious_reform_done } }
+			country_event = { id = msg_reforms.21 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_first_religious_reform_done }
+			country_event = { id = msg_reforms.21 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.5.c # Does everyone have to be a god these days?
+		add_country_modifier = {
+			name = "msg_leonidas_mortal"
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 5
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_first_religious_reform_done } }
+			country_event = { id = msg_reforms.21 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_first_religious_reform_done }
+			country_event = { id = msg_reforms.21 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.5.e # Can't we put this off for a year or so?
+		trigger = {
+			ai = no
+		}
+		change_government_reform_progress = 50
+		add_stability = -1
+		add_adm_power = 50
+		nhs_add_reform = { REF = msg_deify_leonidas_no }
+		# clr_country_flag = msg_reform_in_progress
+	}
+}
+
+#The Spartan Heralds
+country_event = {
+	id = msg_reforms.6
+	title = msg_reforms.6.t
+	desc = msg_reforms.6.d
+	picture = Spartan_Hellenic_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = pantheon_worship
+	}
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.6.a #Swallow our pride and invite the Elysians
+		trigger = {
+			nhs_check_all_elysian_tags = { CONDITION = exists }
+		}
+		ai_chance = {
+			factor = 100
+		}
+		msg_elysian_debt = yes
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = -5
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = -5
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_second_religious_reform_done } }
+			country_event = { id = msg_reforms.22 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_second_religious_reform_done }
+			country_event = { id = msg_reforms.22 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.6.b # Train from the pipiltin
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_nhs_pipiltin
+					influence = 80
+				}
+			}
+		}
+		# custom_tooltip = msg_consequences
+		# set_global_flag = msg_pipiltin_heralds
+		if = {
+			limit = {
+				ai = no
+			}
+			add_treasury = -50
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = "msg_trained_heralds"
+			influence = 10
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_second_religious_reform_done } }
+			country_event = { id = msg_reforms.22 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_second_religious_reform_done }
+			country_event = { id = msg_reforms.22 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.6.c # Train from the apogonoi
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_nhs_apogonoi
+					influence = 80
+				}
+			}
+		}
+		# custom_tooltip = msg_consequences
+		# set_global_flag = msg_apogonoi_heralds
+		if = {
+			limit = {
+				ai = no
+			}
+			add_treasury = -50
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = "msg_trained_heralds"
+			influence = 10
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = -10
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_second_religious_reform_done } }
+			country_event = { id = msg_reforms.22 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_second_religious_reform_done }
+			country_event = { id = msg_reforms.22 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.6.e # We're not ready
+		trigger = {
+			ai = no
+		}
+		# clr_country_flag = msg_reform_in_progress
+		change_government_reform_progress = 50
+		add_adm_power = 50
+		add_corruption = -3
+		nhs_add_reform = { REF = msg_spartan_heralds_no }
+	}
+}
+
+
+#The Aztec and Mayan Gods
+country_event = {
+	id = msg_reforms.7
+	title = msg_reforms.7.t
+	desc = msg_reforms.7.d
+	picture = Spartan_Convert_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = pantheon_worship
+	}
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.7.a # Perhaps we could adopt a few into our pantheon...
+		set_global_flag = msg_hellenic_ketsalon_deity
+		custom_tooltip = msg_add_ketsalon_deity_tt
+		add_country_modifier = {
+			name = msg_aztec_gods_accepted # tolerance heretics, minus heretic missionary strength
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_third_religious_reform_done } }
+			country_event = { id = msg_reforms.23 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_third_religious_reform_done }
+			country_event = { id = msg_reforms.23 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.7.b # Which heretic suggested this?
+		add_country_modifier = {
+			name = msg_aztec_gods_denied # heretic missionary strength, minus tolerance heretics
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_third_religious_reform_done } }
+			country_event = { id = msg_reforms.23 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_third_religious_reform_done }
+			country_event = { id = msg_reforms.23 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.7.c # Good question. Let me think about this for a few years.
+		trigger = {
+			ai = no
+		}
+		# clr_country_flag = msg_reform_in_progress
+		change_government_reform_progress = 50
+		add_stability = 1
+		add_prestige = 20
+		add_adm_power = 50
+		nhs_add_reform = { REF = msg_native_deities_no }
+	}
+}
+
+
+# Religious (Aztlan)
+
+#The question of a priesthood
+country_event = {
+	id = msg_reforms.8
+	title = msg_reforms.8.t
+	desc = msg_reforms.8.d
+	picture = AZTEC_PYRAMID_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = aztlan_worship
+	}
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.8.a # Establish the High Priesthood in Laconya!
+		# set_global_flag = msg_yes_priesthood # Will determine how clergy estate works for other Aztlan nations
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_country_modifier = {
+			name = msg_yes_priesthood
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_first_religious_reform_done } }
+			country_event = { id = msg_reforms.24 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_first_religious_reform_done }
+			country_event = { id = msg_reforms.24 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.8.b # On second thought big church is a bad idea
+		# set_global_flag = msg_no_priesthood # Will determine how clergy estate works for other Aztlan nations
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+		add_country_modifier = {
+			name = msg_no_priesthood
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_first_religious_reform_done } }
+			country_event = { id = msg_reforms.24 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_first_religious_reform_done }
+			country_event = { id = msg_reforms.24 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.8.c # Let's put this problem off to the next generation to solve!
+		trigger = {
+			ai = no
+		}
+		change_government_reform_progress = 50
+		# clr_country_flag = msg_reform_in_progress
+		add_adm_power = 50
+		nhs_add_reform = { REF = msg_aztlan_priesthood_no }
+	}
+}
+
+#What do with the Old Pantheon?
+country_event = {
+	id = msg_reforms.9
+	title = msg_reforms.9.t
+	desc = msg_reforms.9.d
+	picture = Aztlan_War_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = aztlan_worship
+	}
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = { #The Old Believers are heretics and must be burned!
+		name = msg_reforms.9.a
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_church
+					influence = 80
+				}
+			}
+		}
+		custom_tooltip = msg_10_unrest_in_hellenic_provinces_tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = { religion = pantheon_worship }
+				add_unrest = 10
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = "msg_old_heretics"
+			influence = 10
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_second_religious_reform_done } }
+			country_event = { id = msg_reforms.25 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_second_religious_reform_done }
+			country_event = { id = msg_reforms.25 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.9.b #The Old Believers follow gods we once did, why the hate?
+		ai_chance = {
+			factor = 100
+		}
+		set_global_flag = msg_aztlan_zeus_deity
+		custom_tooltip = msg_add_zeus_deity_tt
+		custom_tooltip = msg_5_unrest_in_aztlan_provinces_tt
+		hidden_effect  ={
+			every_owned_province = {
+				limit = { religion = aztlan_worship }
+				add_unrest = 5
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = "msg_old_true"
+			influence = -10
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_second_religious_reform_done } }
+			country_event = { id = msg_reforms.25 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_second_religious_reform_done }
+			country_event = { id = msg_reforms.25 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.9.c #Weasel weasel weasel
+		trigger = {
+			ai = no
+		}
+		# clr_country_flag = msg_reform_in_progress
+		change_government_reform_progress = 50
+		add_stability = 1
+		add_prestige = 20
+		add_adm_power = 50
+		nhs_add_reform = { REF = msg_old_faith_no }
+	}
+}
+
+#SA-CRI-FICE! SA-CRI-FICE!
+country_event = {
+	id = msg_reforms.10
+	title = msg_reforms.10.t
+	desc = msg_reforms.10.d
+	picture = Mictlan_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		religion = aztlan_worship
+	}
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.10.a #We're more civilized than that.
+		set_global_flag = msg_aztlan_no_sacrifice
+		if = {
+			limit = {
+				ai = no
+			}
+			add_stability = -1
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_third_religious_reform_done } }
+			country_event = { id = msg_reforms.26 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_third_religious_reform_done }
+			country_event = { id = msg_reforms.26 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.10.b # Those... unsavory rituals should be confined to animals.
+		set_global_flag = msg_aztlan_animal_sacrifice
+		every_country = {
+			limit = {
+				religion = pantheon_worship
+			}
+			reverse_add_opinion = { who = ROOT modifier = msg_animal_sacrifice }
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_third_religious_reform_done } }
+			country_event = { id = msg_reforms.26 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_third_religious_reform_done }
+			country_event = { id = msg_reforms.26 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.10.c # Give me the knife, I'm doing this one myself.
+		set_global_flag = msg_aztlan_human_sacrifice
+		add_legitimacy = 10
+		add_prestige = 10
+		every_country = {
+			limit = {
+				NOT = { religion = aztlan_worship }
+				NOT = { religion = mesoamerican_religion }
+				NOT = { religion = nahuatl }
+				NOT = { religion = animism }
+				has_discovered = ROOT
+			}
+			reverse_add_opinion = { who = ROOT modifier = msg_human_sacrifice }
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_third_religious_reform_done } }
+			country_event = { id = msg_reforms.26 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_third_religious_reform_done }
+			country_event = { id = msg_reforms.26 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.10.e # Oh dear, I'm late for...
+		# clr_country_flag = msg_reform_in_progress
+		trigger = {
+			ai = no
+		}
+		change_government_reform_progress = 50
+		add_stability = -1
+		add_legitimacy = 20
+		add_adm_power = 50
+		nhs_add_reform = { REF = msg_sacrifice_no }
+	}
+}
+
+
+#Religious (Orthodox)
+
+#The Spartan Patriarch
+country_event = {
+	id = msg_reforms.11
+	title = msg_reforms.11.t
+	desc = msg_reforms.11.d
+	picture = pentarchy_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			religion = elysian_orthodoxy
+			religion = orthodox
+		}
+	}
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.11.a # Screw this, we should invite a bishop from Elysia.
+		trigger = {
+			nhs_check_all_elysian_tags = { CONDITION = exists }
+		}
+		ai_chance = {
+			factor = 100
+		}
+		msg_elysian_debt = yes
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = -10
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_first_religious_reform_done } }
+			country_event = { id = nhs2_orthodoxevents.1992 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_first_religious_reform_done }
+			country_event = { id = nhs2_orthodoxevents.1992 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.11.b # Pippie Pope!
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_nhs_pipiltin
+					influence = 80
+				}
+			}
+		}
+		# custom_tooltip = msg_consequences
+		# set_global_flag = msg_pipiltin_patriarch
+		# add_corruption = 2
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = -15
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = "msg_pipiltin_patriarch"
+			influence = 15
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_first_religious_reform_done } }
+			country_event = { id = nhs2_orthodoxevents.1992 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_first_religious_reform_done }
+			country_event = { id = nhs2_orthodoxevents.1992 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.11.c # Appie Pope!
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_nhs_apogonoi
+					influence = 80
+				}
+			}
+		}
+		# custom_tooltip = msg_consequences
+		# set_global_flag = msg_apogonoi_patriarch
+		# add_corruption = 2
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = "msg_apogonoi_patriarch"
+			influence = 15
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = -15
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_first_religious_reform_done } }
+			country_event = { id = nhs2_orthodoxevents.1992 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_first_religious_reform_done }
+			country_event = { id = nhs2_orthodoxevents.1992 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.11.e # The Elysians have a perfectly servicable patriarch...
+		# clr_country_flag = msg_reform_in_progress
+		trigger = {
+			ai = no
+		}
+		change_government_reform_progress = 50
+		add_corruption = -3
+		add_adm_power = 50
+		nhs_add_reform = { REF = msg_spartan_patriarch_no }
+	}
+}
+		
+#Spartan Holy Orders
+country_event = {
+	id = msg_reforms.12
+	title = msg_reforms.12.t
+	desc = msg_reforms.12.d
+	picture = aow_WITCHBURNING_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			religion = elysian_orthodoxy
+			religion = orthodox
+		}
+	}
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.12.a #Establish the Order of Tenochtitlan
+		trigger = {
+			owns_or_non_sovereign_subject_of = 852
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_church
+					influence = 80
+				}
+			}
+		}
+		# set_global_flag = msg_order_tenochtitlan
+		add_treasury = -50
+		852 = {
+			if = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+			add_province_modifier = {
+				name = "msg_order_tenochtitlan"
+				duration = -1
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = "msg_holy_order"
+			duration = 3650
+			influence = 10
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_second_religious_reform_done } }
+			country_event = { id = msg_reforms.27 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_second_religious_reform_done }
+			country_event = { id = msg_reforms.27 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.12.b #Establish the Order of Itza
+		trigger = {
+			owns_or_non_sovereign_subject_of = 846
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_church
+					influence = 80
+				}
+			}
+		}
+		# set_global_flag = msg_order_itza
+		add_treasury = -50
+		846 = {
+			if = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+			add_province_modifier = {
+				name = "msg_order_itza"
+				duration = -1
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = "msg_holy_order"
+			duration = 3650
+			influence = 10
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_second_religious_reform_done } }
+			country_event = { id = msg_reforms.27 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_second_religious_reform_done }
+			country_event = { id = msg_reforms.27 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.12.c # Our armies are capable enough
+		ai_chance = {
+			factor = 100
+		}
+		add_prestige = 20
+		add_country_modifier = {
+			name = "msg_disciplined_army"
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = "msg_no_order"
+			duration = 3650
+			influence = -10
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_second_religious_reform_done } }
+			country_event = { id = msg_reforms.27 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_second_religious_reform_done }
+			country_event = { id = msg_reforms.27 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.12.e # Uhhhhhhhhhhhhhhhhhhhhhhhhhhh
+		trigger = {
+			ai = no
+		}
+		# clr_country_flag = msg_reform_in_progress
+		change_government_reform_progress = 50
+		add_mil_power = 50
+		add_manpower = 5
+		nhs_add_reform = { REF = msg_holy_army_no }
+	}
+}
+	
+#Glorification of Leonidas
+country_event = {
+	id = msg_reforms.13
+	title = msg_reforms.13.t
+	desc = msg_reforms.13.d
+	picture = Elysian_Orthodoxy_event_picture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			religion = elysian_orthodoxy
+			religion = orthodox
+		}
+	}
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.13.a # He is with the Lord
+		add_legitimacy = 20
+		add_prestige = 10
+		add_country_modifier = {
+			name = msg_high_expectations
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = "msg_glorified_leonidas"
+			influence = 5
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_third_religious_reform_done } }
+			country_event = { id = msg_reforms.28 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_third_religious_reform_done }
+			country_event = { id = msg_reforms.28 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.13.b # Our leader is but a humble sinner
+		set_country_flag = msg_humble_sinner
+		add_legitimacy = -15
+		add_country_modifier = {
+			name = msg_low_expectations
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = "msg_leonidas_sinner"
+			influence = -5
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = { NOT = { has_global_flag = msg_third_religious_reform_done } }
+			country_event = { id = msg_reforms.28 days = 1095 }
+		}
+		if = {
+			limit = { has_global_flag = msg_third_religious_reform_done }
+			country_event = { id = msg_reforms.28 days = 365 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.13.c # Blue! No, AAAAAAAAAAAAAAAAAAAAAAAAAAA
+		# clr_country_flag = msg_reform_in_progress
+		trigger = {
+			ai = no
+		}
+		change_government_reform_progress = 50
+		add_adm_power = 50
+		nhs_add_reform = { REF = msg_saint_leo_no }
+	}
+}
+
+
+# Government
+
+#Spartania rules the waves
+country_event = {
+	id = msg_reforms.14
+	title = msg_reforms.14.t
+	desc = msg_reforms.14.d
+	picture = Harbor_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.14.a # Bigger is always better!
+		add_country_modifier = {
+			name = msg_heavy_fleet
+			duration = 7300 # Longer because low naval capacity
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = "msg_heavy_fleet_infl"
+			influence = 5
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.29 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.14.b # Piracy is always a legitimate option
+		add_country_modifier = {
+			name = msg_raider_fleet
+			duration = 7300 # Longer because low naval capacity
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_burghers
+			desc = "msg_raider_fleet_infl"
+			influence = 5
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.29 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.14.c # Let's just round up some galley slaves
+		add_country_modifier = {
+			name = msg_conscript_fleet
+			duration = 7300 # Longer because low naval capacity
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = "msg_conscript_fleet_infl"
+			influence = 5
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.29 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.14.e # Navies are overrated anyway
+		# clr_country_flag = msg_reform_in_progress
+		trigger = {
+			ai = no
+		}
+		change_government_reform_progress = 50
+		add_sailors = 500
+		add_mil_power = 50
+		nhs_add_reform = { REF = msg_naval_reform_no }
+	}
+}
+	
+#Reform the Diplomatic Corps
+country_event = {
+	id = msg_reforms.15
+	title = msg_reforms.15.t
+	desc = msg_reforms.15.d
+	picture = GOLDEN_CITY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.15.a # All will bow to the glory of Laconya
+		add_country_modifier = {
+			name = msg_agressive_diplomacy
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.30 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.15.b # We have to be diplomatic
+		add_country_modifier = {
+			name = msg_prestigious_diplomacy
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.30 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.15.c # Diplomacy. Who needs it?
+		# clr_country_flag = msg_reform_in_progress
+		trigger = {
+			ai = no
+		}
+		
+		change_government_reform_progress = 50
+		add_treasury = 100
+		add_dip_power = 50
+		nhs_add_reform = { REF = msg_diplomats_no }
+	}
+}
+
+#Reform the Court
+country_event = {
+	id = msg_reforms.16
+	title = msg_reforms.16.t
+	desc = msg_reforms.16.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = { #Extra text
+		if = {
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.16.a # Favor the pipiltin in recruitment
+		# custom_tooltip = msg_consequences
+		# set_global_flag = msg_pipiltin_court
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_nhs_pipiltin
+					influence = 80
+				}
+			}
+		}
+		add_treasury = 100
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = -15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = "msg_royal_spurning"
+			influence = -15
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = "msg_royal_assistants"
+			influence = 15
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.31 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.16.b # Favor the apogonoi in recruitment
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_nhs_apogonoi
+					influence = 80
+				}
+			}
+		}
+		custom_tooltip = msg_consequences
+		set_global_flag = msg_apogonoi_court
+		add_legitimacy = 10
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = "msg_royal_assistants"
+			influence = 15
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = -15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = "msg_royal_spurning"
+			influence = -15
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.31 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.16.e # Invite talented foreigners
+		trigger = {
+			nhs_check_all_elysian_tags = { CONDITION = exists }
+		}
+		ai_chance = {
+			factor = 100
+		}
+		msg_elysian_debt = yes
+		set_global_flag = msg_elysian_court
+		add_prestige = 5
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = -5
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = "msg_royal_spurning"
+			influence = -5
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = -5
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = "msg_royal_spurning"
+			influence = -5
+			duration = 3650
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.31 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.16.f # Defy tradition and recruit merchants' sons
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_burghers
+					influence = 80
+				}
+			}
+		}
+		add_legitimacy = -20
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_burghers
+			desc = "msg_royal_assistants"
+			influence = 15
+			duration = 1825
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_apogonoi
+			loyalty = -5
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_apogonoi
+			desc = "msg_royal_spurning"
+			influence = -5
+			duration = 1825
+		}
+		add_estate_loyalty = {
+			estate = estate_nhs_pipiltin
+			loyalty = -5
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nhs_pipiltin
+			desc = "msg_royal_spurning"
+			influence = -5
+			duration = 1825
+		}
+		custom_tooltip = nhs_new_line_tt
+		country_event = { id = msg_reforms.31 days = 1095 }
+	}
+	
+	option = {
+		name = msg_reforms.16.c # Courts are overrated
+		# clr_country_flag = msg_reform_in_progress
+		trigger = {
+			ai = no
+		}
+		
+		change_government_reform_progress = 50
+		add_prestige = 20
+		add_mil_power = 50
+		nhs_add_reform = { REF = msg_court_reform_no }
+	}
+}
+		
+#FINAL REFORM
+
+#Crush the squabbling nobles
+country_event = {
+	id = msg_reforms.17
+	title = msg_reforms.17.t
+	desc = msg_reforms.17.d
+	picture = Spartan_Nobility_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = MSN
+	}
+	
+	immediate = {
+		hidden_effect = {
+			country_event = { id = msg_noble_feud.1 days = 365 }
+			country_event = { id = msg_noble_feud.2 days = 730 }
+			country_event = { id = msg_noble_feud.3 days = 1095 }
+			country_event = { id = msg_noble_feud.4 days = 1460 }
+		}
+		if = { #Extra text
+			limit = {
+				is_in_war = {
+					attacker_leader = ROOT
+				}
+			}
+			custom_tooltip = msg_starting_war_verybad_tt
+		}
+		if = {
+			limit = {
+				NOT = {
+					is_in_war = {
+						attacker_leader = ROOT
+					}
+				}
+			}
+			custom_tooltip = msg_starting_war_bad_tt
+		}
+	}
+	
+	option = {
+		name = msg_reforms.17.a # We are committed
+		tooltip = {
+			country_event = { id = msg_noble_feud.1 days = 365 }
+		}
+		hidden_effect = {
+			set_country_flag = msg_final_reform_in_progress
+			# set_country_flag = msg_reform_in_progress
+		}
+	}
+}
+
+
+
+#REFORMS END EVENTS
+
+
+#Economic
+
+#Gold Mines done
+country_event = {
+	id = msg_reforms.18
+	title = msg_reforms.18.t
+	desc = msg_reforms.18.d
+	picture = MINE_1_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_gold_sold
+	}
+	
+	option = {
+		name = msg_reforms.18.a
+		add_inflation = -3
+		nhs_add_reform = { REF = msg_reformed_gold_mine }
+	}
+}
+
+
+
+#Trade Ports done
+country_event = {
+	id = msg_reforms.19
+	title = msg_reforms.19.t
+	desc = msg_reforms.19.d
+	picture = Harbor_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_trade_ports_done
+	}
+	
+	option = {
+		name = msg_reforms.19.a
+		add_country_modifier = {
+			name = "msg_trade_reform_finished" # Extra Merchant
+			duration = 3650
+		}
+		nhs_add_reform = { REF = msg_reformed_trade_ports }
+	}
+}
+
+#Land Distribution done
+country_event = {
+	id = msg_reforms.20
+	title = msg_reforms.20.t
+	desc = msg_reforms.20.d
+	picture = RIVER_THROUGH_VALLEY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_land_redistributed
+	}
+	
+	option = {
+		name = msg_reforms.20.a
+		random_owned_province = {
+			limit = { 
+				NOT = { is_capital = yes } 
+			}
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+		nhs_add_reform = { REF = msg_reformed_land }
+	}
+}
+
+#Leonidas done
+country_event = {
+	id = msg_reforms.21
+	title = msg_reforms.21.t
+	desc = msg_reforms.21.d
+	picture = OLYMPIANS_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_leonidas_done
+		set_global_flag = msg_third_religious_reform_done
+	}
+	
+	option = {
+		name = msg_reforms.21.a
+		trigger = { religion = pantheon_worship }
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+				NOT = { has_province_modifier = cholula_temples }
+				NOT = { religion = pantheon_worship }
+			}
+			change_religion = pantheon_worship
+		}
+		nhs_add_reform = { REF = msg_deify_leonidas_yes }
+	}
+	option = {
+		name = msg_reforms.21.b
+		trigger = { NOT = { religion = pantheon_worship } }
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+				NOT = { has_province_modifier = cholula_temples }
+				NOT = { religion = pantheon_worship }
+			}
+			change_religion = pantheon_worship
+		}
+	}
+}
+
+#Heralds done
+country_event = {
+	id = msg_reforms.22
+	title = msg_reforms.22.t
+	desc = msg_reforms.22.d
+	picture = Spartan_Hellenic_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_heralds_done
+		set_global_flag = msg_first_religious_reform_done
+	}
+	
+	option = {
+		name = msg_reforms.21.a
+		trigger = { religion = pantheon_worship }
+		random_owned_province = {
+			limit = {
+				NOT = { religion = pantheon_worship }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+				NOT = { has_province_modifier = cholula_temples }
+			}
+			change_religion = pantheon_worship
+		}
+		nhs_add_reform = { REF = msg_spartan_heralds_yes }
+	}
+	option = {
+		name = msg_reforms.21.b
+		trigger = { NOT = { religion = pantheon_worship } }
+		random_owned_province = {
+			limit = {
+				NOT = { religion = pantheon_worship }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+				NOT = { has_province_modifier = cholula_temples }
+			}
+			change_religion = pantheon_worship
+		}
+	}
+}
+
+#Native deities done
+country_event = {
+	id = msg_reforms.23
+	title = msg_reforms.23.t
+	desc = msg_reforms.23.d
+	picture = Spartan_Convert_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_native_deities
+		set_global_flag = msg_second_religious_reform_done
+	}
+	
+	option = {
+		name = msg_reforms.21.a
+		trigger = { religion = pantheon_worship }
+		random_owned_province = {
+			limit = {
+				NOT = { religion = pantheon_worship }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+				NOT = { has_province_modifier = cholula_temples }
+			}
+			change_religion = pantheon_worship
+		}
+		nhs_add_reform = { REF = msg_native_deities_yes }
+	}
+	option = {
+		name = msg_reforms.21.b
+		trigger = { NOT = { religion = pantheon_worship } }
+		random_owned_province = {
+			limit = {
+				NOT = { religion = pantheon_worship }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+				NOT = { has_province_modifier = cholula_temples }
+			}
+			change_religion = pantheon_worship
+		}
+	}
+}
+
+#Aztlan priesthood done
+country_event = {
+	id = msg_reforms.24
+	title = msg_reforms.24.t
+	desc = msg_reforms.24.d
+	picture = AZTEC_PYRAMID_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_priesthood_done
+		set_global_flag = msg_first_religious_reform_done
+	}
+	
+	option = {
+		name = msg_reforms.24.a
+		trigger = { religion = aztlan_worship }
+		random_owned_province = {
+			limit = {
+				NOT = { religion = aztlan_worship }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+			}
+			change_religion = aztlan_worship
+		}
+		nhs_add_reform = { REF = msg_aztlan_priesthood_yes }
+	}
+	option = {
+		name = msg_reforms.24.b
+		trigger = { NOT = { religion = aztlan_worship } }
+		random_owned_province = {
+			limit = {
+				NOT = { religion = aztlan_worship }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+			}
+			change_religion = aztlan_worship
+		}
+	}
+}
+
+#Aztlan old faith reform done
+country_event = {
+	id = msg_reforms.25
+	title = msg_reforms.25.t
+	desc = msg_reforms.25.d
+	picture = Aztlan_War_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_old_faith
+		set_global_flag = msg_second_religious_reform_done
+	}
+	
+	option = {
+		name = msg_reforms.24.a
+		trigger = { religion = aztlan_worship }
+		random_owned_province = {
+			limit = {
+				NOT = { religion = aztlan_worship }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+			}
+			change_religion = aztlan_worship
+		}
+		nhs_add_reform = { REF = msg_old_faith_yes }
+	}
+	option = {
+		name = msg_reforms.24.b
+		trigger = { NOT = { religion = aztlan_worship } }
+		random_owned_province = {
+			limit = {
+				NOT = { religion = aztlan_worship }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+			}
+			change_religion = aztlan_worship
+		}
+	}
+}
+
+#Aztlan sacrifice reform done
+country_event = {
+	id = msg_reforms.26
+	title = msg_reforms.26.t
+	desc = msg_reforms.26.d
+	picture = Mictlan_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_FUN
+		set_global_flag = msg_third_religious_reform_done
+	}
+	
+	option = {
+		name = msg_reforms.24.a
+		trigger = { religion = aztlan_worship }
+		random_owned_province = {
+			limit = {
+				NOT = { religion = aztlan_worship }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+			}
+			change_religion = aztlan_worship
+		}
+		nhs_add_reform = { REF = msg_sacrifice_yes }
+	}
+	option = {
+		name = msg_reforms.24.b
+		trigger = { NOT = { religion = aztlan_worship } }
+		random_owned_province = {
+			limit = {
+				NOT = { religion = aztlan_worship }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+			}
+			change_religion = aztlan_worship
+		}
+	}
+}
+
+#Finisher event for patriarch is one in 02_NHS_Orthodox.txt
+
+
+#Holy orders done
+country_event = {
+	id = msg_reforms.27
+	title = msg_reforms.27.t
+	desc = msg_reforms.27.d
+	picture = aow_WITCHBURNING_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_holy_army
+		set_global_flag = msg_second_religious_reform_done
+	}
+	
+	option = {
+		name = msg_reforms.27.a
+		trigger = { 
+			OR = {
+				religion = orthodox
+				religion = elysian_orthodoxy
+			} 
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { religion = elysian_orthodoxy }
+				NOT = { religion = orthodox }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+				NOT = { has_province_modifier = cholula_temples }
+			}
+			nhs_change_to_proper_orthodox_religion = yes
+		}
+		nhs_add_reform = { REF = msg_holy_army_yes }
+	}
+	option = {
+		name = msg_reforms.27.b
+		trigger = { 
+			NOT = {
+				OR = {
+					religion = orthodox
+					religion = elysian_orthodoxy
+				}
+			} 
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { religion = elysian_orthodoxy }
+				NOT = { religion = orthodox }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+				NOT = { has_province_modifier = cholula_temples }
+			}
+			nhs_change_to_proper_orthodox_religion = yes
+		}
+	}
+}
+
+#Saintly footnote done
+country_event = {
+	id = msg_reforms.28
+	title = msg_reforms.28.t
+	desc = msg_reforms.28.d
+	picture = Elysian_Orthodoxy_event_picture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_saint_leo
+		set_global_flag = msg_third_religious_reform_done
+	}
+	option = {
+		name = msg_reforms.27.a
+		trigger = { 
+			OR = {
+				religion = orthodox
+				religion = elysian_orthodoxy
+			} 
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { religion = elysian_orthodoxy }
+				NOT = { religion = orthodox }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+				NOT = { has_province_modifier = cholula_temples }
+			}
+			nhs_change_to_proper_orthodox_religion = yes
+		}
+		if = {
+			limit = {
+				has_country_flag = msg_humble_sinner
+				
+			}
+			nhs_add_reform = { REF = msg_saint_leo_yes_sinner }
+		}
+		else = {
+			nhs_add_reform = { REF = msg_saint_leo_yes }
+		}
+	}
+	option = {
+		name = msg_reforms.27.b
+		trigger = { 
+			NOT = {
+				OR = {
+					religion = orthodox
+					religion = elysian_orthodoxy
+				}
+			} 
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { religion = elysian_orthodoxy }
+				NOT = { religion = orthodox }
+				NOT = { has_province_flag = nhs_msg_original_capital }
+				NOT = { has_province_modifier = religious_zeal_at_conv }
+				NOT = { has_province_modifier = cholula_temples }
+			}
+			nhs_change_to_proper_orthodox_religion = yes
+		}
+	}
+}
+
+#Fleets done
+country_event = {
+	id = msg_reforms.29
+	title = msg_reforms.29.t
+	desc = msg_reforms.29.d
+	picture = Harbor_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_ships_done
+
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					has_port = yes
+					OR = {
+						province_id = 854
+						province_id = 2657
+						province_id = 851
+						province_id = 2627
+						province_id = 2648
+						province_id = 849
+						province_id = 847
+						province_id = 844
+						province_id = 2649
+						province_id = 2638
+						province_id = 841
+						province_id = 2653
+						province_id = 893
+						province_id = 4580
+						province_id = 4576
+						province_id = 4578
+					}
+				}
+				save_event_target_as = msg_port_province
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = msg_port_province }
+				}
+				random_owned_province = {
+					limit = { has_port = yes }
+					save_event_target_as = msg_port_province
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = msg_reforms.29.a
+		if = {
+			limit = { has_country_modifier = msg_heavy_fleet }
+			event_target:msg_port_province = {
+				heavy_ship = THIS
+			}
+		}
+		else_if = {
+			limit = { has_country_modifier = msg_raider_fleet }
+			event_target:msg_port_province = {
+				light_ship = THIS
+				light_ship = THIS
+				light_ship = THIS
+			}
+		}
+		else_if = {
+			limit = { has_country_modifier = msg_conscript_fleet }
+			event_target:msg_port_province = {
+				galley = THIS
+				galley = THIS
+				galley = THIS
+				galley = THIS
+				galley = THIS
+			}
+		}
+		nhs_add_reform = { REF = msg_naval_reform_yes }
+	}
+}
+
+#Diplomats done
+country_event = {
+	id = msg_reforms.30
+	title = msg_reforms.30.t
+	desc = msg_reforms.30.d
+	picture = GOLDEN_CITY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_diplomats_done
+	}
+	
+	option = {
+		name = msg_reforms.30.a
+		add_prestige = 10
+		nhs_add_reform = { REF = msg_diplomats_yes }
+	}
+}
+
+#Court done
+country_event = {
+	id = msg_reforms.31
+	title = msg_reforms.31.t
+	desc = msg_reforms.31.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		# clr_country_flag = msg_reform_in_progress
+		set_global_flag = msg_court_done
+	}
+	
+	option = {
+		name = msg_reforms.31.a
+		add_legitimacy = 10
+		nhs_add_reform = { REF = msg_court_reform_yes }
+	}
+}
+
+#It is finished!
+country_event = {
+	id = msg_reforms.32
+	title = msg_reforms.32.t
+	desc = {
+		trigger = {
+			NOT = { has_global_flag = msg_pipiltin_bribe }
+			NOT = { has_global_flag = msg_apogonoi_bribe }
+			NOT = { has_global_flag = msg_no_pipiltin_palace }
+			NOT = { has_global_flag = msg_no_apogonoi_palace }
+		}
+		desc = msg_reforms.32.da
+	}
+	desc = {
+		trigger = {
+			NOT = {
+				AND = {
+					has_global_flag = msg_pipiltin_bribe
+					has_global_flag = msg_apogonoi_bribe
+					has_global_flag = msg_no_pipiltin_palace
+					has_global_flag = msg_no_apogonoi_palace
+				}
+			}
+			OR = {
+				has_global_flag = msg_pipiltin_bribe
+				has_global_flag = msg_apogonoi_bribe
+				has_global_flag = msg_no_pipiltin_palace
+				has_global_flag = msg_no_apogonoi_palace
+			}
+		}
+		desc = msg_reforms.32.db
+	}
+	desc = {
+		trigger = {
+			has_global_flag = msg_pipiltin_bribe
+			has_global_flag = msg_apogonoi_bribe
+			has_global_flag = msg_no_pipiltin_palace
+			has_global_flag = msg_no_apogonoi_palace
+		}
+		desc = msg_reforms.32.dc
+	}
+	picture = spartan_rifleman_eventPicture
+	
+	trigger = {
+		tag = MSN
+		had_country_flag = {
+			flag = msg_final_reform_in_progress
+			days = 1825
+		}
+		had_country_flag = {
+			flag = msg_had_apogonoi_palace_choice
+			days = 365
+		}
+	}
+	
+	fire_only_once = yes
+	
+	option = {
+		name = msg_reforms.32.a
+		set_global_flag = msg_reforms_done
+		set_global_flag = msg_reforms_done_new
+		clr_country_flag = msg_final_reform_in_progress
+		clr_country_flag = msg_pipiltin_tried_bribe
+		clr_country_flag = msg_apogonoi_tried_bribe
+		clr_country_flag = msg_had_pipiltin_palace_choice
+		clr_country_flag = msg_had_apogonoi_palace_choice
+
+		add_prestige = 30
+		add_legitimacy = 30
+		hidden_effect = {
+			change_government = monarchy
+			change_government_reform_progress = -5000
+		}
+		add_government_reform = spartan_sovreignty
+		change_government_reform_progress = 500
+		if = {
+			limit = {
+				NOT = { has_global_flag = msg_pipiltin_bribe }
+				NOT = { has_global_flag = msg_apogonoi_bribe }
+				NOT = { has_global_flag = msg_no_pipiltin_palace }
+				NOT = { has_global_flag = msg_no_apogonoi_palace }
+			}
+			add_government_reform = msg_spartan_nobility_crushed
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					AND = {
+						has_global_flag = msg_pipiltin_bribe
+						has_global_flag = msg_apogonoi_bribe
+						has_global_flag = msg_no_pipiltin_palace
+						has_global_flag = msg_no_apogonoi_palace
+					}
+				}
+			}
+			add_government_reform = msg_spartan_nobility_negotiated
+		}
+		else = {
+			limit = {
+				has_global_flag = msg_pipiltin_bribe
+				has_global_flag = msg_apogonoi_bribe
+				has_global_flag = msg_no_pipiltin_palace
+				has_global_flag = msg_no_apogonoi_palace
+			}
+			add_government_reform = msg_spartan_nobility_appeased
+		}
+	}
+}
+
+#Vassals break free
+
+country_event = {
+	id = msg_reforms.33
+	title = msg_reforms.33.t
+	desc = msg_reforms.33.d
+	picture = CITY_VIEW_eventPicture
+	
+	trigger = {
+		nhs_check_all_spartan = { CONDITION = tag }
+		NOT = { has_global_flag = msg_diplomats_done }
+		ai = no
+		any_country = {
+			is_subject_of = ROOT
+			NOT = { has_country_flag = msg_subject_reigned_in }
+			NOT = { has_country_flag = msg_subject_considering }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+		modifier = {
+			factor = 5
+			tag = MS1
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					is_subject_of = ROOT
+					NOT = { has_country_flag = msg_subject_reigned_in }
+					NOT = { has_country_flag = msg_subject_considering }
+				}
+				save_event_target_as = msg_loose_subject
+				set_country_flag = msg_subject_considering
+			}
+		}
+	}
+	
+	option = {
+		ai_chance = { factor = 0 }
+		name = msg_reforms.33.a #Let them go
+		event_target:msg_loose_subject = {
+			grant_independence = yes
+		}
+		add_prestige = -10
+	}
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = msg_reforms.33.b #Reign them in!
+		trigger = {
+			tag = MSN
+		}
+		if = {
+			limit = {
+				ai = no
+			}
+			add_dip_power = -100
+			add_adm_power = -50
+		}
+		hidden_effect = {
+			event_target:msg_loose_subject = {
+				set_country_flag = msg_subject_reigned_in
+			}
+		}
+	}
+	
+	after = {
+		event_target:msg_loose_subject = {
+			clr_country_flag = msg_subject_considering
+		}
+	}
+}
+
+
+####Events for if final reform is passed before aztlan conversion
+country_event = {
+	id = msg_reforms.34
+	title = msg_reforms.34.t
+	desc = msg_reforms.34.d
+	picture = Aztlan_War_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MSN
+		has_global_flag = msg_reforms_done
+		religion = aztlan_worship
+		OR = {
+			NOT = { has_global_flag = msg_FUN }
+			NOT = { has_global_flag = msg_old_faith }
+			NOT = { has_global_flag = msg_priesthood_done }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			country_event = { id = msg_reforms.35 days = 30 }
+			country_event = { id = msg_reforms.36 days = 60 }
+			country_event = { id = msg_reforms.37 days = 90 }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.34.a
+	}
+}
+
+country_event = {
+	id = msg_reforms.35
+	title = msg_reforms.8.t
+	desc = msg_reforms.8.d
+	picture = AZTEC_PYRAMID_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = MSN
+		religion = aztlan_worship
+		NOT = { has_global_flag = msg_priesthood_done }
+	}
+	
+	option = {
+		name = msg_reforms.8.a # Establish the High Priesthood in Laconya!
+		# set_global_flag = msg_yes_priesthood # Will determine how clergy estate works for other Aztlan nations
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_country_modifier = {
+			name = msg_yes_priesthood
+			duration = 3650
+		}
+		set_global_flag = msg_priesthood_done
+	}
+	
+	option = {
+		name = msg_reforms.8.b # On second thought big church is a bad idea
+		# set_global_flag = msg_no_priesthood # Will determine how clergy estate works for other Aztlan nations
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+		add_country_modifier = {
+			name = msg_no_priesthood
+			duration = 3650
+		}
+		set_global_flag = msg_priesthood_done
+	}
+}
+
+#What do with the Old Pantheon?
+country_event = {
+	id = msg_reforms.36
+	title = msg_reforms.9.t
+	desc = msg_reforms.9.d
+	picture = Aztlan_War_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = MSN
+		religion = aztlan_worship
+		NOT = { has_global_flag = msg_old_faith }
+	}
+
+	immediate = {
+		set_global_flag = msg_old_faith
+	}
+
+	option = { #The Old Believers are heretics and must be burned!
+		name = msg_reforms.9.a
+		custom_tooltip = msg_10_unrest_in_hellenic_provinces_tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = { religion = pantheon_worship }
+				add_unrest = 10
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = "msg_old_heretics"
+			influence = 10
+			duration = 3650
+		}
+	}
+	
+	option = {
+		name = msg_reforms.9.b #The Old Believers follow gods we once did, why the hate?
+		set_global_flag = msg_aztlan_zeus_deity
+		custom_tooltip = msg_add_zeus_deity_tt
+		custom_tooltip = msg_5_unrest_in_aztlan_provinces_tt
+		hidden_effect  ={
+			every_owned_province = {
+				limit = { religion = aztlan_worship }
+				add_unrest = 5
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = "msg_old_true"
+			influence = -10
+			duration = 3650
+		}
+	}
+}
+
+#SA-CRI-FICE! SA-CRI-FICE!
+country_event = {
+	id = msg_reforms.37
+	title = msg_reforms.10.t
+	desc = msg_reforms.10.d
+	picture = Mictlan_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = MSN
+		religion = aztlan_worship
+		NOT = { has_global_flag = msg_FUN }
+	}
+
+	immediate = {
+		set_global_flag = msg_FUN
+	}
+
+	option = {
+		name = msg_reforms.10.a #We're more civilized than that.
+		set_global_flag = msg_aztlan_no_sacrifice
+		add_stability = -1
+	}
+	
+	option = {
+		name = msg_reforms.10.b # Those... unsavory rituals should be confined to animals.
+		set_global_flag = msg_aztlan_animal_sacrifice
+		every_country = {
+			limit = {
+				religion = pantheon_worship
+			}
+			reverse_add_opinion = { who = ROOT modifier = msg_animal_sacrifice }
+		}
+	}
+	
+	option = {
+		name = msg_reforms.10.c # Give me the knife, I'm doing this one myself.
+		set_global_flag = msg_aztlan_human_sacrifice
+		add_legitimacy = 10
+		add_prestige = 10
+		every_country = {
+			limit = {
+				NOT = { religion = aztlan_worship }
+				NOT = { religion = mesoamerican_religion }
+				NOT = { religion = nahuatl }
+				NOT = { religion = animism }
+				has_discovered = ROOT
+			}
+			reverse_add_opinion = { who = ROOT modifier = msg_human_sacrifice }
+		}
+	}
+}

@@ -1,0 +1,482 @@
+namespace = nhs_vov_ai_help
+
+# AI colonisation help Vinland and Norse Colonies
+country_event = {
+	id = nhs_vov_ai_help.1
+	title = nhs_vov_ai_help.1.t
+	desc = nhs_vov_ai_help.1.d
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = MK1
+			tag = HLL
+			tag = VLA
+		}
+		ai = yes
+		NOT = { num_of_colonies = 1 }
+		num_of_colonists = 1
+		is_subject = no
+		NOT = { has_country_modifier = nhs2_ai_colonising_timer }
+		OR = {
+			any_owned_province = {
+				has_empty_adjacent_province = yes
+			}
+			canada_region = {
+				has_discovered = ROOT
+				is_empty = yes
+				range = ROOT
+				OR = {
+					has_port = yes
+					any_neighbor_province = {
+						OR = {
+							owned_by = ROOT
+							owner = {
+								is_colonial_nation_of = ROOT
+							}
+						}
+					}
+				}
+			}
+			greenland_region = {
+				has_discovered = ROOT
+				is_empty = yes
+				range = ROOT
+				OR = {
+					has_port = yes
+					any_neighbor_province = {
+						OR = {
+							owned_by = ROOT
+							owner = {
+								is_colonial_nation_of = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		# OR = {
+		# 	any_owned_province = {
+		# 		has_empty_adjacent_province = yes
+		# 	}
+		# 	any_province = {
+		# 		has_discovered = ROOT
+		# 		is_empty = yes
+		# 		range = ROOT
+		# 		OR = {
+		# 			has_port = yes
+		# 			any_neighbor_province = {
+		# 				OR = {
+		# 					owned_by = ROOT
+		# 					owner = {
+		# 						is_colonial_nation_of = ROOT
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		add_country_modifier = {
+			name = nhs2_ai_colonising_timer
+			duration = 1
+			hidden = yes
+		}
+		if = {
+			limit = {
+				994 = {
+					is_empty = yes
+					OR = {
+						range = ROOT
+						any_neighbor_province = {
+							owned_by = ROOT
+						}
+					}
+				}
+			}
+			994 = {
+				save_event_target_as = ai_help_colony
+			}
+		}
+		if = {
+			limit = {
+				tag = MK1
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						vov_is_markland_path = yes
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						vov_is_markland_path = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				tag = HLL
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						vov_is_helluland_path = yes
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						vov_is_helluland_path = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				tag = VLA
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						OR = {
+							vov_is_markland_path = yes
+							vov_is_helluland_path = yes
+						}
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						OR = {
+							vov_is_markland_path = yes
+							vov_is_helluland_path = yes
+						}
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				tag = MK1
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					vov_is_markland_path = yes
+					range = ROOT
+					is_empty = yes
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							OR = {
+								owned_by = ROOT
+								owner = {
+									is_colonial_nation_of = ROOT
+								}
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		if = {
+			limit = {
+				tag = HLL
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					vov_is_helluland_path = yes
+					range = ROOT
+					is_empty = yes
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							OR = {
+								owned_by = ROOT
+								owner = {
+									is_colonial_nation_of = ROOT
+								}
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		if = {
+			limit = {
+				tag = VLA
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					OR = {
+						vov_is_markland_path = yes
+						vov_is_helluland_path = yes
+					}
+					range = ROOT
+					is_empty = yes
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							OR = {
+								owned_by = ROOT
+								owner = {
+									is_colonial_nation_of = ROOT
+								}
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						to_vov_eligible_for_coastal_bonus = yes
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						to_vov_eligible_for_coastal_bonus = yes
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_province = {
+				limit = {
+					range = ROOT
+					is_empty = yes
+					to_vov_eligible_for_coastal_bonus = yes
+					has_discovered = ROOT
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							OR = {
+								owned_by = ROOT
+								owner = {
+									is_colonial_nation_of = ROOT
+								}
+							}
+						}
+					}
+				}
+				save_event_target_as = ai_help_colony
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						NOT = {
+							OR = {
+								region = northeast_america_region
+								region = southeast_america_region
+							}
+						}
+						has_port = yes
+						has_discovered = ROOT
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						NOT = {
+							OR = {
+								region = northeast_america_region
+								region = southeast_america_region
+							}
+						}
+						has_port = yes
+						has_discovered = ROOT
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					has_empty_adjacent_province = yes
+					any_empty_neighbor_province = {
+						NOT = {
+							OR = {
+								region = northeast_america_region
+								region = southeast_america_region
+							}
+						}
+						has_discovered = ROOT
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						NOT = {
+							OR = {
+								region = northeast_america_region
+								region = southeast_america_region
+							}
+						}
+						has_discovered = ROOT
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					any_empty_neighbor_province = {
+						has_port = yes
+						has_discovered = ROOT
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						has_port = yes
+						has_discovered = ROOT
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_saved_event_target = ai_help_colony }
+			}
+			random_owned_province = {
+				limit = {
+					has_empty_adjacent_province = yes
+					any_empty_neighbor_province = {
+						has_discovered = ROOT
+					}
+				}
+				random_empty_neighbor_province = {
+					limit = {
+						has_discovered = ROOT
+					}
+					save_event_target_as = ai_help_colony
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_saved_event_target = ai_help_colony
+			}
+			capital_scope = {
+				event_target:ai_help_colony = {
+					create_colony = 20
+				}
+			}
+		}
+		# else_if = {
+		# 	limit = {
+		# 		any_province = {
+		# 			range = ROOT
+		# 			has_discovered = ROOT
+		# 			is_empty = yes
+		# 			OR = {
+		# 				has_port = yes
+		# 				any_neighbor_province = {
+		# 					OR = {
+		# 						owned_by = ROOT
+		# 						owner = {
+		# 							is_colonial_nation_of = ROOT
+		# 						}
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	random_province = {
+		# 		limit = {
+		# 			range = ROOT
+		# 			has_discovered = ROOT
+		# 			is_empty = yes
+		# 			OR = {
+		# 				has_port = yes
+		# 				any_neighbor_province = {
+		# 					OR = {
+		# 						owned_by = ROOT
+		# 						owner = {
+		# 							is_colonial_nation_of = ROOT
+		# 						}
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 		create_colony = 20
+		# 	}
+		# }
+	}
+	option = {
+		name = "nhs_vov_ai_help.1.a"
+	}
+}
+
+country_event = {
+	id = nhs_vov_ai_help.4
+	title = nhs_vov_ai_help.4.t
+	desc = nhs_vov_ai_help.1.d
+	picture = COLONIZATION_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		tag = MK1
+		exists = MK1
+		exists = HLL
+		NOT = {
+			has_global_flag = nhs_vov_war_brewing
+			has_global_flag = nhs_vov_war_over
+			has_country_modifier = nhs_truce_timer
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			add_truce_with = HLL
+			add_country_modifier = {
+				name = nhs_truce_timer
+				duration = 1460
+				hidden = yes
+			}
+		}
+	}
+	
+	option = {
+		name = "nhs_vov_ai_help.1.a"
+	}
+}

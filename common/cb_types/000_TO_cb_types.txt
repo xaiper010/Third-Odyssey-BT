@@ -1,0 +1,634 @@
+# INSTRUCTIONS:
+# -------------
+# is_triggered_only - Triggered from within the code or by event effects. DO NOT REMOVE THE STOCK ONES.
+# months - The number of months this CB will be valid. Only works for triggered CBs.
+# prerequisites - A condition that automatically activates a CB. Does not work for triggered CBs.
+# no_opinion_hit - If yes you get no negative opinion from this
+#
+# ROOT = attacker
+# FROM = target
+#
+# NOTE: The order in which the peace options are listed is the order in which the AI will normally prioritize them in peace treaties
+#
+# TRIGGERED - Triggered from within the code or by event effects
+# --------------------------------------------------------------
+# Third Odyssey BTM cb
+# European Invasion
+
+cb_nhs_invasion = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		has_country_flag = nhs_invasion_begins
+		NOT = { has_country_flag = nhs_invasion_over }
+		is_free_or_tributary_trigger = yes
+	}
+
+	prerequisites = {
+		FROM = {
+			NOT = { culture_group = byzantine }
+			any_owned_province = {
+				continent = europe
+				culture = greek
+			}
+		}
+	}
+	
+	war_goal = nhs_invasion
+}
+
+cb_nhs_raid_and_conquer = {
+	is_triggered_only = yes
+	months = 120
+
+	war_goal = nhs_raid_and_conquer
+}
+
+cb_nhs_ideology_of_superiority = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		is_free_or_tributary_trigger = yes
+		has_idea = ideology_of_superiority
+	}
+
+	prerequisites = {
+		is_neighbor_of = FROM
+		FROM = {
+			OR = {
+				technology_group = north_american
+				technology_group = mesoamerican
+				technology_group = south_american
+				technology_group = andean
+			}
+		}
+	}
+	war_goal = war_goal_nhs_ideology_of_superiority
+}
+
+cb_nhs_holy_war_elysian_orthodoxy = {
+	valid_for_subject = no
+	
+	is_triggered_only = yes
+	months = 120
+
+	prerequisites_self = {
+		is_free_or_tributary_trigger = yes
+	}
+	
+	prerequisites = {
+		FROM = {
+			religion_group = pagan
+		}
+	}
+	
+	war_goal = superiority_crusade
+}
+
+cb_elysian_patriarchate_recovery = {
+	valid_for_subject = no
+	
+	is_triggered_only = yes
+	months = 120
+
+	prerequisites_self = {
+		religion = elysian_orthodoxy
+		is_free_or_tributary_trigger = yes
+	}
+	
+	prerequisites = {
+		FROM = {
+			NOT = { religion = elysian_orthodoxy }
+			any_owned_province = {
+				OR = {
+						has_province_modifier = nhs2_orthodox_patriarchate
+						has_province_modifier = patriarchate_of_the_west
+						has_province_modifier = patriarchate_of_the_south
+						has_province_modifier = patriarchate_of_the_far_west
+						has_province_modifier = patriarchate_of_the_north
+						has_province_modifier = ecumenical_patriarch_modifier
+						has_province_modifier = nhs2_orthodox_patriarchate_off
+						has_province_modifier = patriarchate_of_the_west_off
+						has_province_modifier = patriarchate_of_the_south_off
+						has_province_modifier = patriarchate_of_the_far_west_off
+						has_province_modifier = patriarchate_of_the_north_off
+						has_province_modifier = ecumenical_patriarch_modifier_off
+						has_province_modifier = nhs2_orthodox_patriarchate_cus
+						has_province_modifier = patriarchate_of_the_west_cus
+						has_province_modifier = patriarchate_of_the_south_cus
+						has_province_modifier = patriarchate_of_the_far_west_cus
+						has_province_modifier = patriarchate_of_the_north_cus
+						has_province_modifier = ecumenical_patriarch_modifier_cus
+						has_province_modifier = nhs2_orthodox_patriarchate_for
+						has_province_modifier = patriarchate_of_the_west_for
+						has_province_modifier = patriarchate_of_the_south_for
+						has_province_modifier = patriarchate_of_the_far_west_for
+						has_province_modifier = patriarchate_of_the_north_for
+						has_province_modifier = ecumenical_patriarch_modifier_for					
+					}
+			}
+		}
+	}
+	
+	war_goal = wg_elysian_patriarchate_recovery
+}
+
+cb_nhs_repel_the_invaders = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		is_free_or_tributary_trigger = yes
+		full_idea_group = domination_ideas
+		
+		capital_scope = {
+			OR = {
+				continent = south_america
+				continent = north_america
+			}
+		}
+	}
+
+	prerequisites = {
+		FROM = {
+			NOT = { technology_group = north_american }
+			NOT = { technology_group = mesoamerican }
+			NOT = { technology_group = south_american }
+			NOT = { technology_group = andean }
+			NOT = { nhs_exiles_tech = yes }
+			any_owned_province = {
+				OR = {
+					continent = south_america
+					continent = north_america
+				}
+			}
+			# OR = {
+			# 	capital_scope = {
+			# 		continent = europe
+			# 	}
+			# 	is_former_colonial_nation = yes
+			# 	is_colonial_nation = yes
+			# }
+		}
+	}
+	war_goal = war_goal_nhs_repel_the_invaders
+}
+
+cb_nhs_pu_restore_dynasty_in_sparta = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		is_free_or_tributary_trigger = yes
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		has_country_flag = to_unlock_spartan_associate_cbs
+		government = monarchy
+	}
+
+	prerequisites = {
+		FROM = {
+			nhs_check_all_spartan = { CONDITION = tag }
+			NOT = { is_subject_of = ROOT }
+			NOT = { dynasty = "Spartakon" }
+			NOT = { dynasty = ROOT }
+		}
+	}
+	war_goal = war_goal_nhs_pu_restore_dynasty_in_sparta
+}
+
+cb_nhs_enforce_hegemony_over_sparta = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		is_free_or_tributary_trigger = yes
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+		has_country_flag = to_unlock_spartan_associate_cbs
+		government = monarchy
+	}
+
+	prerequisites = {
+		FROM = {
+			nhs_check_all_spartan = { CONDITION = tag }
+			NOT = { is_subject_of = ROOT }
+			OR = {
+				dynasty = "Spartakon"
+				dynasty = ROOT
+			}
+		}
+		
+	}
+	war_goal = war_goal_nhs_enforce_hegemony_over_sparta
+}
+
+cb_american_hegemony = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		mission_completed = to_looking_inwards_mission
+	}
+
+	prerequisites = {
+		FROM = {
+			NOT = { is_subject_of = ROOT }
+			if = {
+				limit = {
+					ROOT = {
+						mission_completed = to_the_promised_land_mission
+					}
+				}
+				any_owned_province = {
+					OR = {
+						continent = north_america
+						continent = south_america
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						mission_completed = to_expanding_south_mission
+					}
+				}
+				any_owned_province = {
+					continent = north_america
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						mission_completed = to_taming_the_northmen_mission
+					}
+				}
+				OR = {
+					nhs_check_all_vinland = { CONDITION = tag }
+					nhs_check_all_spartan = { CONDITION = tag }
+					capital_scope = {
+						province_group = mesoamerica_pgroup
+					}
+				}
+				any_owned_province = {
+					continent = north_america
+				}
+			}
+			else = {
+				nhs_check_all_vinland = { CONDITION = tag }
+				any_owned_province = {
+					continent = north_america
+				}
+			}
+		}
+	}
+	
+	war_goal = nhs_wargoal_american_hegemony
+}
+
+cb_nhs_imperial_reconquest = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		mission_completed = to_heir_of_justinian_mission
+		NOT = { mission_completed = to_the_eagle_rises_mission }
+	}
+
+	prerequisites = {
+		FROM = {
+			any_owned_province = {
+				OR = {
+					region = balkan_region
+					region = anatolia_region
+					region = mashriq_region
+					region = egypt_region
+					region = maghreb_region
+					region = iberia_region
+					region = italy_region
+					region = france_region
+					region = south_german_region
+					region = carpathia_region
+					region = low_countries_region
+					region = british_isles_region
+				}
+			}
+		}
+	}
+
+	war_goal = nhs_wargoal_imperial_reconquest
+}
+
+cb_nhs_imperial_reconquest_2 = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		mission_completed = to_the_eagle_rises_mission
+		NOT = { mission_completed = to_basileus_basileon_mission }
+	}
+
+	prerequisites = {
+		FROM = {
+			any_owned_province = {
+				OR = {
+					region = balkan_region
+					region = anatolia_region
+					region = mashriq_region
+					region = egypt_region
+					region = maghreb_region
+					region = iberia_region
+					region = italy_region
+					region = france_region
+					region = south_german_region
+					region = carpathia_region
+					region = low_countries_region
+					region = british_isles_region
+				}
+			}
+		}
+	}
+
+	war_goal = nhs_wargoal_imperial_reconquest_2
+}
+
+cb_nhs_imperial_reconquest_3 = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		mission_completed = to_basileus_basileon_mission
+	}
+
+	prerequisites = {
+		FROM = {
+			any_owned_province = {
+				OR = {
+					region = balkan_region
+					region = anatolia_region
+					region = mashriq_region
+					region = egypt_region
+					region = maghreb_region
+					region = iberia_region
+					region = italy_region
+					region = france_region
+					region = south_german_region
+					region = carpathia_region
+					region = low_countries_region
+					region = british_isles_region
+				}
+			}
+		}
+	}
+
+	war_goal = nhs_wargoal_imperial_reconquest_3
+}
+
+cb_to_imperial_improved = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		OR = {
+			mission_completed = to_rome_restored_mission
+			mission_completed = to_elysia_ascendant_mission
+		}
+		is_free_or_tributary_trigger = yes
+		NOT = { has_reform = war_against_the_world_doctrine_reform }
+	}
+
+	war_goal = to_take_capital_imperial_improved
+}
+
+cb_nhs_overseas_expansion = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		is_free_or_tributary_trigger = yes
+		mission_completed = to_a_world_empire_mission
+	}
+
+	prerequisites = {
+		FROM = {
+			if = {
+				limit = {
+					OR = {
+						has_dlc = "Rights of Man"
+						has_dlc = "Emperor"
+					}
+					ROOT = {
+						NOT = {
+							AND = {
+								mission_completed = to_indian_ambition_mission
+								mission_completed = to_east_asian_monopolies_mission
+							}
+						}
+					}
+				}
+				is_great_power = no
+			}
+			to_has_imperial_protectorate_tech_group = yes
+			OR = {
+				is_neighbor_of = ROOT
+				any_neighbor_country = {
+					is_subject_of = ROOT
+				}
+				any_owned_province = {
+					has_port = yes
+					range = ROOT
+				}
+			}
+		}
+	}
+	
+	war_goal = nhs_overseas_expansion
+}
+
+cb_nhs_overseas_concessions = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		is_free_or_tributary_trigger = yes
+		mission_completed = to_a_world_empire_mission
+	}
+
+	prerequisites = {
+		FROM = {
+			OR = {
+				technology_group = western
+				technology_group = eastern
+				technology_group = ottoman
+				technology_group = muslim
+			}
+			if = {
+				limit = {
+					ROOT = {
+						mission_completed = to_across_the_eirenic_mission
+						mission_completed = to_around_africa_mission
+					}
+				}
+				any_owned_province = {
+					OR = {
+						superregion = southern_africa_superregion
+						region = oceanea_region
+						trade_company_region = trade_company_philippines
+						superregion = east_indies_superregion
+						superregion = china_superregion
+						superregion = far_east_superregion
+						superregion = oceania_superregion
+						superregion = india_superregion
+					}
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							country_or_subject_holds = ROOT
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						mission_completed = to_across_the_eirenic_mission
+					}
+				}
+				any_owned_province = {
+					OR = {
+						superregion = southern_africa_superregion
+						region = oceanea_region
+						trade_company_region = trade_company_philippines
+						superregion = east_indies_superregion
+						superregion = china_superregion
+						superregion = far_east_superregion
+						superregion = oceania_superregion
+					}
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							country_or_subject_holds = ROOT
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						mission_completed = to_around_africa_mission
+					}
+				}
+				any_owned_province = {
+					OR = {
+						superregion = southern_africa_superregion
+						region = oceanea_region
+						trade_company_region = trade_company_philippines
+						superregion = india_superregion
+					}
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							country_or_subject_holds = ROOT
+						}
+					}
+				}
+			}
+			else = {
+				any_owned_province = {
+					OR = {
+						superregion = southern_africa_superregion
+						region = oceanea_region
+						trade_company_region = trade_company_philippines
+					}
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							country_or_subject_holds = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	war_goal = nhs_overseas_concessions
+}
+
+cb_nhs_treaty_port = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		is_free_or_tributary_trigger = yes
+		mission_completed = to_a_world_empire_mission
+	}
+
+	prerequisites = {
+		FROM = {
+			#primitives = no
+			to_has_imperial_protectorate_tech_group = yes
+			any_owned_province = {
+				has_port = yes
+				province_has_center_of_trade_of_level = 1
+				range = ROOT
+			}
+		}
+	}
+	
+	war_goal = nhs_treaty_port
+}
+
+cb_nhs_our_place_in_the_sun_conq = {
+	valid_for_subject = no
+
+	prerequisites_self = {
+		mission_completed = to_our_place_in_the_sun_mission
+	}
+
+	prerequisites = {
+		FROM = {
+			NOT = { is_subject_of = ROOT }
+			NOT = { technology_group = north_american }
+			NOT = { technology_group = mesoamerican }
+			NOT = { technology_group = south_american }
+			NOT = { technology_group = andean }
+			NOT = { nhs_exiles_tech = yes }
+			any_owned_province = {
+				continent = north_america
+			}
+			# OR = {
+			# 	capital_scope = {
+			# 		continent = europe
+			# 	}
+			# 	is_former_colonial_nation = yes
+			# 	is_colonial_nation = yes
+			# }
+		}
+	}
+	war_goal = war_goal_nhs_our_place_in_the_sun_conq
+}
+
+cb_to_challenge_the_false_emperor = {
+	is_triggered_only = yes
+
+	war_goal = war_goal_to_challenge_the_false_emperor
+}
+
+cb_to_suppress_heresy = {
+
+	prerequisites_self = {
+		mission_completed = to_defender_of_the_faith_mission
+		mission_completed = to_neither_holy_nor_roman_mission
+	}
+
+	prerequisites = {
+		FROM = {
+			is_part_of_hre = yes
+			religion_group = ROOT
+			NOT = { religion = ROOT }
+			NOT = { tag = PAP }
+		}
+	}
+
+	attacker_disabled_po = {
+		po_demand_provinces
+		po_release_vassals
+		po_release_annexed
+		po_return_cores
+		po_become_vassal
+		po_subjugate_vassal
+		po_become_tributary_state
+		po_subjugate_tributary_state
+		po_form_personal_union
+		po_transfer_vassals
+	}
+
+	war_goal = war_goal_to_suppress_heresy
+}

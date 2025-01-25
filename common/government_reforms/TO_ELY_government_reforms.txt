@@ -1,0 +1,2158 @@
+########################################
+# Tier I
+########################################
+
+elysian_empire = {
+	icon = "elysian_empire"
+	allow_normal_conversion = no
+	potential = {
+		#has_reform = elysian_empire
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+	}
+	fixed_rank = 2
+	#lock_level_when_selected = yes
+	valid_for_new_country = no
+	can_change_primary_culture = no
+	trigger = {
+		NOT = { has_reform = senatorial_empire }
+		NOT = { have_had_reform = senatorial_empire }
+	}
+	modifiers = {
+		num_accepted_cultures = -1
+		stability_cost_modifier = 0.20
+		expand_infrastructure_cost_modifier = 2
+		# overextension_impact_modifier = 0.25
+	}
+	effect = {
+		hidden_effect = {
+			set_variable = {
+				which = to_ab_expand_bureaucracy_cost
+				value = 50
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = to_enables_overburdened_administration
+					has_country_modifier = to_orhan_janissaries
+				}
+			}
+			custom_tooltip = to_government_mechanics_tt
+		}
+		if = {
+			limit = {
+				has_country_flag = to_enables_overburdened_administration
+			}
+			custom_tooltip = ability_to_administrative_burden_mechanic
+		}
+		if = {
+			limit = {
+				has_country_modifier = to_orhan_janissaries
+			}
+			custom_tooltip = ability_to_roman_janissary_mechanic
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = to_enables_overburdened_administration
+					has_country_modifier = to_orhan_janissaries
+				}
+			}
+			custom_tooltip = to_forced_new_line_tt
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			remove_country_modifier = to_remove_expand_infrastructure_penalty
+		}
+	}
+	conditional = {
+		allow = {
+			has_global_flag = nhs_enable_venetian_merchant_estate_g
+			has_dlc = "Res Publica"
+		}
+		can_use_trade_post = yes
+	}
+	custom_attributes = {
+		locked_government_type = yes
+		to_cannot_make_marches = yes
+		to_can_summon_roman_militia = yes
+	}
+
+	government_abilities = {
+		to_administrative_burden_mechanic
+		to_roman_janissary_mechanic
+	}
+}
+
+senatorial_empire = {
+	icon = "senatorial_empire"
+	allow_normal_conversion = no
+	can_change_primary_culture = no
+	potential = {
+		#has_reform = senatorial_empire
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+	}
+	trigger = {
+		if = {
+			limit = {
+				has_country_flag = to_allow_senatorial_empire_reforms
+			}
+			has_country_flag = to_allow_senatorial_empire_reforms
+		}
+		else = {
+			has_reform = senatorial_empire
+		}
+	}
+	fixed_rank = 3
+	#lock_level_when_selected = yes
+	valid_for_new_country = no
+	modifiers = {
+		legitimacy = 0.5
+		max_absolutism = -15
+		min_autonomy_in_territories = -0.05
+		monthly_to_administrative_burden = -0.05
+		governing_capacity = 50
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+			NOT = {
+				AND = {
+					has_dlc = "Res Publica"
+					has_global_flag = nhs_enable_venetian_merchant_estate_g
+				}
+			}
+		}
+		has_parliament = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_global_flag = nhs_enable_venetian_merchant_estate_g
+			NOT = {
+				OR = {
+					has_dlc = "Common Sense"
+					has_dlc = "Domination"
+				}
+			}
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_global_flag = nhs_enable_venetian_merchant_estate_g
+			has_dlc = "Res Publica"
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+		can_use_trade_post = yes
+	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
+	government_abilities = {
+		to_administrative_burden_mechanic
+		to_roman_janissary_mechanic
+	}
+
+	effect = {
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = to_enables_overburdened_administration
+					has_country_modifier = to_orhan_janissaries
+				}
+			}
+			custom_tooltip = to_government_mechanics_tt
+		}
+		if = {
+			limit = {
+				has_country_flag = to_enables_overburdened_administration
+			}
+			custom_tooltip = ability_to_administrative_burden_mechanic
+		}
+		if = {
+			limit = {
+				has_country_modifier = to_orhan_janissaries
+			}
+			custom_tooltip = ability_to_roman_janissary_mechanic
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = to_enables_overburdened_administration
+					has_country_modifier = to_orhan_janissaries
+				}
+			}
+			custom_tooltip = to_forced_new_line_tt
+		}
+	}
+}
+
+elysian_patriarchy = {
+	icon = "elysian_patriarchy"
+	allow_normal_conversion = no
+	potential = {
+		has_reform = elysian_patriarchy
+	}
+	fixed_rank = 3
+	lock_level_when_selected = yes
+	valid_for_new_country = no
+	can_change_primary_culture = no
+	modifiers = {
+		tolerance_own = 2
+		tolerance_heretic = -1
+		tolerance_heathen = -1
+		global_autonomy = -0.025
+		#max_states = 2
+		governing_capacity = 100
+		max_absolutism = 5
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+			NOT = {
+				AND = {
+					has_dlc = "Res Publica"
+					has_global_flag = nhs_enable_venetian_merchant_estate_g
+				}
+			}
+		}
+		has_parliament = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_global_flag = nhs_enable_venetian_merchant_estate_g
+			NOT = {
+				OR = {
+					has_dlc = "Common Sense"
+					has_dlc = "Domination"
+				}
+			}
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_global_flag = nhs_enable_venetian_merchant_estate_g
+			has_dlc = "Res Publica"
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+		can_use_trade_post = yes
+	}
+	custom_attributes = {
+		locked_government_type = yes
+		enables_divine_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+}
+elysian_patriarchy_2 = {
+	icon = "elysian_patriarchy_2"
+	allow_normal_conversion = no
+	potential = {
+		has_reform = elysian_patriarchy_2
+	}
+	lock_level_when_selected = yes
+	valid_for_new_country = no
+	modifiers = {
+		tolerance_own = 2
+		tolerance_heretic = -1
+		tolerance_heathen = -1
+		#max_states = 1
+		governing_capacity = 50
+		max_absolutism = 5
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		enables_divine_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+}
+
+elysian_absolute_empire = {
+	icon = "elysian_absolute_empire"
+	allow_normal_conversion = no
+	potential = {
+		#has_reform = elysian_absolute_empire
+		nhs_check_all_elysian_tags = { CONDITION = tag }
+	}
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = to_restricted_power_of_the_senate_tt
+			OR = {
+				has_reform = to_reduce_senate_reform
+				has_country_flag = to_restricted_power_of_the_senate
+			}
+		}
+	}
+	#lock_level_when_selected = yes
+	valid_for_new_country = no
+	can_change_primary_culture = no
+	fixed_rank = 3
+	modifiers = {
+		governing_capacity = 100
+		unjustified_demands = -0.15
+		global_autonomy = -0.05
+		national_focus_years = -10
+
+		allow_free_estate_privilege_revocation = yes
+		all_estate_loyalty_equilibrium = -0.1
+		all_estate_influence_modifier = -0.15
+
+		# from to_reduce_senate_reform
+		max_absolutism = 10
+		yearly_absolutism = 1.5
+	}
+	conditional = {
+		allow = {
+			has_global_flag = nhs_enable_venetian_merchant_estate_g
+			has_dlc = "Res Publica"
+		}
+		can_use_trade_post = yes
+	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
+
+	government_abilities = {
+		to_roman_janissary_mechanic
+	}
+
+	effect = {
+		if = {
+			limit = {
+				has_country_modifier = to_orhan_janissaries
+			}
+			custom_tooltip = to_government_mechanics_tt
+			custom_tooltip = ability_to_roman_janissary_mechanic
+			custom_tooltip = to_forced_new_line_tt
+		}
+	}
+}
+
+to_exarch_reform = {
+	icon = "parliament"
+	allow_normal_conversion = no
+	potential = {
+		is_subject_of_type = elysian_subject
+		has_reform = to_exarch_reform
+	}
+	trigger = {
+		is_subject_of_type = elysian_subject
+	}
+
+	lock_level_when_selected = yes
+	valid_for_new_country = no
+
+	has_term_election = yes
+	duration = 12
+	royal_marriage = yes
+	republican_name = no
+
+	modifiers = {
+		num_accepted_cultures = 100
+		promote_culture_cost = -2
+		culture_conversion_cost = 0.33
+		land_forcelimit_modifier = -0.50
+		naval_forcelimit_modifier = -0.50
+		religious_unity = 0.25
+		governing_capacity_modifier = 0.20
+		max_absolutism = -30
+		global_unrest = -2
+	}
+	custom_attributes = {
+		locked_government_type = yes
+		to_keeps_overlords_separatism_coring_cost_admin_eff = yes
+		cannot_become_dictatorship = yes
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+	effect = {
+		to_exarch_reform_effect = yes
+	}
+	removed_effect = {
+		to_exarch_reform_removed_effect = yes
+		add_government_reform = to_exarch_reform_independant
+	}
+}
+
+to_exarch_reform_monarchy = {
+	icon = "parliament"
+	allow_normal_conversion = no
+	potential = {
+		is_subject_of_type = elysian_subject
+		has_reform = to_exarch_reform_monarchy
+	}
+	trigger = {
+		is_subject_of_type = elysian_subject
+	}
+
+	lock_level_when_selected = yes
+	valid_for_new_country = no
+
+	modifiers = {
+		num_accepted_cultures = 100
+		promote_culture_cost = -2
+		culture_conversion_cost = 0.33
+		land_forcelimit_modifier = -0.50
+		naval_forcelimit_modifier = -0.50
+		religious_unity = 0.25
+		governing_capacity_modifier = 0.20
+		max_absolutism = -30
+		global_unrest = -2
+	}
+	custom_attributes = {
+		locked_government_type = yes
+		to_keeps_overlords_separatism_coring_cost_admin_eff = yes
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+	effect = {
+		to_exarch_reform_effect = yes
+	}
+	removed_effect = {
+		to_exarch_reform_removed_effect = yes
+		add_government_reform = to_exarch_reform_monarchy_independant
+	}
+}
+
+to_exarch_reform_monarchy_locked_dynasty = {
+	icon = "parliament"
+	allow_normal_conversion = no
+	potential = {
+		is_subject_of_type = elysian_subject
+		has_reform = to_exarch_reform_monarchy_locked_dynasty
+	}
+	trigger = {
+		is_subject_of_type = elysian_subject
+	}
+
+	lock_level_when_selected = yes
+	valid_for_new_country = no
+
+	maintain_dynasty = yes
+	can_change_primary_culture = no
+
+	modifiers = {
+		num_accepted_cultures = 100
+		promote_culture_cost = -2
+		culture_conversion_cost = 0.33
+		land_forcelimit_modifier = -0.50
+		naval_forcelimit_modifier = -0.50
+		religious_unity = 0.25
+		governing_capacity_modifier = 0.20
+		max_absolutism = -30
+		global_unrest = -2
+	}
+	custom_attributes = {
+		locked_government_type = yes
+		to_keeps_overlords_separatism_coring_cost_admin_eff = yes
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+	effect = {
+		to_exarch_reform_effect = yes
+	}
+	removed_effect = {
+		to_exarch_reform_removed_effect = yes
+		add_government_reform = to_exarch_reform_monarchy_locked_dynasty_independant
+	}
+}
+
+to_exarch_reform_independant = {
+	icon = "parliament"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { is_subject_of_type = elysian_subject }
+		have_had_reform = to_exarch_reform
+	}
+	trigger = {
+		NOT = { is_subject_of_type = elysian_subject }
+		have_had_reform = to_exarch_reform
+	}
+
+	valid_for_new_country = no
+
+	has_term_election = yes
+	duration = 12
+	royal_marriage = yes
+	republican_name = no
+
+	modifiers = {
+		num_accepted_cultures = 100
+		promote_culture_cost = -2
+		culture_conversion_cost = 0.33
+		religious_unity = 0.25
+		max_absolutism = -30
+		global_unrest = -2
+		years_of_nationalism = -5
+		stability_cost_modifier = 0.20
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+	effect = {
+		to_exarch_reform_independant_effect = yes
+	}
+	removed_effect = {
+	}
+}
+
+to_exarch_reform_monarchy_independant = {
+	icon = "parliament"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { is_subject_of_type = elysian_subject }
+		have_had_reform = to_exarch_reform_monarchy
+	}
+	trigger = {
+		NOT = { is_subject_of_type = elysian_subject }
+		have_had_reform = to_exarch_reform_monarchy
+	}
+
+	valid_for_new_country = no
+
+	modifiers = {
+		num_accepted_cultures = 100
+		promote_culture_cost = -2
+		culture_conversion_cost = 0.33
+		religious_unity = 0.25
+		max_absolutism = -30
+		global_unrest = -2
+		years_of_nationalism = -5
+		stability_cost_modifier = 0.20
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+	effect = {
+		to_exarch_reform_independant_effect = yes
+	}
+}
+
+to_exarch_reform_monarchy_locked_dynasty_independant = {
+	icon = "parliament"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { is_subject_of_type = elysian_subject }
+		have_had_reform = to_exarch_reform_monarchy_locked_dynasty
+	}
+	trigger = {
+		NOT = { is_subject_of_type = elysian_subject }
+		have_had_reform = to_exarch_reform_monarchy_locked_dynasty
+	}
+
+	valid_for_new_country = no
+
+	maintain_dynasty = yes
+	can_change_primary_culture = no
+
+	modifiers = {
+		num_accepted_cultures = 100
+		promote_culture_cost = -2
+		culture_conversion_cost = 0.33
+		religious_unity = 0.25
+		max_absolutism = -30
+		global_unrest = -2
+		years_of_nationalism = -5
+		stability_cost_modifier = 0.20
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+	effect = {
+		to_exarch_reform_independant_effect = yes
+	}
+}
+
+########################################
+# Tier III
+########################################
+
+to_thalassocracy_reform_tierIII = {
+	icon = "admiralty_reform"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			to_has_advanced_economic_reforms = yes
+			nhs_check_all_elysian_tags = { CONDITION = tag }
+		}
+		has_unlocked_government_reform = {
+			government_reform = thalassocracy_reform
+		}
+	}
+	trigger = {
+	}
+	modifiers = {
+		center_of_trade_upgrade_cost = -0.1
+		trade_company_investment_cost = -0.1
+		naval_forcelimit_modifier = 0.25
+		global_trade_power = 0.15
+	}
+	custom_attributes = {
+		can_establish_trade_protectorates = yes
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+########################################
+# Tier V
+########################################
+
+to_indiscriminate_greek_fire_use_reform = {
+	icon = "to_burning_city_reform"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_country_flag = nhs_updated_fire
+			has_country_flag = nhs_fire_later
+		}
+	}
+	trigger = {
+		if = {
+			limit = {
+				has_country_flag = nhs_updated_fire
+			}
+			has_country_modifier = nhs_greekfire_update
+		}
+		else = {
+			has_country_modifier = nhs_greekfire_later
+		}
+	}
+	effect = {
+		custom_tooltip = to_reform_effects_tt
+		custom_tooltip = to_indiscriminate_bombardment_tt
+		if = {
+			limit = {
+				has_country_flag = to_spared_albanians_from_fire_modifier
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_indiscriminate_bombardment_ignore_greek_albanian_tt
+		}
+		else_if = {
+			limit = {
+				has_country_flag = to_indiscriminate_bombardment_ignore_greek_tt
+			}
+			custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_indiscriminate_bombardment_ignore_greek_tt
+		}
+		to_check_exarch_nationalism_all_subjects = { MODIFY = 5 }
+	}
+	removed_effect = {
+		to_check_exarch_nationalism_all_subjects = { MODIFY = -5 }
+	}
+	modifiers = {
+		siege_ability = 0.33
+		artillery_levels_available_vs_fort = 1
+		improve_relation_modifier = -0.33
+		# ae_impact = 0.2
+		artillery_cost = 0.10
+		years_of_nationalism = 5
+		available_province_loot = -0.50
+	}
+}
+
+########################################
+# Tier XI
+########################################
+
+royal_decree_reform_ely = {
+	icon = "king"
+	potential = {
+		OR = {
+			has_reform = senatorial_empire
+			has_country_flag = to_allow_senatorial_empire_reforms
+		}
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		max_absolutism = 5
+		yearly_absolutism = 0.5
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+aristocratic_court_reform_ely = {
+	icon = "soldiers_2"
+	potential = {
+		has_reform = senatorial_empire
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		diplomatic_reputation = 1
+		monthly_favor_modifier = 0.25
+		improve_relation_modifier = 0.15
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+general_estates_reform_ely = {
+	icon = "paper_with_seal"
+	potential = {
+		has_reform = senatorial_empire
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		monthly_reform_progress_modifier = 0.1
+		all_estate_influence_modifier = 0.05
+		all_estate_loyalty_equilibrium = 0.1
+	}
+	custom_attributes = {
+		diet_increases_not_influence = yes
+	}
+	ai = {
+		factor = 1
+	}
+}
+
+########################################
+# Tier VII (Economic Reforms)
+########################################
+
+# Protectionism
+
+to_embrace_mercantilism = {
+	icon = to_gold_and_silver_reform
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		# Used to be a scripted trigger but apparently has_country_modifier doesn't work inside those if used in gov. reforms
+		if = {
+			limit = {
+				NOT = { has_reform = to_embrace_mercantilism }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_free_trade
+						has_country_modifier = nhs2_elysian_isolationism
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_restricted_trade }
+					NOT = { has_country_modifier = nhs2_ely_por_trade }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_free_trade_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_isolationism_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+	}
+	modifiers = {
+		global_own_trade_power = 0.15
+		mercantilism_cost = -0.25
+		global_tariffs = 0.50
+		global_foreign_trade_power = -0.33
+	}
+	custom_attributes = {
+		to_increased_colonial_growth_overseas = yes
+	}
+	effect = {
+		to_on_change_trade_policy_protectionism = { SHOW_REFORM_EFFECT_TOOLTIP = yes }
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					to_overseas_colony_trigger = yes
+				}
+				add_province_modifier = {
+					name = to_embrace_mercantilism_colonial_modifier
+					duration = -1
+					hidden = yes
+				}
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			every_owned_province = {
+				remove_province_modifier = to_embrace_mercantilism_colonial_modifier
+			}
+		}
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_restricted_trade }
+		}
+	}
+}
+
+to_imperial_seal = {
+	icon = paper_with_seal
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_imperial_seal }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_free_trade
+						has_country_modifier = nhs2_elysian_isolationism
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_restricted_trade }
+					NOT = { has_country_modifier = nhs2_ely_por_trade }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_free_trade_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_isolationism_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+	}
+	modifiers = {
+		trade_efficiency = 0.05
+		yearly_corruption = -0.2
+		burghers_influence_modifier = -0.1
+	}
+	custom_attributes = {
+		no_mercantilism_loss_from_privilege = yes
+		to_lower_absolutism_from_burgher_privileges = yes
+		# Apparently Paradox forgot to include a moddable trigger for that diplo action
+		# to_immune_to_corrupt_officials = yes
+	}
+	effect = {
+		to_on_change_trade_policy_protectionism = { SHOW_REFORM_EFFECT_TOOLTIP = yes }
+	}
+	removed_effect = {
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_restricted_trade }
+		}
+	}
+}
+
+to_war_economy = {
+	icon = war_economy
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_war_economy }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_free_trade
+						has_country_modifier = nhs2_elysian_isolationism
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_restricted_trade }
+					NOT = { has_country_modifier = nhs2_ely_por_trade }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_free_trade_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_isolationism_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+	}
+	modifiers = {
+		trade_efficiency = -0.10
+		development_cost = 0.05
+		global_regiment_cost = -0.2
+		global_ship_cost = -0.2
+		land_attrition = -0.25
+		mil_tech_cost_modifier = -0.1
+	}
+	custom_attributes = {
+		to_production_bonus_on_military_goods = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Emperor"
+		}
+		custom_attributes = {
+			to_remove_metal_monopolies = yes
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_dlc = "Emperor"
+				has_estate_privilege = estate_nobles_monopoly_of_metals
+			}
+			custom_tooltip = to_reform_effects_tt
+			to_remove_estate_privilege_short_tooltip = {
+				PRIVILEGE = estate_nobles_monopoly_of_metals
+				CANNOT_REVOKE_EFFECT = "
+				hidden_effect = {
+					to_add_noble_estate_loyalty_modifier = {
+						loyalty = -20
+						desc = to_revoked_monopoly
+						duration = 3650
+					}
+				}
+				"
+			}
+			to_add_noble_estate_loyalty = {
+				loyalty = -20
+			}
+			if = {
+				limit = {
+					NOT = { can_revoke_estate_privilege = estate_nobles_monopoly_of_metals }
+				}
+				custom_tooltip = to_metals_monopoly_revoke_loyalty_equilibrium_tt
+			}
+			custom_tooltip = nhs_new_line_tt
+			to_on_change_trade_policy_protectionism = {}
+		}
+		else = {
+			to_on_change_trade_policy_protectionism = { SHOW_REFORM_EFFECT_TOOLTIP = yes }
+		}
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					to_war_economy_good_province = yes
+				}
+				add_province_modifier = {
+					name = to_war_economy_province_modifier
+					duration = -1
+					hidden = yes
+				}
+			}
+		}
+	}
+	removed_effect = {
+		every_owned_province = {
+			remove_province_modifier = to_war_economy_province_modifier
+		}
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_restricted_trade }
+		}
+	}
+}
+
+to_encourage_cash_crops = {
+	icon = to_spices_reform
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_encourage_cash_crops }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_free_trade
+						has_country_modifier = nhs2_elysian_isolationism
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_restricted_trade }
+					NOT = { has_country_modifier = nhs2_ely_por_trade }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_free_trade_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_isolationism_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+	}
+	modifiers = {
+		trade_steering = 0.2
+		trade_range_modifier = 0.25
+		global_unrest = 1
+	}
+	custom_attributes = {
+		to_improve_cash_crop_provinces = yes
+		to_higher_chance_of_cash_crops_in_colonies = yes
+		to_higher_dev_cost_in_non_cash_crop_provinces = yes
+		# to_higher_chance_of_famine_events = yes
+	}
+	effect = {
+		to_on_change_trade_policy_protectionism = { SHOW_REFORM_EFFECT_TOOLTIP = yes }
+		hidden_effect = {
+			# If done in one scope it shits out errors for some reason
+			every_owned_province = {
+				limit = {
+					to_cash_crops_good_province = yes
+				}
+				add_province_modifier = {
+					name = to_cash_crops_good_province_modifier
+					duration = -1
+					hidden = yes
+				}
+			}
+			every_owned_province = {
+				limit = {
+					NOT = { to_cash_crops_good_province = yes }
+				}
+				add_province_modifier = {
+					name = to_cash_crops_bad_province_modifier
+					duration = -1
+					hidden = yes
+				}
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			every_owned_province = {
+				remove_province_modifier = to_cash_crops_good_province_modifier
+				remove_province_modifier = to_cash_crops_bad_province_modifier
+			}
+		}
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_restricted_trade }
+		}
+	}
+}
+
+# Free Trade
+
+to_mercantile_nation = {
+	icon = merchant
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_mercantile_nation }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_restricted_trade
+						has_country_modifier = nhs2_elysian_isolationism
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_free_trade }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_protectionism_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_isolationism_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs2_ely_por_trade
+			}
+			NOT = { has_country_modifier = nhs2_ely_por_trade }
+		}
+	}
+	modifiers = {
+		global_trade_goods_size_modifier = 0.05
+		burghers_influence_modifier = 0.10
+		burghers_privilege_slots = 2
+	}
+	custom_attributes = {
+		to_reduce_dev_cost_on_centers_of_trade = yes
+		to_improve_control_over_monetary_policy_privilege = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	effect = {
+		to_on_change_trade_policy_free_trade = { SHOW_REFORM_EFFECT_TOOLTIP = yes }
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					province_has_center_of_trade_of_level = 1
+				}
+				add_province_modifier = {
+					name = to_mercantile_nation_cot_boost
+					duration = -1
+					hidden = yes
+				}
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			every_owned_province = {
+				remove_province_modifier = to_mercantile_nation_cot_boost
+			}
+		}
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_free_trade }
+		}
+	}
+}
+
+to_safeguard_the_mercantile_fleets = {
+	icon = war_ship # merchant_ship
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_safeguard_the_mercantile_fleets }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_restricted_trade
+						has_country_modifier = nhs2_elysian_isolationism
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_free_trade }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_protectionism_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_isolationism_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs2_ely_por_trade
+			}
+			NOT = { has_country_modifier = nhs2_ely_por_trade }
+		}
+	}
+	modifiers = {
+		light_ship_power = 0.5
+		transport_power = 1
+		movement_speed_in_fleet_modifier = 1
+		global_ship_trade_power = 0.5
+		ship_power_propagation = 0.25
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Emperor"
+		}
+		custom_attributes = {
+			to_hegemony_with_light_ships = yes
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_dlc = "Emperor" }
+			}
+			custom_tooltip = to_reform_effects_tt
+			custom_tooltip = to_hegemony_mission_with_light_ships_tt
+			custom_tooltip = nhs_new_line_tt
+			to_on_change_trade_policy_free_trade = {}
+		}
+		else = {
+			to_on_change_trade_policy_free_trade = { SHOW_REFORM_EFFECT_TOOLTIP = yes }
+		}
+	}
+	removed_effect = {
+	}
+	ai = {
+		factor = 0
+	}
+}
+
+to_free_haven = {
+	icon = to_port_reform
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_free_haven }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_restricted_trade
+						has_country_modifier = nhs2_elysian_isolationism
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_free_trade }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_protectionism_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_isolationism_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs2_ely_por_trade
+			}
+			NOT = { has_country_modifier = nhs2_ely_por_trade }
+		}
+	}
+	modifiers = {
+		global_colonial_growth = 40
+		privateer_efficiency = 0.25
+		improve_relation_modifier = -0.20
+		merc_independent_from_trade_range = yes
+	}
+	custom_attributes = {
+		to_colonies_can_get_european_cultures = yes
+		to_opinion_with_pirate_nations = yes
+	}
+	effect = {
+		to_on_change_trade_policy_free_trade = { SHOW_REFORM_EFFECT_TOOLTIP = yes }
+		hidden_effect = {
+			every_country = {
+				limit = {
+					has_government_attribute = is_pirate_republic_reform
+					NOT = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = to_free_haven_pirate_opinion
+						}
+					}
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = to_free_haven_pirate_opinion
+				}
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					has_government_attribute = is_pirate_republic_reform
+				}
+				remove_opinion = {
+					who = ROOT
+					modifier = to_free_haven_pirate_opinion
+				}
+			}
+		}
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_free_trade }
+		}
+	}
+}
+
+to_beacon_of_liberty = {
+	icon = liberte_reform #constitution
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_beacon_of_liberty }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_restricted_trade
+						has_country_modifier = nhs2_elysian_isolationism
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_free_trade }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_protectionism_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_isolationism_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs2_ely_por_trade
+			}
+			NOT = { has_country_modifier = nhs2_ely_por_trade }
+		}
+	}
+	modifiers = {
+		idea_cost = -0.10
+		yearly_innovativeness = 0.25
+		tolerance_heathen = 1
+		tolerance_heretic = 1
+		max_absolutism = -10
+		nobles_loyalty_modifier = -0.10
+		estate_nhs_nobles_loyalty_modifier = -0.10
+		church_loyalty_modifier = -0.10
+		nobles_influence_modifier = -0.10
+		estate_nhs_nobles_influence_modifier = -0.10
+		church_influence_modifier = -0.10
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		to_institution_spawn_priority = yes
+	}
+	effect = {
+		to_on_change_trade_policy_free_trade = { SHOW_REFORM_EFFECT_TOOLTIP = yes }
+	}
+	removed_effect = {
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_free_trade }
+		}
+	}
+}
+
+# Isolation
+
+to_enforce_state_monopolies = {
+	icon = crown #byzantine_rule
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_enforce_state_monopolies }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_restricted_trade
+						has_country_modifier = nhs2_elysian_free_trade
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_isolationism }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_protectionism_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_free_trade_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs2_ely_por_trade
+			}
+			NOT = { has_country_modifier = nhs2_ely_por_trade }
+		}
+	}
+	modifiers = {
+		max_absolutism = 10
+		mercantilism_cost = -0.25
+		production_efficiency = 0.20
+		development_cost = 0.10
+	}
+	effect = {
+		if = {
+			limit = {
+				has_dlc = "Emperor"
+			}
+			custom_tooltip = to_reform_effects_tt
+			if = {
+				limit = {
+					OR = {
+						to_has_monopoly_estate_privilege_nobles = yes
+						to_has_monopoly_estate_privilege_church = yes
+						to_has_monopoly_estate_privilege_burghers = yes
+					}
+				}
+				to_remove_all_nobles_monopolies_and_apply_penalties = yes
+				to_remove_all_clergy_monopolies_and_apply_penalties = yes
+				to_remove_all_burghers_monopolies_and_apply_penalties = yes
+			}
+			else = {
+				custom_tooltip = to_monopolies_revoke_loyalty_equilibrium_tt
+			}
+			custom_tooltip = nhs_new_line_tt
+			to_on_change_trade_policy_isolationism = { ISOLATIONISM_INSTITION_SPREAD = yes }
+		}
+		else = {
+			to_on_change_trade_policy_isolationism = {
+				SHOW_REFORM_EFFECT_TOOLTIP = yes
+				ISOLATIONISM_INSTITION_SPREAD = yes
+			}
+		}
+	}
+	removed_effect = {
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Emperor"
+		}
+		custom_attributes = {
+			to_remove_monopoly_privileges = yes
+		}
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_isolationism }
+		}
+	}
+}
+
+to_autarky = {
+	icon = peasants
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_autarky }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_restricted_trade
+						has_country_modifier = nhs2_elysian_free_trade
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_isolationism }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_protectionism_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_free_trade_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs2_ely_por_trade
+			}
+			NOT = { has_country_modifier = nhs2_ely_por_trade }
+		}
+	}
+	modifiers = {
+		trade_efficiency = -0.1
+		global_foreign_trade_power = -1
+		development_cost = -0.1
+		# global_tax_modifier = 0.25
+		global_monthly_devastation = -0.25
+		war_exhaustion = -0.05
+		centralize_state_cost = -0.5
+	}
+	custom_attributes = {
+		# to_bonus_on_agricultural_and_mining_goods = yes
+		# Apparently Paradox forgot to include a moddable trigger for this diplo action
+		# to_immune_to_slander_merchants = yes
+		to_does_not_have_foreign_trade_quarter = yes
+	}
+	effect = {
+		to_on_change_trade_policy_isolationism = { SHOW_REFORM_EFFECT_TOOLTIP = yes }
+		hidden_effect = {
+			# every_owned_province = {
+			# 	limit = {
+			# 		to_autarky_good_province = yes
+			# 	}
+			# 	add_province_modifier = {
+			# 		name = to_autarky_province_modifier
+			# 		duration = -1
+			# 	}
+			# }
+			random_owned_province = {
+				limit = {
+					has_province_modifier = nhs2_european_enclave
+				}
+				remove_province_modifier = nhs2_european_enclave
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			# every_owned_province = {
+			# 	remove_province_modifier = to_autarky_province_modifier
+			# }
+			to_nhs_spawn_enclave = { ENCLAVE_MODIFIER = nhs2_european_enclave }
+		}
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_isolationism }
+		}
+	}
+}
+
+to_secure_the_borders = {
+	icon = mountain_fort
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_secure_the_borders }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_restricted_trade
+						has_country_modifier = nhs2_elysian_free_trade
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_isolationism }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_protectionism_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_free_trade_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs2_ely_por_trade
+			}
+			NOT = { has_country_modifier = nhs2_ely_por_trade }
+		}
+	}
+	modifiers = {
+		global_institution_spread = -0.25
+		caravan_power = -0.50
+		garrison_size = 0.33
+		fort_maintenance_modifier = -0.50
+		rival_border_fort_maintenance = -0.50
+		own_territory_dice_roll_bonus = 1
+		global_spy_defence = 0.5
+	}
+	custom_attributes = {
+		to_no_institution_spread_across_borders = yes
+		# Apparently Paradox forgot to include a moddable trigger for that diplo action
+		# to_immune_to_sobotage_recruitment = yes
+		to_immune_to_sow_discontent = yes
+		to_immune_to_infiltrate_administration = yes
+	}
+	effect = {
+		to_on_change_trade_policy_isolationism = {
+			SHOW_REFORM_EFFECT_TOOLTIP = yes
+			ISOLATIONISM_INSTITION_SPREAD = yes
+		}
+	}
+	removed_effect = {
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_isolationism }
+		}
+	}
+}
+
+to_safeguard_home_waters = {
+	icon = to_safeguard_home_waters_reform
+	potential = {
+		to_has_advanced_economic_reforms = yes
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_safeguard_home_waters }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_country_modifier = nhs2_elysian_restricted_trade
+						has_country_modifier = nhs2_elysian_free_trade
+					}
+				}
+				to_can_change_trade_policy_base = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_country_modifier = nhs2_elysian_isolationism }
+				}
+				custom_trigger_tooltip = {
+					tooltip = to_has_not_changed_trade_policy_recently_tt
+					NOT = { has_country_modifier = to_trade_policy_switch_protectionism_cd }
+					NOT = { has_country_modifier = to_trade_policy_switch_free_trade_cd }
+				}
+			}
+			to_can_change_trade_policy_additional = yes
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs2_ely_por_trade
+			}
+			NOT = { has_country_modifier = nhs2_ely_por_trade }
+		}
+	}
+	modifiers = {
+		naval_forcelimit_modifier = 0.20
+		global_sailors_modifier = 0.20
+		global_ship_cost = -0.1
+		global_ship_trade_power = -0.33
+		own_coast_naval_combat_bonus = 1.0
+		sea_repair = yes
+	}
+	custom_attributes = {
+		to_naval_bateries_give_defensivness = yes
+	}
+	effect = {
+		to_on_change_trade_policy_isolationism = {
+			SHOW_REFORM_EFFECT_TOOLTIP = yes
+			ISOLATIONISM_INSTITION_SPREAD = yes
+		}
+	}
+	removed_effect = {
+	}
+	ai = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { has_country_modifier = nhs2_elysian_isolationism }
+		}
+	}
+}
+
+########################################
+# Tier VIII (The Administrative Cadre)
+########################################
+
+strengthened_parliament_reform_ely = {
+	icon = "parliament_hall"
+	allow_normal_conversion = yes
+	potential = {
+		has_dlc = "Domination"
+		has_parliament = yes
+		# Third Odyssey
+		has_reform = senatorial_empire
+	}
+	trigger = {
+		has_parliament = yes
+	}
+	modifiers = {
+		max_absolutism = -20
+		development_cost_in_primary_culture = -0.1
+		parliament_backing_chance = 0.05
+	}
+	ai = {
+		factor = 10
+	}
+}
+
+########################################
+# Tier IX
+########################################
+
+letat_cest_moi_reform_ely = {
+	icon = "to_reduce_senate_reform"
+	potential = {
+		OR = {
+			has_reform = elysian_empire
+			# has_reform = elysian_revolutionary_empire
+			has_reform = elysian_absolute_empire
+		}
+	}
+	trigger = {
+		NOT = { has_reform = senatorial_empire }
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		governing_capacity = 250
+	}
+	ai = {
+		factor = 1.5
+	}
+}
+
+regional_representation_reform_ely = {
+	icon = "assembly_hall"
+	potential = {
+		OR = {
+			# has_reform = elysian_revolutionary_empire
+			has_reform = elysian_absolute_empire
+		}
+	}
+	trigger = {
+		NOT = { has_reform = senatorial_empire }
+	}
+	allow_normal_conversion = yes
+	modifiers = {
+		min_autonomy_in_territories = -0.05
+		core_creation = -0.05
+	}
+	effect = {
+		to_check_exarch_modifier_all_subjects = { MODIFIER_NAME = coring_cost MODIFIER = core_creation MODIFY = 0.05 }
+		to_check_exarch_modifier = { MODIFIER_NAME = coring_cost MODIFIER = core_creation MODIFY = -0.05 }
+	}
+	removed_effect = {
+		to_check_exarch_modifier_all_subjects = { MODIFIER_NAME = coring_cost MODIFIER = core_creation MODIFY = -0.05 }
+		to_check_exarch_modifier = { MODIFIER_NAME = coring_cost MODIFIER = core_creation MODIFY = 0.05 }
+	}
+}
+
+to_expand_senate_of_cities_nodlc = {
+	icon = "parliament"
+	potential = {
+		NOT = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		OR = {
+			has_reform = senatorial_empire
+			has_reform = elysian_patriarchy
+		}
+	}
+	modifiers = {
+		core_creation = -0.05
+		years_of_nationalism = -5
+	}
+	effect = {
+		clr_country_flag = nhs_remember_expanding_senate
+		to_check_exarch_nationalism_all_subjects = { MODIFY = 5 }
+		to_check_exarch_modifier_all_subjects = { MODIFIER_NAME = coring_cost MODIFIER = core_creation MODIFY = 0.05 }
+	}
+	removed_effect = {
+		clr_country_flag = nhs_remember_expanding_senate
+		to_check_exarch_nationalism_all_subjects = { MODIFY = -5 }
+		to_check_exarch_modifier_all_subjects = { MODIFIER_NAME = coring_cost MODIFIER = core_creation MODIFY = -0.05 }
+	}
+}
+
+to_consolidate_senate_of_cities_nodlc = {
+	icon = "assembly_hall"
+	potential = {
+		NOT = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		OR = {
+			has_reform = senatorial_empire
+			has_reform = elysian_patriarchy
+		}
+	}
+	modifiers = {
+		max_absolutism = 5
+		national_focus_years = -10
+	}
+	effect = {
+		set_country_flag = nhs_remember_consolidating_senate
+	}
+	removed_effect = {
+		clr_country_flag = nhs_remember_consolidating_senate
+	}
+}
+
+to_expand_senate_of_cities = {
+	icon = "parliament"
+	potential = {
+		has_reform = senatorial_empire
+		OR = {
+			has_dlc = "Common Sense"
+			has_dlc = "Domination"
+		}
+	}
+	modifiers = {
+		core_creation = -0.05
+		years_of_nationalism = -5
+		num_of_parliament_issues = 5
+		parliament_debate_duration = -4
+	}
+
+	effect = {
+		clr_country_flag = nhs_remember_expanding_senate
+		to_check_exarch_nationalism_all_subjects = { MODIFY = 5 }
+		to_check_exarch_modifier_all_subjects = { MODIFIER_NAME = coring_cost MODIFIER = core_creation MODIFY = 0.05 }
+	}
+	removed_effect = {
+		clr_country_flag = nhs_remember_expanding_senate
+		to_check_exarch_nationalism_all_subjects = { MODIFY = -5 }
+		to_check_exarch_modifier_all_subjects = { MODIFIER_NAME = coring_cost MODIFIER = core_creation MODIFY = -0.05 }
+	}
+}
+
+to_consolidate_senate_of_cities = {
+	icon = "assembly_hall"
+	potential = {
+		has_reform = senatorial_empire
+		OR = {
+			has_dlc = "Common Sense"
+			has_dlc = "Domination"
+		}
+	}
+	modifiers = {
+		max_absolutism = 5
+		national_focus_years = -10
+		parliament_backing_chance = 0.25
+		parliament_effect_duration = 5
+		can_revoke_parliament_seats = yes
+	}
+
+	effect = {
+		set_country_flag = nhs_remember_consolidating_senate
+	}
+	removed_effect = {
+		clr_country_flag = nhs_remember_consolidating_senate
+	}
+
+	custom_attributes = {
+		can_force_issue_through = yes
+	}
+}
+
+to_reduce_senate_reform = {
+	icon = "to_reduce_senate_reform"
+	allow_normal_conversion = yes
+	modifiers = {
+	}
+	potential = {
+		OR = {
+			has_reform = senatorial_empire
+			has_country_flag = to_allow_senatorial_empire_reforms
+			# has_reform = elysian_absolute_empire
+			# has_reform = elysian_revolutionary_empire
+		}
+	}
+	trigger = {
+		if = {
+			limit = {
+				NOT = { has_reform = to_reduce_senate_reform }
+			}
+			OR = {
+				current_age = age_of_absolutism
+				current_age = age_of_revolutions
+			}
+			absolutism = 50
+			stability = 1
+			crown_land_share = 50
+			# has_reform = centralize_reform
+			# has_reform = royal_decree_reform_ely
+			custom_trigger_tooltip = {
+				tooltip = nhs_nhs_reduce_senate2_tt
+				NOT = { has_ruler_flag = nhs_changed_to_abs }
+			}
+		}
+		else = {
+			has_reform = to_reduce_senate_reform
+		}
+		if = {
+			limit = {
+				has_government_mechanic = to_administrative_burden_mechanic
+			}
+			NOT = { has_government_mechanic = to_administrative_burden_mechanic }
+		}
+	}
+	effect = {
+		set_country_flag = to_restricted_power_of_the_senate
+		if = {
+			limit = {
+				has_reform = senatorial_empire
+			}
+			custom_tooltip = to_reform_effects_tt
+			set_country_flag = to_allow_senatorial_empire_reforms
+			to_add_government_reform_short_tooltip = { REFORM = elysian_absolute_empire }
+			to_add_government_reform_short_tooltip = { REFORM = royal_decree_reform }
+			to_add_government_reform_short_tooltip = { REFORM = letat_cest_moi_reform_ely }
+			add_absolutism = 5
+			add_stability = -2
+			add_legitimacy = -30
+			remove_country_modifier = nhs2_patriarch_influences_major
+			remove_country_modifier = nhs2_patriarch_influences_minor
+			change_estate_land_share = {
+				estate = all
+				share = -10
+			}
+		}
+		# else_if = {
+		# 	limit = {
+		# 		has_reform = elysian_absolute_empire
+		# 	}
+		# 	custom_tooltip = to_reform_effects_tt
+		# 	tooltip = {
+		# 		to_add_government_reform_short_tooltip = { REFORM = elysian_absolute_empire }
+		# 		to_add_government_reform_short_tooltip = { REFORM = royal_decree_reform }
+		# 		to_add_government_reform_short_tooltip = { REFORM = letat_cest_moi_reform_ely }
+		# 		add_absolutism = 5
+		# 		add_stability = -2
+		# 		add_legitimacy = -30
+		# 		remove_country_modifier = nhs2_patriarch_influences_major
+		# 		remove_country_modifier = nhs2_patriarch_influences_minor
+		# 		change_estate_land_share = {
+		# 			estate = all
+		# 			share = -10
+		# 		}
+		# 	}
+		# }
+		# custom_tooltip = nhs_path_to_revolution_tt
+		# custom_tooltip = nhs_new_line_tt
+		hidden_effect = {
+			set_ruler_flag = nhs_changed_to_abs
+		}
+	}
+
+	modifiers = {
+		governing_capacity = 250
+	}
+
+	removed_effect = {
+		clr_country_flag = to_allow_senatorial_empire_reforms
+	}
+}
+
+########################################
+# Tier X
+########################################
+
+legislative_houses_reform_ely = {
+	icon = "parliament_hall"
+	allow_normal_conversion = yes
+	potential = {
+		has_reform = senatorial_empire
+	}
+	modifiers = {
+		free_policy = 1
+	}
+}
+
+to_empower_senate_reform = {
+	icon = "parliament_hall"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_reform = elysian_absolute_empire
+			has_country_flag = to_allow_absolute_empire_reforms
+		}
+
+	}
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = nhs_nhs_reduce_senate2_tt
+			NOT = { has_ruler_flag = nhs_changed_to_abs }
+		}
+	}
+	effect = {
+		if = {
+			limit = {
+				has_reform = elysian_absolute_empire
+			}
+			custom_tooltip = to_reform_effects_tt
+			if = {
+				limit = {
+					has_reform = royal_decree_reform_ely
+				}
+				remove_government_reform = royal_decree_reform_ely
+			}
+			set_country_flag = to_allow_absolute_empire_reforms
+			to_add_government_reform_short_tooltip = { REFORM = senatorial_empire }
+			if = {
+				limit = {
+					has_country_flag = nhs_remember_expanding_senate
+				}
+				to_add_government_reform_short_tooltip = { REFORM = to_expand_senate_of_cities }
+			}
+			else = {
+				to_add_government_reform_short_tooltip = { REFORM = to_consolidate_senate_of_cities }
+			}
+			to_add_government_reform_short_tooltip = { REFORM = legislative_houses_reform_ely }
+
+			add_stability_or_adm_power = yes
+			add_legitimacy = 20
+			add_adm_power = -50
+			add_absolutism = -20
+			#if = {
+			#	limit = {
+			#		has_country_modifier = rev_absolute_authority
+			#	}
+			#	remove_country_modifier = rev_absolute_authority
+			#}
+			if = {
+				limit = {
+					has_country_modifier = rev_absolute_authority
+				}
+				remove_country_modifier = rev_absolute_authority
+			}
+			if = {
+				limit = {
+					OR = {
+						has_dlc = "Common Sense"
+						has_dlc = "Domination"
+					}
+				}
+				custom_tooltip = nhs_nhs_seats_tt
+				hidden_effect = {
+					every_owned_province = {
+						limit = {
+							OR = {
+								province_id = 2550
+								province_id = 952
+								province_id = 950
+								province_id = 2554
+								province_id = 953
+								province_id = 957
+							}
+						}
+						set_seat_in_parliament = yes
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			set_ruler_flag = nhs_changed_to_abs
+			clr_country_flag = to_restricted_power_of_the_senate
+		}
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+	modifiers = {
+		free_policy = 1
+	}
+
+	removed_effect = {
+		clr_country_flag = to_allow_absolute_empire_reforms
+	}
+}

@@ -1,0 +1,441 @@
+custom_window = {
+    name = to_integration_window
+    potential = {
+        to_culture_assimilation_active = yes
+    }
+}
+
+custom_icon = {
+    name = to_integration_bg
+    frame = {
+        number = 1
+        trigger = {
+            to_has_tribal_integration = yes
+        }
+    }
+    frame = {
+        number = 2
+        trigger = {
+            culture = elysameric
+			owner = {
+				culture_group = byzantine
+			}
+        }
+    }
+    # frame = {
+    #     number = 8
+    #     trigger = {
+    #         culture = skraeling
+	# 		owner = {
+	# 			culture_group = norse_g
+	# 		}
+    #     }
+    # }
+    frame = {
+        number = 13
+        trigger = {
+            OR = {
+                culture = muisca
+                culture = cara
+                culture_group = andean_group
+                AND = {
+                    culture_group = spartakian_group
+                    OR = {
+                        region = peru_region
+                        region = upper_peru_region
+                    }
+                    OR = {
+                        has_terrain = mountain
+                        has_terrain = highlands
+                    }
+                }
+            }
+            NOT = {
+                OR = {
+                    has_province_modifier = to_nat_tribal_development
+                    has_province_modifier = to_nat_had_tribal_development
+                }
+            }
+        }
+    }
+    frame = {
+        number = 12
+        trigger = {
+            OR = {
+                culture_group = maya
+                AND = {
+                    culture_group = spartakian_group
+                    OR = {
+                        region = central_america_region
+                        continent = south_america
+                    }
+                }
+            }
+        }
+    }
+    frame = {
+        number = 9
+        trigger = {
+            OR = {
+                culture_group = spartakian_group
+                culture_group = otomanguean
+                culture_group = central_american
+                culture_group = aridoamerican
+            }
+        }
+    }
+    frame = {
+        number = 7
+        trigger = {
+            culture_group = norse_g
+        }
+    }
+    frame = {
+        number = 1
+        trigger = {
+            nhs_culturally_native = yes
+        }
+    }
+    frame = {
+        number = 6
+        trigger = {
+            OR = {
+                continent = north_america
+                continent = south_america
+            }
+        }
+    }
+    frame = {
+        number = 3
+        trigger = {
+            OR = {
+                to_has_greek_integration = yes
+                culture_group = byzantine
+                culture = georgian
+                culture = circassian
+                culture = armenian
+                culture = albanian
+            }
+        }
+    }
+    frame = {
+        number = 11
+        trigger = {
+            region = anatolia_region
+        }
+    }
+    frame = {
+        number = 10
+        trigger = {
+            OR = {
+                culture_group = altaic
+                culture_group = tartar
+            }
+        }
+    }
+    frame = {
+        number = 5
+        trigger = {
+            OR = {
+                culture_group = turko_semitic
+                culture_group = maghrebi
+                culture_group = iranian
+                superregion = near_east_superregion
+                superregion = persia_superregion
+                superregion = africa_superregion
+                region = central_asia_region
+            }
+        }
+    }
+    frame = {
+        number = 4
+        trigger = {
+            to_has_european_culture_integration = yes
+        }
+    }
+    frame = {
+        number = 2
+        trigger = { }
+    }
+}
+
+custom_icon = {
+    name = to_ci_core_display
+    tooltip = to_ci_core_display_tooltip
+    potential = {
+        NOT = { has_province_flag = to_assimilation_progressing }
+    }
+    frame = {
+        number = 1
+        trigger = {
+            owner = {
+                is_core = PREV
+            }
+        }
+    }
+    frame = {
+        number = 2
+        trigger = { }
+    }
+}
+
+custom_icon = {
+    name = to_ci_religion_display
+    tooltip = to_ci_religion_display_tooltip
+    potential = {
+        NOT = { has_province_flag = to_assimilation_progressing }
+        NOT = { to_has_greek_integration = yes }
+    }
+    frame = {
+        number = 1
+        trigger = {
+            OR = {
+                has_owner_religion = yes
+                tolerance_to_this = 0
+            }
+        }
+    }
+    frame = {
+        number = 2
+        trigger = { }
+    }
+}
+
+custom_icon = {
+    name = to_ci_separatism_display
+    tooltip = to_ci_separatism_display_tooltip
+    potential = {
+        NOT = { has_province_flag = to_assimilation_progressing }
+        NOT = { to_has_greek_integration = yes }
+    }
+    frame = {
+        number = 1
+        trigger = {
+            NOT = { nationalism = 1 }
+        }
+    }
+    frame = {
+        number = 2
+        trigger = { }
+    }
+}
+
+custom_icon = {
+    name = to_ci_integration_start
+    # tooltip = to_ci_integration_start_tooltip
+    potential = {
+        has_province_flag = to_assimilation_progressing
+    }
+    frame = {
+        number = 1
+        trigger = {
+            to_nat_tribal_native_culture_province = yes
+        }
+    }
+    frame = {
+        number = 3
+        trigger = {
+            to_has_greek_integration = yes
+        }
+    }
+    frame = {
+        number = 2
+        trigger = {
+            OR = {
+                to_has_culture_assimilation = yes
+                to_has_european_culture_integration = yes    
+            }
+        }
+    }
+    frame = {
+        number = 1
+        trigger = {
+            to_has_tribal_integration = yes
+        }
+    }
+    frame = {
+        number = 2
+        trigger = { }
+    }
+}
+
+custom_icon = {
+    name = to_ci_integration_end
+    tooltip = to_ci_integration_end_tooltip
+    potential = {
+        has_province_flag = to_assimilation_progressing
+    }
+    frame = {
+        number = 4
+        trigger = {
+            owner = {
+                culture_group = norse_g
+            }
+            culture = skraeling
+        }
+    }
+    frame = {
+        number = 3
+        trigger = {
+            owner = {
+                culture_group = byzantine
+            }
+            OR = {
+                culture = elysameric
+                to_has_albanian_assimilation = yes
+                AND = {
+                    owner = {
+                        to_enabled_mesoamerican_assimilation = yes
+                    }
+                    to_mesoamerican_assimilation_province = yes
+                }
+                AND = {
+                    owner = {
+                        to_enabled_spartan_assimilation = yes
+                    }
+                    to_spartan_assimilation_province = yes
+                }
+                AND = {
+                    owner = {
+                        to_enabled_norse_assimilation = yes
+                    }
+                    to_norse_assimilation_province = yes
+                }
+            }
+        }
+    }
+    frame = {
+        number = 1
+        trigger = {
+            OR = {
+                to_has_culture_assimilation = yes
+                to_has_greek_integration = yes
+                to_has_european_culture_integration = yes
+            }
+        }
+    }
+    frame = {
+        number = 2
+        trigger = {
+            to_has_tribal_integration = yes
+        }
+    }
+    frame = {
+        number = 1
+        trigger = { }
+    }
+}
+
+custom_icon = {
+    name = to_ci_integration_inactive_icon
+    tooltip = to_ci_integration_inactive_icon_tooltip
+    potential = {
+        NOT = { has_province_flag = to_assimilation_progressing }
+    }
+    frame = {
+        number = 4
+        trigger = {
+            owner = {
+                culture_group = norse_g
+            }
+            culture = skraeling
+        }
+    }
+    frame = {
+        number = 3
+        trigger = {
+            owner = {
+                culture_group = byzantine
+            }
+            OR = {
+                culture = elysameric
+                AND = {
+                    owner = {
+                        to_enabled_mesoamerican_assimilation = yes
+                    }
+                    to_mesoamerican_assimilation_province = yes
+                }
+                AND = {
+                    owner = {
+                        to_enabled_spartan_assimilation = yes
+                    }
+                    to_spartan_assimilation_province = yes
+                }
+                AND = {
+                    owner = {
+                        to_enabled_norse_assimilation = yes
+                    }
+                    to_norse_assimilation_province = yes
+                }
+            }
+        }
+    }
+    frame = {
+        number = 1
+        trigger = {
+            OR = {
+                to_has_culture_assimilation = yes
+                to_has_greek_integration = yes
+                to_has_european_culture_integration = yes
+            }
+        }
+    }
+    frame = {
+        number = 2
+        trigger = {
+            to_has_tribal_integration = yes
+        }
+    }
+    frame = {
+        number = 1
+        trigger = { }
+    }
+}
+
+custom_icon = {
+    name = to_ci_values_display
+    potential = {
+        has_province_flag = to_assimilation_progressing
+    }
+}
+
+custom_text_box = {
+    name = to_ci_base_progress
+    tooltip = to_ci_base_progress_tooltip
+    potential = {
+        has_province_flag = to_assimilation_progressing
+    }
+}
+
+custom_text_box = {
+    name = to_ci_integration_modifier
+    tooltip = to_ci_integration_modifier_tooltip
+    potential = {
+        has_province_flag = to_assimilation_progressing
+    }
+}
+
+custom_text_box = {
+    name = to_ci_completion_time
+    tooltip = to_ci_completion_time_tooltip
+    potential = {
+        has_province_flag = to_assimilation_progressing
+    }
+}
+
+custom_icon = {
+    name = to_integration_progress_bar_frame
+    tooltip = to_integration_progress_bar_frame_tooltip
+    potential = {
+        has_province_flag = to_assimilation_progressing
+    }
+}
+
+custom_icon = {
+    name = to_integration_progress_bar
+    potential = {
+        has_province_flag = to_assimilation_progressing
+    }
+
+    frame_variable = "to_assimilation_progress_display"
+}

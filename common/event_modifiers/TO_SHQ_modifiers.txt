@@ -1,0 +1,54 @@
+### Albania
+
+nhs2_albanian_quarter = {
+	local_build_cost = 0.1
+	local_unrest = 3
+	picture = "albanian_majority_icon"
+}
+
+nhs2_albanian_majority = {
+	local_unrest = 2
+	local_autonomy = 0.05
+	# local_tax_modifier = -0.20
+	# local_production_efficiency = -0.20
+	# local_manpower_modifier = -0.20
+	local_defensiveness = 0.5
+	local_missionary_strength = -0.02
+	min_local_autonomy = 50
+	picture = "albanian_majority_icon"
+}
+
+nhs2_albanian_majority2 = {
+	local_unrest = 2
+	local_autonomy = 0.05
+	local_defensiveness = 0.25
+	picture = "albanian_majority_icon"
+}
+
+nhs2_albanian_rights = {
+	local_unrest = -2
+	local_autonomy = 0.2
+	local_tax_modifier = -0.20
+	local_production_efficiency = -0.20
+	local_manpower_modifier = -0.20
+	picture = "albanian_majority_icon"
+}
+
+nhs2_albania_guerilla_warfare = {
+	local_defensiveness = 0.5
+	garrison_growth = 1
+}
+
+nhs2_albanians_pacified = {
+	local_unrest = -5
+}
+
+nhs2_albanians_albania_treaty = {
+	prestige = -0.5
+}
+
+
+# Timers
+
+nhs2_albanians_settling_timer = {
+}

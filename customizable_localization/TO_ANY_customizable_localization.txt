@@ -1,0 +1,678 @@
+defined_text = {
+	name = GetEnforceReligionLD
+	random = no
+
+	text = {
+		localisation_key = fifty_tt
+		trigger = {
+			FROM = {
+				religion_group = ROOT
+			}
+		}
+	}
+
+	text = {
+		localisation_key = hundred_tt
+	}
+}
+
+defined_text = {
+	name = GetEnforceCultureCulture
+	random = no
+
+	text = {
+		localisation_key = to_primary_culture_tt
+		trigger = {
+			ROOT = {
+				NOT = { nhs_post_fragmentation_culturally_elysian = yes }
+			}
+		}
+	}
+
+	text = {
+		localisation_key = arkadian
+		trigger = {
+			ROOT = {
+				has_country_flag = nhs_arkadians_appeared_country
+			}
+			FROM = {
+				capital_scope = {
+					nhs_arkadian_province = yes
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = borealian
+		trigger = {
+			ROOT = {
+				has_country_flag = nhs_borealians_appeared_country
+			}
+			FROM = {
+				capital_scope = {
+					nhs_borealian_province = yes
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = hyperborealian
+		trigger = {
+			ROOT = {
+				has_country_flag = nhs_hyperborealians_appeared_country
+			}
+			FROM = {
+				capital_scope = {
+					nhs_hyperborealian_province = yes
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = hesperidian
+		trigger = {
+			ROOT = {
+				has_country_flag = nhs_hesperidians_appeared_country
+			}
+			FROM = {
+				capital_scope = {
+					nhs_hesperidian_province = yes
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = kykladian
+		trigger = {
+			ROOT = {
+				has_country_flag = nhs_kykladian_appeared_country
+			}
+			FROM = {
+				capital_scope = {
+					nhs_kykladian_province = yes
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = elyric
+		trigger = {
+			ROOT = {
+				has_country_flag = nhs_elyric_appeared_country
+			}
+			FROM = {
+				capital_scope = {
+					nhs_elyric_province = yes
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = eleutheroi
+		trigger = {
+			ROOT = {
+				has_country_flag = nhs_eleutheroi_appeared_country
+			}
+			FROM = {
+				capital_scope = {
+					nhs_eleutheroi_province = yes
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = romaic
+		trigger = {
+			FROM = {
+				NOT = { has_global_flag = nhs_romaic_to_elysian }
+				capital_scope = {
+					OR = {
+						region = northeast_america_region
+						region = southeast_america_region
+					}
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = elysian
+		trigger = {
+			FROM = {
+				capital_scope = {
+					OR = {
+						region = northeast_america_region
+						region = southeast_america_region
+					}
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_primary_culture_tt
+	}
+}
+
+
+# Removed requirements met display due to it not working properly on trade mapmode
+# defined_text = {
+# 	name = HasMarketplace
+# 	random = no
+
+# 	text = {
+# 		localisation_key = to_minus_space_tt
+# 		trigger = {
+# 			total_development = 1
+# 		}
+# 	}
+
+# 	text = {
+# 		localisation_key = to_x_icon_tt
+# 		trigger = {
+# 			OR = {
+# 				is_city = no
+# 				NOT = {
+# 					OR = {
+# 						has_building = marketplace
+# 						has_building = trade_depot
+# 						has_building = stock_exchange
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	text = {
+# 		localisation_key = to_y_icon_tt
+# 	}
+# }
+
+# defined_text = {
+# 	name = Has6Production
+# 	random = no
+
+# 	text = {
+# 		localisation_key = to_minus_space_tt
+# 		trigger = {
+# 			total_development = 1
+# 		}
+# 	}
+
+# 	text = {
+# 		localisation_key = to_x_icon_tt
+# 		trigger = {
+# 			OR = {
+# 				is_city = no
+# 				NOT = { base_production = 6 }
+# 			}
+# 		}
+# 	}
+
+# 	text = {
+# 		localisation_key = to_y_icon_tt
+# 	}
+# }
+
+# defined_text = {
+# 	name = Has10Development
+# 	random = no
+
+# 	text = {
+# 		localisation_key = to_minus_space_tt
+# 		trigger = {
+# 			total_development = 1
+# 		}
+# 	}
+
+# 	text = {
+# 		localisation_key = to_x_icon_tt
+# 		trigger = {
+# 			OR = {
+# 				is_city = no
+# 				NOT = { development = 10 }
+# 			}
+# 		}
+# 	}
+
+# 	text = {
+# 		localisation_key = to_y_icon_tt
+# 	}
+# }
+
+defined_text = {
+	name = GetProtectorateAnnexationDate
+	random = no
+
+	text = {
+		localisation_key = to_annex_protectorate_date
+		trigger = {
+			FROM = {
+				has_country_flag = to_became_a_subject
+				check_variable = {
+					which = to_protectorate_annexation_month
+					value = 1
+				}
+				check_variable = {
+					which = to_protectorate_annexation_year_20
+					value = 1
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetGodGods
+	random = no
+
+	text = {
+		localisation_key = to_god_tt
+		trigger = {
+			OR = {
+				religion_group = muslim
+				religion_group = christian
+				religion_group = jewish_group
+				religion_group = zoroastrian_group
+			}
+		}
+	}
+	text = {
+		localisation_key = to_gods_tt
+	}
+}
+
+defined_text = {
+	name = GetGodGodsCap
+	random = no
+
+	text = {
+		localisation_key = to_god_tt
+		trigger = {
+			OR = {
+				religion_group = muslim
+				religion_group = christian
+				religion_group = jewish_group
+				religion_group = zoroastrian_group
+			}
+		}
+	}
+	text = {
+		localisation_key = to_gods_cap_tt
+	}
+}
+
+defined_text = {
+	name = GetSubjectAnnexationMonth
+	random = no
+
+	text = {
+		localisation_key = January
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 1
+			}
+		}
+	}
+	text = {
+		localisation_key = February
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 2
+			}
+		}
+	}
+	text = {
+		localisation_key = March
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 3
+			}
+		}
+	}
+	text = {
+		localisation_key = April
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 4
+			}
+		}
+	}
+	text = {
+		localisation_key = May
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 5
+			}
+		}
+	}
+	text = {
+		localisation_key = June
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 6
+			}
+		}
+	}
+	text = {
+		localisation_key = July
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 7
+			}
+		}
+	}
+	text = {
+		localisation_key = August
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 8
+			}
+		}
+	}
+	text = {
+		localisation_key = September
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 9
+			}
+		}
+	}
+	text = {
+		localisation_key = October
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 10
+			}
+		}
+	}
+	text = {
+		localisation_key = November
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 11
+			}
+		}
+	}
+	text = {
+		localisation_key = December
+		trigger = {
+			is_variable_equal = {
+				which = to_protectorate_annexation_month
+				value = 12
+			}
+		}
+	}
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetSubjectAnnexationMonthFrom
+	random = no
+
+	text = {
+		localisation_key = January
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 1
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = February
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 2
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = March
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 3
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = April
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 4
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = May
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 5
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = June
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 6
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = July
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 7
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = August
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 8
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = September
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 9
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = October
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 10
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = November
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 11
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = December
+		trigger = {
+			FROM = {
+				is_variable_equal = {
+					which = to_protectorate_annexation_month
+					value = 12
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetPrices37Title
+	random = no
+
+	text = {
+		localisation_key = prices.37.ta
+		trigger = {
+			NOT = { nhs_check_all_elysian_tags = { CONDITION = exists } }
+		}
+	}
+	text = {
+		localisation_key = prices.37.tb
+	}
+}
+
+defined_text = {
+	name = AbrahamicPenaltyOldGods
+	random = no
+	text = {
+		localisation_key = to_abrahamic_conversion_penalty_old_gods_with_overlord_tt
+		trigger = {
+			owner = {
+				NOT = { has_mission = to_the_old_gods_mission }
+				is_subject = yes
+				overlord = {
+					has_mission = to_the_old_gods_mission
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = to_abrahamic_conversion_penalty_old_gods_tt
+		trigger = {
+			owner = {
+				has_mission = to_the_old_gods_mission
+			}
+		}
+	}
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetMissionaryStrengthFromBattlesReligion
+	random = no
+	# If you want this to work on other religions expand this
+	text = {
+		localisation_key = aztlan_worship
+		trigger = {
+			has_province_flag = to_missionary_strength_from_battles_aztlan
+		}
+	}
+}
+
+defined_text = {
+	name = NoEmperorOfChina
+	random = no
+	text = {
+		localisation_key = to_no_emperor_of_china_country_tt
+		trigger = {
+			has_dlc = "Mandate of Heaven"
+		}
+	}
+	text = {
+		localisation_key = to_no_country_has_celestial_empire_tt
+	}
+}
+
+defined_text = {
+	name = GetCurrentHellenicPatronDeity
+	random = no
+	text = { localisation_key = nhs_hellenic_zeus trigger = { has_personal_deity = nhs_hellenic_zeus } }
+	text = { localisation_key = nhs_hellenic_poseidon trigger = { has_personal_deity = nhs_hellenic_poseidon } }
+	text = { localisation_key = nhs_hellenic_athena trigger = { has_personal_deity = nhs_hellenic_athena } }
+	text = { localisation_key = nhs_hellenic_ares trigger = { has_personal_deity = nhs_hellenic_ares } }
+	text = { localisation_key = nhs_hellenic_hermes trigger = { has_personal_deity = nhs_hellenic_hermes } }
+	text = { localisation_key = nhs_hellenic_aphrodite trigger = { has_personal_deity = nhs_hellenic_aphrodite } }
+
+	text = { localisation_key = nhs_hellenic_reformed_poseidon trigger = { has_personal_deity = nhs_hellenic_reformed_poseidon } }
+	text = { localisation_key = nhs_hellenic_reformed_amphitrite trigger = { has_personal_deity = nhs_hellenic_reformed_amphitrite } }
+	text = { localisation_key = nhs_hellenic_reformed_oceanus trigger = { has_personal_deity = nhs_hellenic_reformed_oceanus } }
+	text = { localisation_key = nhs_hellenic_reformed_atlas trigger = { has_personal_deity = nhs_hellenic_reformed_atlas } }
+	text = { localisation_key = nhs_hellenic_reformed_aphrodite trigger = { has_personal_deity = nhs_hellenic_reformed_aphrodite } }
+	text = { localisation_key = nhs_hellenic_reformed_orion trigger = { has_personal_deity = nhs_hellenic_reformed_orion } }
+	text = { localisation_key = nhs_hellenic_reformed_triton trigger = { has_personal_deity = nhs_hellenic_reformed_triton } }
+
+	text = { localisation_key = nhs_hellenic_reformed_zeus trigger = { has_personal_deity = nhs_hellenic_reformed_zeus } }
+	text = { localisation_key = nhs_hellenic_reformed_hera trigger = { has_personal_deity = nhs_hellenic_reformed_hera } }
+	text = { localisation_key = nhs_hellenic_reformed_demeter trigger = { has_personal_deity = nhs_hellenic_reformed_demeter } }
+	text = { localisation_key = nhs_hellenic_reformed_hermes trigger = { has_personal_deity = nhs_hellenic_reformed_hermes } }
+	text = { localisation_key = nhs_hellenic_reformed_athena trigger = { has_personal_deity = nhs_hellenic_reformed_athena } }
+	text = { localisation_key = nhs_hellenic_reformed_heracles trigger = { has_personal_deity = nhs_hellenic_reformed_heracles } }
+	text = { localisation_key = nhs_hellenic_reformed_hephasteus trigger = { has_personal_deity = nhs_hellenic_reformed_hephasteus } }
+
+	text = { localisation_key = nhs_hellenic_reformed_apollo trigger = { has_personal_deity = nhs_hellenic_reformed_apollo } }
+	text = { localisation_key = nhs_hellenic_reformed_artemis trigger = { has_personal_deity = nhs_hellenic_reformed_artemis } }
+	text = { localisation_key = nhs_hellenic_reformed_dionysus trigger = { has_personal_deity = nhs_hellenic_reformed_dionysus } }
+	text = { localisation_key = nhs_hellenic_reformed_leto trigger = { has_personal_deity = nhs_hellenic_reformed_leto } }
+	text = { localisation_key = nhs_hellenic_reformed_orpheus trigger = { has_personal_deity = nhs_hellenic_reformed_orpheus } }
+	text = { localisation_key = nhs_hellenic_reformed_chiron trigger = { has_personal_deity = nhs_hellenic_reformed_chiron } }
+	text = { localisation_key = nhs_hellenic_reformed_perseus trigger = { has_personal_deity = nhs_hellenic_reformed_perseus } }
+	
+	text = { localisation_key = Leonidas_2 trigger = { has_personal_deity = Leonidas_2 } }
+	text = { localisation_key = Ketsalon_2 trigger = { has_personal_deity = Ketsalon_2 } }
+}

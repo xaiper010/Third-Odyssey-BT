@@ -1,0 +1,752 @@
+#AVIALABLE CUSTOM LOCALISATION KEYS
+#When adding new custom loc keys, add them to the appropriate category (or add a new one) and describe them. Name the strings "String_X" where x is its content.
+# To not display anything, you can use 'localisation_key = ""'
+# Please add one example sentence for each key.
+
+defined_text = {
+	name = GetCouncilName
+	random = no
+	text = {
+		localisation_key = to_council_name_cities
+		trigger = {
+			culture_group = muskogean
+		}
+	}
+	text = {
+		localisation_key = to_council_name_chiefs
+		trigger = {
+			OR = {
+				has_reform = to_native_reform_stratified
+				has_reform = to_native_reform_law_of_peace
+			}
+		}
+	}
+	text = {
+		localisation_key = to_council_name_elders
+	}
+}
+
+defined_text = {
+	name = GetPotentialMigratoryTax
+	random = no
+	
+	text = {
+		localisation_key = to_nat_green_one_tt
+		trigger = {
+			capital_scope = {
+				base_tax = 2
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			NOT = { 
+				capital_scope = {
+					base_tax = 2
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPotentialMigratoryProduction
+	random = no
+	
+	text = {
+		localisation_key = to_nat_green_one_tt
+		trigger = {
+			capital_scope = {
+				base_production = 2
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			NOT = { 
+				capital_scope = {
+					base_production = 2
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPotentialMigratoryManpower
+	random = no
+	
+	text = {
+		localisation_key = to_nat_green_one_tt
+		trigger = {
+			capital_scope = {
+				base_manpower = 2
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_yellow_zero_tt
+		trigger = {
+			NOT = {
+				capital_scope = {
+					base_manpower = 2
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetTribalDevelopment
+	random = no
+	
+	text = {
+		localisation_key = to_nat_green_tribal_development_tt
+		trigger = {
+			check_variable = {
+				which = to_nat_local_tribal_development
+				value = 1
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_nat_yellow_tribal_development_tt
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = to_nat_local_tribal_development
+					value = 1
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetTribalTax
+	random = no
+	
+	text = {
+		localisation_key = to_nat_green_tribal_tax_tt
+		trigger = {
+			check_variable = {
+				which = to_nat_local_tribal_tax
+				value = 1
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_nat_yellow_tribal_tax_tt
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = to_nat_local_tribal_tax
+					value = 1
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetTribalProduction
+	random = no
+	
+	text = {
+		localisation_key = to_nat_green_tribal_production_tt
+		trigger = {
+			check_variable = {
+				which = to_nat_local_tribal_production
+				value = 1
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_nat_yellow_tribal_production_tt
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = to_nat_local_tribal_production
+					value = 1
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetTribalManpower
+	random = no
+	
+	text = {
+		localisation_key = to_nat_green_tribal_manpower_tt
+		trigger = {
+			check_variable = {
+				which = to_nat_local_tribal_manpower
+				value = 1
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_nat_yellow_tribal_manpower_tt
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = to_nat_local_tribal_manpower
+					value = 1
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetTDResRemovingDevelopment
+	random = no
+	text = {
+		localisation_key = to_nat_td_res_removing_development_no_city_tt
+		trigger = {
+			is_city = no
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_removing_development_city_tt
+		trigger = {
+			nhs_culturally_native = yes
+			owner = {
+				NOT = { primary_culture = PREV }
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_removing_development_city_same_culture_tt
+	}
+}
+
+defined_text = {
+	name = GetTDResPopulation
+	random = no
+
+	text = {
+		localisation_key = to_nat_td_res_population_small_empty_tt
+		trigger = {
+			is_city = no
+			is_empty = yes
+			NOT = { native_size = 10 }
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_status_change_tt
+		trigger = {
+			is_city = no
+			is_empty = no
+			# has_owner_culture = no
+			owner = {
+				if = {
+					limit = {
+						is_colonial_nation = no
+					}
+					# Natives will not displace other natives (unless they attack natives)
+					NOT = { has_native_government = yes }
+					#
+					OR = {
+						to_nat_immidiate_displacement_condition_with_estate = yes
+						to_nat_displacement_condition_no_estate = yes
+					}
+				}
+				else = {
+					overlord = {
+						NOT = { has_native_government = yes }
+						#
+						OR = {
+							to_nat_immidiate_displacement_condition_with_estate = yes
+							to_nat_displacement_condition_no_estate = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_population_elysia_area_tt
+		trigger = {
+			is_city = no
+			area = chesapeake_area
+			NOT = { has_province_flag = nhs_got_core }
+			owner = {
+				nhs_check_all_elysian_tags = { CONDITION = tag }
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_population_nordic_coast_tt
+		trigger = {
+			is_city = no
+			to_vov_eligible_for_coastal_bonus = yes
+			owner = {
+				OR = {
+					primary_culture = varangian_e
+					culture_group = norse_g
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_population_varangian_stronghold_tt
+		trigger = {
+			is_city = no
+			has_province_flag = to_static_colonial_culture
+			OR = {
+				has_province_modifier = to_varangian_stronghold_independent
+				has_province_modifier = to_varangian_stronghold
+			}
+		}
+	}
+	
+	# text = {
+	# 	localisation_key = to_nat_td_res_population_large_empty_tt
+	# 	trigger = {
+	# 		is_city = no
+	# 		is_empty = yes
+	# 		native_size = 10
+	# 	}
+	# }
+
+	text = {
+		localisation_key = to_nat_td_res_population_free_colonies_large_tt
+		trigger = {
+			is_city = no
+			native_size = 20
+			owner = {
+				if = {
+					limit = {
+						is_colonial_nation = no
+					}
+					has_idea = free_colonies
+				}
+				else = {
+					overlord = {
+						has_idea = free_colonies
+					}
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_population_large_tt
+		trigger = {
+			is_city = no
+			# is_empty = yes
+			native_size = 10
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_population_inclusive_citizenship_tt
+		trigger = {
+			is_city = no
+			native_size = 1
+			owner = {
+				is_colonial_nation = no
+				OR = {
+					has_estate_privilege = nhs_native_priv_inclusive_citizenship_early
+					has_estate_privilege = nhs_native_priv_inclusive_citizenship_mid
+					has_estate_privilege = to_vov_native_priv_benevolent_conquerors
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_population_inclusive_citizenship_colony_tt
+		trigger = {
+			is_city = no
+			native_size = 1
+			owner = {
+				is_colonial_nation = yes
+				overlord = {
+					OR = {
+						has_estate_privilege = nhs_native_priv_inclusive_citizenship_early
+						has_estate_privilege = nhs_native_priv_inclusive_citizenship_mid
+						has_estate_privilege = to_vov_native_priv_benevolent_conquerors
+					}
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_population_free_colonies_small_tt
+		trigger = {
+			is_city = no
+			NOT = { native_size = 20 }
+			owner = {
+				is_colonial_nation = no
+				has_idea = free_colonies
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_population_free_colonies_small_colony_tt
+		trigger = {
+			is_city = no
+			NOT = { native_size = 20 }
+			owner = {
+				is_colonial_nation = yes
+				overlord = {
+					has_idea = free_colonies
+				}
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_nat_td_res_population_small_tt
+		trigger = {
+			is_city = no
+			is_empty = no
+			NOT = { native_size = 10 }
+		}
+	}
+}
+
+defined_text = {
+	name = GetTDResDisplacement
+	random = no
+	
+	text = {
+		localisation_key = to_nat_td_res_displacement_tt
+		trigger = {
+			is_empty = no
+		}
+	}
+	
+	text = {
+		localisation_key = to_nat_td_res_displacement_empty_tt
+		trigger = {
+			is_empty = yes
+		}
+	}
+}
+
+defined_text = {
+	name = GetTDResDisplacementPreText
+	random = no
+	
+	text = {
+		localisation_key = to_nat_td_res_displacement_pretext_no_colony_tt
+		trigger = {
+			owner = {
+				is_colonial_nation = no
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_nat_td_res_displacement_pretext_colony_tt
+		trigger = {
+			owner = {
+				is_colonial_nation = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetTDResChangingCulture
+	random = no
+	text = {
+		localisation_key = to_nat_td_res_culture_change_tt
+		trigger = {
+			is_city = yes
+			owner = {
+				NOT = { has_native_government = yes }
+				NOT = { culture_group = PREV }
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetTrueFalseNativeGovernment
+	random = no
+	
+	text = {
+		localisation_key = to_x_icon_tt
+		trigger = {
+			owner = {
+				if = {
+					limit = {
+						is_colonial_nation = no
+					}
+					has_native_government = yes
+				}
+				else = {
+					overlord = {
+						has_native_government = yes
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_y_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetTrueFalseLocalCulture
+	random = no
+	
+	text = {
+		localisation_key = to_x_icon_tt
+		trigger = {
+			OR = {
+				is_empty = yes
+				has_owner_culture = yes
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_y_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetTrueFalseOrEstate
+	random = no
+	
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			owner = {
+				if = {
+					limit = {
+						is_colonial_nation = no
+					}
+					OR = {
+						to_nat_displacement_condition_with_estate = yes
+						to_nat_displacement_condition_no_estate = yes
+					}
+				}
+				else = {
+					overlord = {
+						OR = {
+							to_nat_displacement_condition_with_estate = yes
+							to_nat_displacement_condition_no_estate = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetTrueFalseEstateHas
+	random = no
+	
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			owner = {
+				if = {
+					limit = {
+						is_colonial_nation = no
+					}
+					to_nat_displacement_condition_with_estate = yes
+				}
+				else = {
+					overlord = {
+						to_nat_displacement_condition_with_estate = yes
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetTrueFalseEstateHasNot
+	random = no
+	
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			owner = {
+				if = {
+					limit = {
+						is_colonial_nation = no
+					}
+					to_nat_displacement_condition_no_estate = yes
+				}
+				else = {
+					overlord = {
+						to_nat_displacement_condition_no_estate = yes
+					}
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	random = no
+	name = to_nat_tribal_development_2_GetTitle
+	
+	text = {
+		localisation_key = to_nat_tribal_development.2.ta
+		trigger = {
+			FROM = { owned_by = ROOT }
+		}
+	}
+	
+	text = {
+		localisation_key = to_nat_tribal_development.2.tb
+	}
+}
+
+defined_text = {
+	random = no
+	name = GetIntegratingPrivilegeName
+	
+	text = {
+		localisation_key = to_vov_native_priv_benevolent_conquerors
+		trigger = {
+			owner = {
+				nhs_check_all_vinland = { CONDITION = tag }
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = nhs_native_priv_inclusive_citizenship_mid
+	}
+}
+
+defined_text = {
+	random = no
+	name = CheckPotentialFederationTag
+
+	text = {
+		trigger = {
+			OR = {
+				has_country_flag = to_nat_formed_confederation_tag
+				NOT = {
+					OR = {
+						to_will_become_federation_tag = { TAG = CRE }
+						to_will_become_federation_tag = { TAG = SIO }
+						to_will_become_federation_tag = { TAG = TF0 }
+						to_will_become_federation_tag = { TAG = HUR }
+						to_will_become_federation_tag = { TAG = ILL }
+						to_will_become_federation_tag = { TAG = IRO }
+						to_will_become_federation_tag = { TAG = SHA }
+						to_will_become_federation_tag = { TAG = WB0 }
+					}
+				}
+			}
+			
+		}
+		localisation_key = string_empty
+	}
+
+	text = {
+		localisation_key = to_nat_change_tag_to_federation_tt
+	}
+}
+
+defined_text = {
+	random = no
+	name = GetPotentialFederationTag
+
+	text = {
+		localisation_key = to_nat_change_tag_to_federation_tt
+	}
+
+	text = {
+		trigger = {
+			to_will_become_federation_tag = { TAG = CRE }
+		}
+		localisation_key = CRE
+	}
+
+	text = {
+		trigger = {
+			to_will_become_federation_tag = { TAG = SIO }
+		}
+		localisation_key = SIO
+	}
+
+	text = {
+		trigger = {
+			to_will_become_federation_tag = { TAG = TF0 }
+		}
+		localisation_key = TF0
+	}
+
+	text = {
+		trigger = {
+			to_will_become_federation_tag = { TAG = HUR }
+		}
+		localisation_key = HUR
+	}
+
+	text = {
+		trigger = {
+			to_will_become_federation_tag = { TAG = ILL }
+		}
+		localisation_key = ILL
+	}
+
+	text = {
+		trigger = {
+			to_will_become_federation_tag = { TAG = IRO }
+		}
+		localisation_key = IRO
+	}
+
+	text = {
+		trigger = {
+			to_will_become_federation_tag = { TAG = SHA }
+		}
+		localisation_key = SHA
+	}
+
+	text = {
+		trigger = {
+			to_will_become_federation_tag = { TAG = WB0 }
+		}
+		localisation_key = WB0
+	}
+}

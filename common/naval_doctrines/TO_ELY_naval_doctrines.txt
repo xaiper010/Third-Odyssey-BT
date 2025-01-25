@@ -1,0 +1,17 @@
+elysian_marines =
+{
+	can_select = {
+		is_primitive = no
+		OR = {
+			nhs_culturally_elysian = yes
+			nhs_check_all_elysian_tags_expanded = { CONDITION = tag }
+		}
+	}
+
+	country_modifier = {
+		sailor_maintenance_modifer = -0.2
+		allowed_marine_fraction = 0.25
+	}
+
+	button_gfx = 32
+}

@@ -1,0 +1,150 @@
+custom_button = {
+    name = to_remove_exarch_from_hre
+    tooltip = to_remove_exarch_from_hre_tooltip
+    potential = {
+        is_part_of_hre = yes
+        hre_size = 1
+        owner = {
+            is_subject_of_type = elysian_subject
+            overlord = {
+                ai = no
+            }
+        }
+    }
+    trigger = {
+        owner = {
+            overlord = {
+                is_emperor = no
+                NOT = { war_with = emperor }
+            }
+        }
+    }
+    effect = {
+        hidden_effect = {
+            if = {
+                limit = {
+                    is_part_of_hre = yes
+                }
+                set_in_empire = no
+                owner = {
+                    overlord = {
+                        emperor = {
+                            add_opinion = {
+                                who = PREV
+                                modifier = hre_province_left
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    frame = {  #Can define multiple frame clauses
+       number = 4
+   }
+}
+
+custom_button = {
+    name = to_change_personal_deity
+    tooltip = to_change_personal_deity_tooltip
+    potential = {
+        religion = pantheon_worship
+        ai = no
+    }
+    trigger = {
+        legitimacy = 50
+        estate_loyalty = {
+            estate = estate_church
+            loyalty = 30
+        }
+        NOT = { has_ruler_modifier = to_recently_changed_personal_deity }
+        custom_trigger_tooltip = {
+            tooltip = to_has_selected_deity_tt
+            to_has_hellenic_personal_deity = yes
+        }
+        if = {
+            limit = {
+                has_country_flag = to_choosing_deity
+            }
+            custom_trigger_tooltip = {
+                tooltip = to_does_not_have_hellenic_select_deity_event_tt
+                always = no
+            }
+        }
+    }
+    effect = {
+        add_legitimacy = -25
+        add_ruler_modifier = {
+            name = to_recently_changed_personal_deity
+            duration = 7300
+        }
+        set_country_flag = to_is_changing_deity
+        country_event = { id = to_hellenic_events.31 }
+    }
+}
+
+## Potential CoT
+
+# Without a transparent buckground building button in the background remains clickable if the button isn't active
+custom_icon = {
+    name = to_upgrade_potential_cot_bg
+    potential = {
+        has_province_modifier = to_dynamic_cot
+    }
+}
+
+custom_button = {
+    name = to_upgrade_potential_cot
+    tooltip = to_upgrade_potential_cot_tt
+    potential = {
+        has_province_modifier = to_dynamic_cot
+    }
+    trigger = {
+        hidden_trigger = {
+            owner = {
+                NOT = { has_country_flag = to_dynamic_cot_event_open }
+            }
+            country_or_subject_holds = FROM
+        }
+        base_production = 6
+        development = 15
+        custom_trigger_tooltip = {
+            tooltip = to_has_marketplace_or_upgrades_tt
+            OR = {
+                has_building = marketplace
+                has_building = trade_depot
+                has_building = stock_exchange
+            }
+        }
+    }
+    effect = {
+        hidden_effect = {
+            remove_province_modifier = to_dynamic_cot
+        }
+        custom_tooltip = to_upgrade_potential_cot_effect_tt
+        if = {
+			limit = {
+                owner = {
+                    NOT = { has_country_flag = to_dynamic_cot_event_open }
+                }
+				NOT = { province_has_center_of_trade_of_level = 1 }
+                base_production = 6
+                development = 15
+                custom_trigger_tooltip = {
+                    tooltip = to_has_marketplace_or_upgrades_tt
+                    OR = {
+                        has_building = marketplace
+                        has_building = trade_depot
+                        has_building = stock_exchange
+                    }
+                }
+			}
+            custom_tooltip = nhs_new_line_tt
+			custom_tooltip = to_click_to_create_cot_tt
+			hidden_effect = {
+                center_of_trade = 1
+				to_check_trade_center_modifiers_from_privileges = yes
+			}
+		}
+    }
+}

@@ -1,0 +1,1150 @@
+###################################################
+### CULTURAL ASSIMILATION
+###################################################
+
+
+defined_text = {
+	name = GetTrueFalseIsCored
+	random = no
+	
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			owner = {
+				is_core = PREV
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetTrueFalseToleratedReligion
+	random = no
+	
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			OR = {
+				has_owner_religion = yes
+				tolerance_to_this = 0
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetTrueFalseNoSeparatism
+	random = no
+	
+	text = {
+		localisation_key = to_y_icon_tt
+		trigger = {
+			NOT = { nationalism = 1 }
+		}
+	}
+	
+	text = {
+		localisation_key = to_x_icon_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationTooltip
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_tooltip_tt
+		trigger = {
+			has_province_flag = to_assimilation_progressing
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_no_progress_tt
+	}
+}
+
+defined_text = {
+	name = GetInactiveCultureAssimilationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_conditions_tt
+		trigger = {
+			NOT = { to_culture_assimilation_increasing = yes }
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetTribalIntegrationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_tribal_integration_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetTribalIntegrationTooltip
+	random = no
+	
+	text = {
+		localisation_key = to_tribal_integration_tooltip_tt
+		trigger = {
+			has_province_flag = to_assimilation_progressing
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_no_progress_tt
+	}
+}
+
+defined_text = {
+	name = GetInactiveTribalIntegrationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_tribal_integration_conditions_tt
+		trigger = {
+			NOT = { to_culture_assimilation_increasing = yes }
+		}
+	}
+	
+	text = {
+		localisation_key = to_tribal_integration_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetSymmachoiAssimilationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_roman_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetInactiveSymmachoiAssimilationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_conditions_tt
+		trigger = {
+			NOT = { to_culture_assimilation_increasing = yes }
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_roman_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetSkraelingAssimilationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_norse_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetInactiveSkraelingAssimilationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_conditions_tt
+		trigger = {
+			NOT = { to_culture_assimilation_increasing = yes }
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_norse_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetImperialIntegrationDesc
+	random = no
+
+	text = {
+		localisation_key = to_greek_integration_desc_tt
+		trigger = {
+			to_has_greek_integration = yes
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_integration_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureIntegrationTooltip
+	random = no
+	
+	text = {
+		localisation_key = to_culture_integration_tooltip_tt
+		trigger = {
+			has_province_flag = to_assimilation_progressing
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_no_progress_tt
+	}
+}
+
+defined_text = {
+	name = GetGreekIntegrationTooltip
+	random = no
+	
+	text = {
+		localisation_key = to_greek_integration_tooltip_tt
+		trigger = {
+			has_province_flag = to_assimilation_progressing
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_no_progress_tt
+	}
+}
+
+defined_text = {
+	name = GetInactiveImperialIntegrationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_greek_integration_inactive_tt
+		trigger = {
+			to_has_greek_integration = yes
+		}
+	}
+	
+	text = {
+		localisation_key = to_cultural_integration_inactive_tt
+	}
+}
+
+defined_text = {
+	name = GetInactiveGreekIntegrationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_greek_integration_conditions_tt
+		trigger = {
+			NOT = { to_greek_integration_increasing = yes }
+		}
+	}
+	
+	text = {
+		localisation_key = to_greek_integration_desc_tt
+	}
+}
+
+defined_text = {
+	name = GetInactiveCultureIntegrationDesc
+	random = no
+	
+	text = {
+		localisation_key = to_culture_integration_conditions_tt
+		trigger = {
+			NOT = { to_culture_integration_increasing = yes }
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_integration_desc_tt
+	}
+}
+
+
+defined_text = {
+	name = GetCultureAssimilationNeighboringProvinces
+	random = no
+	
+	text = {
+		localisation_key = to_yellow_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_assimilation_neighboring_provinces
+				value = 0
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_neighboring_provinces_tt
+	}
+}
+
+defined_text = {
+	name = GetTotalBaseAssimilation
+	random = no
+	
+	text = {
+		localisation_key = to_yellow_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_assimilation_base_total
+				value = 0
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_base_total_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationDevelopmentType
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_tribal_dev_tt
+		trigger = {
+			to_has_tribal_integration = yes
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_real_dev_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationDevelopment
+	random = no
+	
+	text = {
+		localisation_key = to_yellow_plus_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_assimilation_development
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_dev_max_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_assimilation_development
+				value = -0.5
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_dev_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationImprovedByOwner
+	random = no
+	
+	text = {
+		localisation_key = to_yellow_plus_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_assimilation_improved_by_owner
+				value = 0
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_improved_by_owner_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationSeparatism
+	random = no
+	
+	text = {
+		localisation_key = to_yellow_minus_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_assimilation_separatism
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_separatism_max_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_assimilation_separatism
+				value = -0.5
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_separatism_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationService
+	random = no
+	text = {
+		trigger = {
+			NOT = { has_province_flag = to_tribal_assimilation_native_estate_modifiers }
+		}
+		localisation_key = string_empty
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_service_enabled_tt
+		trigger = {
+			has_province_flag = to_tribal_assimilation_service_enabled
+			# owner = {
+			# 	has_estate_privilege = nhs_native_priv_citizenship_for_service
+			# }
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_service_disabled_tt
+		trigger = {
+			NOT = { has_province_flag = to_tribal_assimilation_service_enabled }
+			owner = {
+				has_country_flag = native_council_enabled_mid
+				# NOT = { has_estate_privilege = nhs_native_priv_citizenship_for_service }
+				NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationOfficials
+	random = no
+	
+	text = {
+		localisation_key = string_empty
+		trigger = {
+			NOT = { has_province_flag = to_tribal_assimilation_native_estate_modifiers }
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_officials_enabled_tt
+		trigger = {
+			has_province_flag = to_tribal_assimilation_officials_enabled
+			owner = {
+				# has_estate_privilege = nhs_native_priv_encourage_barbaroi_officials
+				NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_officials_disabled_tt
+		trigger = {
+			NOT = { has_province_flag = to_tribal_assimilation_officials_enabled }
+			owner = {
+				# NOT = { has_estate_privilege = nhs_native_priv_encourage_barbaroi_officials }
+				NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_open_ranks_enabled_tt
+		trigger = {
+			has_province_flag = to_tribal_assimilation_officials_enabled
+			# owner = {
+			# 	has_estate_privilege = to_vov_native_priv_open_ranks
+			# }
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_open_ranks_disabled_tt
+		trigger = {
+			NOT = { has_province_flag = to_tribal_assimilation_officials_enabled }
+			# owner = {
+			# 	NOT = { has_estate_privilege = to_vov_native_priv_open_ranks }
+			# }
+		}
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationCitizenship
+	random = no
+	
+	text = {
+		localisation_key = string_empty
+		trigger = {
+			NOT = { has_province_flag = to_tribal_assimilation_native_estate_modifiers }
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_citizenship_enabled_tt
+		trigger = {
+			has_province_flag = to_tribal_assimilation_citizenship_enabled
+			owner = {
+				NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_citizenship_disabled_tt
+		trigger = {
+			NOT = { has_province_flag = to_tribal_assimilation_citizenship_enabled }
+			owner = {
+				NOT = { nhs_check_all_vinland = { CONDITION = tag } }
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_benevolent_conquerors_enabled_tt
+		trigger = {
+			has_province_flag = to_tribal_assimilation_citizenship_enabled
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_benevolent_conquerors_disabled_tt
+		trigger = {
+			NOT = { has_province_flag = to_tribal_assimilation_citizenship_enabled }
+		}
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationSettlers
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_settlers_tt
+		trigger = {
+			has_province_flag = to_tribal_assimilation_settlers_enabled
+		}
+	}
+
+	text = {
+		localisation_key = string_empty
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationRecruitmentQuotas
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_recruitment_quotas_tt
+		trigger = {
+			has_province_flag = to_culture_assimilation_recruitment_quotas_enabled
+		}
+	}
+
+	text = {
+		localisation_key = string_empty
+	}
+}
+
+defined_text = {
+	name = CultureIntegrationGetCountryOrOverlord
+	random = no
+	
+	text = {
+		localisation_key = to_overlord_of_province_tt
+		trigger = {
+			has_province_flag = to_assimilation_culture_accepted_overlord
+		}
+	}
+
+	text = {
+		localisation_key = to_owner_of_province_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureIntegrationAcceptedCulture
+	random = no
+
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			if = {
+				limit = {
+					has_province_flag = to_assimilation_culture_accepted_overlord
+				}
+				owner = {
+					overlord = {
+						ROOT = { culture_group = PREV }
+					}
+				}
+			}
+			else = {
+				owner = {
+					ROOT = { culture_group = PREV }
+				}
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_integration_accepted_culture_enabled_tt
+		trigger = {
+			has_province_flag = to_assimilation_culture_accepted
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_integration_accepted_culture_disabled_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureIntegrationTriumph
+	random = no
+	
+	text = {
+		localisation_key = to_culture_integration_triumph_enabled_tt
+		trigger = {
+			has_province_flag = to_culture_integration_triumph_completed
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_integration_triumph_disabled_tt
+	}
+}
+
+defined_text = {
+	name = GetANewHopeIntegrationModifier
+	random = no
+	text = {
+		trigger = {
+			has_province_flag = to_a_new_hope_completed
+		}
+		localisation_key = to_culture_integration_a_new_hope_enabled_tt
+	}
+	
+	text = {
+		localisation_key = to_culture_integration_a_new_hope_disabled_tt
+	}
+}
+
+defined_text = {
+	name = GetReligionIntegrationModifier
+	random = no
+	text = {
+		trigger = {
+			has_province_flag = to_culture_adaptation_heathen
+		}
+		localisation_key = to_culture_adaptation_heathen_tt
+	}
+	text = {
+		trigger = {
+			has_province_flag = to_culture_adaptation_heathen_overlord
+		}
+		localisation_key = to_culture_adaptation_heathen_overlord_tt
+	}
+
+	text = {
+		trigger = {
+			has_province_flag = to_culture_adaptation_heretic
+		}
+		localisation_key = to_culture_adaptation_heretic_tt
+	}
+	text = {
+		trigger = {
+			has_province_flag = to_culture_adaptation_heretic_overlord
+		}
+		localisation_key = to_culture_adaptation_heretic_overlord_tt
+	}
+	
+	text = {
+		localisation_key = to_empty_string_tt
+	}
+}
+
+defined_text = {
+	name = GetPositiveReligionIntegrationModifier
+	random = no
+	text = {
+		trigger = {
+			has_province_flag = to_culture_adaptation_same_religion
+		}
+		localisation_key = to_culture_adaptation_same_religion_tt
+	}
+	text = {
+		trigger = {
+			has_province_flag = to_culture_adaptation_same_religion_overlord
+		}
+		localisation_key = to_culture_adaptation_same_religion_overlord_tt
+	}
+
+	text = {
+		trigger = {
+			has_province_flag = to_culture_adaptation_same_religion_group
+		}
+		localisation_key = to_culture_adaptation_same_religion_group_tt
+	}
+	text = {
+		trigger = {
+			has_province_flag = to_culture_adaptation_same_religion_group_overlord
+		}
+		localisation_key = to_culture_adaptation_same_religion_group_overlord_tt
+	}
+	
+	text = {
+		localisation_key = to_culture_adaptation_religion_inactive_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationCCModifier
+	random = no
+	
+	text = {
+		localisation_key = to_yellow_plus_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_culture_conversion_cost
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_cc_positive_tt
+		trigger = {
+			check_variable = {
+				which = to_culture_conversion_cost
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_cc_negative_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationNativeAssimilation
+	random = no
+	
+	text = {
+		localisation_key = to_culture_assimilation_native_assimilation_tt
+		trigger = {
+			has_province_flag = to_tribal_assimilation_native_assimilation_enabled
+		}
+	}
+
+	text = {
+		localisation_key = string_empty
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationNAModifier
+	random = no
+	
+	text = {
+		localisation_key = to_yellow_plus_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_native_assimilation
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_na_positive_tt
+		trigger = {
+			check_variable = {
+				which = to_native_assimilation
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_na_negative_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationTModifier
+	random = no
+	
+	text = {
+		localisation_key = to_yellow_plus_zero_percentage_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_assimilation_modifier
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_t_positive_tt
+		trigger = {
+			check_variable = {
+				which = to_assimilation_modifier
+				value = 0
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_t_negative_max_tt
+		trigger = {
+			is_variable_equal = {
+				which = to_assimilation_modifier
+				value = -0.9
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_t_negative_tt
+	}
+}
+
+defined_text = {
+	name = GetCultureAssimilationRemainingTime
+	random = no
+
+	text = {
+		localisation_key = to_empty_string_tt
+		trigger = {
+			NOT = { has_province_flag = to_assimilation_progressing }
+		}
+	}
+	
+	text = {
+		localisation_key = to_culture_assimilation_remaining_years_tt
+		trigger = {
+			check_variable = {
+				which = to_assimilation_remaining_months
+				value = 24
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_remaining_months_tt
+	}
+}
+
+defined_text = {
+	name = CultureIntegrationModifierList
+	random = no
+
+	text = {
+		localisation_key = to_culture_assimilation_modifiers_tt
+		trigger = {
+			to_has_culture_assimilation = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_greek_integration_modifiers_tt
+		trigger = {
+			to_has_greek_integration = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_integration_modifiers_tt
+		trigger = {
+			to_has_european_culture_integration = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_tribal_integration_modifiers_tt
+		trigger = {
+			to_has_tribal_integration = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_assimilation_modifiers_tt
+	}
+}
+
+defined_text = {
+	name = CultureIntegrationRemainingTime
+	random = no
+	
+	text = {
+		localisation_key = to_culture_integration_remaining_years_tt
+		trigger = {
+			check_variable = {
+				which = to_assimilation_remaining_months
+				value = 24
+			}
+		}
+	}
+
+	text = {
+		localisation_key = to_culture_integration_remaining_months_tt
+	}
+}
+
+defined_text = {
+	name = CultureIntegrationCoreTooltip
+	random = no
+	
+	text = {
+		localisation_key = to_ci_core_display_tooltip_yes
+		trigger = {
+			owner = {
+				is_core = PREV
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_ci_core_display_tooltip_no
+	}
+}
+
+defined_text = {
+	name = CultureIntegrationReligionTooltip
+	random = no
+	
+	text = {
+		localisation_key = to_ci_religion_display_tooltip_yes
+		trigger = {
+			OR = {
+				has_owner_religion = yes
+				tolerance_to_this = 0
+			}
+		}
+	}
+	
+	text = {
+		localisation_key = to_ci_religion_display_tooltip_no
+	}
+}
+
+defined_text = {
+	name = CultureIntegrationSeparatismTooltip
+	random = no
+	
+	text = {
+		localisation_key = to_ci_separatism_display_tooltip_yes
+		trigger = {
+			NOT = { nationalism = 1 }
+		}
+	}
+	
+	text = {
+		localisation_key = to_ci_separatism_display_tooltip_no
+	}
+}
+
+defined_text = {
+	name = IntegrationEndTooltip
+	random = no
+
+	text = {
+		localisation_key = to_ci_integration_end_tooltip_norse
+		trigger = {
+			owner = {
+                culture_group = norse_g
+            }
+            culture = skraeling
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_end_tooltip_arbanoi
+		trigger = {
+			to_has_albanian_assimilation = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_end_tooltip_roman
+		trigger = {
+			owner = {
+                culture_group = byzantine
+            }
+            OR = {
+                culture = elysameric
+                AND = {
+                    owner = {
+                        to_enabled_mesoamerican_assimilation = yes
+                    }
+                    to_mesoamerican_assimilation_province = yes
+                }
+                AND = {
+                    owner = {
+                        to_enabled_spartan_assimilation = yes
+                    }
+                    to_spartan_assimilation_province = yes
+                }
+                AND = {
+                    owner = {
+                        to_enabled_norse_assimilation = yes
+                    }
+                    to_norse_assimilation_province = yes
+                }
+            }
+		}
+	}
+	
+	text = {
+		localisation_key = to_ci_integration_end_tooltip_assimilation
+		trigger = {
+			to_has_culture_assimilation = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_end_tooltip_greek
+		trigger = {
+			to_has_greek_integration = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_end_tooltip_european
+		trigger = {
+			to_has_european_culture_integration = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_end_tooltip_tribal_integration
+		trigger = {
+			to_has_tribal_integration = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_end_tooltip_assimilation
+	}
+}
+
+defined_text = {
+	name = IntegrationInactiveIconTooltip
+	random = no
+
+	text = {
+		localisation_key = to_ci_integration_inactive_icon_tooltip_norse
+		trigger = {
+			owner = {
+                culture_group = norse_g
+            }
+            culture = skraeling
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_inactive_end_tooltip_arbanoi
+		trigger = {
+			to_has_albanian_assimilation = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_inactive_icon_tooltip_roman
+		trigger = {
+			owner = {
+                culture_group = byzantine
+            }
+            OR = {
+                culture = elysameric
+                AND = {
+                    owner = {
+                        to_enabled_mesoamerican_assimilation = yes
+                    }
+                    to_mesoamerican_assimilation_province = yes
+                }
+                AND = {
+                    owner = {
+                        to_enabled_spartan_assimilation = yes
+                    }
+                    to_spartan_assimilation_province = yes
+                }
+                AND = {
+                    owner = {
+                        to_enabled_norse_assimilation = yes
+                    }
+                    to_norse_assimilation_province = yes
+                }
+            }
+		}
+	}
+	
+	text = {
+		localisation_key = to_ci_integration_inactive_icon_tooltip_assimilation
+		trigger = {
+			to_has_culture_assimilation = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_inactive_icon_tooltip_greek
+		trigger = {
+			to_has_greek_integration = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_inactive_icon_tooltip_european
+		trigger = {
+			to_has_european_culture_integration = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_inactive_icon_tooltip_tribal_integration
+		trigger = {
+			to_has_tribal_integration = yes
+		}
+	}
+
+	text = {
+		localisation_key = to_ci_integration_inactive_icon_tooltip_assimilation
+	}
+}

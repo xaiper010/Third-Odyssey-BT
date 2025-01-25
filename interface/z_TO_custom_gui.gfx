@@ -1,0 +1,496 @@
+spriteTypes = {
+
+#########################
+#### ELYSIAN SILK
+#########################
+
+	spriteType = {
+		name = "GFX_elysian_silk_background"
+		texturefile = "gfx//interface//elysian_silk//background.dds"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_button_light_ship"
+		texturefile = "gfx//interface//elysian_silk//button_light_ship.dds"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_button_goods_produced"
+		texturefile = "gfx//interface//elysian_silk//button_goods_produced.dds"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_button_monument"
+		texturefile = "gfx//interface//elysian_silk//button_monument.dds"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_button_merchant"
+		texturefile = "gfx//interface//elysian_silk//button_merchant.dds"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_button_elysian_silk"
+		texturefile = "gfx//interface//elysian_silk//button_elysian_silk.dds"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_button_light_ship_done"
+		texturefile = "gfx//interface//elysian_silk//button_light_ship_done.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/to_buttonstate_noeffect.lua"
+	}
+	spriteType = {
+		name = "GFX_button_goods_produced_done"
+		texturefile = "gfx//interface//elysian_silk//button_goods_produced_done.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/to_buttonstate_noeffect.lua"
+	}
+	spriteType = {
+		name = "GFX_button_monument_done"
+		texturefile = "gfx//interface//elysian_silk//button_monument_done.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/to_buttonstate_noeffect.lua"
+	}
+	spriteType = {
+		name = "GFX_button_merchant_done"
+		texturefile = "gfx//interface//elysian_silk//button_merchant_done.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/to_buttonstate_noeffect.lua"
+	}
+	spriteType = {
+		name = "GFX_button_elysian_silk_done"
+		texturefile = "gfx//interface//elysian_silk//button_elysian_silk_done.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/to_buttonstate_noeffect.lua"
+	}
+	spriteType = {
+		name = "GFX_establish_silk_production_frame"
+		texturefile = "gfx//interface//elysian_silk//establish_silk_production_frame.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_establish_silk_production_frame_small"
+		texturefile = "gfx//interface//elysian_silk//establish_silk_production_frame_small.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_add_elysian_silk_button"
+		texturefile = "gfx//interface//elysian_silk//add_elysian_silk_button_2.dds"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_elysian_silk_arrow"
+		texturefile = "gfx//interface//elysian_silk//arrows.dds"
+		noOfFrames = 2
+	}
+
+#########################
+#### ARSENAL EFFICIENCY
+#########################
+spriteType = {
+	name = "GFX_arsenal_efficiency_frame"
+	texturefile = "gfx//interface//great_projects//mechanics//arsenal_efficiency//arsenal_frame_base_hard_edges.dds"
+	noOfFrames = 1
+	alwaystransparent = yes
+}
+
+progressbartype = {
+	name = "GFX_arsenal_efficiency_bar"
+	color = { 1.0 0.0 0.0 }
+	colortwo = { 1.0 1.0 1.0 }
+	textureFile1 = "gfx//interface//great_projects//mechanics//arsenal_efficiency//arsenal_progress_full.dds"
+	textureFile2 = "gfx//interface//great_projects//mechanics//arsenal_efficiency//arsenal_progress_empty.dds"
+	size = { x = 27 y = 107 }
+	horizontal = no
+	effectFile = "gfx/FX/progress.lua"
+}
+
+spriteType = {
+	name = "GFX_arsenal_efficiency_capstone"
+	texturefile = "gfx//interface//great_projects//mechanics//arsenal_efficiency//arsenal_frame_capstone.dds"
+	noOfFrames = 2
+}
+
+spriteType = {
+	name = "GFX_arsenal_efficiency_overlay"
+	texturefile = "gfx//interface//great_projects//mechanics//arsenal_efficiency//arsenal_frame_overlay.dds"
+	noOfFrames = 1
+}
+
+#########################
+#### TRADE EXPEDITIONS
+#########################
+spriteType = {
+	name = "GFX_trade_expeditions_background"
+	texturefile = "gfx//interface//great_projects//mechanics//trade_expeditions//background.dds"
+	noOfFrames = 1
+}
+
+spriteType = {
+	name = "GFX_trade_expeditions_button"
+	texturefile = "gfx//interface//great_projects//mechanics//trade_expeditions//button.dds"
+	noOfFrames = 1
+}
+
+#########################
+#### HOLD TRIUMPH
+#########################
+spriteType = {
+	name = "GFX_hold_triumph_background"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//background.dds"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_menu_buttons"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//menu_buttons.dds"
+	noOfFrames = 2
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_button"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//button_images.dds"
+	noOfFrames = 2
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_button_active"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//button_images.dds"
+	noOfFrames = 2
+	effectFile = "gfx/FX/to_buttonstate_noeffect.lua"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_button_frame"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//image_frame_full.dds"
+	noOfFrames = 2
+	alwaystransparent = yes
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_button_war"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//button_war.dds"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_button_peace"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//button_peace.dds"
+}
+
+frameAnimatedSpriteType = {
+	name = "GFX_button_toggle_glow"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//to_button_toggle_glow.dds"
+	noOfFrames = 40
+	transparencecheck = yes
+	animation_rate_fps = 20
+	looping = yes
+	play_on_show = yes
+	alwaystransparent = yes
+	# legacy_lazy_load = no
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_progress_bar_frame"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//progress_bar_frame.dds"
+	alwaystransparent = yes
+}
+
+progressbartype = {
+	name = "GFX_hold_triumph_progress_bar"
+	color = { 1.0 0.0 0.0 }
+	colortwo = { 1.0 1.0 1.0 }
+	textureFile1 = "gfx//interface//great_projects//mechanics//hold_triumph//progress_bar_full.dds"
+	textureFile2 = "gfx//interface//great_projects//mechanics//hold_triumph//progress_bar_empty.dds"
+	size = { x = 34 y = 137 }
+	horizontal = no
+	effectFile = "gfx/FX/progress.lua"
+}
+
+# spriteType = {
+# 	name = "GFX_hold_triumph_effects_icons_peace"
+# 	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//effects_icons_peace.dds"
+# 	noOfFrames = 1
+# }
+
+# spriteType = {
+# 	name = "GFX_hold_triumph_effects_icons_war"
+# 	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//effects_icons_war.dds"
+# 	noOfFrames = 1
+# }
+
+spriteType = {
+	name = "GFX_hold_triumph_effects_war_exhaustion_icon"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//modifier_icons//war_exhaustion.dds"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_effects_manpower_icon"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//modifier_icons//manpower_recovery_speed.dds"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_effects_stability_cost_icon"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//modifier_icons//stability_cost_modifier.dds"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_effects_maintenance_icon"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//modifier_icons//land_maintenance_modifier.dds"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_effects_shock_damage_icon"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//modifier_icons//shock_damage.dds"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_effects_movement_speed_icon"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//modifier_icons//movement_speed.dds"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_duration_icon"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//hourglass.dds"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_duration_icon_small"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//hourglass_small.dds"
+}
+
+spriteType = {
+	name = "GFX_hold_triumph_duration_bg"
+	texturefile = "gfx//interface//great_projects//mechanics//hold_triumph//duration_entry.dds"
+}
+
+#########################
+#### PROMOTE LOCAL CULTURE
+#########################
+spriteType = {
+	name = "GFX_promote_local_culture_bg"
+	texturefile = "gfx//interface//misc_ui_elements//promote_local_culture//background.dds"
+	noOfFrames = 2
+}
+spriteType = {
+	name = "GFX_promote_local_culture_button"
+	texturefile = "gfx//interface//misc_ui_elements//promote_local_culture//promote_local_culture_button.dds"
+}
+frameAnimatedSpriteType = {
+	name = "GFX_promote_local_culture_highlight"
+	texturefile = "gfx//interface//misc_ui_elements//promote_local_culture//promote_local_culture_highlight.dds"
+	noOfFrames = 40
+	transparencecheck = yes
+	animation_rate_fps = 20
+	looping = yes
+	play_on_show = yes
+	alwaystransparent = yes
+}
+
+#########################
+#### POTENTIAL GREAT PROJECTS
+#########################
+spriteType = {
+	name = "GFX_potential_project_background"
+	texturefile = "gfx//interface//great_projects//potential_projects//background.dds"
+}
+spriteType = {
+	name = "GFX_potential_project_akrotirion"
+	texturefile = "gfx//interface//great_projects//potential_projects//potential_akrotirion.dds"
+}
+spriteType = {
+	name = "GFX_potential_project_elysian_highways_project"
+	texturefile = "gfx//interface//great_projects//potential_projects//potential_project_elysian_highways.dds"
+}
+spriteType = {
+	name = "GFX_potential_project_menu_buttons"
+	texturefile = "gfx//interface//great_projects//potential_projects//menu_buttons.dds"
+	noOfFrames = 2
+}
+
+#########################
+#### CULTURE INTEGRATION
+#########################
+	spriteType = {
+		name = "GFX_ci_core_display"
+		texturefile = "gfx//interface//culture_integration//core_display.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_ci_religion_display"
+		texturefile = "gfx//interface//culture_integration//religion_display.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_ci_separatism_display"
+		texturefile = "gfx//interface//culture_integration//separatism_display.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_ci_values_display"
+		texturefile = "gfx//interface//culture_integration//values_display.dds"
+		noOfFrames = 1
+	}
+	spriteType = {
+		name = "GFX_ci_integration_start"
+		texturefile = "gfx//interface//culture_integration//integration_start.dds"
+		noOfFrames = 3
+	}
+	spriteType = {
+		name = "GFX_ci_integration_end"
+		texturefile = "gfx//interface//culture_integration//integration_end.dds"
+		noOfFrames = 4
+	}
+	spriteType = {
+		name = "GFX_ci_background"
+		texturefile = "gfx//interface//culture_integration//background.dds"
+		noOfFrames = 13
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_ci_separator"
+		texturefile = "gfx//interface//culture_integration//building_menu_separator.dds"
+		noOfFrames = 1
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_ci_progress_bar_frame"
+		texturefile = "gfx//interface//culture_integration//progress_bar_frame.dds"
+		noOfFrames = 1
+		# alwaystransparent = yes
+	}
+	progressbartype = {
+		name = "GFX_ci_progress_bar"
+		color = { 1.0 0.0 0.0 }
+		colortwo = { 1.0 1.0 1.0 }
+		# textureFile1 = "gfx//interface//government_mechanics//roman_janissaries//to_roman_janissaries_progress_bar.dds"
+		# textureFile2 = "gfx//interface//government_mechanics//administrative_burden//to_administrative_burder_progress_bar_empty.dds"
+		textureFile1 = "gfx//interface//culture_integration//yellow_bar.dds"
+		textureFile2 = "gfx//interface//culture_integration//green_bar.dds"
+		size = { x = 172 y = 10 }
+		# effectFile = "gfx/FX/progress.lua"
+		effectFile = "gfx/FX/to_culture_integration.lua"
+		# transparencecheck = yes
+	}
+
+#########################
+#### EXARCH INTERACTIONS
+#########################
+	spriteType = {
+		name = "GFX_to_eic_background"
+		texturefile = "gfx//interface//exarch_interactions//country//country_window_large.dds"
+	}
+	spriteType = {
+		name = "GFX_to_penalties_for_overlord"
+		texturefile = "gfx//interface//exarch_interactions//country//penalties_for_overlord.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eic_give_all_land"
+		texturefile = "gfx//interface//exarch_interactions//country//give_all_land.dds"
+	}
+	spriteType = {
+		name = "GFX_to_annex_exarch"
+		texturefile = "gfx//interface//exarch_interactions//country//annex_exarch.dds"
+	}
+	spriteType = {
+		name = "GFX_to_exarch_merchant_icons"
+		texturefile = "gfx//interface//exarch_interactions//country//merchant_icons.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_to_liberty_desire_from_absolutism_and_stability"
+		texturefile = "gfx//interface//exarch_interactions//country//liberty_desire_from_absolutism_and_stability.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eic_bolster_administration"
+		texturefile = "gfx//interface//exarch_interactions//country//bolster_administration.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eic_offer_military_assistance"
+		texturefile = "gfx//interface//exarch_interactions//country//offer_military_assistance.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eic_send_aid"
+		texturefile = "gfx//interface//exarch_interactions//country//send_aid.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eic_crack_down_on_heresy"
+		texturefile = "gfx//interface//exarch_interactions//country//crack_down_on_heresy.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eic_enforce_religion"
+		texturefile = "gfx//interface//exarch_interactions//country//enforce_religion.dds"
+	}
+
+	spriteType = {
+		name = "GFX_to_eic_background_extended"
+		texturefile = "gfx//interface//exarch_interactions//country//country_window_large_extended.dds"
+	}
+	spriteType = {
+		name = "GFX_to_seize_peripheral_territories"
+		texturefile = "gfx//interface//exarch_interactions//country//seize_peripheral_territories.dds"
+	}
+
+	spriteType = {
+		name = "GFX_to_tutorial_background"
+		texturefile = "gfx//interface//exarch_interactions//province//tutorial_background.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eip_background"
+		texturefile = "gfx//interface//exarch_interactions//province//background_small.dds"
+	}
+	spriteType = {
+		name = "GFX_to_top_decor"
+		texturefile = "gfx//interface//exarch_interactions//province//top_decor.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_to_exarch_button"
+		texturefile = "gfx//interface//exarch_interactions//province//exarch_button.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eip_give_land"
+		texturefile = "gfx//interface//exarch_interactions//province//give_land.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eip_seize_land"
+		texturefile = "gfx//interface//exarch_interactions//province//seize_land.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eip_lock_buttons"
+		texturefile = "gfx//interface//exarch_interactions//province//lock_buttons.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_to_eip_accept_culture"
+		texturefile = "gfx//interface//exarch_interactions//province//add_accepted_culture.dds"
+	}
+	spriteType = {
+		name = "GFX_to_eip_auto_transfer_province"
+		texturefile = "gfx//interface//exarch_interactions//province//auto_transfer_province.dds"
+		effectFile = "gfx/FX/to_buttonstate_nohighlight.lua"
+	}
+	spriteType = {
+		name = "GFX_to_eip_merchant_icon"
+		texturefile = "gfx//interface//exarch_interactions//province//merchant_icon.dds"
+		noOfFrames = 2
+	}
+
+#########################
+#### MISC
+#########################
+	spriteType = {
+		name = "GFX_to_change_personal_deity"
+		texturefile = "gfx//interface//to_change_personal_deity.dds"
+	}
+
+	spriteType = {
+		name = "GFX_to_potential_cot_bg"
+		texturefile = "gfx//interface//cot_icons//to_potential_cot_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_to_potential_cot"
+		texturefile = "gfx//interface//cot_icons//to_potential_cot.dds"
+		effectFile = "gfx//FX//to_buttonstate_nogrey.lua"
+	}
+}

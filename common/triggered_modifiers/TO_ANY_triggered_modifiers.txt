@@ -1,0 +1,327 @@
+# Triggered modifiers are here.
+# these are checked for each countries once/month and then applied.
+#
+# Effects are fully scriptable here.
+
+###########################################
+# Hellenic Modifiers
+###########################################
+to_female_generals_from_deities = {
+	potential = {
+		religion = pantheon_worship
+		NOT = { to_hellenic_poseidon_pantheon = yes }
+	}
+	trigger = {
+		if = {
+			limit = {
+				to_hellenic_standard_pantheon = yes
+			}
+			OR = {
+				has_personal_deity = nhs_hellenic_athena
+				has_personal_deity = nhs_hellenic_reformed_artemis
+			}
+		}
+		else = {
+			OR = {
+				has_personal_deity = nhs_hellenic_reformed_athena
+				has_personal_deity = nhs_hellenic_reformed_artemis
+			}
+		}
+	}
+	may_recruit_female_generals = yes
+	female_advisor_chance = 0.2
+}
+
+
+###########################################
+# For AI
+###########################################
+
+nhs2_ai_buff = {
+	potential = {
+		nhs_check_all_exiles = { CONDITION = tag }
+		OR = {
+			AND = {
+				MK1 = { ai = yes }
+				HLL = { ai = yes }
+			}
+			AND = {
+				NOT = { tag = MK1 }
+				NOT = { tag = HLL }
+			}
+		}
+		NOT = {
+			AND = {
+				tag = CM1
+				has_country_modifier = nhs_constrained_resources
+			}
+		}
+		is_subject = no
+		ai = yes
+		is_year = 1446
+	}
+	trigger = {
+		always = yes
+	}
+	global_tax_income = 84
+	stability_cost_modifier = -0.25
+	# global_colonial_growth = 30
+	global_manpower = 10
+}
+
+###########################################
+# Frightened by Byzantine demise.
+###########################################
+byzantine_demise_tech3 = {
+	potential = {
+		NOT = { dip_tech = 7 }
+		NOT = { to_has_european_national_idea_range = yes }
+		NOT = { has_idea = overseas_exploration }
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -0.3
+}
+
+byzantine_demise_tech7 = {
+	potential = {
+		dip_tech = 7
+		NOT = { dip_tech = 9 }
+		NOT = { to_has_european_national_idea_range = yes }
+		NOT = { has_idea = overseas_exploration }
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -0.55
+}
+
+byzantine_demise_tech9 = {
+	potential = {
+		dip_tech = 9
+		NOT = { dip_tech = 11 }
+		NOT = { to_has_european_national_idea_range = yes }
+		NOT = { has_idea = overseas_exploration }
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -0.60
+}
+
+byzantine_demise_tech11 = {
+	potential = {
+		dip_tech = 11
+		NOT = { to_has_european_national_idea_range = yes }
+		NOT = { has_idea = overseas_exploration }
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -0.65
+}
+
+byzantine_demise_tech3_overseas_exploration = {
+	potential = {
+		NOT = { dip_tech = 7 }
+		NOT = { to_has_european_national_idea_range = yes }
+		has_idea = overseas_exploration
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -0.8
+}
+
+byzantine_demise_tech7_overseas_exploration = {
+	potential = {
+		dip_tech = 7
+		NOT = { dip_tech = 9 }
+		NOT = { to_has_european_national_idea_range = yes }
+		has_idea = overseas_exploration
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -1.05
+}
+
+byzantine_demise_tech9_overseas_exploration = {
+	potential = {
+		dip_tech = 9
+		NOT = { dip_tech = 11 }
+		NOT = { to_has_european_national_idea_range = yes }
+		has_idea = overseas_exploration
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -1.1
+}
+
+byzantine_demise_tech11_overseas_exploration = {
+	potential = {
+		dip_tech = 11
+		NOT = { to_has_european_national_idea_range = yes }
+		has_idea = overseas_exploration
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -1.15
+}
+
+
+byzantine_demise_tech3_extra_range = {
+	potential = {
+		NOT = { dip_tech = 7 }
+		to_has_european_national_idea_range = yes
+		NOT = { has_idea = overseas_exploration }
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -0.4
+}
+
+byzantine_demise_tech7_extra_range = {
+	potential = {
+		dip_tech = 7
+		NOT = { dip_tech = 9 }
+		to_has_european_national_idea_range = yes
+		NOT = { has_idea = overseas_exploration }
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -0.725
+}
+
+byzantine_demise_tech9_extra_range = {
+	potential = {
+		dip_tech = 9
+		NOT = { dip_tech = 11 }
+		to_has_european_national_idea_range = yes
+		NOT = { has_idea = overseas_exploration }
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -0.80
+}
+
+byzantine_demise_tech11_extra_range = {
+	potential = {
+		dip_tech = 11
+		to_has_european_national_idea_range = yes
+		NOT = { has_idea = overseas_exploration }
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -0.85
+}
+
+byzantine_demise_tech3_extra_range_overseas_exploration = {
+	potential = {
+		NOT = { dip_tech = 7 }
+		to_has_european_national_idea_range = yes
+		has_idea = overseas_exploration
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -0.9
+}
+
+byzantine_demise_tech7_extra_range_overseas_exploration = {
+	potential = {
+		dip_tech = 7
+		NOT = { dip_tech = 9 }
+		to_has_european_national_idea_range = yes
+		has_idea = overseas_exploration
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -1.225
+}
+
+byzantine_demise_tech9_extra_range_overseas_exploration = {
+	potential = {
+		dip_tech = 9
+		NOT = { dip_tech = 11 }
+		to_has_european_national_idea_range = yes
+		has_idea = overseas_exploration
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -1.25
+}
+
+byzantine_demise_tech11_extra_range_overseas_exploration = {
+	potential = {
+		dip_tech = 11
+		to_has_european_national_idea_range = yes
+		has_idea = overseas_exploration
+		to_has_colonial_range_reduction = yes
+	}
+	trigger = {
+		NOT = { has_institution = new_world_i }
+	}
+	range = -1.35
+}
+
+###########################################
+# Frightened by Byzantine demise aftereffect
+###########################################
+# byzantine_demise1 = {
+# 	potential = {
+# 		to_eligible_for_colonial_range_reduction = yes
+# 		num_of_colonists = 1
+# 		NOT = { is_year = 1560 }
+# 		has_institution = new_world_i
+# 	}
+# 	trigger = {
+# 		NOT = { is_year = 1560 }
+# 	}
+# 	global_colonial_growth = -20
+# }
+
+###########################################
+# In defense of the Empire
+###########################################
+to_defending_the_holy_roman_empire = {
+	potential = {
+		is_emperor = yes
+		is_in_war = {
+			defenders = ROOT
+			casus_belli = cb_to_challenge_the_false_emperor
+		}
+	}
+	trigger = {
+		is_emperor = yes
+		is_in_war = {
+			defenders = ROOT
+			casus_belli = cb_to_challenge_the_false_emperor
+		}
+	}
+	reasons_to_elect = 500
+}

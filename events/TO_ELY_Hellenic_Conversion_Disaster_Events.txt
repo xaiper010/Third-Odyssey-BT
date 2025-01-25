@@ -1,0 +1,2338 @@
+# Events for the Elysian religious wars
+# Written by TheWerelizard
+
+namespace = nhs_hcd_hellenicrevolt
+
+#############################################################
+# Events firing at the begining and the end of the disaster #
+#############################################################
+
+# Disaster starts
+country_event = {
+	id = nhs_hcd_hellenicrevolt.1
+	title = nhs_hcd_hellenicrevolt.1.t
+	desc = {
+		trigger = {
+			NOT = { has_estate_privilege = estate_church_nhs_inquisition_privilege }
+		}
+		desc = nhs_hcd_hellenicrevolt.1.da
+	}
+	desc = {
+		trigger = {
+			has_estate_privilege = estate_church_nhs_inquisition_privilege
+		}
+		desc = nhs_hcd_hellenicrevolt.1.db
+	}
+	picture = REVOLT_HUNGARIAN_eventPicture
+
+	major = yes
+	major_trigger = { 
+		knows_country = ROOT 
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = to_elysian_religious_wars_flag
+			add_country_modifier = {
+				name = to_hcd_hellenic_revolt_min_duration
+				duration = 1095
+				hidden = yes
+			}
+			every_owned_province = {
+				limit = {
+					religion = orthodox
+				}
+				remove_province_modifier = religious_zeal_at_conv
+			}
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					NOT = { has_province_modifier = nhs_hcd_Pagan_minority }
+					religion = orthodox
+					is_city = yes
+				}
+				save_event_target_as = nhs_hcd_target_province
+			}
+			to_nhs_remove_pre_hellenic_disaster_flags = yes
+
+			random_owned_province = {
+				limit = {
+					religion = orthodox
+					culture_group = ROOT
+					is_capital = no
+					is_city = yes
+					NOT = { has_province_modifier = nhs_hcd_Pagan_minority }
+				}
+				save_event_target_as = nhs_orthodox_first_revolt_province
+				set_province_flag = nhs_orthodox_revolt_province
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = nhs_orthodox_first_revolt_province }
+				}
+				random_owned_province = {
+					limit = {
+						religion = orthodox
+						is_capital = no
+						is_city = yes
+						NOT = { has_province_modifier = nhs_hcd_Pagan_minority }
+					}
+					save_event_target_as = nhs_orthodox_first_revolt_province
+					set_province_flag = nhs_orthodox_revolt_province
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = nhs_orthodox_first_revolt_province }
+				}
+				capital_scope = {
+					save_event_target_as = nhs_orthodox_first_revolt_province
+					set_province_flag = nhs_orthodox_revolt_province
+				}
+			}
+			random_owned_province = {
+				limit = {
+					religion = orthodox
+					culture_group = ROOT
+					is_capital = no
+					is_city = yes
+					NOT = { has_province_modifier = nhs_hcd_Pagan_minority }
+					NOT = { has_province_flag = nhs_orthodox_revolt_province }
+				}
+				save_event_target_as = nhs_orthodox_second_revolt_province
+				set_province_flag = nhs_orthodox_revolt_province
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = nhs_orthodox_second_revolt_province }
+				}
+				random_owned_province = {
+					limit = {
+						religion = orthodox
+						is_capital = no
+						is_city = yes
+						NOT = { has_province_modifier = nhs_hcd_Pagan_minority }
+						NOT = { has_province_flag = nhs_orthodox_revolt_province }
+					}
+					save_event_target_as = nhs_orthodox_first_revolt_province
+					set_province_flag = nhs_orthodox_revolt_province
+				}
+			}
+
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					culture_group = ROOT
+					is_city = yes
+					has_province_modifier = nhs_hcd_Pagan_minority
+					NOT = { has_province_flag = nhs_orthodox_revolt_province }
+				}
+				save_event_target_as = nhs_pantheon_worship_first_revolt_province
+				set_province_flag = nhs_pantheon_worship_revolt_province
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = nhs_pantheon_worship_first_revolt_province }
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						is_city = yes
+						has_province_modifier = nhs_hcd_Pagan_minority
+						NOT = { has_province_flag = nhs_orthodox_revolt_province }
+					}
+					save_event_target_as = nhs_pantheon_worship_first_revolt_province
+					set_province_flag = nhs_pantheon_worship_revolt_province
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = nhs_pantheon_worship_first_revolt_province }
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						is_city = yes
+						culture_group = ROOT
+						NOT = { has_province_flag = nhs_orthodox_revolt_province }
+					}
+					save_event_target_as = nhs_pantheon_worship_first_revolt_province
+					set_province_flag = nhs_pantheon_worship_revolt_province
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = nhs_pantheon_worship_first_revolt_province }
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						is_city = yes
+					}
+					save_event_target_as = nhs_pantheon_worship_first_revolt_province
+					set_province_flag = nhs_pantheon_worship_revolt_province
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					is_city = yes
+					has_province_modifier = nhs_hcd_Pagan_minority
+					NOT = { has_province_flag = nhs_pantheon_worship_revolt_province }
+					NOT = { has_province_flag = nhs_orthodox_revolt_province }
+				}
+				save_event_target_as = nhs_pantheon_worship_second_revolt_province
+				set_province_flag = nhs_pantheon_worship_revolt_province
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = nhs_pantheon_worship_second_revolt_province }
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						is_city = yes
+						NOT = { has_province_flag = nhs_orthodox_revolt_province }
+						NOT = { has_province_flag = nhs_pantheon_worship_revolt_province }
+					}
+					save_event_target_as = nhs_pantheon_worship_second_revolt_province
+					set_province_flag = nhs_pantheon_worship_revolt_province
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = nhs_pantheon_worship_second_revolt_province }
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						is_city = yes
+						NOT = { has_province_flag = nhs_pantheon_worship_revolt_province }
+					}
+					save_event_target_as = nhs_pantheon_worship_second_revolt_province
+					set_province_flag = nhs_pantheon_worship_revolt_province
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			set_variable = {
+				which = HellenicUprising
+				value = 0
+			}
+			set_variable = {
+				which = OrthodoxUprising
+				value = 0
+			}
+			set_variable = {
+				which = HellenicDisasterProgress
+				value = 0
+			}
+			every_owned_province = {
+				clr_province_flag = nhs_orthodox_revolt_province
+				clr_province_flag = nhs_pantheon_worship_revolt_province
+			}
+		}
+	}
+
+	option = {
+		# Side with moderates
+		name = nhs_hcd_hellenicrevolt.1.a
+		ai_chance = { factor = 50 }
+		custom_tooltip = to_side_with_moderates_tt
+		if = {
+			limit = {
+				NOT = { ruler_religion = ROOT }
+			}
+			set_ruler_religion = ROOT
+		}
+		custom_tooltip = nhs_new_line_tt
+		set_country_flag = nhs_hcd_supported_moderates
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -5
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_estate_privilege = estate_church_nhs_inquisition_privilege
+				}
+				set_country_flag = to_has_inquisition
+			}
+		}
+		to_nhs_remove_all_non_tolerant_clergy_privileges = yes
+		custom_tooltip = nhs_new_line_tt
+		add_country_modifier = {
+			name = nhs_hcd_tolerant_approach
+			duration = -1
+			desc = "END_OF_ELY_RELIGIOUS_WARS"
+		}
+		if = {
+			limit = {
+				OR = {
+					to_nhs_hellenic_disaster_attitude_hostile = {
+						ATTITUDE_VARIABLE = OrthodoxUprising
+					}
+					to_nhs_hellenic_disaster_attitude_hostile = {
+						ATTITUDE_VARIABLE = HellenicUprising
+					}
+				}
+			}
+			custom_tooltip = to_nhs_consequences_moderate_hostile_tt
+			add_stability = -4
+		}
+		else_if = {
+			limit = {
+				OR = {
+					to_nhs_hellenic_disaster_attitude_unfriendly = {
+						ATTITUDE_VARIABLE = OrthodoxUprising
+					}
+					to_nhs_hellenic_disaster_attitude_unfriendly = {
+						ATTITUDE_VARIABLE = HellenicUprising
+					}
+				}
+			}
+			custom_tooltip = to_nhs_consequences_moderate_unfriendly_tt
+			add_stability = -2
+		}
+		else_if = {
+			limit = {
+				OR = {
+					to_nhs_hellenic_disaster_attitude_neutral = {
+						ATTITUDE_VARIABLE = OrthodoxUprising
+					}
+					to_nhs_hellenic_disaster_attitude_neutral = {
+						ATTITUDE_VARIABLE = HellenicUprising
+					}
+				}
+			}
+			custom_tooltip = to_nhs_consequences_moderate_neutral_tt
+			add_stability = -1
+			add_treasury = 75
+			add_manpower = 2
+		}
+		else = {
+			custom_tooltip = to_nhs_consequences_moderate_friendly_tt
+			add_treasury = 150
+			add_manpower = 4
+		}
+		to_nhs_spawn_hellenic_disaster_revolt_moderate = {
+			ATTITUDE_VARIABLE = OrthodoxUprising
+			RELIGION = orthodox
+		}
+		to_nhs_spawn_hellenic_disaster_revolt_moderate = {
+			ATTITUDE_VARIABLE = HellenicUprising
+			RELIGION = pantheon_worship
+		}
+
+		custom_tooltip = nhs_dotted_line_tt
+
+		to_nhs_spawn_inquisition_revolt_disaster = {
+			EVENT_TARGET = nhs_hcd_target_province
+			REDUCE_LOYALTY = yes
+			DOTTED_LINE = yes
+		}
+
+		to_nhs_remove_pre_hellenic_disaster_country_modifiers = yes
+		if = {
+			limit = {
+				any_owned_province = {
+					OR = {
+						has_province_modifier = nhs_hcd_Pagan_minority
+						has_rebel_faction = pantheon_worship_rebels
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						has_province_modifier = nhs_hcd_Pagan_minority
+						has_rebel_faction = pantheon_worship_rebels
+					} 
+				}
+				change_religion = pantheon_worship
+				if = {
+					limit = {
+						has_province_modifier = nhs_hcd_Pagan_minority
+					}
+					remove_province_modifier = nhs_hcd_Pagan_minority 
+				}
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		to_nhs_exempt_all_non_greek_provinces_from_hellenic_disaster = yes
+		to_nhs_remove_pre_hellenic_disaster_anti_hellenic_province_modifiers = yes
+		hidden_effect = {
+			if = {
+				limit = {
+					to_nhs_hellenic_disaster_attitude_friendly = {
+						ATTITUDE_VARIABLE = HellenicUprising
+					}
+					has_spawned_rebels = pantheon_worship_rebels
+				}
+				disband_rebels = pantheon_worship_rebels
+			}
+			if = {
+				limit = {
+					to_nhs_hellenic_disaster_attitude_friendly = {
+						ATTITUDE_VARIABLE = OrthodoxUprising
+					}
+					has_spawned_rebels = orthodox_rebels
+				}
+				disband_rebels = orthodox_rebels
+			}
+		}
+	}
+
+	option = {
+		# Side with church
+		name = nhs_hcd_hellenicrevolt.1.b
+		ai_chance = { factor = 0 }
+		if = {
+			limit = {
+				ruler_religion = pantheon_worship
+			}
+			custom_tooltip = to_side_with_zealots_conversion_tt
+			set_ruler_religion = ROOT
+		}
+		else = {
+			custom_tooltip = to_side_with_zealots_tt
+			if = {
+				limit = {
+					NOT = { ruler_religion = ROOT }
+				}
+				set_ruler_religion = ROOT
+			}
+		}
+		clr_ruler_flag = to_heir_practices_hellenism_in_secret
+		if = {
+			limit = {
+				has_dlc = "Rights of Man"
+			}
+			if = {
+				limit = {
+					ruler_has_personality = tolerant_personality
+				}
+				remove_ruler_personality = tolerant_personality
+			}
+			if = {
+				limit = {
+					NOT = { ruler_has_personality = zealot_personality }
+					OR = {
+						ruler_has_personality = tolerant_personality
+						ruler_has_personality = kind_hearted_personality
+						NOT = { num_of_ruler_traits = { amount = 3 } }
+					}
+				}
+				if = {
+					limit = {
+						NOT = { ruler_has_personality = tolerant_personality }
+						num_of_ruler_traits = { amount = 3 }
+					}
+					remove_ruler_personality = kind_hearted_personality
+				}
+				add_ruler_personality = zealot_personality
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		set_country_flag = nhs_hcd_supported_zealots
+		if = {
+			limit = {
+				has_spawned_rebels = orthodox_rebels
+			}
+			disband_rebels = orthodox_rebels
+		}
+		if = {
+			limit = {
+				ruler_religion = pantheon_worship
+			}
+			set_ruler_religion = orthodox
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_country_modifier = {
+			name = nhs_hcd_church_loyalty 
+			duration = -1
+			desc = "END_OF_ELY_RELIGIOUS_WARS"
+		}
+
+		if = {
+			limit = {
+				to_nhs_hellenic_disaster_attitude_hostile = {
+					ATTITUDE_VARIABLE = OrthodoxUprising
+				}
+			}
+			custom_tooltip = to_nhs_consequences_orthodox_hostile_tt
+			add_stability = -4
+			add_adm_power = -50
+			add_dip_power = -50
+			add_mil_power = -50
+		}
+		else_if = {
+			limit = {
+				to_nhs_hellenic_disaster_attitude_unfriendly = {
+					ATTITUDE_VARIABLE = OrthodoxUprising
+				}
+			}
+			custom_tooltip = to_nhs_consequences_orthodox_unfriendly_tt
+			add_stability = -3
+		}
+		else_if = {
+			limit = {
+				to_nhs_hellenic_disaster_attitude_neutral = {
+					ATTITUDE_VARIABLE = OrthodoxUprising
+				}
+			}
+			custom_tooltip = to_nhs_consequences_orthodox_neutral_tt
+			add_stability = -2
+			add_treasury = 50
+			add_manpower = 1
+		}
+		else = {
+			custom_tooltip = to_nhs_consequences_orthodox_friendly_tt
+			add_stability = -1
+			add_treasury = 50
+			add_manpower = 3
+		}
+		custom_tooltip = nhs_new_line_tt
+		to_nhs_spawn_hellenic_disaster_revolt = {
+			RELIGION = pantheon_worship
+		}
+
+		custom_tooltip = nhs_dotted_line_tt
+		to_nhs_remove_pre_hellenic_disaster_country_modifiers = yes
+		
+		# custom_tooltip = nhs_hellenicconversion.disaster_siding_with_zealots.tt
+		if = {
+			limit = {
+				any_owned_province = {
+					OR = {
+						has_province_modifier = nhs_hcd_Pagan_minority
+						has_rebel_faction = pantheon_worship_rebels
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						has_province_modifier = nhs_hcd_Pagan_minority
+						has_rebel_faction = pantheon_worship_rebels
+					} 
+				}
+				change_religion = pantheon_worship
+				if = {
+					limit = {
+						has_province_modifier = nhs_hcd_Pagan_minority
+					}
+					remove_province_modifier = nhs_hcd_Pagan_minority 
+				}
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		to_nhs_exempt_all_non_greek_provinces_from_hellenic_disaster = yes
+		to_nhs_remove_pre_hellenic_disaster_hellenic_province_modifiers = yes
+	}
+
+	option = {
+		# Side with pagans
+		name = nhs_hcd_hellenicrevolt.1.c
+		ai_chance = { factor = 50 }
+		custom_tooltip = to_side_with_hellenics_tt
+		custom_tooltip = nhs_new_line_tt
+		set_country_flag = nhs_hcd_converted_to_hellenic
+		hidden_effect = {
+			if = {
+				limit = {
+					has_estate_privilege = estate_church_nhs_inquisition_privilege
+				}
+				set_country_flag = to_has_inquisition
+			}
+		}
+		change_religion = pantheon_worship
+		if = {
+			limit = {
+				has_heir_flag = to_heir_lost_claim_hellenic_minor
+			}
+			clr_heir_flag = to_heir_lost_claim_hellenic_minor
+			add_heir_claim = 20
+		}
+		else_if = {
+			limit = {
+				has_heir_flag = to_heir_lost_claim_hellenic
+			}
+			clr_heir_flag = to_heir_lost_claim_hellenic
+			add_heir_claim = 50
+		}
+		else_if = {
+			limit = {
+				has_heir_flag = to_heir_lost_claim_hellenic_major
+			}
+			clr_heir_flag = to_heir_lost_claim_hellenic_major
+			add_heir_claim = 100
+		}
+		if = {
+			limit = {
+				has_spawned_rebels = pantheon_worship_rebels
+			}
+			disband_rebels = pantheon_worship_rebels
+		}
+		nhs_set_clergy_loyalty_to_50 = yes
+		to_nhs_remove_all_clergy_privileges = yes
+		custom_tooltip = nhs_new_line_tt
+		add_country_modifier = {
+			name = nhs_hcd_pagan_loyalty
+			duration = -1
+			desc = "END_OF_ELY_RELIGIOUS_WARS"
+		}
+		
+		
+		if = {
+			limit = {
+				to_nhs_hellenic_disaster_attitude_hostile = {
+					ATTITUDE_VARIABLE = HellenicUprising
+				}
+			}
+			custom_tooltip = to_nhs_consequences_hellenic_hostile_tt
+			add_stability = -4
+			add_adm_power = -50
+			add_dip_power = -50
+			add_mil_power = -50
+		}
+		else_if = {
+			limit = {
+				to_nhs_hellenic_disaster_attitude_unfriendly = {
+					ATTITUDE_VARIABLE = HellenicUprising
+				}
+			}
+			custom_tooltip = to_nhs_consequences_hellenic_unfriendly_tt
+			add_stability = -3
+		}
+		else_if = {
+			limit = {
+				to_nhs_hellenic_disaster_attitude_neutral = {
+					ATTITUDE_VARIABLE = HellenicUprising
+				}
+			}
+			custom_tooltip = to_nhs_consequences_hellenic_neutral_tt
+			add_stability = -2
+			add_treasury = 50
+			add_manpower = 1
+		}
+		else = {
+			custom_tooltip = to_nhs_consequences_hellenic_friendly_tt
+			add_stability = -1
+			add_treasury = 50
+			add_manpower = 3
+		}
+		custom_tooltip = nhs_new_line_tt
+		to_nhs_spawn_hellenic_disaster_revolt = {
+			RELIGION = orthodox
+		}
+		custom_tooltip = nhs_dotted_line_tt
+
+		to_nhs_spawn_inquisition_revolt_disaster = {
+			EVENT_TARGET = nhs_hcd_target_province
+			DOTTED_LINE = yes
+		}
+
+		to_nhs_remove_pre_hellenic_disaster_country_modifiers = yes
+		
+		# custom_tooltip = nhs_hellenicconversion.disaster_siding_with_Pagans.tt
+
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				religion_group = christian
+				NOT = { has_province_modifier = nhs_hcd_Pagan_minority }
+			}
+			change_religion = pantheon_worship
+		}
+		if = {
+			limit = {
+				any_owned_province = {
+					has_province_modifier = nhs_hcd_Pagan_minority
+				}
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = nhs_hcd_Pagan_minority 
+				}
+				change_religion = pantheon_worship
+				remove_province_modifier = nhs_hcd_Pagan_minority 
+			}
+		}
+		custom_tooltip = nhs_new_line_tt
+		to_nhs_exempt_all_non_greek_provinces_from_hellenic_disaster = yes
+		to_nhs_remove_pre_hellenic_disaster_anti_hellenic_province_modifiers = yes
+	}
+}
+
+
+# Disaster ends
+country_event = {
+	id = nhs_hcd_hellenicrevolt.100
+	title = nhs_hcd_hellenicrevolt.100.t
+	desc = nhs_hcd_hellenicrevolt.100.d
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		# End the disaster
+		name = nhs_hcd_hellenicrevolt.100.a
+
+		add_stability_or_adm_power = yes
+		if = {
+			limit = {
+				has_country_modifier = nhs_hcd_tolerant_approach
+			}
+			remove_country_modifier = nhs_hcd_tolerant_approach
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_hcd_pagan_loyalty
+			}
+			remove_country_modifier = nhs_hcd_pagan_loyalty
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_hcd_church_loyalty
+			}
+			remove_country_modifier = nhs_hcd_church_loyalty
+		}
+		if = { # If zealous and ended the disaster as orthodox
+			limit = {
+				has_country_flag = nhs_hcd_supported_zealots
+				religion = orthodox
+			}
+			if = {
+				limit = {
+					ruler_religion = pantheon_worship
+				}
+				set_ruler_religion = orthodox
+			}
+			if = {
+				limit = {
+					heir_religion = pantheon_worship
+				}
+				set_heir_religion = orthodox
+			}
+			add_country_modifier = {
+				name = nhs_hrv_loyal_orthodox
+				duration = 36500
+			}
+		}
+		else_if = { # If zealous and ended the disaster as non-orthodox
+			limit = {
+				has_country_flag = nhs_hcd_supported_zealots
+				NOT = { religion = orthodox }
+			}
+			add_country_modifier = {
+				name = nhs_hrv_shaky_faith
+				duration = 18250
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_heir_flag = to_heir_practices_hellenism_in_secret
+					}
+					set_heir_religion = pantheon_worship
+				}
+				else_if = {
+					limit = {
+						heir_religion = orthodox
+					}
+					kill_heir = { allow_new_heir = no }
+				}
+			}
+			if = {
+				limit = {
+					has_ruler_flag = to_heir_practices_hellenism_in_secret
+				}
+				set_ruler_religion = pantheon_worship
+			}
+			else_if = {
+				limit = {
+					ruler_religion = orthodox
+				}
+				kill_ruler = yes
+			}
+			tooltip = {
+				if = {
+					limit = {
+						has_heir_flag = to_heir_practices_hellenism_in_secret
+					}
+					set_heir_religion = pantheon_worship
+				}
+				else_if = {
+					limit = {
+						heir_religion = orthodox
+					}
+					kill_heir = { allow_new_heir = no }
+				}
+			}
+		}
+		else_if = { # If moderate and ended the disaster with a non state religion province
+			limit = {
+				has_country_flag = nhs_hcd_supported_moderates
+			}
+			add_country_modifier = {
+				name = nhs_hrv_tolerance
+				duration = 36500
+			}
+			set_country_flag = nhs_enable_semi_tolerated_minority
+			hidden_effect = {
+				to_nhs_handle_post_disaster_tolerance_modifier_all_provinces = yes
+			}
+			custom_tooltip = nhs_new_line_tt
+			if = {
+				limit = {
+					religion = orthodox
+				}
+				custom_tooltip = nhs_semi_tolerated_minority_hellenic_in_the_future_tt
+			}
+			else_if = {
+				limit = {
+					religion = pantheon_worship
+				}
+				custom_tooltip = nhs_semi_tolerated_minority_orthodox_in_the_future_tt
+			}
+		}
+		else_if = { # If hellenic and stayed hellenic
+			limit = {
+				has_country_flag = nhs_hcd_converted_to_hellenic
+				religion = pantheon_worship
+			}
+			if = {
+				limit = {
+					ruler_religion = orthodox
+				}
+				set_ruler_religion = pantheon_worship
+			}
+			if = {
+				limit = {
+					heir_religion = orthodox
+				}
+				set_heir_religion = pantheon_worship
+			}
+			add_country_modifier = {
+				name = nhs_hrv_loyal_hellenic
+				duration = 36500
+			}
+		}
+		else_if = { # If hellenic and failed
+			limit = {
+				has_country_flag = nhs_hcd_converted_to_hellenic
+				NOT = { religion = pantheon_worship }
+			}
+			add_prestige = -50
+			hidden_effect = {
+				if = {
+					limit = {
+						OR = {
+							heir_religion = pantheon_worship
+							has_heir_flag = to_heir_practices_hellenism_in_secret
+						}
+					}
+					kill_heir = { allow_new_heir = no }
+				}
+				clr_ruler_flag = to_heir_practices_hellenism_in_secret
+			}
+			if = {
+				limit = {
+					ruler_religion = pantheon_worship
+				}
+				kill_ruler = yes
+			}
+			tooltip = {
+				if = {
+					limit = {
+						OR = {
+							heir_religion = pantheon_worship
+							has_ruler_flag = to_heir_practices_hellenism_in_secret
+						}
+					}
+					kill_heir = { allow_new_heir = no }
+				}
+			}
+		}
+	}
+
+	after = {
+		clr_country_flag = to_elysian_religious_wars_flag
+		clr_country_flag = nhs_hcd_converted_to_hellenic
+		clr_country_flag = nhs_hcd_supported_zealots
+		clr_country_flag = nhs_hcd_supported_moderates
+		hidden_effect = {
+			every_province = {
+				limit = {
+					has_province_modifier = nhs_hcd_exempt_from_disaster_tm
+				}
+				remove_province_triggered_modifier = nhs_hcd_exempt_from_disaster_tm
+			}
+		}
+	}
+}
+
+
+# (Secretly) Hellenic Ruler Ascends
+country_event = {
+	id = nhs_hcd_hellenicrevolt.2
+	title = nhs_hcd_hellenicrevolt.2.t
+	desc = {
+		trigger = {
+			ruler_religion = pantheon_worship
+			has_country_flag = nhs_hcd_supported_zealots
+		}
+		desc = nhs_hcd_hellenicrevolt.2.da
+	}
+	desc = {
+		trigger = {
+			ruler_religion = pantheon_worship
+		}
+		desc = nhs_hcd_hellenicrevolt.2.db
+	}
+	desc = {
+		trigger = {
+			has_country_flag = nhs_hcd_supported_zealots
+		}
+		desc = nhs_hcd_hellenicrevolt.2.dc
+	}
+	desc = {
+		trigger = {
+			ruler_religion = pantheon_worship
+		}
+		desc = nhs_hcd_hellenicrevolt.2.dd
+	}
+	picture = BYZANTINE_EMPEROR_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		OR = {
+			has_country_flag = nhs_hcd_supported_zealots
+			has_country_flag = nhs_hcd_supported_moderates
+		}
+		OR = {
+			ruler_religion = pantheon_worship
+			has_ruler_flag = to_heir_practices_hellenism_in_secret
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = to_determine_religion_event_active
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			clr_ruler_flag = to_heir_practices_hellenism_in_secret
+			clr_country_flag = to_determine_religion_event_active
+		}
+	}
+
+	option = {
+		# There is no fighting the inevitable
+		trigger = {
+			has_country_flag = nhs_hcd_supported_zealots
+		}
+		name = nhs_hcd_hellenicrevolt.2.a
+		add_ruler_modifier = {
+			name = to_reanounced_beliefs
+			duration = -1
+		}
+		if = {
+			limit = {
+				NOT = { ruler_religion = ROOT }
+			}
+			set_ruler_religion = ROOT
+		}
+		if = {
+			limit = {
+				heir_religion = pantheon_worship
+			}
+			set_heir_religion = ROOT
+		}
+		if = {
+			limit = {
+				ruler_has_personality = tolerant_personality
+			}
+			remove_ruler_personality = tolerant_personality
+		}
+	}
+
+	option = {
+		# Curtain Clergy
+		name = nhs_hcd_hellenicrevolt.2.b
+		trigger = {
+			has_country_flag = nhs_hcd_supported_zealots
+		}
+		if = {
+			limit = {
+				NOT = { ruler_religion = ROOT }
+			}
+			set_ruler_religion = ROOT
+		}
+		if = {
+			limit = {
+				heir_religion = pantheon_worship
+			}
+			set_heir_religion = ROOT
+		}
+		if = {
+			limit = {
+				ruler_has_personality = zealot_personality
+			}
+			remove_ruler_personality = zealot_personality
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -30
+		}
+		custom_tooltip = nhs_new_line_tt
+		clr_country_flag = nhs_hcd_supported_zealots
+		set_country_flag = nhs_hcd_supported_moderates
+		remove_country_modifier = nhs_hcd_church_loyalty
+		hidden_effect = {
+			if = {
+				limit = {
+					has_estate_privilege = estate_church_nhs_inquisition_privilege
+				}
+				set_country_flag = to_has_inquisition
+			}
+		}
+		to_nhs_remove_all_non_tolerant_clergy_privileges = yes
+		add_country_modifier = {
+			name = nhs_hcd_tolerant_approach
+			duration = -1
+			desc = "END_OF_ELY_RELIGIOUS_WARS"
+		}
+		to_nhs_spawn_inquisition_revolt_disaster = {
+			EVENT_TARGET = nhs_hcd_target_province
+		}
+	}
+
+	option = {
+		# Reanouce beliefs (Continue the moderate policies)
+		name = nhs_hcd_hellenicrevolt.2.b
+		trigger = {
+			NOT = { has_country_flag = nhs_hcd_supported_zealots }
+		}
+		if = {
+			limit = {
+				NOT = { ruler_religion = ROOT }
+			}
+			set_ruler_religion = ROOT
+		}
+		if = {
+			limit = {
+				heir_religion = pantheon_worship
+			}
+			set_heir_religion = ROOT
+		}
+		if = {
+			limit = {
+				ruler_has_personality = zealot_personality
+			}
+			remove_ruler_personality = zealot_personality
+		}
+	}
+
+	option = {
+		# Hellenic tolerant path?
+		name = nhs_hcd_hellenicrevolt.2.c
+		trigger = {
+			NOT = { has_country_flag = nhs_hcd_supported_zealots }
+		}
+		change_religion = pantheon_worship
+		nhs_set_clergy_loyalty_to_50 = yes
+		to_nhs_remove_all_clergy_privileges = yes
+		custom_tooltip = nhs_new_line_tt
+		to_spawn_orthodox_revolt = { SIZE = 1 }
+	}
+
+	option = {
+		# Hellenic path
+		name = nhs_hcd_hellenicrevolt.2.e
+		clr_country_flag = nhs_hcd_supported_zealots
+		clr_country_flag = nhs_hcd_supported_moderates
+		set_country_flag = nhs_hcd_converted_to_hellenic
+		change_religion = pantheon_worship
+		nhs_set_clergy_loyalty_to_50 = yes
+		hidden_effect = {
+			if = {
+				limit = {
+					has_estate_privilege = estate_church_nhs_inquisition_privilege
+				}
+				set_country_flag = to_has_inquisition
+			}
+		}
+		to_nhs_remove_all_clergy_privileges = yes
+		remove_country_modifier = nhs_hcd_tolerant_approach
+		remove_country_modifier = nhs_hcd_church_loyalty
+		add_country_modifier = {
+			name = nhs_hcd_pagan_loyalty
+			duration = -1
+			desc = "END_OF_ELY_RELIGIOUS_WARS"
+		}
+		if = {
+			limit = {
+				has_spawned_rebels = pantheon_worship_rebels
+			}
+			disband_rebels = pantheon_worship_rebels
+			custom_tooltip = nhs_new_line_tt
+		}
+		to_spawn_orthodox_revolt = { SIZE = 2 }
+		custom_tooltip = nhs_new_line_tt
+		to_nhs_remove_pre_hellenic_disaster_anti_hellenic_province_modifiers = yes
+		custom_tooltip = nhs_new_line_tt
+		to_nhs_spawn_inquisition_revolt_disaster = {
+			EVENT_TARGET = nhs_hcd_target_province
+		}
+	}
+}
+
+##################################
+# Events for siding with zealots #
+##################################
+
+# Witch trials in province
+country_event = {
+	id = nhs_hcd_hellenicrevolt.21
+	title = nhs_hcd_hellenicrevolt.21.t
+	desc = nhs_hcd_hellenicrevolt.21.d
+	picture = aow_WITCHBURNING_eventPicture
+
+	goto = nhs_hcd_hellenicrevolt_witchtrials
+	is_triggered_only = yes
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		religion = orthodox
+		# has_country_flag = nhs_hcd_supported_zealots
+		NOT = { has_country_flag = nhs_hcd_supported_moderates }
+		any_owned_province = {
+			NOT = {
+				has_province_modifier = nhs_hrv_merchant_death
+				has_province_modifier = nhs_hrv_soldier_death
+				has_province_modifier = nhs_hrv_farmer_death
+				has_province_modifier = nhs_hrv_painter_death
+				has_province_modifier = nhs_hrv_poet_death
+				has_province_modifier = nhs_hrv_beggar_death
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				1 = {
+					set_country_flag = nhs_hcd_hellenicrevolt_witchtrials_merchant
+				}
+				1 = {
+					set_country_flag = nhs_hcd_hellenicrevolt_witchtrials_soldier
+				}
+				1 = {
+					set_country_flag = nhs_hcd_hellenicrevolt_witchtrials_farmer
+				}
+			}
+			random_list = {
+				1 = {
+					set_country_flag = nhs_hcd_hellenicrevolt_witchtrials_painter
+				}
+				1 = {
+					set_country_flag = nhs_hcd_hellenicrevolt_witchtrials_poet
+				}
+				1 = {
+					set_country_flag = nhs_hcd_hellenicrevolt_witchtrials_beggar
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					NOT = {
+						has_province_modifier = nhs_hrv_merchant_death
+						has_province_modifier = nhs_hrv_soldier_death
+						has_province_modifier = nhs_hrv_farmer_death
+						has_province_modifier = nhs_hrv_painter_death
+						has_province_modifier = nhs_hrv_poet_death
+						has_province_modifier = nhs_hrv_beggar_death
+					}
+				}
+				save_event_target_as = nhs_hcd_hellenicrevolt_witchtrials
+			}
+		}
+	}
+
+	option = { 
+		# Burn the Merchant
+		name = nhs_hcd_hellenicrevolt.21.aa
+
+		trigger = {
+			has_country_flag = nhs_hcd_hellenicrevolt_witchtrials_merchant
+		}
+
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 5
+		}
+		event_target:nhs_hcd_hellenicrevolt_witchtrials = {
+			add_unrest = 5
+			add_province_modifier = {
+				name = nhs_hrv_merchant_death 
+				duration = 1825
+			}
+		}
+	}
+
+	option = {
+		# Burn the Soldier
+		name = nhs_hcd_hellenicrevolt.21.ab
+
+		trigger = {
+			has_country_flag = nhs_hcd_hellenicrevolt_witchtrials_soldier
+		}
+
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 5
+		}
+		event_target:nhs_hcd_hellenicrevolt_witchtrials = {
+			add_unrest = 3
+			add_province_modifier = {
+				name = nhs_hrv_soldier_death 
+				duration = 1825
+			}
+		}
+	}
+
+	option = {
+		# Burn the Farmer
+		name = nhs_hcd_hellenicrevolt.21.ac
+
+		trigger = {
+			has_country_flag = nhs_hcd_hellenicrevolt_witchtrials_farmer
+		}
+
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 5
+		}
+
+		event_target:nhs_hcd_hellenicrevolt_witchtrials = {
+			add_unrest = 3
+			add_province_modifier = {
+				name = nhs_hrv_farmer_death 
+				duration = 1825
+			}
+		}
+	}
+
+	option = {
+		# Burn the painter
+		name = nhs_hcd_hellenicrevolt.21.ba
+
+		trigger = {
+			has_country_flag = nhs_hcd_hellenicrevolt_witchtrials_painter
+		}
+
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 5
+		}
+		event_target:nhs_hcd_hellenicrevolt_witchtrials = {
+			add_unrest = 3
+			add_province_modifier = {
+				name = nhs_hrv_painter_death 
+				duration = 1825
+			}
+		}
+	}
+
+	option = {
+		# Burn the poet
+		name = nhs_hcd_hellenicrevolt.21.bb
+
+		trigger = {
+			has_country_flag = nhs_hcd_hellenicrevolt_witchtrials_poet
+		}
+
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 5
+		}
+
+		event_target:nhs_hcd_hellenicrevolt_witchtrials = {
+			add_unrest = 3
+			add_province_modifier = {
+				name = nhs_hrv_poet_death 
+				duration = 1825
+			}
+		}
+	}
+
+	option = {
+		# Burn the beggar
+		name = nhs_hcd_hellenicrevolt.21.bc
+
+		trigger = {
+			has_country_flag = nhs_hcd_hellenicrevolt_witchtrials_beggar
+		}
+
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 5
+		}
+
+		event_target:nhs_hcd_hellenicrevolt_witchtrials = {
+			add_prestige = -10
+			add_province_modifier = {
+				name = nhs_hrv_beggar_death 
+				duration = 1825
+			}
+		}
+	}
+
+	option = { 
+		# Burning is too cruel
+		name = nhs_hcd_hellenicrevolt.21.c
+
+		event_target:nhs_hcd_hellenicrevolt_witchtrials = {
+			spawn_rebels = {
+				size = 1
+				type = orthodox_rebels
+			}
+		}
+	}
+
+	after = {
+		clr_country_flag = nhs_hcd_hellenicrevolt_witchtrials_beggar
+		clr_country_flag = nhs_hcd_hellenicrevolt_witchtrials_merchant
+		clr_country_flag = nhs_hcd_hellenicrevolt_witchtrials_soldier
+		clr_country_flag = nhs_hcd_hellenicrevolt_witchtrials_painter
+		clr_country_flag = nhs_hcd_hellenicrevolt_witchtrials_poet
+		clr_country_flag = nhs_hcd_hellenicrevolt_witchtrials_farmer
+	}
+}
+
+
+# Zealots in province
+country_event = {
+	id = nhs_hcd_hellenicrevolt.22
+	title = nhs_hcd_hellenicrevolt.22.t
+	desc = nhs_hcd_hellenicrevolt.22.d
+	picture = VILLAGE_RAIDED_eventPicture
+
+	is_triggered_only = yes
+	goto = nhs_hcd_target_province
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		religion = orthodox
+		# has_country_flag = nhs_hcd_supported_zealots
+		NOT = { has_country_flag = nhs_hcd_supported_moderates }
+		any_owned_province = {
+			religion = pantheon_worship
+			NOT = { has_province_modifier = nhs_hrv_orthodox_communities }
+			NOT = { has_province_modifier = nhs_hrv_religious_persecution }
+			NOT = { has_province_modifier = nhs_hrv_rampaging_zealots }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					religion = pantheon_worship
+					NOT = { has_province_modifier = nhs_hrv_orthodox_communities }
+					NOT = { has_province_modifier = nhs_hrv_religious_persecution }
+					NOT = { has_province_modifier = nhs_hrv_rampaging_zealots }
+				}
+				# set_province_flag = nhs_hcd_hellenicrevolt_zealots
+				save_event_target_as = nhs_hcd_target_province
+			}
+		}
+	}
+
+	option = {
+		# Let the zealous rampage
+		name = nhs_hcd_hellenicrevolt.22.a
+
+		event_target:nhs_hcd_target_province = {
+			add_province_modifier = {
+				name = nhs_hrv_rampaging_zealots
+				duration = 3650
+			}
+			# random_list = {
+			# 	50 = {
+			# 		change_religion = orthodox
+			# 	}
+			# 	50 = {
+			# 		add_unrest = 5
+			# 	}
+			# }
+		}
+	}
+
+	# option = {
+	# 	# Encourage this
+	# 	name = nhs_hcd_hellenicrevolt.22.b
+
+	# 	random_owned_province = {
+	# 		add_province_modifier = {
+	# 			name = nhs_hrv_rampaging_zealots
+	# 			duration = 365
+	# 		}
+	# 		change_religion = orthodox
+	# 	}
+	# }
+
+	option = {
+		# Intervene
+		name = nhs_hcd_hellenicrevolt.22.c
+		event_target:nhs_hcd_target_province = {
+			spawn_rebels = {
+				size = 1
+				type = orthodox_rebels
+			}
+		}
+	}
+}
+
+
+# Iconoclasts in capital
+country_event = {
+	id = nhs_hcd_hellenicrevolt.23
+	title = nhs_hcd_hellenicrevolt.23.t
+	desc = nhs_hcd_hellenicrevolt.23.d
+	picture = Elysian_Orthodoxy_event_picture
+
+	goto = nhs_hcd_target_province
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		religion = orthodox
+		# has_country_flag = nhs_hcd_supported_zealots
+		NOT = { has_country_flag = nhs_hcd_supported_moderates }
+	}
+
+	immediate = {
+		hidden_effect = {
+			capital_scope = {
+				save_event_target_as = nhs_hcd_target_province
+			}
+		}
+	}
+
+	option = {
+		# Flee the capital
+		name = nhs_hcd_hellenicrevolt.23.a
+		
+		capital_scope = {
+			add_devastation = 33
+		}
+	}
+
+	option = {
+		# Send in the guard
+		name = nhs_hcd_hellenicrevolt.23.b
+		capital_scope = {
+			spawn_rebels = {
+				size = 2
+				type = orthodox_rebels
+			}
+		}
+	}
+
+	option = {
+		# Seek refuge within the church
+		name = nhs_hcd_hellenicrevolt.23.c
+		add_legitimacy = -100
+	}
+
+}
+
+
+#################################
+# Events for siding with pagans #
+#################################
+
+# Orthodox resistance to conversion
+country_event = {
+	id = nhs_hcd_hellenicrevolt.24
+	title = nhs_hcd_hellenicrevolt.24.t
+	desc = nhs_hcd_hellenicrevolt.24.d
+	picture = CHURCH_ESTATE_UPSET_eventPicture
+
+	is_triggered_only = yes
+	goto = nhs_hcd_target_province
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		religion = pantheon_worship
+		# has_country_flag = nhs_hcd_converted_to_hellenic
+		any_owned_province = {
+			NOT = { has_province_modifier = nhs_hrv_orthodox_communities }
+			NOT = { has_province_modifier = nhs_hrv_religious_persecution }
+			NOT = { has_province_modifier = nhs_hrv_rampaging_zealots }
+			is_city = yes
+			religion = orthodox
+			culture_group = ROOT
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = nhs_hrv_orthodox_communities }
+					NOT = { has_province_modifier = nhs_hrv_religious_persecution }
+					NOT = { has_province_modifier = nhs_hrv_rampaging_zealots }
+					is_city = yes
+					religion = orthodox
+				}
+				save_event_target_as = nhs_hcd_target_province
+			}
+		}
+	}
+
+	option = {
+		# Forcefully convert them
+		name = nhs_hcd_hellenicrevolt.24.a
+		
+		event_target:nhs_hcd_target_province = {
+			# change_religion = pantheon_worship
+			# spawn_rebels = {
+			# 	size = 1
+			# 	type = orthodox_rebels
+			# }
+			add_province_modifier = {
+				name = nhs_hrv_religious_persecution
+				duration = 3650
+			}
+		}
+	}
+
+	option = {
+		# Tolerate them
+		name = nhs_hcd_hellenicrevolt.24.b
+		
+		event_target:nhs_hcd_target_province = {
+			add_province_modifier = {
+				name = nhs_hrv_orthodox_communities
+				duration = 3650
+			}
+		}
+	}
+
+	option = {
+		# Do nothing
+		name = nhs_hcd_hellenicrevolt.24.c
+		
+		event_target:nhs_hcd_target_province = {
+			add_unrest = 10
+		}
+	}
+}
+
+
+# Neo-Pagans request help
+country_event = {
+	id = nhs_hcd_hellenicrevolt.25
+	title = nhs_hcd_hellenicrevolt.25.t
+	desc = nhs_hcd_hellenicrevolt.25.d
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	goto = nhs_hcd_target_province
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		religion = pantheon_worship
+		# has_country_flag = nhs_hcd_converted_to_hellenic
+		NOT = { has_country_modifier = nhs_hcd_pagans_feel_neglected }
+		any_owned_province = {
+			is_city = yes
+			religion = pantheon_worship
+			NOT = { has_building = cathedral }
+			NOT = { has_building = temple }
+			NOT = { has_construction = cathedral }
+			NOT = { has_construction = temple }
+			num_free_building_slots = 1
+			culture_group = ROOT
+		}
+	}
+
+	immediate = {
+		random_owned_province = {
+			limit = {
+				is_city = yes
+				religion = pantheon_worship
+				NOT = { has_building = cathedral }
+				NOT = { has_building = temple }
+				NOT = { has_construction = cathedral }
+				NOT = { has_construction = temple }
+				num_free_building_slots = 1
+			}
+			save_event_target_as = nhs_hcd_target_province
+		}
+		random_owned_province = {
+			limit = {
+				religion = orthodox
+				is_capital = no
+				base_tax = 2
+			}
+			save_event_target_as = nhs_hcd_target_province2
+		}
+	}
+
+	option = {
+		# Of course we will help
+		name = nhs_hcd_hellenicrevolt.25.a
+		if = {
+			limit = {
+				event_target:nhs_hcd_target_province = {
+					NOT = { has_building = cathedral }
+					NOT = { has_building = temple }
+					NOT = { has_construction = cathedral }
+					NOT = { has_construction = temple }
+				}
+			}
+			add_treasury = -100
+			event_target:nhs_hcd_target_province = {
+				add_building = temple
+			}
+		}
+	}
+
+	option = {
+		# Sorry no money
+		name = nhs_hcd_hellenicrevolt.25.b
+		add_prestige = -5
+		add_country_modifier = {
+			name = nhs_hcd_pagans_feel_neglected
+			duration = 730
+		}
+		# event_target:nhs_hcd_target_province = {
+		# 	spawn_rebels = {
+		# 		size = 1
+		# 		type = pantheon_worship_rebels
+		# 	}
+		# }
+	}
+
+	option = {
+		# Seize Orthodox property to do it
+		name = nhs_hcd_hellenicrevolt.25.c
+		goto = nhs_hcd_target_province2
+		trigger = {
+			any_owned_province = {
+				religion = orthodox
+				is_capital = no
+				base_tax = 2
+			}
+		}
+		if = {
+			limit = {
+				event_target:nhs_hcd_target_province = {
+					religion = orthodox
+					is_capital = no
+					base_tax = 2
+				}
+			}
+			event_target:nhs_hcd_target_province = {
+				add_building = temple
+			}
+			event_target:nhs_hcd_target_province2 = {
+				add_base_tax = -1
+				spawn_rebels = {
+					size = 1
+					type = orthodox_rebels
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_owned_province = {
+					religion = orthodox
+					is_capital = no
+					base_tax = 2
+				}
+			}
+			event_target:nhs_hcd_target_province = {
+				add_building = temple
+			}
+			random_owned_province = {
+				limit = {
+					religion = orthodox
+					is_capital = no
+					base_tax = 2
+				}
+				add_base_tax = -1
+				spawn_rebels = {
+					size = 1
+					type = orthodox_rebels
+				}
+			}
+		}
+		else = {
+			add_prestige = -5
+		}
+	}
+}
+
+
+# Human sacrifices
+country_event = {
+	id = nhs_hcd_hellenicrevolt.26
+	title = nhs_hcd_hellenicrevolt.26.t
+	desc = nhs_hcd_hellenicrevolt.26.d
+	picture = PANTHEON_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+
+		always = no  # TODO: Write completely new event instead. Not only poorly localized, also completely nuts. "Suddenly human sacrifice". Doesn't fit the theme.
+
+		has_disaster = nhs_hcd_hellenic_crisis
+		religion = pantheon_worship
+		has_country_flag = nhs_hcd_converted_to_hellenic
+	}
+
+	option = {
+		# Allow it
+		name = nhs_hcd_hellenicrevolt.26.a
+
+		add_stability = 1
+		every_owned_province = {
+			limit = {
+				NOT = { religion_group = pagan }
+			}
+			add_unrest = 10	
+		}
+		every_owned_province = {
+			limit = {
+				religion_group = pagan
+				NOT = { religion = pantheon_worship }
+			}
+			add_unrest = 5
+		}
+	}
+
+	option = {
+		# Do not allow it
+		name = nhs_hcd_hellenicrevolt.26.b
+
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -5
+		}
+		every_owned_province = {
+			limit = {
+				NOT = { religion = pantheon_worship }
+			}
+			add_unrest = -2
+		}
+	}
+}
+
+
+#################################
+# Events for siding with nobody #
+#################################
+
+# Religious infighting
+country_event = {
+	id = nhs_hcd_hellenicrevolt.30
+	title = nhs_hcd_hellenicrevolt.30.t
+	desc = nhs_hcd_hellenicrevolt.30.d
+	picture = nhs_EXECUTION_eventPicture
+
+	is_triggered_only = yes
+	goto = nhs_hcd_target_province
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		# religion = orthodox
+		has_country_flag = nhs_hcd_supported_moderates
+		any_owned_province = {
+			is_city = yes
+			culture_group = ROOT
+			OR = {
+				religion = pantheon_worship
+				religion = orthodox
+			}
+			NOT = {
+				has_province_modifier = nhs_hrv_rampaging_zealots
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_city = yes
+					culture_group = ROOT
+					OR = {
+						religion = pantheon_worship
+						religion = orthodox
+					}
+					has_owner_religion = no
+					NOT = {
+						has_province_modifier = nhs_hrv_rampaging_zealots
+					}
+				}
+				save_event_target_as = nhs_hcd_target_province
+			}
+			if = {
+				limit = {
+					NOT = { has_saved_event_target = nhs_hcd_target_province }
+				}
+				random_owned_province = {
+					limit = {
+						is_city = yes
+						culture_group = ROOT
+						OR = {
+							religion = pantheon_worship
+							religion = orthodox
+						}
+						NOT = {
+							has_province_modifier = nhs_hrv_rampaging_zealots
+						}
+					}
+					save_event_target_as = nhs_hcd_target_province
+				}
+			}
+		}
+		
+	}
+
+	option = {
+		# Intervene
+		name = nhs_hcd_hellenicrevolt.30.a
+		add_mil_power = -25
+	}
+
+	option = {
+		# Do not intervene
+		name = nhs_hcd_hellenicrevolt.30.b
+		event_target:nhs_hcd_target_province = {
+			add_unrest = 10
+			add_devastation = 10
+		}
+	}
+
+	option = {
+		# Fan the flames
+		name = nhs_hcd_hellenicrevolt.30.c
+
+		event_target:nhs_hcd_target_province = {
+			add_devastation = 20
+			add_province_modifier = {
+				name = nhs_hrv_rampaging_zealots
+				duration = 1825
+			}
+			# if = {
+			# 	limit = {
+			# 		has_owner_religion = yes
+			# 	}
+			# 	add_province_modifier = {
+			# 		name = nhs_hrv_rampaging_zealots
+			# 		duration = 1825
+			# 	}
+			# }
+			# if = {
+			# 	limit = {
+			# 		NOT = { religion = owner }
+			# 	}
+			# 	change_religion = orthodox
+			# }
+		}
+	}
+}
+
+
+# Heated debates in capital
+country_event = {
+	id = nhs_hcd_hellenicrevolt.31
+	title = nhs_hcd_hellenicrevolt.31.t
+	desc = {
+		trigger = {
+			NOT = { religion = pantheon_worship }
+		}
+		desc = nhs_hcd_hellenicrevolt.31.da
+	}
+	desc = {
+		desc = nhs_hcd_hellenicrevolt.31.db
+	}
+	picture = p_ANGRY_SHAMANS_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		# religion = orthodox
+		has_country_flag = nhs_hcd_supported_moderates
+		NOT = { has_country_modifier = to_hcd_people_turn_to_fanaticism }
+		AND = {
+			any_owned_province = {
+				is_capital = no
+				NOT = { has_owner_religion = yes }
+				OR = {
+					religion = orthodox
+					religion = pantheon_worship
+				}
+			}
+			any_owned_province = {
+				is_capital = no
+				has_owner_religion = yes
+			}
+		}
+	}
+
+	option = {
+		# Support the debates
+		name = nhs_hcd_hellenicrevolt.31.a
+
+		add_legitimacy = -10
+		random_list = {
+			50 = {
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						NOT = { has_owner_religion = yes }
+						OR = {
+							religion = orthodox
+							religion = pantheon_worship
+						}
+					}
+					change_religion = ROOT
+				}
+			}
+			50 = {
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						has_owner_religion = yes
+					}
+					if = {
+						limit = {
+							ROOT = { religion = pantheon_worship }
+						}
+						change_religion = orthodox
+					}
+					else_if = {
+						limit = {
+							ROOT = { religion = orthodox }
+						}
+						change_religion = pantheon_worship
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		# No debates
+		name = nhs_hcd_hellenicrevolt.31.b
+		add_disaster_modifier = {
+			name = to_hcd_people_turn_to_fanaticism
+			duration = 365
+			disaster = nhs_hcd_hellenic_crisis
+		}
+	}
+}
+
+
+# Ineffective missionaries
+country_event = {
+	id = nhs_hcd_hellenicrevolt.32
+	title = nhs_hcd_hellenicrevolt.32.t
+	desc = {
+		trigger = {
+			NOT = { religion = pantheon_worship }
+		}
+		desc = nhs_hcd_hellenicrevolt.32.da
+	}
+	desc = {
+		desc = nhs_hcd_hellenicrevolt.32.db
+	}
+	picture = PANTHEON_eventPicture
+
+	is_triggered_only = yes
+	goto = nhs_hcd_target_province
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		# religion = orthodox
+		has_country_flag = nhs_hcd_supported_moderates
+		any_owned_province = {
+			has_missionary = yes
+			OR = {
+				religion = pantheon_worship
+				religion = orthodox
+			}
+			culture_group = ROOT
+			NOT = { has_province_modifier = nhs_hrv_no_missionary }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					has_missionary = yes
+					religion = pantheon_worship
+					culture_group = ROOT
+					NOT = { has_province_modifier = nhs_hrv_no_missionary }
+				}
+				save_event_target_as = nhs_hcd_target_province
+			}
+		}
+	}
+
+	option = {
+		# Send guards to help with the conversion
+		name = nhs_hcd_hellenicrevolt.32.a
+
+		trigger = {
+			event_target:nhs_hcd_target_province = {
+				religion = pantheon_worship
+			}
+		}
+		event_target:nhs_hcd_target_province = {
+			random = {
+				chance = 50
+				if = {
+					limit = {
+						religion = pantheon_worship
+					}
+					spawn_rebels = {
+						size = 1
+						type = pantheon_worship_rebels
+					}
+				}
+				else = {
+					spawn_rebels = {
+						size = 1
+						type = particularist_rebels
+					}
+				}
+			}
+		}
+	}
+
+	# option = {
+	#   "Send in more missionaries to lend a hand."
+	# 	name = nhs_hcd_hellenicrevolt.32.b
+
+	# 	add_adm_power = -30
+	# 	event_target:nhs_hcd_target_province = {
+	# 		add_unrest = 5
+	# 	}
+	# }
+
+	option = { 
+		# Leave it be
+		name = nhs_hcd_hellenicrevolt.32.c
+		
+		event_target:nhs_hcd_target_province = {
+			add_province_modifier = {
+				name = nhs_hrv_no_missionary
+				duration = 730
+			}
+		}
+	}
+}
+
+
+########################
+# Events for all sides #
+########################
+
+# Bandits take advantage
+country_event = {
+	id = nhs_hcd_hellenicrevolt.27
+	title = nhs_hcd_hellenicrevolt.27.t
+	desc = nhs_hcd_hellenicrevolt.27.d
+	picture = VILLAGE_BURNING_eventPicture
+
+	is_triggered_only = yes
+	goto = nhs_hcd_target_province
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		any_owned_province = {
+			is_city = yes
+			is_capital = no
+			culture_group = ROOT
+		}
+	}
+
+	immediate = {
+		random_owned_province = {
+			limit = {
+				is_city = yes
+				is_capital = no
+				culture_group = ROOT
+			}
+			save_event_target_as = nhs_hcd_target_province
+		}
+	}
+
+	option = {
+		# Nothing we can do
+		name = nhs_hcd_hellenicrevolt.27.a
+
+		event_target:nhs_hcd_target_province = {
+			add_devastation = 50
+		}
+	}
+
+	option = {
+		# Supply the local garrison with weapons!
+		name = nhs_hcd_hellenicrevolt.27.b
+		add_mil_power = -10
+		custom_tooltip = nhs_hrv_arming_particularists.tt
+		event_target:nhs_hcd_target_province = {
+			random_list = {
+				70 = {
+				}
+				25 = {
+					spawn_rebels = {
+						size = 1
+						type = particularist_rebels
+					}
+				}
+				5 = {
+					spawn_rebels = {
+						size = 2
+						type = particularist_rebels
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		# Send men
+		name = nhs_hcd_hellenicrevolt.27.c
+		add_mil_power = -50
+		add_manpower = -1
+	}
+}
+
+
+# Famine in province
+country_event = {
+	id = nhs_hcd_hellenicrevolt.28
+	title = nhs_hcd_hellenicrevolt.28.t
+	desc = nhs_hcd_hellenicrevolt.28.d
+	picture = FAMINE_eventPicture
+
+	is_triggered_only = yes
+	goto = nhs_hcd_target_province
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		any_owned_province = {
+			is_capital = no
+			is_city = yes
+			NOT = { has_province_flag = nhs_hcd_had_disaster_famine }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					is_city = yes
+					NOT = { has_province_flag = nhs_hcd_had_disaster_famine }
+				}
+				save_event_target_as = nhs_hcd_target_province
+				set_province_flag = nhs_hcd_had_disaster_famine
+			}
+		}
+	}
+
+
+	option = {
+		name = nhs_hcd_hellenicrevolt.28.a
+		highlight = yes
+		trigger = {
+			event_target:nhs_hcd_target_province = {
+				has_province_modifier = nhs2_aqueducts
+			}
+		}
+		custom_tooltip = nhs_hcd_hellenicrevolt.28.a.tt
+		event_target:nhs_hcd_target_province = {
+			add_devastation = 5
+		}
+	}
+
+	option = {
+		# Do nothing
+		name = nhs_hcd_hellenicrevolt.28.b
+		trigger = {
+			event_target:nhs_hcd_target_province = {
+				NOT = { has_province_modifier = nhs2_aqueducts }
+			}
+		}
+		event_target:nhs_hcd_target_province = {
+			add_devastation = 25
+			add_unrest = 10
+		}
+	}
+
+	option = {
+		# Draw on the state's resources
+		name = nhs_hcd_hellenicrevolt.28.c
+
+		add_war_exhaustion = 2
+	}
+
+	option = {
+		# Draw on the crown's resources
+		name = nhs_hcd_hellenicrevolt.28.e
+
+		add_treasury = -25
+	}
+}
+
+
+# Church destroyed
+country_event = {
+	id = nhs_hcd_hellenicrevolt.29
+	title = nhs_hcd_hellenicrevolt.29.t
+	desc = nhs_hcd_hellenicrevolt.29.d
+	picture = FAMINE_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	goto = nhs_hcd_target_province
+
+	trigger = {
+		has_disaster = nhs_hcd_hellenic_crisis
+		any_owned_province = {
+			is_capital = no
+			has_building = temple
+			OR = {
+				religion = orthodox
+				religion = pantheon_worship
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					has_building = temple
+					OR = {
+						religion = orthodox
+						religion = pantheon_worship
+					}
+				}
+				save_event_target_as = nhs_hcd_target_province
+			}
+		}
+	}
+
+	option = {
+		# There is nothing we can do
+		name = nhs_hcd_hellenicrevolt.29.a
+
+		event_target:nhs_hcd_target_province = {
+			remove_building = temple
+			if = {
+				limit = {
+					has_owner_religion = yes
+				}
+				add_unrest = 5
+			}
+			else = {
+				if = {
+					limit = {
+						religion = orthodox
+					}
+					spawn_rebels = {
+						size = 1
+						type = orthodox_rebels
+					}
+				}
+				else_if = {
+					limit = {
+						religion = pantheon_worship
+					}
+					spawn_rebels = {
+						size = 1
+						type = pantheon_worship_rebels
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		# There is nothing we can do
+		name = nhs_hcd_hellenicrevolt.29.b
+		trigger = {
+			has_owner_religion = yes
+		}
+
+		event_target:nhs_hcd_target_province = {
+			remove_building = temple
+			if = {
+				limit = {
+					religion = orthodox
+				}
+				spawn_rebels = {
+					size = 1
+					type = orthodox_rebels
+				}
+			}
+			else_if = {
+				limit = {
+					religion = pantheon_worship
+				}
+				spawn_rebels = {
+					size = 1
+					type = pantheon_worship_rebels
+				}
+			}
+		}
+	}
+
+	option = {
+		# Rebuild the church
+		name = nhs_hcd_hellenicrevolt.29.c
+
+		add_treasury = -80
+	}
+
+	option = {
+		# Rebuild it but make the province pay for it
+		name = nhs_hcd_hellenicrevolt.29.e
+
+		event_target:nhs_hcd_target_province = {
+			add_base_tax = -1
+		}
+	}
+}

@@ -1,0 +1,507 @@
+namespace = to_nat_tribal_development
+
+###################################################
+### TRIBAL DEVELOPMENT MIGRATION
+###################################################
+
+# Tribal development, dispacement on colonisation
+province_event = {
+	id = to_nat_tribal_development.1
+	title = to_nat_tribal_development.1.t
+	desc = to_nat_tribal_development.1.d
+	picture = nat_LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+
+	goto = ROOT
+		
+	trigger = {
+		has_province_modifier = to_nat_tribal_development
+		# has_owner_culture = no
+		owner = {
+			if = {
+				limit = {
+					is_colonial_nation = no
+				}
+				# Natives will not displace other natives (unless they attack natives)
+				NOT = { has_native_government = yes }
+				#
+				OR = {
+					to_nat_immidiate_displacement_condition_with_estate = yes
+					to_nat_displacement_condition_no_estate = yes
+				}
+			}
+			else = {
+				overlord = {
+					NOT = { has_native_government = yes }
+					#
+					OR = {
+						to_nat_immidiate_displacement_condition_with_estate = yes
+						to_nat_displacement_condition_no_estate = yes
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			log = "Tribal Dev. displacement (on colony finish) in [Root.GetName] by [Root.Owner.GetName]"
+			save_event_target_as = origin_province
+			to_nat_displace_tribal_development = {
+				PROVINCE_SCOPE = ROOT
+				COUNTRY_SCOPE = owner
+				FRACTION = 1
+				LOST_FRACTION = 0.20
+			}
+		}
+	}
+	
+	option = {
+		name = to_nat_tribal_development.1.a
+		trigger = {
+			has_saved_event_target = displace_tribal_development_target
+			event_target:owner_of_the_province = {
+				event_target:displace_tribal_development_target = {
+					has_discovered = PREV
+				}
+			}
+		}
+		goto = displace_tribal_development_target
+		to_nat_tribal_displacement_obtain_local_plunder = {
+			PROVINCE_SCOPE = ROOT
+			COUNTRY_SCOPE = owner
+		}
+
+		to_nat_tribal_displacement_show_effect = yes
+		to_nat_tribal_displacement_show_effect_destination = {
+			PROVINCE_SCOPE = ROOT
+		}
+		custom_tooltip = to_dev_loss_aready_applied
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				owner = {
+					has_estate = estate_all_natives
+				}
+			}
+			custom_tooltip = to_tribal_dev_emigration_reason_estate_tt
+		}
+		else = {
+			custom_tooltip = to_tribal_dev_emigration_reason_no_estate_tt
+		}
+	}
+
+	option = {
+		name = to_nat_tribal_development.1.a
+		trigger = {
+			OR = {
+				NOT = { has_saved_event_target = displace_tribal_development_target }
+				NOT = {
+					event_target:owner_of_the_province = {
+						event_target:displace_tribal_development_target = {
+							has_discovered = PREV
+						}
+					}
+				}
+			}
+		}
+		to_nat_tribal_displacement_obtain_local_plunder = {
+			PROVINCE_SCOPE = ROOT
+			COUNTRY_SCOPE = owner
+		}
+		
+		to_nat_tribal_displacement_show_effect = yes
+		to_nat_tribal_displacement_show_effect_destination = {
+			PROVINCE_SCOPE = ROOT
+		}
+		custom_tooltip = to_dev_loss_aready_applied
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				owner = {
+					has_estate = estate_all_natives
+				}
+			}
+			custom_tooltip = to_tribal_dev_emigration_reason_estate_tt
+		}
+		else = {
+			custom_tooltip = to_tribal_dev_emigration_reason_no_estate_tt
+		}
+	}
+}
+
+# Tribal development, dispacement on attack natives
+country_event = {
+	id = to_nat_tribal_development.2
+	title = to_nat_tribal_development.2.t
+	desc = {
+		desc = to_nat_tribal_development.2.da
+		trigger = {
+			FROM = { owned_by = ROOT }
+		}
+	}
+	desc = {
+		desc = to_nat_tribal_development.2.db
+		trigger = {
+			NOT = { FROM = { owned_by = ROOT } }
+		}
+	}
+	picture = nat_SIEGE_eventPicture
+
+	is_triggered_only = yes
+
+	goto = FROM
+		
+	trigger = {
+		FROM = {
+			has_province_modifier = to_nat_tribal_development
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			log = "Tribal Dev. displacement (attacked natives) in [From.GetName] by [Root.GetName]"
+			FROM = {
+				save_event_target_as = origin_province
+				kill_units = {
+					who = NAT
+					amount = 100
+				}
+			}
+			to_nat_displace_tribal_development = {
+				PROVINCE_SCOPE = FROM
+				COUNTRY_SCOPE = ROOT
+				FRACTION = 1
+				LOST_FRACTION = 0.30
+			}
+		}
+	}
+	
+	option = {
+		name = to_nat_tribal_development.2.a
+		trigger = {
+			has_saved_event_target = displace_tribal_development_target
+			event_target:owner_of_the_province = {
+				event_target:displace_tribal_development_target = {
+					has_discovered = PREV
+				}
+			}
+		}
+		goto = displace_tribal_development_target
+		to_nat_tribal_displacement_obtain_local_plunder = {
+			PROVINCE_SCOPE = FROM
+			COUNTRY_SCOPE = ROOT
+		}
+		FROM = {
+			to_nat_tribal_displacement_show_effect = yes
+		}
+		to_nat_tribal_displacement_show_effect_destination = {
+			PROVINCE_SCOPE = FROM
+		}
+		custom_tooltip = to_dev_loss_aready_applied
+		if = {
+			limit = {
+				has_country_modifier = nhs_early_uprising_reduction
+			}
+			custom_tooltip = nhs_new_line_tt
+			remove_country_modifier = nhs_early_uprising_reduction
+		}
+	}
+
+	option = {
+		name = to_nat_tribal_development.2.a
+		trigger = {
+			OR = {
+				NOT = { has_saved_event_target = displace_tribal_development_target }
+				NOT = {
+					event_target:owner_of_the_province = {
+						event_target:displace_tribal_development_target = {
+							has_discovered = PREV
+						}
+					}
+				}	
+			}
+		}
+		to_nat_tribal_displacement_obtain_local_plunder = {
+			PROVINCE_SCOPE = FROM
+			COUNTRY_SCOPE = ROOT
+		}
+		FROM = {
+			to_nat_tribal_displacement_show_effect = yes
+		}
+		to_nat_tribal_displacement_show_effect_destination = {
+			PROVINCE_SCOPE = FROM
+		}
+		custom_tooltip = to_dev_loss_aready_applied
+		if = {
+			limit = {
+				has_country_modifier = nhs_early_uprising_reduction
+			}
+			custom_tooltip = nhs_new_line_tt
+			remove_country_modifier = nhs_early_uprising_reduction
+		}
+		
+	}
+}
+
+# Tribal development, dispacement over time
+# This is a country event for purposes of determining mtth, but it then triggers a province event
+country_event = {
+	id = to_nat_tribal_development.3
+	title = to_nat_tribal_development.3.t
+	desc = to_nat_tribal_development.3.d
+	picture = nat_LAND_MILITARY_eventPicture
+
+	hidden = yes
+		
+	trigger = {
+		NOT = { has_country_modifier = to_nat_tribal_displacement_cd }
+		if = {
+			limit = {
+				is_colonial_nation = no
+			}
+			NOT = { has_native_government = yes }
+			OR = {
+				to_nat_displacement_condition_with_estate = yes
+				to_nat_displacement_condition_no_estate = yes
+			}
+		}
+		else = {
+			overlord = {
+				NOT = { has_native_government = yes }
+				OR = {
+					to_nat_displacement_condition_with_estate = yes
+					to_nat_displacement_condition_no_estate = yes
+				}
+			}
+		}
+		any_owned_province = {
+			to_nat_province_displacement_origin_check = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 60
+		# TODO think if some mtth modifiers
+		modifier = {
+			factor = 0.75
+			has_estate = estate_all_natives
+			NOT = {
+				estate_loyalty = {
+					estate = estate_all_natives
+					loyalty = 20
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			has_estate = estate_all_natives
+			NOT = {
+				estate_loyalty = {
+					estate = estate_all_natives
+					loyalty = 10
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			has_estate = estate_all_natives
+			NOT = {
+				estate_loyalty = {
+					estate = estate_all_natives
+					loyalty = 1
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			num_of_cities = 10
+			num_of_owned_provinces_with = {
+				value = 10
+				to_nat_province_displacement_origin_check = yes
+			}
+		}
+		modifier = {
+			factor = 0.5
+			num_of_cities = 25
+			num_of_owned_provinces_with = {
+				value = 25
+				to_nat_province_displacement_origin_check = yes
+			}
+		}
+	}
+
+	immediate = {
+		random_owned_province = {
+			limit = {
+				to_nat_province_displacement_origin_check = yes
+			}
+			province_event = { id = to_nat_tribal_development.4 }
+		}
+		add_country_modifier = {
+			name = to_nat_tribal_displacement_cd
+			duration = 182
+			hidden = yes
+		}
+	}
+	
+	option = {
+		name = to_nat_tribal_development.3.a
+	}
+}
+
+
+# Tribal development, dispacement over time
+# Triggered by to_nat_tribal_development.3
+province_event = {
+	id = to_nat_tribal_development.4
+	title = to_nat_tribal_development.4.t
+	desc = {
+		desc = to_nat_tribal_development.4.da
+		trigger = {
+			owner = {
+				has_estate_privilege = nhs_native_priv_ancestral_land
+			}
+		}
+	}
+	desc = {
+		desc = to_nat_tribal_development.4.db
+		trigger = {
+			owner = {
+				NOT = { has_estate_privilege = nhs_native_priv_ancestral_land }
+			}
+		}
+	}
+	picture = nat_LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+
+	goto = ROOT
+
+	immediate = {
+		hidden_effect = {
+			log = "Tribal Dev. displacement (overtime) in [Root.GetName] by [Root.Owner.GetName]"
+			save_event_target_as = origin_province
+			if = {
+				limit = {
+					owner = {
+						has_estate = estate_all_natives
+						has_estate_privilege = nhs_native_priv_ancestral_land
+					}
+				}
+				to_nat_displace_tribal_development = {
+					PROVINCE_SCOPE = ROOT
+					COUNTRY_SCOPE = owner
+					FRACTION = 0.5
+					LOST_FRACTION = 0
+				}
+			}
+			else = {
+				to_nat_displace_tribal_development = {
+					PROVINCE_SCOPE = ROOT
+					COUNTRY_SCOPE = owner
+					FRACTION = 1
+					LOST_FRACTION = 0.20
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = to_nat_tribal_development.4.a
+		trigger = {
+			has_saved_event_target = displace_tribal_development_target
+			event_target:owner_of_the_province = {
+				event_target:displace_tribal_development_target = {
+					has_discovered = PREV
+				}
+			}
+		}
+		goto = displace_tribal_development_target
+		to_nat_tribal_displacement_obtain_local_plunder = {
+			PROVINCE_SCOPE = ROOT
+			COUNTRY_SCOPE = owner
+		}
+		to_nat_tribal_displacement_show_effect = yes
+		to_nat_tribal_displacement_show_effect_destination = {
+			PROVINCE_SCOPE = ROOT
+		}
+		custom_tooltip = to_dev_loss_aready_applied
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				owner = {
+					has_estate = estate_all_natives
+				}
+			}
+			custom_tooltip = to_tribal_dev_emigration_reason_estate_tt
+		}
+		else = {
+			custom_tooltip = to_tribal_dev_emigration_reason_no_estate_tt
+		}
+	}
+
+	option = {
+		name = to_nat_tribal_development.4.a
+		trigger = {
+			OR = {
+				NOT = { has_saved_event_target = displace_tribal_development_target }
+				NOT = {
+					event_target:owner_of_the_province = {
+						event_target:displace_tribal_development_target = {
+							has_discovered = PREV
+						}
+					}
+				}
+			}
+		}
+		to_nat_tribal_displacement_obtain_local_plunder = {
+			PROVINCE_SCOPE = ROOT
+			COUNTRY_SCOPE = owner
+		}
+		to_nat_tribal_displacement_show_effect = yes
+		to_nat_tribal_displacement_show_effect_destination = {
+			PROVINCE_SCOPE = ROOT
+		}
+		custom_tooltip = to_dev_loss_aready_applied
+		custom_tooltip = nhs_new_line_tt
+		if = {
+			limit = {
+				owner = {
+					has_estate = estate_all_natives
+				}
+			}
+			custom_tooltip = to_tribal_dev_emigration_reason_estate_tt
+		}
+		else = {
+			custom_tooltip = to_tribal_dev_emigration_reason_no_estate_tt
+		}
+	}
+}
+
+
+###################################################
+### MIGRATORY DEVELOPMENT
+###################################################
+
+# This is stupid, but when you take someone capital the script cannot figure out the new capital immidiately
+country_event = {
+	id = to_nat_tribal_development.100
+	title = nhs2_hidden.t
+	desc = nhs2_hidden.d
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	hidden = yes
+		
+	immediate = {
+		capital_scope = {
+			to_nat_set_local_migratory_development = yes
+		}
+	}
+	
+	option = {
+		name = nhs2_hidden.a
+	}
+}
