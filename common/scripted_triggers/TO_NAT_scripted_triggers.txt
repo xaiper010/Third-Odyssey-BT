@@ -15,8 +15,18 @@ native_culture = {
 		culture_group = eskaleut
 		culture_group = carribean
 		culture_group = apachean
-
-		culture = arawak
+		culture_group = arawakan_g
+		culture_group = chumash_group
+		culture_group = hokan
+		culture_group = pacific_na_dene
+		culture_group = salish_group
+		culture_group = timucua_group
+		culture_group = calusa_group
+		culture_group = karankwa_group
+		culture = ktunaxa
+		culture = wakashan
+		culture = haida
+		culture = quileute
 	}
 }
 
@@ -29,6 +39,7 @@ mesoamerican_native_culture = {
 		culture_group = otomanguean
 		culture_group = maya
 		culture_group = aridoamerican
+		culture_group = southern_uto_aztecan
 		# culture = miskito
 		# culture = arawak
 		# culture = carib
@@ -68,6 +79,15 @@ native_culture_primary = {
 		culture_group = eskaleut
 		culture_group = carribean
 		culture_group = apachean
+		culture_group = arawakan_g
+		culture_group = chumash_group
+		culture_group = hokan
+		culture_group = pacific_na_dene
+		culture_group = salish_group
+		primary_culture = ktunaxa
+		primary_culture = wakashan
+		primary_culture = haida
+		primary_culture = quileute
 
 		primary_culture = arawak
 	}
@@ -191,7 +211,7 @@ to_nat_in_same_confederation = {
 			}
 		}
 	}
-	
+
 }
 
 to_confederation_tag_not_exists_or_neighboring_conf_member = {
@@ -222,16 +242,16 @@ to_HUR_federation_trigger = {
 }
 
 to_ILL_federation_trigger = {
-	primary_culture = illini 
+	primary_culture = illini
 	NOT = { tag = CAO }
 }
 
 to_IRO_federation_trigger = {
-	primary_culture = iroquois 
+	primary_culture = iroquois
 }
 
 to_SHA_federation_trigger = {
-	primary_culture = shawnee 
+	primary_culture = shawnee
 }
 
 to_WB0_federation_trigger = {
@@ -239,7 +259,7 @@ to_WB0_federation_trigger = {
 		primary_culture = mikmaq
 		primary_culture = maliseet
 		primary_culture = abenaki
-	} 
+	}
 }
 
 to_will_become_federation_tag = {
