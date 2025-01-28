@@ -1780,7 +1780,7 @@ bt_bur_pu_subject = { # BT added
 }
 
 bt_bur_union_overlord = { # BT added
-	global_tax_income = 2
+	global_tax_income = 2.4
 	land_forcelimit = 1
 	global_manpower = 1
 }

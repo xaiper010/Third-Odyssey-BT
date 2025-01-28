@@ -1822,15 +1822,17 @@ daimyo_subject = {
 }
 
 appanage_subject = {
-	global_tax_income = -8 # Harb's Autonomy Overhaul
-	land_forcelimit	= -1			#BTAddOn changed from 3. More tags in BT and more provinces... plus I'd generally like to see smaller armies to start # Harb's Autonomy Overhaul
-	naval_forcelimit = -2			#BTAddOn changed from 6. Naval forcelimits were getting obscene, and tiny OPMs were having way too many ships. # Harb's Autonomy Overhaul
+	global_tax_income = -6 # Harb's Autonomy Overhaul
+	#land_forcelimit	= -1			#BTAddOn changed from 3. More tags in BT and more provinces... plus I'd generally like to see smaller armies to start # Harb's Autonomy Overhaul
+	#naval_forcelimit = -2			#BTAddOn changed from 6. Naval forcelimits were getting obscene, and tiny OPMs were having way too many ships. # Harb's Autonomy Overhaul
 	governing_capacity_modifier = -0.5 # Harb's Autonomy Overhaul
+	global_manpower = -1
 }
 
 appanage_overlord = {
 	nobles_loyalty_modifier = 0.02
-	land_forcelimit = 1
+	global_manpower = 1
+	land_forcelimit = 1.5
 }
 
 union_subject = {
@@ -1847,6 +1849,7 @@ subject_nation = {
 	land_forcelimit	= -2			#BTAddOn changed from 3. More tags in BT and more provinces... plus I'd generally like to see smaller armies to start # Harb's Autonomy Overhaul
 	naval_forcelimit = -3			#BTAddOn changed from 6. Naval forcelimits were getting obscene, and tiny OPMs were having way too many ships. # Harb's Autonomy Overhaul
 	governing_capacity_modifier = -0.5 # Harb's Autonomy Overhaul
+	global_manpower = -3
 }
 
 pu_subject_nation = { # BT added
@@ -1854,6 +1857,7 @@ pu_subject_nation = { # BT added
 	land_forcelimit	= -2			#BTAddOn changed from 3. More tags in BT and more provinces... plus I'd generally like to see smaller armies to start # Harb's Autonomy Overhaul
 	naval_forcelimit = -3			#BTAddOn changed from 6. Naval forcelimits were getting obscene, and tiny OPMs were having way too many ships. # Harb's Autonomy Overhaul
 	governing_capacity_modifier = -0.25 # Harb's Autonomy Overhaul Halved for PU subjects
+	global_manpower = -3
 }
 
 vassal_nation = {

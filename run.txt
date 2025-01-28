@@ -1,6 +1,0 @@
-mesoamerica_pgroup = {
-	add_province_modifier = {
-		name = nhs2_aqueducts
-		duration = 4
-	}
-}

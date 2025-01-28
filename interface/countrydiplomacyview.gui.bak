@@ -566,27 +566,14 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "cultures_value"
-			position = { x = -382 y = -130 }
-			textureFile = ""
-			font = "vic_18"
-			borderSize = {x = 4 y = 4}
-			text = "-"
-			maxWidth = 30
-			maxHeight = 26
-			format = right
-		}
-
-		instantTextBoxType = {
-			name = "bt_cultures_value_gui"
 			position = { x = 382 y = 130 }
 			textureFile = ""
 			font = "vic_18"
 			borderSize = {x = 4 y = 4}
-			text = "bt_cultures_value_gui"
+			text = "?"
 			maxWidth = 30
 			maxHeight = 26
 			format = right
-			scripted = yes
 		}
 
 		iconType =

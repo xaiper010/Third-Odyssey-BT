@@ -3250,12 +3250,12 @@ guiTypes = {
 				{
 					name ="provinceview_building_bg"
 					spriteType = "GFX_provinceview_building_bg"
-					position = { x= -3 y = 0 }
+					position = { x= -3 y = -14 }
 				}
 
 				instantTextBoxType = {
 					name = "province_improvements_label"
-					position = { x = 30 y = 25 }
+					position = { x = 30 y = 11 }
 					textureFile = ""
 					font = "vic_22"
 					borderSize = {x = 2 y = 2}
@@ -3266,14 +3266,22 @@ guiTypes = {
 				}
 
 				guiButtonType = {
+					name = "build_cot_button"
+					position = { x=168 y=291 }
+					spriteType = "build_cot_button"	
+					scripted = yes
+					clicksound = back_click
+				}	
+
+				guiButtonType = {
 					name = "center_of_trade_button"
-					position = { x=174 y=244 }
+					position = { x=168 y=291 }
 					spriteType = "GFX_center_of_trade_inland_1"
 				}
 
 				iconType = {
 					name = "center_of_trade_icon"
-					position = { x=174 y=244 }
+					position = { x=168 y=291 }
 					spriteType = "GFX_center_of_trade_inland_1"
 				}
 			}
@@ -3318,12 +3326,12 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "province_values_label"
-					position = { x = 30 y = 0 }
+					position = { x = 30 y = -10 }
 					textureFile = ""
 					font = "vic_22"
 					borderSize = {x = 2 y = 2}
 					text = "PROVINCE_VALUES"
-					maxWidth = 256
+					maxWidth = 120
 					maxHeight = 32
 					format = left
 				}
@@ -3331,7 +3339,7 @@ guiTypes = {
 				guiButtonType =
 				{
 					name ="expand_infrastructure_button"
-					position = { x= 240 y = 5 }
+					position = { x= 242 y = -12 }
 					quadTextureSprite ="GFX_exploit_button_expand_infrastructure"
 					tooltip = ""
 					tooltipText =""
@@ -3344,7 +3352,7 @@ guiTypes = {
 				guiButtonType =
 				{
 					name ="reduce_infrastructure_button"
-					position = { x= 280 y = 5 }
+					position = { x= 280 y = -12 }
 					quadTextureSprite ="GFX_exploit_button_reduce_infrastructure"
 					tooltip = ""
 					tooltipText =""
@@ -5527,13 +5535,13 @@ guiTypes = {
 		{
 			name ="building"
 			quadTextureSprite = "GFX_building_default"
-			position = { x = 10 y = 10 }
+			position = { x = 10 y = -5 }
 		}
 
 		instantTextBoxType =
 		{
 			name = "required_development"
-			position = { x = 4 y = 8 }
+			position = { x = 4 y = -7 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
 			text = "0"
@@ -5546,28 +5554,28 @@ guiTypes = {
 		{
 			name ="building_status"
 			spriteType = "GFX_building_status_strip"
-			position = { x= 10 y = 10 }
+			position = { x= 10 y = 9 }
 		}
 
 		iconType =
 		{
 			name ="building_progress"
 			spriteType = "GFX_building_progress"
-			position = { x= 10 y = 10 }
+			position = { x= 10 y = -5 }
 		}
 
 		iconType =
 		{
 			name ="building_currentlybuilding"
 			spriteType = "GFX_building_currentlybuilding"
-			position = { x= 10 y = 10 }
+			position = { x= 10 y = -5 }
 		}
 
 
 		guiButtonType = {
 			name ="building_canbuild"
 			quadTextureSprite = "GFX_building_canbuild_unique"
-			position = { x = 2 y = 2 }
+			position = { x = 2 y = -13 }
 		}
 
 
@@ -5575,7 +5583,7 @@ guiTypes = {
 		{
 			name ="building_destroy"
 			quadTextureSprite = "GFX_building_destroy"
-			position = { x = 10 y = 10 }
+			position = { x = 10 y = -5 }
 		}
 	}
 
