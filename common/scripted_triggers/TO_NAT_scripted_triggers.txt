@@ -27,6 +27,7 @@ native_culture = {
 		culture = wakashan
 		culture = haida
 		culture = quileute
+		culture = tuniit
 	}
 }
 
