@@ -1,0 +1,179 @@
+on_yearly_pulse = {
+	random_country = {
+	 	if = {
+	 		limit = {
+	 			has_global_flag = coloredvassals_yes
+				had_global_flag = {
+					flag = coloredvassals_refresh
+					days = 360
+				}
+	 		}
+			set_global_flag = coloredvassals_refresh
+			every_country = {
+				if = {
+					limit = {
+						has_country_flag = color_changed_overlord
+						is_subject = no
+					}
+					restore_country_color = yes
+					clr_country_flag = color_changed_overlord
+				}
+				if = {
+					limit = {
+						is_subject = yes
+						OR = { #Coloredsubjects 2 settings
+							NOT = {
+								is_subject_of_type = eyalet
+							}
+							AND = {
+								OR = {
+									is_subject_of_type = eyalet
+								}
+								has_global_flag = coloredvassals_2
+							}
+						}
+						OR = { #Coloredsubjects 3 settings
+							NOT = {
+								is_subject_of_type = tributary_state
+								is_subject_of_type = core_eyalet
+							}
+							AND = {
+								OR = {
+									is_subject_of_type = tributary_state
+									is_subject_of_type = core_eyalet
+								}
+								has_global_flag = coloredvassals_3
+							}
+						}
+					}
+					set_country_flag = color_changed_overlord
+					clr_country_flag = color_set
+					change_country_color = {
+						country = OVERLORD
+					}
+				}
+			}
+	 	}
+	}
+}
+on_dependency_gained = {
+	FROM = {
+		if = {
+			limit = {
+				has_global_flag = coloredvassals_yes
+				OR = { #Coloredsubjects 2 settings
+					NOT = {
+						is_subject_of_type = eyalet
+					}
+					AND = {
+						OR = {
+							is_subject_of_type = eyalet
+						}
+						has_global_flag = coloredvassals_2
+					}
+				}
+				OR = { #Coloredsubjects 3 settings
+					NOT = {
+						is_subject_of_type = tributary_state
+						is_subject_of_type = core_eyalet
+					}
+					AND = {
+						OR = {
+							is_subject_of_type = tributary_state
+							is_subject_of_type = core_eyalet
+						}
+						has_global_flag = coloredvassals_3
+					}
+				}
+			}
+			set_country_flag = color_changed_overlord
+			clr_country_flag = color_set
+			change_country_color = {
+				country = ROOT
+			}
+		}
+	}
+}
+on_dependency_lost = {
+	FROM = {
+		if = {
+			limit = {
+				NOT = { has_country_flag = color_set }
+			}
+			clr_country_flag = color_changed_overlord
+			restore_country_color = yes
+		}
+	}
+}
+on_create_vassal = {
+	if = {
+		limit = {
+			has_global_flag = coloredvassals_yes
+			OR = { #Coloredsubjects 2 settings
+				NOT = {
+					is_subject_of_type = eyalet
+				}
+				AND = {
+					OR = {
+						is_subject_of_type = eyalet
+					}
+					has_global_flag = coloredvassals_2
+				}
+			}
+			OR = { #Coloredsubjects 3 settings
+				NOT = {
+					is_subject_of_type = tributary_state
+					is_subject_of_type = core_eyalet
+				}
+				AND = {
+					OR = {
+						is_subject_of_type = tributary_state
+						is_subject_of_type = core_eyalet
+					}
+					has_global_flag = coloredvassals_3
+				}
+			}
+		}
+		set_country_flag = color_changed_overlord
+		clr_country_flag = color_set
+		change_country_color = {
+			country = FROM
+		}
+	}
+}
+on_create_client_state = {
+	if = {
+		limit = {
+			has_global_flag = coloredvassals_yes
+			OR = { #Coloredsubjects 2 settings
+				NOT = {
+					is_subject_of_type = eyalet
+				}
+				AND = {
+					OR = {
+						is_subject_of_type = eyalet
+					}
+					has_global_flag = coloredvassals_2
+				}
+			}
+			OR = { #Coloredsubjects 3 settings
+				NOT = {
+					is_subject_of_type = tributary_state
+					is_subject_of_type = core_eyalet
+				}
+				AND = {
+					OR = {
+						is_subject_of_type = tributary_state
+						is_subject_of_type = core_eyalet
+					}
+					has_global_flag = coloredvassals_3
+				}
+			}
+		}
+		set_country_flag = color_changed_overlord
+		clr_country_flag = color_set
+		change_country_color = {
+			country = FROM
+		}
+	}
+}

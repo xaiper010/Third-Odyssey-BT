@@ -1,0 +1,47 @@
+color_subjects_init = {
+	set_global_flag = coloredvassals_yes
+	set_global_flag = coloredvassals_refresh
+	every_country = {
+		limit = {
+			is_subject = yes
+
+			OR = { #Coloredsubjects 2 settings
+				NOT = {
+					is_subject_of_type = carthage_colony_subject
+					is_subject_of_type = phoenician_colony_subject
+					is_subject_of_type = socii_subject
+				}
+				AND = {
+					OR = {
+						is_subject_of_type = carthage_colony_subject
+						is_subject_of_type = phoenician_colony_subject
+						is_subject_of_type = socii_subject
+					}
+					has_global_flag = coloredvassals_2
+				}
+			}
+
+
+			OR = { #Coloredsubjects 3 settings
+				NOT = {
+					is_subject_of_type = tributary_state
+					is_subject_of_type = client_march
+					is_subject_of_type = client_vassal
+				}
+				AND = {
+					OR = {
+						is_subject_of_type = tributary_state
+						is_subject_of_type = client_march
+						is_subject_of_type = client_vassal
+					}
+					has_global_flag = coloredvassals_3
+				}
+			}
+		}
+		set_country_flag = color_changed_overlord
+		clr_country_flag = color_set
+		change_country_color = {
+			country = OVERLORD
+		}
+	}
+}
