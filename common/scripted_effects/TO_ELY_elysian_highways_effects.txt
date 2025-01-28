@@ -26,6 +26,15 @@ to_elysian_highways_progress_routine = {
 		953 = {
 			to_elysian_highways_progress_routine_province = {}
 		}
+		7423 = {
+			to_elysian_highways_progress_routine_province = {}
+		}
+		2553 = {
+			to_elysian_highways_progress_routine_province = {}
+		}
+		7332 = {
+			to_elysian_highways_progress_routine_province = {}
+		}
 		917 = {
 			to_elysian_highways_progress_routine_province = {}
 		}
@@ -146,7 +155,7 @@ to_elysian_highways_progress_routine_province = {
 			set_global_flag = to_elysian_highway_$HIGHWAY$_busy
 			save_global_event_target_as = to_elysian_highway_$HIGHWAY$_current
 			]
-			to_increase_elysian_highways_progress = { 
+			to_increase_elysian_highways_progress = {
 				OWNER_TARGET = to_elysian_highways_owner
 				[[HIGHWAY]
 				HIGHWAY = $HIGHWAY$
@@ -377,7 +386,7 @@ to_complete_elysian_highway = {
 			}
 			clear_global_event_target = to_elysian_highway_$HIGHWAY$_current
 		}
-	}	
+	}
 	]
 	if = {
 		limit = {
@@ -552,6 +561,10 @@ to_elysian_highway_north_apaleisian_effect = {
         2551 = { $PROVINCE_EFFECT$ }
     }
     if = {
+        limit = { 7346 = { $PROVINCE_TRIGGER$ } }
+        7346 = { $PROVINCE_EFFECT$ }
+    }
+    if = {
         limit = { 948 = { $PROVINCE_TRIGGER$ } }
         948 = { $PROVINCE_EFFECT$ }
     }
@@ -560,12 +573,20 @@ to_elysian_highway_north_apaleisian_effect = {
         2525 = { $PROVINCE_EFFECT$ }
     }
     if = {
+        limit = { 7363 = { $PROVINCE_TRIGGER$ } }
+        7363 = { $PROVINCE_EFFECT$ }
+    }
+    if = {
         limit = { 2526 = { $PROVINCE_TRIGGER$ } }
         2526 = { $PROVINCE_EFFECT$ }
     }
     if = {
         limit = { 940 = { $PROVINCE_TRIGGER$ } }
         940 = { $PROVINCE_EFFECT$ }
+    }
+    if = {
+        limit = { 7364 = { $PROVINCE_TRIGGER$ } }
+        7364 = { $PROVINCE_EFFECT$ }
     }
     if = {
         limit = { 4921 = { $PROVINCE_TRIGGER$ } }
