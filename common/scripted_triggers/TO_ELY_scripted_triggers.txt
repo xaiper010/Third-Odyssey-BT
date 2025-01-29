@@ -207,21 +207,30 @@ nhs_hesperidian_thoulea = {
 		area = oregon_area
 		area = columbia_river_area
 		area = salish_sea_area
+		area = olympic_peninsula_area
+		area = siskiyou_area
+		area = southern_cascades_area
+		area = columbia_plateau_area
+		area = northern_cascades_area
+		area = okanogan_area
+		area = lost_coast_area
 	}
 }
 
 nhs_hesperidian_atlas = {
 	OR = {
-		area = new_mexico_area
-		area = colorado_plateau_area
-		area = arizona_area
-		area = lower_colorado_river_area
-		area = great_basin_area
 		area = apacheria_area
-		area = llano_estacado_area
+		area = colorado_plateau_area
 		area = utah_area
-		area = mojave_area
+		area = lower_colorado_river_area
 		area = snake_river_area
+		area = blue_mountains_area
+		area = palouse_area
+		area = central_rockies_area
+		area = kootenays_area
+		area = southern_rockies
+		area = new_mexico_area
+		area = great_basin_area
 	}
 }
 
@@ -239,8 +248,15 @@ nhs_borealian_areas = {
 		region = hudson_bay_region
 		region = greenland_region
 		region = canada_region
-		province_id = 1009
 	}
+	NOT = { area = churchill_area }
+	NOT = { area = saskatchewan_area }
+	NOT = { area = prairies_area }
+	NOT = { area = east_prairies_area }
+	NOT = { area = upper_rio_grande_area }
+	NOT = { province_id = 5068 }
+	NOT = { province_id = 1006 }
+	NOT = { has_terrain = glacier }
 	NOT = { nhs_elyric_great_lakes = yes }
 }
 
@@ -248,11 +264,14 @@ nhs_hyperborealian_areas = {
 	OR = {
 		region = rocky_mountains_region
 		region = northwest_territories_region
+		region = alaska_region
 		region = cascadia_region
+		region = hudson_bay_region
 	}
+	NOT = { area = upper_rio_grande_area }
+	NOT = { nhs_borealian_areas = yes }
 	NOT = { nhs_hesperidian_atlas = yes }
 	NOT = { nhs_hesperidian_thoulea = yes }
-	NOT = { province_id = 1009 }
 }
 
 nhs_hesperidian_areas = {
@@ -278,6 +297,8 @@ nhs_elyric_great_lakes = {
 		area = miami_river_area
 		area = ohio_country_area
 		area = westsylvania_area
+		area = mississippi_plain_area
+		area = erie_area
 	}
 }
 
@@ -288,6 +309,8 @@ nhs_elyric_areas = {
 		nhs_elyric_great_lakes = yes
 	}
 	NOT = { area = chihuahua_area }
+	NOT = { area = llano_estacado_area }
+	NOT = { area = pecos_area }
 }
 
 nhs_arkadian_areas = {
@@ -299,7 +322,14 @@ nhs_arkadian_areas = {
 }
 
 nhs_eleutheroi_areas = {
-	region = great_plains_region
+	OR = {
+		region = great_plains_region
+		area = prairies_area
+		area = east_prairies_area
+		area = llano_estacado_area
+		area = upper_rio_grande_area
+		area = pecos_area
+	}
 }
 
 to_has_correct_ely_dynamic_culture = {
