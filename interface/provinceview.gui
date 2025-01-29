@@ -3065,12 +3065,12 @@ guiTypes = {
 			windowType = {
 				name = "great_projects_window"
 				backGround=""
-				position = { x = 15 y = -105 }
+				position = { x = 15 y = -171 }
 				size = { x = 475 y = 210 }
 
 				if_resolution = {
 					min_width = 1400
-					position = { x = 330 y = -105 }
+					position = { x = 330 y = -171 }
 				}
 				dontRender = ""
 				horizontalBorder= ""
@@ -3083,11 +3083,11 @@ guiTypes = {
 				{
 					name ="great_projects_window_bg"
 					spriteType = "GFX_provinceview_great_projects_bg"
-					position = { x = -14 y = 0 }
+					position = { x = -14 y = 66 }
 
 					if_resolution = {
 						min_width = 1400
-						position = { x= -14 y = 299 }
+						position = { x= -14 y = 365 }
 						spriteType = "GFX_to_provinceview_great_projects_bg_big"
 						alwaystransparent = yes
 					}
@@ -3101,10 +3101,10 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "header_label"
-					position = { x = 16 y = 29 }
+					position = { x = 16 y = 95 }
 					if_resolution = {
 						min_width = 1400
-						position = { x = 16 y = 329 }
+						position = { x = 16 y = 395 }
 					}
 					# Vertical variant
 					# if_resolution = {
@@ -3123,11 +3123,11 @@ guiTypes = {
 				smoothListboxType = {
 					name = "great_projects_list"
 					backGround=""
-					position = { x = 7 y = 55 }
+					position = { x = 7 y = 121 }
 					size = { x = 300 y = 180 }
 					if_resolution = {
 						min_width = 1400
-						position = { x = 7 y = 357 }
+						position = { x = 7 y = 423 }
 						size = { x = 300 y = 310 }
 					}
 					# Vertical variant
