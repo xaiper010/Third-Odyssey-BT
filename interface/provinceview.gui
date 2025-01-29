@@ -3265,13 +3265,13 @@ guiTypes = {
 					format = left
 				}
 
-				guiButtonType = {
-					name = "build_cot_button"
-					position = { x=168 y=291 }
-					spriteType = "build_cot_button"
-					scripted = yes
-					clicksound = back_click
-				}
+				# guiButtonType = {
+				# 	name = "build_cot_button"
+				# 	position = { x=168 y=291 }
+				# 	spriteType = "build_cot_button"
+				# 	scripted = yes
+				# 	clicksound = back_click
+				# }
 
 				guiButtonType = {
 					name = "center_of_trade_button"
