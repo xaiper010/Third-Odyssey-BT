@@ -24,10 +24,12 @@ native_culture = {
 		culture_group = calusa_group
 		culture_group = karankwa_group
 		culture = ktunaxa
+		culture = wiyot
 		culture = wakashan
 		culture = haida
 		culture = quileute
 		culture = tuniit
+		culture = karina
 	}
 }
 
@@ -103,6 +105,7 @@ mesoamerican_native_culture_primary = {
 		culture_group = otomanguean
 		culture_group = maya
 		culture_group = aridoamerican
+		culture_group = southern_uto_aztecan
 		# primary_culture = miskito
 		# primary_culture = arawak
 		# primary_culture = carib
