@@ -1450,21 +1450,28 @@ country_event = {
 		# From 'potential'
 		nhs_check_all_elysian_tags = { CONDITION = tag }
 		has_country_flag = nhs_accepted_albanians
-		NOT = { has_country_flag = nhs_three_lands }
-		NOT = { has_country_flag = nhs_four_lands }
+		NOT = { has_country_flag = nhs_five_lands }
 		NOT = { has_country_modifier = nhs2_albanians_settling_timer }
-		num_of_cities = 14
+		num_of_cities = 12
 		OR = {
 			NOT = { has_country_flag = nhs_one_lands }
-			num_of_cities = 16
+			num_of_cities = 14
 		}
 		OR = {
 			NOT = { has_country_flag = nhs_two_lands }
+			num_of_cities = 16
+		}
+		OR = {
+			NOT = { has_country_flag = nhs_three_lands }
 			num_of_cities = 18
 		}
+		OR = {
+			NOT = { has_country_flag = nhs_four_lands }
+			num_of_cities = 20
+		}
 		# OR = {
-		# 	NOT = { has_country_flag = nhs_three_lands }
-		# 	num_of_cities = 12
+		# 	NOT = { has_country_flag = nhs_five_lands }
+		# 	num_of_cities = 24
 		# }
 		OR = {
 			NOT = { exists = SHQ }
@@ -1654,8 +1661,20 @@ country_event = {
 
 			add_country_modifier = {
 				name = "nhs2_albanians_settling_timer"
-				duration = 3650
+				duration = 1825
 				hidden = yes
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_five_lands
+				}
+				set_country_flag = nhs_six_lands
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_four_lands
+				}
+				set_country_flag = nhs_five_lands
 			}
 			if = {
 				limit = {
