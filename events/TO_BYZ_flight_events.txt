@@ -1999,7 +1999,7 @@ country_event = {
 				add_dip_power = 184
 				add_adm_power = 212
 				give_dev_points_effect = {
-					dev = 10
+					dev = 11.6
 				}
 				set_variable = {
 					which = shown_current_dev_points
