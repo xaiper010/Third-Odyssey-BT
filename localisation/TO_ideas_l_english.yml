@@ -2,7 +2,7 @@
  SHQ_ideas:0 "Albanian Ideas"
  SHQ_ideas_bonus:0 "Albanian Ambitions"
  SHQ_ideas_start:0 "Albanian Traditions"
- 
+
  # 00_a_TO_ANY_imported_ideas.txt
  EPI_ideas:0 "Epirote Ideas"
  EPI_ideas_bonus:0 "Epirote Ambitions"
@@ -38,7 +38,7 @@
  moe_title_of_despot_desc:0 "The title of Despot was originally conferred on the ruler of Morea by the Emperor, designating him as heir apparent. Though the empire is gone, the importance of the title still stands. Let us use it to legitimize our claims as the rightful heirs to the empire."
  moe_venetian_outposts:0 "Venetian Outposts"
  moe_venetian_outposts_desc:0 "The Venetians already have established a strong presence across our peninsula, and if we make concessions to them in key ports, we can use their connections with the rest of Europe to find allies in our struggle."
- 
+
  # 00_a_TO_CTM_ideas.txt
  CTM_ideas:0 "Kaudan Ideas"
  CTM_ideas_bonus:0 "Kaudan Ambitions"
@@ -60,7 +60,7 @@
  shrewd_diplomacy_desc:0 "Our understanding of local and foreign diplomacy combined with our people's fierce independence allows us to remain against all odds."
  the_lost_ones:0 "The Lost Ones"
  the_lost_ones_desc:0 "Our separation from the Roman Fleet during the Great Storm and subsequent landing on the Island of Bermuda has helped to breed a tough and resourceful people, we call ourselves 'The Lost Ones'."
- 
+
  # 00_a_TO_ELY_ideas.txt
  ELG_ideas:0 "Greek Ideas"
  ELG_ideas_bonus:0 "Greek Ambitions"
@@ -129,7 +129,7 @@
  to_idea_pax_elysiana_desc:0 "We stand victorious! Our vast military stands without peer, Europe is ours, and we have peace again. Our Empire stands on the precipice of a new golden age, one of peace and prosperity. The roads that once echoed with the clatter of marching legions now hum with the sounds of trade and commerce. Yet we must be vigilant, for the Imperial Peace of our ancestors did not last. We shall maintain a constant watch over this prosperity. Our navy will patrol the seas, protecting our merchants even in the farthest corners of the world, our spies will continue to report on our rivals, and the army will stand ready to defend our newfound peace. Pax Elysiana will not just be a state of affairs; but a philosophy that guides our rule, ensuring that every citizen of the Empire, from the lowliest farmer to the wealthiest merchant, can live their lives with dignity and security.\n"
  to_idea_pax_romana:0 "Pax Romana"
  to_idea_pax_romana_desc:0 "We stand victorious! Our vast military stands without peer, Europe is ours, and we have peace again. Our Empire stands on the precipice of a new golden age, another Pax Romana. The roads that once echoed with the clatter of marching legions now hum with the sounds of trade and commerce. Yet we must be vigilant, for the Imperial Peace of our ancestors did not last. We shall maintain a constant watch over this prosperity. Our navy will patrol the seas, protecting our merchants even in the farthest corners of the world, our spies will continue to report on our rivals, and the army will stand ready to defend our newfound peace. Pax Romana will not just be a state of affairs; but a philosophy that guides our rule, ensuring that every citizen of the Empire, from the lowliest farmer to the wealthiest merchant, can live their lives with dignity and security.\n"
- 
+
  # 00_a_TO_MSG_ideas.txt
  aztec_chinampas:0 "Aztec Chinampas"
  aztec_chinampas_desc:0 "Though we are able to gather food easily enough, it is difficult for our farms to provide enough food for our people. We have decided to adopt the Aztec method of creating artificial islands to grow local plants such as tomatoes and corn, which provide very high crop yields."
@@ -148,7 +148,7 @@
  spartan_hegemony_desc:0 "The control we wield over our land is absolute, the people we rule over are generally content, and our military is the pride of our nation. Long live Sparta!"
  spartan_legacy:0 "Spartan Legacy"
  spartan_legacy_desc:0 "The legacy of the 300 Spartans who defended the pass at Thermopylae is still alive and well thanks to us, and our warriors take this to heart when defending our cities against the locals, who vastly outnumber us."
- 
+
  # 00_a_TO_NAT_firstnations_ideas.txt
  ancestral_spirit:0 "Ancestral Spirit"
  ancestral_spirit_desc:0 "Many of our citizens can trace their ancestry to the founders of the first great mounds and we don't shy away from showing pride in their accomplishments."
@@ -167,7 +167,7 @@
  metal_craftsmanship_desc:0 "Since ages ago we have dabbled in copper craftsmanship but now, with new metallurgy techniques seeping in from the exiled nations, we have focused our efforts from simple copper to bronze and steel."
  mound_cities:0 "Mound Cities"
  mound_cities_desc:0 "We have always built our homes and cities in artificially created mounds. Now we use that same principle and raise our walls ever so higher on top of even greater mounds!"
- 
+
  # 00_a_TO_OTH_ideas.txt
  CA0_ideas:0 "Carthagean Ideas"
  CA0_ideas_bonus:0 "Carthagean Ambition"
@@ -186,7 +186,7 @@
  CA0_ideas_6_desc:0 "With our economy prospering we can afford to fund a massive naval structure that will ensure our hegemony over the waves for millenia to come."
  CA0_ideas_7:0 "Trust the Science"
  CA0_ideas_7_desc:0 "It's clear that our scholars have an edge when it comes to research and development, and we shall hold them close to maintain our forward projection into the world."
- 
+
  # 00_a_TO_VOV_ideas.txt
  VIN_ideas:0 "Vinlandic Ideas"
  VIN_ideas_bonus:0 "Vinlandic Ambitions"
@@ -262,7 +262,7 @@
  vov_norse_ideas_start:0 "Norse Traditions"
  wild_north:0 "The Wild North"
  wild_north_desc:0 "From one snowy wasteland to another, we have learned to tread freely across the taiga where others would freeze."
- 
+
  # 00_a_TO_basic_ideas.txt
  a_new_start:0 "A New Start"
  a_new_start_desc:0 "Our arrival in this new world has given both common folk and nobles hope for a fresh start, free from the overcrowding and poverty that many experienced in the Old World. Our scouts and explorers lead the way into the unknown, paving the way for the settlement of the frontier provinces.\n- Unlocks other §YIdea Groups§!."
@@ -273,7 +273,7 @@
  citizenship_through_duty:0 "Citizenship through Duty"
  citizenship_through_duty_desc:0 "It is every good citizen's duty to ensure the never ending expansion of our lands across the continent. By providing them with the necessary training and supplies, they will be able to settle an icy mountain just as easily as a fertile field."
  colonial_administration:0 "Colonial Administration"
- colonial_administration_desc:0 "As our frontier provinces expand further away from our core territory and more people travel to the colonies, it becomes harder for the central state to efficiently organise. A colonial council has been set up to ensure that new colony waves are properly supplied and coordinated.\n- Colonies on §YElysium§! start with §Y200§! Settlers."
+ colonial_administration_desc:0 "As our frontier provinces expand further away from our core territory and more people travel to the colonies, it becomes harder for the central state to efficiently organise. A colonial council has been set up to ensure that new colony waves are properly supplied and coordinated.\n- Colonies on §YElysium§! start with §Y100§! extra Settlers."
  controlled_treasury:0 "Controlled Treasury"
  controlled_treasury_desc:0 "With a sharp rise in corruption over the past few decades, a new state position has been created to ensure that any major deduction from the treasury must be approved directly by the sovereign."
  development_ideas:0 "Development Ideas"
@@ -311,4 +311,3 @@
  strangers_in_a_strange_world_desc:0 "While this land of ours has been our home for the last few generations, the natives here still see us as foreign invaders and the territory past our walls is still unbeknown to us. To remedy this we must venture forth into these lands like our forefathers did before us.\n- Unlocks other §YIdea Groups§!."
  wall_of_guns:0 "Wall of Guns"
  wall_of_guns_desc:0 "The ocean that is our coastline is a bulwark protecting us from the depredations of the foreign powers across the seas. Like all fortresses, this one should be properly manned and equipped. Let us instil in our navy the vital importance of defending all we have built from conquest - from enemy battle fleets to embargoing our rivals, we shall not falter in the defence of the realm."
- 
